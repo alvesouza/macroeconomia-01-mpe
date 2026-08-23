@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 4 of 4 for this lecture, and it is built around a single visual object: a two-panel frame in which the level of output per worker and its growth rate are watched simultaneously while a parameter is changed. Every beat develops that object. The logarithmic axis, the Malthusian loop and the construction of the diagram belong to the other three videos.
+
+Sources. "Aula_MPE_Macro1_SlidesAula2.pdf" (= AULA2) and sections 4.1 and 4.2 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. Almost every mistake made with this model is the same mistake: reading a permanent change in the level of output as a permanent change in its growth rate. The video puts both quantities on screen at once so that the difference between them stops being a slogan and becomes something the viewer watches happen.
+
+Scope. Stay at the level of AULA2 and KURLAT sections 4.1 and 4.2. The Golden Rule, factor markets and technological progress belong to the next lecture; if a source reaches into them, note it in one line and move on.
+
+BEAT ONE. THE INSTRUMENT PANEL. Set up the frame that the whole video uses: on the left, the Solow diagram with its three curves and the crossing marked; on the right, two stacked time plots, the upper one showing the level of output per worker and the lower one showing its growth rate. Run the economy at its steady state with nothing changing, so the level plot is flat and the growth plot sits on zero. Narration states what the viewer is looking at and why the growth panel reads zero, which is the result of the previous video restated as a reading on a dial.
+
+BEAT TWO. THE SAVING RATE IS RAISED. Move the saving curve upward on the left panel and hold everything else fixed. Show the crossing sliding right to a new steady state. Then let the right-hand panels respond in real time: the level plot begins climbing, and the growth plot jumps up from zero. Narration names only the direction of each movement. The transition is a marker travelling along the level plot as it climbs, with the growth plot beneath showing the corresponding value at each instant.
+
+BEAT THREE. THE PART EVERYONE MISSES. Continue the same run without changing anything further. Let the level plot flatten out at its new, higher value, and let the growth plot decay back down and settle on zero. Freeze the frame at the end. Narration states the result as plainly as possible: the level is permanently higher and the growth rate is back where it started. Highlight the two panels in turn to separate the permanent change from the temporary one.
+
+BEAT FOUR. THE SAME PICTURE ON A LOG AXIS. Redraw the level plot with a logarithmic vertical axis, reusing the reading tool from the first video. The path now appears as a straight flat line, a rising segment during the transition, and a straight flat line again at a higher position. Narration connects the two videos explicitly: parallel lines at different heights are exactly what a level effect looks like, and a permanent change in growth would instead be a change in slope that never ends. Show a dashed counterfactual line with a permanently steeper slope beside the actual path, so the contrast is on one chart.
+
+BEAT FIVE. HOW LONG IS TEMPORARY. Keep the panels and mark the time taken to close a stated fraction of the gap to the new steady state. Display that horizon as a shaded band on the time axis. Narration names one figure only, the half-life, and comments on its size relative to a working career. This beat exists to prevent the opposite error, which is dismissing the transition as a technicality: temporary in this model can be long in a human life.
+
+BEAT SIX. THE DIAGNOSTIC. Show three short policy claims in captions, one at a time, each with the two panels beside it. For each, let the viewer see which panel would move. Narration gives the rule for telling them apart in one sentence: ask whether the change moves the crossing, which is a level effect, or whether it changes how the curves themselves grow over time, which is what a rate effect would require and what nothing in this model yet does.
+
+Closing image. End on one image the student should be able to redraw from memory: the two stacked time plots side by side, the upper one stepping up to a new plateau and the lower one spiking and returning to zero, with the shifted Solow diagram beside them. Hold the final frame while the narration names the missing ingredient that the next lecture adds in order to produce growth that does not fade.

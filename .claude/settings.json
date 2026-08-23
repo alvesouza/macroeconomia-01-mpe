@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(markitdown:*)",
+      "Bash(python -m http.server:*)",
+      "Bash(pdflatex:*)",
+      "Bash(pdffonts:*)",
+      "Bash(pdftk:*)",
+      "Bash(qpdf:*)",
+      "Read(//d/Documents/Git/Github/Macroeconomia 01 - MPE/**)",
+      "PowerShell(Get-ChildItem:*)",
+      "PowerShell(Test-Path:*)",
+      "PowerShell(Measure-Object:*)"
+    ]
+  }
+}

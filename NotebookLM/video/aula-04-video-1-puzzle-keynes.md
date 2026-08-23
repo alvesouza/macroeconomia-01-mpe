@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 1 of 4 for this lecture, and it is built around a single visual object: two scatter plots of consumption against income that appear to contradict each other. Every beat develops that pair. The budget diagram, the interest-rate rotation and the Ricardian experiment belong to the other three videos.
+
+Sources. "Aula_MPE_Macro1_SlidesAula4.pdf" (= AULA4) and section 6.1 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. Two respectable bodies of evidence about consumption disagree, and the disagreement is not about measurement. It is a sign that the variable on the horizontal axis is the wrong one, and the whole lecture follows from replacing it.
+
+Scope. Stay at the level of AULA4 and KURLAT section 6.1. The two-period model itself belongs to the next video; if a source reaches into it, note it in one line and move on.
+
+BEAT ONE. THE LAW, WRITTEN DOWN. Show a single rising line on axes of consumption against income, with a slope visibly less than one and a positive intercept. Beside the chart, display the verbal claim it is meant to formalise, that people raise consumption as income rises but by less than the rise. Narration reads the slope off the picture and names it. The transition is a second caption appearing beneath the first, showing that the verbal claim is about a proportion while the line encodes an increment, so the two are not the same restriction.
+
+BEAT TWO. THE FIRST CLOUD. Plot a scatter of households at one moment in time, income on the horizontal axis and consumption on the vertical. Fit the line through it and let it match well. Then convert the same data into a second panel showing the consumption share against income, which slopes downward. Narration states what the two panels jointly establish, that richer households consume a smaller fraction, and notes how strongly this supported the theory when first measured.
+
+BEAT THREE. THE SECOND CLOUD. Replace the scatter with a time series: one country's aggregate consumption and output across decades. Plot the ratio between them as a nearly flat line and display the figure it hovers around. Narration names that figure and nothing else. Then bring back the downward-sloping share from the previous beat and place it beside the flat line in a split frame. The transition is the two panels being held together, unreconciled, which is the puzzle stated visually rather than described.
+
+BEAT FOUR. WHY THIS WAS ALARMING. Extend the aggregate chart into the future under the assumption that the household pattern also governs the aggregate. Show the consumption share drifting downward as income grows, and shade the widening gap between what is produced and what is bought. Narration explains what that shaded region was taken to imply, a chronic shortfall of demand as economies grow richer, and notes that this prediction shaped a generation of policy thinking. Then let the shaded region vanish as the actual flat series is overlaid, so the prediction and the outcome are compared in one frame.
+
+BEAT FIVE. THE WRONG HORIZONTAL AXIS. Return to the household scatter and relabel the horizontal axis from current income to lifetime resources. Show the points rearranging: households that had unusually good years slide left toward their typical position, households having bad years slide right, and the downward slope of the consumption share flattens out. Narration states the diagnosis, that the original axis mixed together households who are permanently rich and households merely having a good year, and that only the first group's behaviour was being interpreted.
+
+BEAT SIX. ONE RULE, TWO PICTURES. Show a small two-row table on screen. The first row is a temporary rise in income, with most of it saved. The second is a permanent rise, with consumption moving nearly one for one. Then let each row generate its picture: the first produces the falling share in the household cross-section, the second produces the flat aggregate ratio. Narration lands the thesis, that a single rule about lifetime resources produces both observations, so nothing needed to be measured better.
+
+Closing image. End on one image the student should be able to redraw from memory: the split frame with the downward-sloping household consumption share on one side and the flat aggregate ratio on the other, with the two-row table beneath showing how one rule generates both. Hold the final frame while the narration states what the next video builds, which is the choice that rule comes from.

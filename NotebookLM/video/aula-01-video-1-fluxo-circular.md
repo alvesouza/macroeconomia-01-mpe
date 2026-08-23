@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 1 of 4 for this lecture, and it is built around a single visual object: the circular flow and the three meters placed on it. Every beat develops that one object. Index numbers, purchasing power parity and welfare measures belong to the other three videos and must not appear here.
+
+Sources. "Aula_MPE_Macro1_2026_Slides_1.pdf" (= AULA1) and chapter 1, section 1.1, of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. The three methods of measuring output agree because they are three readings of one loop, not three independent attempts at one quantity. Once the loop is drawn, every awkward accounting case becomes a question about where to put the meter.
+
+Scope. Stay at the level of AULA1 and KURLAT section 1.1. If a source reaches past that level, note it in one line and move on.
+
+BEAT ONE. THE LOOP ITSELF. On screen, draw a single ring. Put firms on the right side and households on the left. Add two counter-rotating arrows: goods and services flowing one way, money payments flowing the other. Label nothing else yet. The narration makes one claim, that everything produced is sold, everything sold generates revenue, and every unit of revenue leaves the firm as a payment to someone. The transition is three small meter icons appearing on the ring at three different points.
+
+BEAT TWO. THREE PLACES TO READ THE SAME FLOW. Keep the ring and light up each meter in turn, one at a time, with the rest dimmed. The first meter sits where goods leave firms and is labelled production. The second sits where payments reach households and is labelled income. The third sits where spending returns to firms and is labelled expenditure. As each lights, show its formula in a caption beside it, ending with the expenditure identity. Narration states the consequence rather than the definitions: the three cannot disagree, because they read one circulation at three points. The transition is all three meters lighting simultaneously and displaying the same figure.
+
+BEAT THREE. WHERE THE LOOP LEAKS. Now break the clean ring. Add three branch arrows leaving it: saving, taxes and imports; and three entering it: investment, government purchases and exports. Draw them as visible tributaries rather than as terms in an equation. Narration explains that the identity survives because each leak is matched by an injection, and points at the pairs on screen. The transition is the tributaries folding back into the ring so the loop closes again, which is the identity being restored visually.
+
+BEAT FOUR. THE CHAIN INSIDE THE FIRM BOX. Zoom into the firm side of the ring and expand it into a chain of three boxes, each buying from the one before. Show each box's revenue above it and its purchases below. Then show the sum of all revenues as one tall bar beside the chain, and the value of final sales as a visibly shorter bar. Narration names only those two totals. The transition is the intermediate portions of each box draining out of the tall bar until it matches the short one, which is double counting being removed in front of the viewer.
+
+BEAT FIVE. THE CASES THAT LOOK LIKE EXCEPTIONS. Show a four-row table on screen, one row per awkward case: goods produced but unsold, an imported component, a government service with no price, and a tax paid out of income. Give the table three columns for the three methods and fill it row by row as each case is narrated. Narration resolves each in one sentence, naming the convention rather than the arithmetic. Highlight the tax row, where all three columns record nothing, and state why: a transfer moves money around the loop without adding anything to it.
+
+BEAT SIX. TERRITORY AGAINST OWNERSHIP. Draw a dashed national border cutting across the ring, so that some firms and some households sit outside it. Show two totals on screen: one counting everything produced inside the border, one counting everything earned by residents wherever they are. Narration names the two concepts and points at the flows that differ between them. The transition is the border sliding, so the two totals visibly move apart and back together.
+
+Closing image. End on one image the student should be able to redraw from memory: the ring with its three labelled meters, the leaks and injections drawn as paired tributaries, and beneath it the two bars showing total revenue collapsing to final sales. Hold the final frame while the narration states that the next video takes up the one question this picture cannot answer, which is what prices to use when comparing two of these loops.

@@ -1,0 +1,2968 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{cmap}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\tcbuselibrary{skins, breakable}
+
+\definecolor{darkblue}{RGB}{15,55,115}
+\definecolor{midblue}{RGB}{30,100,180}
+\definecolor{theorybg}{RGB}{245,250,255}
+\definecolor{questionbg}{RGB}{255,252,240}
+\definecolor{evencolor}{RGB}{60,0,100}
+
+\hypersetup{colorlinks=true,linkcolor=darkblue,urlcolor=midblue,
+  pdftitle={Kurlat --- A Course in Modern Macroeconomics --- Complete Solutions, Chapters 1--4}}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\textcolor{darkblue}{\textit{Kurlat --- A Course in Modern Macroeconomics}}}
+\fancyhead[R]{\small\textcolor{darkblue}{\thepage}}
+\fancyfoot[C]{\small\textcolor{gray}{Complete Solutions --- Chapters 1--4}}
+
+\titleformat{\section}[block]
+  {\large\bfseries\color{darkblue}}{}{0pt}{}
+  [\vspace{2pt}\color{darkblue}\rule{\textwidth}{1.5pt}\vspace{4pt}]
+
+\titleformat{\subsection}[block]
+  {\normalsize\bfseries\color{midblue}}{}{0pt}{}
+  [\vspace{1pt}\color{midblue}\rule{0.5\textwidth}{0.8pt}\vspace{3pt}]
+
+\tcbset{
+  theorybox/.style={
+    enhanced,breakable,colback=theorybg,colframe=darkblue,
+    fonttitle=\bfseries\small\color{darkblue},boxrule=0.5pt,arc=3pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={Key Theory},
+  },
+  questionbox/.style={
+    enhanced,breakable,colback=questionbg,colframe=gray!60,
+    fonttitle=\bfseries\small\color{gray!60!black},boxrule=0.4pt,arc=2pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={\textit{Question}},
+  },
+  oddbox/.style={
+    enhanced,breakable,colback=white,colframe=darkblue,
+    attach boxed title to top left={yshift=-2mm,xshift=6mm},
+    boxed title style={colback=darkblue,colframe=darkblue,arc=2pt,
+      boxrule=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt},
+    fonttitle=\bfseries\large\color{white},
+    boxrule=0.8pt,arc=3pt,
+    left=8pt,right=8pt,top=10pt,bottom=6pt,
+  },
+  evenbox/.style={
+    enhanced,breakable,colback=white,colframe=evencolor,
+    attach boxed title to top left={yshift=-2mm,xshift=6mm},
+    boxed title style={colback=evencolor,colframe=evencolor,arc=2pt,
+      boxrule=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt},
+    fonttitle=\bfseries\large\color{white},
+    boxrule=0.8pt,arc=3pt,
+    left=8pt,right=8pt,top=10pt,bottom=6pt,
+  },
+  databox/.style={
+    enhanced,breakable,colback=gray!8,colframe=gray!55,
+    fonttitle=\bfseries\small\color{gray!60!black},boxrule=0.4pt,arc=2pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={Data exercise --- no closed-form answer},
+  },
+}
+
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\dd}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\MRS}{\mathrm{MRS}}
+\newcommand{\MU}{\mathrm{MU}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\MPK}{\mathrm{MPK}}
+\newcommand{\MPL}{\mathrm{MPL}}
+\newcommand{\stst}{^{\ast}}
+
+\setlist[enumerate,1]{label=(\alph*),itemsep=6pt,parsep=2pt}
+\setlist[enumerate,2]{label=(\roman*),itemsep=3pt}
+
+\begin{document}
+
+%======================================================================
+% TITLE PAGE
+%======================================================================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries\color{darkblue} A Course in Modern Macroeconomics\par}
+\vspace{0.6cm}
+{\Large\color{midblue} Pablo Kurlat (2020)\par}
+\vspace{1.5cm}
+{\LARGE\bfseries Complete Solutions\par}
+\vspace{0.3cm}
+{\Large Chapters 1--4 \quad ($23$ exercises)\par}
+\vspace{2cm}
+
+\begin{tcolorbox}[theorybox,title={Scope and course mapping},width=0.88\textwidth]
+\small
+Macroeconomia I --- MPE Insper, 2026/T3 --- Prof.\ Pedro G.\ Duarte.\\[4pt]
+These four chapters cover \textbf{Aula 1} (Kurlat ch.\ 1--2) and \textbf{Aula 2}
+(Kurlat ch.\ 3 and \S4.1--4.2), plus \S4.3--4.5 which belong to \textbf{Aula 3}.
+Together they are the source material for \textbf{Lista de Exerc\'icios 1}.
+\end{tcolorbox}
+
+\vspace{0.8cm}
+\begin{tabular}{clcc}
+\toprule
+\textbf{Ch.} & \textbf{Title} & \textbf{Exercises} & \textbf{Pages} \\
+\midrule
+1 & GDP                              & 1.1--1.5   & 27--29 \\
+2 & Beyond GDP                       & 2.1--2.10  & 40--44 \\
+3 & Basic Facts about Economic Growth & 3.1--3.3   & 51--52 \\
+4 & The Solow Growth Model           & 4.1--4.5   & 72--74 \\
+\midrule
+\multicolumn{2}{r}{\textbf{Total}} & \textbf{23} & \\
+\bottomrule
+\end{tabular}
+
+\vfill
+\begin{tcolorbox}[colback=red!4,colframe=red!50,arc=2pt,width=0.88\textwidth,
+  title={\bfseries\small On verification --- please read},fonttitle=\color{red!60!black}]
+\small
+\textbf{Kurlat provides no answer key.} The book has no ``Answers to Odd-Numbered
+Problems'' section and no published solutions manual; it ends with the bibliography
+(pp.~318--319). Every result below was therefore verified by other means, and the
+method used is stated explicitly at each step:
+\begin{itemize}[leftmargin=1.2em,itemsep=2pt,topsep=3pt]
+\item \textbf{Executed numerical check} --- marked \checkmark. Every number was computed
+      in Python and the code is reproduced so you can re-run it.
+\item \textbf{Internal consistency} --- the three GDP methods are made to agree; steady
+      states are substituted back; limiting and special cases are checked.
+\item \textbf{Cross-book} --- for canonical models (Solow, factor prices) the method is
+      checked against Romer (2012) ch.~1 and its solutions manual, both in
+      \texttt{Livros/}. Notation differs; conclusions must not.
+\end{itemize}
+Where an exercise requires downloading data (2.1, 3.1--3.3), no numerical answer is
+asserted. Those are marked as \emph{data exercises}: the method, the expected
+qualitative pattern and runnable code are given instead.
+\end{tcolorbox}
+\vspace{1cm}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%======================================================================
+\section{Chapter 1 \quad GDP}
+%======================================================================
+
+\begin{tcolorbox}[theorybox,title={Chapter 1 Overview}]
+\textbf{The three methods.} GDP is the market value of final goods and services produced
+domestically in a period. It can be measured three equivalent ways:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Production:} sum of \emph{value added} $=$ output $-$ intermediate inputs.
+\item \textbf{Expenditure:} $Y = C + I + G + (X - M)$.
+\item \textbf{Income:} wages $+$ profits $+$ interest $+$ rents $+$ indirect taxes $-$ subsidies.
+\end{itemize}
+The three must give the same number; forcing them to agree is the best check on any
+accounting answer.
+
+\medskip
+\textbf{Traps.} Intermediate goods are netted out (no double counting). Inventory changes
+are investment. Imports are subtracted because they appear inside $C$, $I$ or $G$ but were
+not produced domestically. Transfers (taxes, pensions) are \emph{not} production. Government
+output is valued at input cost.
+
+\medskip
+\textbf{Real vs.\ nominal.} Real GDP holds prices fixed. Using base-year prices
+(a Laspeyres-type index) and current-year prices (Paasche-type) give \emph{different}
+growth rates whenever relative prices move --- the substitution bias. The
+\textbf{chain-weighted} measure takes the geometric (Fisher) average of adjacent-year
+links, which is why national accounts use it.
+
+\medskip
+\textbf{Across countries.} Converting at market exchange rates understates poor countries'
+output because non-tradables are cheap there. \textbf{PPP} values every country's basket at
+a common set of prices.
+\end{tcolorbox}
+
+%---- Topic: GDP Accounting --- the Three Methods ----
+\subsection{GDP Accounting --- the Three Methods}
+
+%------- 1.1 -------
+% Topic: GDP Accounting --- the Three Methods
+% Keywords: value added, intermediate goods, inventories, imports, transfers, government output at cost
+\begin{tcolorbox}[oddbox,title={Problem 1.1 \quad Accounting}]
+\begin{tcolorbox}[questionbox]
+How does GDP accounting record the following events? For each of them, describe how they
+would be computed in GDP accounts using the income method, the production method and the
+expenditure method.\\[3pt]
+(a) A car manufacturer buys components from Japan for \$1 to be used in production later on
+and stores them at its warehouse.\\
+(b) A car manufacturer buys components from Japan for \$1 and uses half of those components
+in the production of a car, that it sells to Andy for \$2. It stores the rest of the
+components.\\
+(c) An army battalion is deployed to the border to repel a threatened Canadian invasion.
+The soldiers earn wages of \$10,000 and use ammunition that the government buys for \$5,000.
+The ammunition is produced using \$2,000 of imported steel and 100 hours of work, for which
+the workers were paid \$1,000.\\
+(d) Walmart sells 1000 bottles of Coca-Cola for \$1,500. It had previously paid \$1,200 for
+them.\\
+(e) A shipyard builds a cruise ship. It pays wages of \$200,000, interest on loans (from US
+residents) of \$100,000 and \$300,000 for imported raw materials. The ship is sold for
+\$1,000,000 to a cruise company. In the same year, the cruise company has revenue for
+\$50,000 from operating cruises, pays wages of \$20,000 to its workers and has no other
+expenses. Half the cruise revenue comes from tourists who reside in the United States and
+half comes from tourists who reside abroad.\\
+(f) The government collects \$1000 in income taxes from Roger.\\
+(g) Roger earns \$4000 for working as a babysitter and pays \$1000 in income taxes.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\emph{Strategy.} For each event compute all three ways and require them to agree. That
+agreement is the verification --- there is no answer key to check against.
+
+\begin{enumerate}
+
+\item \textbf{Contribution to GDP: \$0.}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & no domestic output; imported components are not US production & \$0 \\
+Expenditure & $I$ (inventories) $= +\$1$; \quad $M = \$1 \Rightarrow -\$1$ & \$0 \\
+Income      & no wages, profits or interest generated domestically & \$0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The purchase raises \emph{inventory investment} by \$1 and imports by \$1. The two cancel
+exactly. This is the general principle: buying a foreign good never changes GDP at the
+moment of purchase, whatever the buyer does with it.
+
+\item \textbf{Contribution to GDP: \$1.50.}
+
+Of the \$1 of components, \$0.50 is used up in production and \$0.50 is stored.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & output \$2 $-$ intermediate inputs used \$0.50 & \$1.50 \\
+Expenditure & $C = \$2$; \; $I = +\$0.50$ (unused components); \; $M = \$1$ & \$1.50 \\
+Income      & profits $= 2 - 0.50 = \$1.50$ (no wages stated) & \$1.50 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\checkmark\ $2 + 0.50 - 1 = 1.50$. Note that only the \emph{half actually consumed in
+production} is netted out as an intermediate input. The stored half is still an asset of
+the firm, so it sits in inventories.
+
+\item \textbf{Contribution to GDP: \$13,000.}
+
+Two producers here: the government (which produces defence services) and the ammunition
+manufacturer.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & government value added $=\$10{,}000$ (valued at input cost) & \\
+            & ammunition maker $= 5{,}000 - 2{,}000 = \$3{,}000$ & \$13,000 \\
+\midrule
+Expenditure & $G = 10{,}000 + 5{,}000 = \$15{,}000$; \quad $M = \$2{,}000$ & \$13,000 \\
+\midrule
+Income      & soldiers' wages \$10,000 $+$ ammo workers' wages \$1,000 & \\
+            & $+$ ammo firm profits $(5{,}000-2{,}000-1{,}000)=\$2{,}000$ & \$13,000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\checkmark\ Three methods agree. Two points worth stating explicitly:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Government output is valued at input cost} because there is no market price
+      for repelling an invasion. So the soldiers' \$10,000 of wages \emph{is} the measured
+      value of the defence service produced.
+\item The ammunition is an \textbf{intermediate input} into defence from the production
+      side, but from the expenditure side it is a \emph{final} purchase by government. Both
+      routes give \$13,000 --- they just split the same total differently.
+\end{itemize}
+
+\item \textbf{Contribution to GDP this year: \$300.}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & retail value added $= 1{,}500 - 1{,}200 = \$300$ & \$300 \\
+Expenditure & $C = \$1{,}500$; \; $I$ (inventories) $= -\$1{,}200$ & \$300 \\
+Income      & Walmart's wages $+$ profits $= \$300$ & \$300 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Walmart produces a \emph{retail service} --- getting the bottles onto a shelf near the
+customer --- and that service is worth \$300. The \$1,200 of Coca-Cola was counted as GDP
+when it was \emph{produced}; selling it now is a drawdown of inventories, which is exactly
+why the expenditure side subtracts \$1,200.
+
+\item \textbf{Contribution to GDP: \$750,000.}
+
+\emph{Shipyard.} Value added $= 1{,}000{,}000 - 300{,}000 = \$700{,}000$.
+Income check: wages $200{,}000 +$ interest $100{,}000 +$ profits
+$(1{,}000{,}000-300{,}000-200{,}000-100{,}000) = 400{,}000$, total $\$700{,}000$. \checkmark
+
+\emph{Cruise company.} No intermediate inputs, so value added $=$ revenue $=\$50{,}000$.
+Income: wages $20{,}000 +$ profits $30{,}000 = \$50{,}000$. \checkmark
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & $700{,}000 + 50{,}000$ & \$750,000 \\
+Expenditure & $I = \$1{,}000{,}000$ (the ship is a capital good) & \\
+            & $C = \$25{,}000$ (US tourists); \; $X = \$25{,}000$ (foreign tourists) & \\
+            & $M = \$300{,}000$ & \$750,000 \\
+Income      & $700{,}000 + 50{,}000$ & \$750,000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\checkmark\ $1{,}000{,}000 + 25{,}000 + 25{,}000 - 300{,}000 = 750{,}000$.
+
+Three things to notice: the ship is \textbf{investment}, not consumption, because it is a
+durable asset bought by a firm to produce with. \textbf{Interest paid to US residents is
+domestic income}, so it stays inside value added --- it is a distribution of the \$700,000,
+not a cost that reduces it. And cruises sold to foreign residents are \textbf{exports} even
+though the service is consumed inside the country.
+
+\item \textbf{Contribution to GDP: \$0.}
+
+A tax is a \textbf{transfer}: purchasing power moves from Roger to the government, but
+nothing is produced. All three methods record zero. In the income method in particular,
+taxes are not a new source of income --- income is measured \emph{before} the transfer, and
+counting it again at the government would double count.
+
+\item \textbf{Contribution to GDP: \$4,000.}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Entries} & \textbf{Total} \\
+\midrule
+Production  & babysitting services produced, no intermediate inputs & \$4,000 \\
+Expenditure & $C = \$4{,}000$ by the households who hired him & \$4,000 \\
+Income      & Roger's labour income, \emph{pre-tax} & \$4,000 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \$1,000 of tax does not reduce GDP --- by (f) it is a transfer. Contrast this with the
+\emph{same} babysitting done by a parent for their own child, which is real production but
+is \textbf{excluded} from GDP because no market transaction records it. That boundary
+problem is the subject of Problem 1.4.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Takeaway}]
+Every line above obeys one rule: \textbf{GDP counts production, and only production, once}.
+Imports are subtracted because they were produced elsewhere; intermediates are netted out
+because they are already inside the final good; transfers are ignored because they move
+claims, not output.
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: Real GDP, Index Numbers and Chain Weighting ----
+\subsection{Real GDP, Index Numbers and Chain Weighting}
+
+%------- 1.2 -------
+% Topic: Real GDP, Index Numbers and Chain Weighting
+% Keywords: nominal GDP, real GDP, base year, Laspeyres, Paasche, chain weighting, PPP, market exchange rate
+\begin{tcolorbox}[evenbox,title={Problem 1.2 \quad Comparisons Across Time and Across Countries}]
+\begin{tcolorbox}[questionbox]
+Suppose these are the prices (in US dollars) and quantities of goods A and B produced in the
+US in 2017 and 2018:
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+ & $p_A$ & $q_A$ & $p_B$ & $q_B$ \\
+\midrule
+2017 & 4 & 5  & 3 & 3 \\
+2018 & 1 & 10 & 4 & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+(a) What was nominal GDP in 2017?\\
+(b) What was nominal GDP in 2018?\\
+(c) What was real GDP in 2018 at 2017 prices (computed using fixed 2017 prices)? Using this
+measure, how much did GDP grow between 2017 and 2018?\\
+(d) What was real GDP in 2017 at 2018 prices (computed using fixed 2018 prices)? Using this
+measure, how much did GDP grow between 2017 and 2018? What explains the difference between
+the two measures?\\
+(e) How much did GDP grow between 2017 and 2018 using the chain-weighted method?\\[4pt]
+In Thailand, prices (in Thai baht) and quantities in 2017 were:
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+ & $p_A$ & $q_A$ & $p_B$ & $q_B$ \\
+\midrule
+2017 & 30 & 1 & 10 & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+(f) What was nominal GDP in Thailand in 2017, expressed in baht.\\
+(g) Suppose the exchange rate in 2017 was 25 baht per dollar. What was GDP in Thailand in
+2017, expressed in US dollars at market exchange rates?\\
+(h) What was GDP in Thailand in 2017 at PPP? What accounts for the difference between the
+market exchange rate measure and the PPP measure?\\
+(i) What was the PPP exchange rate between the baht and the dollar?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item $\text{GDP}^{nom}_{2017} = p_A^{17}q_A^{17} + p_B^{17}q_B^{17}
+= 4\cdot 5 + 3\cdot 3 = 20 + 9 = \boxed{29}$ \checkmark
+
+\item $\text{GDP}^{nom}_{2018} = 1\cdot 10 + 4\cdot 2 = 10 + 8 = \boxed{18}$ \checkmark
+
+Nominal GDP \emph{fell} by $38\%$. Hold that thought --- it is about to be contradicted by
+both real measures.
+
+\item Value 2018 quantities at 2017 prices:
+$$\text{GDP}^{real}_{2018}\big|_{p^{17}} = 4\cdot 10 + 3\cdot 2 = 40 + 6 = \boxed{46}$$
+Growth relative to 2017 nominal (which is also 2017 at 2017 prices, $=29$):
+$$g_L = \frac{46}{29} - 1 = 0.5862 = \boxed{58.62\%}$$ \checkmark
+
+\item Value 2017 quantities at 2018 prices:
+$$\text{GDP}^{real}_{2017}\big|_{p^{18}} = 1\cdot 5 + 4\cdot 3 = 5 + 12 = \boxed{17}$$
+Growth, comparing to 2018 nominal ($=18$, i.e.\ 2018 at 2018 prices):
+$$g_P = \frac{18}{17} - 1 = 0.0588 = \boxed{5.88\%}$$ \checkmark
+
+\textbf{Why the two differ so much (58.6\% vs 5.9\%).} Good A collapsed in relative price
+(from $p_A/p_B = 4/3$ to $1/4$) and simultaneously \emph{doubled} in quantity. That is the
+textbook substitution pattern.
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item Using \textbf{2017 prices} gives good A a weight of 4 --- its old, high price. The good
+      that grew fastest is weighted by the price it had \emph{before} it got cheap, so
+      growth looks large. This is the \textbf{Laspeyres} (base-weighted) direction and it
+      \textbf{overstates} growth.
+\item Using \textbf{2018 prices} weights A at 1 --- its new, low price. The fast-growing good
+      barely counts, so growth looks small. This is the \textbf{Paasche} direction and it
+      \textbf{understates} growth.
+\end{itemize}
+Neither is ``right''. The gap between them is a genuine index-number problem, not an error.
+
+\item The chain-weighted (Fisher) growth rate is the geometric mean of the two links:
+$$1 + g_C = \sqrt{(1+g_L)(1+g_P)} = \sqrt{1.5862 \times 1.0588} = 1.2960$$
+$$g_C = \boxed{29.60\%}$$ \checkmark
+
+It sits between the two, as it must, and it is symmetric: it gives no privileged status to
+either year's prices. This is why the BEA (and the IBGE) publish chained series.
+
+\item $\text{GDP}^{Thai}_{2017} = 30\cdot 1 + 10\cdot 2 = 30 + 20 = \boxed{50 \text{ baht}}$ \checkmark
+
+\item At the market rate of 25 baht per dollar:
+$$\frac{50 \text{ baht}}{25 \text{ baht/\$}} = \boxed{\$2}$$ \checkmark
+
+\item At PPP, value \emph{Thai quantities} at \emph{US prices} (the common price vector):
+$$\text{GDP}^{Thai,PPP} = p_A^{US}q_A^{Thai} + p_B^{US}q_B^{Thai} = 4\cdot 1 + 3\cdot 2
+= 4 + 6 = \boxed{\$10}$$ \checkmark
+
+\textbf{The PPP measure is five times the market-exchange-rate measure.} The reason: at the
+market rate, Thai goods are being valued at \emph{Thai} prices converted to dollars, and Thai
+prices are low. Good A costs 30 baht $= \$1.20$ in Thailand but \$4 in the US; good B costs
+10 baht $= \$0.40$ versus \$3. Thailand's output is physically the same whatever prices we
+use to value it, and PPP prices it consistently with US output. Market exchange rates are
+driven by the supply and demand for \emph{tradables} and for financial assets, so they
+systematically understate the real output of poor countries, where non-tradables (housing,
+haircuts, domestic services) are cheap. This is the Balassa--Samuelson logic.
+
+\item The PPP exchange rate is the rate that equalises the cost of the same basket:
+$$e^{PPP} = \frac{\text{GDP in baht}}{\text{GDP in PPP dollars}} = \frac{50}{10}
+= \boxed{5 \text{ baht per dollar}}$$ \checkmark
+
+Compare with the market rate of 25 baht/\$. The baht is ``undervalued'' by a factor of 5 on
+this measure --- equivalently, the price level in Thailand is one fifth of the US level.
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code}]
+\footnotesize
+\begin{verbatim}
+pA17,qA17,pB17,qB17 = 4,5,3,3
+pA18,qA18,pB18,qB18 = 1,10,4,2
+n17 = pA17*qA17 + pB17*qB17          # 29
+n18 = pA18*qA18 + pB18*qB18          # 18
+r18 = pA17*qA18 + pB17*qB18          # 46  -> gL = 46/29-1 = 58.62%
+r17 = pA18*qA17 + pB18*qB17          # 17  -> gP = 18/17-1 =  5.88%
+gC  = ((r18/n17)*(n18/r17))**0.5 - 1 # 29.60%
+th  = 30*1 + 10*2                    # 50 baht
+ppp = pA17*1 + pB17*2                # $10 ; market: 50/25 = $2
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 1.3 -------
+% Topic: Real GDP, Index Numbers and Chain Weighting
+% Keywords: chain weighting, Fisher index, substitution bias, base year, average growth rate
+\begin{tcolorbox}[oddbox,title={Problem 1.3 \quad Chained GDP}]
+\begin{tcolorbox}[questionbox]
+The country of Fructus produces Apples, Bananas and Cherries. Its production statistics are
+given in the book's table for 2000--2020 (also downloadable as a spreadsheet from the book
+website).\\[3pt]
+(a) Compute a real GDP series at year-2000 prices using base year prices and using the
+chained method.\\
+(b) Plot both series and comment on any differences.\\
+(c) What was the average growth rate according to each method?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item Two constructions, both normalised to nominal GDP in 2000 ($=9{,}500$):
+
+\emph{Fixed base-year prices.} $\;Y^{base}_t = \sum_i p_{i,2000}\, q_{i,t}$.
+
+\emph{Chained (Fisher).} Build year-on-year links and cumulate:
+$$L_t = \frac{\sum_i p_{i,t-1}q_{i,t}}{\sum_i p_{i,t-1}q_{i,t-1}}, \qquad
+P_t = \frac{\sum_i p_{i,t}q_{i,t}}{\sum_i p_{i,t}q_{i,t-1}}, \qquad
+Y^{chain}_t = Y^{chain}_{t-1}\sqrt{L_t P_t}$$
+
+Selected values (full series from the code below):
+
+\begin{center}
+\begin{tabular}{crrr}
+\toprule
+\textbf{Year} & \textbf{Nominal} & \textbf{Base-2000} & \textbf{Chained} \\
+\midrule
+2000 &  9,500.0 &  9,500.0 &  9,500.0 \\
+2001 &  9,782.0 &  9,650.0 &  9,640.0 \\
+2005 & 10,021.0 & 10,400.0 & 10,341.8 \\
+2010 & 10,812.0 & 11,230.0 & 10,950.0 \\
+2015 & 12,048.0 & 12,390.0 & 11,922.8 \\
+2020 & 13,127.0 & 13,960.0 & 12,976.2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\item \textbf{The two series separate steadily, with the base-year series always above.}
+By 2020 the fixed-base measure reads $13{,}960$ against $12{,}976$ for the chained one --- a
+gap of about $7.6\%$ that opens up gradually rather than jumping.
+
+The mechanism is exactly the one flagged in Problem 1.2(d). Look at what happens to
+cherries: their price falls from 20 to 12 (a $40\%$ decline) while their quantity rises from
+200 to 361 (a $+81\%$ increase). Bananas do the opposite --- price up from 30 to 61,
+quantity down from 50 to 34. Holding 2000 prices fixed keeps valuing cherries at their old,
+high price of 20 forever, so the fastest-growing good keeps an inflated weight and measured
+growth is too high. The chained index re-weights every year and tracks the moving relative
+prices.
+
+\item Average annual growth over the 20 year span, $g = (Y_{2020}/Y_{2000})^{1/20} - 1$:
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Method} & \textbf{2020 level} & \textbf{Average growth} \\
+\midrule
+Base-2000 prices & 13,960.0 & $\mathbf{1.9432\%}$ \\
+Chained          & 12,976.2 & $\mathbf{1.5713\%}$ \\
+\midrule
+Difference       &          & $0.3718$ p.p.\ per year \\
+\bottomrule
+\end{tabular}
+\end{center}
+\checkmark\ Both computed in Python; code below.
+
+\textbf{Interpretation.} A gap of $0.37$ percentage points a year sounds small and is not:
+compounded over the two decades it is the entire $7.6\%$ level discrepancy. This is the
+substitution bias in its purest form, and it is precisely why the US switched from
+fixed-base to chained real GDP in 1996 --- the old method was overstating growth in exactly
+the sectors (computers, electronics) where prices were falling fastest and quantities rising
+fastest.
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+import numpy as np
+q = np.array([qA, qB, qC], float).T      # (21, 3) quantities, 2000..2020
+p = np.array([pA, pB, pC], float).T      # (21, 3) prices
+
+base = (q * p[0]).sum(axis=1)            # fixed 2000 prices
+
+chain = np.empty(len(q)); chain[0] = (q[0]*p[0]).sum()
+for t in range(1, len(q)):
+    L = (q[t]*p[t-1]).sum() / (q[t-1]*p[t-1]).sum()   # Laspeyres link
+    P = (q[t]*p[t]).sum()   / (q[t-1]*p[t]).sum()     # Paasche link
+    chain[t] = chain[t-1] * np.sqrt(L*P)              # Fisher link
+
+n = len(q) - 1
+print((base[-1]/base[0])**(1/n) - 1)     # 0.019432
+print((chain[-1]/chain[0])**(1/n) - 1)   # 0.015713
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 1.5 -------
+% Topic: Real GDP, Index Numbers and Chain Weighting
+% Keywords: relative prices, substitution bias, technological progress, Baumol cost disease, demand elasticity
+\begin{tcolorbox}[oddbox,title={Problem 1.5 \quad Changes in Relative Prices}]
+\begin{tcolorbox}[questionbox]
+We saw that using an earlier year as the base year to compute real GDP results in a high
+rate of growth if the sectors that are expanding most are those whose relative price is
+falling. Can you think of reasons why that should be the case (i.e., economic forces that
+make the same types of goods become relatively cheaper and be produced in higher
+quantities)? Can you think of reasons why the opposite should be the case (i.e., economic
+forces that make the same types of goods become relatively expensive and be produced in
+higher quantities)?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+The question is really about whether the observed price-quantity pair is generated by a
+\textbf{supply shift} or a \textbf{demand shift}. Sliding along a stable demand curve gives
+falling price with rising quantity; sliding along a stable supply curve gives rising price
+with rising quantity.
+
+\begin{enumerate}
+
+\item \textbf{Cheaper \emph{and} more of it --- supply-driven (the common case).}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{Sector-biased technological progress.} Productivity growth is wildly uneven
+      across sectors. Semiconductors, computers, telecoms and increasingly solar panels have
+      had enormous productivity gains, which push the supply curve out: unit cost and
+      therefore relative price fall, and quantity rises. This is the single most important
+      reason and the one that motivated the switch to chained indices.
+\item \textbf{Learning by doing and economies of scale.} Cumulative production lowers unit
+      cost, which lowers price, which raises quantity, which lowers cost further --- a
+      self-reinforcing loop.
+\item \textbf{Elastic demand.} For the quantity response to be \emph{large}, demand must be
+      price-elastic. Goods with close substitutes and discretionary timing (consumer
+      electronics) qualify; necessities do not.
+\item \textbf{Trade liberalisation and offshoring} shift the effective supply curve out for
+      importables.
+\end{itemize}
+
+\item \textbf{More expensive \emph{and} more of it --- demand-driven.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{Income-elastic goods (luxuries).} As income grows, demand for healthcare,
+      education, higher-end housing and personal services shifts out faster than supply. Both
+      price and quantity rise.
+\item \textbf{Baumol's cost disease.} In sectors where productivity growth is inherently
+      slow --- a string quartet needs the same four players it needed in 1800 --- wages
+      still have to track the economy-wide average or workers leave. Unit costs, and hence
+      relative prices, rise. If demand is income-elastic (health, education, live
+      performance), quantity rises \emph{too}. This is the cleanest example of the
+      combination the question asks about.
+\item \textbf{Binding supply constraints.} Urban land, waterfront property, rare earths: the
+      supply curve is steep, so a demand shift moves price much more than quantity --- but
+      quantity does still rise.
+\item \textbf{Network effects / quality ladders.} A good becomes more valuable as more people
+      use it, shifting demand out while the price rises.
+\end{itemize}
+
+\end{enumerate}
+
+\textbf{The index-number consequence.} Base-year weighting overstates growth in case (1) and
+\emph{understates} it in case (2), because there the expanding sectors are the ones whose
+prices are rising, so old prices under-weight them. Since case (1) empirically dominates in
+modern economies --- technology-intensive goods are both the fastest-growing and the
+fastest-cheapening --- fixed-base real GDP has an upward bias overall. Problem 1.3 is a
+constructed illustration of exactly this.
+
+\medskip
+\emph{Connection to the course:} the same asymmetry reappears in
+\texttt{rules/07\_moeda\_inflacao.md} as the \textbf{substitution bias in the CPI/IPCA} ---
+a Laspeyres consumer price index overstates inflation for the same reason a Laspeyres
+quantity index overstates growth.
+\end{tcolorbox}
+
+%---- Topic: The Boundaries of GDP ----
+\subsection{The Boundaries of GDP}
+
+%------- 1.4 -------
+% Topic: The Boundaries of GDP
+% Keywords: production boundary, illegal activities, imputation, comparability, national accounts conventions
+\begin{tcolorbox}[evenbox,title={Problem 1.4 \quad Drugs and Prostitution}]
+\begin{tcolorbox}[questionbox]
+Read the following article:
+\url{http://www.economist.com/news/finance-and-economics/21603073-italys-inclusion-illicit-activities-its-figures-excites-much-interest-sex}.
+What do you think? Should drug production and prostitution be included in the calculation of
+GDP?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{tcolorbox}[databox,title={Note on sourcing}]
+This exercise sends you to a specific 2014 \emph{Economist} piece, which I have not
+retrieved. The background it refers to is the EU's ESA~2010 accounting standard, which from
+September 2014 required member states to include illegal activities --- drugs, prostitution,
+smuggling --- in GDP where they are voluntary market transactions. Italy's measured GDP rose
+by roughly one percent as a result. The argument below is the economics; check the
+article for its specific framing before quoting it.
+\end{tcolorbox}
+
+\textbf{Position: yes, they should be included} --- and the reasons are about consistency,
+not about morality.
+
+\begin{enumerate}
+
+\item \textbf{The production boundary is defined by transactions, not by approval.} GDP
+already counts tobacco, alcohol, gambling, weapons and payday lending. It counts legal
+prostitution in the Netherlands and Germany and legal cannabis in Colorado. If the criterion
+were social desirability, the accounts would need a moral weighting for every line item, and
+no two countries would agree on it. The criterion actually used --- was there a voluntary
+exchange producing something someone paid for --- is at least well defined.
+
+\item \textbf{Comparability collapses without it.} This is the strongest argument. Cannabis
+is legal in some EU countries and not others; prostitution is legal in Germany and illegal
+in France. If illegal activity is excluded, then Germany's GDP includes its sex industry and
+France's does not, and the two numbers are not measuring the same thing. Worse, a country
+that \emph{legalises} an activity would show a spurious jump in GDP with no change in real
+activity. Uruguay's cannabis legalisation and Portugal's decriminalisation would both create
+artefacts. Including illegal activity everywhere removes the discontinuity.
+
+\item \textbf{Coherence of the accounts.} The inputs to illegal industries are often already
+counted --- the chemicals, the rent, the imported precursors. Counting inputs but not output
+puts a hole in the value-added identity.
+
+\item \textbf{Policy relevance.} Debt-to-GDP ratios, EU budget contributions and deficit
+limits are all denominated in GDP. Italy's revision changed its measured debt ratio without
+changing a euro of debt. That is an argument for measuring the denominator consistently, not
+for leaving parts of it out.
+
+\end{enumerate}
+
+\textbf{The serious objections, and what they actually establish:}
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Measurement is guesswork.} There are no invoices. Estimates are built from
+      seizure data, survey-based prevalence and assumed prices, and revisions are large.
+      \emph{But} --- this is an argument about \emph{precision}, not about \emph{principle}.
+      Owner-occupied housing rent is also imputed rather than observed, and it is a far
+      larger share of GDP than drugs.
+\item \textbf{Coercion breaks the ``voluntary'' premise.} Trafficking and coerced
+      prostitution are not voluntary exchange, and treating them as consensual market output
+      is a genuine category error. The honest response is that the accounts cannot separate
+      the coerced from the voluntary component, which is a real and unresolved defect.
+\item \textbf{The welfare reading is wrong.} Counting drug sales as output while ignoring
+      addiction, overdose and crime overstates wellbeing. This is correct --- but it is not
+      special to illegal goods. GDP does not net out pollution, commuting or the harm from
+      any legal product either.
+\end{enumerate}
+
+\textbf{Conclusion.} Objection (iii) is the deepest, and it does not argue for excluding
+illegal activity from GDP. It argues that \textbf{GDP is not a welfare measure and should
+not be read as one} --- which is exactly the thesis of Chapter 2 and of the Jones--Klenow
+$\lambda$. Include the activity in the production measure; use a separate welfare measure
+when the question is whether people are better off.
+\end{tcolorbox}
+
+%======================================================================
+\section{Chapter 2 \quad Beyond GDP}
+%======================================================================
+
+\begin{tcolorbox}[theorybox,title={Chapter 2 Overview}]
+\textbf{The question.} GDP per capita measures production. Welfare depends on consumption,
+how it is distributed, how long people live and how much they work. Chapter 2 builds
+measures that price those things.
+
+\medskip
+\textbf{The HDI} is a simple geometric average of three normalised sub-indices (income,
+education, life expectancy). It is transparent but the weights are arbitrary --- there is no
+theory saying a year of life expectancy is worth a given amount of income.
+
+\medskip
+\textbf{The Jones--Klenow $\lambda$} fixes exactly that by grounding the weights in
+preferences. Behind a Rawlsian veil of ignorance, ask: by what factor $\lambda$ would we have
+to scale \emph{US} consumption to make a person indifferent between being dropped at random
+into the US and into country $j$? That $\lambda$ is an \textbf{equivalent variation} and is
+the country's welfare relative to the US. The book's eq.\ (2.2.1) is
+$$u(c,l,a) = \E\left[\bar u + \frac{c^{1-\sigma}}{1-\sigma} - \theta(1-l)^2\right] a$$
+and $\lambda$ solves $\;u(\lambda c_{US}, l_{US}, a_{US}) = u(c_j, l_j, a_j)$.
+
+\medskip
+\textbf{The role of $\sigma$.} The curvature parameter does double duty. It is risk aversion
+behind the veil, and because a concave $u$ penalises spread, it is simultaneously the
+\emph{inequality aversion} of the welfare measure. Higher $\sigma$ means a more unequal
+country is marked down harder. As $\sigma \to \infty$ the criterion converges on Rawls's
+difference principle: only the worst-off person counts.
+
+\medskip
+\textbf{The empirical punchline.} Western Europe looks \emph{better} on $\lambda$ than on
+GDP per capita (more leisure, longer lives, less inequality); much of Africa looks
+\emph{worse}, driven mainly by low life expectancy.
+\end{tcolorbox}
+
+%---- Topic: The HDI and the Jones--Klenow Welfare Measure ----
+\subsection{The HDI and the Jones--Klenow Welfare Measure}
+
+%------- 2.1 -------
+% Topic: The HDI and the Jones--Klenow Welfare Measure
+% Keywords: HDI, equivalent variation, relative GDP, scatterplot, welfare-to-GDP ratio
+\begin{tcolorbox}[oddbox,title={Problem 2.1 \quad Comparing the HDI and the Jones \& Klenow Welfare Measure}]
+\begin{tcolorbox}[questionbox]
+Download the UN data that goes into building the HDI from
+\url{http://hdr.undp.org/en/data} and the Jones \& Klenow Data from
+\url{http://web.stanford.edu/~chadj/papers.html\#rawls}. For each country, construct:
+(a) Relative GDP: $\dfrac{\text{GDP per capita}}{\text{GDP per capita in the US}}$;
+(b) Welfare-to-GDP: $\dfrac{\lambda}{\text{Relative GDP}}$;
+(c) HDI-to-GDP: $\dfrac{\text{HDI}}{\text{Relative GDP}}$;
+and plot a scatterplot of Welfare-to-GDP against HDI-to-GDP. What do each of these ratios
+measure? Is the impression we get from the Jones \& Klenow measure very different from the
+one we get from the HDI? What countries look better under each measure and why?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{tcolorbox}[databox]
+This requires two external datasets. No numbers are asserted below --- the method, the
+expected pattern (which follows from the structure of the two measures and from the book's
+own Figure 2.2.3) and runnable code are given instead.
+\end{tcolorbox}
+
+\begin{enumerate}
+
+\item \textbf{What each ratio measures.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{Relative GDP} is the pure income yardstick, normalised so the US $=1$.
+\item \textbf{Welfare-to-GDP} $=\lambda/(\text{relative GDP})$ asks: \emph{once we account
+for consumption share, inequality, leisure and mortality, does this country do better
+or worse than its income alone would suggest?} A ratio above 1 means the country
+punches above its income; below 1 means income flatters it.
+\item \textbf{HDI-to-GDP} asks the same question using the UN's weights instead of
+preference-based ones.
+\end{itemize}
+
+Both are \textbf{residual} measures --- they strip out income and show what the non-income
+components add. That is what makes them comparable on a scatterplot.
+
+\item \textbf{Do the two give the same impression? Partly --- and the disagreements are
+systematic.}
+
+Expect a \textbf{positive but loose correlation}. Both load heavily on life expectancy, so
+countries with long lives relative to income (much of Latin America, southern Europe) score
+above 1 on both, and countries with an HIV/AIDS-driven mortality deficit (South Africa,
+Botswana) score below 1 on both. That shared component drives the positive slope.
+
+The disagreements come from what each measure includes that the other does not:
+
+\begin{center}
+\begin{tabular}{p{0.30\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+\textbf{Component} & \textbf{In $\lambda$?} & \textbf{In HDI?} \\
+\midrule
+Life expectancy   & yes, priced by preferences & yes, arbitrary weight \\
+Consumption level & yes (consumption, not GDP) & indirectly, via income \\
+\textbf{Inequality} & \textbf{yes}, via $\sigma$ & \textbf{no} \\
+\textbf{Leisure / hours} & \textbf{yes}, via $\theta$ & \textbf{no} \\
+Education & no & yes, one third of the index \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Therefore:
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{Better under $\lambda$ than under HDI:} \emph{Western Europe}. Short working
+hours and low inequality are rewarded by $\lambda$ and completely invisible to the
+HDI. This is Jones and Klenow's headline finding --- France and Italy look much closer
+to the US on welfare than on income.
+\item \textbf{Better under HDI than under $\lambda$:} countries with \textbf{strong schooling
+relative to consumption and high inequality} --- several post-socialist and some Latin
+American economies. The HDI credits their educational attainment; $\lambda$ ignores
+education entirely and penalises their income dispersion.
+\item \textbf{Worse under $\lambda$:} high-inequality middle-income countries generally.
+\textbf{Brazil} and \textbf{South Africa} are the clearest cases: the HDI's income
+component uses the \emph{mean}, while $\lambda$'s concave $u$ effectively uses
+something closer to a certainty-equivalent, which is far below the mean when dispersion
+is large.
+\end{itemize}
+
+\item \textbf{The methodological point the exercise is driving at.} The HDI's weights are
+chosen by committee; $\lambda$'s are derived from a stated utility function and can be
+argued with on their own terms --- you can disagree about $\sigma$, $\theta$ or $\bar u$ and
+recompute. That transparency is the real advantage, more than any particular ranking.
+Conversely $\lambda$ omits education, which most people would say matters, so neither
+dominates.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Code to run once you have the two files}]
+\footnotesize
+\begin{verbatim}
+import pandas as pd, matplotlib.pyplot as plt
+
+hdi = pd.read_csv("hdi.csv")            # country, hdi
+jk  = pd.read_csv("jones_klenow.csv")   # country, lambda, gdp_pc
+
+df = hdi.merge(jk, on="country").dropna()
+us = df.loc[df.country == "United States", "gdp_pc"].iloc[0]
+
+df["rel_gdp"]       = df.gdp_pc / us
+df["welfare_ratio"] = df["lambda"] / df.rel_gdp
+df["hdi_ratio"]     = df.hdi       / df.rel_gdp
+
+ax = df.plot.scatter("hdi_ratio", "welfare_ratio", alpha=.6)
+ax.axhline(1, ls=":", c="gray"); ax.axvline(1, ls=":", c="gray")
+print(df[["country","rel_gdp","welfare_ratio","hdi_ratio"]]
+        .sort_values("welfare_ratio", ascending=False).head(15))
+print(df[["welfare_ratio","hdi_ratio"]].corr())
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 2.2 -------
+% Topic: The HDI and the Jones--Klenow Welfare Measure
+% Keywords: omitted variables in welfare, revealed preference, compensating differentials, willingness to pay
+\begin{tcolorbox}[evenbox,title={Problem 2.2 \quad Other Things that Matter}]
+\begin{tcolorbox}[questionbox]
+The welfare measure $\lambda$ takes into account data on consumption levels, inequality,
+leisure and mortality.\\[3pt]
+(a) Name one other variable that might be an important determinant of welfare that is not
+included in standard GDP calculations.\\
+(b) What data would you need in order to figure out how much weight to give to this
+variable? Describe how you would use that data to come up with the correct way to include
+the variable in question in the welfare calculation. What choices that people make might
+reveal how much they care about this variable? Don't worry too much about the feasibility of
+the data-collection procedure, but think carefully about why the observed choices would be
+informative.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{tcolorbox}[theorybox,title={This is question 2 of Lista de Exerc\'icios 1 (2 pts)}]
+The Lista assigns this exercise directly. The grader will be looking for the
+\textbf{revealed-preference logic} in part (b), not for a list of nice-sounding variables in
+part (a). Spend your words on (b).
+\end{tcolorbox}
+
+\begin{enumerate}
+
+\item \textbf{Candidate: personal security --- the risk of being a victim of violent crime.}
+
+It is a good choice for Brazil specifically: homicide rates vary enormously across states and
+municipalities while incomes do not vary nearly as much, which is what makes the weight
+estimable. Other defensible answers: air and water quality, commuting time, political
+freedom and civil liberties, job security, or the quality of social relationships. Any of
+these is fine \emph{provided} you can describe in (b) how a choice would reveal its value.
+
+Note that GDP treats crime perversely: spending on locks, private security, alarms and
+insurance \emph{adds} to GDP, so a more dangerous country can look richer.
+
+\item \textbf{How to price it: find a choice where people trade the variable against
+money.} Stated preference (``how much would you pay to be safe?'') is unreliable because
+nothing is at stake. Revealed preference uses actual decisions with real consequences.
+
+\textbf{Method 1 --- hedonic pricing of housing (the workhorse).}
+
+Two otherwise identical apartments, one in a neighbourhood with a higher homicide rate, will
+not command the same rent. The rent gap capitalises the value of the safety difference.
+Estimate
+$$\ln(\text{rent}_i) = \beta_0 + \beta_1\,\text{crime}_i + \gamma' X_i + \varepsilon_i$$
+where $X_i$ controls for size, age, amenities, school quality and distance to work. Then
+$-\beta_1$ is the marginal willingness to pay for a unit reduction in crime risk, as a share
+of housing cost.
+
+\emph{Why this is informative:} a household choosing where to live is making a real,
+costly, repeated trade-off between money and safety. It has every incentive to get it right.
+
+\emph{Identification problem, and the fix:} crime is correlated with everything else that
+makes a neighbourhood bad, so $\beta_1$ picks up more than safety. You need variation in
+crime that is unrelated to other neighbourhood characteristics --- for example a policing
+reform rolled out in some districts and not others, or the timing of a UPP-style
+intervention. Compare rents \emph{within} the same neighbourhood before and after.
+
+\textbf{Method 2 --- compensating wage differentials.}
+
+Dangerous occupations pay more, all else equal. Regressing wages on fatality risk across
+occupations, controlling for skill, gives the wage premium per unit of mortality risk and
+hence a \textbf{value of a statistical life}. This is the same logic Jones and Klenow use to
+price life expectancy, which is why it slots into their framework naturally.
+
+\textbf{Method 3 --- migration.}
+
+People leaving a violent region for a lower-paying job elsewhere reveal a lower bound on
+what they will pay for safety.
+
+\item \textbf{How to put it into the welfare calculation.} Extend the flow utility with a
+security argument $s$:
+$$u(c, l, a, s) = \left[\bar u + \frac{c^{1-\sigma}}{1-\sigma} - \theta(1-l)^2
++ \psi\,v(s)\right] a$$
+and calibrate $\psi$ so that the model's marginal rate of substitution matches the estimated
+one:
+$$\left.\frac{\partial u/\partial s}{\partial u/\partial c}\right|_{\text{model}}
+\;=\; \underbrace{\text{WTP per unit of safety}}_{\text{from the hedonic regression}}$$
+Then recompute $\lambda$ with the extra term. Countries safer than the US get $\lambda$
+revised up; Brazil, with homicide rates many times the US level, would be revised
+\textbf{down}.
+
+\emph{A caveat worth stating:} if crime mainly \emph{kills} people, its cost is already
+partly captured through life expectancy $a$, and adding $\psi v(s)$ on top would double
+count. The security term should be calibrated to capture fear, avoidance behaviour and
+non-fatal victimisation --- the part that does \emph{not} show up in mortality.
+
+\end{enumerate}
+\end{tcolorbox}
+
+%------- 2.9 -------
+% Topic: The HDI and the Jones--Klenow Welfare Measure
+% Keywords: risk aversion, inequality aversion, comparative statics of sigma, Western Europe
+\begin{tcolorbox}[oddbox,title={Problem 2.9 \quad Risk Aversion and Welfare in Western Europe}]
+\begin{tcolorbox}[questionbox]
+If instead $\sigma = 1$, Jones and Klenow had set a higher value of $\sigma$, what would this
+do to measured welfare in Western European countries? Explain.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\textbf{Answer: measured welfare in Western Europe would rise further relative to the US.}
+
+The reasoning has two steps.
+
+\begin{enumerate}
+
+\item \textbf{$\sigma$ is simultaneously risk aversion and inequality aversion.} Behind the
+veil of ignorance, an individual faces a lottery over who they will be. A more concave $u$
+(higher $\sigma$) makes them dislike that lottery's spread more. Equivalently, the
+certainty-equivalent consumption
+$$c^{CE} = \left((1-\sigma)\,\E\!\left[\tfrac{c^{1-\sigma}}{1-\sigma}\right]\right)^{\frac{1}{1-\sigma}}$$
+falls further below the mean as $\sigma$ rises, so unequal countries are penalised more
+heavily.
+
+\item \textbf{Western Europe is markedly less unequal than the US.} Gini coefficients for
+disposable income run roughly $0.25$--$0.32$ in France, Germany, Belgium and the Nordics
+against about $0.39$ in the US. So raising $\sigma$ imposes a \emph{larger} penalty on the
+US than on Europe. Since $\lambda$ is measured \emph{relative to the US}, and the
+denominator is being marked down more than the numerator, European $\lambda$ rises.
+
+\end{enumerate}
+
+\textbf{Reinforcing channel.} Higher $\sigma$ also raises the weight on the $\bar u$ term
+relative to the consumption term --- that is, on \emph{being alive} versus consuming.
+Western Europe's life expectancy exceeds the US, so this pushes the same way.
+
+\textbf{Second reinforcing channel.} Europe's consumption \emph{level} is below the US. With
+higher $\sigma$ the utility function flattens at high $c$, so differences in consumption
+levels matter less at the margin and Europe's income shortfall is discounted --- again
+favouring Europe. All three channels point the same way, which is why the conclusion is
+robust.
+
+\medskip
+\textbf{Limiting case as a check.} As $\sigma \to \infty$ the measure converges on the
+Rawlsian difference principle: welfare is determined by the worst-off person alone
+(Problem 2.10 makes this precise). On that criterion Western European welfare states, with
+their higher consumption floor, would rank \emph{well above} the US. The comparative static
+is just the continuous version of that limit. \checkmark
+\end{tcolorbox}
+
+%---- Topic: Valuing Life Expectancy and the Composition of Consumption ----
+\subsection{Valuing Life Expectancy and the Composition of Consumption}
+
+%------- 2.3 -------
+% Topic: Valuing Life Expectancy and the Composition of Consumption
+% Keywords: NIPA, healthcare share, intermediate vs final consumption, double counting in welfare
+\begin{tcolorbox}[oddbox,title={Problem 2.3 \quad Healthcare}]
+\begin{tcolorbox}[questionbox]
+When we calculate consumption, one of the (many) categories of consumption is healthcare
+services.\\[3pt]
+(a) Look up how much healthcare is consumed in the United States per year for a recent year.
+State the total dollar amount and also what fraction of GDP and what fraction of consumption
+is accounted for by healthcare. A good place to look for this data is the National Income and
+Product Accounts (NIPA) at \url{https://apps.bea.gov/iTable/index_nipa.cfm}.\\
+(b) Suppose that we are calculating welfare in the style of Jones and Klenow, taking into
+account the impact of life expectancy on utility. Should we therefore subtract consumption of
+healthcare services from our measure of consumption? What do you think?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \begin{tcolorbox}[databox,title={Look this up yourself --- NIPA Table 2.3.5}]
+Navigate to NIPA \textbf{Table 2.3.5}, ``Personal Consumption Expenditures by Major Type of
+Product'', and read off the \emph{Health care} line under Services. Divide by GDP
+(Table 1.1.5, line 1) and by total PCE.
+
+As an order of magnitude to sanity-check what you find: US health spending has been running
+around $17$--$18\%$ of GDP on the broadest (national health expenditure) definition, and
+health care is roughly a fifth of personal consumption expenditure. The PCE health-care line
+is \emph{narrower} than total national health expenditure --- it excludes investment in
+medical structures and equipment and some public health activity --- so expect a smaller
+number from Table 2.3.5 than the headline ``18\% of GDP'' figure you will see quoted. Report
+whichever you use and say which definition it is.
+\end{tcolorbox}
+
+\item \textbf{No --- do not subtract it. But the question is sharper than it looks, and the
+right answer is ``it depends what health care buys''.}
+
+\textbf{The case for subtracting (the ``intermediate good'' view).} Health care is arguably
+not something people want for its own sake. Nobody enjoys chemotherapy. It is an
+\emph{input} into producing health and longevity. If the Jones--Klenow measure already
+rewards a country for its life expectancy $a$, then also counting the consumption that
+\emph{bought} that life expectancy counts the same benefit twice --- once as the output
+(longer life) and once as the input (the spending). On this view health care is like the
+intermediate goods netted out in Chapter 1.
+
+\textbf{Why that argument fails, or at least overreaches:}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{It proves far too much.} By the same logic you would subtract food (an input
+into not starving), housing (an input into shelter) and exercise. Essentially all
+consumption is an input into something. The consumption measure would collapse.
+\item \textbf{Health care delivers more than longevity.} A hip replacement, cataract surgery,
+insulin, dental work and pain management mostly improve the \emph{quality} of life,
+not its length. That benefit appears \emph{nowhere} in $u(c,l,a)$ --- not in $a$, and
+not in $c$ if you strip health care out. Subtracting would make the measure worse, not
+better.
+\item \textbf{The double counting is not symmetric across countries.} The US spends far more
+per unit of life expectancy than other rich countries. If anything this is an argument
+that US consumption is \emph{overstated} as a welfare measure --- i.e.\ that a dollar
+of US health spending buys less wellbeing than a dollar elsewhere --- which is a
+statement about \emph{prices and efficiency}, not about whether the category belongs
+in the accounts.
+\end{itemize}
+
+\textbf{The defensible position.} Keep health care in consumption, and recognise that the
+genuine problem is a \textbf{price-measurement} one, not a boundary one. If US health care is
+expensive rather than abundant, then deflating US health consumption by an appropriate price
+index --- one that accounts for quality and outcomes --- would reduce measured real US
+consumption. That is where the correction belongs. Netting the whole category out is a blunt
+instrument that throws away the quality-of-life benefits along with the double count.
+
+\end{enumerate}
+\end{tcolorbox}
+
+%------- 2.4 -------
+% Topic: Valuing Life Expectancy and the Composition of Consumption
+% Keywords: consumption vs GDP, composition of output, defence spending, welfare accounting
+\begin{tcolorbox}[evenbox,title={Problem 2.4 \quad Construction and the Armed Forces}]
+\begin{tcolorbox}[questionbox]
+Suppose we compared welfare in two otherwise identical countries. Country A dedicates 50\% of
+GDP to maintaining a large army. Country B dedicates 50\% of GDP to building houses. In which
+of the two countries would welfare be higher, according to the measure used by Jones and
+Klenow. What do you think of this?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{What the measure says: welfare is the same in both, and low in both.}
+
+This is the key mechanical point. The Jones--Klenow $\lambda$ is built on
+\textbf{consumption}, not GDP. Both countries devote $50\%$ of output to something that is
+not current consumption:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item Country A: $G = 0.5Y$ on defence, so $C = 0.5Y$.
+\item Country B: $I = 0.5Y$ on housing, so $C = 0.5Y$.
+\end{itemize}
+Since the two countries are ``otherwise identical'' --- same leisure, same life expectancy,
+same inequality --- and consumption is identical, $\lambda_A = \lambda_B$. Both are measured
+as \emph{worse off} than an otherwise identical country that consumed its whole output.
+
+\item \textbf{What I think of this: the measure is right about A versus B, and wrong about
+the level --- but for different reasons in each case, and the housing case is the more
+serious defect.}
+
+\textbf{On defence (country A), the measure is defensible.} An army is not consumed and
+yields no direct utility. It may be \emph{necessary} --- protecting the country from
+conquest --- but that is precisely the point: it is a cost of maintaining the ability to
+consume, not a benefit. A country that must spend half its output on defence genuinely is
+worse off than an identical country that faces no threat. Treating it as forgone consumption
+captures something real. This is the same logic as the ``regrettables'' discussion in the
+welfare literature: commuting, prisons and pollution abatement all absorb resources without
+generating utility.
+
+\textbf{On housing (country B), the measure is clearly deficient.} Houses are durable capital
+that yields a \textbf{flow of housing services for decades}. In a single-period snapshot
+country B looks identical to country A, but this is a timing artefact:
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item In the \textbf{next} period, B's residents enjoy a larger stock of houses, and national
+accounts \emph{do} count that as consumption via \textbf{imputed rent} on
+owner-occupied housing. So over a full horizon B is unambiguously better off.
+\item The defect is therefore \textbf{the static, one-period framing}, not the use of
+consumption. Investment today is consumption tomorrow. Comparing two countries by
+current consumption alone penalises the one that is building its future --- the same
+objection one would make to ranking a country as ``worse off'' for having a high saving
+rate.
+\end{itemize}
+
+\item \textbf{The general lesson.} Any welfare measure built on a single period's consumption
+mis-ranks economies that differ in their \emph{investment} rates. The right fix is to
+evaluate the \textbf{present discounted value} of the consumption stream, or equivalently to
+compare steady states rather than transition points --- which is exactly what the Solow model
+of Chapter 4 forces you to do, and what the Golden Rule (\S4.3) is designed to answer.
+
+\end{enumerate}
+\end{tcolorbox}
+
+%------- 2.5 -------
+% Topic: Valuing Life Expectancy and the Composition of Consumption
+% Keywords: revealed preference, value of statistical life, hedonic pricing, identification, confounding
+\begin{tcolorbox}[oddbox,title={Problem 2.5 \quad Measuring the Value of Life Expectancy}]
+\begin{tcolorbox}[questionbox]
+Would each of the following observations be useful in determining how much to weigh life
+expectancy in measured welfare? Explain.\\[3pt]
+(a) Observing how life expectancy varies across people with different income levels within a
+country.\\
+(b) Observing how life expectancy varies across countries.\\
+(c) Observing how much people are willing to pay for funerals.\\
+(d) Observing the difference in house prices in neighborhoods with different murder rates.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\emph{The criterion throughout:} to price life expectancy we need a situation in which
+someone \textbf{chooses}, at a real cost, between money and mortality risk. Correlations
+that arise from something \emph{other} than such a choice do not identify the weight.
+
+\begin{enumerate}
+
+\item \textbf{Partly useful, but badly confounded --- causality runs both ways.}
+
+Rich people do live longer. But the correlation cannot be read as ``people buy longevity with
+income'' because:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Reverse causality:} healthier people earn more. Illness reduces
+labour supply and productivity, so part of the gradient runs from health to income.
+\item \textbf{Common causes:} education, discount rates and family background drive both.
+A patient, educated person both saves more and smokes less.
+\end{itemize}
+There is a further, subtler problem: even a \emph{causal} income--longevity gradient measures
+how much longevity people \emph{get}, not how much they \emph{value} it, unless we know they
+were deliberately trading one for the other.
+
+\emph{Verdict:} suggestive, not identifying. Would need an income shock unrelated to health
+--- a lottery win, an inheritance, a pension reform --- to be usable.
+
+\item \textbf{Least useful of the four.}
+
+Cross-country variation in life expectancy is driven by public health systems, sanitation,
+epidemiology, conflict and climate --- essentially none of which is an individual's
+willingness-to-pay decision. Nobody \emph{chose} to be born in a country with a high
+under-five mortality rate. Confounding is at its worst here because rich countries differ
+from poor ones in every dimension at once.
+
+\emph{Verdict:} useful for \emph{describing} the differences that the welfare measure needs
+to weigh, but useless for determining the \emph{weight} itself. It is the data you plug in,
+not the data you calibrate with.
+
+\item \textbf{Not useful, and it is a category error.}
+
+Funeral spending is consumption by \textbf{the survivors}, not by the deceased. It measures
+willingness to pay for a ritual, for social status and for grief management. It says nothing
+about how much a living person values an additional year of their own life --- the quantity
+$a$ in the utility function. Funeral spending would still be positive in a world where nobody
+valued longevity at all.
+
+\emph{Verdict:} no. This is the distractor in the list, and identifying it as such is the
+point of including it.
+
+\item \textbf{The most useful of the four --- this is the right kind of data.}
+
+House prices in high- versus low-murder-rate neighbourhoods reflect a \textbf{real,
+voluntary, costly choice} in which households trade money directly against mortality risk.
+That is exactly the trade-off we need to price. The method is hedonic regression:
+$$\ln(\text{price}_i) = \beta_0 + \beta_1\,\text{murder rate}_i + \gamma' X_i + \varepsilon_i$$
+Converting the price differential into a per-unit-of-risk figure yields a \textbf{value of a
+statistical life}, which is precisely what calibrates $\bar u$ in the Jones--Klenow utility
+function.
+
+\emph{The identification caveat, which you should state:} murder rates correlate with school
+quality, amenities, employment access and neighbourhood income, so a naive $\beta_1$ is
+biased. Credible estimates exploit sharp variation --- policing interventions, boundary
+discontinuities, or before/after comparisons within the same area.
+
+\emph{Related and equally valid:} compensating wage differentials across occupations with
+different fatality rates. Same logic, different market.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Ranking}]
+$(d) \;>\; (a) \;>\; (b) \;>\; (c)$. The ordering tracks one thing: how close the observation
+is to an actual choice in which a person gave up money for a lower chance of dying.
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 2.6 -------
+% Topic: Valuing Life Expectancy and the Composition of Consumption
+% Keywords: equivalent variation, lambda, value of a life-year, isoelastic utility, Jones-Klenow
+\begin{tcolorbox}[evenbox,title={Problem 2.6 \quad The Value of Life Expectancy}]
+\begin{tcolorbox}[questionbox]
+In the US, average consumption per capita is about \$35,000. Life expectancy is 79 years, so
+in the Jones and Klenow experiment, Rawls would have a 79\% chance of being alive. In
+Bolivia, average consumption per capita is \$3,700 and life expectancy is 68 years. Assume
+that there is no inequality in either country so that everyone who is alive gets the average
+level of consumption. Assume the following utility function:
+$$u(c,a) = \left[\bar u + \frac{c^{1-\sigma}}{1-\sigma}\right] a$$
+with $\sigma = 0.5$ and $\bar u = 48.1$.\\[3pt]
+(a) Suppose you made a US resident the following offer: you can buy a health plan that costs
+$x$ dollars per year and will extend your lifetime by one year. What is the price $x$ that
+would make them indifferent between getting the health plan or not?\\
+(b) How much would a Bolivian resident be willing to pay for such a plan?\\
+(c) Write down the special case of equation (2.2.1) that applies to this example and solve
+for $\lambda$ for Bolivia. Don't replace any numbers yet, leave it in terms of $a_{US}$,
+$a_{Bol}$, $c_{US}$, $c_{Bol}$, $\sigma$ and $\bar u$.\\
+(d) Replace the values of $a_{US}$, $a_{Bol}$, $c_{US}$, $c_{Bol}$, $\sigma$ and $\bar u$ to
+find a value for $\lambda$. How does it compare to $\dfrac{c_{Bol}}{c_{US}}$? Why?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\emph{Setup.} With $\sigma = 1/2$ the consumption term simplifies usefully:
+$$\frac{c^{1-\sigma}}{1-\sigma} = \frac{c^{1/2}}{1/2} = 2\sqrt{c}$$
+so the \textbf{flow} utility is $\;\phi(c) \equiv \bar u + 2\sqrt{c}\;$ and total utility is
+$u(c,a) = \phi(c)\,a$.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+& $c$ & $a$ & $\phi(c) = 48.1 + 2\sqrt{c}$ \\
+\midrule
+US      & 35,000 & 79 & $422.2657$ \\
+Bolivia &  3,700 & 68 & $169.7553$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+
+\item \textbf{The US resident pays $x$ so that living 80 years on $c-x$ equals living 79
+years on $c$:}
+$$\left[\bar u + 2\sqrt{c_{US}-x}\right] \cdot 80 = \left[\bar u + 2\sqrt{c_{US}}\right]\cdot 79$$
+Solve for $x$ in closed form:
+$$x = c_{US} - \left(\frac{1}{2}\left[\tfrac{79}{80}\phi(c_{US}) - \bar u\right]\right)^{2}$$
+Numerically:
+$$\tfrac{79}{80}\cdot 422.2657 = 416.9874,\qquad
+\tfrac{1}{2}(416.9874 - 48.1) = 184.4437,\qquad 184.4437^2 = 34{,}019.48$$
+$$\boxed{x_{US} = 35{,}000 - 34{,}019.48 = \$980.52} \qquad \checkmark$$
+That is about $2.80\%$ of annual consumption.
+
+\item \textbf{Same calculation for Bolivia}, with $68 \to 69$ years:
+$$\left[\bar u + 2\sqrt{3700-x}\right]\cdot 69 = 169.7553 \cdot 68$$
+$$\tfrac{68}{69}\cdot 169.7553 = 167.2951,\qquad \tfrac{1}{2}(167.2951-48.1) = 59.5976,
+\qquad 59.5976^2 = 3{,}551.86$$
+$$\boxed{x_{Bol} = 3{,}700 - 3{,}551.86 = \$148.14} \qquad \checkmark$$
+
+\textbf{Comparison and the economics.} In \emph{absolute} terms the American pays $6.6$ times
+more --- unsurprising, since they are $9.5$ times richer. But as a \emph{share of
+consumption}:
+$$\frac{x_{US}}{c_{US}} = 2.80\%, \qquad \frac{x_{Bol}}{c_{Bol}} = 4.00\%$$
+The Bolivian gives up a \emph{larger fraction} of consumption. Why? Because they start with
+a shorter life. Going from 68 to 69 years is a proportionally bigger gain
+($1/68 = 1.47\%$) than 79 to 80 ($1/79 = 1.27\%$), and because $u$ is concave in $c$ but
+\emph{linear} in $a$, the proportional gain in years is what matters. The absolute gap,
+meanwhile, reflects that a year of life is worth more when each year is spent consuming more.
+
+\item \textbf{The special case of (2.2.1).} Drop leisure (not modelled here) and the
+expectation over inequality (assumed away). Equation (2.2.1) becomes
+$$u(c,a) = \left[\bar u + \frac{c^{1-\sigma}}{1-\sigma}\right]a$$
+and $\lambda$ is defined by making Rawls indifferent between Bolivia and a rescaled US:
+$$\boxed{\;a_{US}\left[\bar u + \frac{(\lambda c_{US})^{1-\sigma}}{1-\sigma}\right]
+= a_{Bol}\left[\bar u + \frac{c_{Bol}^{\,1-\sigma}}{1-\sigma}\right]\;}$$
+Solving for $\lambda$:
+$$\frac{(\lambda c_{US})^{1-\sigma}}{1-\sigma}
+= \frac{a_{Bol}}{a_{US}}\left[\bar u + \frac{c_{Bol}^{\,1-\sigma}}{1-\sigma}\right] - \bar u$$
+$$\boxed{\;\lambda = \frac{1}{c_{US}}\left\{(1-\sigma)\left(\frac{a_{Bol}}{a_{US}}
+\left[\bar u + \frac{c_{Bol}^{\,1-\sigma}}{1-\sigma}\right] - \bar u\right)\right\}^{\frac{1}{1-\sigma}}\;}$$
+
+\item \textbf{Plugging in} $\sigma = 0.5$, $\bar u = 48.1$, $a_{US}=79$, $a_{Bol}=68$,
+$c_{US}=35{,}000$, $c_{Bol}=3{,}700$:
+$$\frac{a_{Bol}}{a_{US}} = \frac{68}{79} = 0.86076, \qquad \phi(c_{Bol}) = 169.7553$$
+$$0.86076 \times 169.7553 - 48.1 = 146.1243 - 48.1 = 98.0243$$
+$$\lambda c_{US} = \left(\frac{98.0243}{2}\right)^{2} = 49.0122^2 = 2{,}402.19$$
+$$\boxed{\lambda = \frac{2{,}402.19}{35{,}000} = 0.0686} \qquad \checkmark$$
+
+\textbf{Comparison with relative consumption:}
+$$\frac{c_{Bol}}{c_{US}} = \frac{3{,}700}{35{,}000} = 0.1057
+\qquad\text{versus}\qquad \lambda = 0.0686, \qquad
+\frac{\lambda}{c_{Bol}/c_{US}} = 0.649$$
+
+\textbf{Why $\lambda$ is well below relative consumption.} Bolivian welfare is only $6.9\%$
+of US welfare even though Bolivian consumption is $10.6\%$ of US consumption --- roughly a
+third lower. The entire wedge comes from \textbf{life expectancy}: Bolivians live 68 years
+against 79, a factor of $0.861$, and in this utility function years multiply the flow, so the
+mortality shortfall scales welfare down directly. Consumption alone \emph{understates} how
+much worse off Bolivia is.
+
+This is the central empirical message of Jones and Klenow and the reason $\lambda$ is worth
+computing at all: for poor countries, and especially for those with an AIDS-driven or
+conflict-driven mortality deficit, GDP per capita is not merely an imperfect welfare proxy
+--- it is systematically \emph{too optimistic}.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+from scipy.optimize import brentq
+sig, ubar = 0.5, 48.1
+flow = lambda c: ubar + c**(1-sig)/(1-sig)      # = ubar + 2*sqrt(c)
+u    = lambda c, a: flow(c)*a
+cUS, aUS, cBol, aBol = 35000, 79, 3700, 68
+
+x_us  = brentq(lambda x: u(cUS-x, aUS+1) - u(cUS, aUS), 0, cUS-1)      #  980.52
+x_bol = brentq(lambda x: u(cBol-x, aBol+1) - u(cBol, aBol), 0, cBol-1) #  148.14
+
+lam = brentq(lambda l: aUS*flow(l*cUS) - aBol*flow(cBol), 1e-9, 1)     # 0.068626
+# closed form agrees to 6 dp:
+lam_cf = ((1-sig)/cUS**(1-sig) * ((aBol/aUS)*flow(cBol) - ubar))**(1/(1-sig))
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: Risk Aversion, Inequality and the Veil of Ignorance ----
+\subsection{Risk Aversion, Inequality and the Veil of Ignorance}
+
+%------- 2.7 -------
+% Topic: Risk Aversion, Inequality and the Veil of Ignorance
+% Keywords: CRRA, certainty equivalent, risk premium, calibration of sigma, indifference
+\begin{tcolorbox}[oddbox,title={Problem 2.7 \quad Measuring Risk Aversion}]
+\begin{tcolorbox}[questionbox]
+The students of Concave University are all identical in their ability and preferences, which
+are well described by the function $u(c) = \E\left[\dfrac{c^{1-\sigma}}{1-\sigma}\right]$.
+Two employers recruit CU graduates. Stabilis offers each graduate a fixed salary of \$50,000.
+Lotteris instead offers them a base salary of \$20,000 plus a bonus scheme that depends on
+their performance, which is entirely driven by luck. The bonus is either \$10,000 or
+\$100,000, with equal probability. The job itself is the same in both firms. About half the
+CU graduates choose to work for Stabilis and half prefer Lotteris, and they all say they
+found it hard to choose because both offers were similarly attractive. What value of $\sigma$
+is consistent with their decisions?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Translate the story into an indifference condition.} ``They found it hard to
+choose because both offers were similarly attractive'' means the graduates are
+\textbf{indifferent} --- that is the whole content of the setup, and it is what pins down
+$\sigma$.
+
+Lotteris pays base $+$ bonus, so the two outcomes are
+$$20{,}000 + 10{,}000 = 30{,}000 \quad\text{or}\quad 20{,}000 + 100{,}000 = 120{,}000,
+\qquad \text{each with probability } \tfrac12$$
+Note the expected pay at Lotteris is $\tfrac12(30{,}000) + \tfrac12(120{,}000) = \$75{,}000$,
+far above Stabilis's \$50,000. Lotteris must pay a \textbf{risk premium} of \$25,000 to
+attract half the class --- and the size of that premium is exactly what reveals $\sigma$.
+
+\item \textbf{Set up the equation.}
+$$\frac{50{,}000^{\,1-\sigma}}{1-\sigma}
+= \frac{1}{2}\cdot\frac{30{,}000^{\,1-\sigma}}{1-\sigma}
++ \frac{1}{2}\cdot\frac{120{,}000^{\,1-\sigma}}{1-\sigma}$$
+The $\frac{1}{1-\sigma}$ factor cancels \emph{provided} $\sigma \ne 1$ --- but be careful
+with the sign, since $1-\sigma < 0$ when $\sigma > 1$. Safer to keep it and solve
+numerically. The condition says that \$50,000 is the \textbf{certainty equivalent} of the
+Lotteris lottery.
+
+\item \textbf{Solve.} There is no closed form; solve numerically. Bracketing:
+\begin{center}
+\begin{tabular}{lrrl}
+\toprule
+$\sigma$ & $u(50{,}000)$ & $\E[u_{Lotteris}]$ & Preferred \\
+\midrule
+$0.50$ & $447.214$ & $519.615$ & Lotteris \\
+$1.00$ & $10.8198$ & $11.0021$ & Lotteris \\
+$\mathbf{1.7964}$ & $-2.2732\!\times\!10^{-4}$ & $-2.2732\!\times\!10^{-4}$ & \textbf{indifferent} \\
+$2.00$ & $-2.0000\!\times\!10^{-5}$ & $-2.0833\!\times\!10^{-5}$ & Stabilis \\
+\bottomrule
+\end{tabular}
+\end{center}
+$$\boxed{\sigma \approx 1.796} \qquad \checkmark$$
+
+\item \textbf{Interpretation.} A $\sigma$ of about $1.8$ is squarely inside the range
+macroeconomists normally use --- calibrations typically sit between 1 and 4, and Jones and
+Klenow themselves use $\sigma = 1$. So the CU students' behaviour is entirely ordinary.
+
+Two things worth noting:
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{$\sigma$ is a curvature parameter, and its magnitude is only interpretable
+relative to the size of the gamble.} This is a very large gamble --- a $4\times$ spread
+between outcomes --- and it takes only moderate curvature to generate a \$25,000
+premium on it.
+\item \textbf{The monotonicity is the useful check.} At low $\sigma$ everyone takes the
+lottery (its mean is 50\% higher); at high $\sigma$ everyone takes the safe job. There
+is exactly one crossing, so $\sigma$ is identified. If the problem had said
+\emph{everyone} chose Stabilis we would only get an inequality, $\sigma > 1.796$.
+\end{itemize}
+
+\item \textbf{Connection to Chapter 2's real purpose.} This same $\sigma$ is the inequality
+aversion in the welfare measure. A society where consumption is $30{,}000$ for half the
+population and $120{,}000$ for the other half is, on these preferences, exactly as good as
+one where everyone has $50{,}000$ --- even though mean consumption in the first is $75{,}000$.
+The \$25,000 gap \emph{is} the welfare cost of that inequality. Problem 2.8 pushes this
+further.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+from scipy.optimize import brentq
+import numpy as np
+safe, lo, hi = 50000, 20000+10000, 20000+100000     # 50000 ; 30000 ; 120000
+
+def gap(s):
+    if abs(s-1) < 1e-12:
+        return np.log(safe) - 0.5*(np.log(lo) + np.log(hi))
+    f = lambda c: c**(1-s)/(1-s)
+    return f(safe) - 0.5*(f(lo) + f(hi))
+
+print(brentq(gap, 0.05, 5))        # 1.796394
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 2.8 -------
+% Topic: Risk Aversion, Inequality and the Veil of Ignorance
+% Keywords: inequality aversion, mean-preserving spread, expected utility, certainty equivalent
+\begin{tcolorbox}[evenbox,title={Problem 2.8 \quad Inequality and Risk Aversion}]
+\begin{tcolorbox}[questionbox]
+Compare the following two countries. Both have a population of 100. Within each country, we
+label individuals in order of increasing consumption. In country A, the consumption of
+individual $j$ is $c_A(j) = 100 + 8j$, while in country B the consumption of individual $j$
+is $c_B(j) = 200 + 4j$.\\[3pt]
+(a) Plot the consumption patterns of each country, with an individual's label $j$ (which
+ranges from 1 to 100) on the horizontal axis and their consumption on the vertical axis.\\
+(b) Compute per capita consumption in each country. [Note: if you want, you can approximate
+sums with integrals]\\
+(c) Suppose the utility function in both countries is $u(c) = \dfrac{c^{1-\sigma}}{1-\sigma}$.
+For what values of $\sigma$ is expected utility higher in country A? Interpret your results.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Both are straight lines in $j$; A is steeper and starts lower.}
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+& intercept & slope & $c(1)$ & $c(100)$ \\
+\midrule
+Country A & 100 & 8 & 108 & 900 \\
+Country B & 200 & 4 & 204 & 600 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+They cross where $100+8j = 200+4j \Rightarrow 4j = 100 \Rightarrow j = 25$, at
+$c = 300$. So:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item the \textbf{poorest quarter} ($j < 25$) is better off in \textbf{B};
+\item the \textbf{richest three quarters} ($j > 25$) are better off in \textbf{A}.
+\end{itemize}
+This crossing is the whole exercise: neither country dominates, so the ranking must depend on
+how much we care about the bottom --- i.e.\ on $\sigma$.
+
+\item \textbf{Per capita consumption.} Using $\sum_{j=1}^{100} j = \frac{100\cdot 101}{2} = 5050$,
+so $\bar j = 50.5$:
+$$\bar c_A = 100 + 8(50.5) = 100 + 404 = \boxed{504}, \qquad
+\bar c_B = 200 + 4(50.5) = 200 + 202 = \boxed{402}$$
+\checkmark\ (The integral approximation $\int_0^{100}$ would give $\bar j = 50$ and hence
+$500$ and $400$ --- close, and fine for the qualitative point.)
+
+\textbf{Country A is $25.4\%$ richer on average, but far more unequal:} standard deviations
+are $230.9$ for A against $115.5$ for B, exactly double, since the spread scales with the
+slope. A ranking based on mean consumption alone would pick A without hesitation. The point of
+the exercise is that this is not obviously right.
+
+\item \textbf{Country A is preferred for $\sigma < \sigma^{\ast} \approx 2.072$, and B
+above it.}
+
+Compute $\E[u] = \frac{1}{100}\sum_{j=1}^{100} \frac{c(j)^{1-\sigma}}{1-\sigma}$ for each:
+
+\begin{center}
+\begin{tabular}{crrc}
+\toprule
+$\sigma$ & $\E[u_A]$ & $\E[u_B]$ & Preferred \\
+\midrule
+$0$    & $504$ & $402$ & A \\
+$0.25$ & $138.715$ & $118.743$ & A \\
+$0.50$ & $43.5329$ & $39.6651$ & A \\
+$0.75$ & $18.4992$ & $17.7631$ & A \\
+$1$ (log) & $6.08797$ & $5.95172$ & A \\
+$1.5$  & $-0.0993398$ & $-0.10323$ & A \\
+$2$    & $-2.70274\!\times\!10^{-3}$ & $-2.72994\!\times\!10^{-3}$ & A \\
+$\mathbf{2.0721}$ & \multicolumn{2}{c}{\textbf{equal}} & \textbf{indifferent} \\
+$3$    & $-5.31529\!\times\!10^{-6}$ & $-4.11151\!\times\!10^{-6}$ & B \\
+\bottomrule
+\end{tabular}
+\end{center}
+$$\boxed{\E[u_A] > \E[u_B] \iff \sigma < 2.072} \qquad \checkmark$$
+
+\textbf{Interpretation --- the trade-off is level against dispersion.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item At $\sigma = 0$ utility is linear, expected utility is just mean consumption, and A
+wins by construction ($504 > 402$). \textbf{No inequality aversion at all.}
+\item As $\sigma$ rises, the concavity of $u$ increasingly penalises A's wider spread. A's
+advantage in the mean is eroded.
+\item At $\sigma^{\ast} \approx 2.072$ the two exactly offset: A's $25.4\%$ higher average
+consumption is precisely cancelled by its doubled dispersion.
+\item Beyond that, \textbf{B wins} --- society would rather be poorer on average than face
+A's spread. As $\sigma \to \infty$ only the worst-off individual matters, and since
+$c_B(1) = 204 > 108 = c_A(1)$, B wins decisively. That limit is the Rawlsian
+difference principle, which Problem 2.10 develops.
+\end{itemize}
+
+\textbf{The methodological point.} Whether A or B is the better society is \emph{not} an
+empirical question that the data can settle. Both countries' consumption distributions are
+fully observed. The ranking depends entirely on $\sigma$ --- a value judgement about how much
+weight to give the poor, smuggled in under the guise of a preference parameter. That is both
+the strength of the Jones--Klenow approach (the judgement is explicit and you can vary it) and
+its limitation (it cannot tell you which $\sigma$ is right).
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+import numpy as np
+from scipy.optimize import brentq
+j  = np.arange(1, 101)
+cA, cB = 100 + 8*j, 200 + 4*j
+print(cA.mean(), cB.mean())            # 504.0 402.0
+
+def EU(c, s):
+    return np.mean(np.log(c)) if abs(s-1) < 1e-12 else np.mean(c**(1-s)/(1-s))
+
+print(brentq(lambda s: EU(cA, s) - EU(cB, s), 0.05, 3.0))   # 2.072082
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 2.10 -------
+% Topic: Risk Aversion, Inequality and the Veil of Ignorance
+% Keywords: indifference curves, veil of ignorance, Rawls difference principle, Leontief limit, asymptote
+\begin{tcolorbox}[evenbox,title={Problem 2.10 \quad Risk Aversion and the Difference Principle}]
+\begin{tcolorbox}[questionbox]
+Suppose an individual is trying to evaluate a society from behind the veil of ignorance. He
+knows that he can either be rich or poor, with equal probability. Expected utility is
+$\E[u(c)] = \dfrac{u(c_{Rich}) + u(c_{Poor})}{2}$ where $u(c) = \dfrac{c^{1-\sigma}}{1-\sigma}$.
+Let's now define an indifference curve: for any utility level $\bar U$, the indifference curve
+plots all the combinations of $c_{Rich}$ and $c_{Poor}$ such that expected utility is
+$\bar U$.\\[3pt]
+(a) Take the equation
+$\bar U = \dfrac{1}{2}\dfrac{c_{Rich}^{1-\sigma}}{1-\sigma} + \dfrac{1}{2}\dfrac{c_{Poor}^{1-\sigma}}{1-\sigma}$
+and solve for $c_{Rich}$.\\
+(b) Plot a map of indifference curves for $\sigma = 0.5$ ($\bar U = 2, \sqrt{10}, 4$);
+$\sigma = 2$ ($\bar U = -1, -0.4, -0.25$); $\sigma = 5$; $\sigma = 11$. In all cases put
+$c_{Poor}$ on the horizontal axis and $c_{Rich}$ on the vertical axis, both ranging over
+$[0,10]$. Note that whenever you set $c_{Poor}$ to the left of
+$\left[2\bar U(1-\sigma)\right]^{\frac{1}{1-\sigma}}$ you should set $c_{Rich} = \infty$.\\
+(c) Notice that as $\sigma$ becomes large, the indifference curves start to look like right
+angles. Explain how this relates to Rawls's difference principle.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Solve for $c_{Rich}$.} Starting from
+$$\bar U = \frac{1}{2}\cdot\frac{c_{Rich}^{1-\sigma}}{1-\sigma}
++ \frac{1}{2}\cdot\frac{c_{Poor}^{1-\sigma}}{1-\sigma}$$
+multiply by $2(1-\sigma)$:
+$$2\bar U(1-\sigma) = c_{Rich}^{1-\sigma} + c_{Poor}^{1-\sigma}$$
+$$\boxed{\;c_{Rich} = \left[\,2\bar U(1-\sigma) - c_{Poor}^{\,1-\sigma}\,\right]^{\frac{1}{1-\sigma}}\;}$$
+
+\textbf{Where the asymptote comes from.} The bracket must stay positive. For $\sigma < 1$
+we need $c_{Poor}^{1-\sigma} < 2\bar U(1-\sigma)$; for $\sigma > 1$ both $1-\sigma$ and the
+utility values are negative and the inequality flips. Either way there is a critical value
+$$c_{Poor}^{\min} = \left[2\bar U(1-\sigma)\right]^{\frac{1}{1-\sigma}}$$
+at which $c_{Rich} \to \infty$: this is precisely the caveat the problem states. \textbf{Below
+that level of $c_{Poor}$, no amount of consumption given to the rich can reach utility
+$\bar U$} --- the poor person's misery cannot be compensated.
+
+\item \textbf{The plots.} The code below reproduces all four panels. What to look for:
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{$\sigma = 0.5$:} gently bowed curves, close to straight lines. The vertical
+asymptote sits at $c_{Poor}^{\min} = (\bar U)^2$, so at $\bar U = 2$ it is at
+$c_{Poor} = 4$. Substitution between rich and poor is easy: taking a little from the
+poor is readily offset by giving to the rich.
+\item \textbf{$\sigma = 2$:} noticeably more curved; the asymptote is at
+$c_{Poor}^{\min} = -1/(2\bar U)$, e.g.\ $0.5$ for $\bar U = -1$.
+\item \textbf{$\sigma = 5$ and $\sigma = 11$:} the curves collapse towards \textbf{right
+angles}. Over most of the range the indifference curve is essentially vertical (raising
+$c_{Rich}$ barely helps) and then essentially horizontal.
+\end{itemize}
+
+\item \textbf{Why right angles mean Rawls.}
+
+Right-angled (L-shaped) indifference curves are \textbf{Leontief} preferences,
+$U = \min\{c_{Poor}, c_{Rich}\}$ up to a monotone transformation. For such preferences only
+the \emph{smaller} argument matters: at the kink, increasing the larger one leaves utility
+unchanged.
+
+Formally, the marginal rate of substitution along the curve is
+$$\MRS = -\dd{c_{Rich}}{c_{Poor}}
+= \left(\frac{c_{Rich}}{c_{Poor}}\right)^{\sigma}$$
+Take any point with $c_{Rich} > c_{Poor}$, so the ratio exceeds 1. Then
+$$\sigma \to \infty \;\Longrightarrow\; \left(\frac{c_{Rich}}{c_{Poor}}\right)^{\sigma} \to \infty$$
+The curve becomes vertical everywhere off the $45^\circ$ line. Interpretation: \textbf{the
+planner would give up an unbounded amount of the rich person's consumption for one extra unit
+for the poor person.}
+
+That is exactly \textbf{Rawls's difference principle}: social arrangements should be judged
+by the position of the \emph{worst-off} member, and an inequality is justified only if it
+improves the position of the worst off. In this framework Rawls is not a separate ethical
+theory bolted on --- it is the \textbf{limiting case of expected-utility maximisation behind
+the veil of ignorance as risk aversion goes to infinity}.
+
+\medskip
+\textbf{Why this matters for Chapter 2.} It locates Jones and Klenow's choice of
+$\sigma$ on a spectrum of ethical positions rather than treating it as a technical
+calibration:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+$\sigma = 0$ & pure utilitarian --- maximise \emph{mean} consumption, inequality irrelevant \\
+$\sigma = 1$ & log utility --- Jones \& Klenow's baseline; maximise the geometric mean \\
+$\sigma \to \infty$ & Rawlsian --- maximise the consumption of the worst-off \\
+\bottomrule
+\end{tabular}
+\end{center}
+Choosing $\sigma$ \emph{is} choosing a social welfare criterion. Problem 2.8 showed this has
+real bite: it flipped the ranking of two countries at $\sigma^{\ast} \approx 2.07$.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Plotting code}]
+\footnotesize
+\begin{verbatim}
+import numpy as np, matplotlib.pyplot as plt
+
+def c_rich(c_poor, Ubar, sigma):
+    br = 2*Ubar*(1-sigma) - c_poor**(1-sigma)
+    with np.errstate(invalid="ignore"):
+        out = np.where(br > 0, np.abs(br)**(1/(1-sigma)), np.inf)
+    return out
+
+panels = [(0.5, [2, np.sqrt(10), 4]), (2, [-1, -0.4, -0.25]),
+          (5, [-0.25, -4/54, -4.0**-5]), (11, [-0.1, -4.0**10/10**11, -4.0**-10/10])]
+
+fig, axes = plt.subplots(2, 2, figsize=(10, 9))
+cp = np.linspace(0.01, 10, 2000)
+for ax, (sig, Us) in zip(axes.ravel(), panels):
+    for U in Us:
+        ax.plot(cp, c_rich(cp, U, sig), lw=1.4, label=f"Ubar={U:.3g}")
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    ax.plot([0, 10], [0, 10], ls=":", c="gray", lw=.8)     # 45-degree line
+    ax.set_title(f"sigma = {sig}"); ax.set_xlabel("c_Poor")
+    ax.set_ylabel("c_Rich"); ax.legend(fontsize=7)
+plt.tight_layout()
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%======================================================================
+\section{Chapter 3 \quad Basic Facts about Economic Growth}
+%======================================================================
+
+\begin{tcolorbox}[theorybox,title={Chapter 3 Overview}]
+\textbf{What this chapter is for.} Before building a model of growth, establish the facts it
+has to explain. All three exercises are \textbf{empirical} --- they ask you to go and look.
+
+\medskip
+\textbf{The very long run.} Living standards were roughly flat for millennia and then took
+off around 1800. Compounding does the work: $1.5\%$ a year sounds trivial and multiplies
+income by $4.4$ over a century.
+
+\medskip
+\textbf{The Kaldor facts.} Over long horizons in developed economies: (1) $Y/L$ grows at a
+roughly constant rate; (2) $K/L$ grows at a roughly constant rate; (3) $K/Y$ is roughly
+constant; (4) the return on capital is roughly constant; (5) factor shares are roughly
+constant. Facts 2 and 3 together imply fact 4, but it is stated separately because the
+behaviour of $r$ matters independently. These five facts are the target the Solow model of
+Chapter 4 is built to hit.
+
+\medskip
+\textbf{Across countries.} Initially-rich countries grow at similar, middling rates.
+Initially-poor countries show \emph{enormous} dispersion --- Korea and Botswana race ahead
+while Congo and Madagascar fall further behind. So there is \textbf{no absolute convergence}
+in the world sample. Whether there is convergence \emph{within} more homogeneous groups is
+exactly what Exercise 3.3 asks.
+
+\medskip
+\textbf{Reading growth data.} Always plot income in \textbf{logs}: then a constant growth
+rate is a straight line and the \emph{slope} is the growth rate. Comparing slopes across
+countries is comparing growth; comparing heights is comparing levels.
+\end{tcolorbox}
+
+\begin{tcolorbox}[databox,title={All three exercises in this chapter are data exercises}]
+Exercises 3.1--3.3 require downloading the Maddison Project Database and the Penn World
+Table. No numerical answers are asserted below. For each one I give the exact procedure, the
+pattern you should expect to find and why, and runnable code. Where I give an approximate
+historical figure it is flagged as approximate --- the precise answer depends on the data
+release and the PPP benchmark year, which is itself part of the lesson.
+\end{tcolorbox}
+
+%---- Topic: Long-Run Growth and Historical Comparisons ----
+\subsection{Long-Run Growth and Historical Comparisons}
+
+%------- 3.1 -------
+% Topic: Long-Run Growth and Historical Comparisons
+% Keywords: Maddison Project, historical GDP per capita, compounding, PPP benchmark, level comparisons
+\begin{tcolorbox}[oddbox,title={Problem 3.1 \quad The Past is a Foreign Country}]
+\begin{tcolorbox}[questionbox]
+Find the data compiled by Bolt et al.\ (2018) at
+\url{https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2018}.
+Starting from 1800, look up the US GDP per capita at intervals of one decade. For each of
+these points in time, find the country that currently has the closest GDP per capita to the
+past US level. When did the US become richer than present-day India, present-day China, and
+present-day Portugal?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Procedure.} Download \texttt{mpd2018.xlsx}, sheet \texttt{Full data}. The
+variable you want is \texttt{cgdppc} (real GDP per capita in 2011 US dollars, PPP-adjusted),
+which is the one constructed for \emph{cross-country level} comparisons --- as opposed to
+\texttt{rgdpnapc}, which is built for comparisons \emph{over time within} a country. Getting
+this choice right is the whole methodological point of the exercise: you are comparing the
+past US to the present of other countries, which is a level comparison across both time and
+space.
+
+Then, for each decade $t \in \{1800, 1810, \ldots\}$, find the country $j$ minimising
+$\left|y^{US}_t - y^{j}_{\text{latest}}\right|$.
+
+\item \textbf{Approximate answers --- verify these against the data yourself.}
+
+The threshold years are found by locating where the US series crosses each country's current
+level:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Present-day country} & \textbf{Approx.\ current level} & \textbf{US passed it around} \\
+\midrule
+India    & \$6,000--7,000   & the \textbf{1870s--1880s} \\
+China    & \$13,000--16,000 & the \textbf{1900s--1910s} \\
+Portugal & \$27,000--30,000 & the \textbf{1940s--1950s} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{tcolorbox}[databox,title={Treat these as orders of magnitude, not answers}]
+China's level in particular moves fast --- its GDP per capita roughly doubled in the decade
+before the 2018 release --- so the crossing year is sensitive to the vintage. Report the year
+\emph{and} the release you used.
+\end{tcolorbox}
+
+\item \textbf{What the exercise is teaching.} Three things, in increasing order of
+importance:
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{The magnitude of modern growth.} The US of the 1880s --- railroads,
+      telegraphs, mass steel --- had roughly the material living standard of India today.
+      Two centuries of compounding at rates that look small in any given year produced a
+      gap of more than an order of magnitude.
+\item \textbf{Time and space are interchangeable measures of development.} ``How rich is
+      India?'' and ``how far back is the US equivalent?'' are the same question. This is
+      what makes the title apt.
+\item \textbf{The comparison is cruder than it looks.} An 1880 American and a 2018 Indian
+      with the same measured real income do not consume remotely the same bundle. The Indian
+      has antibiotics, vaccines, mobile telephony and electricity; the American had none of
+      them. Chained price indices (Chapter 1) cannot handle goods that did not exist ---
+      the \textbf{new-goods bias} --- so this kind of comparison almost certainly
+      \emph{understates} how much better off the present-day poor country is. That caveat is
+      worth stating in your answer.
+\end{itemize}
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Code}]
+\footnotesize
+\begin{verbatim}
+import pandas as pd
+
+mpd = pd.read_excel("mpd2018.xlsx", sheet_name="Full data")
+us  = mpd[mpd.countrycode == "USA"].set_index("year")["cgdppc"]
+
+latest = (mpd.dropna(subset=["cgdppc"]).sort_values("year")
+             .groupby("country").tail(1).set_index("country")["cgdppc"])
+
+for decade in range(1800, 2011, 10):
+    if decade in us.index and pd.notna(us[decade]):
+        match = (latest - us[decade]).abs().idxmin()
+        print(f"{decade}  US = {us[decade]:8,.0f}   closest today: {match} "
+              f"({latest[match]:,.0f})")
+
+for target in ["India", "China", "Portugal"]:
+    lvl = latest[target]
+    crossed = us[us > lvl]
+    print(f"US passed present-day {target} (${lvl:,.0f}) in {crossed.index.min()}")
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: The Kaldor Facts ----
+\subsection{The Kaldor Facts}
+
+%------- 3.2 -------
+% Topic: The Kaldor Facts
+% Keywords: Kaldor facts, Penn World Table, capital-output ratio, labor share, balanced growth
+\begin{tcolorbox}[evenbox,title={Problem 3.2 \quad The Kaldor Facts in Other Countries}]
+\begin{tcolorbox}[questionbox]
+Look up GDP accounts for some countries other than the US (a good source is
+\url{https://www.rug.nl/ggdc/productivity/pwt/}). Reproduce Figures 3.2.1--3.2.3 using data
+from those countries (try a rich country, a middle-income country and a poor country). Do the
+Kaldor facts seem to hold for those countries as well?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{What to build, and from which PWT variables.}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Kaldor fact} & \textbf{Plot} & \textbf{PWT 10.x variables} \\
+\midrule
+1. $Y/L$ grows steadily & $\ln(Y/L)$ vs year & \texttt{rgdpna} / \texttt{emp} \\
+2. $K/L$ grows steadily & $\ln(K/L)$ vs year & \texttt{rnna} / \texttt{emp} \\
+3. $K/Y$ constant       & $K/Y$ vs year      & \texttt{rnna} / \texttt{rgdpna} \\
+5. Factor shares constant & labour share vs year & \texttt{labsh} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Use \texttt{rgdpna} (national-accounts real GDP) for \emph{within-country over time}, not
+\texttt{cgdpo}. Fact 4 (the return on capital) is not directly observed; it can be inferred
+from \texttt{labsh} and $K/Y$ via $r + \delta = \alpha \frac{Y}{K}$.
+
+\item \textbf{Suggested countries and what to expect.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=4pt,topsep=2pt]
+\item \textbf{Rich (e.g.\ France, Japan, Canada).} The facts should hold reasonably well
+      --- this is the sample Kaldor generalised from. Expect a caveat: Japan's $K/Y$ rose
+      substantially through its high-investment era and its growth rate is clearly \emph{not}
+      constant (rapid to 1990, then flat), so ``constant growth'' holds only piecewise.
+      Labour shares in most rich countries have \textbf{drifted down} since around 1980 ---
+      a well-documented violation of fact 5 and an active research area.
+\item \textbf{Middle-income (e.g.\ Brazil, Mexico, Thailand).} Expect the facts to hold
+      \emph{much} worse. Brazil is a good case precisely because it fails so visibly: rapid
+      growth to about 1980, then the lost decade, then stagnation. $\ln(Y/L)$ is not a
+      straight line by any reading. $K/Y$ moves substantially.
+\item \textbf{Poor (e.g.\ Madagascar, Congo, Malawi).} Expect the facts to fail badly.
+      $\ln(Y/L)$ may be \emph{flat or falling} over decades. Data quality is also weakest
+      here --- a point worth making explicitly rather than treating the series as gospel.
+\end{itemize}
+
+\item \textbf{The answer to the question as asked: the Kaldor facts are properties of
+economies on a balanced growth path, not laws of nature.}
+
+They hold approximately for rich countries over long horizons --- which is exactly the domain
+Kaldor proposed them for --- and they \textbf{fail systematically for countries that are not
+on such a path.} That is not a defect of the data; it is informative. A country in the middle
+of a growth miracle or a growth disaster is \emph{in transition}, and the Solow model
+(Chapter 4) predicts that transitional dynamics look precisely like this: $K/Y$ rising as a
+country accumulates towards its steady state, $Y/L$ growth decelerating as diminishing
+returns bite.
+
+\textbf{So the honest conclusion has two parts:} the facts describe steady states well, and
+most of the world is not in a steady state. Chapter 5 takes this up directly when it asks
+whether capital accumulation alone can account for cross-country income differences.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Code}]
+\footnotesize
+\begin{verbatim}
+import pandas as pd, numpy as np, matplotlib.pyplot as plt
+
+pwt = pd.read_excel("pwt1001.xlsx", sheet_name="Data")
+countries = ["France", "Brazil", "Madagascar"]     # rich / middle / poor
+
+fig, axes = plt.subplots(3, 3, figsize=(13, 10), sharex=True)
+for row, ctry in enumerate(countries):
+    d = pwt[pwt.country == ctry].set_index("year")
+    y_l = d.rgdpna / d.emp                          # fact 1
+    k_l = d.rnna   / d.emp                          # fact 2
+    k_y = d.rnna   / d.rgdpna                       # fact 3
+
+    axes[row,0].plot(np.log(y_l));  axes[row,0].set_ylabel(f"{ctry}\nlog(Y/L)")
+    axes[row,1].plot(np.log(k_l));  axes[row,1].set_ylabel("log(K/L)")
+    axes[row,2].plot(k_y);          axes[row,2].set_ylabel("K/Y")
+    print(ctry, "labour share: first", d.labsh.dropna().iloc[0].round(3),
+                "last", d.labsh.dropna().iloc[-1].round(3))
+plt.tight_layout()
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: Growth Across Countries and Convergence ----
+\subsection{Growth Across Countries and Convergence}
+
+%------- 3.3 -------
+% Topic: Growth Across Countries and Convergence
+% Keywords: absolute convergence, conditional convergence, club convergence, scatterplot, regional samples
+\begin{tcolorbox}[oddbox,title={Problem 3.3 \quad Within-Region Convergence}]
+\begin{tcolorbox}[questionbox]
+Look up cross-country GDP data (a good source is
+\url{https://www.rug.nl/ggdc/productivity/pwt/}). For each country, compute average
+GDP-per-capita growth 1960--2014. Produce a scatterplot of growth against initial GDP per
+capita like Figure 3.3.1 but separately for countries in each of three regions of the world:
+Europe, Latin America and Africa. Is it the case in any of these regions that initially-poor
+countries have grown faster?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{tcolorbox}[theorybox,title={This is question 3 of Lista de Exerc\'icios 1 (2 pts)}]
+The Lista assigns this exercise directly. Note that it is a \textbf{data exercise} --- you
+will need to download the Penn World Table and actually produce three scatterplots. Budget
+time for it; it is not a paper-and-pencil question. Deliver the three plots plus the fitted
+slopes.
+\end{tcolorbox}
+
+\begin{enumerate}
+
+\item \textbf{Procedure.} For each country with data in both years, compute the average
+annual growth rate
+$$g_i = \left(\frac{y_{i,2014}}{y_{i,1960}}\right)^{1/54} - 1$$
+and plot $g_i$ against $\ln y_{i,1960}$ (logs on the horizontal axis --- this is the standard
+convention and makes the convergence slope interpretable). Fit a line to each regional
+subsample. \textbf{A negative slope is evidence of convergence.}
+
+\item \textbf{What you should find, and why.}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Region} & \textbf{Expected slope} & \textbf{Reading} \\
+\midrule
+\textbf{Europe} & clearly \textbf{negative} & strong convergence \\
+\textbf{Latin America} & mildly negative or flat & weak / no convergence \\
+\textbf{Africa} & flat or \textbf{positive} & no convergence; possible divergence \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=4pt,topsep=2pt]
+\item \textbf{Europe converges, and convincingly.} In 1960 Portugal, Spain, Greece and
+      Ireland were far poorer than Germany, France and the UK; by 2014 the gap had narrowed
+      dramatically. Ireland is the extreme case. Add the post-1990 Eastern European countries
+      and the negative slope is stronger still.
+\item \textbf{Latin America shows little.} Countries started at broadly similar middle-income
+      levels and mostly stayed there --- the region as a whole failed to converge on the US.
+      Within-region dispersion did not narrow much; Venezuela moved sharply in the wrong
+      direction.
+\item \textbf{Africa shows none, and possibly the reverse.} Botswana and Mauritius grew
+      rapidly from low bases while Congo, Madagascar, Niger and the Central African Republic
+      stagnated or shrank. Initial income predicts almost nothing.
+\end{itemize}
+
+\item \textbf{Interpretation --- this is the distinction between absolute and conditional
+convergence.} The exercise is engineered to make the point that \emph{the world sample shows
+no absolute convergence, but sub-samples can}.
+
+The Solow model predicts that each country converges to \textbf{its own} steady state $k^\ast$,
+which depends on its $s$, $n$, $\delta$ and technology. That gives \textbf{conditional
+convergence}: countries approach \emph{their own} target, faster the further away they are.
+It gives \emph{absolute} convergence only if all countries share the same steady state.
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item Within \textbf{Europe} --- similar institutions, similar saving and demographic rates,
+      free movement of capital, technology and labour, and for many the disciplining effect
+      of EU accession --- the assumption of a \emph{common} steady state is roughly
+      defensible. So conditional convergence shows up as absolute convergence.
+\item Within \textbf{Africa}, steady states differ enormously: institutions, conflict, health,
+      schooling, geography and policy vary far more than initial income does. Countries are
+      converging, but to widely different targets, so nothing shows up in a plot against
+      initial income alone.
+\end{itemize}
+
+This is the phenomenon of \textbf{convergence clubs}. Homogeneous groups converge internally;
+the world as a whole does not.
+
+\item \textbf{The caveat that earns marks.} Restricting attention to a region conditions on
+\emph{observable} regional membership, but it is still not the same as controlling for $s$
+and $n$ directly. A proper conditional-convergence test regresses
+$$g_i = \beta_0 + \beta_1 \ln y_{i,1960} + \beta_2 \ln s_i + \beta_3 \ln(n_i + g + \delta)
++ \varepsilon_i$$
+and asks whether $\beta_1 < 0$. The regional split is a crude, transparent proxy for that.
+Also beware \textbf{selection}: requiring data in both 1960 and 2014 drops exactly the
+countries whose statistical systems collapsed --- typically the worst performers --- which
+biases African growth \emph{upward} and understates divergence.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Code}]
+\footnotesize
+\begin{verbatim}
+import pandas as pd, numpy as np, matplotlib.pyplot as plt
+
+pwt = pd.read_excel("pwt1001.xlsx", sheet_name="Data")
+pwt["y"] = pwt.rgdpna / pwt.pop
+
+w = (pwt[pwt.year.isin([1960, 2014])]
+       .pivot(index="country", columns="year", values="y").dropna())
+w["g"]    = (w[2014] / w[1960]) ** (1/54) - 1
+w["ly60"] = np.log(w[1960])
+
+regions = {
+ "Europe":  ["France","Germany","Italy","Spain","Portugal","Greece","Ireland",
+             "Netherlands","Belgium","Austria","Denmark","Sweden","Norway",
+             "Finland","Switzerland","United Kingdom"],
+ "Latin America": ["Brazil","Argentina","Chile","Colombia","Peru","Mexico",
+             "Uruguay","Venezuela (Bolivarian Republic of)","Ecuador","Bolivia (Plurinational State of)",
+             "Paraguay","Costa Rica","Panama","Guatemala","Honduras"],
+ "Africa":  ["Botswana","Kenya","Nigeria","Ghana","Senegal","Cameroon","Niger",
+             "Malawi","Zambia","Zimbabwe","Mozambique","Madagascar","Mauritius",
+             "South Africa","Central African Republic"],
+}
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), sharey=True)
+for ax, (name, members) in zip(axes, regions.items()):
+    d = w[w.index.isin(members)]
+    ax.scatter(d.ly60, d.g)
+    b, a = np.polyfit(d.ly60, d.g, 1)                 # slope, intercept
+    xs = np.linspace(d.ly60.min(), d.ly60.max(), 10)
+    ax.plot(xs, a + b*xs, "r-")
+    ax.set_title(f"{name}: slope = {b:+.4f}")
+    ax.set_xlabel("log GDP per capita, 1960")
+axes[0].set_ylabel("average growth 1960-2014")
+plt.tight_layout()
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%======================================================================
+\section{Chapter 4 \quad The Solow Growth Model}
+%======================================================================
+
+\begin{tcolorbox}[theorybox,title={Chapter 4 Overview}]
+\textbf{The assumptions on $F$} (numbered as in \S4.1, and you will need them by number in
+Problem 4.4):
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{4.1 Constant Returns to Scale:} $F(\lambda K, \lambda L) = \lambda F(K,L)$.
+\item \textbf{4.2 Positive Marginal Product:} $F_K > 0$, $F_L > 0$.
+\item \textbf{4.3 Diminishing Marginal Product:} $F_{KK} < 0$, $F_{LL} < 0$.
+\item \textbf{4.4 Inada Conditions:} $\lim_{K\to 0}F_K = \infty$, $\lim_{K\to\infty}F_K = 0$.
+\item \textbf{4.5 Population:} $L_{t+1} = (1+n)L_t$, with $n$ exogenous.
+\end{itemize}
+CRS is what lets us work per worker: $y = f(k)$ with $k = K/L$.
+
+\medskip
+\textbf{Mechanics (\S4.2).} $\;k_{t+1} = \dfrac{(1-\delta)k_t + s f(k_t)}{1+n}$, with steady
+state $s f(k\stst) = (n+\delta)k\stst$. It is globally stable, and Inada guarantees it exists
+and is unique. \textbf{The steady state depends on $s$, $n$, $\delta$ --- never on the initial
+$k_0$.} This single fact answers Problems 4.1 and 4.2.
+
+\medskip
+\textbf{Golden Rule (\S4.3).} $f'(k_{gold}) = n+\delta$; with Cobb--Douglas, $s_{gold} = \alpha$.
+
+\medskip
+\textbf{Factor markets (\S4.4).} The results Problem 4.3 runs on:
+$$r^K = F_K(k,1), \qquad w = F_L(1, 1/k), \qquad \boxed{r = r^K - \delta} \;\;\text{(eq.\ 4.4.12)}$$
+With Cobb--Douglas $Y = K^\alpha L^{1-\alpha}$:
+$$r^K = \alpha k^{\alpha-1}, \qquad w = (1-\alpha)k^{\alpha}$$
+so \textbf{high $k$ means high wages and a low return on capital}, and vice versa. Profits are
+zero (Proposition 4.2) --- all output goes to workers or to capital owners.
+
+\medskip
+\textbf{Technological progress (\S4.5).} Only with $A_{t+1}=(1+g)A_t$ does the model deliver
+long-run growth in $y$, and it does so \emph{by assumption}. Without it, the Solow model
+predicts no long-run growth in GDP per capita at all.
+\end{tcolorbox}
+
+%---- Topic: Comparative Statics --- Shocks to Capital and Labour ----
+\subsection{Comparative Statics --- Shocks to Capital and Labour}
+
+%------- 4.1 -------
+% Topic: Comparative Statics --- Shocks to Capital and Labour
+% Keywords: steady state independence of initial conditions, transitional dynamics, convergence, factor prices
+\begin{tcolorbox}[oddbox,title={Problem 4.1 \quad An Earthquake}]
+\begin{tcolorbox}[questionbox]
+Suppose an economy behaves according to the Solow growth model. It starts out at $t=0$ at a
+steady state, with no technological progress and no population growth. Suppose an earthquake
+destroys half the capital stock. As a consequence of this, what would happen in the short run
+(i.e.\ immediately) and in the long run (i.e.\ once the economy reaches steady state) to:
+(a) GDP, (b) GDP per capita, (c) wages, (d) interest rates.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{tcolorbox}[theorybox,title={This is question 4 of Lista de Exerc\'icios 1 (3 pts)}]
+The Lista uses this exercise almost verbatim, then adds a part (b) in which the population
+growth rate is \emph{also} halved because people emigrate. That extension changes the
+long-run answer --- see the note at the end of this solution.
+\end{tcolorbox}
+
+\emph{Setup.} $n = 0$, $g = 0$. The initial steady state satisfies $s f(k\stst) = \delta k\stst$.
+The earthquake sets $K \to K/2$ with $L$ unchanged, so
+$$k_0 = \frac{k\stst}{2}$$
+
+\textbf{The organising principle: $k\stst$ depends only on $s$, $n$, $\delta$ and the
+production function --- not on the initial condition.} The earthquake changes the initial
+condition and nothing else. Therefore \textbf{every long-run answer is ``returns to exactly
+where it was''}, and all the action is in the transition.
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\textbf{Variable} & \textbf{Short run} & \textbf{Long run} & \textbf{Because} \\
+\midrule
+(a) GDP          & $\downarrow$ & back to original & $Y = F(K,L)$, $K$ halved \\
+(b) GDP per capita & $\downarrow$ & back to original & $y = f(k)$, $k$ halved \\
+(c) Wages        & $\downarrow$ & back to original & $w = (1-\alpha)k^\alpha$ \\
+(d) Interest rate & $\uparrow$   & back to original & $r = \alpha k^{\alpha-1} - \delta$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+
+\item \textbf{GDP falls immediately, but by \emph{less} than half.} With Cobb--Douglas,
+$$\frac{Y_{new}}{Y_{old}} = \left(\frac{K/2}{K}\right)^{\alpha} = \left(\tfrac12\right)^{\alpha}$$
+With $\alpha = 1/3$ this is $0.5^{1/3} = 0.794$, so GDP falls about $21\%$ --- not $50\%$.
+The reason is \textbf{diminishing returns} (Assumption 4.3): the capital destroyed was the
+\emph{least} productive capital at the margin, and labour is unaffected.
+
+In the long run $k$ returns to $k\stst$ and $Y$ returns to its original level.
+
+\item \textbf{GDP per capita: same as (a).} Since $L$ is unchanged, $y = Y/L$ moves exactly
+in proportion to $Y$. Falls by $1 - 0.5^\alpha$ on impact, returns fully in the long run.
+
+\item \textbf{Wages fall.} $w = F_L = (1-\alpha)k^{\alpha}$ is \emph{increasing} in $k$.
+Workers have less capital to work with, so labour's marginal product falls:
+$$\frac{w_{new}}{w_{old}} = \left(\tfrac12\right)^{\alpha}$$
+the same proportional drop as output --- because with Cobb--Douglas the labour share is
+constant at $1-\alpha$, so $w$ and $y$ always move together. Returns to the original level in
+the long run.
+
+\item \textbf{Interest rates rise.} $r = r^K - \delta = \alpha k^{\alpha-1} - \delta$ is
+\emph{decreasing} in $k$ (Assumption 4.3 again). Capital is now scarce, so its marginal
+product is high:
+$$r^K_{new} = \alpha\left(\tfrac{k\stst}{2}\right)^{\alpha-1}
+= 2^{\,1-\alpha}\,\alpha (k\stst)^{\alpha-1} = 2^{\,1-\alpha}\, r^K_{old}$$
+With $\alpha = 1/3$ the rental rate rises by a factor $2^{2/3} = 1.587$, i.e.\ about $59\%$.
+Returns to the original level in the long run.
+
+\end{enumerate}
+
+\textbf{The transition, which is the economically interesting part.} At $k_0 = k\stst/2$ we
+have $k < k\stst$, so
+$$s f(k_0) > \delta k_0$$
+--- investment exceeds depreciation, and $k$ \emph{rises} back towards $k\stst$. During this
+period the economy grows \textbf{faster than its long-run rate} (which is zero here). Growth
+is fastest immediately after the shock and slows as $k$ approaches $k\stst$.
+
+\textbf{Why this matters empirically.} This is the Solow model's explanation of the post-war
+German and Japanese ``growth miracles''. Wartime destruction pushed $k$ far below $k\stst$;
+the rapid growth that followed was not a change in those countries' fundamentals but
+\textbf{convergence back to an unchanged steady state}. It is also the model's prediction
+that natural disasters have no permanent effect on income --- a prediction that holds up
+reasonably well for rich countries with intact institutions, and much less well where the
+disaster damages institutions or human capital, neither of which is in the model.
+
+\begin{tcolorbox}[theorybox,title={Extension in Lista 1: what if $n$ halves too?}]
+The Lista adds that people emigrate, halving the population growth rate $n$. Now the shock
+hits a \emph{parameter}, not just the initial condition, so the long-run answer changes:
+$$k\stst = \left(\frac{s}{n+\delta}\right)^{\frac{1}{1-\alpha}}
+\quad\Longrightarrow\quad n \downarrow \;\Rightarrow\; k\stst \uparrow$$
+\textbf{GDP per capita ends up \emph{higher} than before the earthquake}, along with wages;
+the interest rate ends up \emph{lower}. Total GDP is ambiguous in level terms and grows more
+slowly ($n$ is lower). Note the exercise says $n=0$ initially --- if you read ``halved'' as
+applying to a strictly positive $n$, say so explicitly; if $n = 0$ then halving it changes
+nothing and the answer reverts to the base case. \textbf{State which reading you adopt} ---
+this ambiguity is the kind of thing the rubric in \texttt{rules/00\_estilo\_avaliacao.md}
+treats as a residual risk.
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 4.2 -------
+% Topic: Comparative Statics --- Shocks to Capital and Labour
+% Keywords: Black Death, labour scarcity, capital deepening, factor prices, historical evidence
+\begin{tcolorbox}[evenbox,title={Problem 4.2 \quad The Black Death}]
+\begin{tcolorbox}[questionbox]
+In the middle of the 14th century, a plague killed about a third of the population of Europe.
+Assume that the economy of Europe was well described by the Solow model. How would the
+following variables change in response to the Black Death in the short run (i.e.\
+immediately)? (a) GDP, (b) GDP per capita, (c) wages, (d) interest rates.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\emph{Setup.} $L \to \tfrac{2}{3}L$ with $K$ unchanged. Therefore
+$$k = \frac{K}{L} \;\longrightarrow\; \frac{K}{(2/3)L} = \tfrac{3}{2}k$$
+\textbf{Capital per worker rises by 50\%.} This problem is the mirror image of 4.1: there
+capital was destroyed and $k$ fell; here labour is destroyed and $k$ rises. Every sign flips.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable} & \textbf{Short run} & \textbf{With $\alpha = 1/3$} \\
+\midrule
+(a) GDP            & $\downarrow$ & $\times (2/3)^{1-\alpha} = 0.763$ \quad ($-24\%$) \\
+(b) GDP per capita & $\uparrow$   & $\times (3/2)^{\alpha} = 1.145$ \quad ($+15\%$) \\
+(c) Wages          & $\uparrow$   & $\times (3/2)^{\alpha} = 1.145$ \quad ($+15\%$) \\
+(d) Interest rate  & $\downarrow$ & $r^K \times (3/2)^{\alpha-1} = 0.874$ \quad ($-13\%$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+
+\item \textbf{GDP falls.} Fewer workers, same capital:
+$$\frac{Y_{new}}{Y_{old}} = \left(\frac{2}{3}\right)^{1-\alpha}$$
+With $\alpha = 1/3$: $(2/3)^{2/3} = 0.763$, so total output falls about $24\%$. Note it falls
+by \emph{less} than the third of the population that died --- diminishing returns again, this
+time to labour.
+
+\item \textbf{GDP per capita \emph{rises}.}
+$$\frac{y_{new}}{y_{old}} = \left(\frac{k_{new}}{k_{old}}\right)^{\alpha}
+= \left(\tfrac{3}{2}\right)^{1/3} = 1.145$$
+about $+15\%$. This is the striking result and the point of the exercise: \textbf{the
+survivors were, on average, materially better off.} Output fell by less than population did,
+so output per head rose.
+
+\item \textbf{Wages rise, by the same $15\%$.} $w = (1-\alpha)k^\alpha$ and $k$ rose. Labour
+became the scarce factor and its marginal product rose accordingly.
+
+\textbf{This is the model's most successfully tested prediction.} Real wages in England
+roughly doubled over the century following 1348, and the historical record shows exactly the
+pattern the model implies: acute labour scarcity, landlords competing for tenants and
+labourers, and legislative attempts to suppress the adjustment --- the English Statute of
+Labourers of 1351 tried to fix wages at pre-plague levels and largely failed. That legislation
+is itself evidence that wages were rising sharply.
+
+\item \textbf{Interest rates fall.} $r^K = \alpha k^{\alpha - 1}$ is decreasing in $k$:
+$$\frac{r^K_{new}}{r^K_{old}} = \left(\tfrac{3}{2}\right)^{\alpha-1}
+= \left(\tfrac{3}{2}\right)^{-2/3} = 0.874$$
+Capital became abundant relative to labour, so its return fell. Since $r = r^K - \delta$, the
+interest rate falls by the same absolute amount as the rental rate. Land rents fell for the
+same reason --- another well-documented feature of the post-plague period.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={The long run --- and why history did not stay there}]
+The question asks only about the short run, but the long run is worth a sentence. With $n$
+unchanged, population recovers, $k$ falls back to $k\stst$, and \textbf{wages and income per
+head return to their original levels.} The gains to survivors were transitory.
+
+That is roughly what happened historically over the following two centuries --- and it is
+precisely the \textbf{Malthusian} mechanism of Problem 4.5, where population growth responds
+endogenously to living standards. In the Solow model with exogenous $n$ the return to
+$k\stst$ is mechanical; in the Malthusian model it is \emph{driven} by the high living
+standards themselves. Problem 4.5 makes that explicit.
+\end{tcolorbox}
+
+\begin{tcolorbox}[theorybox,title={Comparing 4.1 and 4.2 --- the pairing is deliberate}]
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{4.1 Earthquake ($K\downarrow$)} & \textbf{4.2 Plague ($L\downarrow$)} \\
+\midrule
+$k = K/L$          & falls & \textbf{rises} \\
+GDP                & falls & falls \\
+GDP per capita     & falls & \textbf{rises} \\
+Wages              & falls & \textbf{rises} \\
+Interest rate      & rises & \textbf{falls} \\
+\bottomrule
+\end{tabular}
+\end{center}
+Both shocks reduce total output. They have \textbf{opposite} effects on everything per-capita
+and on both factor prices, because they move $k$ in opposite directions. If you can state
+\emph{why} --- factor prices are determined by $k$ alone, via $w = (1-\alpha)k^\alpha$ and
+$r^K = \alpha k^{\alpha-1}$ --- you have understood \S4.4.
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: Factor Markets and Factor Prices ----
+\subsection{Factor Markets and Factor Prices}
+
+%------- 4.3 -------
+% Topic: Factor Markets and Factor Prices
+% Keywords: marginal products, wages, rental rate, factor mobility, Jensen inequality, gains from integration
+\begin{tcolorbox}[oddbox,title={Problem 4.3 \quad Korean Unification}]
+\begin{tcolorbox}[questionbox]
+Suppose both North and South Korea have the same technology level (!?), which doesn't grow,
+and also have constant population. Their respective populations and capital stocks are
+$L_{South} = 10$, $K_{South} = 2430$, $L_{North} = 5$, $K_{North} = 160$. The production
+function is $Y = K^{\alpha}L^{1-\alpha}$ with $\alpha = 0.4$. The depreciation rate is
+$\delta = 0.08$.\\[3pt]
+(a) Compute GDP per capita in each country.\\
+(b) Compute wages and interest rates in each country.\\
+(c) Suppose North and South Korea unify. What is the new $\frac{K}{L}$ in the unified
+country? What is GDP per capita in the unified country?\\
+(d) Compute wages and interest rates in the unified country. Interpret.\\
+(e) Will people and/or machines physically move between the North and the South? In what
+direction?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\emph{Formulas.} With $Y = K^{0.4}L^{0.6}$:
+$$y = f(k) = k^{0.4}, \qquad w = F_L = (1-\alpha)k^{\alpha} = 0.6\,k^{0.4},$$
+$$r^K = F_K = \alpha k^{\alpha-1} = 0.4\,k^{-0.6}, \qquad r = r^K - \delta = r^K - 0.08$$
+
+\begin{enumerate}
+
+\item \textbf{GDP per capita.} The numbers are chosen to come out exactly:
+$$k_S = \frac{2430}{10} = 243 = 3^5 \;\Longrightarrow\; y_S = 243^{0.4} = (3^5)^{0.4} = 3^2
+= \boxed{9}$$
+$$k_N = \frac{160}{5} = 32 = 2^5 \;\Longrightarrow\; y_N = 32^{0.4} = (2^5)^{0.4} = 2^2
+= \boxed{4}$$
+\checkmark\ Total output: $Y_S = 9 \times 10 = 90$ and $Y_N = 4 \times 5 = 20$.
+
+The South is $2.25$ times richer per head, purely because it has $7.6$ times more capital per
+worker.
+
+\item \textbf{Wages and interest rates.}
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+& $k$ & $w = 0.6\,k^{0.4}$ & $r^K = 0.4\,k^{-0.6}$ & $r = r^K - 0.08$ \\
+\midrule
+South & 243 & $0.6 \times 9 = \mathbf{5.4}$ & $0.4/27 = \mathbf{0.01481}$ & $\mathbf{-0.0652}$ \\
+North & 32  & $0.6 \times 4 = \mathbf{2.4}$ & $0.4/8 \;= \mathbf{0.05000}$ & $\mathbf{-0.0300}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\checkmark\ Exact: $243^{-0.6} = 3^{-3} = 1/27$ and $32^{-0.6} = 2^{-3} = 1/8$.
+
+\textbf{Southern workers earn $2.25\times$ Northern workers; Northern capital earns
+$3.4\times$ Southern capital.} That is the whole economics of the problem: each factor is
+better paid where it is scarcer.
+
+\begin{tcolorbox}[databox,title={Both interest rates are negative --- say so}]
+$r_S = -6.52\%$ and $r_N = -3.00\%$. This is a property of the numbers the problem chose, not
+an error: $\delta = 0.08$ exceeds the marginal product of capital in \emph{both} economies.
+Economically it means both are over-capitalised --- they hold more capital than is worth
+maintaining, and are dynamically inefficient in the sense of \S4.3. Neither would be in a
+steady state with a sensible saving rate. Flag this rather than quietly reporting a negative
+number.
+\end{tcolorbox}
+
+\item \textbf{Unification.} Capital and labour pool:
+$$k_U = \frac{K_S + K_N}{L_S + L_N} = \frac{2430 + 160}{10 + 5} = \frac{2590}{15}
+= \boxed{172.67}$$
+$$y_U = 172.67^{0.4} = \boxed{7.850}$$
+\checkmark
+
+Note $k_U$ is the \textbf{labour-weighted average} of $k_S$ and $k_N$:
+$\frac{10(243) + 5(32)}{15} = 172.67$. \checkmark
+
+\textbf{Total output rises.} $Y_U = 7.850 \times 15 = 117.75$, against $90 + 20 = 110$
+before --- a gain of $7.75$, about $7\%$, from nothing but reallocation.
+
+\emph{Why is this not a violation of constant returns to scale?} CRS says that scaling
+\emph{both} inputs by $\lambda$ scales output by $\lambda$. Here we are not scaling: we are
+\textbf{pooling two economies with different capital--labour ratios}. Since $f$ is strictly
+concave (Assumption 4.3), Jensen's inequality gives
+$$f\!\left(\frac{L_S k_S + L_N k_N}{L_S+L_N}\right) > \frac{L_S f(k_S) + L_N f(k_N)}{L_S+L_N}$$
+$$7.850 > \frac{90+20}{15} = 7.333 \quad\checkmark$$
+\textbf{Equalising $k$ across a given total of capital and labour always raises total
+output}, and the gain is larger the more unequal the initial ratios. This is the general case
+for factor mobility.
+
+\item \textbf{Factor prices in the unified country, and who wins.}
+$$w_U = 0.6 \times 7.850 = \boxed{4.710}, \qquad
+r^K_U = 0.4 \times 172.67^{-0.6} = \boxed{0.01819}, \qquad r_U = \boxed{-0.0618}$$
+\checkmark
+
+\begin{center}
+\begin{tabular}{lrrl}
+\toprule
+& \textbf{Before} & \textbf{After} & \textbf{Effect} \\
+\midrule
+Southern workers      & $5.400$ & $4.710$ & \textbf{lose} $-12.8\%$ \\
+Northern workers      & $2.400$ & $4.710$ & \textbf{gain} $+96.3\%$ \\
+Southern capital ($r^K$) & $0.01481$ & $0.01819$ & \textbf{gain} $+22.8\%$ \\
+Northern capital ($r^K$) & $0.05000$ & $0.01819$ & \textbf{lose} $-63.6\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Interpretation.} Unification is a Kaldor--Hicks improvement --- total output rises by
+$7\%$ --- but it is emphatically \textbf{not} a Pareto improvement. There are clear winners
+and losers, and they are split \emph{by factor, not by country}:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Winners:} Northern \emph{workers} (their wages nearly double) and Southern
+      \emph{capital owners}.
+\item \textbf{Losers:} Southern \emph{workers} and Northern \emph{capital owners}.
+\end{itemize}
+This is the standard political economy of economic integration and of immigration: the
+scarce factor in each region loses when integration makes it less scarce. It explains why
+South Korean workers might rationally oppose a unification that raises aggregate Korean
+output --- and why the aggregate gain, being real, could in principle be used to compensate
+them.
+
+\item \textbf{Direction of movement: capital flows South $\to$ North, labour flows North
+$\to$ South.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{Machines move North.} Capital chases the higher return: $r^K_N = 0.050 >
+      r^K_S = 0.0148$. An investor earns $3.4\times$ more per unit of capital in the North.
+\item \textbf{People move South.} Labour chases the higher wage: $w_S = 5.4 > w_N = 2.4$.
+\end{itemize}
+
+Both flows do the same thing --- they \textbf{equalise $k$} --- and both stop exactly when
+$k_S = k_N = 172.67$, at which point $w$ and $r^K$ are equal everywhere and there is no
+further incentive to move. The model is \textbf{indifferent between the two channels}: only
+$k$ matters, so whether adjustment happens through migration, through capital flows, or
+through any mix of the two, the final allocation and all factor prices are identical.
+
+\emph{What the model leaves out.} In reality the two channels are not interchangeable.
+Capital moves faster and more cheaply than people; migration has social and political costs
+the model does not price; and North Korean workers would not in fact be equally productive
+with Southern capital, because human capital and institutions differ --- which is exactly the
+gap Chapter 5 fills with \textbf{TFP differences}. The German reunification experience, where
+massive capital transfers to the East did \emph{not} equalise productivity, is the obvious
+cautionary case.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+al, de = 0.4, 0.08
+f  = lambda k: k**al
+w  = lambda k: (1-al)*k**al
+rK = lambda k: al*k**(al-1)
+
+for name, K, L in [("South",2430,10), ("North",160,5), ("Unified",2590,15)]:
+    k = K/L
+    print(f"{name:8s} k={k:9.4f} y={f(k):7.4f} Y={f(k)*L:9.4f} "
+          f"w={w(k):7.4f} rK={rK(k):8.5f} r={rK(k)-de:+.5f}")
+# South    k= 243.0000 y= 9.0000 Y=  90.0000 w= 5.4000 rK= 0.01481 r=-0.06519
+# North    k=  32.0000 y= 4.0000 Y=  20.0000 w= 2.4000 rK= 0.05000 r=-0.03000
+# Unified  k= 172.6667 y= 7.8502 Y= 117.7537 w= 4.7101 rK= 0.01819 r=-0.06181
+# gain from pooling: 117.7537 - 110 = +7.7537   (Jensen: f is strictly concave)
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%---- Topic: Alternative Production Technologies ----
+\subsection{Alternative Production Technologies}
+
+%------- 4.4 -------
+% Topic: Alternative Production Technologies
+% Keywords: AK model, endogenous growth, Inada conditions, constant marginal product, saving rate and growth
+\begin{tcolorbox}[evenbox,title={Problem 4.4 \quad An AK Model}]
+\begin{tcolorbox}[questionbox]
+Suppose the production function takes the form $F(K,L) = AK$.\\[3pt]
+(a) Which of the assumptions that we made about $F$ does this satisfy and which does it not
+satisfy?\\
+(b) Suppose every other assumption we used in the Solow model holds, and there is no
+technological progress. Find an expression for $\dfrac{k_{t+1}}{k_t}$ (it may be useful to
+follow the steps that lead to expression (4.2.2)).\\
+(c) Will this economy grow in the long run? Explain.
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Checking the assumptions of \S4.1 one by one.}
+
+\begin{center}
+\begin{tabular}{llp{0.42\textwidth}}
+\toprule
+\textbf{Assumption} & \textbf{Status} & \textbf{Why} \\
+\midrule
+\textbf{4.1} CRS & \textbf{satisfied} & $F(\lambda K,\lambda L)=A\lambda K=\lambda AK=\lambda F(K,L)$ \\[3pt]
+\textbf{4.2} Positive MP & \textbf{fails} & $F_K = A > 0$ \checkmark, but $F_L = 0$. Labour has \emph{zero} marginal product --- it is not a factor of production at all \\[3pt]
+\textbf{4.3} Diminishing MP & \textbf{fails} & $F_{KK} = 0$, not $<0$. The marginal product of capital is \textbf{constant} at $A$ forever. ($F_{LL}=0$ too.) \\[3pt]
+\textbf{4.4} Inada & \textbf{fails, both} & $\lim_{K\to0}F_K = A \ne \infty$ and $\lim_{K\to\infty}F_K = A \ne 0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Only CRS survives}, and Assumption 4.5 (exogenous population growth) is untouched
+since it says nothing about $F$. The failure of \textbf{4.3} is the one that drives
+everything below --- the absence of diminishing returns to capital is the entire content of
+the AK model.
+
+\item \textbf{Deriving $k_{t+1}/k_t$.} Follow the standard steps. Per worker,
+$$y_t = \frac{Y_t}{L_t} = \frac{AK_t}{L_t} = A k_t$$
+so $f(k) = Ak$ --- a straight line through the origin rather than a concave curve. The
+capital accumulation equation is unchanged:
+$$K_{t+1} = (1-\delta)K_t + sY_t$$
+Divide by $L_{t+1} = (1+n)L_t$:
+$$k_{t+1} = \frac{(1-\delta)k_t + s f(k_t)}{1+n} = \frac{(1-\delta)k_t + sAk_t}{1+n}$$
+The $k_t$ factors out:
+$$\boxed{\;\frac{k_{t+1}}{k_t} = \frac{1-\delta+sA}{1+n}\;}$$
+
+\textbf{This is the key result: the growth factor is a constant, completely independent of
+$k_t$.} Contrast with the standard Solow model, where $\frac{k_{t+1}}{k_t}
+= \frac{(1-\delta) + s f(k_t)/k_t}{1+n}$ and the term $f(k)/k$ is \emph{decreasing} in $k$ ---
+that decline is what produces convergence to a steady state. Here $f(k)/k = A$ is constant, so
+the mechanism that generates a steady state is gone.
+
+\item \textbf{Yes, this economy grows forever --- provided $sA$ is large enough --- and this
+is \emph{endogenous} growth.}
+
+The economy grows if and only if $\frac{k_{t+1}}{k_t} > 1$:
+$$\frac{1-\delta+sA}{1+n} > 1 \iff 1-\delta+sA > 1+n
+\iff \boxed{sA > n + \delta}$$
+If this holds, $k$ (and hence $y = Ak$) grows at the \textbf{constant rate}
+$$g_k = \frac{1-\delta+sA}{1+n} - 1 = \frac{sA - n - \delta}{1+n}$$
+forever, with \textbf{no steady state and no convergence}. If $sA < n+\delta$ the economy
+shrinks to zero instead. There is no interior rest point either way.
+
+\textbf{Why the Inada conditions mattered.} In standard Solow, $\lim_{K\to\infty}F_K = 0$
+guarantees that accumulation eventually runs into diminishing returns: each new machine adds
+less, until investment only just covers depreciation and population growth. \textbf{Remove
+diminishing returns and accumulation never runs out of steam.}
+
+\textbf{The economically important consequence: the saving rate affects the long-run growth
+rate, not just the level.}
+$$\frac{\partial g_k}{\partial s} = \frac{A}{1+n} > 0$$
+This is the sharpest possible contrast with Solow, where $s$ affects only $y\stst$ and has
+\emph{no} effect on long-run growth (the ``level effect versus rate effect'' distinction from
+\S4.2). A permanent increase in the saving rate here permanently raises growth. That makes
+policy --- anything that raises $s$ or $A$ --- permanently consequential, which is why the AK
+structure became the workhorse of the first generation of endogenous growth theory.
+
+\textbf{Is it plausible?} The obvious objection is that $F_L = 0$ is absurd: labour clearly
+matters. The standard defence is that $K$ should be read broadly, as \emph{physical plus
+human capital plus knowledge}, and that the constant marginal product proxies for
+\textbf{externalities} --- one firm's capital raises other firms' productivity, so the
+\emph{social} return to capital does not diminish even though the private return does. The
+model is best read as a reduced form for that idea rather than as a literal technology.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+A, s, delta, n = 0.5, 0.3, 0.08, 0.01
+ratio = (1 - delta + s*A) / (1 + n)          # 1.05940594 -- constant
+
+k = 1.0
+for t in range(200):
+    k = ((1-delta)*k + s*A*k) / (1+n)
+print(k, 1.0*ratio**200)   # 102915.498144  102915.498144  -> exactly geometric
+
+print(s*A, delta + n + n*delta)              # 0.15 > 0.0908  -> grows
+print(((1-delta+0.4*A)/(1+n)) - 1)           # s: 0.3->0.4 raises growth 5.94% -> 10.89%
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%------- 4.5 -------
+% Topic: Alternative Production Technologies
+% Keywords: Malthusian model, endogenous population, subsistence, diminishing returns to labour, poverty trap
+\begin{tcolorbox}[oddbox,title={Problem 4.5 \quad A Malthusian Model}]
+\begin{tcolorbox}[questionbox]
+Look up Thomas Malthus and read a little about his work. We are going to formalize a simple
+version of his ideas in a little model. The production function is
+$$Y_t = A_t L_t^{\alpha} \qquad\text{(4.5.5)}$$
+where $A_t$ is technology, $L$ is labor supply and $\alpha < 1$. There is no capital, no
+saving and no investment, so consumption is given by $C_t = Y_t$ (4.5.6). The population
+evolves according to
+$$L_{t+1} = L_t\left(1 + \gamma\left(\frac{C_t}{L_t} - c\right)\right) \qquad\text{(4.5.7)}$$
+where $\gamma$ and $c$ are parameters.\\[3pt]
+(a) Malthus had in mind an agricultural economy where the total amount of land is fixed. What
+does that have to do with the way we wrote down the production function? What is the
+significance of assuming $\alpha < 1$?\\
+(b) What does equation (4.5.7) mean? What is $c$? What is $\gamma$? Why did Malthus think
+that something like equation (4.5.7) applied?\\
+(c) Assume $A_t = A$ is constant over time. Using (4.5.5), (4.5.6) and (4.5.7), find an
+expression for the percentage rate of population growth $\frac{L_{t+1}}{L_t}$ as a function of
+the level of population $L_t$. Plot this function.\\
+(d) Assume $A_t = A$ is constant over time. Will GDP per capita grow in the long run? Will the
+population grow in the long run?\\
+(e) Suppose there is a one-time increase in $A_t$, from $A$ to $A' > A$. What will happen to
+GDP per capita and the size of the population in the short run and in the long run? Show your
+reasoning graphically and/or algebraically.\\
+(f) Suppose now that instead of being constant, technology improves at a constant rate, so
+that $A_{t+1} = A_t(1+g)$. Will GDP per capita grow in the long run? Will the population grow
+in the long run? Explain.\\
+(g) When we have a constant rate of technological progress, how does the long-run level of
+consumption per capita depend on $\gamma$? Why?
+\end{tcolorbox}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+
+\item \textbf{Land is the hidden fixed factor, and $\alpha<1$ is what encodes it.}
+
+Write the ``true'' technology with land $T$ explicitly and constant returns in
+(labour, land): $Y = \tilde A\, L^{\alpha} T^{1-\alpha}$. If land is \textbf{fixed} at
+$\bar T$, absorb it into the constant:
+$$Y = \underbrace{\tilde A \bar T^{1-\alpha}}_{\equiv\,A} L^{\alpha}$$
+which is exactly (4.5.5). So the reduced-form production function \emph{is} the
+constant-returns technology with the fixed factor substituted out.
+
+\textbf{Significance of $\alpha < 1$:} it delivers \textbf{diminishing returns to labour}.
+$$\pd{Y}{L} = \alpha A L^{\alpha-1} > 0, \qquad
+\frac{\partial^2 Y}{\partial L^2} = \alpha(\alpha-1)AL^{\alpha-2} < 0$$
+and, critically, output per worker
+$$\frac{Y_t}{L_t} = A L_t^{\alpha-1}$$
+is \textbf{decreasing} in $L$ because $\alpha - 1 < 0$. More people working the same fixed
+land means less output each. \textbf{This is the engine of the entire model} --- without it
+($\alpha = 1$) output per head would be independent of population and nothing that follows
+would work.
+
+\item \textbf{Equation (4.5.7) makes population growth endogenous, responding to living
+standards.}
+
+Rewrite it as
+$$\frac{L_{t+1} - L_t}{L_t} = \gamma\left(\frac{C_t}{L_t} - c\right)$$
+so the population \emph{growth rate} is proportional to the excess of consumption per capita
+over $c$.
+
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item \textbf{$c$ is the subsistence level of consumption.} If $C/L > c$, the population
+      grows; if $C/L < c$, it shrinks; if $C/L = c$, it is constant. It is the living
+      standard at which the population exactly reproduces itself.
+\item \textbf{$\gamma$ measures the responsiveness of population growth to living standards}
+      --- the semi-elasticity of demographic behaviour with respect to income. A high $\gamma$
+      means population reacts strongly and quickly; a low $\gamma$ means it is sluggish.
+\end{itemize}
+
+\textbf{Why Malthus believed it.} Writing in 1798, he had in mind two mechanisms:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Positive checks} operating below subsistence --- famine, disease and war raise
+      the death rate, especially infant and child mortality.
+\item \textbf{Preventive checks} operating above it --- prosperity brings earlier marriage
+      and higher fertility; hardship delays marriage and reduces it.
+\end{itemize}
+This was an accurate description of pre-industrial demography, where fertility genuinely did
+respond to harvests and real wages. Note the sharp contrast with Kurlat's \textbf{Assumption
+4.5}, which makes $n$ exogenous --- the book flags in \S4.1 that this is ``actually a very
+big deal'', and this exercise is where you see why.
+
+\item \textbf{The population growth function.} Substitute (4.5.5) and (4.5.6):
+$$\frac{C_t}{L_t} = \frac{Y_t}{L_t} = \frac{A L_t^{\alpha}}{L_t} = A L_t^{\alpha-1}$$
+Therefore
+$$\boxed{\;\frac{L_{t+1}}{L_t} = 1 + \gamma\left(A L_t^{\alpha-1} - c\right)\;}$$
+
+\textbf{Shape of the plot} ($L$ on the horizontal axis, $L_{t+1}/L_t$ on the vertical):
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{Strictly decreasing} in $L$, since $\alpha - 1 < 0$.
+\item As $L \to 0^+$: $L^{\alpha-1}\to\infty$, so the growth factor $\to +\infty$.
+\item As $L \to \infty$: $L^{\alpha-1}\to 0$, so the growth factor $\to 1 - \gamma c$
+      (a horizontal asymptote below 1 --- population shrinks).
+\item It crosses the horizontal line at height $1$ exactly once, at $L\stst$ below.
+\end{itemize}
+Draw the horizontal line at $1$: the crossing point is the steady state, growth is above it
+to the left and below it to the right, which shows the dynamics are \textbf{globally stable}.
+
+\item \textbf{Neither GDP per capita nor population grows in the long run.}
+
+Set $\frac{L_{t+1}}{L_t} = 1$:
+$$\gamma\left(A(L\stst)^{\alpha-1} - c\right) = 0
+\;\Longrightarrow\; A (L\stst)^{\alpha-1} = c
+\;\Longrightarrow\; \boxed{L\stst = \left(\frac{A}{c}\right)^{\frac{1}{1-\alpha}}}$$
+
+\textbf{Stability.} For $L < L\stst$, $AL^{\alpha-1} > c$, so $L$ grows; for $L > L\stst$ it
+shrinks. Globally stable, converging monotonically. \checkmark\ (Simulation from $L_0 = 500$
+with $A=100$, $c=2$, $\alpha=0.5$ converges to $L\stst = 2500$ exactly.)
+
+\textbf{And here is the punchline:} at the steady state
+$$\frac{C}{L} = A (L\stst)^{\alpha-1} = c$$
+\textbf{GDP per capita equals subsistence, always.} It cannot be anything else --- if it were
+above, population would grow and push it down; if below, population would fall and push it
+up. So:
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt,topsep=2pt]
+\item \textbf{GDP per capita: no long-run growth.} It is pinned at $c$.
+\item \textbf{Population: no long-run growth.} It converges to $L\stst$.
+\end{itemize}
+
+\item \textbf{A one-time increase $A \to A'$: living standards jump, then fall all the way
+back. Only population is permanently higher.}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=4pt,topsep=2pt]
+\item \textbf{Short run.} $L$ is predetermined and cannot jump. So consumption per capita
+      jumps immediately:
+      $$\frac{C}{L} = A' (L\stst)^{\alpha-1} > c$$
+      \checkmark\ In simulation, doubling $A$ from 100 to 200 makes $C/L$ jump from $2.00$ to
+      $4.00$ on impact. \textbf{The generation alive at the moment of the innovation is
+      genuinely better off.}
+\item \textbf{Transition.} Now $C/L > c$, so by (4.5.7) the population grows. As $L$ rises,
+      diminishing returns push $C/L = A'L^{\alpha-1}$ back down.
+\item \textbf{Long run.} The process stops only when $C/L$ is back at $c$:
+      $$L\stst_{\text{new}} = \left(\frac{A'}{c}\right)^{\frac{1}{1-\alpha}}
+      = L\stst \left(\frac{A'}{A}\right)^{\frac{1}{1-\alpha}} > L\stst$$
+      $$\frac{C}{L}\Big|_{\text{long run}} = c \quad \text{--- exactly as before.}$$
+      \checkmark\ Simulation: $A$ doubles, $L\stst$ goes $2500 \to 10{,}000$ (a factor of
+      $4 = 2^{1/(1-0.5)}$, as the formula requires), and $C/L$ returns to $2.000000$.
+\end{itemize}
+
+\textbf{This is the Malthusian trap.} Technological progress is converted entirely into
+\emph{more people}, not into better-off people. It is the single most important idea in the
+exercise, and it explains the central fact of Chapter 3: living standards were roughly flat
+for millennia despite continuous, if slow, technological improvement. Better ploughs, crop
+rotation and the horse collar all raised $A$ --- and all produced a larger population living
+at the same subsistence level.
+
+\item \textbf{With sustained progress $A_{t+1} = A_t(1+g)$: population grows forever, GDP per
+capita still does not.}
+
+On a balanced path $C/L$ must be constant. Since $C_t/L_t = A_t L_t^{\alpha-1}$, constancy
+requires $A_t L_t^{\alpha-1}$ constant, i.e.\ $L_t^{1-\alpha} \propto A_t$, so
+$$L_t \propto A_t^{\frac{1}{1-\alpha}}
+\quad\Longrightarrow\quad
+\boxed{\;\frac{L_{t+1}}{L_t} = (1+g)^{\frac{1}{1-\alpha}}\;}$$
+\checkmark\ Simulated growth rate with $g = 0.02$, $\alpha = 0.5$: $0.04040000$, against the
+theoretical $(1.02)^{2}-1 = 0.04040000$. Exact match.
+
+\textbf{Population growth is \emph{faster} than technological progress} --- amplified by
+$\frac{1}{1-\alpha} > 1$, because it takes a more-than-proportional increase in population to
+absorb a given productivity gain when returns diminish.
+
+\textbf{And GDP per capita?} Constant --- it does not grow. But note it settles \emph{above}
+subsistence. Setting $L_{t+1}/L_t = (1+g)^{1/(1-\alpha)}$ in (4.5.7):
+$$(1+g)^{\frac{1}{1-\alpha}} = 1 + \gamma\left(\frac{C}{L} - c\right)
+\;\Longrightarrow\;
+\boxed{\;\frac{C}{L} = c + \frac{(1+g)^{\frac{1}{1-\alpha}} - 1}{\gamma}\;}$$
+\checkmark\ Simulated: $2.808000$; formula with $c=2$, $\gamma=0.05$: $2 + 0.0404/0.05
+= 2.808000$. Exact match.
+
+So sustained technological progress buys a permanently \emph{higher} standard of living than
+the no-growth case --- but a \textbf{constant} one. The economy escapes bare subsistence but
+never achieves growth in income per head. Only breaking the link between living standards and
+fertility (i.e.\ $\gamma \to 0$, the demographic transition) allows modern growth.
+
+\item \textbf{Higher $\gamma$ means \emph{lower} long-run consumption per capita.}
+
+From the expression just derived,
+$$\pd{}{\gamma}\left(\frac{C}{L}\right)
+= -\frac{(1+g)^{\frac{1}{1-\alpha}} - 1}{\gamma^{2}} < 0$$
+
+\checkmark\ Verified by simulation across a range of $\gamma$ (with $g=0.02$, $\alpha=0.5$,
+$c=2$):
+
+\begin{center}
+\begin{tabular}{crr}
+\toprule
+$\gamma$ & \textbf{Formula} & \textbf{Simulated} \\
+\midrule
+$0.02$ & $4.020000$ & $4.020000$ \\
+$0.05$ & $2.808000$ & $2.808000$ \\
+$0.10$ & $2.404000$ & $2.404000$ \\
+$0.25$ & $2.161600$ & $2.161600$ \\
+$0.50$ & $2.080800$ & $2.080800$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Why.} The logic runs backwards from the required population growth rate.
+Technological progress at rate $g$ \emph{forces} the population to grow at
+$(1+g)^{1/(1-\alpha)}$ on the balanced path --- that rate is determined by technology and
+$\alpha$, and $\gamma$ has no say in it. But equation (4.5.7) says population growth is
+\emph{produced} by living standards above subsistence. So living standards must sit at
+whatever level generates the required growth:
+\begin{itemize}[leftmargin=1.3em,itemsep=3pt,topsep=2pt]
+\item If $\gamma$ is \textbf{high} (population very responsive), only a \emph{small} excess
+      over subsistence is needed to generate that much population growth. Living standards
+      settle close to $c$.
+\item If $\gamma$ is \textbf{low} (population sluggish), a \emph{large} excess is needed.
+      Living standards settle well above $c$.
+\end{itemize}
+As $\gamma \to 0$ the required excess becomes unbounded and the Malthusian mechanism
+disappears entirely --- population no longer responds to income, and technological progress
+finally shows up as growth in income per head instead of in numbers.
+
+\textbf{The historical reading.} This is exactly the \textbf{demographic transition}. What
+allowed Europe to escape the Malthusian trap after about 1800 was not only faster
+technological progress but a \emph{collapse in $\gamma$}: fertility stopped rising with
+income and began falling with it. In this model, that is the difference between the world of
+Chapter 3's flat pre-1800 living standards and the world the Solow model of \S4.5 is designed
+to describe.
+
+\end{enumerate}
+
+\begin{tcolorbox}[theorybox,title={Verification code (executed)}]
+\footnotesize
+\begin{verbatim}
+import numpy as np
+alpha, c_sub, gamma = 0.5, 2.0, 0.05
+
+def simulate(A_series, L0, T):
+    L, cpc = np.empty(T+1), np.empty(T+1)
+    L[0] = L0
+    for t in range(T+1):
+        cpc[t] = A_series[t] * L[t]**(alpha-1)          # C/L = A L^(alpha-1)
+        if t < T:
+            L[t+1] = L[t] * (1 + gamma*(cpc[t] - c_sub))
+    return L, cpc
+
+# (d) A constant -> L* = (A/c)^(1/(1-alpha)) = 2500, C/L -> c
+L, cpc = simulate(np.full(401, 100.0), L0=500.0, T=400)   # L[-1]=2500.0, cpc[-1]=2.0
+
+# (e) one-time A: 100 -> 200 : C/L jumps 2.0 -> 4.0, returns to 2.0; L: 2500 -> 10000
+# (f) A grows at g=2% : L grows at (1+g)**(1/(1-alpha))-1 = 0.0404 exactly
+#     C/L -> c + ((1+g)**(1/(1-alpha)) - 1)/gamma = 2 + 0.0404/0.05 = 2.808
+\end{verbatim}
+\end{tcolorbox}
+\end{tcolorbox}
+
+%======================================================================
+\section*{Appendix \quad Cross-reference to the course}
+\addcontentsline{toc}{section}{Appendix --- Cross-reference to the course}
+%======================================================================
+
+\begin{tcolorbox}[theorybox,title={Which exercises map to Lista de Exerc\'icios 1}]
+The Lista (issued 03/08/2026, due 10/08/2026, 10 points) draws directly on this material:
+
+\begin{center}
+\begin{tabular}{clll}
+\toprule
+\textbf{Q} & \textbf{Pts} & \textbf{Source} & \textbf{See} \\
+\midrule
+1 & 3 & Kurlat ch.\ 1, authored problem & Problem 1.2 (same structure, Brazil/Colombia) \\
+2 & 2 & \textbf{Kurlat Exercise 2.2} & Problem 2.2 \\
+3 & 2 & \textbf{Kurlat Exercise 3.3} & Problem 3.3 \\
+4 & 3 & Kurlat ch.\ 4, extended & Problem 4.1 (plus the $n$ halving extension) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Questions 2 and 3 are the book's own exercises assigned \emph{by number}. Question 1 mirrors
+Problem 1.2 with Brazilian and Colombian data instead of US and Thai. Question 4 is
+Problem 4.1 with an added part.
+
+\textbf{Note that Q3 is a data exercise} --- it requires downloading the Penn World Table and
+producing three regional scatterplots. Do not leave it to the last day.
+\end{tcolorbox}
+
+\begin{tcolorbox}[theorybox,title={Course rule files}]
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Chapter} & \textbf{Aula} & \textbf{Rules file} \\
+\midrule
+1--2 & 1 & \texttt{rules/01\_mensuracao\_agregados.md} \\
+3, 4.1--4.2 & 2 & \texttt{rules/02\_crescimento\_solow.md} \\
+4.3--4.5 & 3 & \texttt{rules/03\_solow\_evidencias.md} \\
+\bottomrule
+\end{tabular}
+\end{center}
+Page-level anchors for every section are in \texttt{Map/registro-livros.md}. Kurlat's printed
+page numbers equal its PDF page numbers (offset $0$), so \texttt{/study-pack} can extract any
+range directly.
+\end{tcolorbox}
+
+\end{document}

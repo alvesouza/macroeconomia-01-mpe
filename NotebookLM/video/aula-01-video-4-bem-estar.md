@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 4 of 4 for this lecture, and it is built around a single visual object: a country ranking table that reorders itself as the measure of wellbeing changes. Every beat develops that object. The circular flow, the index-number fork and the parity conversion belong to the other three videos.
+
+Sources. Chapter 2 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT), with "Aula_MPE_Macro1_2026_Slides_1.pdf" (= AULA1) for notation.
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. Every measure that claims to go beyond output smuggles in a judgement about what matters and how much. The video makes the judgement visible by turning it into a control the viewer can watch being moved, and by showing the ranking rearrange when it moves.
+
+Scope. Stay at the level of AULA1 and KURLAT chapter 2. If a source reaches past that level, note it in one line and move on.
+
+BEAT ONE. THE BASELINE RANKING. Show a table of countries ordered by output per person, one row each, with the figures in a single column. Narration states what this ordering claims and, more importantly, what it does not claim. Then overlay four small icons beside the table, standing for the things the column does not contain: hours not worked, years lived, how the total is shared, and what is produced outside the market. The transition is those icons pulsing while the ranking stays frozen, so the mismatch registers before any new measure appears.
+
+BEAT TWO. THE FIRST ATTEMPT. Build the Human Development Index on screen as three sliders feeding one output bar: one for income, one for schooling, one for life expectancy. Show the normalisation for a single country by drawing each raw indicator being mapped onto a zero-to-one axis, with the goalposts marked as visible endpoints. Then show the three normalised values combining into the final score. Narration names one country's three components and its resulting score, and nothing further.
+
+BEAT THREE. WHERE THAT ATTEMPT IS SOFT. Keep the three sliders and now move the goalposts themselves, dragging one endpoint along its axis while the country's raw data stay fixed. Show its score changing, and show the ranking table beside it reordering as a consequence. Then set the weights unequal and let the table reorder again. Narration draws the conclusion the picture has already made: the index is sensitive to choices that were never argued for, and equal weighting is a decision rather than a neutral default.
+
+BEAT FOUR. THE BETTER-POSED QUESTION. Show the thought experiment as a diagram rather than a formula: a figure standing in the rich country, a lottery wheel of lives in the poor country, and a slice being cut from the figure's consumption bar until the two sides balance on a scale. Label that slice. Narration states precisely what it represents, which is the fraction of consumption a person would surrender to be indifferent between the two situations. The transition is the balance tipping and then settling, so equivalence is seen rather than asserted.
+
+BEAT FIVE. FOUR MARGINS, ONE NUMBER. Show the welfare measure decomposed as a stacked bar with four blocks: consumption, leisure, inequality, and life expectancy. Build the bar for two contrasting countries side by side, and let the blocks be sized so the viewer sees which margin dominates in each case. Narration points at the pair of countries where leisure and mortality push in opposite directions and explains why that happens. Then show the two-column ranking, output on the left and welfare on the right, with connecting lines for countries that change position.
+
+BEAT SIX. THE DIAL THAT IS AN ARGUMENT. Isolate the curvature parameter as a single slider on screen, with a caption naming its two jobs: how much inequality is penalised, and how much an additional year of life is worth. Move it through three positions and let the ranking table re-sort at each. Narration lands the thesis, that this control is an ethical position expressed as a number, that the data do not set it, and that the honest practice is to state the value used and show the ranking at others.
+
+Closing image. End on one image the student should be able to redraw from memory: the two-column ranking, output beside welfare, with the connecting lines for the countries that move, and the parameter slider beneath it. Hold the final frame while the narration states the question to carry into the rest of the course, which is that every aggregate the models use was built by choices of exactly this kind.

@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 2 of 4 for this lecture, and it is built around a single visual object: seven centuries of English real wages, and the moment the line breaks. Every beat develops that object. The logarithmic axis, the Solow diagram and the level-against-rate distinction belong to the other three videos.
+
+Sources. "Aula_MPE_Macro1_SlidesAula2.pdf" (= AULA2) and chapter 3 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. For most of recorded history, higher wages did not persist, and there was a mechanism that removed them. The video draws that mechanism as a loop, shows the loop holding for centuries, and shows it failing at the precise moment its most famous exponent was writing.
+
+Scope. Stay at the level of AULA2 and KURLAT chapter 3. If a source reaches past that level, note it in one line and move on.
+
+BEAT ONE. A LINE THAT GOES NOWHERE. On screen, plot English real wages from the thirteenth century onward on a logarithmic axis, so both the long flat stretch and the eventual break fit in one frame. Let the whole series appear at once rather than drawing progressively, so the viewer registers the proportion: most of the chart is flat. Narration makes one claim, that for roughly six hundred years the typical person's material standard did not trend. The transition is a bracket appearing around the flat stretch, labelled as the interval to be explained.
+
+BEAT TWO. THE LOOP THAT FLATTENS IT. Draw a closed cycle of four nodes with arrows: wages rise, more children survive, population grows, pressure on fixed land pushes wages back down. Animate a token travelling the loop once. Narration walks the four links in order, naming the fixed factor as the reason the loop closes. Then show a shock entering the loop, a jump in wages, and let the token carry it around until the wage node returns to where it began. That return is the mechanism made visible.
+
+BEAT THREE. THE TWO BRAKES. Keep the loop and split the population node into two labelled branches. One branch is preventive, listing delayed marriage and lower birth rates; the other is positive, listing famine, disease and war. Show each branch throttling the flow around the loop in its own way, with the preventive branch narrowing the inflow and the positive branch widening the outflow. Narration names both branches as they appear on screen and states the uncomfortable symmetry: in this model both are equilibrating, which is why the doctrine acquired its reputation.
+
+BEAT FOUR. THE ONE SHOCK THAT DOES NOT WASH OUT. Return to the wage series and mark a sharp population collapse partway along the flat stretch. Show wages rising afterwards on the chart, and then show them subsiding as population recovers. Narration points at the temporary hump and states the prediction the model makes: a shock to population moves wages for a generation and not beyond. Highlight the recovery segment so the reversion is unmistakable. This beat is also the setup for an exercise the problem set will use.
+
+BEAT FIVE. THE TIMING. Drop a vertical marker on the series at the point where the essay was published. Then let the chart continue past the marker, where the line lifts off the flat band and keeps climbing. Narration states the irony directly, that the theory described the preceding centuries well and was published almost exactly where the pattern it described ends. The transition is the loop from beat two reappearing beside the chart with its return arrow fading out, so the viewer sees which link broke.
+
+BEAT SIX. WHAT BROKE THE LOOP. Show a two-panel comparison. On the left, the fixed factor, drawn as land that cannot expand. On the right, output rising faster than population, drawn as two lines diverging. Narration names the condition for escape without developing it: sustained growth in output per person requires that production stop being pinned by a factor in fixed supply, which is a question about technology and accumulation rather than about population. Point out that the rest of the lecture is an attempt to build the smallest model that can produce the right-hand panel.
+
+Closing image. End on one image the student should be able to redraw from memory: the four-node loop with its two brakes, drawn beside the seven-century wage series with the publication marker on it and the break just after. Hold the final frame while the narration states the question the next video takes up, which is what minimum machinery produces growth that does not wash out.

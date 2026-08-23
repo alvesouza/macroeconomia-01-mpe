@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 1 of 4 for this lecture, and it is built around a single visual object: the long series of output per person, and what changes when its vertical axis changes. Every beat develops that object. Malthus, the Solow diagram and the level-against-rate distinction belong to the other three videos.
+
+Sources. "Aula_MPE_Macro1_SlidesAula2.pdf" (= AULA2) and chapter 3 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. The most important tool in this lecture is not a model but an axis. Plotted on a logarithmic scale, a growth series stops being a picture of how rich a country is and becomes a picture of how fast it is getting richer, and almost every claim in the growth literature is a claim about the slope of such a line.
+
+Scope. Stay at the level of AULA2 and KURLAT chapter 3. If a source reaches past that level, note it in one line and move on.
+
+BEAT ONE. THE HOCKEY STICK. On screen, plot output per person for the United States and the United Kingdom across two centuries on an ordinary linear axis. Let the shape speak: a line indistinguishable from the floor for most of its length, then a near-vertical rise at the right-hand end. Narration makes one observation, that on this axis the entire nineteenth century looks like nothing happened. The transition is a small caption asking whether nothing did.
+
+BEAT TWO. THE SAME DATA, A DIFFERENT AXIS. Keep the identical data and relabel the vertical axis to a logarithmic scale, so the tick marks become multiples rather than additions. Let the curve straighten as the axis changes, animating the transformation rather than cutting to a new chart. Narration states the rule that makes this work: equal vertical distances now mean equal proportional changes, so a constant growth rate draws a straight line. The transition is a straight guide line laid over the transformed series so the viewer can see how closely it fits.
+
+BEAT THREE. READING SLOPES INSTEAD OF HEIGHTS. Show two countries on the same log chart, one starting far below the other and rising more steeply. Draw the slope of each as a small triangle on the line. Narration explains what the picture now answers directly, which is which country is growing faster, and what it no longer shows at a glance, which is which is richer. Then draw a third country whose line is parallel to the first and note that parallel lines mean equal growth rates with a permanent gap in level. That parallel pair is the visual definition of the level-against-rate distinction the fourth video develops.
+
+BEAT FOUR. THE CROSS-COUNTRY PICTURE. Populate the chart with the wider set from the lecture, including the Latin American series. Do not label every line; highlight three trajectories and grey the rest. Narration points at the three shapes that matter: a line that stays parallel to the leader, a line that closes the gap, and a line that falls further behind. Name the question these shapes pose without answering it, since the evidence comes next lecture. The transition is a caption naming the two competing claims, absolute and conditional convergence.
+
+BEAT FIVE. WHERE THE LINE COMES FROM. Split the frame. On the left, keep the smooth historical curve. On the right, show the raw material behind its earliest stretch as four small icons with captions: average heights, livestock counts, crop yields, iron output. Narration states that before national accounts existed the series was reconstructed from evidence of this kind. The transition is an uncertainty band opening around the left-hand curve and widening as it runs backward in time, so the confidence and the picture change together.
+
+BEAT SIX. THE HABIT TO KEEP. Show a final chart with an unlabelled vertical axis and ask, in an on-screen caption, whether the curve is accelerating. Then reveal the axis twice: once linear, where the answer appears to be yes, and once logarithmic, where the line is straight and the answer is no. Narration lands the thesis, that the axis is part of the claim, and that the first question to ask of any growth chart is which scale it uses.
+
+Closing image. End on one image the student should be able to redraw from memory: the two-country log chart with a straight guide line and slope triangles on each series, and the parallel third line beneath them showing equal growth at a permanently different level. Hold the final frame while the narration states what the next video adds, which is what the flat part of the curve was actually like to live in.

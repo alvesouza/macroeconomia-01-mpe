@@ -1,0 +1,50 @@
+# ============================================================
+# Macroeconomia I - MPE Insper (2026, 3o trimestre)
+# ============================================================
+
+# --- Material protegido por direitos autorais (nao versionar) ---
+# Livro-texto, complementares e programa (~165 MB)
+Livros/
+
+# Copias dos mesmos PDFs preparadas para upload no NotebookLM (~143 MB)
+NotebookLM/sources/
+
+# --- Artefatos de compilacao LaTeX ---
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- Claude Code (config local da maquina; commands/ e rules/ ficam versionados) ---
+.claude/settings.local.json
+
+# --- Sistema operacional / editores ---
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+.vscode/
+.idea/
+*~
+*.tmp
