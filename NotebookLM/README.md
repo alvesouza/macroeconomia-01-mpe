@@ -49,9 +49,9 @@ os nomes — os prompts citam os arquivos pelo nome exato.
 
 ---
 
-## Índice — 40 prompts, organizados por **aula**
+## Índice — 52 prompts, em dois lotes
 
-Cada aula com material disponível recebe **4 slides + 4 vídeos + 2 áudios**.
+Dois recortes coexistem de propósito. O lote **por aula** (40 prompts) segue o programa: cada aula com material disponível recebe **4 slides + 4 vídeos + 2 áudios**. O lote **por mecanismo** (12 prompts) segue a Lista 3: **6 slides + 6 vídeos**, um par por mecanismo econômico, atravessando as duas questões. Quem estuda para a aula usa o primeiro; quem está resolvendo a lista usa o segundo.
 
 ### Aula 1 — Mensuração dos Agregados (Kurlat caps. 1-2)
 
@@ -113,6 +113,30 @@ Cada aula com material disponível recebe **4 slides + 4 vídeos + 2 áudios**.
 | [audio/aula-04-audio-1-consumo-segue-riqueza.md](audio/aula-04-audio-1-consumo-segue-riqueza.md) | Áudio | Fio: consumo segue riqueza, não renda | 4.818 |
 | [audio/aula-04-audio-2-timing-do-imposto.md](audio/aula-04-audio-2-timing-do-imposto.md) | Áudio | Fio: o timing do imposto não importa — até que importe | 4.758 |
 
+### Lista 3 — por mecanismo econômico (Kurlat cap. 6; Exs. 6.1, 6.5, 6.6)
+
+Recorte **transversal**: cada par slide+vídeo isola um mecanismo e o persegue pelas duas
+questões, em vez de seguir a ordem dos itens. Os seis se encadeiam — 1 constrói a máquina,
+2 a 4 a diferenciam, 5 e 6 quebram as duas hipóteses que 4 usou.
+
+| Arquivo | Tipo | Mecanismo | Itens | Chars |
+|---|---|---|---|---|
+| [slides/lista-03-slides-1-riqueza-e-euler.md](slides/lista-03-slides-1-riqueza-e-euler.md) | Slide | RIO, Euler, forma fechada CRRA | Q1(a) | 4.934 |
+| [slides/lista-03-slides-2-renda-permanente.md](slides/lista-03-slides-2-renda-permanente.md) | Slide | Propensão a consumir renda futura; Keynes × PIH | Q1(b) | 4.853 |
+| [slides/lista-03-slides-3-sigma-arbitro.md](slides/lista-03-slides-3-sigma-arbitro.md) | Slide | σ decide o sinal de ∂c₁/∂r | Q1(c) | 4.891 |
+| [slides/lista-03-slides-4-impostos-e-ricardo.md](slides/lista-03-slides-4-impostos-e-ricardo.md) | Slide | Lump-sum como puro efeito-riqueza; equivalência ricardiana | Q1(d,e) | 4.914 |
+| [slides/lista-03-slides-5-restricao-de-credito.md](slides/lista-03-slides-5-restricao-de-credito.md) | Slide | KKT, dois regimes, PMgC salta para 1 | Q2(a–c) | 4.978 |
+| [slides/lista-03-slides-6-imposto-sobre-poupanca.md](slides/lista-03-slides-6-imposto-sobre-poupanca.md) | Slide | Cunha intertemporal e peso morto a receita igual | Q2(d) | 4.979 |
+| [video/lista-03-video-1-riqueza-e-euler.md](video/lista-03-video-1-riqueza-e-euler.md) | Vídeo | O plano (c₁,c₂) montado do zero: dotação, reta, tangência, raio | Q1(a) | 4.803 |
+| [video/lista-03-video-2-renda-permanente.md](video/lista-03-video-2-renda-permanente.md) | Vídeo | Deslocamento paralelo e o ótimo deslizando no raio fixo | Q1(b) | 4.408 |
+| [video/lista-03-video-3-sigma-arbitro.md](video/lista-03-video-3-sigma-arbitro.md) | Vídeo | Rotação em torno de (W,0) e a derivada cruzando zero | Q1(c) | 4.581 |
+| [video/lista-03-video-4-impostos-e-ricardo.md](video/lista-03-video-4-impostos-e-ricardo.md) | Vídeo | A dotação desliza; a reta e a escolha não se movem | Q1(d,e) | 4.678 |
+| [video/lista-03-video-5-restricao-de-credito.md](video/lista-03-video-5-restricao-de-credito.md) | Vídeo | A parede vertical e o ótimo empurrado para o canto | Q2(a–c) | 4.719 |
+| [video/lista-03-video-6-imposto-sobre-poupanca.md](video/lista-03-video-6-imposto-sobre-poupanca.md) | Vídeo | Transladar × girar a mesma receita, e o ponto na reta errada | Q2(d) | 4.668 |
+
+> **Sem áudio neste lote.** Os dois fios condutores do cap. 6 já estão em
+> `aula-04-audio-1` e `aula-04-audio-2`; um terceiro repetiria a tese.
+
 ---
 
 ## Anatomia
@@ -127,6 +151,8 @@ de escopo explícita e um bloco de Python rodável (exceto teoria e síntese, on
 o constrói até o fim, em no máximo 6 batidas, cada batida nomeando o que aparece na tela e
 cada transição correspondendo a um passo do argumento. Fecha sempre com a **imagem única**
 que o aluno deve conseguir redesenhar de memória.
+
+**Lote por mecanismo — 6 pares, um mecanismo cada.** O recorte não é a ordem do enunciado, é a cadeia causal: cada par nomeia um mecanismo, diz de quais itens ele sai, e declara o que pertence aos outros cinco. Os slides derivam e assinam; o vídeo correspondente pega o **único** objeto visual daquele mecanismo e o constrói em seis batidas.
 
 **Áudios — 2 por aula, um fio condutor cada.** Não resumem a aula: desenvolvem **um único
 argumento** em no máximo 5 segmentos, dizem explicitamente o que pular, e contêm pelo menos

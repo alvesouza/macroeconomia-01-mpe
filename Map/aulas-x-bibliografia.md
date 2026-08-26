@@ -46,7 +46,8 @@ Voltar ao [[00_indice]].
 - **Regras:** [[04_consumo_poupanca]]
 - **Kurlat (2020):** cap. **6**
 - **Complementar:** Romer (2012), cap. 8
-- **Lista:** 3 — [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] — ⏰ **entrega 24/08/2026**
+- **Lista:** 3 — [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] — entregue em 24/08/2026
+- **Resolução:** [[Resolucao/lista3_resolucao|lista3_resolucao.tex/pdf]] + `Resolucao/lista3_codigo/`
 - **Material:** [[Aula/MPE_Macro1_SlidesAula4|Slides Aula 4 — *Microfoundations I:
   Consumption and Saving*]] (PDF + MD)
 - **Na aula:** Keynes (1936) e a "lei psicológica fundamental"; o puzzle *cross-section* ×
@@ -59,7 +60,12 @@ Voltar ao [[00_indice]].
 - **Regras:** [[05_trabalho_lazer]]
 - **Kurlat (2020):** cap. **7**
 - **Complementar:** Jones (2020), cap. 7; Romer (2012), cap. 11
-- **Lista:** 4
+- **Material:** [[Aula/Slides_Macro1_Aula5|Slides Aula 5 — *Microfoundations II: Labor and
+  Leisure*]] (PDF + MD) — recebido em 25/08/2026
+- **Lista:** 4 — [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — ⏰ **entrega 31/08/2026**
+- **Na lista:** Q1 oferta de trabalho estática com imposto sobre salário e transferência
+  *lump-sum*; Q2 modelo de busca **DMP** — função de *matching*, curva de Beveridge,
+  *tightness*, externalidades de vaga
 - **Conceitos:** #oferta-de-trabalho #efeito-renda-substituicao #frisch #pnad #search
 
 ## Aula 6 — Microfundamentos: Teoria de Equilíbrio Geral
@@ -103,8 +109,8 @@ Voltar ao [[00_indice]].
 |---|---|---|---|---|---|
 | **1** | 1, 2 | 1-4 | 10/08/2026 | [[Listas/MPE_Macro1_2026_Lista1\|Lista 1]] (PDF + MD) | [[Resolucao/lista1_resolucao\|feita]] |
 | **2** | 3 | 4-5 | 17/08/2026 | [[Listas/MPE_Macro1_2026_Lista2\|Lista 2]] (PDF + MD) | [[Resolucao/lista2_resolucao\|feita]] |
-| **3** | 4 | 6 | **24/08/2026** | [[Listas/MPE_Macro1_2026_Lista3\|Lista 3]] (PDF + MD) | ⏳ pendente |
-| 4 | 5 | 7 | — | ainda não emitida | — |
+| **3** | 4 | 6 | 24/08/2026 | [[Listas/MPE_Macro1_2026_Lista3\|Lista 3]] (PDF + MD) | [[Resolucao/lista3_resolucao\|feita]] |
+| **4** | 5 | 7 | **31/08/2026** | [[Listas/MPE_Macro1_2026_Lista4\|Lista 4]] (PDF + MD) | ⏳ pendente |
 | 5 | 6 | 9 | — | ainda não emitida | — |
 | 6 | 7, 8 | 10-11 + Benigno §1-5 | — | ainda não emitida | — |
 | 7 | 9 (provável) | Benigno §6-12 | — | ainda não emitida | — |
@@ -121,6 +127,8 @@ Rastreamento item a item das três listas emitidas está em [[exercises-index]].
 - **Lista 2** = Kurlat **4.3** *Korean Unification* (agora calibrado) + questão autoral
   "Gotham" sobre §5.3-5.4
 - **Lista 3** = Kurlat **6.1** (+ item de **6.3**) e **6.5** (+ item de **6.6**)
+- **Lista 4** = Kurlat **7.1**-**7.2** (oferta estática com imposto) e **7.7** *Beveridge
+  Curve*, expandido em cinco itens (DMP completo)
 
 Metade dos itens vem do livro; a outra metade é autoral e recontextualizada (Brasil ×
 Colômbia, Coreia, Gotham). O **último item de cada questão** é sempre o mais conceitual.

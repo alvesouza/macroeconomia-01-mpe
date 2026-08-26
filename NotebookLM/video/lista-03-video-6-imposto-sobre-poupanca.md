@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 6 of 6 in a set organised by economic mechanism rather than by lecture, and it is built around a single visual object: two budget lines that raise identical revenue, one obtained by sliding the original line inward and the other by rotating it about the endowment point. Every beat compares those two movements. The credit limit was video 5 and closes elsewhere.
+
+Sources. Section 6.2 and exercise 6.6 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT), question 2 item d of "Lista_MPE_Macro1_2026_Lista3.pdf" (= LISTA3), and "Aula_MPE_Macro1_SlidesAula4.pdf" (= AULA4).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. Equal revenue does not mean equal harm. Sliding a line and rotating a line are different operations, and the difference between them is the whole of the theory of tax distortion in this chapter.
+
+Scope. Stay at the level of AULA4 and KURLAT section 6.2. Optimal taxation with many households is beyond this video; if a source reaches into it, note it in one line and move on.
+
+BEAT ONE. THE TWO MOVEMENTS, SHOWN BEFORE ANY ALGEBRA. Open on the two-period plane with the endowment point, the original line and the tangency. Then split the frame: on the left, the line slides inward with its slope unchanged; on the right, the line pivots about the endowment point and becomes flatter, with the endowment itself never moving. Narration states which tax produces which movement and why the endowment is the pivot on the right, since a household that saves nothing pays nothing.
+
+BEAT TWO. THE PIVOT CHANGES A PRICE. Stay on the right panel alone. Put the slope on screen before and after, as the gross rate and then the gross rate minus the tax. Draw the tangency sliding along the flatter line and mark the new consumption ratio as a ray from the origin, visibly less steep than the original ray. Narration states that a price moved, so the household substitutes, and that this is what the previous videos never showed.
+
+BEAT THREE. THE SLIDE CHANGES NO PRICE. Cut to the left panel alone. Show the tangency landing back on the original ray from the origin, closer to the origin. Overlay both rays from beats two and three on one frame, one unchanged and one rotated downward, and put a two-row table on screen giving the consumption ratio under each tax. Narration names only the row that moved. Transition: the two rays stay lit while the lines fade, so only the ratio comparison remains.
+
+BEAT FOUR. MAKING THE REVENUE EQUAL. Bring both lines back into one frame. On screen, compute revenue under the rotating tax as the rate times the saving actually chosen, and set the inward slide to exactly that amount. Show the blue slid line being positioned by that number. Narration states that a comparison at unequal revenue would prove nothing, and that this step is what the problem set means by the same revenue.
+
+BEAT FIVE. THE POINT THAT SITS ON THE WRONG LINE. Keep both lines and mark the optimum chosen under the rotating tax. Now highlight that this point falls exactly on the slid line as well, and flash the slid line under it. Narration states the argument in one sentence: this plan was affordable under the lump-sum tax and the household chose a different one instead, so the lump-sum optimum must be strictly better. Draw both indifference curves through the two optima and show one lying strictly above the other.
+
+BEAT SIX. THE WEDGE, AND THE SIZE OF THE LOSS. Zoom on the rotated optimum and draw the tangent to the indifference curve there, then draw a second line with the market slope through the same point, so the angle between them is visible. Label that angle as the wedge and its size as the tax rate. Beside it, show a two-bar chart: revenue actually raised, and the larger lump-sum amount that would have left the household equally well off, with the gap between the bars labelled as deadweight loss. Narration states the general principle about taxes on margins of choice.
+
+Closing image. End on one image the student should be able to redraw from memory: the endowment point with two lines through the region around it, one parallel to the original and one rotated about the endowment, the two rays from the origin with different slopes, and the single point marked where the rotated optimum sits on the parallel line. Hold the final frame while the narration states the sentence that closes the whole set: consumption follows wealth, provided the household can reach its wealth and the tax does not charge a toll at the door.

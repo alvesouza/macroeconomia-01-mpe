@@ -1,0 +1,23 @@
+Build a narrated video overview. This is video 5 of 6 in a set organised by economic mechanism rather than by lecture, and it is built around a single visual object: a vertical wall cutting the budget line, and the optimum being pushed off its tangency onto the corner where the wall meets the line. Every beat develops that wall. The tax on saving returns is video 6.
+
+Sources. Section 6.2 and exercise 6.5 of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT), question 2 items a to c of "Lista_MPE_Macro1_2026_Lista3.pdf" (= LISTA3), and "Aula_MPE_Macro1_SlidesAula4.pdf" (= AULA4).
+
+Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
+
+Thesis. The constraint changes nothing for most households and everything for a few, and the diagram shows exactly which ones. Where the wall falls relative to the tangency is the entire content of the problem set item.
+
+Scope. Stay at the level of AULA4 and KURLAT section 6.2. Distortionary taxation is the next video; if a source reaches into it, note it in one line and move on.
+
+BEAT ONE. THE WALL. Open on the familiar two-period plane with the endowment point, the budget line and the tangency. Draw a vertical dashed line at the maximum affordable present consumption, which is disposable income today plus the credit limit, and shade the region to its right as unreachable. Narration states what the wall is: the household may lend without limit, but may borrow only up to a fixed amount, so the plane is truncated on one side only.
+
+BEAT TWO. THE CASE WHERE NOTHING HAPPENS. Place a lender in the plane, with a tangency well to the left of the wall. Show the shading arriving and the tangency not moving at all. On screen, mark the multiplier as zero and show the consumption ratio equal to the value the Euler equation fixes. Narration states that the constraint exists but does no work here, and that this household's answer is the one from the earlier videos.
+
+BEAT THREE. THE CASE WHERE EVERYTHING HAPPENS. Swap in a household with low income today and high income tomorrow, so its endowment sits far up and to the left and its desired tangency lands to the right of the wall, inside the shaded region. Mark that desired point with a cross and label it unreachable. Show the optimum sliding left along the budget line until it stops at the wall, and mark the corner with a star. Narration states that there is no tangency here, and that the choice is made by the constraint rather than by the first-order condition.
+
+BEAT FOUR. THE EULER EQUATION BECOMES AN INEQUALITY. Zoom on the corner point and draw the indifference curve through it, showing it cutting the budget line rather than touching it. Put the consumption ratio on screen at the corner beside the ratio the Euler equation would require, with a less-than sign between them. Narration states in one sentence what that inequality means: the household would move resources to the present and cannot, so its consumption path is steeper than it would choose.
+
+BEAT FIVE. WHAT MOVES THE WALL, AND WHAT MOVES THE TANGENCY. Split the frame into three small panels sharing the same starting configuration. In the first, lower income today and show the wall sliding left. In the second, raise income tomorrow and show the desired tangency sliding right. In the third, shrink the credit limit and show the wall sliding left again. Each panel ends with wall and tangency crossing. Narration states that these are the three conditions the problem set asks for, and that each one closes the same gap from a different side.
+
+BEAT SIX. THE PROPENSITY JUMPS, AND THE EQUIVALENCE RESULT DIES. Return to the constrained household and run the tax swap from the previous video: cut the tax today, raise it tomorrow at the gross rate. Show the wall sliding right by exactly the size of the cut and the corner point travelling with it, one for one. Beside it, replay the same swap for the unconstrained household, where the point does not move. Put a two-row table on screen comparing the response of present consumption in the two regimes. Narration states the policy reading: a transfer is spent when it reaches a household standing against the wall.
+
+Closing image. End on one image the student should be able to redraw from memory: the budget line, the shaded unreachable region, the vertical wall, the crossed-out desired tangency inside the shade, the corner star where the choice actually lands, and the indifference curve cutting the line at that corner. Hold the final frame while the narration states what the next video changes, which is the slope of the line rather than its reach.

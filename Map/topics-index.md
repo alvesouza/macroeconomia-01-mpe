@@ -1,6 +1,6 @@
 ---
 tags: [map, cross-reference, macro1, conceitos, topics]
-date: 2026-08-21
+date: 2026-08-25
 ---
 
 # Índice de Tópicos
@@ -202,7 +202,8 @@ conceito mais reutilizado do curso**
 5. ✏️ Direto — Kurlat **6.1** (p. 121) → **é a Lista 3, Q1**; **6.2** (p. 122)
 6. ✏️ Integrador — Kurlat **6.3** *Consumption and Interest Rates* (p. 122),
    **6.6** *A Tax on Savings* (p. 123)
-7. 📊 [[Listas/MPE_Macro1_2026_Lista3|Lista 3, Q1]] — entrega **24/08/2026**
+7. 📊 [[Listas/MPE_Macro1_2026_Lista3|Lista 3, Q1]]
+8. ✅ Solução — [[Resolucao/lista3_resolucao|Resolução L3]] · código `Resolucao/lista3_codigo/l3q1_consumo.py`
 
 **O puzzle que abre a Aula 4:** no *cross-section* de famílias, $C/Y$ cai com a renda; na
 série temporal agregada dos EUA, $C \approx 0{,}65\,Y$ é constante. A função keynesiana não
@@ -225,6 +226,7 @@ renda domina e a poupança *cai* quando $r$ sobe. É o item (c) da Lista 3 Q1.
 4. ✏️ Direto — Kurlat **6.4** (p. 122), **6.7** (p. 124), **6.8** (p. 124)
 5. ✏️ Avançado — Kurlat **6.9** (p. 125), **6.5** (p. 123)
 6. 📊 [[Listas/MPE_Macro1_2026_Lista3|Lista 3, Q1(e)]]
+7. ✅ Solução — [[Resolucao/lista3_resolucao|Resolução L3]], Q1(d,e)
 
 **Equivalência ricardiana em uma frase:** $\tau_1$ e $\tau_2$ entram na decisão **só** pelo
 valor presente $\tau_1 + \tau_2/(1+r)$; cortar $\tau_1$ em uma unidade e subir $\tau_2$ em
@@ -242,6 +244,7 @@ $(1+r)$ deixa $c_1$, $c_2$ inalterados e só muda $a$. **O timing da tributaçã
 3. ✏️ Integrador — Kurlat **6.5** *Credit Constraints and Ricardian Equivalence* (p. 123)
    → **é a Lista 3, Q2**
 4. 📊 [[Listas/MPE_Macro1_2026_Lista3|Lista 3, Q2]]
+5. ✅ Solução — [[Resolucao/lista3_resolucao|Resolução L3]] · código `Resolucao/lista3_codigo/l3q2_restricao.py`
 
 **Por que importa:** é a hipótese cuja quebra **derruba a equivalência ricardiana**. Com
 $a \ge -b$ ativa, o agente consome a renda corrente e o corte de imposto hoje é gasto hoje.
@@ -258,8 +261,13 @@ Liga direto ao multiplicador fiscal do Benigno §8 (Aula 9).
 2. 📖 Kurlat §7.2 (p. 131): escolha consumo-lazer, TMS $= w$, oferta *backward-bending*
 3. 📖 Kurlat §7.3 (p. 137): evidências de elasticidade
 4. 📝 [[05_trabalho_lazer]]
-5. ✏️ Direto — Kurlat **7.1** (p. 146), **7.2** (p. 146)
+5. ✏️ Direto — Kurlat **7.1** (p. 146), **7.2** (p. 146) → **base da Lista 4, Q1**
 6. ✏️ Integrador — Kurlat **7.3** (p. 147), **7.4** (p. 148), **7.6** (p. 149)
+7. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q1]] — entrega **31/08/2026**
+
+**O que a Lista 4 acrescenta em Q1:** o salário líquido é $(1-\tau)w$ e a transferência $T$
+é *lump-sum*. O imposto move as duas margens; a transferência só a de renda. Separar as
+duas é o item (b) — e é o mesmo raciocínio renda × substituição da Aula 4.
 
 ### Tópico: Oferta de trabalho dinâmica (Frisch) e *search*
 #topic/frisch
@@ -270,8 +278,16 @@ Liga direto ao multiplicador fiscal do Benigno §8 (Aula 9).
 1. 📖 Kurlat §7.4 (p. 140): substituição intertemporal do trabalho, elasticidade de Frisch
 2. 📖 Kurlat §7.5 (p. 142): equilíbrio, *search*, $u^*$
 3. 📝 [[05_trabalho_lazer]]
-4. ✏️ Avançado — Kurlat **7.5** *Prescott's Calculation* (p. 148), **7.7** *Beveridge
-   Curve* (p. 150)
+4. ✏️ Avançado — Kurlat **7.7** *Beveridge Curve* (p. 150) → **é a Lista 4, Q2**;
+   **7.5** *Prescott's Calculation* (p. 148)
+5. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q2]] — entrega **31/08/2026**
+
+**O DMP da Lista 4 em uma linha:** com $m(V,U)=\mu V^{\alpha}U^{1-\alpha}$, as taxas
+$f=m/U$ e $q=m/V$ dependem só de $\theta=V/U$ e satisfazem $f=\theta q$. O estado
+estacionário iguala criação e destruição de empregos e entrega a **curva de Beveridge**.
+Os itens que valem a nota: a vaga extra gera externalidade de congestão (sobre as outras
+firmas) e de *thick market* (sobre os desempregados), e a firma **não** as internaliza; e
+uma queda de $\mu$ **desloca** a curva, não move ao longo dela.
 
 **Síntese cross-tópico (Hard):** transitório × permanente reaparece aqui. Um choque
 **transitório** de salário move horas fortemente (elasticidade de Frisch); um choque

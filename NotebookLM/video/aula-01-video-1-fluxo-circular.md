@@ -2,8 +2,6 @@ Build a narrated video overview. This is video 1 of 4 for this lecture, and it i
 
 Sources. "Aula_MPE_Macro1_2026_Slides_1.pdf" (= AULA1) and chapter 1, section 1.1, of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
 
-Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
-
 Thesis. The three methods of measuring output agree because they are three readings of one loop, not three independent attempts at one quantity. Once the loop is drawn, every awkward accounting case becomes a question about where to put the meter.
 
 Scope. Stay at the level of AULA1 and KURLAT section 1.1. If a source reaches past that level, note it in one line and move on.

@@ -2,8 +2,6 @@ Build a narrated video overview. This is video 2 of 4 for this lecture, and it i
 
 Sources. "Aula_MPE_Macro1_2026_Slides_1.pdf" (= AULA1) and chapter 1, section 1.2, of "Livro_Pablo_Kurlat_-_A_Course_in_Modern_Macroeconomics_2020_-_libgen.li.pdf" (= KURLAT).
 
-Output language: Brazilian Portuguese (pt-BR). On-screen labels in Portuguese, with the English term in parentheses where it is the standard one.
-
 Thesis. There is no neutral way to add up a changing basket of goods. The video shows the fork opening, shows why it opens, and shows that the standard fix relocates the choice rather than removing it.
 
 Scope. Stay at the level of AULA1 and KURLAT section 1.2. If a source reaches past that level, note it in one line and move on.

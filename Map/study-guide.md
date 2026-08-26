@@ -1,16 +1,18 @@
 ---
 tags: [map, cross-reference, macro1, guia]
-date: 2026-08-21
+date: 2026-08-25
 ---
 
 # Guia de Estudo
 
 Ordem sugerida, aula a aula. Voltar ao [[00_indice]].
 
-> **Onde você está (2026-08-21):** quatro aulas dadas, Listas 1 e 2 entregues e resolvidas,
-> **Lista 3 vence em 24/08**. O bloco vivo é o da **Aula 4**; os blocos 5-9 são preparação.
+> **Onde você está (2026-08-25):** cinco aulas com material, quatro listas emitidas, três
+> resolvidas. A **Lista 4 vence em 31/08** — o bloco vivo é o da **Aula 5**, cujos slides e
+> lista já estão convertidos para MD.
 
-**Ritmo observado:** uma lista por semana, sempre no domingo (10/08, 17/08, 24/08). Cada
+**Ritmo observado:** uma lista por semana, sempre no domingo (10/08, 17/08, 24/08, 31/08).
+Cada
 lista é ancorada em **um capítulo** do Kurlat e sai logo após a aula correspondente. Dá
 para se antecipar: ao terminar a aula $n$, a lista sobre o capítulo dela chega em dias.
 
@@ -81,7 +83,7 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
 
 ---
 
-## Bloco 4 — Consumo e poupança (Aula 4) · Kurlat cap. 6 ⏰ **bloco ativo**
+## Bloco 4 — Consumo e poupança (Aula 4) · Kurlat cap. 6
 
 ### Antes da aula
 - Ler: **Kurlat §6.1-6.4** (pp. 103-121)
@@ -95,7 +97,8 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
   2. Kurlat **6.3** (p. 122) — o item (c) da lista sai daqui
   3. Kurlat **6.5** (p. 123) — é a Q2 da lista
   4. Kurlat **6.6** (p. 123) — o item (d) da Q2 sai daqui
-- Lista: [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] — **entrega 24/08/2026**
+- Lista: [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] (entregue 24/08/2026) · [[Resolucao/lista3_resolucao|resolução]] — código em `Resolucao/lista3_codigo/`
+- NotebookLM: 12 prompts **por mecanismo** para esta lista (6 slides + 6 vídeos), em `NotebookLM/`
 
 ### Conexões
 - Depende de: nada do curso; a máquina é microeconomia de otimização
@@ -110,7 +113,11 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
 
 ---
 
-## Bloco 5 — Trabalho e lazer (Aula 5) · Kurlat cap. 7
+## Bloco 5 — Trabalho e lazer (Aula 5) · Kurlat cap. 7 ⏰ **bloco ativo**
+
+> **Slides e Lista 4 recebidos em 25/08/2026**, ambos já em MD. A Lista 4 vence em
+> **31/08/2026**: Q1 oferta estática com imposto sobre salário, Q2 o modelo de busca DMP
+> inteiro — *matching*, curva de Beveridge, *tightness* e externalidades de vaga.
 
 ### Antes da aula
 - Ler: **Kurlat §7.1-7.5** (pp. 127-146)
@@ -118,9 +125,9 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
 
 ### Depois da aula
 - Praticar: Kurlat **7.1** (p. 146), **7.2** (p. 146), **7.3** (p. 147)
-- Avançado: Kurlat **7.5** *Prescott's Calculation* (p. 148) — candidato forte a questão
-  grande da Lista 4
-- Lista: 4 (a emitir)
+- Avançado: Kurlat **7.7** *Beveridge Curve* (p. 150) — **é a Q2 da Lista 4**, expandida;
+  e **7.5** *Prescott's Calculation* (p. 148)
+- Lista: [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — ⏰ **entrega 31/08/2026**
 
 ### Conexões
 - Depende de: [[#Bloco 4 — Consumo e poupança Aula 4 · Kurlat cap 6 ⏰ bloco ativo]] —
