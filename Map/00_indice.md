@@ -1,6 +1,6 @@
 ---
 tags: [map, cross-reference, macro1, mpe, insper, indice]
-date: 2026-08-25
+date: 2026-09-06
 ---
 
 # Mapa do Curso — Macroeconomia I (MPE Insper, 2026/T3)
@@ -18,6 +18,28 @@ pelos wiki-links e ver o grafo.
 | [[exercises-index]] | **cada exercício** do Kurlat: número, página, subtópico, nível | `/exercise-plan` |
 | [[study-guide]] | ordem de estudo, bloco a bloco, com o que travar em cada um | leitura humana |
 | [[cobertura]] | o que existe, o que falta, conteúdo das listas emitidas | leitura humana |
+| [[formulario-aula-05]] | **fórmulas da Aula 5** — cola densa + versão anotada | véspera de prova |
+| [[derivacoes-cap-09]] | **as 33 equações do Kurlat cap. 9** — derivação e história | estudo da Aula 6 |
+| [[exogenous-capital-lista-05]] | **por que $K_1$ e $K_2$ são exógenos** na Lista 5, Q1 — e o que isso desliga | estudo da Aula 6 |
+| `Leituras/` | **roteiros narrados para TTS** — o material inteiro, falado | Speechify, ouvir |
+| [[estilo-do-professor]] | **como o professor resolve e o que ele cobra** — os 4 gabaritos dele | `/solution`, `/exam-grade` |
+| [[avaliacao-listas-1-4]] | **as correções das Listas 1 e 4**, item a item, com o diagnóstico | o que consertar antes da prova |
+| [[Resolucao/kurlat_solutions_ch09\|soluções cap. 9]] | os **13 exercícios** do cap. 9, resolvidos | treino da Aula 6 |
+
+## Soluções do livro-texto
+
+Um arquivo por capítulo do Kurlat, no mesmo estilo, com o enunciado íntegro, a álgebra sem
+saltos, a leitura econômica e a verificação. Como o **Kurlat não publica gabarito**, cada
+resultado é conferido por caminho independente num script que aborta se discordar.
+
+| Capítulo | Exercícios | Aula | Arquivo |
+|---|---|---|---|
+| 1-4 — PIB, Além do PIB, Fatos, Solow | 23 | 1-3 | [[Resolucao/kurlat_solutions_ch1-4\|ch1-4]] (59 p.) |
+| **5 — Teoria e Evidência** | 9 | 3 | [[Resolucao/kurlat_solutions_ch05\|ch05]] (28 p.) |
+| **6 — Consumo e Poupança** | 9 | 4 | [[Resolucao/kurlat_solutions_ch06\|ch06]] (31 p.) |
+| 7 — Trabalho e Lazer | 7 | 5 | ⏳ numérico e figuras prontos; falta o `.tex` |
+| 8 — Investimento | — | — | ⛔ **fora do escopo** do programa |
+| 9 — Equilíbrio Geral | 13 | 6 | [[Resolucao/kurlat_solutions_ch09\|ch09]] (33 p.) |
 
 ## Aulas
 
@@ -27,8 +49,8 @@ pelos wiki-links e ver o grafo.
 | 2 | Crescimento: Fatos e Solow | [[02_crescimento_solow]] | Kurlat 3, 4.1-4.2 | ✅ Slides 2 | L1 ✅ |
 | 3 | Solow (cont.) e Evidências | [[03_solow_evidencias]] | Kurlat 4.3-4.5, 5 | ✅ Handout 3 | L2 ✅ |
 | 4 | Consumo e Poupança | [[04_consumo_poupanca]] | Kurlat 6 | ✅ Slides 4 | L3 ✅ |
-| 5 | Trabalho e Lazer | [[05_trabalho_lazer]] | Kurlat 7 | ✅ Slides 5 | **L4 ⏰ 31/08** |
-| 6 | Equilíbrio Geral | [[06_equilibrio_geral]] | Kurlat 9 | ⬜ | L5 |
+| 5 | Trabalho e Lazer | [[05_trabalho_lazer]] | Kurlat 7 | ✅ Slides 5 | L4 ✅ |
+| 6 | Equilíbrio Geral | [[06_equilibrio_geral]] | Kurlat 9 | ✅ Slides 6 | **L5 ⏳ a emitir** |
 | 7 | Moeda e Inflação | [[07_moeda_inflacao]] | Kurlat 10-11 | ⬜ | L6 |
 | 8 | AD-AS NK: microfundamentos | [[08_adas_microfundamentos]] | Benigno §1-5 | ⬜ | L6 |
 | 9 | AD-AS NK: política | [[09_adas_politica]] | Benigno §6-12 | ⬜ | L7? |
@@ -72,7 +94,7 @@ Curve*. Restam **L5** → 9.x, **L6** → 10.x-11.x + Benigno, **L7** → Benign
 
 ## NotebookLM
 
-**52 prompts** em `NotebookLM/`, em **dois lotes que coexistem de propósito**:
+**58 prompts** em `NotebookLM/`, em **três lotes que coexistem de propósito**:
 
 - **Por aula (40)** — para cada uma das Aulas 1 a 4: **4 slides** (teoria · mecânica ·
   exercícios · síntese), **4 vídeos** (um por objeto visual) e **2 áudios** (um fio
@@ -82,8 +104,12 @@ Curve*. Restam **L5** → 9.x, **L6** → 10.x-11.x + Benigno, **L7** → Benign
   Euler · renda permanente · $\sigma$ como árbitro · impostos e Ricardo · restrição de
   crédito · imposto sobre poupança). Sem áudio — os dois fios do cap. 6 já estão nos
   áudios da Aula 4. É o recorte de quem está resolvendo a lista.
+- **Aula 6 (6)** — **4 vídeos + 2 áudios**, sem slides. Um vídeo por objeto visual (os
+  três agentes · o planejador e a contradição · a construção do diagrama de fase · a
+  antecipação) e um fio condutor por áudio. É o primeiro lote **inteiramente em inglês**.
 
-Slides e vídeo saem em pt-BR; **o áudio sai em inglês**. Ver
+Slides e vídeo dos lotes antigos saem em pt-BR; **o áudio sai sempre em inglês**, e a
+partir da Aula 6 o lote inteiro sai em inglês. Ver
 [`NotebookLM/README.md`](../NotebookLM/README.md) e a regra de formato em
 [[10_notebooklm_prompts]].
 

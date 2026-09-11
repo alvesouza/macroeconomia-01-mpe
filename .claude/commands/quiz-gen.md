@@ -15,7 +15,7 @@ Generate a quiz from the materials or concepts specified by `$ARGUMENTS`.
 Always ask about, at minimum:
 1. **Number of questions** — recommend the count from `$ARGUMENTS`, else 20.
 2. **Degree of math complexity / difficulty** — easy / medium / hard (see calibration in Step 4). This is the axis of how INTERTWINED topics are and how COMPLEX the math is.
-3. **Math-intensive ratio** — confirm the 30–45% split; for non-math topics, whether to include math-intensive questions at all (see Step 3).
+3. **Math-intensive ratio** — confirm the 30–45% split; for non-math topics, whether to include math-intensive questions at all (see Step 3). Do **not** ask whether to use numbers: math questions are always symbolic (see "Symbolic, not numerical" in Step 4).
 4. **Generation mode** — file-content / file-subject / topic-focused (see Step 1).
 
 Only after the user confirms (or overrides) these do you proceed to Step 1. The one exception: if the user explicitly says "use defaults" / "don't ask", honor that for this run. The default posture is always to ask.
@@ -70,14 +70,42 @@ Write questions in the MD format below. Follow these rules:
 - Use another language only if the user asks for it explicitly for that quiz.
 
 **Distribution:**
-- 30-45% math-intensive (computations, derivations, proofs) — if applicable
+- 30-45% math-intensive (derivations, comparative statics, proofs) — if applicable
 - 55-70% conceptual (definitions, intuitions, comparisons, edge cases)
 - If >15 questions: every topic/concept within scope gets at least 2 questions
 
+**Symbolic, not numerical (CRITICAL — this governs every math question):**
+
+Math questions are posed and answered in **literal parameters**, never in numbers. State the
+model with its symbols ($\alpha$, $\beta$, $\delta$, $\sigma$, $s$, $n$, $\tau$, $\theta$)
+and ask for an **expression**, a **sign**, or a **comparison**. Never hand the student a set of
+numerical parameter values and ask them to compute a number.
+
+- **Ask:** "Find the expression for $k^*$", "How does $k^*$ depend on $\delta$?", "What is the
+  sign of $\partial c_1/\partial r$, and what decides it?", "Which is larger, $K_{ss}$ or
+  $K_{gr}$, and why?"
+- **Do not ask:** "With $s=0{,}24$, $n=0{,}01$, $\delta=0{,}05$ and $\alpha=1/3$, what is
+  $k^*$?" — that question is answered by arithmetic, and a student can get it right while
+  understanding nothing about what $k^*$ depends on.
+- **Options are expressions**, in the same symbols the stem uses. Distractors are plausible
+  *wrong expressions*: a flipped exponent ($\frac{1}{\alpha}$ where $\frac{1}{1-\alpha}$
+  belongs), a dropped term ($\rho$ instead of $\rho+\delta$), an inverted ratio, a sign error.
+  Never a set of decimals to choose between.
+- **Never ask the student to evaluate an expression they just derived.** If a multi-part `P:`
+  problem derives a formula in part (a), part (b) asks what happens to it when a parameter
+  moves — not what number it equals.
+
+**The one exception — empirical magnitudes.** A number belongs in a quiz when it is a *fact the
+course asks you to know*, not arithmetic to perform: the capital share $\approx 1/3$, a Frisch
+elasticity of 0,4 to 1 against Prescott's 2,3, a US job-finding rate near 30% per month, the
+34% and 53% tax rates in Kurlat's Prescott calibration. These are quoted, not computed, and they
+are legitimate. The test is simple: **if the student has to reach for a calculator, the question
+is wrong.**
+
 **Difficulty calibration:**
-- **Easy**: each question tests ONE concept. No multi-part P: problems. Math = direct formula application (plug and compute). 60-70% conceptual, 30-40% math.
-- **Medium**: questions may connect 2-3 concepts. Multi-part P: problems allowed. Math = multi-step reasoning. Standard 55-70% conceptual / 30-45% math split.
-- **Hard**: questions MUST cross topic boundaries. Multi-part P: problems encouraged. Math = proofs, asymptotic arguments, derivations. 40-50% math-intensive, 50-60% conceptual (but "conceptual" here means deep synthesis, not recall). If Map has `Cross-topic synthesis` entries, use them to design intertwined questions.
+- **Easy**: each question tests ONE concept. No multi-part P: problems. Math = read one formula and say what it implies, or identify the correct expression among near-misses. 60-70% conceptual, 30-40% math.
+- **Medium**: questions may connect 2-3 concepts. Multi-part P: problems allowed. Math = derive an expression in two or three steps, or sign a comparative static. Standard 55-70% conceptual / 30-45% math split.
+- **Hard**: questions MUST cross topic boundaries. Multi-part P: problems encouraged. Math = proofs, asymptotic arguments, full derivations, comparisons of two expressions that differ by one term. 40-50% math-intensive, 50-60% conceptual (but "conceptual" here means deep synthesis, not recall). If Map has `Cross-topic synthesis` entries, use them to design intertwined questions.
 
 **Multi-part problems and P: scoping:**
 - Use `P:` to define a shared problem setup
@@ -92,10 +120,10 @@ Write questions in the MD format below. Follow these rules:
 A student answers one question at a time, on one screen, seeing only that question's stem, its options, and the `P:` block currently active *in the same section*. Anything else you rely on is invisible to them.
 
 - **Never refer to context the student cannot see on that screen.** Banned in a `Q:` stem unless a `P:` in the *same* `##` section supplies it: "the economy above", "in the same economy", "the stock above", "as before", "throughout this quiz", "that economy", "this discount factor" (when defined in a previous question). These render as dangling references and make the question unanswerable.
-- **Restate every given the question needs, in the question.** Repetition across questions is correct and expected — it costs a few words and it is what makes each item independently gradable. A numeric question must carry every number its arithmetic requires: if the answer needs $R_f$, the market premium and a beta, name all three in the stem even if you named them two questions earlier.
+- **Restate every given the question needs, in the question.** Repetition across questions is correct and expected — it costs a few words and it is what makes each item independently gradable. A symbolic question must **define every symbol it uses**: if the answer is an expression in $\alpha$, $\beta$ and $\delta$, say what each one is in the stem, even if you said it two questions earlier. An undefined symbol is exactly as unanswerable as a dangling reference.
 - **Never cite a book section number as the subject of a question.** "Which association between hypothesis and result of §1.5 is correct?" tests whether the student memorized the book's numbering, not whether they know the material — and a student reading the stem has no idea what §1.5 contains. State the substance instead ("Match each assumption to exactly what it buys"). Section and page numbers belong in the `> Ref:` line, which exists for exactly that purpose.
 - Same rule for internal cross-references: no "as shown in the previous question", no "recall from item 12".
-- **Sharing one numeric economy across a whole quiz is good design** — it lets a student check one setup end to end — but implement it by *restating* the relevant subset in each stem, never by a single `P:` at the top and references back to it.
+- **Sharing one model across a whole quiz is good design** — it lets a student follow one setup end to end — but implement it by *restating* the relevant symbols and assumptions in each stem, never by a single `P:` at the top and references back to it.
 - **Verify before shipping.** After generating, confirm that no `Q:` stem outside an active `P:` contains: `above`, `the same economy`, `this quiz`, `earlier`, `previous`, `as before`, `that economy`. Every hit is a bug.
 
 **Option quality (CRITICAL):**
@@ -127,7 +155,7 @@ A student answers one question at a time, on one screen, seeing only that questi
 - Use all base64 encodings: `YW5zOjA=` (A), `YW5zOjE=` (B), `YW5zOjI=` (C), `YW5zOjM=` (D).
 
 **Currency and special characters:**
-- NEVER use bare `$` for currency (e.g., `R$1`), as KaTeX interprets `$` as a math delimiter. Write `1 real`, `1.000 reais`, `USD 100`, etc. instead.
+- NEVER use bare `$` for currency (e.g., `R$1`), as KaTeX interprets `$` as a math delimiter. Write `1 real`, `1.000 reais`, `USD 100`, etc. instead. This comes up rarely now that math questions are symbolic — currency belongs only in an empirical-magnitude question.
 
 **Answer encoding:**
 - Encode the correct answer as `<!-- base64(ans:N) -->` where N is the 0-indexed position
@@ -230,6 +258,7 @@ The template (course-agnostic — title/tags come from the .md frontmatter) prov
 
 Show:
 - Number of questions generated (total, math-intensive, conceptual, multi-part)
+- Confirmation that every math question is symbolic, and the list of any questions that quote an empirical magnitude, with the source of each number
 - Topic distribution
 - File saved to
 - How to run: `python -m http.server` + open quiz.html

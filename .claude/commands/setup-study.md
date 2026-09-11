@@ -132,6 +132,7 @@ Include:
   - `/quiz-analyze <paste results>` — analyze quiz performance
   - `/study-map .` — generate Obsidian cross-reference maps
   - `/notebooklm <lectures-dir>/` — generate NotebookLM prompts (slides + audio) for all lectures
+  - `/speechify <topic-or-file>` — narrated plain-text script for Speechify or any TTS app (math spoken in words, no tables, no code); `--split` for one file per part, `--short` for a revision-only pass
 - How to run quizzes:
   1. `cd <project-dir>`
   2. `python -m http.server`
@@ -156,6 +157,7 @@ Run `/convert` on the selected files. This is the entry point for the rest of th
 - Converted lectures feed `/summarize` and `/quiz-gen`
 - Converted books feed `/study-map` cross-references (more precise chapter-level linking)
 - Converted exercise lists feed `/list-exercises` and `/solution`
+- Any converted reading feeds `/speechify` when the user wants to study by listening
 
 If existing `.md` files are found, ask the user once (overwrite all / skip all / let me pick).
 

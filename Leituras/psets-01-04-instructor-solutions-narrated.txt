@@ -1,0 +1,508 @@
+THE INSTRUCTOR'S OWN SOLUTIONS. PROBLEM SETS 1 TO 4. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Professor Pedro G. Duarte. Companion to the narrated reading on Problem Set 5 and General Equilibrium.
+
+
+HOW TO LISTEN
+
+This is a narration of the four solution sets the professor released for Problem Sets 1 through 4, handwritten by him, plus the reasoning needed to make them followable by ear. Nothing here is invented: every number, every formula and every side remark comes from his own pages.
+
+Why this matters more than any other revision material you have. The final examination is 65 per cent of the grade, and it is written by the person who wrote these four documents. They are the only direct evidence you have of what he considers a complete answer, how much algebra he expects, where he thinks the traps are, and how short an acceptable answer can be. Every other source tells you the economics. These tell you the grading function.
+
+Mathematics is dictated, never displayed. Greek letters are said by name: alpha, beta, gamma, delta, theta, sigma, mu, tau, psi. Where the professor writes a superscript K on the letter r, I say "r capital", and it always means the rental rate of capital. Where he writes a tilde over a variable, I say "tilde".
+
+There are eight parts. Part one is the method he uses, which is the single most transferable thing here. Parts two through five walk the four sets. Part six collects every warning he wrote in his own margins. Part seven turns all of it into predictions for Problem Set 5 and for the final. Part eight is five lines.
+
+Two scope reminders, enforced throughout. Chapter 8 of Kurlat, on investment, is outside the syllabus. And Tobin's q, adjustment costs, recursive methods and stochastic dynamic programming are all out of scope; where the material brushes against them I name them and step around.
+
+One warning about language. His pages mix Portuguese and English freely. He writes CP for curto prazo, the short run, and LP for longo prazo, the long run. He writes SS for steady state and BC for the Beveridge curve. I will use the English throughout and tell you the abbreviation when it first appears.
+
+
+PART ONE. THE METHOD. WHAT A COMPLETE ANSWER LOOKS LIKE TO HIM.
+
+Before any content, look at the shape of what he hands back, because it is not what most students produce.
+
+His solutions are short. Problem Set 1, which is worth three points across five items plus a three-point Solow question, occupies three handwritten pages, and two of those pages are mostly diagrams. Problem Set 4, worth ten points, is five pages. There is almost no prose. This is the first and most useful thing to internalise: he is not looking for paragraphs. He is looking for the right object, correctly derived, correctly signed, and correctly labelled.
+
+Six features recur in all four sets.
+
+One. The final answer is always isolated and marked. He highlights it, or he boxes it, or he draws a double slash beside it. Every single numerical result and every closed-form expression gets that treatment. Nothing is left buried at the end of a line of algebra. If you take one presentational habit from this recording, take that one: make the grader able to find your answer without reading your working.
+
+Two. The economics is carried by arrows, not sentences. Where a student would write a paragraph, he writes a chain. In Problem Set 1 the entire short-run analysis of an earthquake is: capital falls, arrow, capital per worker falls, arrow, output per worker and total output fall. Three symbols and two arrows. That is a complete answer to him. The chain has to be causal and it has to be in the right order, but it does not have to be a sentence.
+
+Three. Diagrams come in pairs. Whenever there is a dynamic question, he draws two panels: the phase or Solow diagram showing where the economy moves, and directly underneath it a time path showing the same movement against time on the horizontal axis. He does this in Problem Set 1 twice and in Problem Set 4 twice. The pairing is the point. The first diagram shows the mechanism; the second shows the timing. A question that says "what happens in the short run and in the long run" is asking for both panels.
+
+Four. He labels the trap in the margin, in a lighter pen, with a hash mark in front of it. These are not decorations. They are the places where he expects students to lose marks, written in his own hand. Part six collects all of them.
+
+Five. He names structural objects. When a term appears that has a standard name, he writes the name above it with a bracket. In Problem Set 2 he underbraces the factor one over one plus theta, raised to the power alpha, and writes "wedge" above it. In Problem Set 4 he underbraces the two halves of the employment law of motion and writes "destruction" and "creation". Naming the object is part of the answer.
+
+Six. Sign, then interpret. Every derivative he takes is immediately signed, greater than zero or less than zero, and only then interpreted. He never interprets an ambiguous derivative. When the sign is ambiguous he isolates the term that decides it and highlights that term alone, as he does in Problem Set 3 with the quantity sigma minus one over sigma.
+
+Now the four sets.
+
+
+PART TWO. PROBLEM SET 1. NATIONAL ACCOUNTS AND THE EARTHQUAKE.
+
+Question 1 is worth three points, six tenths per item, and it is based on chapter 1 of Kurlat. Two goods, Brazil, two years. In 2024 the price of good one is 8 and its quantity is 5; the price of good two is 4 and its quantity is 4. In 2025 the price of good one is 2 and its quantity is 12; the price of good two is 6 and its quantity is 3.
+
+Item a. Nominal GDP in each year, at that year's own prices.
+
+Nominal GDP in 2024 is 8 times 5, plus 4 times 4, which is 40 plus 16, which is 56.
+
+Nominal GDP in 2025 is 2 times 12, plus 6 times 3, which is 24 plus 18, which is 42.
+
+Notice that nominal GDP fell, from 56 to 42, while both real measures you are about to compute show growth. That contrast is the whole point of the question.
+
+Item b. Real GDP in 2025 at 2024 prices, and the implied growth rate.
+
+Value the 2025 quantities at 2024 prices: 8 times 12, plus 4 times 3, which is 96 plus 12, which is 108. The base-year comparison is 2024 nominal GDP, which is 56.
+
+Growth is 108 over 56, minus one, which is 92.8 per cent.
+
+Take the arithmetic slowly, because this is exactly where marks get lost. 108 minus 56 is 52. 52 over 56 cancels by 4 to 13 over 14, which is 0.928. Not 13 over 19. If you find yourself writing 13 over 19 you have cancelled wrongly and you will report 68 per cent instead of 93 per cent.
+
+Item c. Real GDP in 2024 at 2025 prices, and the implied growth rate.
+
+Value the 2024 quantities at 2025 prices: 2 times 5, plus 6 times 4, which is 10 plus 24, which is 34. Compare with 2025 nominal GDP, which is 42.
+
+Growth is 42 over 34, minus one, which is 23.5 per cent.
+
+Again, be careful: the denominator is 34, not 32. Eight over 34 is 0.235.
+
+And now the part the question is actually testing, which is the explanation of why 92.8 and 23.5 are so far apart. He writes the price movements out explicitly and boxes them: the price of good one goes from 8 to 2, and the price of good two goes from 4 to 6.
+
+Here is the economics, and it is not "the base year is merely a convention". The relative price of good one collapsed and the relative price of good two rose. Quantities responded: good one went from 5 to 12, good two went from 4 to 3. Households substituted toward the good that got cheaper.
+
+Now put those two facts together. When you value the new quantities at old prices, you are pricing a large quantity of good one at its old, high price of 8, so the expansion of good one is enormously overweighted. That is the Laspeyres index, and it overstates growth. When you value the old quantities at new prices, you are pricing the old, small quantity of good one at its new, low price of 2, so the same expansion is heavily underweighted. That is the Paasche index, and it understates growth.
+
+The general statement, which is what earns the marks: when relative prices move and quantities substitute toward the goods whose prices fell, the base-year choice is not neutral. A fixed-weight index using old prices has an upward substitution bias; using new prices it has a downward bias. That is why statistical agencies use chained indices, which is Kurlat's own point in chapter 1. Calling the base year "a convention that lets us compare years" is true, and it earns nothing, because it does not say which direction each convention biases the answer or why.
+
+Item d. Colombia, 2024. The prices in Colombian pesos are 40 for good one with quantity 1, and 8 for good two with quantity 2. The exchange rate is 25 pesos per real. Compute Colombian GDP in reais at the market exchange rate.
+
+Divide each peso price by 25 to convert it to reais, then value the Colombian quantities: 40 over 25, times 1, plus 8 over 25, times 2. That is 1.6 plus 0.64, which is 2.24.
+
+Item e. Colombian GDP at purchasing power parity.
+
+Here you throw the exchange rate away entirely and value the Colombian quantities at Brazilian 2024 prices. He writes an arrow to the top of the page and labels it "prices BR 24", so that the reader can see which price vector is being used. Brazilian 2024 prices are 8 and 4. So GDP at PPP is 8 times 1, plus 4 times 2, which is 8 plus 8, which is 16.
+
+Now sit with those two numbers, because the contrast is the whole item: 2.24 at the market exchange rate against 16 at purchasing power parity. Colombian GDP measured at PPP is more than seven times the market-exchange-rate figure.
+
+The explanation that earns marks. The market exchange rate prices only what is traded internationally, and it is set in currency markets by trade and capital flows. Most of what a country actually produces and consumes is non-traded: haircuts, housing, transport, government services, restaurant meals. Non-traded goods and, above all, labour are systematically cheaper in poorer countries, because wages are lower there and no arbitrage forces them to converge. So converting a poor country's output at the market rate values its non-traded output at a price nobody there actually pays, and understates real production. This is the Balassa-Samuelson observation, and it is why cross-country income comparisons are made at PPP.
+
+An answer that says only "there are import and export costs so prices are not one to one" is naming a friction in traded goods, and traded goods are precisely the ones where the market rate works best. It misses the mechanism.
+
+Question 2 is Kurlat exercise 2.2, worth two points. Question 3 is Kurlat exercise 3.3, worth two points, and is the cross-country convergence scatter: growth from 1960 to 2014 against log GDP per capita in 1960, plotted separately for Europe, Latin America and Africa. The slopes are minus 2.27 for Europe with 20 countries, plus 0.57 for Latin America with 19 countries, and minus 1.20 for Africa with 43 countries. The reading: convergence is visible within Europe and, more weakly, within Africa, but is absent in Latin America. This is conditional convergence, not absolute convergence, and it is the empirical fact that kills Conjecture 5.1 in chapter 5.
+
+Question 4 is the one worth studying hardest, three points, one and a half per item, based on chapter 4. An economy is on a Solow steady state with no technological progress. At date t-zero an earthquake destroys half the capital stock.
+
+He begins by writing the steady state out in full, and this is a habit worth copying: he sets up the general objects before touching the shock.
+
+The steady state capital per worker is s over the quantity n plus delta, all raised to the power one over one minus alpha.
+
+Output per worker in steady state is that raised to the power alpha, which is s over n plus delta, raised to the power alpha over one minus alpha.
+
+And consumption per worker in steady state is one minus s, times that same expression.
+
+Then the shock. Capital per worker at t-zero is one half of its steady-state value.
+
+Item a asks what happens to GDP and to GDP per capita, in the short run and in the long run. He answers in two lines and two diagrams.
+
+The first diagram is the standard Solow picture: the concave curve s times f of k, and the straight line n plus delta times k. He marks the steady state where they cross, then marks the post-earthquake point at half that capital, and shows that at the new point the saving curve lies above the depreciation line, with a bracket labelled delta k greater than zero. So capital is rising.
+
+The short run, and he writes it as a chain: capital falls, arrow, capital per worker falls, arrow, output per worker and total output both fall. Both fall, because the labour force is unchanged at the instant of the shock, so a fall in K is a fall in k, and output follows.
+
+The long run: capital per worker returns to its steady state, so output per worker returns to its original level. The steady state is unchanged because none of s, n, delta or alpha changed. Only the initial condition moved.
+
+Now the part almost everybody misses, and he writes it out explicitly: total output at the later date is greater than total output just before the earthquake, because the labour force at the later date is greater than the labour force at t-zero. Population is still growing at rate n throughout. So output per capita comes back to exactly where it was, but total GDP ends up higher than it was before the shock, simply because there are more people. Per capita and aggregate answer differently, and the question asked for both.
+
+Underneath he draws the second panel: capital on the vertical axis against time on the horizontal, starting at the post-earthquake level and rising asymptotically to the steady state, with a light note reading "same for y".
+
+Item b. Now, on top of the destruction of capital, the population growth rate is halved, because people emigrate rather than live in an earthquake zone.
+
+He writes: the new population growth rate will impact the steady state. And the new steady state capital per worker is s over the quantity n-prime plus delta, raised to one over one minus alpha, which is greater than the old one, because the denominator has fallen.
+
+The diagram now has two straight lines from the origin, the original n plus delta times k and the flatter n-prime plus delta times k, cutting the same concave saving curve at two different points. The economy starts at the post-earthquake capital level, well to the left, and converges rightward past the old steady state to the new, higher one. Underneath, the time path panel shows capital rising from the post-earthquake level all the way up to a level above where it started.
+
+His margin note gives the interpretation in three lines: higher levels, lower steady-state growth, higher growth during the convergence.
+
+Unpack that, because it is compressed. Higher levels means capital per worker and output per worker are permanently higher, because slower population growth means capital is spread over fewer new workers. Lower steady-state growth refers to aggregate output, which in the long run grows at the population growth rate, and that rate has fallen; so the level of GDP per person is higher forever while total GDP grows more slowly forever. And higher growth during convergence, because the economy now has further to travel from the same starting point to a target that has moved further away, and in the Solow model the growth rate is increasing in the distance from the steady state.
+
+That three-way distinction, between the level of income per person, the growth rate of aggregate income, and the transitional growth rate, is the recurring examinable idea of the whole growth block.
+
+
+PART THREE. PROBLEM SET 2. KOREA AND GOTHAM.
+
+Question 1 is a unification problem. Two countries, North and South, with different technologies, different saving rates and different population growth.
+
+Item a asks for initial capital per worker and output per worker in each.
+
+The North has a capital stock of 100 and a labour force of 10, so capital per worker is 10. Its production function has a capital exponent of one quarter and a productivity level of 4, so output is 4 times 100 to the power one quarter, times 10 to the power three quarters. That is 4 times 3.1623 times 5.6234, which is 71.13. Divide by the labour force of 10 and output per worker is 7.113.
+
+The South has a capital stock of 8000 and a labour force of 20, so capital per worker is 400. Its exponent is one half and its productivity is 5, so output is 5 times 8000 to the power one half, times 20 to the power one half. The square root of 8000 is 89.443 and the square root of 20 is 4.4721; their product is exactly 400, so output is 2000. Divide by 20 and output per worker is 100.
+
+Item b. Steady states. He writes the general formula once: tilde k for country i equals s-i times A-i, over delta plus n, all raised to the power one over one minus alpha-i. Note that A is inside, which matters because the two countries have different productivity levels.
+
+For the North, steady-state capital per worker is 16 and output per worker is 8. For the South, steady-state capital per worker is 625 and output per worker is 125.
+
+Then the predictions, which he writes as two bullets. Relative convergence: each country converges to its own steady state, so they converge relative to their own targets, not to each other. And higher growth in the North, due to the North's population growth being higher than the South's. Both are statements about conditional convergence.
+
+Item c. Unification. The combined capital stock is 8100, the combined labour force is 30, and the unified country adopts the South's production function, with exponent one half and productivity 5. So unified capital per worker is 8100 over 30, which is 270.
+
+Unified output per worker is 5 times the square root of 8100, times the square root of 30, all over 30. The square root of 8100 is 90, the square root of 30 is 5.4772, so output is 5 times 90 times 5.4772, which is 2464.75, and per worker that is 82.16.
+
+Now the comparisons, and he sets them out as two differences.
+
+Unified output per worker minus Northern output per worker is 75. The North gains enormously, and he writes the reason with an arrow: more capital and better use, that is, higher productivity, since the North has adopted the South's superior technology.
+
+Unified output per worker minus Southern output per worker is minus 17.84. The South loses in per-worker terms. His margin note reads: capital gets diluted at unification. The South had 400 units of capital per worker and now shares its capital with a poorer, more populous partner, ending at 270.
+
+He then highlights: the South gains in labour. And he checks the aggregate. Before unification, Northern output plus Southern output is 2071.31. After unification, total output is 2464.752. The change is a gain of 393.62, which is 19 per cent.
+
+His note is precise and worth quoting: not per capita for the South, but still a gain. Aggregate output rises by 19 per cent, and the entire gain comes from the North's population now producing with the South's technology. But the South's residents are worse off per head. Distributional statements and aggregate statements diverge, and the question is testing whether you notice.
+
+Item d. The unified population growth rate is a labour-force-weighted average of the two: 0.01 times 20 over 30, plus 0.03 times 10 over 30. That is four thirds of one per cent, approximately 0.016667.
+
+The unified steady-state capital per worker is 506.25 and output per worker is 112.5. Check that last step: with a capital exponent of one half, output per worker is productivity times the square root of capital per worker, so 5 times the square root of 506.25, which is 5 times 22.5, which is 112.5.
+
+His note: slightly lower level, but higher growth. Lower than the South's own steady state of 125, because the unified country inherited the North's faster population growth, and faster population growth dilutes capital. Higher growth, because the unified economy starts at 270 and has to climb to 506.25, so it spends a long transition growing.
+
+Question 2 is Gotham, and it is the single best rehearsal for the measurement theme that runs through chapter 5.
+
+The setup. Total capital k splits into productive capital and security capital. For every unit of productive capital, theta units must be spent on security. So k equals productive capital plus theta times productive capital, which means productive capital is k over one plus theta.
+
+Item a. The share of capital that is wasted on security is theta times productive capital, over k, which simplifies to theta over one plus theta. With theta equal to one half, security capital is one third of the total capital stock.
+
+Now substitute into the production function. Output is A times productive capital to the power alpha, times labour to the power one minus alpha, which is A times k over one plus theta, to the power alpha, times labour to the one minus alpha. He boxes the factor that emerges: one plus theta, raised to the power minus alpha.
+
+So output with crime equals A, times one plus theta to the minus alpha, times k to the alpha, times L to the one minus alpha. Output without crime is the same thing without that factor.
+
+The proportional loss is output with crime over output without crime, minus one, which is one plus theta to the minus alpha, minus one, which is approximately minus 12.64 per cent. With alpha equal to one third and theta equal to one half: 1.5 raised to the power minus one third is 0.87358, so the loss is 12.64 per cent.
+
+And in the margin, in lighter pen, he writes: careful with chosen base. That warning is about which of the two economies goes in the denominator. Expressing the loss relative to the no-crime economy gives 12.64 per cent; expressing the gain from eliminating crime relative to the crime economy gives 14.47 per cent, because 1.5 to the power one third is 1.1447. Both are defensible; stating which base you used is not optional.
+
+Item b. The firm's problem. He writes: maximise over capital and labour, one times A, times one plus theta to the minus alpha, times k to the alpha, times L to the one minus alpha, minus r times k, minus w times L. And he underbraces the factor one plus theta to the minus alpha and writes "wedge" beneath it.
+
+The first-order conditions, with the marginal products circled and labelled: A over one plus theta to the alpha, times alpha, times capital over labour to the power alpha minus one, equals r. And A over one plus theta to the alpha, times one minus alpha, times capital over labour to the power alpha, equals w.
+
+Underneath the wage condition he writes an arrow and the words: workers also affected. That is the item's real content. Crime is a tax on capital in its physical description, but because capital and labour are complements in production, the wedge lowers the marginal product of labour by exactly the same proportional factor, so the wage falls by the same 12.64 per cent as output. Nobody is insulated.
+
+Then factor shares. He computes r times k over Y directly: substitute the first-order condition into the numerator, and the whole expression, wedge included, cancels against the denominator, leaving exactly alpha. Similarly w times L over Y is one minus alpha, which he highlights.
+
+That is the punchline of item b, and it is worth saying slowly. Crime changes the level of output, the wage and the rental rate, but it does not change factor shares at all. The wedge is a common multiplicative factor and it cancels out of any ratio. So an economist looking at the national accounts of Gotham sees perfectly normal factor shares and no sign whatsoever that a third of the capital stock is doing nothing.
+
+Item c. Since the shares look normal, where does the crime show up? He writes the production function again and boxes the object the economist will actually recover: A over one plus theta to the power alpha. He labels it A-hat.
+
+His sentence: A-hat gets distorted by non-observability of the type of capital. And then: alpha-hat equals alpha, no change, since r times k over Y is directly observable.
+
+So the measured capital share is correct, and the measured productivity is wrong. All of the crime lands in the Solow residual. This is the same trap as Kurlat exercises 5.4, 5.5 and 5.9, and it is the reason the chapter insists that a residual is a residual.
+
+Item d. Now crime falls: theta becomes theta over four. Over a ten-year window, how much measured TFP growth does that generate?
+
+He starts from growth accounting: growth of output equals alpha times growth of capital, plus one minus alpha times growth of labour, plus the Solow residual. And he underbraces the residual and writes what is actually inside it: true TFP growth plus the change in theta.
+
+Then the transition. The change in the wedge over ten years, expressed as an annual log rate, is one tenth times the natural log of one plus theta-prime, over one plus theta. He underbraces the one tenth and writes "time period", and underbraces the log term and writes "log change over period".
+
+Assuming true productivity grows at rate g-A, the measured residual is g-A plus alpha over ten, times the natural log of one plus theta over one plus theta over four.
+
+With g-A equal to zero, alpha equal to one third, and theta going from one half to one eighth: the measured residual is approximately 0.96 percentage points per year.
+
+Verify it in your head: 1.5 over 1.125 is 1.3333, whose natural log is 0.2877; divide by 10 and multiply by one third and you get 0.00959, which is 0.96 percentage points a year.
+
+Nearly a full point of annual productivity growth for a decade, with technology literally constant. That is the number to remember.
+
+And his last line, which is the mirror of the whole exercise: worse crime, reverse g. Rising crime produces measured productivity decline that is equally spurious.
+
+
+PART FOUR. PROBLEM SET 3. CONSUMPTION, SAVING, RICARDO AND CREDIT CONSTRAINTS.
+
+This is the longest of his four sets, seven pages, and it is the one whose algebra is most likely to reappear on the final in some disguise. Problem Set 5 question 1 is a two-period problem with the same skeleton, so this is direct preparation.
+
+Question 1, item a. The household maximises utility of consumption in period one plus beta times utility of consumption in period two, subject to two flow constraints.
+
+The first: consumption one plus assets equals initial assets, plus income one, minus taxes one.
+
+The second: consumption two equals income two, plus one plus r times assets, minus taxes two.
+
+Utility is constant relative risk aversion, consumption to the power one minus sigma over one minus sigma, and he highlights that specification in the margin so it is not forgotten.
+
+His method here is worth copying exactly, because it avoids a Lagrangian entirely. He calls it "replace c two for c one".
+
+Step one, solve the first constraint for assets: assets equal initial assets, plus income one, minus taxes one, minus consumption one.
+
+Step two, substitute that into the second constraint, so that consumption two is written purely in terms of consumption one and the exogenous variables.
+
+Step three, substitute that expression into the objective, which leaves an unconstrained maximisation in the single variable consumption one.
+
+Step four, differentiate. The chain rule gives marginal utility of consumption one, plus beta times marginal utility of consumption two, times one plus r, times minus one, equals zero.
+
+Rearranged and boxed: marginal utility of consumption one equals beta, times one plus r, times marginal utility of consumption two. And with the constant relative risk aversion form, that becomes: the ratio consumption two over consumption one, raised to the power sigma, equals beta times one plus r. He labels it, in the margin, the Euler equation.
+
+Now the closed forms. From the Euler equation, consumption one equals consumption two, times the quantity beta times one plus r, raised to the power minus one over sigma.
+
+Substitute that into the period-two constraint and collect. He gets consumption two, times the bracket one plus beta to the power one over sigma, times one plus r to the power one over sigma minus one, equals income two minus taxes two, plus one plus r, times the bracket initial assets plus income one minus taxes one.
+
+Therefore, and he boxes it: consumption two equals income two, minus taxes two, plus one plus r times the quantity initial assets plus income one minus taxes one, all divided by one plus beta to the power one over sigma, times one plus r to the power one over sigma minus one.
+
+And consumption one, also boxed: initial assets, plus income one, minus taxes one, plus the quantity income two minus taxes two over one plus r, all divided by that same denominator.
+
+Learn that denominator by heart. One plus beta to the power one over sigma, times one plus r to the power one over sigma minus one. It appears in every single part of this problem set and it will appear on the exam. The numerator is lifetime wealth in present value; the denominator is the object that splits that wealth between the two periods, and it is where impatience, the interest rate and the willingness to substitute all enter.
+
+Finally, saving. From the period-one constraint, assets equal initial assets plus income one minus taxes one, minus consumption one, and after simplification he boxes: beta to the one over sigma, times one plus r to the power one over sigma minus one, times the quantity initial assets plus income one minus taxes one, minus the quantity income two minus taxes two over one plus r, all over the same denominator.
+
+Item b. How does the consumption-to-income ratio depend on future income?
+
+He writes the ratio out, then differentiates with respect to income two, and the answer is positive: income one, times beta to the one over sigma, times one plus r to the power one over sigma minus one, which is greater than zero. Then, in two symbols and an arrow: consumption relative to income one goes up, therefore saving goes down.
+
+That is the permanent income hypothesis in operational form. Better news about the future raises consumption today and lowers saving today, with current income unchanged. If households suddenly became optimistic about the future, they would consume more and save less immediately.
+
+Item c. The response of period-one consumption to the interest rate, in the special case where there are no taxes and no second-period income, so consumption one equals initial assets plus income one, over the denominator.
+
+He differentiates and then, in his words, reorganises, arriving at: the derivative of consumption one with respect to r equals initial assets plus income one, times one plus r to the power one over sigma minus two, over the denominator squared, times the quantity sigma minus one over sigma.
+
+He highlights that last factor and writes: determines sign of the derivative.
+
+So the sign of the interest-rate effect is the sign of sigma minus one. If sigma exceeds one, consumption today rises when the interest rate rises. If sigma is below one, it falls. At sigma exactly one, logarithmic utility, the effect is exactly zero.
+
+The intuition, which he leaves to you. This household has all its wealth today and no future income, so it is necessarily a saver. A higher interest rate makes future consumption cheaper, which pushes it to save more and consume less today: that is the substitution effect. But a higher interest rate also makes a saver richer, which pushes it to consume more today: that is the income effect. Sigma decides. A large sigma means the household is very unwilling to let consumption differ across dates, so it will not exploit the better price; the income effect wins and consumption today rises.
+
+One caution on vocabulary, and it matters for how you write your answer. In his margin he writes a note beside sigma reading "intertemporal elasticity of substitution". Strictly, in Kurlat's own text and in the standard usage, sigma is the coefficient of relative risk aversion and its reciprocal, one over sigma, is the elasticity of intertemporal substitution. His margin note is loose shorthand. The safest thing you can do on an exam is to write both explicitly, once: sigma is the curvature, one over sigma is the elasticity of intertemporal substitution. Then no reader can mark you wrong on either convention.
+
+Item d. Ricardian equivalence, done through four partial derivatives.
+
+The derivative of consumption one with respect to taxes one is minus one over the denominator.
+
+The derivative of consumption one with respect to taxes two is minus one over one plus r, all over the denominator.
+
+The derivative of consumption two with respect to taxes one is minus one plus r, over the denominator.
+
+The derivative of consumption two with respect to taxes two is minus one over the denominator, which he notes equals the derivative of consumption one with respect to taxes one.
+
+Beneath the third of those he writes, with an arrow: not zero, due to savings.
+
+That is the item's point. A tax levied today changes consumption tomorrow, and a tax levied tomorrow changes consumption today, and neither effect is zero. The household reallocates through the asset market. Timing per se does not matter; only the present value does; and the mechanism by which timing is neutralised is precisely saving.
+
+He then does the same for the asset position. The derivative of assets with respect to taxes one is negative and lies strictly between minus one and zero, which he underlines with a wavy line. The derivative of assets with respect to taxes two is strictly positive, and beside it he writes, boxed: saving extra to pay future taxes.
+
+Read those two together and you have the entire Ricardian mechanism. Tax the household today and it cuts saving to cushion consumption, but by less than one for one. Announce a tax for tomorrow and it saves more today to meet it. In both cases consumption responds only to the present value of the tax stream.
+
+Item e. The formal statement. He writes the asset position in the logarithmic case, one over one plus beta, times the bracket beta times the quantity initial assets plus income one, minus income two over one plus r, minus the quantity taxes one plus taxes two over one plus r, and he highlights that last bracket and labels it with an arrow: present value of taxes.
+
+Then he rewrites consumption one and consumption two and highlights, in both, exactly the same object: taxes one plus taxes two over one plus r. His side note reads: just multiplied by one plus r over one plus r what we had before.
+
+That is the demonstration. Taxes enter every equilibrium object only through the single combination taxes one plus taxes two over one plus r. Any change in the timing of taxes that leaves that combination unchanged leaves consumption in both periods unchanged. That is Ricardian equivalence, and it is proved by inspection once the closed forms are written correctly.
+
+Question 2 is the credit constraint, which is where Ricardian equivalence breaks.
+
+Item a. The new constraint is that assets are greater than or equal to minus b, which he reads as a borrowing limit of the absolute value of b. His note: if b equals zero, no borrowing allowed.
+
+He then derives what he calls the natural debt limit, implicitly. From the period-two constraint, consumption two equals income two, minus taxes two, plus one plus r times assets. For consumption two to be non-negative, b must be at least income two minus taxes two minus consumption two, all over one plus r. He labels this in the margin: natural debt limit, implicit. The point is that even without an explicit rule, there is a limit, because the household must be able to repay out of second-period resources.
+
+Item b. When does the constraint bind? He answers in one sentence and a branching arrow: it binds when the household wants to borrow more, which happens when the ratio of future to current income is high, or when beta is low.
+
+Both make sense. A steep income profile means the household is poor today and rich tomorrow, so consumption smoothing requires borrowing. A low beta means impatience, and an impatient household wants to bring consumption forward.
+
+Item c. Solving. His first move is the one to copy: the non-binding case is exercise one with initial assets equal to zero. You do not redo the algebra; you point at it.
+
+When it binds, the problem collapses because the constraint pins assets exactly. Assets equal minus b. So from the period-one constraint, consumption one equals income one, minus taxes one, plus b, and he boxes it. And from the period-two constraint, consumption two equals income two, minus taxes two, minus one plus r times b, also boxed.
+
+Notice that no optimisation is left. Once the constraint binds, the household consumes everything it is allowed to have, in both periods. There is no Euler equation to solve; there is only arithmetic.
+
+And then the diagnostic, highlighted: the Euler equation holds as a strict inequality. Marginal utility of consumption one is strictly greater than beta, times one plus r, times marginal utility of consumption two.
+
+That inequality is the formal signature of a binding constraint, and it is the thing to write on an exam. It says the household would like to move consumption from tomorrow to today and cannot. The marginal value of a unit today strictly exceeds the discounted marginal value of what saving would buy.
+
+Item e. A tax on savings. The period-two constraint becomes consumption two equals income two, plus the quantity one plus r minus tau-s, times assets, where tau-s is the tax on interest income.
+
+He collapses the two constraints into one lifetime constraint: consumption one, plus the quantity consumption two minus income two, over one plus r minus tau-s, equals income one minus taxes one.
+
+The solution is close to before, with one plus r replaced by one plus r minus tau-s wherever it appears as the return on saving. The Euler equation becomes the ratio consumption two over consumption one equals the bracket beta times one plus r minus tau-s, raised to one over sigma, and he writes beneath it: lowers the ratio of future to present consumption.
+
+He then writes consumption one with the modified return and highlights the discount factor applied to future income, noting alongside what it was before: income two minus taxes two over one plus r.
+
+And then the punchline of the whole problem set, in his last two lines. Same revenue, arrow, both allocations are affordable. Then, with an arrow: lump-sum is welfare improving, arrow, Euler equation.
+
+Say that argument out properly, because it is the standard public-finance result and it is very likely to be examined. Suppose the government raises a given amount of revenue in two ways: with a tax on interest income, or with a lump-sum tax of the same present value. Under the lump-sum tax, the household still faces the true intertemporal price, one plus r, and its Euler equation still equates the marginal rate of substitution to that true price. Under the savings tax, the household faces a distorted price, one plus r minus tau-s, so its marginal rate of substitution is equated to the wrong thing: it consumes too much today and saves too little relative to what the economy's technology actually permits. Since the allocation chosen under the lump-sum tax was affordable under the savings tax as well, and the household did not choose it, the household is strictly worse off under the savings tax. The wedge between the marginal rate of substitution and the true return is the deadweight loss, and the Euler equation is where you see it.
+
+
+PART FIVE. PROBLEM SET 4. LABOUR SUPPLY AND SEARCH.
+
+Question 1 is worth four points and is the static consumption-leisure problem with a wage tax and a lump-sum transfer.
+
+Item a. The household maximises the natural log of consumption, plus b times leisure to the power one minus gamma, over one minus gamma, subject to consumption being no greater than the after-tax wage times hours worked, plus the transfer.
+
+He writes the constraint as: consumption is less than or equal to w times one minus tau, times the quantity one minus leisure, plus T. And he brackets the term one minus leisure with an arrow labelled: employed time, n.
+
+The first-order condition. Consumption times leisure to the power minus gamma equals one over b, times w times one minus tau. And beside it his margin note: consumption-leisure trade-off.
+
+Then he converts to labour. With n equal to one minus leisure: consumption times one minus n to the power minus gamma equals one over b, times w times one minus tau.
+
+Now substitute the budget constraint for consumption, since the constraint binds: the quantity w times one minus tau, times n, plus T, times one minus n to the power minus gamma, equals w over b, times one minus tau. He underbraces the first bracket and writes c beneath it, so the substitution is visible.
+
+Rearranging, and he boxes the result: one minus n, raised to the power gamma, minus b times n, equals b times T, over the quantity one minus tau, times w.
+
+That is the labour supply equation. It is implicit, not explicit, and he does not attempt to solve it, which is itself instructive: an implicit characterisation is an acceptable final answer when no closed form exists.
+
+Now look hard at the right-hand side, because this is the whole of item b and it is the single most commonly missed point in the entire course.
+
+The right-hand side is b times T, over one minus tau, times w. If the transfer T is zero, the right-hand side is zero, and the equation becomes one minus n to the power gamma equals b times n, in which neither tau nor w appears at all.
+
+In other words: with logarithmic utility of consumption and no transfer, labour supply is completely independent of the wage and of the tax rate. The income and substitution effects cancel exactly. That cancellation is a property of log utility specifically, and it is why log utility is the standard choice in models that want hours to be stationary along a balanced growth path.
+
+Everything the tax does to hours in this problem works through the transfer.
+
+Item b. The effect of an increase in tau on labour supply.
+
+He writes the equation again and puts arrows on it. On the right-hand side, one minus tau falls, so the whole right-hand side rises. On the left-hand side, that requires n to fall. He underbraces the left side and writes: n falls.
+
+And to the right he draws the diagram: consumption on the vertical axis, leisure on the horizontal running from zero to one, two budget lines and two indifference curves, with an arrow showing the equilibrium moving down and to the right, and a note underneath reading: leisure rises, hours fall.
+
+Note the geometry, because he is precise about it: the budget line rotates. It pivots around the point of no work, at leisure equal to one, where income is just the transfer T, and that point does not move when tau changes. Only the slope changes, because the slope is the after-tax wage. Drawing a parallel shift here is a real error; the whole point is that the intercept at full leisure is fixed by T.
+
+His final annotation: income and substitution effects, and the leisure-to-hours connection.
+
+Now say the intuition correctly, because there is a wrong version of it that sounds right. The wrong version is: a higher tax lowers the net wage, leisure becomes cheaper, so the household takes more leisure. That is the substitution effect alone, and with log utility it is exactly offset by the income effect, so on its own it predicts no change at all.
+
+The correct version. With log consumption utility, income and substitution effects on hours cancel. The transfer breaks the symmetry. The household receives T whether or not it works, so T is pure unearned income: it raises the household's wealth without changing the price of leisure. That is a pure income effect on leisure, and it reduces hours. When tau rises, the after-tax wage falls, so the same transfer T becomes larger relative to the household's earning capacity, which strengthens that pure income effect and reduces hours further. The comparative static works entirely through the ratio of the transfer to the after-tax wage, which is exactly what sits on the right-hand side of his boxed equation.
+
+Question 2 is worth six points and is the search model of Diamond, Mortensen and Pissarides.
+
+Item a. The law of motion of employment. Employment tomorrow equals employment today, minus the fraction s of employed workers who lose their jobs, plus the number of new matches.
+
+He writes it and then underbraces the two halves. Beneath the first he writes one minus s, times employment. Beneath the second he writes the matching function: mu, times vacancies to the power alpha, times unemployment to the power one minus alpha.
+
+Then, on what mu measures: mu is match efficiency, and a higher mu increases the inflow of workers from unemployment to employment.
+
+Item b. Steady state and the Beveridge curve.
+
+Unemployment is the labour force minus employment, so unemployment tomorrow equals unemployment today, plus s times employment, minus matches. He notes this is similar in structure to the employment equation.
+
+In steady state, divide everything by the labour force to move to rates. Unemployment rate equals unemployment rate, plus s times one minus the unemployment rate, minus mu times the vacancy rate to the power alpha, times the unemployment rate to the power one minus alpha.
+
+The two unemployment-rate terms cancel, leaving the steady-state condition: s times one minus u equals mu times v to the alpha, times u to the one minus alpha. Beneath his diagram he writes what that equation is: the Beveridge curve is job creation equals job destruction.
+
+Say those words in your answer. The left side is the flow into unemployment, the separation rate times the employed. The right side is the flow out of unemployment, the matches. The Beveridge curve is the locus where the two flows balance.
+
+Solving for the vacancy rate, and he boxes it: v of u equals the bracket, s times one minus u, over mu times u to the power one minus alpha, all raised to the power one over alpha.
+
+He draws it in vacancy-unemployment space: a convex curve falling from upper left to lower right.
+
+Why it slopes downward. Take the steady-state condition. If unemployment is higher, there are more searchers, so any given number of vacancies produces more matches; and at the same time fewer people are employed, so the flow into unemployment is smaller. Both forces mean fewer vacancies are needed to keep the flows in balance. Hence high unemployment goes with low vacancies along the curve.
+
+Item c. The two rates. The job finding rate f is matches over unemployment. Substituting the matching function and dividing through, that is mu times the ratio of vacancies to unemployment, raised to the power alpha, which is mu times theta to the alpha, where theta is market tightness.
+
+The job filling rate q is matches over vacancies, which is mu times the ratio of unemployment to vacancies, raised to the power one minus alpha, which is mu times one over theta, to the power one minus alpha, that is, mu times theta to the power alpha minus one.
+
+Then the relation. He writes the two side by side and multiplies: mu times theta to the alpha, times theta over theta, equals mu times theta to the alpha minus one, times theta. So f equals q times theta. Boxed.
+
+The signs. The derivative of f with respect to theta is mu times alpha, times theta to the power alpha minus one, which is positive. The derivative of q with respect to theta is negative, because alpha minus one is negative.
+
+And his interpretation, written out: a higher theta means easier job finding for workers, that is f rises, but vacancies are harder to fill, which means more competition and congestion. He underlines the word congestion.
+
+Item d. One firm posts one extra vacancy. What happens, and who gains and who loses?
+
+He computes both derivatives with respect to the number of vacancies directly. The derivative of f with respect to V is mu times alpha, times the ratio of V to U to the power alpha, over V, which is positive. The derivative of q with respect to V is mu times alpha minus one, times theta to the power one minus alpha, over V, which is negative.
+
+Then he looks at total matches. The partial derivative of m with respect to V is mu times alpha, times the ratio of V to U raised to alpha minus one, which equals mu times alpha times theta to the alpha minus one, which equals alpha times q. Boxed.
+
+His notes, and this is the substance of the answer. Matches increase by less than one for one; the increase depends on alpha and on the job filling rate. Then, with an arrow: vacancies to employment is not one to one, which is friction.
+
+And then the externality, written out in full: congestion externality, the firm posting the vacancy is better off, but others are harmed. And beneath that: workers also benefit from a higher chance to find a job.
+
+Get the accounting of gainers and losers right, because it is easy to name the wrong agent. Workers gain, because f rises and their job-finding probability increases. Other firms lose, because q falls and their existing vacancies become harder to fill. The posting firm gains privately. And the firm does not take any of this into account: it weighs only its own expected profit from the vacancy, not the congestion it imposes on rival firms nor the benefit it confers on workers.
+
+Note carefully that the externality falls on other firms and on workers, not on the posting firm itself. Saying that the firm ignores the small loss it inflicts on itself is the wrong statement: any loss to itself would be internalised by definition. The whole content of the word externality is that the costs and benefits land on somebody else.
+
+Item e. A fall in mu, matching efficiency.
+
+He draws the diagram: the original Beveridge curve, and a new one shifted outward, up and to the right, with the forty-five degree line through the origin marking equal vacancy and unemployment rates. The intersection with that ray moves out along it, so both the vacancy rate and the unemployment rate rise.
+
+His two sentences. Less efficient matching means more vacancies per unemployed worker in steady state. And: a shift in all vacancy-unemployment values and possible states, rather than just changing how theta is split between unemployment and vacancies.
+
+That second sentence is the answer to the part of the question asking how this differs from a movement along the curve. A movement along the curve is a change in tightness with matching efficiency held fixed: the economy trades unemployment for vacancies at the existing technology of matching. A shift of the curve is a change in the matching technology itself, so that every combination of unemployment and vacancies now produces fewer matches, and the entire set of feasible steady states moves. In the data, an outward shift of the Beveridge curve is the standard diagnostic for deteriorating matching efficiency, as opposed to a cyclical movement along it.
+
+
+PART SIX. EVERY WARNING HE WROTE IN HIS OWN MARGINS.
+
+These are the places where, in his own handwriting and in a lighter pen, he stopped to flag something. Treat them as a list of where marks are lost. I give each one as he wrote it, then say what it means.
+
+From Problem Set 1. "Same for y." Written under the time path of capital. Meaning: when you draw the transition of capital, you have also drawn the transition of output per worker, because output is a monotone function of capital. Draw one, label it for both, do not draw two identical pictures.
+
+From Problem Set 1. "Higher levels, lower steady-state growth, higher growth during convergence." Three distinct statements about three distinct objects. The level of output per worker, the long-run growth rate of aggregate output, and the transitional growth rate. Any question about a change in the population growth rate is asking about all three.
+
+From Problem Set 1, written into the main line rather than the margin. "Output at t is greater than output just before t-zero, because labour at t is greater than labour at t-zero." The aggregate and per-capita answers diverge, and they diverge because population keeps growing during the transition.
+
+From Problem Set 2. "Careful with chosen base." Written under a percentage change. Meaning: a proportional change is not symmetric, and you must say which economy is the denominator. Twelve point six four per cent lost, or fourteen point four seven per cent gained, are the same fact with different bases.
+
+From Problem Set 2. "Capital gets diluted at unification." Meaning: when two economies merge, per-worker capital in the richer one falls mechanically, because the same capital is now spread over a larger labour force. Aggregate output can rise while output per head in one region falls.
+
+From Problem Set 2. "Not per capita for the South, but still a gain." The same point stated as a warning about which welfare statement you are making.
+
+From Problem Set 2. "Workers also affected." Written under the wage first-order condition in the crime problem. Meaning: a distortion that looks like a tax on capital falls on labour too, because the factors are complements and the wedge multiplies the whole production function.
+
+From Problem Set 2. "A-hat gets distorted by non-observability of the type of capital." And immediately after: "alpha-hat equals alpha, no change, since r times k over Y is directly observable." Meaning: measured factor shares are correct even when measured productivity is badly wrong. Do not use normal-looking factor shares as evidence that nothing is distorted.
+
+From Problem Set 3. "Determines sign of the derivative." Written beside the isolated factor sigma minus one over sigma. Meaning: when a derivative has ambiguous sign, isolate the one factor that decides it and say so explicitly. Do not assert a direction you have not signed.
+
+From Problem Set 3. "Not zero, due to savings." Written under the cross-derivative of second-period consumption with respect to first-period taxes. Meaning: the asset market is what transmits a tax across periods. If that derivative were zero the household would have no way to smooth.
+
+From Problem Set 3. "Saving extra to pay future taxes." Written beside the positive derivative of assets with respect to future taxes. This is the Ricardian mechanism in five words.
+
+From Problem Set 3. "Present value of taxes." Written with an arrow pointing at the combination taxes one plus taxes two over one plus r, which he then highlights in every equation it appears in. Meaning: prove Ricardian equivalence by showing taxes enter only through that single object.
+
+From Problem Set 3. "Just multiplied by one plus r over one plus r what we had before." Meaning: when an expression looks new, check whether it is the old one rescaled. He says so rather than presenting it as a fresh derivation.
+
+From Problem Set 3. "Natural debt limit, implicit." Meaning: even without an explicit borrowing rule there is a limit, set by the requirement that second-period consumption be non-negative.
+
+From Problem Set 3. "Same revenue, both allocations are affordable. Lump-sum is welfare improving, Euler equation." The complete deadweight-loss argument, compressed to eleven words. The Euler equation is where you point to show the distortion.
+
+From Problem Set 4. "Consumption-leisure trade-off." Written beside the intratemporal first-order condition, naming it.
+
+From Problem Set 4. "Income and substitution effects, and the leisure-to-hours connection." Meaning: an answer about the tax must decompose the effect, and must convert the statement about leisure into a statement about hours, because the question asked about labour supply.
+
+From Problem Set 4. "Match efficiency, increases inflow of workers from unemployment to employment." A definition, given in terms of the flow it governs rather than as an abstraction.
+
+From Problem Set 4. "The Beveridge curve is job creation equals job destruction." Meaning: name the economic content of the steady-state condition, do not merely solve it.
+
+From Problem Set 4. "Matches increase less, depend on alpha and the job filling rate." Then: "vacancies to employment is not one to one, which is friction." Meaning: the extra vacancy does not produce one extra match, and the gap is the friction the model exists to describe.
+
+From Problem Set 4. "Congestion externality: the firm posting the vacancy is better off, but others are harmed. Workers also benefit from a higher chance to find a job." The complete answer on gainers and losers.
+
+From Problem Set 4. "A shift in all vacancy-unemployment values and possible states, rather than just changing how theta is split between unemployment and vacancies." The distinction between a shift of a curve and a movement along it, stated in terms of the set of feasible states.
+
+
+PART SEVEN. WHAT THIS PREDICTS.
+
+Now use all of it. Six predictions, each grounded in something you have just heard.
+
+Prediction one. He rewards the isolated, marked final answer, and he rewards it visibly. Every result in four documents is boxed or highlighted. On the exam and on Problem Set 5, box every final expression: the labour supply equation, the elasticity, the closed forms for the steady-state capital stock and consumption, the interest rate. This costs nothing and it is the most reliable thing in the entire sample.
+
+Prediction two. He accepts implicit characterisations. In Problem Set 4 he stops at an implicit equation in n and does not solve it, because it has no closed form. In Problem Set 5 question 1, the equation determining labour, which is labour to the power alpha plus one minus alpha times sigma, over one minus labour, equals a constant times productivity to the power one minus sigma, is exactly that kind of object. Do not waste time trying to invert it. Present it, verify it has a unique solution, and differentiate it implicitly.
+
+Prediction three. Every derivative must be signed, and where the sign is ambiguous the deciding factor must be isolated and highlighted. Problem Set 5 question 1 part e is built precisely for this: the elasticity is one minus sigma over a strictly positive denominator, so the sign is the sign of one minus sigma. Write that sentence, isolate that factor, then interpret. He did exactly this with sigma minus one over sigma in Problem Set 3.
+
+Prediction four. Whenever a question says short run and long run, or asks about a change over time, produce two panels: the mechanism diagram and the time path beneath it. He did this twice in Problem Set 1 and twice in Problem Set 4. For Problem Set 5 question 2 the analogue is the phase diagram plus the transition of capital and consumption against time.
+
+Prediction five. Aggregate and per-capita answers must be given separately whenever population or the labour force is changing. He made this the deciding point of Problem Set 1 question 4 and of Problem Set 2 question 1 item c, in both cases marking answers wrong that gave only one of the two.
+
+Prediction six, and this is the deepest pattern. In three of the four sets, the highest-value item is a measurement or attribution question, not a modelling question. Problem Set 1 item c and item e ask why two correct measurements disagree. Problem Set 2 question 2 asks why a distortion shows up as productivity. Problem Set 4 item d asks who bears a cost that no price registers. The pattern is: build the model correctly, then ask what an observer with normal data would wrongly conclude. Expect that structure again.
+
+Two specific bridges to Problem Set 5.
+
+The first. Problem Set 3 question 1 item a is the template for Problem Set 5 question 1. Same two-period structure, same substitution method rather than a Lagrangian, same denominator built from beta to the power one over sigma and one plus r. The difference is that Problem Set 5 adds a leisure margin and freezes capital. Use his method: solve one constraint for assets, substitute into the other, substitute into the objective, differentiate once.
+
+The second. Problem Set 4 question 1 is the template for the labour margin in Problem Set 5 question 1. Same intratemporal first-order condition, same trick of substituting the budget constraint for consumption so that the equation is in hours alone, same acceptance of an implicit solution. The difference is that Problem Set 5 has consumption determined by goods market clearing rather than by a transfer, and utility of consumption is constant relative risk aversion rather than logarithmic, which is exactly why sigma reappears and why the answer stops being knife-edge.
+
+And one warning that follows from the difference. In Problem Set 4, with log utility and no transfer, hours do not respond to the wage at all. In Problem Set 5, with constant relative risk aversion utility, hours respond to productivity with sign given by one minus sigma, and the log case, sigma equal to one, is the knife edge where the response is zero. Those are the same fact seen twice. If you understood why Problem Set 4 needed the transfer to generate any effect, you already understand why Problem Set 5 needs sigma to differ from one.
+
+
+PART EIGHT. THE FOUR SOLUTION SETS IN FIVE LINES.
+
+One. He grades the object, not the essay: box the final answer, name the structural terms, and let arrows carry the causation.
+
+Two. Sign every derivative, and when the sign is ambiguous isolate and highlight the single factor that decides it.
+
+Three. Whenever population or the labour force moves, answer twice, once per capita and once in aggregate, because they routinely differ.
+
+Four. Draw in pairs, the mechanism diagram and the time path underneath it, and remember that a budget line under a wage tax rotates about the no-work point rather than shifting.
+
+Five. The recurring high-value question is not "solve the model" but "what would a competent observer with ordinary data wrongly conclude": mismeasured productivity, base-year bias, purchasing power parity, and externalities no price records.

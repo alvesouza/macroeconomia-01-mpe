@@ -18,8 +18,8 @@ Cada arquivo contém **apenas o prompt** — sem cabeçalho, sem metadados. Este
 
 | Tipo | Idioma pedido no prompt |
 |---|---|
-| **Slides** | português do Brasil, termos técnicos em inglês entre parênteses |
-| **Vídeo** | português do Brasil, rótulos de tela em português |
+| **Slides** | **inglês** (lotes até a Lista 3: pt-BR, termos técnicos em inglês entre parênteses) |
+| **Vídeo** | **inglês**, rótulos de tela em inglês (lotes até a Lista 3: pt-BR) |
 | **Áudio** | **inglês — sempre.** Nunca pedir áudio em português |
 
 Todos os prompts são **escritos em inglês** (o NotebookLM processa melhor); o que muda é o
@@ -40,7 +40,9 @@ os nomes — os prompts citam os arquivos pelo nome exato.
 | `Aula_MPE_Macro1_SlidesAula2.pdf` | Slides da Aula 2 |
 | `Aula_Handout_MPE_Macro1_Aula3_2026.pdf` | **Handout** da Aula 3 (texto corrido) |
 | `Aula_MPE_Macro1_SlidesAula4.pdf` | Slides da Aula 4 |
-| `Lista_MPE_Macro1_2026_Lista1.pdf` · `Lista2.pdf` · `Lista3.pdf` | Listas 1-3 |
+| `Lista_MPE_Macro1_2026_Lista1.pdf` · `Lista2.pdf` · `Lista3.pdf` · `Lista4.pdf` · `Lista5.pdf` | Listas 1-5 |
+| `Livro_Kurlat_Cap09_General_Equilibrium.pdf` | **Kurlat cap. 9 isolado** (pp. 165-187) — fonte do lote da Lista 5 |
+| `Aula_Slides_Macro1_Aula5.pdf` · `Aula_Slides_Macro1_Aula6.pdf` | Slides das Aulas 5 e 6 |
 | `Programa_Macro1_MPE_2026.pdf` | Programa |
 | `Livro_Charles_I._Jones_...pdf` · `Livro_..._Romer_...pdf` · `Livro_..._Carlin_David_Soskice_2024...pdf` | Complementares |
 
@@ -49,9 +51,11 @@ os nomes — os prompts citam os arquivos pelo nome exato.
 
 ---
 
-## Índice — 52 prompts, em dois lotes
+## Índice — 70 prompts, em quatro lotes
 
-Dois recortes coexistem de propósito. O lote **por aula** (40 prompts) segue o programa: cada aula com material disponível recebe **4 slides + 4 vídeos + 2 áudios**. O lote **por mecanismo** (12 prompts) segue a Lista 3: **6 slides + 6 vídeos**, um par por mecanismo econômico, atravessando as duas questões. Quem estuda para a aula usa o primeiro; quem está resolvendo a lista usa o segundo.
+Quatro recortes coexistem de propósito. O lote **por aula** (40 prompts, Aulas 1-4) segue o programa: cada aula recebe **4 slides + 4 vídeos + 2 áudios**. O lote da **Aula 6** (6 prompts) é **4 vídeos + 2 áudios**, sem slides. Os dois lotes **por mecanismo** — Lista 3 e Lista 5, 12 prompts cada — são **6 slides + 6 vídeos**, um par por mecanismo econômico, atravessando as duas questões da lista. Quem estuda para a aula usa os dois primeiros; quem está resolvendo a lista usa o lote da sua lista.
+
+> ⚠️ **Idioma.** A partir do lote da Aula 6, **todo** prompt pede saída em **inglês** — slides, vídeo e áudio. Os lotes das Aulas 1-4 e da Lista 3 são anteriores a essa regra e ainda pedem pt-BR em slides e vídeo; ficam como estão até serem regerados.
 
 ### Aula 1 — Mensuração dos Agregados (Kurlat caps. 1-2)
 
@@ -113,6 +117,23 @@ Dois recortes coexistem de propósito. O lote **por aula** (40 prompts) segue o 
 | [audio/aula-04-audio-1-consumo-segue-riqueza.md](audio/aula-04-audio-1-consumo-segue-riqueza.md) | Áudio | Fio: consumo segue riqueza, não renda | 4.818 |
 | [audio/aula-04-audio-2-timing-do-imposto.md](audio/aula-04-audio-2-timing-do-imposto.md) | Áudio | Fio: o timing do imposto não importa — até que importe | 4.758 |
 
+### Aula 6 — Equilíbrio Geral (Kurlat cap. 9)
+
+Primeiro lote **inteiramente em inglês** — áudio, e agora também o vídeo. Sem slides:
+os quatro objetos visuais da aula já esgotam o que ela tem de próprio.
+
+| Arquivo | Tipo | Objeto visual / fio | Chars |
+|---|---|---|---|
+| [video/aula-06-video-1-tres-agentes.md](video/aula-06-video-1-tres-agentes.md) | Vídeo | Três caixas e quatro mercados; as CPOs colando nos canais até os preços sumirem | 4.952 |
+| [video/aula-06-video-2-planejador-e-contradicao.md](video/aula-06-video-2-planejador-e-contradicao.md) | Vídeo | O conjunto factível e o ponto "melhor" que acaba fora dele | 4.961 |
+| [video/aula-06-video-3-diagrama-de-fase.md](video/aula-06-video-3-diagrama-de-fase.md) | Vídeo | O diagrama de fase construído do zero até o *saddle path* | 4.984 |
+| [video/aula-06-video-4-antecipacao.md](video/aula-06-video-4-antecipacao.md) | Vídeo | As duas curvas deslocando e o consumo saltando antes da notícia se realizar | 4.817 |
+| [audio/aula-06-audio-1-precos-fazem-o-planejador.md](audio/aula-06-audio-1-precos-fazem-o-planejador.md) | Áudio | Fio: os preços carregam a informação que o planejador teria | 4.976 |
+| [audio/aula-06-audio-2-poupar-menos-e-otimo.md](audio/aula-06-audio-2-poupar-menos-e-otimo.md) | Áudio | Fio: poupar menos que a Regra de Ouro é ótimo, não é falha | 4.944 |
+
+> **Sem slides neste lote.** Cada um dos quatro vídeos já carrega a derivação completa do
+> seu objeto; um slide repetiria a álgebra sem acrescentar imagem.
+
 ### Lista 3 — por mecanismo econômico (Kurlat cap. 6; Exs. 6.1, 6.5, 6.6)
 
 Recorte **transversal**: cada par slide+vídeo isola um mecanismo e o persegue pelas duas
@@ -136,6 +157,34 @@ questões, em vez de seguir a ordem dos itens. Os seis se encadeiam — 1 constr
 
 > **Sem áudio neste lote.** Os dois fios condutores do cap. 6 já estão em
 > `aula-04-audio-1` e `aula-04-audio-2`; um terceiro repetiria a tese.
+
+
+### Lista 5 — por mecanismo econômico (Kurlat cap. 9; Exs. 9.5, 9.7, 9.11, 9.12)
+
+Mesmo recorte **transversal** da Lista 3, agora sobre Equilíbrio Geral, e **inteiramente em
+inglês** — slides e vídeo inclusive. As duas questões da lista são imagens espelhadas: a Q1
+é o cap. 9 com o **capital congelado**, a Q2 é o cap. 9 com o **trabalho congelado**. Os
+seis mecanismos seguem essa cadeia: 1 monta a máquina, 2-3 trabalham a margem de trabalho,
+4 é a dobradiça que compara as duas economias, 5-6 trabalham a margem de capital.
+
+| Arquivo | Tipo | Mecanismo | Itens | Chars |
+|---|---|---|---|---|
+| [slides/lista-05-slides-1-tres-agentes-e-lucro-zero.md](slides/lista-05-slides-1-tres-agentes-e-lucro-zero.md) | Slide | Amputação, lucro zero por Euler, definição de equilíbrio | Q1(a-c) | 4.916 |
+| [slides/lista-05-slides-2-preco-que-cancela.md](slides/lista-05-slides-2-preco-que-cancela.md) | Slide | TMS = TMT, equação implícita das horas, unicidade | Q1(d) | 4.919 |
+| [slides/lista-05-slides-3-sigma-decide-o-sinal.md](slides/lista-05-slides-3-sigma-decide-o-sinal.md) | Slide | Diferenciação implícita; sinal de 1−σ; renda × substituição | Q1(e) | 4.934 |
+| [slides/lista-05-slides-4-juro-sem-ancora.md](slides/lista-05-slides-4-juro-sem-ancora.md) | Slide | Euler nas duas economias; juro sem âncora tecnológica | Q1(d), Q2(a) | 4.797 |
+| [slides/lista-05-slides-5-dono-do-capital.md](slides/lista-05-slides-5-dono-do-capital.md) | Slide | Não-arbitragem, linearidade, separação de Fisher | Q2(b,c) | 4.948 |
+| [slides/lista-05-slides-6-estado-estacionario-e-regra-de-ouro.md](slides/lista-05-slides-6-estado-estacionario-e-regra-de-ouro.md) | Slide | Estado estacionário, diagrama de fase, K* < K_gr | Q2(d,e) | 4.975 |
+| [video/lista-05-video-1-tres-agentes-e-lucro-zero.md](video/lista-05-video-1-tres-agentes-e-lucro-zero.md) | Vídeo | O diagrama de três agentes perdendo peças, uma a uma | Q1(a-c) | 4.330 |
+| [video/lista-05-video-2-preco-que-cancela.md](video/lista-05-video-2-preco-que-cancela.md) | Vídeo | Duas equações colidindo até o salário se anular | Q1(d) | 4.572 |
+| [video/lista-05-video-3-sigma-decide-o-sinal.md](video/lista-05-video-3-sigma-decide-o-sinal.md) | Vídeo | O dial de σ e o marcador cruzando o zero | Q1(e) | 4.505 |
+| [video/lista-05-video-4-juro-sem-ancora.md](video/lista-05-video-4-juro-sem-ancora.md) | Vídeo | Uma equação fixa, o cenário atrás dela sendo trocado | Q1(d), Q2(a) | 4.431 |
+| [video/lista-05-video-5-dono-do-capital.md](video/lista-05-video-5-dono-do-capital.md) | Vídeo | Duas colunas convergindo na mesma linha; o lucro reto em zero | Q2(b,c) | 4.532 |
+| [video/lista-05-video-6-estado-estacionario-e-regra-de-ouro.md](video/lista-05-video-6-estado-estacionario-e-regra-de-ouro.md) | Vídeo | A corcova do consumo e os dois pontos que nunca coincidem | Q2(d,e) | 4.765 |
+
+> **Sem áudio neste lote.** Os dois fios do cap. 9 já estão em `aula-06-audio-1` e
+> `aula-06-audio-2`. Para escutar a lista inteira, o material é outro: as três trilhas em
+> [`Leituras/`](../Leituras/), geradas por `/speechify`.
 
 ---
 
@@ -161,8 +210,9 @@ comum, motivação histórica).
 
 ## Ainda falta
 
-Prompts para as **Aulas 5 a 9** — o material dessas aulas ainda não foi disponibilizado, e
-os prompts citam a fonte pelo nome exato do arquivo. Quando os slides chegarem, jogue-os em
-`Aula/`, copie para `sources/` com o prefixo `Aula_` e rode `/notebooklm`.
+Prompts para as **Aulas 5, 7, 8 e 9** — os slides da Aula 5 já estão em `sources/`; os das
+Aulas 7 a 9 ainda não foram disponibilizados, e os prompts citam a fonte pelo nome exato do
+arquivo. Quando chegarem, jogue-os em `Aula/`, copie para `sources/` com o prefixo `Aula_`
+e rode `/notebooklm`. Falta também o lote por mecanismo das **Listas 4 e 6**.
 
 Cobertura por tema em [Map/cobertura.md](../Map/cobertura.md).

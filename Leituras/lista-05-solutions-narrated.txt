@@ -1,0 +1,508 @@
+PROBLEM SET 5, THE MARKED ANSWER. A LISTENING VERSION OF THE FULL SOLUTIONS.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Professor Pedro G. Duarte. Problem Set 5, due the eighth of September, 2026. Ten points, split evenly between two questions, both labelled "Based on Kurlat, 2020, chapter 9".
+
+
+HOW TO LISTEN
+
+This is the companion track to the chapter narration. The chapter narration teaches you general equilibrium. This one teaches you how to write the answer that gets the marks.
+
+The two tracks are not interchangeable. If you have heard the chapter track, you already know the economics. What you will hear here that you did not hear there is this: the calibrated numbers and what they show, the four figures described in words, the rubric said out loud as "here is where the marks are", the traps stated as traps, the cross-references to the Kurlat exercises each item is built from, and the companion code that checks every formula.
+
+Mathematics is dictated, never displayed. Greek letters are said by name: alpha, beta, delta, sigma, psi, lambda, rho, epsilon. Two conventions, and they never change. "r capital" always means the rental rate of capital, the price a firm pays to rent one unit of capital for one period. Plain "r" always means the interest rate on borrowing and lending. And "K bar" always means the capital stock that question 1 freezes.
+
+Equation numbers in this track are the solution document's own numbering, not Kurlat's. So "equation one point eight" means the eighth numbered equation of the solutions, which belongs to question 1. Where the solution's equation is also a Kurlat equation, I say so: "this is one point seven, which is Kurlat nine point one point twelve."
+
+There are fifteen parts. Parts 1 to 6 are question 1. Parts 7 to 11 are question 2. Parts 12 to 15 are the layer that exists only in the solutions: the figures, the code, the rubric, and the five lines.
+
+One scope rule, enforced throughout. Chapter 8 of Kurlat, on investment and adjustment costs, is outside the syllabus. The programme jumps from chapter 7 straight to chapter 9. Nothing in this track requires it, and where question 2 comes near it I will say so and step around it.
+
+Paragraph breaks are the only navigation your app gives you, so paragraphs are short and each carries one idea. If you lose the thread, jump back one paragraph, not one minute.
+
+
+PART ONE. HOW THE TWO QUESTIONS ARE BUILT.
+
+Before either question, understand the design, because it tells you what each one is allowed to ask.
+
+The professor has built the two questions as mirror images of each other. Question 1 is chapter 9 with capital frozen. There is no investment technology, the capital stock is fixed at K bar in both periods, and depreciation is zero. Question 2 is chapter 9 with labour frozen. Hours are fixed at one in every period, and leisure does not appear in preferences at all.
+
+Between them they cover the whole chapter, one margin at a time. Neither asks you for the full three-agent model in one go. That is the point of the design, and it has a consequence for your answer: each question demands that you be very clean about the margin it left switched on, and very explicit about the one it removed.
+
+Now the thread that joins them, and it is worth memorising because it is the single sentence that organises ten points.
+
+In both questions, the object that has to be pinned down is a price that nothing else determines. In question 1 the interest rate cannot move any goods, because there is no storage and no investment, so r is purely the price that reconciles the household to a consumption path it cannot alter. In question 2 the interest rate is tied to the marginal product of capital by arbitrage, and in the steady state it is forced back to pure impatience.
+
+Say the thread this way: preferences fix the interest rate, technology fixes the quantity of capital. You will hear that sentence three more times in this track, because it is the answer to the last part of question 2 and it is the thing the examiner is listening for.
+
+Where each question comes from in the book. Question 1 is sections nine point one and nine point two, and it runs on the machinery of Kurlat's exercises nine point five and nine point seven. Question 2 is section nine point three, and it runs on exercises nine point eleven and nine point twelve. Item e of question 2 is the punchline of exercise nine point twelve.
+
+Two conventions in the written solutions that you should know about even though you cannot see them. Highlighted answers are in blue. Red boxes are traps, and I will announce each one as a trap. Green boxes are method, and I will announce each one as method. Every number in the document is reproduced by companion Python code that checks each analytical formula against an independent numerical route and aborts on any mismatch. Part 13 describes that code.
+
+
+PART TWO. QUESTION 1, ITEM A. THE TWO PROBLEMS, AND WHY PROFIT IS ZERO.
+
+Five points for the whole of question 1. Read the amputation before you write anything, because three things are gone relative to Kurlat's section nine point one, and each one removes a line you would otherwise be expected to write.
+
+First, there is no investment firm. There is no investment technology at all, so the third agent of chapter 9 does not exist, and Kurlat's equation nine point one point eleven, which says one plus r equals the period-two rental rate, has no analogue here. Do not write it.
+
+Second, there is no capital accumulation. Kurlat's equation nine point one point five is replaced by the single line: K in period t equals K bar, for both t. And delta is zero.
+
+Third, and this is the one that drives every later result, there is no storage. Therefore goods market clearing carries no investment term. Consumption in period t equals output in period t, period by period.
+
+What survives is exactly two margins. Consumption against leisure within a period. And consumption today against consumption tomorrow across periods.
+
+Now the household's problem. Maximise, over c one, l one, c two and l two, the sum: u of c one, plus v of l one, plus beta times the quantity u of c two plus v of l two. With u of c equal to c to the power one minus sigma, over one minus sigma. And v of l equal to psi times the natural logarithm of l.
+
+Subject to the present-value budget constraint, which is the solutions' equation one point one. Say it slowly.
+
+c one, plus c two over one plus r, equals w one times the quantity one minus l one, plus w two times the quantity one minus l two, over one plus r, plus r capital one times K bar, plus r capital two times K bar over one plus r, plus Pi.
+
+Trap. This is the one place the constraint differs from Kurlat's nine point one point one, and it is the place a good student loses a mark by knowing the book too well.
+
+Kurlat's household holds K bar times the bracket one plus r capital minus delta. That bracket includes the principal, because in his model capital can be sold into the used-capital market. Here it cannot. There is no investment technology, so no market exists in which a unit of capital could be turned back into consumption goods. The household can only rent the capital out, and it does so in both periods. So the wealth terms are rental income only, r capital one times K bar and r capital two times K bar, and there is no one minus delta term anywhere.
+
+Say that explicitly in your answer. Writing Kurlat's term here imports a market this economy does not have.
+
+Now the firm, separately in each period, t equal to one and t equal to two. This is the solutions' equation one point two. Profit in period t equals the maximum, over K t and L t, of: A t times K t to the power alpha times L t to the power one minus alpha, minus w t times L t, minus r capital t times K t.
+
+The firm is static. It rents everything period by period and carries nothing between dates, so it has no discount factor and no intertemporal problem. Say that too, in one line, because it is why you are allowed to write two separate one-period problems instead of one two-period problem.
+
+Now, why is profit zero in equilibrium? Because the production function has constant returns to scale and factors are paid their marginal products. Give the argument properly, in three steps.
+
+Step one. The Cobb-Douglas exponents alpha and one minus alpha sum to one, so the production function is homogeneous of degree one. Euler's theorem on homogeneous functions then gives: F equals K times F sub K, plus L times F sub L.
+
+Step two. Verify it directly, because the verification takes one line and it earns the mark. The marginal product of capital, F sub K, equals alpha times F over K. The marginal product of labour, F sub L, equals one minus alpha, times F over L. So K times F sub K plus L times F sub L equals alpha F plus one minus alpha times F, which is F. Confirmed.
+
+Step three. Now impose the firm's first-order conditions, which say F sub K equals r capital t, and F sub L equals w t. Then total factor payments, r capital t times K t plus w t times L t, equal alpha F plus one minus alpha times F, which equals F of K t and L t. Revenue exactly exhausts factor payments. Profit in every period is zero.
+
+Two remarks that belong in your answer. The first is that this is not an equilibrium condition that has to be imposed. It is an identity that follows from constant returns plus competitive pricing. The second is what it is for: it lets Pi drop out of equation one point one, so that in equilibrium household wealth is just labour income plus rental income.
+
+And one more, which is the sharper version. It is scale that delivers zero profit, not alpha. Any constant-returns technology would do it. Cobb-Douglas is a convenience here, not the reason.
+
+
+PART THREE. QUESTION 1, ITEM B. THE FIRST-ORDER CONDITIONS.
+
+Attach a multiplier lambda to the present-value budget constraint. Four choice variables, four conditions. Dictating them in order.
+
+The condition for c one: u prime of c one equals lambda.
+
+The condition for c two: beta times u prime of c two equals lambda over one plus r.
+
+The condition for l one: v prime of l one equals lambda times w one.
+
+The condition for l two: beta times v prime of l two equals lambda times w two over one plus r.
+
+Now take ratios, and lambda cancels twice. Each cancellation gives you one of the two margins the question asks you to identify.
+
+First margin, the intratemporal one: consumption against leisure. Divide the leisure condition by the consumption condition, in each period separately. You get: v prime of l t, over u prime of c t, equals w t. That is the solutions' equation one point three, and it is Kurlat's nine point one point seven.
+
+With the functional forms in this problem, write it out. v prime of l t is psi over l t, and l t is one minus L t. u prime of c t is c t to the power minus sigma. So the condition becomes: psi times c t to the power sigma, over one minus L t, equals w t. Hold that form, because item d and item e both start from it.
+
+State the identification out loud, because the question asks for it. This is the condition that describes the trade-off between consumption and leisure.
+
+Second margin, the intertemporal one: present against future consumption. Divide the c one condition by the c two condition. You get: u prime of c one equals beta times one plus r, times u prime of c two. That is equation one point four, and it is Kurlat's nine point one point eight.
+
+With the power utility, write it in the form you will actually use: the ratio c two over c one, raised to the power sigma, equals beta times one plus r.
+
+State the identification. This is the Euler equation, and it is the condition that describes the trade-off between present and future consumption.
+
+Now the firm's first-order conditions, equation one point five. The wage equals one minus alpha, times A t, times K bar to the power alpha, times L t to the power minus alpha. Which is the same thing as one minus alpha, times output over labour. And the rental rate equals alpha times A t times K bar to the power alpha minus one times L t to the power one minus alpha. Which is alpha times output over K bar.
+
+Keep both forms. The first is what you differentiate in item e. The second, factor share times output over factor, is what makes an identity in item e obvious.
+
+Trap, and it is the trap that can invert your entire answer to item e. Is it sigma or one over sigma?
+
+State it once, explicitly, at the top of your answer, and you cannot be marked wrong under either convention. Sigma is the curvature of the utility function, which is the coefficient of relative risk aversion. One over sigma is the elasticity of intertemporal substitution. It matters in item e, where the sign of the whole answer turns on one minus sigma.
+
+
+PART FOUR. QUESTION 1, ITEM C. THE DEFINITION OF COMPETITIVE EQUILIBRIUM.
+
+This item is worth writing formally, in three numbered conditions, because the marks are attached to the structure, not to the prose.
+
+A competitive equilibrium is an allocation, and a price system, such that three things hold.
+
+The allocation is: c one, c two, l one, l two, L one, L two, K one and K two. The price system is: r, the two wages w one and w two, and the two rental rates r capital one and r capital two.
+
+Condition one, household optimality. Given the prices, the allocation solves the utility maximisation problem subject to the present-value budget constraint, equation one point one. That is, it satisfies one point three and one point four.
+
+Condition two, firm optimality. Given the prices, in each period the firm's choice of capital and labour solves its problem, equation one point two. That is, it satisfies one point five.
+
+Condition three, market clearing, in each period. Three lines. Goods: c t equals A t times K bar to the alpha times L t to the one minus alpha. Labour: L t plus l t equals one. Capital: K t equals K bar.
+
+Now, where the marks are. Three things earn them here, and all three are easy to drop.
+
+The first is all three conditions. A student who writes only the first-order conditions has given demand, not equilibrium. That is the single most common way to lose points on a "define the equilibrium" item, in this course and in every course.
+
+The second is that goods clearing has no investment term. Consumption equals output, period by period. This is where the amputation shows up, and every result in items d and e descends from this one line. If you write an investment term here, you have answered a different question.
+
+The third is the credit market. Net lending is zero. Say that it follows from the others by Walras's law, and that with a representative household it must hold anyway, for a reason you can state in six words: the representative agent cannot trade with itself.
+
+
+PART FIVE. QUESTION 1, ITEM D. EQUILIBRIUM LABOUR, AND THE INTEREST RATE.
+
+This item has three steps and the question tells you the form the answer must take. Follow the form.
+
+Step one. Substitute the firm's condition into the household's. Put the wage from equation one point five into equation one point three. The wage appears once in a household condition and once in a firm condition, so it cancels, and what is left is equation one point seven:
+
+v prime of l t, over u prime of c t, equals F sub L of K bar and L t.
+
+That is exactly the form the question asks for, marginal rate of substitution equals marginal rate of transformation, and it is Kurlat's nine point one point twelve. Label the two sides out loud in your answer. On the left, the rate at which the household is willing to trade leisure for consumption. On the right, the rate at which the economy is able to convert leisure into consumption, which is the marginal product of labour.
+
+Step two. Substitute goods market clearing. Use c t equal to A t times K bar to the alpha times L t to the one minus alpha, and use v prime of l t equal to psi over one minus L t, and u prime of c t equal to c t to the power minus sigma. You get, before tidying:
+
+psi over one minus L t, times the quantity A t times K bar to the alpha times L t to the one minus alpha, all raised to the power sigma, equals one minus alpha, times A t, times K bar to the alpha, times L t to the power minus alpha.
+
+Now multiply both sides by L t to the power alpha, and collect the productivity terms on the right. The result is equation one point eight, and it is the equation the rest of the question runs on:
+
+L t raised to the power alpha plus one minus alpha times sigma, divided by one minus L t, equals one minus alpha over psi, times the quantity A t times K bar to the alpha, raised to the power one minus sigma.
+
+Method, and this is the part most students skip. Say why equation one point eight has exactly one solution.
+
+The left-hand side is the product of two strictly increasing things. L to the power alpha plus one minus alpha times sigma rises from zero. And one over one minus L rises to infinity as L approaches one. So the left-hand side rises strictly monotonically from zero to infinity on the open interval from zero to one, while the right-hand side is a positive constant. Exactly one crossing. In the solutions this is verified on a grid of two hundred thousand points.
+
+And say the other half of the method: there is no closed form, and none is expected. Kurlat's own key to Problem Set 4 stops at an implicit equation for exactly this reason. Characterise the solution, then differentiate implicitly. That is the whole technique, and it is what item e asks you to do.
+
+One observation that is free and earns a line. Equation one point eight involves only date-t objects. The two periods do not interact on the labour margin at all, precisely because no goods can be moved between them. So L one and L two each solve the same equation, each at its own A t.
+
+Step three. The interest rate. Take the Euler equation, one point four, and impose goods clearing. One plus r equals one over beta, times the ratio c two over c one, raised to the power sigma. And goods clearing tells you what that ratio is: c two over c one equals A two over A one, times the ratio L two over L one raised to the power one minus alpha.
+
+So equation one point nine is: one plus r equals one over beta, times the bracket A two over A one, times the ratio L two over L one raised to the power one minus alpha, and the whole bracket raised to the power sigma. With L one and L two each solving one point eight at their own A t.
+
+Now read what equation one point nine does not contain, because that reading is the item's real content. There is no marginal product of capital in it.
+
+In Kurlat's full model the interest rate is tied to F sub K by arbitrage, because capital can be accumulated. Here it cannot, so r has no technological anchor at all. It is a pure intertemporal price whose only job is to make the household content with a consumption path it is powerless to change, because goods clearing has already forced consumption to equal output in each period. The interest rate here allocates nothing. It merely reports.
+
+The special case worth stating explicitly, because it is one line and it is memorable. If A two equals A one, then equation one point eight is the same equation in both periods, so L two equals L one, so c two equals c one, and one plus r equals one over beta. That is, r equals rho, where rho is defined as one over beta minus one. With beta equal to 0.96 that is an interest rate of 4.17 per cent.
+
+Say the sentence: when there is nothing to trade and no growth, the interest rate is exactly impatience.
+
+
+PART SIX. QUESTION 1, ITEM E. THE ELASTICITY OF HOURS TO PRODUCTIVITY.
+
+The question hands you the answer and asks you to show it. So the marks are in the derivation and in the signing, not in the formula. Five steps.
+
+Step one. Take logs of equation one point eight. The left-hand side becomes: the bracket alpha plus one minus alpha times sigma, times the natural log of L t, minus the natural log of the quantity one minus L t. The right-hand side becomes: the log of one minus alpha over psi, plus one minus sigma, times the quantity log A t plus alpha log K bar.
+
+Step two. Differentiate with respect to the log of A t. On the right, only one term survives, and it contributes one minus sigma.
+
+On the left, the second term needs the chain rule, and this is where the sign errors happen, so go slowly. The derivative of the log of one minus L t, with respect to the log of A t, equals one over one minus L t, times minus L t times the derivative of log L t with respect to log A t. Which is minus, L t over one minus L t, times that derivative. And it enters the expression with a minus sign in front of it. So it adds.
+
+Collecting, you get: the derivative of log L t with respect to log A t, multiplied by the bracket alpha plus one minus alpha times sigma plus L t over one minus L t, equals one minus sigma.
+
+Step three. Divide. Equation one point ten:
+
+The derivative of log L t with respect to log A t equals one minus sigma, divided by the quantity alpha, plus one minus alpha times sigma, plus L t over one minus L t.
+
+That is exactly what the question asked you to show. In the solutions it is checked against a symmetric finite difference at a step of ten to the minus six, for five values of sigma between 0.25 and 4.
+
+Step four. Sign it, and say why. The denominator is a sum of three strictly positive terms. Alpha is positive. One minus alpha, times sigma, is positive. And L t over one minus L t is positive because L t lies strictly between zero and one. Therefore the sign of the whole derivative is the sign of the numerator, which is the sign of one minus sigma.
+
+State the conclusion in the form the question asks for: higher productivity raises hours if and only if sigma is less than one. At sigma exactly one, which is log utility in consumption, hours do not move at all. For sigma greater than one, hours fall.
+
+Step five. Sign the three prices and quantities the question asks about. Write epsilon sub L as shorthand for the elasticity you just derived. Then differentiate the logs of equations one point five and one point six, and you get equation one point eleven, which is two lines.
+
+The elasticity of the wage to productivity is one minus alpha times epsilon sub L.
+
+And the elasticity of the rental rate to productivity equals the elasticity of consumption to productivity, and both equal one plus one minus alpha, times epsilon sub L.
+
+Now the claim, which is stronger than the question strictly demands and is worth the extra line: all three rise, for every value of sigma. Here is why, in two arguments.
+
+The wage. When sigma is less than one, alpha times epsilon sub L is smaller than one minus sigma, which is at most one, because the denominator of one point ten exceeds alpha. When sigma is greater than one, epsilon sub L is negative, so minus alpha times epsilon sub L is positive outright. Either way the wage elasticity is positive.
+
+The rental rate and consumption. The only case to worry about is sigma greater than one, where epsilon sub L is negative. But take the denominator of one point ten and subtract one minus alpha, times sigma minus one, from it. What is left is one plus L over one minus L, which is one over one minus L, and that is strictly positive. So one minus alpha, times the absolute value of epsilon sub L, is always less than one. The elasticity is positive.
+
+And note the exact identity that explains why the last two elasticities are not merely similar but identical. The rental rate equals alpha times consumption over K bar. With K bar fixed and goods clearing forcing consumption to equal output, the rental rate is consumption times a constant. So they must move together, one for one.
+
+Now the numbers. The calibration is alpha equal to 0.35, psi equal to 1.8, K bar equal to 2, and A equal to 1. Five rows, and I will read each as: sigma, then equilibrium hours, then the hours elasticity, then the wage elasticity, then the shared elasticity of the rental rate and consumption.
+
+Sigma 0.25. Hours 0.144. Hours elasticity plus 1.101. Wage elasticity plus 0.615. Rental and consumption elasticity plus 1.716.
+
+Sigma 0.50. Hours 0.193. Hours elasticity plus 0.547. Wage elasticity plus 0.809. Rental and consumption plus 1.356.
+
+Sigma 1.00, the knife edge. Hours 0.265. Hours elasticity exactly zero. Wage elasticity exactly plus one. Rental and consumption exactly plus one.
+
+Sigma 2.00. Hours 0.356. Hours elasticity minus 0.454. Wage elasticity plus 1.159. Rental and consumption plus 0.705.
+
+Sigma 4.00. Hours 0.451. Hours elasticity minus 0.795. Wage elasticity plus 1.278. Rental and consumption plus 0.483.
+
+Every row is verified by finite differences on the re-solved equilibrium, not on a linearisation.
+
+Now trace the pattern down the rows, because that is what a discursive answer does with a table. As sigma rises: equilibrium hours rise. The hours response to productivity turns from positive to negative. The wage response strengthens past one. And the consumption response weakens below one. Every one of those four movements is the income effect gaining ground on the substitution effect.
+
+So, income and substitution effects, stated properly. A rise in A raises the marginal product of labour and therefore the wage. That does two things and they pull opposite ways.
+
+The substitution effect. Leisure is now more expensive, because an hour of leisure costs more consumption than before. So the household substitutes away from leisure and works more.
+
+The income effect. At any given number of hours the household is richer. Leisure is a normal good, so the household wants more of it and works less.
+
+And sigma is the arbiter. Sigma is how fast the marginal utility of consumption falls as consumption rises. If sigma is large, marginal utility collapses quickly, so the extra consumption the higher wage would buy is not worth much. The household takes the gain as leisure, the income effect dominates, and hours fall. If sigma is small, marginal utility falls slowly, the extra consumption is still worth having, the substitution effect dominates, and hours rise.
+
+One more thing to add at the end, because it earns credit and it is true. At sigma exactly one the two effects cancel exactly. That is not a coincidence. Logarithmic utility in consumption is the unique case in which income and substitution effects on labour supply offset one another precisely, which is why it is the standard assumption in growth models that want hours to be stationary along a balanced growth path.
+
+And you have already seen this knife edge. In Problem Set 4, with log consumption and no transfer, hours were completely independent of the wage and of the tax, and the whole effect had to be carried by the lump-sum transfer. Here the same cancellation is what makes sigma equal to one the dividing line. Same fact, seen twice.
+
+
+PART SEVEN. QUESTION 2, ITEM A. THE HOUSEHOLD PROBLEM AND THE EULER EQUATION.
+
+Question 2 is the mirror image. Infinite horizon, labour fixed at one in every period, households do not value leisure, and capital is now the thing that moves.
+
+The household's problem. Maximise, over the whole sequence of consumption and assets, the sum from t equal to zero to infinity, of beta to the power t times u of c t. With u of c equal to c to the power one minus sigma over one minus sigma.
+
+Subject to the flow budget constraint in every period, which is equation two point one: assets tomorrow equal one plus r t times assets today, plus the wage, plus profits, minus consumption.
+
+With initial assets given by the initial capital stock K zero. Labour income is just the wage, because hours are one. And profits are zero, by the constant-returns argument you already gave in question 1 item a, so say "by the same argument as in question 1" and move on.
+
+And subject to a No-Ponzi condition, equation two point two: the limit, as T goes to infinity, of assets at date T plus one divided by the product of all the gross interest rates up to T, is greater than or equal to zero.
+
+Say explicitly why the No-Ponzi condition is needed, because the question is asking for the household's problem and a problem without it is not well posed. Without it, the household would roll debt over forever, financing unbounded consumption, and the problem would have no solution.
+
+Now derive the Euler equation, and derive it by a perturbation, because the perturbation argument is the intuition the question asks for.
+
+Cut consumption at date t by a small amount epsilon and save the proceeds. The utility cost today is u prime of c t, times epsilon. The epsilon becomes one plus r at date t plus one, times epsilon, tomorrow. That is worth beta times one plus r at t plus one, times u prime of c at t plus one, times epsilon, in today's units. At an optimum no such perturbation can help, so the cost equals the benefit.
+
+Equation two point three: u prime of c t equals beta, times one plus r at t plus one, times u prime of c at t plus one. Equivalently, with power utility: the ratio c at t plus one over c t equals the bracket beta times one plus r at t plus one, raised to the power one over sigma.
+
+The intuition to state. The Euler equation is a no-arbitrage condition on the household's own consumption plan. The left side is the marginal cost of giving up a unit today. The right side is the marginal benefit, discounted because tomorrow matters less.
+
+Now what makes consumption grow, which the question asks directly. From two point three, consumption at t plus one exceeds consumption at t if and only if beta times one plus r exceeds one. That is, if and only if r at t plus one exceeds one over beta minus one, which we call rho.
+
+Say it in words: consumption grows exactly when the market's reward for waiting exceeds the household's impatience. When it does not, the path slopes down.
+
+And the role of sigma, which the question also asks directly. Sigma enters only through the exponent one over sigma, which is the elasticity of intertemporal substitution. It governs how strongly the household tilts its path for a given gap between r and rho. High sigma means low elasticity: the household strongly resists letting consumption differ across dates, so even a large gap produces only a gentle slope.
+
+Trap, and it is a good one to name explicitly because it anticipates item d. Sigma affects only how fast the economy travels, never where it ends up. It vanishes from the steady-state condition, because setting the consumption ratio to one raises the bracket to the power one over sigma, and one raised to any power is one. The solutions verify that for sigma equal to 0.5, 1, 2, 3 and 8.
+
+
+PART EIGHT. QUESTION 2, ITEM B. THE FIRM AND THE FACTOR PRICES.
+
+Short item, so do not overwrite it, but do not skip the economics either.
+
+The firm maximises, over capital and labour: A times K t to the alpha times L t to the one minus alpha, minus the wage times labour, minus the rental rate times capital.
+
+The first-order conditions, evaluated at labour equal to one, give equation two point four. The wage equals one minus alpha, times A, times K t to the power alpha. The rental rate equals alpha times A times K t to the power alpha minus one.
+
+Now the two sentences that earn the marks. The wage is increasing in the capital stock and the rental rate is decreasing in it, and both follow from diminishing returns: more capital per worker raises the marginal product of labour and lowers the marginal product of capital.
+
+And close the loop on income: profits are zero, so household income is wages plus capital income and nothing else. That is what lets you write the budget constraint you wrote in item a.
+
+
+PART NINE. QUESTION 2, ITEM C. WHO OWNS THE CAPITAL, AND WHY IT DOES NOT MATTER.
+
+This is the item where a careless answer says "obviously it does not matter" and gets half the marks. The question asks you to show that both arrangements imply the same no-arbitrage condition, and then to explain why the allocation therefore does not depend on ownership. Two tasks, so do both.
+
+Arrangement one: the household owns the capital, rents it to the firm, and does the investment itself.
+
+Its budget constraint is consumption plus investment equals the wage plus the rental rate times capital. And capital accumulates: capital tomorrow equals one minus delta times capital today, plus investment.
+
+Substitute investment out and collect the capital terms. You get equation two point five: consumption today plus capital tomorrow equals the wage, plus the bracket rental rate plus one minus delta, times capital today. Name that bracket out loud when you write it: it is the gross return on capital.
+
+Now maximise the discounted sum of utility subject to two point five. The first-order condition with respect to capital tomorrow is equation two point six: minus u prime of c t, plus beta times u prime of c at t plus one, times the bracket rental rate at t plus one plus one minus delta, equals zero. Which rearranges to: u prime of c t equals beta times the bracket, times u prime of c at t plus one.
+
+Now compare that with the bond Euler equation, two point three. Both bonds and capital are held in equilibrium, so both must offer the same return, otherwise the household would take an unbounded position in one and short the other. Comparing gives equation two point seven:
+
+One plus r at t plus one equals the rental rate at t plus one, plus one minus delta.
+
+Arrangement two: a separate investment firm builds and holds the capital and rents it to the productive firm. Its profit is Kurlat's equation nine point three point three.
+
+Profit equals the maximum over investment of: the rental rate at t plus one plus one minus delta, all over one plus r at t plus one, times the bracket one minus delta times capital today plus investment, minus that same bracket.
+
+Differentiate with respect to investment. You get: the ratio, rental rate at t plus one plus one minus delta over one plus r at t plus one, minus one.
+
+And now notice what that derivative is. It is a constant. It does not depend on investment at all. The problem is linear in investment and has no interior optimum. So you enumerate three cases, and only one survives.
+
+Case one: the ratio exceeds one. Then the firm sets investment to plus infinity and earns infinite profit. Not consistent with equilibrium, because it implies infinite capital.
+
+Case two: the ratio is below one. Then the firm sets investment to minus infinity. Not consistent.
+
+Case three: the ratio equals one exactly. Then any level of investment is optimal and profit is exactly zero. This is the only case consistent with equilibrium.
+
+Setting the ratio to one gives equation two point seven again. The identical condition. That is the first task done.
+
+Trap, and the solutions call it the subtlety almost everyone gets wrong. The investment firm's first-order condition does not determine how much is invested. It determines a price. At the no-arbitrage return the firm is genuinely indifferent across every level of investment, so the quantity of investment must come from somewhere else, namely goods market clearing, which is item d. Looking for "the investment firm's optimal investment" is looking for something that does not exist.
+
+Now the second task: why the allocation does not depend on who owns the capital. Three reasons, and give all three.
+
+Reason one, the same intertemporal price. Both arrangements deliver two point seven, so the household faces the same trade-off between a unit of consumption today and one tomorrow, whether it holds the claim as physical capital or as a bond. The rate at which the economy can move goods through time is a technological fact. The no-arbitrage condition just makes the financial price match it.
+
+Reason two, zero profits in both. The productive firm earns zero by constant returns. The investment firm earns zero because that is precisely what two point seven enforces. No arrangement transfers any surplus to anybody, so the household's lifetime budget set is identical.
+
+Reason three, nothing real has moved. Consumption possibilities depend only on the economy's resource constraint and on the intertemporal price, and ownership touches neither.
+
+And the remark that lifts the answer above a pass. This is Fisher separation, from Irving Fisher's The Theory of Interest, 1930, and it has the same flavour as the Modigliani and Miller theorem in corporate finance: with complete and competitive markets, how a claim on a real asset is packaged does not change real outcomes.
+
+In one sentence: the investment firm is an accounting device, not an agent with independent influence, because arbitrage strips it of any profit and hands the entire intertemporal trade-off back to the household unchanged.
+
+
+PART TEN. QUESTION 2, ITEM D. THE RESOURCE CONSTRAINT, THE STEADY STATE, AND THE CLOSED FORMS.
+
+Start with the resource constraint, because the question asks for it first and because it is the second of the two difference equations that run the rest of the model.
+
+Goods market clearing with labour equal to one says A times K t to the alpha equals consumption plus investment. Capital accumulation says capital tomorrow equals one minus delta times capital today, plus investment. Substitute investment out and you get equation two point eight:
+
+Capital tomorrow equals one minus delta times capital today, plus A times capital today to the power alpha, minus consumption today.
+
+In words, and say the words: the capital you carry into tomorrow is what survives depreciation, plus everything you produced, minus everything you ate. Together with the Euler equation, two point three, this is a pair of difference equations in capital and consumption, and from here everything is geometry.
+
+Now the steady state. Constant consumption in the Euler equation requires beta times one plus r to equal one, so one plus r equals one over beta. Combine that with the arbitrage condition, two point seven, and the firm's condition, two point four. Two point seven says r equals the rental rate minus delta, and two point four says the rental rate is the marginal product of capital. So r equals F sub K minus delta. Setting the two expressions for r equal gives equation two point nine:
+
+F sub K at the steady-state capital stock, with labour one, minus delta, equals one over beta, minus one.
+
+That is exactly what the question asks you to show, and it is Kurlat's nine point three point seventeen.
+
+Closed forms. With F sub K equal to alpha times A times K to the power alpha minus one, equation two point nine becomes alpha A K star to the power alpha minus one equals one over beta minus one plus delta. Solve for K star, equation two point ten:
+
+K star equals the bracket alpha A, divided by the quantity one over beta minus one plus delta, all raised to the power one over one minus alpha.
+
+Or equivalently, clearing the fraction inside: alpha A beta, divided by one minus beta plus beta delta, raised to the power one over one minus alpha. Either form is fine; write one and say the other exists.
+
+And steady-state consumption, equation two point eleven, from setting capital tomorrow equal to capital today in two point eight:
+
+c star equals A times K star to the power alpha, minus delta times K star.
+
+Output minus replacement investment. And add the line, because it is the sentence version of the formula: in a steady state, all investment is replacement investment.
+
+Now the steady-state interest rate, which is the punchline the question is driving at. r star equals one over beta minus one, which is rho. It depends on beta and on nothing else. Not on A, not on alpha, not on delta.
+
+Method, and this is where the marks concentrate. Say why, in two moves.
+
+Move one. In a steady state consumption is constant, and the Euler equation says a constant path requires beta times one plus r to equal one exactly. That is a statement purely about preferences: the reward for waiting must precisely offset impatience, which is the only configuration under which the household is content to consume the same amount forever. Technology has no say in it.
+
+Move two. What technology determines is the quantity of capital. Given that r must equal one over beta minus one, the capital stock adjusts until the marginal product of capital minus delta matches that number. A more productive economy does not end up with a higher interest rate. It ends up with more capital, which drives the marginal product of capital back down until it meets what preferences demand.
+
+Then say the sentence, in exactly these words: preferences determine the interest rate, technology determines the capital stock.
+
+The numbers. Calibration: A equal to 1, alpha equal to 0.35, delta equal to 0.08. Four rows, and I read each as: beta, steady-state capital, steady-state consumption, the net marginal product of capital, the interest rate, and the ratio of the steady-state capital stock to the Golden Rule capital stock.
+
+Beta 0.900. Capital 2.537. Consumption 1.182. Net marginal product 0.111. Interest rate 11.11 per cent. Ratio to the Golden Rule 0.262.
+
+Beta 0.960. Capital 5.082. Consumption 1.360. Net marginal product 0.0417. Interest rate 4.17 per cent. Ratio 0.525.
+
+Beta 0.990. Capital 8.066. Consumption 1.431. Net marginal product 0.0101. Interest rate 1.01 per cent. Ratio 0.833.
+
+Beta 0.999. Capital 9.502. Consumption 1.439. Net marginal product 0.001. Interest rate 0.10 per cent. Ratio 0.981.
+
+Now read the table, because reading it is the answer. Moving beta from 0.90 to 0.99, which is a change in impatience of about ten percentage points a year, more than triples the steady-state capital stock. Patience is enormously powerful for capital.
+
+But consumption moves only from 1.18 to 1.43, which is about 21 per cent. That asymmetry is not a curiosity. It is the whole content of item e, and part 11 explains it.
+
+
+PART ELEVEN. QUESTION 2, ITEM E. THE BONUS. THE GOLDEN RULE.
+
+The Golden Rule capital stock is the one that maximises steady-state consumption. Derive it, show the competitive steady state falls short of it, and then explain why an economy that the First Welfare Theorem certifies as efficient does not reach it.
+
+Derivation. From equation two point eleven, maximise A K to the alpha minus delta K, over K. The first-order condition is alpha A K to the power alpha minus one, minus delta, equals zero. So equation two point twelve: the marginal product of capital at the Golden Rule equals delta. And the Golden Rule capital stock equals alpha A over delta, raised to the power one over one minus alpha.
+
+The comparison. Put the two conditions side by side, and say them in exactly this parallel form, because the parallel is the argument.
+
+Golden Rule: the marginal product of capital equals delta.
+Competitive steady state: the marginal product of capital equals delta plus the quantity one over beta minus one.
+
+And that extra term is strictly positive if and only if beta is less than one. Since beta is less than one, the marginal product of capital at the competitive steady state is strictly greater than at the Golden Rule. And the marginal product of capital is strictly decreasing in capital. Therefore the steady-state capital stock is strictly less than the Golden Rule capital stock.
+
+With the calibration above, the Golden Rule capital stock is 9.685 and Golden Rule consumption is 1.439. So at beta equal to 0.96 the economy holds only 52 per cent of the Golden Rule capital stock.
+
+Now the real question: why does an efficient economy stop short? Three moves, and give all three.
+
+Move one. Reject the premise hidden in the word "enough". The Golden Rule maximises consumption in the steady state. It says nothing about the path taken to get there and gives no weight at all to when consumption arrives. It is a criterion about one point, not about a trajectory.
+
+Move two. Say what the household actually maximises. The household maximises the discounted sum of utility over the whole path. Moving from the steady state up to the Golden Rule requires investing more, and therefore consuming less, for a long stretch, in exchange for higher consumption in the far future. An impatient household discounts that far-future gain and ranks the whole package below where it already is.
+
+Move three. Conclude sharply. Under-accumulation relative to the Golden Rule is not a market failure. It is the optimum. There is no Pareto improvement available, which is exactly what the First Welfare Theorem asserts, and the reason there is none is that reaching the Golden Rule would demand a sacrifice today that the household does not want to make.
+
+Then the sentence that closes it: the Golden Rule is a benchmark, not a target. It stops being normative the moment somebody in the model has preferences.
+
+Now the contrast that makes the point land, and it is worth including because it connects the question to the first half of the course.
+
+In the Solow model with an exogenous saving rate, the economy can perfectly well end up on the other side, with capital above the Golden Rule. That is dynamic inefficiency, and it is a genuine failure: consumption could be raised in every period, starting immediately, simply by saving less. Kurlat's exercise six point seven, on printed page 124, constructs exactly that case, with a saving rate of 0.4 against an alpha of 0.35, producing a negative real interest rate.
+
+What the present model shows is that dynamic inefficiency can never happen once the saving rate is chosen rather than assumed. An optimising household would never over-accumulate. Only an exogenous saving rate can produce that pathology.
+
+The limit as beta goes to one. As beta approaches one, one over beta minus one goes to zero, so equation two point nine converges to the marginal product of capital equals delta, which is precisely equation two point twelve. Hence the steady-state capital stock converges to the Golden Rule capital stock. At beta equal to one minus ten to the minus nine, the ratio is one to six decimal places.
+
+And the sentence: the distance between the competitive steady state and the Golden Rule is impatience, measured.
+
+One observation worth adding at the end, because most students miss it and it is the sharpest thing in the question.
+
+At beta equal to 0.999 the capital stock is 1.9 per cent short of the Golden Rule, but consumption is short by only 0.006 per cent. Even at beta equal to 0.96, where capital is barely half the Golden Rule level, consumption is only 5.5 per cent below.
+
+The reason is that the Golden Rule capital stock is a maximum, so steady-state consumption as a function of capital is flat there. The first derivative vanishes, and the loss from being off the peak is second order.
+
+Two consequences follow, and both are worth a sentence. First, arguments that an economy is losing a lot of consumption by under-accumulating are usually quantitatively weak. Second, this is the same flatness that makes Kurlat's exercise nine point twelve, on printed page 185, come out as it does: optimising the entire savings path for 150 years is worth about a third of one per cent of consumption, relative to just using the correct constant rate.
+
+
+PART TWELVE. THE FOUR FIGURES, DESCRIBED IN WORDS.
+
+The written solutions carry four figures. You cannot see them, so here is what each one shows and, more importantly, what you should be able to redraw from memory.
+
+Figure one belongs to question 1 item d, and it has two panels.
+
+The left panel draws equation one point eight. On the horizontal axis, hours between zero and one. One curve rises from zero, gently at first and then vertically as hours approach one: that is the left-hand side. A horizontal line crosses it: that is the constant right-hand side. They cross exactly once, and they cross exactly once for every value of sigma. That single crossing is the picture of the uniqueness argument.
+
+The right panel plots equilibrium hours against sigma. It rises. As the household becomes more averse to consumption fluctuation, it works more. At sigma equal to one the three curves drawn for different productivity levels all meet at a single point, because productivity drops out of equation one point eight when sigma is one.
+
+Figure two belongs to question 1 item e. It shows the hours elasticity crossing zero at sigma equal to one, with everything else scaling one for one with productivity at that point. The single thing to carry away: sigma equal to one is the knife edge, and on either side of it the sign of the hours response flips.
+
+Figure three belongs to question 2 item d, and it is the phase diagram. This is the one to be able to redraw.
+
+Two panels again. In the left panel, capital on the horizontal axis and consumption on the vertical. The locus along which consumption is constant is a vertical line, and say why: consumption does not appear in equation two point nine at all, so every level of consumption satisfies it and only one level of capital does. The locus along which capital is constant is a concave hump, consumption equal to A times capital to the alpha minus delta times capital. The two cross at the steady state. Through that crossing runs exactly one trajectory that converges, and that is the saddle path.
+
+In the right panel, the same transition drawn against time. Capital moves smoothly, consumption jumps at the start. State the reason in the standard words: capital is a state variable and cannot jump, consumption is a jump variable and must.
+
+Figure four belongs to question 2 item e, and it also has two panels.
+
+The left panel shows every steady state lying to the left of the Golden Rule capital stock, sliding toward it as beta rises. The right panel shows the two shortfalls side by side: the capital shortfall, which is large, and the consumption shortfall, which is tiny. And it shows why, because consumption as a function of capital is at a maximum at the Golden Rule, so its first derivative is zero there and the loss is second order.
+
+
+PART THIRTEEN. THE COMPANION CODE, DESCRIBED, NOT READ.
+
+The solutions ship with Python that reproduces every number. Here is what each file does, described as a sequence of operations, because reading code aloud is useless.
+
+There are five files. The model file holds every closed form once: question 1's two equivalent forms of the labour equation, the elasticities, and the interest rate; question 2's steady state, Golden Rule, the two difference equations, and a bisection routine that shoots for the saddle path.
+
+The question 1 file runs seven checks. Zero profit via Euler's theorem. That the raw and tidied labour equations share the same unique root, for five values of sigma and four of productivity. That the left-hand side of equation one point eight is strictly increasing, on a grid of two hundred thousand points. Equation one point ten against a symmetric finite difference. The induced elasticities of the wage, the rental rate and consumption against their own finite differences. The identity that the rental rate equals alpha times consumption over K bar, exactly. And the interest rate, including the collapse to one over beta minus one when the two productivity levels are equal.
+
+The question 2 file runs six checks. That both ownership routes give the same interest rate. That the investment firm's profit is identically zero in investment at that rate, and strictly monotone at any other rate, which is the linearity claim made in item c. That the steady state is a genuine rest point for every sigma. That the steady-state capital stock is below the Golden Rule. That the Golden Rule capital stock is the argmax of steady-state consumption, confirmed on a grid of six hundred thousand points. And that the steady state converges to the Golden Rule as beta approaches one. It also checks that the saddle path converges while neighbouring paths fall off it in both directions.
+
+The figures file draws the four figures. And the style file sets the matplotlib backend so that figure text is typeset by the same engine as the document, which keeps the resulting PDF fully copyable.
+
+The one design point worth knowing, because it is why the numbers can be trusted: each script checks its analytical formulas against an independent numerical route and aborts on any mismatch. Nothing in the tables was typed by hand.
+
+
+PART FOURTEEN. WHERE THE MARKS ARE. THE RUBRIC, SAID OUT LOUD.
+
+This part is the one to replay the night before. Each item, then the thing that earns the marks, then the thing that loses them.
+
+Question 1 item a. Earns: the present-value budget constraint with all four wealth terms, the firm's problem written separately per period with the observation that it is static, and the zero-profit argument given as Euler's theorem plus competitive pricing. Loses: importing Kurlat's one plus rental rate minus delta bracket, which brings in a used-capital market this economy does not have.
+
+Question 1 item b. Earns: four first-order conditions, then the two ratios, then naming which is which. The question explicitly asks you to identify which condition is which margin, so answer that question in words, not just in symbols. Loses: confusing sigma with one over sigma, which inverts item e.
+
+Question 1 item c. Earns: all three blocks, optimality, optimality, clearing; three clearing conditions written out; and the credit market handled by Walras's law. Loses: writing only first-order conditions, and writing an investment term in goods clearing.
+
+Question 1 item d. Earns: the marginal rate of substitution equals marginal rate of transformation form, written in exactly that form because the question demands it; the tidied equation one point eight; the uniqueness argument; and the reading that the interest rate contains no marginal product of capital. Loses: claiming a closed form for hours, which does not exist.
+
+Question 1 item e. Earns: the implicit differentiation done carefully at the chain-rule step, the sign argument that rests on all three denominator terms being positive, the answer that hours rise if and only if sigma is below one, and the income-versus-substitution interpretation with sigma named as the arbiter. Loses: signing only hours and forgetting that the question also asks you to sign the wage, the rental rate and consumption.
+
+Question 2 item a. Earns: the flow constraint, the No-Ponzi condition with a sentence saying why it is needed, the Euler equation derived by perturbation, the growth condition r greater than rho, and sigma identified as the elasticity of intertemporal substitution through the exponent. Loses: stating the Euler equation without deriving it, when the question asks for the intuition.
+
+Question 2 item b. Earns: both factor prices, plus the diminishing-returns sentence about why one rises and the other falls in capital. Loses: nothing much, if you write the two lines.
+
+Question 2 item c. Earns: both arrangements carried through to the same no-arbitrage condition, the linearity of the investment firm's problem with the three cases enumerated, and all three reasons why ownership is irrelevant. Loses: hunting for an optimal level of investment in a problem that is linear in investment.
+
+Question 2 item d. Earns: the resource constraint derived by substituting investment out, the steady-state condition reached through the Euler equation plus arbitrage plus the firm's condition, both closed forms, and the explanation that the steady-state interest rate depends only on beta. Loses: asserting that a more productive economy has a higher steady-state interest rate.
+
+Question 2 item e, the bonus. Earns: the Golden Rule condition derived rather than quoted, the strict inequality argued from the monotonicity of the marginal product of capital, and the three-move answer to why an efficient economy stops short. Loses: treating the shortfall as a market failure.
+
+
+PART FIFTEEN. THE WHOLE PROBLEM SET IN FIVE LINES.
+
+This is the last thing you hear, and it is the piece worth replaying.
+
+One. The two questions are the same chapter with different margins frozen: question 1 freezes capital and leaves the labour margin working, question 2 freezes labour and lets capital move.
+
+Two. In both, prices enter the household's conditions and the firm's conditions, and cancel when you put the two together, leaving conditions with no price in them. That cancellation is what general equilibrium is.
+
+Three. In question 1, consumption is forced to equal output period by period, so the interest rate has nothing to allocate and becomes pure impatience when productivity does not grow.
+
+Four. In question 2, arbitrage ties the interest rate to the marginal product of capital, and the steady state forces it back to one over beta minus one. Preferences determine the interest rate; technology determines the capital stock.
+
+Five. The competitive economy holds less capital than the Golden Rule, and that is the optimum, not a failure. The gap is impatience, measured, and it closes as beta goes to one.

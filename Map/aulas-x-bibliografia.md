@@ -39,6 +39,7 @@ Voltar ao [[00_indice]].
 - **Material:** [[Aula/Handout_MPE_Macro1_Aula3_2026(1)|Handout Aula 3]] (PDF + MD) — é
   **handout**, não slides: texto corrido, mais denso que as demais aulas
 - **Resolução:** [[Resolucao/lista2_resolucao|lista2_resolucao.tex/pdf]] + `Resolucao/lista2_codigo/`
+- **Livro resolvido:** [[Resolucao/kurlat_solutions_ch05|kurlat_solutions_ch05.tex/pdf]] — os 9 exercícios do cap. 5 + `Resolucao/kurlat_ch05_codigo/`
 - **Conceitos:** #regra-de-ouro #progresso-tecnologico #ptf #contabilidade-do-crescimento
 
 ## Aula 4 — Microfundamentos: Consumo e Poupança
@@ -48,6 +49,7 @@ Voltar ao [[00_indice]].
 - **Complementar:** Romer (2012), cap. 8
 - **Lista:** 3 — [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] — entregue em 24/08/2026
 - **Resolução:** [[Resolucao/lista3_resolucao|lista3_resolucao.tex/pdf]] + `Resolucao/lista3_codigo/`
+- **Livro resolvido:** [[Resolucao/kurlat_solutions_ch06|kurlat_solutions_ch06.tex/pdf]] — os 9 exercícios do cap. 6 + `Resolucao/kurlat_ch06_codigo/`
 - **Material:** [[Aula/MPE_Macro1_SlidesAula4|Slides Aula 4 — *Microfoundations I:
   Consumption and Saving*]] (PDF + MD)
 - **Na aula:** Keynes (1936) e a "lei psicológica fundamental"; o puzzle *cross-section* ×
@@ -62,7 +64,9 @@ Voltar ao [[00_indice]].
 - **Complementar:** Jones (2020), cap. 7; Romer (2012), cap. 11
 - **Material:** [[Aula/Slides_Macro1_Aula5|Slides Aula 5 — *Microfoundations II: Labor and
   Leisure*]] (PDF + MD) — recebido em 25/08/2026
-- **Lista:** 4 — [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — ⏰ **entrega 31/08/2026**
+- **Lista:** 4 — [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — entregue em 31/08/2026
+- **Resolução:** [[Resolucao/lista4_resolucao|lista4_resolucao.tex/pdf]] + `Resolucao/lista4_codigo/`
+- **Livro resolvido:** cap. 7 ⏳ — numérico e 4 figuras prontos em `Resolucao/kurlat_ch07_codigo/`; falta redigir o `.tex`
 - **Na lista:** Q1 oferta de trabalho estática com imposto sobre salário e transferência
   *lump-sum*; Q2 modelo de busca **DMP** — função de *matching*, curva de Beveridge,
   *tightness*, externalidades de vaga
@@ -73,7 +77,22 @@ Voltar ao [[00_indice]].
 - **Regras:** [[06_equilibrio_geral]]
 - **Kurlat (2020):** cap. **9** — ⚠️ **cap. 8 fora do escopo**
 - **Complementar:** Romer (2012), cap. 2
-- **Lista:** 5
+- **Material:** [[Aula/Slides_Macro1_Aula6|Slides Aula 6 — *Microfoundations IV: General
+  Equilibrium*]] (PDF + MD) — recebido em 31/08/2026, 14 páginas
+- **Na aula:** três agentes representativos (domicílio, firma e **firma de investimento**);
+  definição de equilíbrio competitivo em 2 períodos; condições combinadas
+  $v'(l_t)/u'(c_t)=F_L$ e $u'(c_1)/[\beta u'(c_2)]=F_K$; **Proposição 9.1** (1º TBE) com
+  prova por contradição; horizonte infinito com No-Ponzi; **diagrama de fase** em $(K,c)$
+  com *saddle path*; $K_{ss} < K_{gr}$; **efeitos de antecipação** de notícia tecnológica
+- **Lista:** 5 — [[Listas/MPE_Macro1_2026_Lista5|Lista 5]] — entrega **08/09/2026**.
+  Q1 economia de 2 períodos com **capital fixo** (sem tecnologia de investimento): margem
+  consumo-lazer, definição de equilíbrio, e a elasticidade de $L_t$ à PTF. Q2 horizonte
+  infinito com **trabalho fixo**: Euler, arbitragem sob duas formas de propriedade do
+  capital, estado estacionário em forma fechada e, como bônus, a Regra de Ouro
+- **Resolução:** [[Resolucao/lista5_resolucao|lista5_resolucao.tex/pdf]] + `Resolucao/lista5_codigo/`
+- **Roteiro narrado (TTS):** `Leituras/lista-05-general-equilibrium-narrated.txt` — o
+  capítulo inteiro e as duas questões, faladas
+- **Livro resolvido:** [[Resolucao/kurlat_solutions_ch09|kurlat_solutions_ch09.tex/pdf]] — os 13 exercícios do cap. 9 + `Resolucao/kurlat_ch09_codigo/`; fórmulas em [[derivacoes-cap-09]]
 - **Conceitos:** #equilibrio-competitivo #primeiro-tbe #pareto #transversalidade #ramsey
 
 ## Aula 7 — Mercado Monetário e Inflação
@@ -110,7 +129,7 @@ Voltar ao [[00_indice]].
 | **1** | 1, 2 | 1-4 | 10/08/2026 | [[Listas/MPE_Macro1_2026_Lista1\|Lista 1]] (PDF + MD) | [[Resolucao/lista1_resolucao\|feita]] |
 | **2** | 3 | 4-5 | 17/08/2026 | [[Listas/MPE_Macro1_2026_Lista2\|Lista 2]] (PDF + MD) | [[Resolucao/lista2_resolucao\|feita]] |
 | **3** | 4 | 6 | 24/08/2026 | [[Listas/MPE_Macro1_2026_Lista3\|Lista 3]] (PDF + MD) | [[Resolucao/lista3_resolucao\|feita]] |
-| **4** | 5 | 7 | **31/08/2026** | [[Listas/MPE_Macro1_2026_Lista4\|Lista 4]] (PDF + MD) | ⏳ pendente |
+| **4** | 5 | 7 | **31/08/2026** | [[Listas/MPE_Macro1_2026_Lista4\|Lista 4]] (PDF + MD) | [[Resolucao/lista4_resolucao\|feita]] |
 | 5 | 6 | 9 | — | ainda não emitida | — |
 | 6 | 7, 8 | 10-11 + Benigno §1-5 | — | ainda não emitida | — |
 | 7 | 9 (provável) | Benigno §6-12 | — | ainda não emitida | — |

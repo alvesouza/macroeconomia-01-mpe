@@ -45,4 +45,4 @@ Summarize the file(s) or directory specified by `$ARGUMENTS`.
 - If CLAUDE.md or rules/ exist in the project, use them to contextualize the summary within the course.
 - Keep summaries concise but complete — prioritize what a student needs to know.
 - If source files are not in MD format, suggest running `/convert` first for best results.
-- Part of the study ecosystem: summaries inform `/quiz-gen` topic coverage and `/study-map` cross-references.
+- Part of the study ecosystem: summaries inform `/quiz-gen` topic coverage and `/study-map` cross-references. For a listening version of the full material (not a summary), use `/speechify`.

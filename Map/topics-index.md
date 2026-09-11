@@ -1,6 +1,6 @@
 ---
 tags: [map, cross-reference, macro1, conceitos, topics]
-date: 2026-08-25
+date: 2026-09-06
 ---
 
 # Índice de Tópicos
@@ -35,6 +35,9 @@ e `/exercise-plan` consomem. Voltar ao [[00_indice]].
 4. ✏️ Direto — Kurlat **1.1** (p. 27), **2.4** (p. 41)
 5. ✏️ Integrador — Kurlat **5.7** (p. 96): junta contabilidade nacional + juros + PTF
 6. 📊 Lista — [[Listas/MPE_Macro1_2026_Lista1|Lista 1, Q1]]
+7. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch1-4|caps. 1-4]] (1.1-2.10) ·
+   [[Resolucao/kurlat_solutions_ch05|cap. 5]] (**5.7** e **5.8**, as duas contas completas
+   pelas três óticas)
 
 ### Tópico: Comparações (PPP e índices)
 #topic/comparacoes-ppp
@@ -128,6 +131,9 @@ progresso técnico. Toda questão de "o que acontece no curto e no longo prazo" 
 2. 🎓 [[Aula/Handout_MPE_Macro1_Aula3_2026(1)|Aula 3 — Handout]]
 3. 📝 [[03_solow_evidencias]]
 4. ✏️ Avançado — Kurlat **5.8** *National Accounts and The Golden Rule* (p. 97)
+5. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch05|cap. 5]], **5.8**: deriva
+   $s_{GR}=lpha$ — *a taxa de poupança da Regra de Ouro é a participação do capital*, o
+   teste de eficiência dinâmica em uma linha
 
 **Síntese cross-tópico (Hard):** a Regra de Ouro maximiza o **consumo de estado
 estacionário**; o equilíbrio geral da Aula 6 entrega $f'(k^*) = \rho + \delta$, que **não**
@@ -146,6 +152,8 @@ avaliação final.
 2. 🎓 [[Aula/Handout_MPE_Macro1_Aula3_2026(1)|Aula 3]] (12 ocorrências de *Markets*)
 3. ✏️ Direto — Kurlat **5.6** *Interest Rates* (p. 96)
 4. ✏️ Integrador — Kurlat **4.1(c)-(d)** e **4.2(c)-(d)**: efeito sobre salários e juros
+5. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch05|cap. 5]], **5.6**: usa o juro
+   como *medida indireta do estoque de capital* para distinguir as duas conjecturas
 
 ### Tópico: Progresso tecnológico
 #topic/progresso-tecnologico
@@ -174,6 +182,9 @@ avaliação final.
 7. ✏️ Integrador — Kurlat **5.3** (p. 94), **5.9** *Disease and TFP* (p. 98),
    **5.7** (p. 96)
 8. 📊 [[Listas/MPE_Macro1_2026_Lista2|Lista 2, Q2 — "Gotham"]]
+9. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch05|os 9 problemas do cap. 5]],
+   resolvidos e verificados por código. **5.4**, **5.5** e **5.9** são a mesma armadilha
+   três vezes: erro de medida num insumo aparece como diferença de PTF
 
 **Síntese cross-tópico (Hard):** o resíduo é **residual** — captura tudo o que não é
 acumulação de fatores, inclusive **má alocação de recursos**. A Lista 2 Q2 constrói
@@ -204,6 +215,7 @@ conceito mais reutilizado do curso**
    **6.6** *A Tax on Savings* (p. 123)
 7. 📊 [[Listas/MPE_Macro1_2026_Lista3|Lista 3, Q1]]
 8. ✅ Solução — [[Resolucao/lista3_resolucao|Resolução L3]] · código `Resolucao/lista3_codigo/l3q1_consumo.py`
+9. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch06|as soluções do cap. 6]] (6.1-6.9), com 6.1 e 6.9 resolvidos em forma fechada
 
 **O puzzle que abre a Aula 4:** no *cross-section* de famílias, $C/Y$ cai com a renda; na
 série temporal agregada dos EUA, $C \approx 0{,}65\,Y$ é constante. A função keynesiana não
@@ -263,7 +275,9 @@ Liga direto ao multiplicador fiscal do Benigno §8 (Aula 9).
 4. 📝 [[05_trabalho_lazer]]
 5. ✏️ Direto — Kurlat **7.1** (p. 146), **7.2** (p. 146) → **base da Lista 4, Q1**
 6. ✏️ Integrador — Kurlat **7.3** (p. 147), **7.4** (p. 148), **7.6** (p. 149)
-7. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q1]] — entrega **31/08/2026**
+7. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q1]] — entregue em **31/08/2026**
+8. ✅ Solução — [[Resolucao/lista4_resolucao|Resolução L4]] · código `Resolucao/lista4_codigo/l4q1_oferta.py`
+9. 📚 Livro resolvido — cap. 7 ⏳ em redação; numérico e figuras de 7.1, 7.2, 7.3, 7.5, 7.6 e 7.7 já em `Resolucao/kurlat_ch07_codigo/`
 
 **O que a Lista 4 acrescenta em Q1:** o salário líquido é $(1-\tau)w$ e a transferência $T$
 é *lump-sum*. O imposto move as duas margens; a transferência só a de renda. Separar as
@@ -280,7 +294,9 @@ duas é o item (b) — e é o mesmo raciocínio renda × substituição da Aula 
 3. 📝 [[05_trabalho_lazer]]
 4. ✏️ Avançado — Kurlat **7.7** *Beveridge Curve* (p. 150) → **é a Lista 4, Q2**;
    **7.5** *Prescott's Calculation* (p. 148)
-5. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q2]] — entrega **31/08/2026**
+5. 📊 [[Listas/MPE_Macro1_2026_Lista4|Lista 4, Q2]] — entregue em **31/08/2026**
+6. ✅ Solução — [[Resolucao/lista4_resolucao|Resolução L4]] · código `Resolucao/lista4_codigo/l4q2_dmp.py`
+7. 📚 Livro resolvido — cap. 7 ⏳ em redação; o **7.7** já está verificado em `ch07_numerico.py`, que separa o que **traça** a curva de Beveridge do que a **desloca**
 
 **O DMP da Lista 4 em uma linha:** com $m(V,U)=\mu V^{\alpha}U^{1-\alpha}$, as taxas
 $f=m/U$ e $q=m/V$ dependem só de $\theta=V/U$ e satisfazem $f=\theta q$. O estado
@@ -304,11 +320,23 @@ lógica da renda permanente no consumo.
 1. 📖 Kurlat §9.1 (p. 165): definição de equilíbrio competitivo, *market clearing*, juro
    de equilíbrio
 2. 📖 Kurlat §9.3 (p. 172): horizonte infinito, transversalidade, Ramsey
-3. 📝 [[06_equilibrio_geral]]
-4. ✏️ Direto — Kurlat **9.2** (p. 179), **9.5** (p. 181), **9.8** (p. 183)
-5. ✏️ Integrador — Kurlat **9.3** (p. 180), **9.7** (p. 183), **9.9** (p. 184),
-   **9.11** (p. 185)
-6. ✏️ **Síntese** — Kurlat **9.12** *Optimal vs Fixed Savings Rates* (p. 185)
+3. 🎓 [[Aula/Slides_Macro1_Aula6|Aula 6 — *Microfoundations IV: General Equilibrium*]]:
+   três agentes (inclui a **firma de investimento**), **diagrama de fase** em $(K,c)$ com
+   *saddle path*, $K_{ss}<K_{gr}$, **efeitos de antecipação**
+4. 📝 [[06_equilibrio_geral]] · fórmulas em [[derivacoes-cap-09]]
+5. ✏️ Direto — Kurlat **9.2** (p. 179), **9.5** (p. 181), **9.8** (p. 183)
+6. ✏️ Integrador — Kurlat **9.3** (p. 180), **9.7** (p. 183), **9.9** *An Oil-Producing
+   Economy* (p. 184) → **pede dois diagramas de fase no mesmo gráfico**, **9.11** (p. 185)
+7. ✏️ **Síntese** — Kurlat **9.12** *Optimal vs Fixed Savings Rates* (p. 185)
+8. ✅ Soluções — [[Resolucao/kurlat_solutions_ch09|os 13 problemas do cap. 9]], resolvidos e verificados por código
+
+**A parte nova, que não estava no mapa antes da aula:** o **diagrama de fase** em $(K,c)$.
+Duas curvas — $c_{t+1}=c_t$ é a **vertical** em $K_{ss}$ (onde $F_K-\delta=1/\beta-1$) e
+$K_{t+1}=K_t$ é a **côncava** $c=F(K,1)-\delta K$ — dividindo o plano em quatro quadrantes
+com setas. Só uma trajetória converge: o *saddle path*. $K$ é variável de **estado** (não
+salta); $c$ é variável de **controle** (salta). Daí os **efeitos de antecipação**: notícia
+hoje de $A>1$ a partir de $T$ faz $c$ saltar já, $K$ cair até $T$, e a economia chegar em
+$T$ exatamente sobre o novo *saddle path*.
 
 ⚠️ **Kurlat cap. 8 (Investment) está fora do escopo** — o programa salta do 7 para o 9.
 
@@ -320,10 +348,19 @@ lógica da renda permanente no consumo.
 **Cross-topic:** [[#Tópico Além do PIB bem-estar IDH desigualdade]], [[#Tópico AD-AS política]]
 
 1. 📖 Kurlat §9.2 (p. 168): enunciado e **hipóteses**
-2. 📝 [[06_equilibrio_geral]]
-3. ✏️ Direto — Kurlat **9.1** (p. 179)
-4. ✏️ Avançado — Kurlat **9.4** (p. 181), **9.6** (p. 182), **9.10** (p. 184),
+2. 🎓 [[Aula/Slides_Macro1_Aula6|Aula 6]]: **Proposição 9.1** com prova **por
+   contradição** — supõe uma alocação Pareto-superior, mostra que ela é inacessível ao
+   domicílio aos preços de equilíbrio, e conclui que viola a restrição do planejador
+3. 📝 [[06_equilibrio_geral]]
+4. ✏️ Direto — Kurlat **9.1** (p. 179)
+5. ✏️ Avançado — Kurlat **9.4** (p. 181), **9.6** (p. 182), **9.10** (p. 184),
    **9.13** *The Enclosure Acts* (p. 186)
+
+**As cinco falhas que a aula lista** (e que são o gatilho de toda análise de política):
+poder de monopólio · externalidades · informação assimétrica · mercados incompletos ·
+**restrição de crédito** — esta última liga direto à Q2 da [[Listas/MPE_Macro1_2026_Lista3|Lista 3]].
+A aula também diz onde o teorema **continua valendo**: bens diferenciados por data,
+progresso tecnológico exógeno, incerteza com mercados completos e domicílios heterogêneos.
 
 **O que é cobrado:** não o teorema, mas **quais hipóteses ele exige** e o que acontece
 quando cada uma cai. É a ponte para a Aula 9: no AD-AS novo-keynesiano a concorrência é

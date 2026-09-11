@@ -1,11 +1,11 @@
 ---
 tags: [map, macro1, cobertura, status]
-date: 2026-08-25
+date: 2026-09-06
 ---
 
 # Cobertura — o que existe e o que falta
 
-Estado do material em **2026-08-25**. Voltar ao [[00_indice]].
+Estado do material em **2026-09-06**. Voltar ao [[00_indice]].
 
 | Aula | Regras | Material | Lista | Resolução | Resumo | Quiz | NotebookLM |
 |---|---|---|---|---|---|---|---|
@@ -13,28 +13,29 @@ Estado do material em **2026-08-25**. Voltar ao [[00_indice]].
 | **2** — Crescimento e Solow | ✅ | ✅ Slides 2 | ✅ L1 | ✅ | ⬜ | ✅ | ✅ |
 | **3** — Solow e evidências | ✅ | ✅ Handout 3 | ✅ L2 | ✅ | ⬜ | ✅ | ✅ |
 | **4** — Consumo e poupança | ✅ | ✅ Slides 4 | ✅ L3 | ✅ | ⬜ | ⬜ | ✅ |
-| **5** — Trabalho e lazer | ✅ | ✅ Slides 5 | ✅ L4 | ⏳ **entrega 31/08** | ⬜ | ⬜ | ⬜¹ |
-| **6** — Equilíbrio geral | ✅ | ⬜ | ⬜ L5 | — | ⬜ | ⬜ | ⬜ |
+| **5** — Trabalho e lazer | ✅ | ✅ Slides 5 | ✅ L4 | ✅ | ⬜ | ✅ | ⬜¹ |
+| **6** — Equilíbrio geral | ✅ | ✅ Slides 6 | ✅ L5 ⏰ | ✅ | ⬜ | ✅ | ✅ |
 | **7** — Moeda e inflação | ✅ | ⬜ | ⬜ L6 | — | ⬜ | ⬜ | ⬜ |
 | **8** — AD-AS microfund. | ✅ | ⬜ | ⬜ L6 | — | ⬜ | ⬜ | ⬜ |
 | **9** — AD-AS política | ✅ | ⬜ | ⬜ L7? | — | ⬜ | ⬜ | ⬜ |
 
 ✅ pronto · ⏳ em aberto com prazo · ⬜ falta · — não se aplica ainda
 
-¹ Os slides da Aula 5 chegaram em **25/08/2026** e já estão convertidos, mas o
-`NotebookLM/sources/` ainda **não tem a cópia** — os prompts citam a fonte pelo nome exato
-do arquivo, então copie o PDF para lá antes de gerar o lote da Aula 5.
+¹ O `NotebookLM/sources/` já tem os PDFs das Aulas 5 e 6 e da Lista 4 (19 fontes no total).
+Falta apenas o **lote de prompts da Aula 5** — o da Aula 6 está pronto, com 4 vídeos e
+2 áudios, e é o primeiro inteiramente em inglês.
 
-**O curso passou da metade.** Cinco aulas com material, quatro listas emitidas, três
-resolvidas. A **Lista 4 vence em 31/08/2026** — é o único prazo aberto e o item mais
-urgente. Ela cobre a Aula 5 (Kurlat cap. 7); slides e lista chegaram em 25/08 e já estão
-convertidos para MD, então `/solution` pode rodar direto.
+**O curso passou da metade.** Seis aulas com material, **cinco listas emitidas**. A
+**Lista 5** vence em **08/09/2026** e **já está resolvida** (14 páginas + código).
+Chegaram também os **gabaritos do professor** para os PSETs 1-4 e as **correções** das
+Listas 1 e 4: ver [[estilo-do-professor]] e [[avaliacao-listas-1-4]]. O outro gargalo
+permanece: **nenhum resumo** foi gerado para nenhuma aula.
 
 ---
 
 ## Materiais por diretório
 
-### `Aula/` — 5 de 9 aulas
+### `Aula/` — 6 de 9 aulas
 
 | Arquivo | Aula | MD? |
 |---|---|---|
@@ -43,18 +44,20 @@ convertidos para MD, então `/solution` pode rodar direto.
 | `Handout_MPE_Macro1_Aula3_2026(1).pdf` | 3 — Solow, Regra de Ouro, PTF | ✅ |
 | `MPE_Macro1_SlidesAula4.pdf` | 4 — *Microfoundations I: Consumption and Saving* | ✅ |
 | `Slides_Macro1_Aula5.pdf` | 5 — *Microfoundations II: Labor and Leisure* | ✅ |
+| `Slides_Macro1_Aula6.pdf` | 6 — *Microfoundations IV: General Equilibrium* | ✅ |
 
 > A Aula 3 veio como **handout** (texto corrido), não como slides — é o material mais
 > denso até agora, 42 KB de MD contra ~20 KB dos slides.
 
-### `Listas/` — 4 de 7
+### `Listas/` — 5 de 7
 
 | Arquivo | Lista | Entrega | MD? |
 |---|---|---|---|
 | `MPE_Macro1_2026_Lista1.pdf` | 1 (10 pts) | 10/08/2026 | ✅ |
 | `MPE_Macro1_2026_Lista2.pdf` | 2 (10 pts) | 17/08/2026 | ✅ |
 | `MPE_Macro1_2026_Lista3.pdf` | 3 | 24/08/2026 — entregue | ✅ |
-| `MPE_Macro1_2026_Lista4.pdf` | 4 (10 pts) | **31/08/2026** | ✅ |
+| `MPE_Macro1_2026_Lista4.pdf` | 4 (10 pts) | 31/08/2026 — entregue | ✅ |
+| `MPE_Macro1_2026_Lista5.pdf` | 5 (10 pts) | **08/09/2026** ⏰ | ✅ |
 | `lista-exam.tex` | template LaTeX (`\ifsolucoes`) | — | — |
 
 ### `Resolucao/`
@@ -67,8 +70,19 @@ convertidos para MD, então `/solution` pode rodar direto.
 | `lista2_codigo/` | `l2q1_coreia.py`, `l2q2_gotham.py`, `l2_figuras.py`, `estilo_mpl.py` |
 | `lista3_resolucao.tex` / `.pdf` | Resolução da Lista 3 |
 | `lista3_codigo/` | `modelo.py` (solução fechada, restrita, imposto sobre poupança, *lump-sum*, bem-estar), `l3q1_consumo.py`, `l3q2_restricao.py`, `l3_figuras.py`, `estilo_mpl.py` |
-| `kurlat_solutions_ch1-4.tex` / `.pdf` | Soluções dos exercícios do Kurlat, caps. 1-4 |
-| `fig/` | 9 figuras PDF (Solow, trajetórias, convergência, crime; $\sigma$, Ricardo, restrição, imposto) |
+| `lista4_resolucao.tex` / `.pdf` | Resolução da Lista 4 (20 páginas) |
+| `lista4_codigo/` | `modelo.py` (oferta de trabalho + DMP), `l4q1_oferta.py`, `l4q2_dmp.py`, `l4_figuras.py`, `estilo_mpl.py` |
+| `lista5_resolucao.tex` / `.pdf` | Resolução da Lista 5 (14 páginas), em **inglês** |
+| `lista5_codigo/` | `modelo.py` (Q1 fechada + Q2 estado estacionário e *saddle path*), `l5q1.py`, `l5q2.py`, `l5_figuras.py`, `estilo_mpl.py` |
+| `kurlat_solutions_ch1-4.tex` / `.pdf` | Soluções do Kurlat caps. 1-4 — 23 problemas, 59 páginas |
+| `kurlat_solutions_ch05.tex` / `.pdf` | Soluções do Kurlat cap. 5 — os 9 problemas (5.1-5.9), 28 páginas |
+| `kurlat_ch05_codigo/` | `ch05_numerico.py` (verifica os 9), `ch05_figuras.py` (3 figuras), `estilo_mpl.py` |
+| `kurlat_solutions_ch06.tex` / `.pdf` | Soluções do Kurlat cap. 6 — os 9 problemas (6.1-6.9), 31 páginas |
+| `kurlat_ch06_codigo/` | `ch06_numerico.py` (verifica os 9), `ch06_figuras.py` (5 figuras), `estilo_mpl.py` |
+| `kurlat_ch07_codigo/` | `ch07_numerico.py` (verifica 7.1, 7.2, 7.3, 7.5, 7.6, 7.7), `ch07_figuras.py` (4 figuras), `estilo_mpl.py` — ⏳ o `.tex` do cap. 7 ainda não foi escrito |
+| `kurlat_solutions_ch09.tex` / `.pdf` | Soluções do Kurlat cap. 9 — os 13 problemas, 33 páginas |
+| `kurlat_ch09_codigo/` | `ch09_numerico.py` (verifica 9.6, 9.11, 9.12, 9.13), `ch09_figuras.py`, `estilo_mpl.py` |
+| `fig/` | 32 figuras PDF — 16 das listas (Solow, convergência, crime; $\sigma$, Ricardo, restrição, imposto; lazer, oferta, Beveridge, $f$ e $q$) + 12 dos caps. 5-7 do Kurlat (`fig_k5_*`, `fig_k6_*`, `fig_k7_*`) |
 
 > A Lista 3 é a primeira com **módulo de modelo separado**: `modelo.py` centraliza as
 > soluções fechadas e é importado pelos três scripts. Calibração de referência
@@ -76,11 +90,51 @@ convertidos para MD, então `/solution` pode rodar direto.
 > e $[\beta(1+r)]^{1/\sigma}=1{,}2$ exatos. Figuras via backend **pgf**, texto composto pelo
 > pdflatex — PDF 100% copiável.
 
+> **A série `kurlat_solutions_*`.** Um arquivo por capítulo, mesmo estilo (caixa azul =
+> ímpar, roxa = par, caixa amarela com o enunciado íntegro). O Kurlat **não publica
+> gabarito**, então cada resultado é verificado por outra via: o `ch0N_numerico.py` refaz
+> toda fórmula analítica por caminho independente — maximização numérica direta do problema
+> do agregado familiar, simulação, diferenças finitas ou busca em grade — e **aborta em
+> qualquer divergência**. Cobertura atual: caps. **1-4, 5, 6 e 9**; falta redigir o `.tex`
+> do cap. **7** (numérico e figuras já prontos e verificados). O cap. **8 está fora do
+> escopo** do curso.
+
+**Estado da cobertura dos exercícios do Kurlat:**
+
+| Cap. | Exercícios | Aula | `.tex` | Código | Figuras |
+|---|---|---|---|---|---|
+| 1-4 | 1.1-4.5 (23) | 1-3 | ✅ 59 p. | — | — |
+| **5** | 5.1-5.9 (9) | 3 | ✅ 28 p. | ✅ | 3 |
+| **6** | 6.1-6.9 (9) | 4 | ✅ 31 p. | ✅ | 5 |
+| **7** | 7.1-7.7 (7) | 5 | ⏳ | ✅ | 4 |
+| 8 | — | — | ⛔ fora do escopo | — | — |
+| 9 | 9.1-9.13 (13) | 6 | ✅ 33 p. | ✅ | 3 |
+| 10-11 | — | 7 | ⬜ | ⬜ | ⬜ |
+
+### `Leituras/` — roteiros para TTS
+
+| Arquivo | Escopo | Palavras | Duração |
+|---|---|---|---|
+| `lista-05-general-equilibrium-narrated.txt` | Aula 6 + Kurlat cap. 9 + as duas questões da **Lista 5**, resolvidas | 21.623 | ~144 min a 150 ppm (~96 min a 1,5×) |
+| `psets-01-04-instructor-solutions-narrated.txt` | os **4 gabaritos do professor** (PSETs 1-4), narrados, + as 21 armadilhas que ele anota à margem | 10.750 | ~72 min a 150 ppm (~48 min a 1,5×) |
+
+Gerados por `/speechify`. Texto puro em **inglês** (regra global de idioma), sem símbolo,
+tabela ou código: a matemática é ditada em palavras. Importar no Speechify por **Add file**;
+os parágrafos viram pontos de navegação.
+
+- O da **Lista 5** tem 13 partes: 4 do capítulo, 2 das questões da lista resolvidas, e 7 de
+  revisão (armadilhas, formulário falado, implementação, roteiro de leitura, autoteste,
+  glossário, o tópico em cinco linhas).
+- O dos **PSETs 1-4** tem 8 partes: o método do professor, os quatro gabaritos, as 21
+  armadilhas que ele anota à margem, o que isso prevê para a Lista 5 e a prova, e cinco
+  linhas. É a única evidência direta da **função de correção** — ver [[estilo-do-professor]].
+
 ### `Simulados/`
 
 | Arquivo | Escopo | Questões | Nível |
 |---|---|---|---|
 | `quiz-aulas-01-03-2026-08-25.md` | Aulas 1-3 — Kurlat caps. 1-5 | 30 (3 numéricas) | difícil |
+| `quiz-aulas-05-06-2026-08-31.md` | Aulas 5-6 — Kurlat caps. 7 e 9 | 30 (sem álgebra simbólica) | difícil |
 
 Player: `quiz.html` na raiz — abrir e carregar o `.md`. O botão **💾 HTML** exporta uma
 cópia autocontida com a sessão embutida; o JSON exportado alimenta `/quiz-analyze`.
@@ -92,18 +146,24 @@ trabalho próprio sobre a Q3 (convergência) da Lista 1.
 
 ### `NotebookLM/`
 
-`README.md` + `sources/` (16 PDFs prontos para upload) + **52 prompts** em dois lotes:
+`README.md` + `sources/` (19 PDFs prontos para upload) + **58 prompts** em três lotes:
 
 | Lote | Recorte | Slides | Vídeos | Áudios | Total |
 |---|---|---|---|---|---|
 | Aulas 1-4 | por aula | 16 | 16 | 8 | **40** |
 | Lista 3 | por mecanismo econômico | 6 | 6 | — | **12** |
+| **Aula 6** | por objeto visual | — | 4 | 2 | **6** |
 
 O lote da Lista 3 é **transversal**: cada par slide+vídeo isola um mecanismo (riqueza e
 Euler · renda permanente · $\sigma$ como árbitro · impostos e Ricardo · restrição de
 crédito · imposto sobre poupança) e o persegue pelas duas questões, em vez de seguir a
 ordem dos itens. Sem áudio — os dois fios do cap. 6 já estão em `aula-04-audio-1` e
 `aula-04-audio-2`. Ver [[00_indice]].
+
+O lote da **Aula 6** é o primeiro **inteiramente em inglês** e o primeiro sem slides: os
+4 vídeos são um por objeto visual (os três agentes · o planejador e a contradição · a
+construção do diagrama de fase · a antecipação), e os 2 áudios levam um fio condutor cada
+(preços fazem o trabalho do planejador · poupar menos que a Regra de Ouro é ótimo).
 
 ### Livros convertidos para MD — todos
 
@@ -157,7 +217,7 @@ ordem dos itens. Sem áudio — os dois fios do cap. 6 já estão em `aula-04-au
 
 ---
 
-### Lista 4 — 10 pontos · entrega **31/08/2026** ⏰
+### Lista 4 — 10 pontos · entregue em **31/08/2026**
 
 | # | Pts | Base | Kurlat | O que pede |
 |---|---|---|---|---|
@@ -173,31 +233,44 @@ ordem dos itens. Sem áudio — os dois fios do cap. 6 já estão em `aula-04-au
 
 ## Lacunas conhecidas
 
-- **Materiais das Aulas 6-9** ainda não disponibilizados. Os da **Aula 5** já têm MD, mas
-  falta a cópia do PDF em `NotebookLM/sources/`.
+- **Materiais das Aulas 7-9** ainda não disponibilizados.
+- **Lista 5** ainda não emitida. Pelo padrão das quatro anteriores, deve ancorar no
+  Kurlat cap. 9 e usar os Exercícios 9.x — candidatos mais prováveis: **9.9** (diagrama de
+  fase com petróleo), **9.12** (poupança ótima vs. fixa) e **9.6** (imposto sobre capital).
 - **Listas 5-7** ainda não emitidas. A atribuição da Lista 7 à Aula 9 é inferência — o
   programa anuncia 7 listas mas só mapeia até a 6.
-- **Resolução da Lista 4** pendente — vence em **31/08/2026**, é o prazo aberto.
-- `Simulados/` — **1 quiz** (Aulas 1-3, mensuração + crescimento). Faltam quizzes das
-  Aulas 4+ e um simulado no formato da avaliação final.
-- `Monitoria/`, `Prova/`, `Design/` vazios.
+- `Simulados/` — **2 quizzes** (Aulas 1-3 e Aulas 5-6). Falta o da **Aula 4** (consumo e
+  poupança) e um simulado no formato da avaliação final. Nenhum dos dois foi respondido
+  ainda — sem JSON de resultado, `/quiz-analyze` não tem o que ler.
+- `Monitoria/` — **2 aulas do Fred** (`Macro_1___MPE.pdf`, 23 pp., Solow e crescimento;
+  `Ta Session 2.pdf`, 20 pp., crescimento, consumo-poupança e heterogeneidade). Ambas com
+  camada de texto. Ainda não incorporadas aos mapas nem narradas.
+- `Listas/soluções do instrutor/` — os **gabaritos manuscritos** dos PSETs 1-4 (scans, sem
+  camada de texto). Analisados em [[estilo-do-professor]].
+- `Listas/correções/` — as **correções** das Listas 1 e 4 (scans). Analisadas em
+  [[avaliacao-listas-1-4]]. Faltam as das Listas 2 e 3.
+- `Prova/`, `Design/` vazios.
 - Nenhum **resumo** (`/summarize`) gerado para nenhuma aula.
-- Prompts do NotebookLM só para as **Aulas 1-4** — as demais dependem do material ser
-  divulgado, já que cada prompt cita a fonte pelo nome exato do arquivo.
+- Prompts do NotebookLM para as **Aulas 1-4 e 6** (a Aula 5 ficou de fora) e para a
+  **Lista 3**; as demais dependem do material ser divulgado, já que cada prompt cita a
+  fonte pelo nome exato do arquivo. A Aula 6 tem **2 áudios + 4 vídeos**, sem slides.
+- **Soluções do livro:** falta redigir o `.tex` do **cap. 7** — o `ch07_numerico.py` e as
+  4 figuras já estão prontos e verificados. Caps. 10-11 (Aula 7) ainda não iniciados.
 
 ## Próximos passos sugeridos
 
 ```bash
-/solution Listas/MPE_Macro1_2026_Lista4.md    # prazo 31/08 - prioridade
-/summarize Aula/Slides_Macro1_Aula5.md       # aula nova, nenhum resumo existe ainda
-/quiz-analyze                                # depois de responder o quiz das Aulas 1-3
-/quiz-gen Aula/MPE_Macro1_SlidesAula4.md 15  # quiz da Aula 4 (consumo e poupanca)
-/summarize Aula/                             # resumos das 4 aulas dadas - ainda zero
-/exercise-plan "trabalho e lazer"            # antecipar a Lista 4 (Kurlat cap. 7)
+/summarize Aula/                             # nenhum resumo existe - maior lacuna
+/quiz-analyze                                # depois de responder os dois quizzes
+/quiz-gen Aula/MPE_Macro1_SlidesAula4.md 15  # falta o quiz da Aula 4 (consumo e poupanca)
+/notebooklm Aula/Slides_Macro1_Aula5.md      # a Aula 5 e a unica sem prompts
+/speechify "lista 5"                         # roteiro TTS do cap. 9 - feito, ver TTS/
+/exercise-plan "equilibrio geral"            # antecipar a Lista 5 (Kurlat cap. 9)
 ```
 
-A janela sem prazo aberto é para **consolidar**: nenhum resumo existe ainda, e o quiz das
-Aulas 1-3 e a resolucao da Lista 3 sao o material de revisao mais recente.
+A janela sem prazo aberto é para **consolidar**: nenhum resumo existe ainda, e as soluções
+dos caps. 5, 6 e 9 do Kurlat mais a resolução da Lista 4 são o material de revisão mais
+recente.
 
 Quando novos slides e listas chegarem: jogue em `Aula/` e `Listas/`, rode `/convert` e
 depois `/study-map .` para atualizar este quadro.

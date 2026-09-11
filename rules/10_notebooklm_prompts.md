@@ -98,15 +98,18 @@ saída deve sair — o padrão do NotebookLM segue as fontes.
 
 | Tipo | Idioma pedido |
 |---|---|
-| **Slides** | português do Brasil, termos técnicos em inglês entre parênteses na 1ª ocorrência |
-| **Vídeo** | português do Brasil, rótulos de tela em português |
+| **Slides** | **inglês** |
+| **Vídeo** | **inglês**, rótulos de tela em inglês |
 | **Áudio** | **inglês — sempre.** Nunca pedir áudio em português, em nenhuma circunstância |
 
 A linha padrão do áudio é:
 > `Output language: English, conversational register. Keep the spoken output in English
 > throughout, whatever language the uploaded sources are in.`
 
-Isso não é preferência de estilo: é regra fixa do projeto. Slides e vídeo continuam em pt-BR.
+Isso não é preferência de estilo: é regra fixa do projeto, e **vale para os três tipos**.
+Nunca peça saída em português em nenhum prompt. Os lotes das Aulas 1-4 e da Lista 3 foram
+escritos antes desta regra e ainda pedem pt-BR em slides e vídeo; ficam como estão até
+serem regerados, mas não servem de modelo.
 
 ### R9 — Economia de nomes de fonte
 Nome completo do arquivo **uma vez**, depois um handle curto (`= KURLAT`). Só cite fontes
@@ -189,7 +192,7 @@ isso não tem solução livre de arbítrio" — não "tudo que há no capítulo 
 - [ ] Escopo em enquadramento positivo (áudio) / trava explícita (slides)
 - [ ] Zero instruções de estilo não verificáveis
 - [ ] ≥1 instrução sem equivalente em slide (áudio)
-- [ ] Idioma da saída declarado — **áudio sempre em inglês**, slides e vídeo em pt-BR
+- [ ] Idioma da saída declarado — **inglês nos três tipos**, sem exceção
 - [ ] Nome de arquivo completo uma vez, depois handle
 - [ ] Vídeo: ≤6 batidas, cada uma com **um visual nomeado**, transições que são passos do
       argumento, fechamento com a imagem única

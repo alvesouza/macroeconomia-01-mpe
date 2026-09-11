@@ -21,6 +21,12 @@ It parses the quiz format (YAML frontmatter tags; `## tag`; `Q:`; `- options`;
   - Length bias     : |mean(len correct) - mean(len distractors)| <= 2.0 chars.
   - Style parity    : no question where a parenthesis/inline-formula/hedge marks
                       the correct option ALONE (or marks every option but it).
+  - Numeric options : INFO only. Flags questions whose options are mostly bare
+                      numbers, i.e. "compute this value" questions. /quiz-gen
+                      requires math questions to be SYMBOLIC (expressions in
+                      literal parameters), with numbers reserved for empirical
+                      magnitudes the course quotes. Not a gate, because quoting a
+                      magnitude is legitimate -- but every hit deserves a look.
 
 Exit code 0 if all gates pass, 1 otherwise. Stdlib only.
 """
@@ -77,6 +83,30 @@ def parse(md):
             continue
         i += 1
     return tags, qs
+
+STOP = {"and", "or", "with", "the", "of", "for", "and", "que", "com", "para",
+        "and", "des", "das", "dos", "aos"}
+GREEK_RE = re.compile(r"\\(alpha|beta|gamma|delta|epsilon|varepsilon|theta|lambda|mu|nu|rho|sigma|tau|phi|omega|pi|psi|xi|zeta|eta|kappa)")
+NUM_RE = re.compile(r"\d")
+# letra matematica: comando LaTeX (\alpha) ou letra romana isolada usada como simbolo
+SYM_RE = re.compile(r"\\[A-Za-z]+|[A-Za-z]{3,}")
+
+
+def purely_numeric(opt):
+    """True se a opcao e essencialmente um numero: tem digito e nenhuma palavra
+    nem comando LaTeX que carregue significado. Captura "8,00", "$k^* = 8$",
+    "0,0333" e deixa passar "rises with alpha" ou "$(s/(n+delta))^{1/(1-alpha)}$"."""
+    body = re.sub(r"\$[^$]*\$", lambda m: m.group(0), opt)
+    if not NUM_RE.search(body):
+        return False
+    if GREEK_RE.search(body):
+        return False   # tem parametro literal -> simbolica, nao numerica
+    # remove simbolos matematicos de uma letra e pontuacao, ve o que sobra de texto
+    resto = re.sub(r"\\[A-Za-z]+", " ", body)
+    resto = re.sub(r"[^A-Za-z]+", " ", resto)
+    palavras = [w for w in resto.split() if len(w) >= 3 and w.lower() not in STOP]
+    return len(palavras) == 0
+
 
 def marked(opt):
     """Does this option carry a distinguishing style marker?"""
@@ -146,6 +176,18 @@ def main(path):
         fails.append(f"length bias: mean(correct)-mean(distractors) = {bias:+.1f} chars "
                      f"(allowed ±{GATE_BIAS})")
     infos.append(f"correct uniquely-longest (by any margin, informational): {uniq_longest}/{len(good)}")
+
+    # 4b. Numeric-option questions (INFO): /quiz-gen wants symbolic math
+    numq = []
+    for k, q in enumerate(good):
+        nnum = sum(1 for o in q["opts"] if purely_numeric(o))
+        if nnum >= max(2, len(q["opts"]) - 1):
+            numq.append(k + 1)
+    if numq:
+        infos.append(f"numeric options: questions {numq} choose between bare numbers. "
+                     f"/quiz-gen asks for SYMBOLIC math (expressions in literal "
+                     f"parameters); numbers are only for empirical magnitudes the "
+                     f"course quotes. Check each one.")
 
     # 5. Style parity (marker on correct alone, or on all-but-correct)
     only_corr, only_not_corr = [], []

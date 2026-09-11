@@ -1,0 +1,104 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{caption}
+\tcbuselibrary{skins, breakable}
+
+\definecolor{darkblue}{RGB}{15,55,115}
+\definecolor{midblue}{RGB}{30,100,180}
+\definecolor{theorybg}{RGB}{245,250,255}
+\definecolor{questionbg}{RGB}{255,252,240}
+\definecolor{evencolor}{RGB}{60,0,100}
+
+\hypersetup{colorlinks=true,linkcolor=darkblue,urlcolor=midblue,
+  pdftitle={Kurlat --- A Course in Modern Macroeconomics --- Complete Solutions, Chapter 7}}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\textcolor{darkblue}{\textit{Kurlat --- A Course in Modern Macroeconomics}}}
+\fancyhead[R]{\small\textcolor{darkblue}{\thepage}}
+\fancyfoot[C]{\small\textcolor{gray}{Complete Solutions --- Chapter 7}}
+
+\titleformat{\section}[block]
+  {\large\bfseries\color{darkblue}}{}{0pt}{}
+  [\vspace{2pt}\color{darkblue}\rule{\textwidth}{1.5pt}\vspace{4pt}]
+
+\titleformat{\subsection}[block]
+  {\normalsize\bfseries\color{midblue}}{}{0pt}{}
+  [\vspace{1pt}\color{midblue}\rule{0.5\textwidth}{0.8pt}\vspace{3pt}]
+
+\tcbset{
+  theorybox/.style={
+    enhanced,breakable,colback=theorybg,colframe=darkblue,
+    fonttitle=\bfseries\small\color{darkblue},boxrule=0.5pt,arc=3pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={Key Theory},
+  },
+  questionbox/.style={
+    enhanced,breakable,colback=questionbg,colframe=gray!60,
+    fonttitle=\bfseries\small\color{gray!60!black},boxrule=0.4pt,arc=2pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={\textit{Question}},
+  },
+  oddbox/.style={
+    enhanced,breakable,colback=white,colframe=darkblue,
+    attach boxed title to top left={yshift=-2mm,xshift=6mm},
+    boxed title style={colback=darkblue,colframe=darkblue,arc=2pt,
+      boxrule=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt},
+    fonttitle=\bfseries\large\color{white},
+    boxrule=0.8pt,arc=3pt,
+    left=8pt,right=8pt,top=10pt,bottom=6pt,
+  },
+  evenbox/.style={
+    enhanced,breakable,colback=white,colframe=evencolor,
+    attach boxed title to top left={yshift=-2mm,xshift=6mm},
+    boxed title style={colback=evencolor,colframe=evencolor,arc=2pt,
+      boxrule=0pt,left=6pt,right=6pt,top=3pt,bottom=3pt},
+    fonttitle=\bfseries\large\color{white},
+    boxrule=0.8pt,arc=3pt,
+    left=8pt,right=8pt,top=10pt,bottom=6pt,
+  },
+  databox/.style={
+    enhanced,breakable,colback=gray!8,colframe=gray!55,
+    fonttitle=\bfseries\small\color{gray!60!black},boxrule=0.4pt,arc=2pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={Numerical exercise --- see the companion code},
+  },
+  trapbox/.style={
+    enhanced,breakable,colback=red!4,colframe=red!45!black,
+    fonttitle=\bfseries\small\color{white},boxrule=0.4pt,arc=2pt,
+    coltitle=white,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,title={Where this goes wrong},
+  },
+}
+
+\newcommand{\pd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\dd}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\MRS}{\mathrm{MRS}}
+\newcommand{\MRT}{\mathrm{MRT}}
+\newcommand{\MU}{\mathrm{MU}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\MPK}{\mathrm{MPK}}
+\newcommand{\MPL}{\mathrm{MPL}}
+\newcommand{\stst}{^{\ast}}
+\newcommand{\EST}{^{\mathrm{EST}}}
+\newcommand{\TRUE}{^{\mathrm{TRUE}}}
+
+\setlist[enumerate,1]{label=(\alph*),itemsep=6pt,parsep=2pt}
+\setlist[enumerate,2]{label=(\roman*),itemsep=3pt}
+

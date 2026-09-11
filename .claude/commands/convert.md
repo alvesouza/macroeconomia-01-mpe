@@ -1,5 +1,5 @@
 ---
-description: Convert files (HTML, PDF, PPTX, DOCX, EPUB, TXT, and any text-based format) to Markdown using markitdown. Preserves LaTeX math and handles UTF-8 encoding. Part of the study ecosystem — feeds /summarize, /list-exercises, /quiz-gen, and /study-map.
+description: Convert files (HTML, PDF, PPTX, DOCX, EPUB, TXT, and any text-based format) to Markdown using markitdown. Preserves LaTeX math and handles UTF-8 encoding. Part of the study ecosystem — feeds /summarize, /list-exercises, /quiz-gen, /study-map, and /speechify.
 argument-hint: <file-or-glob-or-dir>
 allowed-tools: Read Grep Glob Bash PowerShell Write
 ---

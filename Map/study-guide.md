@@ -1,6 +1,6 @@
 ---
 tags: [map, cross-reference, macro1, guia]
-date: 2026-08-25
+date: 2026-09-06
 ---
 
 # Guia de Estudo
@@ -71,6 +71,9 @@ não a taxa de crescimento de longo prazo. Metade dos erros em Solow nasce aqui.
   do curso até aqui; leia como texto, não como slide
 - Praticar: Kurlat **5.1** (p. 93), **5.3** (p. 94), **5.6** (p. 96)
 - Avançado: Kurlat **5.7** (p. 96) e **5.8** (p. 97)
+- Conferir com [[Resolucao/kurlat_solutions_ch05|as soluções do cap. 5]] — os 9 problemas,
+  com o alerta que atravessa três deles (**5.4**, **5.5**, **5.9**): *erro de medida num
+  insumo vira diferença de PTF*
 - Lista: [[Listas/MPE_Macro1_2026_Lista2|Lista 2]] · [[Resolucao/lista2_resolucao|resolução]]
 
 ### Conexões
@@ -97,6 +100,9 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
   2. Kurlat **6.3** (p. 122) — o item (c) da lista sai daqui
   3. Kurlat **6.5** (p. 123) — é a Q2 da lista
   4. Kurlat **6.6** (p. 123) — o item (d) da Q2 sai daqui
+- Conferir com [[Resolucao/kurlat_solutions_ch06|as soluções do cap. 6]] — os 9 problemas;
+  veja em especial **6.4**, que gera dados perfeitamente keynesianos a partir de um modelo
+  em que a renda corrente **não entra** na decisão
 - Lista: [[Listas/MPE_Macro1_2026_Lista3|Lista 3]] (entregue 24/08/2026) · [[Resolucao/lista3_resolucao|resolução]] — código em `Resolucao/lista3_codigo/`
 - NotebookLM: 12 prompts **por mecanismo** para esta lista (6 slides + 6 vídeos), em `NotebookLM/`
 
@@ -113,9 +119,9 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
 
 ---
 
-## Bloco 5 — Trabalho e lazer (Aula 5) · Kurlat cap. 7 ⏰ **bloco ativo**
+## Bloco 5 — Trabalho e lazer (Aula 5) · Kurlat cap. 7
 
-> **Slides e Lista 4 recebidos em 25/08/2026**, ambos já em MD. A Lista 4 vence em
+> **Slides e Lista 4 recebidos em 25/08/2026**, ambos já em MD. A Lista 4 foi entregue em
 > **31/08/2026**: Q1 oferta estática com imposto sobre salário, Q2 o modelo de busca DMP
 > inteiro — *matching*, curva de Beveridge, *tightness* e externalidades de vaga.
 
@@ -127,7 +133,10 @@ puramente **alocativa** — capital que sai da segurança e volta à produção 
 - Praticar: Kurlat **7.1** (p. 146), **7.2** (p. 146), **7.3** (p. 147)
 - Avançado: Kurlat **7.7** *Beveridge Curve* (p. 150) — **é a Q2 da Lista 4**, expandida;
   e **7.5** *Prescott's Calculation* (p. 148)
-- Lista: [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — ⏰ **entrega 31/08/2026**
+- Conferir com as soluções do cap. 7 — ⏳ o `.tex` ainda não foi redigido; o numérico e as
+  4 figuras já estão em `Resolucao/kurlat_ch07_codigo/` e verificados
+- Lista: [[Listas/MPE_Macro1_2026_Lista4|Lista 4]] — entregue em **31/08/2026** ·
+  [[Resolucao/lista4_resolucao|resolução]] — código em `Resolucao/lista4_codigo/`
 
 ### Conexões
 - Depende de: [[#Bloco 4 — Consumo e poupança Aula 4 · Kurlat cap 6 ⏰ bloco ativo]] —
@@ -140,19 +149,33 @@ renda permanente da Aula 4 com outra roupa.
 
 ---
 
-## Bloco 6 — Equilíbrio geral (Aula 6) · Kurlat cap. 9
+## Bloco 6 — Equilíbrio geral (Aula 6) · Kurlat cap. 9 ⏰ **bloco ativo**
 
 > ⚠️ **Pular o cap. 8 (Investment)** — está fora do escopo.
+> **Slides recebidos em 31/08/2026** (`Aula/Slides_Macro1_Aula6.pdf`, já em MD). A Lista 5
+> ainda não saiu; pelo ritmo, chega em dias.
 
 ### Antes da aula
-- Ler: **Kurlat §9.1-9.3** (pp. 165-179)
-- Revisar: [[06_equilibrio_geral]]
+- Ler: **Kurlat §9.1** (pp. 165-168) → **§9.2** (pp. 168-172) → **§9.3** (pp. 172-179)
+- Revisar: [[06_equilibrio_geral]] · fórmulas em [[derivacoes-cap-09]]
 
 ### Depois da aula
 - Praticar: Kurlat **9.1** (p. 179), **9.5** (p. 181), **9.7** (p. 183)
+- **Diagrama de fase:** Kurlat **9.9** (p. 184) — pede duas fases no mesmo gráfico; é o
+  treino direto da parte nova da aula
 - **Síntese obrigatória:** Kurlat **9.12** *Optimal vs Fixed Savings Rates* (p. 185) —
   fecha o fio que abriu na Aula 2
-- Lista: 5 (a emitir)
+- Conferir com [[Resolucao/kurlat_solutions_ch09|as soluções do cap. 9]] (13 problemas)
+- Lista: [[Listas/MPE_Macro1_2026_Lista5|Lista 5]] — entrega **08/09/2026** ⏰ ·
+  [[Resolucao/lista5_resolucao|resolução]] — código em `Resolucao/lista5_codigo/`
+- Ouvir: `Leituras/lista-05-general-equilibrium-narrated.txt` — roteiro narrado de ~144 min
+  cobrindo o capítulo e as duas questões da lista, resolvidas
+
+**O que a aula acrescenta ao que o livro já tinha:** um **terceiro** agente representativo,
+a *firma de investimento*, cuja CPO entrega $r_{t+1} = r^K_{t+1} - \delta$ — é ela que
+liga o juro de arbitragem ao aluguel do capital. E o bloco final, **efeitos de
+antecipação**: notícia hoje de tecnologia melhor em $T$ faz $c$ **saltar** hoje, $K$
+**cair** até $T$, e só então a economia entra no novo *saddle path*.
 
 ### Conexões
 - Depende de: Blocos 2, 4 e 5
