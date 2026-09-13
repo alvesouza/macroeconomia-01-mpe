@@ -70,11 +70,17 @@ its conventions".
 because the repo is the newer source:
 
 ```bash
-python "<video-explainer>/install.py" --into "<project>" --commands
+python "<video-explainer>/install.py" --into "<project>"
 ```
 
-It copies rather than symlinks, reports any file that differs instead of overwriting it, and
-finishes by probing the toolchain (Manim, ffmpeg, ffprobe, LaTeX) and reporting gaps.
+It runs `pip install -e` on that repo, so the project imports the shared layer and **holds no
+copy of its code**; it then installs the slash commands (which ARE copied, since a project
+edits its own) and probes the toolchain. Scenes then use `from video_explainer import ...`,
+and the gates are the console scripts `beatcheck`, `speechify-tts`, `explainer-compile`.
+
+**Never vendor the shared layer into a study project.** If a copy of `manim_kit.py`,
+`speechify_tts.py`, `explainer_compile.py` or `beatcheck.py` appears inside the project,
+delete it and reinstall - a copy is how fixes stop propagating.
 
 Record both resolved paths in the generated `CLAUDE.md`, so the next session does not repeat
 this search.
@@ -290,7 +296,7 @@ Also add the render artefacts to `.gitignore`: `Videos/*/media/`, `Videos/*/audi
 Tell the user what `/explainer` needs that this step cannot provide: a **Speechify API key**
 in `.env` as `SPEECHIFY_API_KEY`, **Manim CE** (`python -m pip install manim`), **ffmpeg** on
 PATH, and a **LaTeX** install for `MathTex`. Then have them run
-`python .claude/speechify_tts.py --check`, which verifies the key, the models, the voice list
+`speechify-tts --check`, which verifies the key, the models, the voice list
 and ffprobe in one call. Do not install anything silently.
 
 ### Step 7: Generate README.md

@@ -56,10 +56,6 @@ for f in files:
     if soft:
         fails.append(f"R6 estilo: {', '.join(soft)}")
 
-    # R8 - idioma declarado
-    if "output language" not in low and "idioma" not in low:
-        fails.append("R8 idioma nao declarado")
-
     if is_audio:
         # R2 - no maximo 5 segmentos
         if len(segs) > 5:

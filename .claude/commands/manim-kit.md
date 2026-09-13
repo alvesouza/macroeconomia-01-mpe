@@ -50,7 +50,7 @@ Two layouts, both supported:
 
 - **Next to the scenes** (default, zero configuration). `scenes.py` and `manim_kit.py` in the
   same directory, rendered with that directory as the working directory, so
-  `from manim_kit import …` resolves with no path games.
+  `from video_explainer import …` resolves from anywhere, because the package is installed.
 - **A shared `lib/`** for a project with several videos. One copy, and each `scenes.py` opens
   with:
   ```python
@@ -76,7 +76,7 @@ The kit depends on **Manim CE and numpy, nothing else**. It adds no packages.
 ## The API — complete, so a scene author never opens the source
 
 ```python
-from manim_kit import (Beat, Stage, palette, title, note, eq, bullets,
+from video_explainer import (Beat, Stage, palette, title, note, eq, bullets,
                        table, balance_sheet, axes_panel, sawtooth, series,
                        scatter, ols, read_csv, load_beats,
                        FAST, NORMAL, SLOW, MAX_RUN_TIME)
@@ -135,6 +135,7 @@ every piece of text in the video goes through one of them.
 | `scatter(ax, points, colour=BLUE, radius=0.045)` | A `VGroup` of dots. |
 | `ols(points)` | `(slope, intercept, correlation)` — for a line you intend to **show**, not for an inference claim. |
 | `read_csv(path)` | `list[dict]`. Data comes from the project's `data/` cache via `/lab-data`; a scene file never fetches. |
+| `cell(panel, label)` | The `Text` of one labelled cell inside a `table()` or `balance_sheet()`, to `Indicate` a single entry. Matches the label **as written**, spaces included. Raises with the labels that *are* present, so a typo is obvious. |
 | `palette()` | The colour roles, below. |
 
 ### Colour roles, fixed for the whole video
@@ -149,7 +150,18 @@ every piece of text in the video goes through one of them.
 
 One meaning per colour for a whole video. A colour that means two things means nothing.
 
-### Three traps the API cannot prevent
+### A beat lands on its narration, and the kit guarantees it
+
+`Beat.run()` steers by `renderer.time`, not by the sum of the durations you declared, because
+Manim floors every `play()` and `wait()` to a whole frame and ~40 such calls per beat lose
+most of a second. The closing hold rounds up to a frame boundary, so a beat is never short.
+
+**Do not "fix" a negative gap by padding `hold` weights.** Those are relative weights, not
+seconds; the shortfall is quantisation, and inflating a hold moves the problem instead of
+removing it. If `beatcheck --rendered` reports a negative gap, the kit's timing is what to
+look at, not the scene.
+
+### Four traps the API cannot prevent
 
 1. **Build chart furniture *after* the panel is on stage.** `show()` scales and moves the group,
    so `ax.c2p` returns different pixels before and after. Create dots, curves and braces in a
@@ -158,7 +170,12 @@ One meaning per colour for a whole video. A colour that means two things means n
    mobject the slot is tracking, so the record stays valid — and the viewer sees which term
    moved, which is the explanation. `ReplacementTransform` swaps identity: `Stage` then fades a
    mobject that is no longer on screen and orphans the one that is.
-3. **`show()` returns animations; it does not animate.** A bare `st.show(...)` whose result is
+3. **Never look a cell up by `m.text`.** Manim normalises whitespace out of that attribute:
+   `Text("net worth").text` is `"networth"`, while the space is still drawn. A hand-rolled
+   `m.text == label` scan therefore matches every one-word label and fails on every multi-word
+   one — and only when that beat renders, minutes into a batch. Use `cell(panel, label)`, which
+   reads the `.cell_label` that `table()` stamps on each entry. This cost a full 20-beat render.
+4. **`show()` returns animations; it does not animate.** A bare `st.show(...)` whose result is
    never passed to `.step()` changes nothing on screen and fails silently.
 
 ## Pacing rules, binding
@@ -181,6 +198,41 @@ One meaning per colour for a whole video. A colour that means two things means n
   part of that group and moves with it. But never let two such labels share space.
 - **A second idea in the same region replaces the first** via `st.show`. It does not join it.
 - `"note"` is one line, not a paragraph. If it needs two sentences, it is two steps.
+
+## The shared layer is imported, never copied
+
+Everything under `video_explainer` lives in **one** repository: `../Video explainer`, in
+`src/video_explainer/`. A project that uses it holds **none of that code**.
+
+```bash
+python "<video-explainer>/install.py" --into "<project>"
+```
+
+That runs `pip install -e`, so the interpreter points straight at the repo. A fix made there
+is live in every project immediately, with no copying step to forget.
+
+| In a scene or a script | Not this |
+|---|---|
+| `from video_explainer import Beat, Stage, table, mpl_figure` | `from manim_kit import ...` beside a vendored file |
+| `beatcheck Videos/<slug> --rendered` | `python tools/beatcheck.py ...` from a local copy |
+| `speechify-tts --check` | `python .claude/speechify_tts.py --check` |
+| `explainer-compile Videos/<slug>` | `python .claude/explainer_compile.py ...` |
+
+**Any fix to pacing, layout, tables, narration or compilation is made in `Video explainer`
+and nowhere else.** If you find yourself editing a copy inside a study project, stop: that
+copy should not exist. Delete it and reinstall.
+
+This is not housekeeping. Four copies of `manim_kit.py` once existed across two repositories,
+and every fix had to be hand-propagated to all four — which is exactly how the collision guard
+reached one copy and not the others. The `.md` command files are the one thing still copied,
+because a project is expected to edit its own.
+
+**One consequence to respect when changing the library:** it is installed, so it must never
+resolve paths relative to its own source. The narration client originally looked for `.env`
+beside its own file, which was right when it was vendored and wrong the moment it became a
+package — it searched the library's repository instead of the project's. Anything
+project-specific — `.env`, `beats.json`, `figures/`, `data/` — resolves from the **current
+working directory**, never from `__file__`.
 
 ## Instructions
 
@@ -218,7 +270,7 @@ cp ~/.claude/commands/templates/manim_kit.py "<video-dir>/manim_kit.py"
 - Verify the import from the directory the renders will run in, and smoke-render one throwaway
   scene:
   ```bash
-  cd "<video-dir>" && python -c "from manim_kit import Beat, Stage, table; print('kit ok')"
+  python -c "from video_explainer import Beat, Stage, table; print('kit ok')"
   cd "<video-dir>" && python -m manim render -ql --media_dir "media" kittest.py KitTest
   ```
   `kittest.py` is a four-step scene against one beat id — a balance sheet and two notes. It
@@ -249,7 +301,7 @@ progressive reveal. No layout arithmetic, no `run_time` bookkeeping, no `.next_t
 Render:  python -m manim render -ql --media_dir "media" scenes.py BeatSeven
 """
 from manim import *
-from manim_kit import (Beat, Stage, palette, title, note, eq, table,
+from video_explainer import (Beat, Stage, palette, title, note, eq, table,
                        axes_panel, scatter, series, ols, FAST, NORMAL)
 
 P = palette()

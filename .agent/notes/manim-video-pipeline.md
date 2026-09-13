@@ -60,3 +60,30 @@ If a `MathTex` beat stalls, run that beat once interactively.
   Keep script output ASCII; the *file* content can be UTF-8.
 - `Path.read_text(newline=...)` does not exist on Python 3.12 — use `open()`.
 - `from manim import *` does not reliably export `np`; import numpy explicitly.
+
+
+## Frame quantisation: why a beat used to end before its narration
+
+Manim renders whole frames, so every `play()` and `wait()` is floored to a frame boundary.
+A beat with 21 steps issues about 42 of those calls; at 15 fps each discards up to 67 ms,
+and the losses accumulate.
+
+Measured on the 480p draft of aula-07, before the fix:
+
+| Beat | Steps | Narration | Rendered | Gap |
+|---|---|---|---|---|
+| BeatOne | 21 | 81.65 s | 80.67 s | **-0.98 s** |
+| BeatSix | 23 | 147.90 s | 147.05 s | -0.85 s |
+| BeatNine | 18 | 112.20 s | 112.08 s | -0.12 s |
+
+Seven of twenty beats fell outside `GAP_OK`. The shortfall tracks step count, which is the
+signature of per-call rounding rather than of any one wrong duration.
+
+`Beat.run()` used to trust the sum of its intended durations. It now steers by the clock:
+after each step it compares `self.scene.renderer.time` against where it should be and spends
+the difference, then tops up to `self.total` rounding **up** to the next frame. Overshooting
+by milliseconds is free -- `explainer_compile` pads the audio -- while undershooting shows as
+a freeze or clips the last word. BeatOne went from -0.98 s to +0.22 s.
+
+The compile step had been hiding this by cloning the final frame to cover the narration. The
+picture was right and the timing was wrong; the gate was correct to fail it.

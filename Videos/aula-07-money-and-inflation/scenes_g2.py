@@ -6,9 +6,9 @@ Render: python -m manim render -ql --media_dir media scenes_g2.py BeatX
 import numpy as np
 from manim import *
 
-from manim_kit import (Beat, Stage, axes_panel, balance_sheet, bullets, eq, note,
-                       ols, palette, read_csv, sawtooth, scatter, series, table,
-                       title, FAST, NORMAL, SLOW)
+from video_explainer import (axes_panel, balance_sheet, Beat, bullets, cell, eq, note, ols,
+                             palette, read_csv, sawtooth, scatter, series, Stage, table,
+                             title, FAST, NORMAL, SLOW)
 
 
 class BeatSix(Scene):
@@ -30,14 +30,6 @@ class BeatSix(Scene):
         return VGroup(Text("commercial bank", font_size=21, color=GREY), sheet) \
             .arrange(DOWN, buff=0.26)
 
-    @staticmethod
-    def cell(panel, label):
-        """The Text mobject of one labelled cell. Labels never change, so this is stable."""
-        for m in panel.get_family():
-            if isinstance(m, Text) and m.text == label:
-                return m
-        raise ValueError(f"no cell labelled {label!r}")
-
     def construct(self):
         st, b = Stage(self), Beat(self, "BeatSix")
 
@@ -47,9 +39,9 @@ class BeatSix(Scene):
 
         sheet = self.ledger("90", "20", "10", "100")
         b.step(st.show("left", sheet), t=1.0, hold=2)
-        b.step([Indicate(self.cell(sheet, "loans"), color=BLUE)], t=0.7, hold=1)
-        b.step([Indicate(self.cell(sheet, "bonds"), color=BLUE)], t=0.7, hold=1)
-        b.step([Indicate(self.cell(sheet, "reserves"), color=YELLOW)], t=0.8, hold=2)
+        b.step([Indicate(cell(sheet, "loans"), color=BLUE)], t=0.7, hold=1)
+        b.step([Indicate(cell(sheet, "bonds"), color=BLUE)], t=0.7, hold=1)
+        b.step([Indicate(cell(sheet, "reserves"), color=YELLOW)], t=0.8, hold=2)
 
         cb = VGroup(Text("central bank", font_size=21, color=GREY),
                     balance_sheet([("government bonds", None)],
@@ -59,9 +51,9 @@ class BeatSix(Scene):
         b.step(st.show("note", note("the bank's asset is the central bank's liability, and it pays almost nothing",
                                     size=22)), t=0.8, hold=2)
 
-        b.step([Indicate(self.cell(sheet, "deposits"), color=BLUE)], t=0.7, hold=2)
+        b.step([Indicate(cell(sheet, "deposits"), color=BLUE)], t=0.7, hold=2)
         b.step(st.show("note", note("net worth is just assets minus liabilities", size=22))
-               + [Indicate(self.cell(sheet, "net worth"), color=GREY)], t=0.8, hold=2)
+               + [Indicate(cell(sheet, "net worth"), color=GREY)], t=0.8, hold=2)
 
         why = VGroup(note("1.  to meet unexpected withdrawals\n     (which mattered more before\n     deposit insurance)", size=19),
                      note("2.  because regulation requires it", size=19, colour=YELLOW)) \
@@ -100,7 +92,7 @@ class BeatSix(Scene):
             .arrange(DOWN, buff=0.35)
         b.step(st.show("right", fix), t=1.0, hold=3)
         b.step(st.show("note", note("and nobody's net worth changed: 20 before, 20 after", size=22))
-               + [Indicate(self.cell(sheet, "net worth"), color=GREEN)], t=1.0, hold=3)
+               + [Indicate(cell(sheet, "net worth"), color=GREEN)], t=1.0, hold=3)
 
         after_cash = Stage.fit(self.ledger("100", "10", "15", "105",
                                             {(2, 1): YELLOW, (0, 3): BLUE}), "left")

@@ -1,5 +1,5 @@
 from manim import *
-from manim_kit import Beat, Stage, balance_sheet, note, title, load_beats
+from video_explainer import Beat, Stage, balance_sheet, note, title, load_beats
 
 class KitTest(Scene):
     def construct(self):

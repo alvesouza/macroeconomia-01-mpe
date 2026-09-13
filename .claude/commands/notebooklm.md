@@ -20,15 +20,7 @@ Each prompt should:
 
 **CRITICAL — Prompt language:** All prompts MUST be written in **English**, regardless of the course language, CLAUDE.md language setting, or source material language. NotebookLM processes English prompts more reliably.
 
-**CRITICAL — Requested OUTPUT language:** every prompt must state the language its output should be in, since NotebookLM otherwise follows the sources. The requested language depends on the type:
-
-| Type | Requested output language |
-|---|---|
-| Slides | the course language (e.g. pt-BR), technical terms in English in parentheses at first use |
-| Video | the course language, with on-screen labels in that language |
-| **Audio** | **English — always. Never request audio output in Portuguese, under any circumstances.** |
-
-The standard audio line is: `Output language: English, conversational register. Keep the spoken output in English throughout, whatever language the uploaded sources are in.` This is a fixed rule, not a per-project preference.
+**Output language — set it in the app, not in the prompt:** NotebookLM's Settings → Output language applies to everything the notebook generates, so no prompt spends characters on it. Set it to **English** once (audio included — never Portuguese audio) and confirm it before generating a batch; a wrong setting there sends the whole output into the wrong language and no prompt can override it.
 
 ## Limits reference
 
@@ -220,7 +212,7 @@ A **Video Overview** is narrated slides: it has images, unlike audio, and a fixe
 - **Numbers go on screen, not into the narration.** The viewer reads a table; the narration names only the cells that carry the argument.
 - **Every transition is a step in the argument** and the prompt says which: a curve shifting, an axis rescaling, a column lighting up. If the transition is just "next topic", it should have been a slide.
 - **Close on one image** the student should be able to redraw from memory, named explicitly.
-- Same character budget as the other types, and the same rule about declaring the output language.
+- Same character budget as the other types.
 
 Save to `NotebookLM/video/`.
 
@@ -297,4 +289,5 @@ Show:
 - [ ] No bullet-point summaries — full paragraph explanations demanded
 - [ ] Derivation steps are requested, not just results
 - [ ] Code snippets demanded where computation is relevant (in the project's code language, default Python)
+- [ ] No output-language line anywhere in the prompt — that lives in the app setting
 - [ ] File contains ONLY the prompt — zero metadata, zero headers, pure copy-paste ready

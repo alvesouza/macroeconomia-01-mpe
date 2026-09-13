@@ -1,5 +1,5 @@
 from manim import *
-from manim_kit import Beat, Stage, mpl_figure, read_csv, title
+from video_explainer import Beat, Stage, mpl_figure, read_csv, title
 
 class MplTest(Scene):
     def construct(self):

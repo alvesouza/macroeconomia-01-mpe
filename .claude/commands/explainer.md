@@ -1,5 +1,5 @@
 ---
-description: Plan, animate and compile a 3blue1brown-style explainer video about a course topic — beat sheet and narration script, Manim CE scenes timed to synthesised speech, compiled into one video file with subtitles. Asks purpose, length, math intensity and examples before writing anything. Use /companion separately for an interactive page.
+description: Plan, animate and compile a 3blue1brown-style explainer video about a course topic — beat sheet and narration script, Manim CE scenes timed to synthesised speech, compiled into one video file with subtitles. Asks purpose, length, whether to derive the math on screen, and examples before writing anything. Use /companion separately for an interactive page.
 argument-hint: <topic-or-lecture-or-exercise> [--lang <code>] [--quality l|m|h] [--no-voice] [--plan-only]
 allowed-tools: Read Grep Glob Bash PowerShell Write Edit NotebookEdit AskUserQuestion Artifact
 ---
@@ -38,9 +38,9 @@ Do not re-derive these; do re-check them if a render fails.
 | Manim Community Edition | **0.21.0**, installed and rendering |
 | ffmpeg / ffprobe | 8.1.1, on PATH |
 | LaTeX | MiKTeX (`latex`, `pdflatex`, `dvisvgm` present) — `MathTex` renders correctly |
-| Narration | `.claude/speechify_tts.py` — **verified live**: auth OK, 125 English voices, 2 models |
-| Compile | `.claude/explainer_compile.py` — **verified**: 2-beat project out at 10.7 ms drift |
-| Scene kit | `.claude/manim_kit.py` — timing, screen slots, real tables. Installed elsewhere by `/manim-kit` |
+| Narration | `speechify-tts` (from `video_explainer`) — **verified live**: auth OK, 125 English voices |
+| Compile | `explainer-compile` (from `video_explainer`) — **verified**: 0.0 ms drift on 20 beats |
+| Scene kit | `video_explainer` — timing, screen slots, real tables, collision guard. **Imported, never vendored**; installed by `/manim-kit` |
 | Speechify API | `https://api.speechify.ai`, `Authorization: Bearer $SPEECHIFY_API_KEY` from `.env` |
 | Missing | ImageMagick and `sox` are **not** installed — never depend on them |
 
@@ -139,13 +139,28 @@ Ask exactly these four:
    - *15–25 min*, full 3blue1brown scale: motivation, construction, a wrong first attempt,
      the fix, the consequence. Expensive — be sure the topic carries it.
    - *A series of shorts* — several 3-minute videos, one mechanism each, sharing a palette.
-3. **Math intensity** —
+3. **Math demonstrations** — does the video derive anything on screen, and how far? Ask it
+   as its own question; never infer it from the purpose. A review video can want every step,
+   and a first-exposure video can want none.
+   - *None* — results only. Each equation arrives finished, is named, and is used; no
+     intermediate line ever appears. Right when the derivation is the lecture's job and this
+     video exists to make the result mean something.
    - *Intuition first* — the picture carries the argument; at most one equation on screen at
      a time, and every symbol named out loud when it appears.
    - *Balanced* — the derivation is shown and narrated step by step, but algebra that does
      not change the picture is skipped with "which rearranges to". **Recommended default.**
-   - *Full derivation* — every step, exam-grade. Appropriate for a lista walkthrough or for
-     a result the student must be able to reproduce under time pressure.
+   - *Textbook derivation* — **every line written out on screen**, the way a book sets a
+     result it expects you to follow with a pencil: first line stated, each manipulation
+     appearing under the last, nothing skipped, no "which rearranges to". Nothing is off
+     limits to this — an algebraic slog is a legitimate video if the student has to be able
+     to reproduce it. Right for a lista walkthrough, a first-order condition the exam will
+     ask for, or any result whose *steps* are the point rather than its picture.
+
+   The answer binds every beat. Under *None*, a beat that needs an intermediate line is the
+   wrong beat — cut it, or hand the derivation to `/companion`. Under *Textbook derivation*,
+   budget **one step per line** and read *Derivations are written out, line by line* in
+   Step 5 before planning the beats: a twelve-line derivation is a beat and a half on its
+   own, and the 3–5 minute length will not hold one.
 4. **Examples** — what anchors the abstraction? (multi-select)
    - *A calibrated numerical case* — real numbers through the model, arithmetic on screen.
    - *A Brazilian data example* — IPCA, Selic, monetary aggregates. Needs `/lab-data`; say so.
@@ -222,7 +237,10 @@ Beat-count discipline, from the length answer:
 | 8–12 min | 4–6 | 90–150 |
 | 15–25 min | 6–9 | 120–180 |
 
-If a beat needs more than three sub-points, it is two beats. Amplitude expels depth — the
+A derivation beat is the one exception to the sub-point cap: its lines are one argument, not
+a list, so twelve of them are still one beat — budget it in lines and split only when the
+runtime says so. Everywhere else, if a beat needs more than three sub-points, it is two
+beats. Amplitude expels depth — the
 same failure `rules/10_notebooklm_prompts.md` documents for audio prompts.
 
 ### Step 3: Write the narration script
@@ -249,9 +267,9 @@ The narration's **measured** duration drives the animation, not the other way ro
 guess a duration.
 
 ```bash
-python .claude/speechify_tts.py --check                    # key + ffprobe reachable
-python .claude/speechify_tts.py --list-voices              # pick the narration voice
-python .claude/speechify_tts.py --script "Videos/<slug>/beats.json"
+speechify-tts --check                                      # key + ffprobe reachable
+speechify-tts --list-voices                                # pick the narration voice
+speechify-tts --script "Videos/<slug>/beats.json"
 ```
 
 `beats.json` is the contract between narration and animation. One entry per beat:
@@ -306,13 +324,13 @@ the decision can be revisited without re-researching it.
 `Videos/<slug>/scenes.py`: one `Scene` subclass per beat, named exactly as the beat id, with
 `run_time` taken from `beats.json`.
 
-**Use the kit.** `.claude/manim_kit.py` (installed into a project by `/manim-kit`) exists so
+**Use the kit.** The `video_explainer` package (installed by `/manim-kit`, never vendored) exists so
 that three measured failures cannot recur. Import it rather than hand-rolling plumbing:
 
 ```python
 """Scenes for <slug>. One Scene per beat; durations come from beats.json."""
 from manim import *
-from manim_kit import Beat, Stage, balance_sheet, note, title, axes_panel
+from video_explainer import Beat, Stage, balance_sheet, note, title, axes_panel
 
 class BeatOne(Scene):
     def construct(self):
@@ -361,6 +379,36 @@ Three labels stacked inside one rectangle is not a table; it is three labels and
 reads as a mistake. Use `table()` or `balance_sheet()` from the kit: real rules, one cell per
 value, one row per line item. A balance sheet with reserves, bonds and loans has **three rows**
 on the asset side, each in its own cell.
+
+### Derivations are written out, line by line
+
+Only under the *Textbook derivation* answer from Step 0 — the other three settings forbid
+this. Here the algebra **is** the visual object, and the beat is the page of a book being
+written, not a picture being built.
+
+- **One line per step.** Line appears, holds while the voice says what was done to it, next
+  line appears beneath. A `Beat` of 150 seconds carries roughly twelve to eighteen lines at
+  `t=0.6` with the slack in `hold` — the ordinary 12–20 steps per beat, spent on algebra.
+- **Keep the derivation as one `VGroup` and grow it.** The `main` slot holds one occupant, so
+  the occupant is the whole stack: append the new `eq()` below the last, and in the same step
+  shift the group up when it reaches the bottom of the slot. The shift is the same object
+  moving, so it is still one new element per step.
+- **The live line is `focus`; every line above it goes `muted`.** The viewer must know, at a
+  glance, which line the voice is on. Recolour the previous line in the step that introduces
+  the next one.
+- **Animate the manipulation, never the retype.** A term crossing the equals sign is a
+  `Transform` of the line into its successor; it is the one moment where the animation
+  outperforms the book, and re-typesetting it as a fresh line throws that away. Use a fresh
+  line for a genuinely new statement (substituting a second equation, imposing a condition),
+  and `Transform` for rearrangement of the line already on screen.
+- **Number the lines you refer back to** — `(1)`, `(2)`, in `muted` at the right margin,
+  exactly as a book does — and say the number out loud when you use it later.
+- **Say what was done, not what is written.** "Divide both sides by $P$" while the division
+  happens; never read the resulting line aloud symbol by symbol. The screen already has it.
+- **Collapse before moving on.** When the derivation ends, clear the stack and re-show the
+  result alone. Carrying fourteen `muted` lines into the next beat buries it.
+- **At most one derivation of this depth per video** unless the answer to *Purpose* was
+  *lista walkthrough*. Two back to back is a lecture recording with better fonts.
 
 Other scene rules:
 
@@ -430,27 +478,79 @@ cd "Videos/<slug>"
 for S in BeatOne BeatTwo ...; do python -m manim render -ql --media_dir "media" scenes.py $S; done
 ```
 
-- **The delivered video is 1080p.** Draft at `-ql` (854×480, 15 fps) while you iterate, then
-  render the final pass at **`-qh` (1920×1080, 60 fps)** — that is the standard, not an upgrade
-  to consider. `-qm` is 1280×720/30 and is only for a quick look; `-qk` is 4K/60 and is worth it
-  only when the source material genuinely resolves beyond 1080p.
+- **Render at `-ql` (854×480, 15 fps) first — always, for every beat.** This is not a
+  throwaway: the 480p pass gets compiled into a complete, watchable video, because the only
+  reliable way to judge twenty minutes of pacing and composition is to watch twenty minutes of
+  it. Stills lie.
+- **Then stop and ask** before rendering at `-qh`. See Step 7b.
+- `-qm` is 1280×720/30 for a quick look; `-qk` is 4K/60, worth it only when the source material
+  genuinely resolves beyond 1080p.
 - Higher fps also means finer timing granularity, which shrinks the per-beat rounding the
   compile step has to absorb.
-- Budget the time: ~40 minutes of animation at 1080p60 is a long render. Draft first, look, then
-  go high **once**.
 - Renders land in `media/videos/scenes/<resolution>/<SceneName>.mp4`.
 - **MiKTeX will try to install a missing package on first use, which hangs an unattended
   render.** If a `MathTex` beat stalls, run that beat once interactively to let MiKTeX fetch
   the package, or set MiKTeX to install missing packages automatically, then re-run.
 - A beat whose render fails is a blocker — never compile a partial video and report success.
 
+### Nothing may share pixels — not text, and not a chart with a table
+
+Two collisions were shipped before this rule existed, and they had different causes.
+
+**Text over text.** `Stage` fixed it: six named slots, one occupant each, and showing
+something new in a slot removes what was there.
+
+**A chart under a table.** `Stage` did *not* fix that one, because the two objects were in
+different slots and every check passed. Two mechanisms, both now closed:
+
+1. **`main` geometrically intersects `left`, `right` and `aside`.** Filling one of those now
+   clears the others (`CONFLICTS` in the kit), and `show()` asserts that no two visible
+   occupants' bounding boxes overlap — the scene raises at render time rather than producing
+   the frame.
+2. **`fit=False` used to skip positioning as well as scaling**, so a matplotlib figure was
+   never moved into its slot at all: it stayed centred, and the table landed on top of it.
+   `fit=False` now means "do not rescale"; the move into the slot always happens.
+
+**To place a chart and a table together, use `side_by_side(chart, table)` and put the result
+in `main`.** It scales each into its own column and guarantees a gutter. Never show a chart in
+`main` and a table in `right`.
+
+And route everything through the kit: a raw `self.play(...)` bypasses both `Beat`'s timing and
+`Stage`'s collision guard, so a collision placed that way is invisible to every check.
+`beatcheck Videos/<slug>` fails the build on raw plays for exactly this reason.
+
+### Step 6b: Gate the pacing mechanically, before you compile
+
+Judging pacing by eye is how a 20-beat video shipped at **15.2 seconds per animation**. Run
+the gate instead:
+
+```bash
+beatcheck "Videos/<slug>"                              # static: steps, motion share, max t
+beatcheck "Videos/<slug>" --rendered                   # also ffprobe every beat
+beatcheck "Videos/<slug>" --rendered --quality 1080p60
+```
+
+It fails the build when a beat has too few steps for its length, when motion exceeds 30 per
+cent of the beat, when any single animation runs over 2 seconds, when a scene never touches a
+`Stage` slot, or when a render's length disagrees with its narration by more than about half a
+second. Exit code 2 means fix the scene, not the gate.
+
+**A tool a step names must exist and must run.** A plan that cites a gate like `beatcheck` before
+anyone has written it is not a plan, it is a wish — and the first sign of it is a bare
+`ls: cannot access 'tools/'`. Before citing a command anywhere: run it, see it exit 0, and fix
+it if it does not. When the gate itself was first written it had two bugs — it read a stale
+render directory and had the sign of the duration comparison backwards, so it failed all
+twenty beats that were in fact correct. **Verify the verifier.**
+
+These are console scripts from the installed package, so they run from any directory.
+
 ### Step 7: Compile into one video — the exact pipeline, measured
 
 **Use the shipped script. Do not hand-roll this in shell.**
 
 ```bash
-python .claude/explainer_compile.py "Videos/<slug>" --name "<slug>"
-python .claude/explainer_compile.py "Videos/<slug>" --no-audio      # silent + subtitles
+explainer-compile "Videos/<slug>" --name "<slug>"
+explainer-compile "Videos/<slug>" --no-audio                # silent + subtitles
 ```
 
 It exists because three failure modes were measured on this machine, and a shell one-liner
@@ -477,6 +577,39 @@ is longer, which is exactly the speech you wrote.
 
 Generate `<slug>.srt` from `beats.json` by accumulating the measured durations — the
 subtitles then cannot drift from the audio, because both came from the same measurements.
+
+### Step 7b: Compile the draft, hand it over, and ask before going high
+
+**The 480p compile is a deliverable, not a throwaway.** Run the full compile on the draft
+renders and give the user the file:
+
+```bash
+explainer-compile "Videos/<slug>" --name "<slug>-480p"
+```
+
+Report its duration, size and measured drift, and say plainly what it is: the whole video at
+854x480 - correct in content and timing, low in resolution.
+
+**Then ask, and wait.** Never start the high-quality render on your own initiative:
+
+> "Draft compiled: N min, <size>, <drift> ms drift. Render the 1080p60 master now?
+> That is roughly <estimate> of render time for N minutes of animation."
+> - **Yes, render 1080p60 now**
+> - **Not yet - I want to watch the draft first**
+> - **Fix something first** (name it; a re-render at 480p is cheap)
+
+Why this is a rule and not a preference: a 1080p60 pass over ~40 minutes of animation runs
+well over an hour, and every fault found by watching - a slow beat, a collision, a label that
+reads wrong - invalidates all of it. Watching costs minutes; re-rendering costs hours. The
+draft exists so that the expensive pass happens exactly once.
+
+**On a yes**, re-render every beat at `-qh`, compile again under the final name, and re-run
+the gate at the new quality:
+
+```bash
+beatcheck "Videos/<slug>" --rendered --quality 1080p60
+explainer-compile "Videos/<slug>" --name "<slug>"
+```
 
 ### Step 8: Offer a companion — do not build one
 
@@ -508,7 +641,7 @@ deliberately left out and where it belongs; and anything that could not be verif
 
 ## Important
 
-- **Ask first, always.** Purpose, length, math intensity and examples change every beat. One
+- **Ask first, always.** Purpose, length, math demonstrations and examples change every beat. One
   round, before planning — and show `plan.md` before rendering.
 - **Never compile a video whose beats did not all render.** Report the failure instead.
 - **The narration is measured, never estimated.** Every duration in `beats.json` comes from
@@ -522,7 +655,8 @@ deliberately left out and where it belongs; and anything that could not be verif
 - **Nothing is ever drawn over anything.** Every piece of text goes through a `Stage` slot,
   one occupant each.
 - **Tables have cells.** One row per line item, real rules. Never labels stacked in a box.
-- **Deliver at 1080p.** Draft at 480p, ship at 1920×1080.
+- **Compile at 480p first, then ask.** The draft is a watchable deliverable, not a
+  throwaway. Never spend an hour of 1080p render on a cut nobody has watched.
 - **Every borrowed asset carries its licence.** See the assets rule below; if you cannot name
   the source and the licence, it does not go in the video.
 - **Do not build a companion unasked.** Offer it; `/companion` builds it.
@@ -579,4 +713,4 @@ paraphrase of the channel's style:
 
 Toolchain measurements in this file (Manim 0.21.0 frame quantisation, the AAC concat drift, the
 `max(video, audio)` slot rule, the 10.7 ms end-to-end result) were measured on this machine on
-2026-09-12 and are reproducible with `.claude/explainer_compile.py`.
+2026-09-12 and are reproducible with `explainer-compile` from the `video_explainer` package.

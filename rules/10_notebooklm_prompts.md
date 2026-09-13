@@ -92,24 +92,17 @@ Todo prompt de áudio contém **ao menos uma instrução sem equivalente em slid
 locutores discordando, autópsia de um erro comum, motivação histórica, ou ponte para uma aula
 posterior. Sem isso, é um slide lido em voz alta.
 
-### R8 — Declare o idioma da saída (e **nunca peça áudio em português**)
-As fontes são em inglês, o curso é em pt-BR. O prompt deve dizer explicitamente em que idioma a
-saída deve sair — o padrão do NotebookLM segue as fontes.
+### R8 — Idioma da saída fica no app, não no prompt
+Configure **uma vez** em Settings → Output language = **English** no NotebookLM e não gaste
+caractere nenhum do prompt com idioma. Vale para os três tipos; áudio em português, nunca.
 
-| Tipo | Idioma pedido |
-|---|---|
-| **Slides** | **inglês** |
-| **Vídeo** | **inglês**, rótulos de tela em inglês |
-| **Áudio** | **inglês — sempre.** Nunca pedir áudio em português, em nenhuma circunstância |
+*Por quê:* a linha de idioma custava ~140 caracteres em cada prompt para repetir um ajuste
+global que já se aplica a tudo que o notebook gera.
 
-A linha padrão do áudio é:
-> `Output language: English, conversational register. Keep the spoken output in English
-> throughout, whatever language the uploaded sources are in.`
-
-Isso não é preferência de estilo: é regra fixa do projeto, e **vale para os três tipos**.
-Nunca peça saída em português em nenhum prompt. Os lotes das Aulas 1-4 e da Lista 3 foram
-escritos antes desta regra e ainda pedem pt-BR em slides e vídeo; ficam como estão até
-serem regerados, mas não servem de modelo.
+Confirme o ajuste antes de gerar um lote — se ele estiver errado, a saída inteira sai no
+idioma errado e nenhum prompt corrige isso. Os lotes anteriores ainda carregam a linha de
+idioma (e os das Aulas 1-4 e da Lista 3 chegam a pedir pt-BR); ficam como estão até serem
+regerados, mas não servem de modelo.
 
 ### R9 — Economia de nomes de fonte
 Nome completo do arquivo **uma vez**, depois um handle curto (`= KURLAT`). Só cite fontes
@@ -117,7 +110,7 @@ realmente usadas: cada nome extra custa ~90 caracteres do orçamento.
 
 ### R10 — Orçamento de caracteres
 Teto duro **5.000**; alvo **4.400-4.900**. Medido neste projeto: **~6,2 chars/palavra**, logo
-**720-780 palavras**. Cabeçalho (título, fontes, escopo, idioma) ≤ 120 palavras.
+**720-780 palavras**. Cabeçalho (título, fontes, escopo) ≤ 120 palavras.
 Validar sempre com `python .claude/notebooklm-validate.py`.
 
 ### R11 — Não peça o que a interface controla
@@ -159,7 +152,7 @@ transição é só "próximo tópico" deveria ser slide.
 O último segmento pede **uma imagem que resuma o capítulo inteiro** — o gráfico que a
 pessoa deve conseguir redesenhar de memória na prova. Nomeie-o explicitamente.
 
-> R5 (escopo positivo), R6 (sem estilo não verificável), R8 (idioma), R9 (handles de
+> R5 (escopo positivo), R6 (sem estilo não verificável), R8 (idioma fora do prompt), R9 (handles de
 > fonte) e R10 (orçamento de caracteres) valem para vídeo exatamente como para os demais.
 > R11 idem: a duração é controle de UI, não do prompt.
 
@@ -192,7 +185,7 @@ isso não tem solução livre de arbítrio" — não "tudo que há no capítulo 
 - [ ] Escopo em enquadramento positivo (áudio) / trava explícita (slides)
 - [ ] Zero instruções de estilo não verificáveis
 - [ ] ≥1 instrução sem equivalente em slide (áudio)
-- [ ] Idioma da saída declarado — **inglês nos três tipos**, sem exceção
+- [ ] Nenhuma linha de idioma no prompt — inglês vem do ajuste global do app (R8)
 - [ ] Nome de arquivo completo uma vez, depois handle
 - [ ] Vídeo: ≤6 batidas, cada uma com **um visual nomeado**, transições que são passos do
       argumento, fechamento com a imagem única

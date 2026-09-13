@@ -6,7 +6,7 @@ Render: python -m manim render -ql --media_dir media scenes_g3.py BeatX
 import numpy as np
 from manim import *
 
-from manim_kit import (Beat, Stage, axes_panel, balance_sheet, bullets, eq, note,
+from video_explainer import (Beat, Stage, axes_panel, balance_sheet, bullets, eq, note,
                        ols, palette, read_csv, sawtooth, scatter, series, table,
                        title, FAST, NORMAL, SLOW)
 
