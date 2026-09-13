@@ -76,13 +76,99 @@ python "<video-explainer>/install.py" --into "<project>" --commands
 It copies rather than symlinks, reports any file that differs instead of overwriting it, and
 finishes by probing the toolchain (Manim, ffmpeg, ffprobe, LaTeX) and reporting gaps.
 
-**When Efficient Token is found**, link it from the generated `CLAUDE.md` and follow the two
-of its rules that matter most here: *reuse before writing* - if you write new code anyway, say
-what you found and why it did not fit - and *persist findings* to `.agent/notes/<topic>.md`
-rather than re-deriving them next session.
-
 Record both resolved paths in the generated `CLAUDE.md`, so the next session does not repeat
 this search.
+
+### Step 0.6: Adopt Efficient Token properly - not just link it
+
+Linking the repo and quoting two of its rules is **not** adoption. Run its own installer and
+let it enforce its own budgets. This sequence was proven on `Macroeconomia 01 - MPE`, where it
+cut the always-on file from **3,260 tokens to 882** - a 73 per cent reduction in what is
+re-sent every single turn, or ~130,400 token-turns down to ~35,280 over a 40-turn session.
+
+**1. Dry run first, always.** It tells you what would be touched, and answers the one
+dangerous question - whether your hand-written `CLAUDE.md` survives:
+
+```bash
+python "<efficient-token>/tools/adopt.py" "<project>" --packs core,context --claude-only --dry-run
+```
+
+Look for `skip (exists) ... CLAUDE.md  <- add the GENERATED markers by hand`. That is the
+tool telling you it will not clobber your file. If you see `would write CLAUDE.md` instead,
+stop and work out why before proceeding.
+
+**2. Choose packs that match the course.** `--list` prints them. Always take `core` and
+`context`; add `codebase-work` and `model-routing`; then the **domain** pack and the
+**language** pack:
+
+| Course subject | Pack |
+|---|---|
+| Macroeconomics | `macroeconomics` |
+| Microeconomics | `microeconomics` |
+| Econometrics | `econometrics`, `microeconometrics` |
+| Game theory | `game-theory` |
+| Finance | `behavioral-finance` |
+
+| Code language | Pack |
+|---|---|
+| Python | `lang-python` |
+| JS/TS | `lang-js-ts` |
+| C# | `lang-csharp` |
+
+```bash
+python "<efficient-token>/tools/adopt.py" "<project>" \
+  --packs core,context,codebase-work,model-routing,<domain>,<lang> --claude-only
+```
+
+Use `--claude-only` unless the project also uses GitHub Copilot surfaces.
+
+**3. Compile the tier-0 contract into `CLAUDE.md`.** The installer will not edit a file you
+wrote. Add the markers by hand, with nothing between them, then sync:
+
+```
+<!-- GENERATED:tier0:start -->
+<!-- GENERATED:tier0:end -->
+```
+
+```bash
+cd "<project>" && python tools/sync_rules.py
+```
+
+The fourteen non-negotiable rules are now live in the project rather than quoted at it.
+
+**4. Get under the 900-token budget, and verify it.** This is the step that makes adoption
+real. The generated block costs ~570 tokens, so the course's own tier-0 content has ~330 to
+work with:
+
+```bash
+python tools/token_report.py --budget
+```
+
+Iterate until it stops saying `BUDGET EXCEEDED`. **Keep in `CLAUDE.md`** only: the course
+identity in two lines, the scope guard, the language and format rules, the sibling-project
+paths, and the secrets rule. **Move out** to a tier-2 file such as `rules/11_curso_programa.md`,
+loaded on demand: the lecture x bibliography table, the bibliography with edition divergences,
+the evaluation weights, the rules index, and the directory structure.
+
+Most of that detail usually **already exists** in `Map/`, so moving it is not a loss - it is
+lever four, *do not say it twice*.
+
+**5. Wire the check.** `python tools/sync_rules.py --check` belongs in CI so the surfaces
+cannot drift from the packs.
+
+**6. Create `.agent/`.** `plans/` takes a written plan before any non-trivial change;
+`notes/<topic>.md` takes findings that would otherwise be re-derived next session. Both are
+tier-0 rules 3 and 7, and both are worthless unless the directory exists.
+
+> **Known wrinkle, do not be alarmed by it.** `sync_rules.py` will report the course's own
+> content rules - `rules/00_*` through `rules/NN_*` - as *"missing frontmatter `id`, skipped"*.
+> That is correct: they are content rules sharing a directory with governance packs, and only
+> the packs are machine-managed. If it bothers you, move the course rules to `rules/curso/`.
+
+**What the project gets.** Six-plus rule packs, the `ctx` / `route` / `codebase` / `rulesmith`
+skills and a domain skill, seven subagent definitions, two `PreToolUse` hooks, the token and
+sync tooling, and a CI workflow - all governed by an enforced budget rather than good
+intentions.
 
 ### Step 1: Gather information
 
