@@ -48,3 +48,13 @@ Thumbs.db
 .idea/
 *~
 *.tmp
+# --- Segredos locais (NUNCA versionar) ---
+.env
+.env.*
+!.env.example
+
+# --- Videos (/explainer): render, audio e intermediarios de compilacao ---
+Videos/*/media/
+Videos/*/audio/
+Videos/*/build/
+Videos/*/*.mp4

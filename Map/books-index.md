@@ -176,12 +176,29 @@ o que permite citar aula e lista por conteúdo:
 
 | Arquivo MD | O que é |
 |---|---|
+| `Livros/MPE_Macro1_2026_Slides_1.md` | Aula 1 — Mensuração |
 | `Aula/MPE_Macro1_SlidesAula2.md` | Aula 2 — *Economic Growth* |
 | `Aula/Handout_MPE_Macro1_Aula3_2026(1).md` | Aula 3 — handout (texto corrido, 42 KB) |
 | `Aula/MPE_Macro1_SlidesAula4.md` | Aula 4 — *Microfoundations I: Consumption and Saving* |
-| `Livros/MPE_Macro1_2026_Slides_1.md` | Aula 1 — Mensuração |
-| `Listas/MPE_Macro1_2026_Lista1.md` · `Lista2.md` · `Lista3.md` | Listas 1-3 |
+| `Aula/Slides_Macro1_Aula5.md` | Aula 5 — *Microfoundations II: Labor and Leisure* |
+| `Aula/Slides_Macro1_Aula6.md` | Aula 6 — *Microfoundations IV: General Equilibrium* |
+| `Aula/MPE_Macro1_SlidesAula7_2026.md` | **Aula 7 — *Money and Inflation*** (22 p., 8 seções) |
+| `Listas/MPE_Macro1_2026_Lista1.md` … `Lista6.md` | Listas **1-6** |
 | `Livros/Programa_Macro1_MPE_2026.md` | Programa da disciplina |
+
+### Extratos de capítulo isolados — `Leituras/`
+
+Capítulos recortados do PDF do Kurlat para não abrir o livro inteiro por uma aula. Ambos têm
+`.pdf` + `.md` e estão também em `NotebookLM/sources/` com o prefixo `Livro_`:
+
+| Arquivo | Capítulo | Pp. impressas | Páginas | Aula |
+|---|---|---|---|---|
+| `Leituras/Kurlat_cap09_General_Equilibrium.pdf` | cap. 9 — *General Equilibrium* | 165-187 | 23 | 6 |
+| `Leituras/Kurlat_cap10-11_Money_and_Inflation.pdf` | caps. 10-11 — *Money* e *The Price Level and Inflation* | **189-222** | **34** | 7 |
+
+O recorte dos caps. 10-11 cobre a abertura da Parte IV (p. 189) até o fim dos exercícios do
+cap. 11 (p. 222) — o cap. 12 começa em 223 e **está fora do escopo**. Plano de leitura em
+[[leituras-aula-07]].
 
 > ⚠️ A conversão de PDF de slides embaralha tabelas e fórmulas (é *markitdown* sobre um
 > layout de duas colunas). Serve para **localizar** um tópico e citar a aula; para ler a

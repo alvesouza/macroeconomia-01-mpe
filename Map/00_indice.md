@@ -19,6 +19,7 @@ pelos wiki-links e ver o grafo.
 | [[study-guide]] | ordem de estudo, bloco a bloco, com o que travar em cada um | leitura humana |
 | [[cobertura]] | o que existe, o que falta, conteúdo das listas emitidas | leitura humana |
 | [[formulario-aula-05]] | **fórmulas da Aula 5** — cola densa + versão anotada | véspera de prova |
+| [[leituras-aula-07]] | **o que ler para a Aula 7** — Kurlat caps. 10-11 página a página, em 4 sessões, o diff aula × livro, os 14 exercícios e a Lista 6 item a item | estudo da Aula 7 |
 | [[derivacoes-cap-09]] | **as 33 equações do Kurlat cap. 9** — derivação e história | estudo da Aula 6 |
 | [[exogenous-capital-lista-05]] | **por que $K_1$ e $K_2$ são exógenos** na Lista 5, Q1 — e o que isso desliga | estudo da Aula 6 |
 | `Leituras/` | **roteiros narrados para TTS** — o material inteiro, falado | Speechify, ouvir |
@@ -40,6 +41,7 @@ resultado é conferido por caminho independente num script que aborta se discord
 | 7 — Trabalho e Lazer | 7 | 5 | ⏳ numérico e figuras prontos; falta o `.tex` |
 | 8 — Investimento | — | — | ⛔ **fora do escopo** do programa |
 | 9 — Equilíbrio Geral | 13 | 6 | [[Resolucao/kurlat_solutions_ch09\|ch09]] (33 p.) |
+| **10-11 — Moeda e Inflação** | **14** | 7 | ⬜ a fazer — exercícios mapeados em [[exercises-index]], leitura em [[leituras-aula-07]] |
 
 ## Aulas
 
@@ -51,8 +53,8 @@ resultado é conferido por caminho independente num script que aborta se discord
 | 4 | Consumo e Poupança | [[04_consumo_poupanca]] | Kurlat 6 | ✅ Slides 4 | L3 ✅ |
 | 5 | Trabalho e Lazer | [[05_trabalho_lazer]] | Kurlat 7 | ✅ Slides 5 | L4 ✅ |
 | 6 | Equilíbrio Geral | [[06_equilibrio_geral]] | Kurlat 9 | ✅ Slides 6 | **L5 ⏳ a emitir** |
-| 7 | Moeda e Inflação | [[07_moeda_inflacao]] | Kurlat 10-11 | ⬜ | L6 |
-| 8 | AD-AS NK: microfundamentos | [[08_adas_microfundamentos]] | Benigno §1-5 | ⬜ | L6 |
+| 7 | Moeda e Inflação | [[07_moeda_inflacao]] | Kurlat 10-11 | ✅ Slides 7 | **L6 ⏰** |
+| 8 | AD-AS NK: microfundamentos | [[08_adas_microfundamentos]] | Benigno §1-5 | ⬜ | L7? |
 | 9 | AD-AS NK: política | [[09_adas_politica]] | Benigno §6-12 | ⬜ | L7? |
 
 ## Os cinco temas do programa
@@ -90,11 +92,17 @@ ou recalibrado — e escreve a outra metade de forma **autoral e recontextualiza
 
 Isso torna as listas seguintes previsíveis — e a **Lista 4 confirmou a previsão**: é
 "Based on Kurlat (2020, Cap. 7)", com a Q2 construída sobre o Exercício **7.7** *Beveridge
-Curve*. Restam **L5** → 9.x, **L6** → 10.x-11.x + Benigno, **L7** → Benigno gráfico.
+Curve*. A **Lista 5** (cap. 9) e a **Lista 6** (caps. 10-11) já saíram.
+
+> ⚠️ **A previsão da Lista 6 acertou metade.** Previa-se "caps. 10-11 **+ Benigno §1-5**",
+> cobrindo as Aulas 7 **e** 8. O recorte do capítulo acertou; **não há nenhum Benigno na
+> Lista 6** — ela é só moeda e inflação. Logo a **Lista 7** carrega as Aulas 8-9 inteiras.
+> Detalhe item a item em [[leituras-aula-07]].
 
 ## NotebookLM
 
-**58 prompts** em `NotebookLM/`, em **três lotes que coexistem de propósito**:
+**80 prompts** em `NotebookLM/` — 32 slides, 16 áudios, 32 vídeos, contados no disco em
+12/09/2026 — em **cinco lotes que coexistem de propósito**:
 
 - **Por aula (40)** — para cada uma das Aulas 1 a 4: **4 slides** (teoria · mecânica ·
   exercícios · síntese), **4 vídeos** (um por objeto visual) e **2 áudios** (um fio
@@ -107,6 +115,16 @@ Curve*. Restam **L5** → 9.x, **L6** → 10.x-11.x + Benigno, **L7** → Benign
 - **Aula 6 (6)** — **4 vídeos + 2 áudios**, sem slides. Um vídeo por objeto visual (os
   três agentes · o planejador e a contradição · a construção do diagrama de fase · a
   antecipação) e um fio condutor por áudio. É o primeiro lote **inteiramente em inglês**.
+- **Lista 5 (15)** — **6 slides + 6 vídeos + 3 áudios**, o mesmo recorte transversal da
+  Lista 3 aplicado ao Equilíbrio Geral: a Q1 é o cap. 9 com o **capital congelado**, a Q2 é
+  o cap. 9 com o **trabalho congelado**, e a dobradiça é o par que compara as duas. Os três
+  áudios seguem o **estilo de correção** do professor ([[estilo-do-professor]]) — assinar
+  antes de interpretar, nomear o objeto estrutural, e a pergunta-armadilha.
+- **Aula 7 (7)** — **4 slides + 3 áudios, sem vídeo**. Recorte por aula, com o peso no que a
+  Lista 6 cobra. Os três áudios levam teses distintas: uma identidade não pode falhar · a
+  elasticidade é o número da política · neutro mas não superneutro. O que ler está em
+  [[leituras-aula-07]]; a aula inteira falada está em
+  `Leituras/aula-07-money-and-inflation-narrated.txt` (141 min).
 
 Slides e vídeo dos lotes antigos saem em pt-BR; **o áudio sai sempre em inglês**, e a
 partir da Aula 6 o lote inteiro sai em inglês. Ver

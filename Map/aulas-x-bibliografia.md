@@ -98,9 +98,32 @@ Voltar ao [[00_indice]].
 ## Aula 7 — Mercado Monetário e Inflação
 
 - **Regras:** [[07_moeda_inflacao]]
-- **Kurlat (2020):** caps. **10** e **11**
-- **Complementar:** Jones (2020), caps. 8 e 12; Romer (2012), cap. 11
-- **Lista:** 6
+- **Kurlat (2020):** caps. **10** e **11** — texto examinável pp. **191-218**, exercícios até 222
+- **Leitura:** [[leituras-aula-07]] — o plano página a página, em 4 sessões. Extrato isolado
+  em `Leituras/Kurlat_cap10-11_Money_and_Inflation.pdf` (pp. 189-222, 34 páginas)
+- **Complementar:** **Jones (2020), cap. 8** *Inflation* (pp. **211-239**) — verificado contra
+  o arquivo local, é o melhor complemento da aula (§8.2 TQM, §8.4 custos, §8.5 causas fiscais
+  e imposto inflacionário, §8.6 a Grande Inflação dos anos 1970); **Romer (2012), cap. 11**
+  *Inflation and Monetary Policy* (pp. **513-583**) — rigor em senhoriagem, só para intuição,
+  boa parte passa do escopo.
+  ⚠️ `rules/07` lista também **Jones cap. 12**, que é **curva de Phillips — Aulas 8-9**, não 7;
+  e **"Williamson, cap. 12"**, mas só o *manual de soluções* está no projeto, não o livro.
+- **Material:** [[Aula/MPE_Macro1_SlidesAula7_2026|Slides Aula 7 — *Money and Inflation*]]
+  (PDF + MD) — recebidos em 12/09/2026, 22 páginas, 8 seções
+- **Na aula:** balanço de um banco comercial e por que bancos guardam reservas; o
+  **multiplicador quebrando a juro zero** ou com remuneração de reservas, com o episódio dos
+  **EUA no fim de 2008**; os três motivos de **Keynes (1936, cap. 15)**; TQM e equação de
+  Cambridge; **Baumol-Tobin derivado no quadro** ($N^*$ e $M/p=\sqrt{YF/2i}$); deflator do PIB
+  × CPI com **dois exemplos numéricos**; o exemplo **"Usuria"** da equação de Fisher; os **três
+  estados estacionários** e a diferenciação no tempo que entrega $\pi=\mu-\eta g$; os dois
+  experimentos (salto de nível em $M^S$ × salto na **taxa** $\mu$); restrição orçamentária do
+  governo e senhoriagem; custos da inflação com a **Regra de Friedman** ($i=0 \Rightarrow \pi=-r$)
+- **Lista:** 6 — [[Listas/MPE_Macro1_2026_Lista6|Lista 6]] (10 pts), entrega **21/09/2025**
+  como impresso (provável erro por 2026). Q1 (5 pts): $MV=PY$ como identidade × teoria,
+  Baumol-Tobin e velocidade, preços fixos × flexíveis após aumento de $M^S$, e ler o
+  equilíbrio quando o BC fixa $M$ ou fixa $i$. Q2 (5 pts): derivar $\pi=\mu-\eta g$; meta de
+  2% com $g=3\%$ sob $\eta=\tfrac12$ (Baumol-Tobin) × $\eta=1$ (Cambridge); e com
+  $\dot F/F=f<0$ mostrar $\pi=\mu-\tfrac12(g+f)$
 - **Conceitos:** #agregados-monetarios #multiplicador #tqm #fisher #senhoriagem #laffer-inflacao
 
 ## Aula 8 — AD-AS Novo-Keynesiano: Microfundamentos
@@ -108,7 +131,8 @@ Voltar ao [[00_indice]].
 - **Regras:** [[08_adas_microfundamentos]]
 - **Benigno (2015):** **§1-5** — AD (eq. 21), AS (eq. 17/20), $y_n$ (15), $y_e$ (19)
 - **Complementar:** Carlin & Soskice (2024); Romer (2012), cap. 6
-- **Lista:** 6
+- **Lista:** **7 (provável)** — a Lista 6 saiu **sem nenhum Benigno**, só Kurlat caps. 10-11
+  (ver [[leituras-aula-07]]), então o AD-AS não tem mais lista senão a 7
 - **Conceitos:** #ad-as #rigidez-de-precos #concorrencia-monopolistica #produto-natural #markup
 
 ## Aula 9 — AD-AS Novo-Keynesiano: Política Econômica
@@ -130,12 +154,19 @@ Voltar ao [[00_indice]].
 | **2** | 3 | 4-5 | 17/08/2026 | [[Listas/MPE_Macro1_2026_Lista2\|Lista 2]] (PDF + MD) | [[Resolucao/lista2_resolucao\|feita]] |
 | **3** | 4 | 6 | 24/08/2026 | [[Listas/MPE_Macro1_2026_Lista3\|Lista 3]] (PDF + MD) | [[Resolucao/lista3_resolucao\|feita]] |
 | **4** | 5 | 7 | **31/08/2026** | [[Listas/MPE_Macro1_2026_Lista4\|Lista 4]] (PDF + MD) | [[Resolucao/lista4_resolucao\|feita]] |
-| 5 | 6 | 9 | — | ainda não emitida | — |
-| 6 | 7, 8 | 10-11 + Benigno §1-5 | — | ainda não emitida | — |
-| 7 | 9 (provável) | Benigno §6-12 | — | ainda não emitida | — |
+| **5** | 6 | 9 | 08/09/2026 | [[Listas/MPE_Macro1_2026_Lista5\|Lista 5]] (PDF + MD) | [[Resolucao/lista5_resolucao\|feita]] |
+| **6** | **7 apenas** | **10-11** | **21/09/2025** *(sic)* | [[Listas/MPE_Macro1_2026_Lista6\|Lista 6]] (PDF + MD) | ⬜ a fazer |
+| 7 | 8 **e** 9 (provável) | Benigno §1-12 | — | ainda não emitida | — |
 
-> O programa anuncia **7 listas**, mas mapeia explicitamente só até a Lista 6. A atribuição
-> da Lista 7 é inferência — confirmar com o professor.
+> O programa anuncia **7 listas**, mas mapeia explicitamente só até a Lista 6.
+>
+> ⚠️ **Correção de 12/09/2026.** O programa e estes mapas previam a Lista 6 cobrindo as Aulas
+> 7 **e** 8 (Kurlat 10-11 **+ Benigno §1-5**). A lista emitida é "Based on Kurlat (2020, Cap.
+> 10 e 11)" e **não tem nenhum Benigno**. Portanto a **Lista 7** tem de carregar as Aulas 8-9
+> inteiras — ou o AD-AS fica sem lista. Confirmar com o professor.
+>
+> A entrega da Lista 6 está impressa como **21/09/2025**; o ano é quase certamente erro de
+> digitação por **2026**, já que a Lista 5 venceu em 08/09/2026. Citado verbatim.
 
 ### ⭐ As listas *são* exercícios do Kurlat
 
@@ -148,6 +179,11 @@ Rastreamento item a item das três listas emitidas está em [[exercises-index]].
 - **Lista 3** = Kurlat **6.1** (+ item de **6.3**) e **6.5** (+ item de **6.6**)
 - **Lista 4** = Kurlat **7.1**-**7.2** (oferta estática com imposto) e **7.7** *Beveridge
   Curve*, expandido em cinco itens (DMP completo)
+- **Lista 5** = cap. 9 com uma margem congelada em cada questão — Q1 capital fixo, Q2
+  trabalho fixo (ver [[exogenous-capital-lista-05]])
+- **Lista 6** = caps. 10-11, autoral mas colada nos exercícios **11.1** ($\eta$ sob
+  Baumol-Tobin), **11.2** (TQM como identidade), **11.5** (meta de inflação) e **10.4**
+  (o custo $F$ caindo). **Nada de Benigno** — ver [[leituras-aula-07]]
 
 Metade dos itens vem do livro; a outra metade é autoral e recontextualizada (Brasil ×
 Colômbia, Coreia, Gotham). O **último item de cada questão** é sempre o mais conceitual.

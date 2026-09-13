@@ -22,6 +22,9 @@ O escopo, o mapa aula × capítulo e as regras de conteúdo estão em
 | [Prova/](Prova/) | Avaliação final e provas anteriores |
 | [Simulados/](Simulados/) | Quizzes em Markdown, consumidos pelo `quiz.html` |
 | [Resolucao/](Resolucao/) | Soluções geradas (`/solution`, `/exam-gen`, `/exam-grade`) |
+| [Leituras/](Leituras/) | Extratos de capítulo (PDF + MD) e roteiros narrados para TTS (`/speechify`) |
+| `Notebooks/` | Projetos Jupyter de simulação e dados (`/lab`) — criado no primeiro uso |
+| `Videos/` | Vídeos explicativos animados (`/explainer`) — criado no primeiro uso |
 | [rules/](rules/) | Regras por tópico: fórmulas, armadilhas, padrões de código |
 | [Map/](Map/) | Mapas de referência cruzada (wiki-links para Obsidian) |
 | [NotebookLM/](NotebookLM/) | Prompts de slides/áudio + `sources/` prontos para upload |
@@ -78,10 +81,48 @@ especificado em [rules/00_estilo_avaliacao.md](rules/00_estilo_avaliacao.md).
 /quiz-analyze <cole o JSON de resultados>        # análise de erros + quiz de reforço
 ```
 
-### NotebookLM
+### Material novo chegou
 
 ```bash
-/notebooklm Aula/                 # gera prompts de slides e áudio para cada aula
+/intake Aula/MPE_Macro1_SlidesAula7_2026.pdf
+                                  # converte, analisa, diz o que o projeto já tem em volta,
+                                  # e PERGUNTA o que derivar: narração TTS, prompts do
+                                  # NotebookLM (com qual recorte e quantos de cada tipo),
+                                  # plano de leitura, quiz. Atualiza os mapas no fim.
+```
+
+### NotebookLM e áudio
+
+```bash
+/notebooklm Aula/                 # prompts de slides, vídeo e áudio para cada aula
+/speechify Leituras/Kurlat_cap10-11_Money_and_Inflation.md
+                                  # roteiro narrado para TTS — matemática ditada em palavras,
+                                  # sem tabela, sem código. Sai em Leituras/*.txt
+```
+
+### Simular, visualizar e explicar
+
+```bash
+/lab "Baumol-Tobin e a elasticidade-juro da demanda por moeda"
+                                  # projeto Jupyter completo: planeja célula por célula,
+                                  # chama /lab-init e /lab-data, roda o notebook e verifica
+                                  # os números por caminho independente
+/lab-init solow-convergencia      # só o scaffold: notebook, data/, figures/, estilo_mpl.py
+/lab-data "IPCA e base monetaria" # busca e cacheia séries (FRED, WDI, PWT, Maddison, BCB
+                                  # SGS, SIDRA, Ipeadata) com registro de proveniência.
+                                  # --offline nunca toca a rede
+
+/explainer "por que sigma decide o sinal de dc1/dr"
+                                  # vídeo animado no estilo 3blue1brown: roteiro por batidas,
+                                  # cenas em Manim cronometradas pela narração sintetizada,
+                                  # página interativa de companhia, tudo compilado num .mp4
+```
+
+O `/explainer` precisa de `SPEECHIFY_API_KEY` no `.env` (não versionado), **Manim CE**
+(`python -m pip install manim`), **ffmpeg** no PATH e LaTeX. Para conferir de uma vez:
+
+```bash
+python .claude/speechify_tts.py --check
 ```
 
 ---

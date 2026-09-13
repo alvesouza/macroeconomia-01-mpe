@@ -24,9 +24,65 @@ Create a new study project for the course `$ARGUMENTS`.
    - **Maps**: cross-reference files (e.g., `Map`, `Maps`)
    - **Solutions**: generated exercise solutions (e.g., `Resolucao`, `Resolução`, `Solutions`)
    - **NotebookLM prompts**: prompt files (e.g., `NotebookLM`)
+   - **Readings / narrations**: isolated chapter extracts and TTS scripts (e.g., `Leituras`, `Readings`, `Narracoes`)
+   - **Notebooks / lab**: Jupyter projects for simulation and data work, one subdirectory each (e.g., `Notebooks`, `Laboratorio`, `Lab`)
 3. **Preserve existing names** — if the user already has `Aula/` (singular), do NOT create `Aulas/` (plural). Adapt to their convention.
 4. Store the discovered mapping (purpose → actual directory name) and use it throughout all subsequent steps.
 5. Only create directories that don't already exist, using the user's naming convention (language, singular/plural).
+
+### Step 0.5: Locate the companion projects - ALWAYS, and ask if they are missing
+
+Two sibling repositories carry work that must never be rewritten per project. Find them
+before doing anything else, because what they contain changes how the rest of this command
+behaves.
+
+| Project | What it carries | Consumed by |
+|---|---|---|
+| **Video explainer** | the Manim kit (`manim_kit.py`), the narration client (`speechify_tts.py`), the frame-accurate compiler (`explainer_compile.py`), and the `/explainer`, `/manim-kit` and `/companion` commands | every video the study project makes |
+| **Efficient Token** | the token-governance layer: rule packs, the retrieval escalation ladder, model routing, and enforced context budgets | how the agent works inside the study project |
+
+**Where to look, in order:**
+
+1. The **parent directory of the project being set up** - that is, as siblings of the new
+   project folder. This is the expected layout.
+2. The parent of the current working directory.
+3. `~/Documents/Git/Github/`.
+
+Match on the directory name, case-insensitively, allowing a hyphen or underscore in place of
+the space (`video-explainer`, `Efficient_Token`).
+
+**If either one is not found, ask. Do not proceed silently and do not invent a path.** Use a
+single `AskUserQuestion` round covering both, with one question per missing project:
+
+> "I could not find **Video explainer** next to this project. Does it exist?"
+> - **Yes - it is at another path** (the user gives it; verify the path holds `install.py`
+>   or `lib/manim_kit.py` before believing it)
+> - **No - create it here** (scaffold it from `~/.claude/commands/templates/`, which holds
+>   `manim_kit.py`, `speechify_tts.py` and `explainer_compile.py`)
+> - **No - skip video tooling** (the study project is set up without `/explainer`,
+>   `/manim-kit` or `/companion`, and the README says so rather than advertising commands
+>   that will not work)
+
+Same three-way question for **Efficient Token**, whose third option is "skip - do not apply
+its conventions".
+
+**When Video explainer is found**, install from it rather than from the global templates,
+because the repo is the newer source:
+
+```bash
+python "<video-explainer>/install.py" --into "<project>" --commands
+```
+
+It copies rather than symlinks, reports any file that differs instead of overwriting it, and
+finishes by probing the toolchain (Manim, ffmpeg, ffprobe, LaTeX) and reporting gaps.
+
+**When Efficient Token is found**, link it from the generated `CLAUDE.md` and follow the two
+of its rules that matter most here: *reuse before writing* - if you write new code anyway, say
+what you found and why it did not fit - and *persist findings* to `.agent/notes/<topic>.md`
+rather than re-deriving them next session.
+
+Record both resolved paths in the generated `CLAUDE.md`, so the next session does not repeat
+this search.
 
 ### Step 1: Gather information
 
@@ -37,7 +93,9 @@ Ask the user for:
 - **Bibliography**: main textbook + complementary references (title, author, edition) — or say "look at the files" to auto-detect from existing book PDFs and lecture slides
 - **Topics list**: each topic with its corresponding lecture number and textbook chapters — or say "look at the files" to auto-extract from lecture filenames/contents and match to book TOCs
 - **Language**: for content output (default: Portuguese Brazil)
-- **Code language**: R, Python, or both (default: R)
+- **Code language**: R, Python, or both (default: R). ⚠️ The notebook commands (`/lab`,
+  `/lab-init`, `/lab-data`) are **Python/Jupyter only** — if the course is R-based, record
+  that in `CLAUDE.md` and tell the user those three do not apply.
 
 **If the user says "look at the files" for bibliography or topics:**
 1. Read the first few pages of each lecture PDF to extract topic titles, chapter references, and bibliography slides
@@ -66,9 +124,18 @@ Create only the directories that don't already exist. Use the discovered naming 
 ├── Map/
 ├── NotebookLM/
 │   ├── slides/
-│   └── audio/
+│   ├── audio/
+│   └── video/
+├── <readings-dir>/        ← existing or new (e.g., Leituras) — chapter extracts + TTS scripts
+├── <notebooks-dir>/       ← existing or new (e.g., Notebooks) — one subdir per Jupyter project
+├── Videos/                ← one subdir per /explainer video (created on first use)
+├── .env.example           ← template for API keys; the real .env is gitignored
 └── quiz.html
 ```
+
+`<readings-dir>/` is where `/speechify` writes its narrations and where an isolated book
+chapter cut out of a large PDF belongs. `<notebooks-dir>/` is created on first use by
+`/lab-init`, which also writes its index `README.md` there — do not pre-populate it.
 
 ### Step 3: Generate CLAUDE.md
 
@@ -105,7 +172,8 @@ One file per topic (e.g., `rules/01_topicname.md`), each with:
 
 ### Step 5: Copy global commands and shared templates
 
-1. Copy all `.md` files from `C:\Users\pedro\.claude\commands\` into the project's `.claude\commands\` directory (local copies the user can customize). This includes `exam-gen.md` and `exam-grade.md`.
+1. Copy all `.md` files from `C:\Users\pedro\.claude\commands\` into the project's `.claude\commands\` directory (local copies the user can customize). This includes `exam-gen.md` and `exam-grade.md`, the material front door `intake.md`, and the three notebook commands `lab.md`, `lab-init.md` and `lab-data.md`. Copy the whole directory — do not hand-pick a subset, or a new command added globally will silently never reach new projects.
+   **Exception:** if **Video explainer** was located in Step 0.5, take `explainer.md`, `manim-kit.md`, `companion.md` and the three Python modules from that repo's `install.py` instead — it is the newer source, and the installer reports any file that differs rather than clobbering local edits.
 2. Set up the **exam/list tooling** (used by `/exam-gen` and `/exam-grade`):
    - Copy `~/.claude/commands/templates/lista-exam.tex` into the project (e.g., `<lists-dir>/lista-exam.tex`) — the LaTeX template for lists/simulados (single source, `\ifsolucoes` toggle for blank list vs. gabarito+rubrica; preamble already follows the global lmodern+cmap copyable-PDF rule).
    - Copy `~/.claude/commands/templates/estilo-avaliacao.md` into `rules/00_estilo_avaliacao.md` — the exam-style rules (taxonomy, contextualization, solution/rubric format, bibliography usage). Adapt the institution/bibliography names to this course.
@@ -115,6 +183,29 @@ One file per topic (e.g., `rules/01_topicname.md`), each with:
 Copy the canonical quiz player from `~/.claude/commands/templates/quiz.html` into the project root as `quiz.html` (verbatim — it has the perfect standalone-export feature). See `/quiz-gen` for the MD format the player consumes.
 
 Also copy the quiz validator `~/.claude/commands/templates/quiz-validate.py` into the project's `.claude/` directory — `/quiz-gen` runs it to gate every generated quiz (parse integrity + anti-cheat length/style checks). Do not hand-write one-off checks; this script is the single source of truth.
+
+### Step 6.5: Set up the video tooling (only if the user wants narrated videos)
+
+`/explainer` depends on two shipped scripts and one secret. Copy both scripts from
+`~/.claude/commands/templates/` into the project's `.claude/` directory:
+
+- `speechify_tts.py` — text-to-speech narration; turns a beat sheet into audio clips plus a
+  manifest of **measured** durations, which is what the animation times itself against.
+- `explainer_compile.py` — compiles the rendered beats and the narration into one video,
+  frame-accurately, and fails if audio and video drift by more than a frame.
+
+Then create `.env.example` in the project root (committed, no values) and add `.env`,
+`.env.*`, `!.env.example` to `.gitignore`. The real key goes in `.env`, which is never
+committed. Verify the ignore actually works with `git check-ignore -v .env` — do not assume it.
+
+Also add the render artefacts to `.gitignore`: `Videos/*/media/`, `Videos/*/audio/`,
+`Videos/*/build/`.
+
+Tell the user what `/explainer` needs that this step cannot provide: a **Speechify API key**
+in `.env` as `SPEECHIFY_API_KEY`, **Manim CE** (`python -m pip install manim`), **ffmpeg** on
+PATH, and a **LaTeX** install for `MathTex`. Then have them run
+`python .claude/speechify_tts.py --check`, which verifies the key, the models, the voice list
+and ffprobe in one call. Do not install anything silently.
 
 ### Step 7: Generate README.md
 
@@ -131,8 +222,15 @@ Include:
   - `/quiz-gen <quizzes-dir>/` — generate quiz from MD question files
   - `/quiz-analyze <paste results>` — analyze quiz performance
   - `/study-map .` — generate Obsidian cross-reference maps
-  - `/notebooklm <lectures-dir>/` — generate NotebookLM prompts (slides + audio) for all lectures
+  - `/notebooklm <lectures-dir>/` — generate NotebookLM prompts (slides, audio, video) for all lectures; asks the unit of organisation and the count per type first
   - `/speechify <topic-or-file>` — narrated plain-text script for Speechify or any TTS app (math spoken in words, no tables, no code); `--split` for one file per part, `--short` for a revision-only pass
+  - `/intake <file-or-dir-or-topic>` — front door for material that just arrived: converts it, analyses it against what the project already holds, then asks **in one round** whether to produce a TTS narration (`/speechify`) and/or NotebookLM prompts (`/notebooklm`), and with which characteristics
+  - `/lab <topic-or-question>` — build a Jupyter project that visualises or tests a mechanism; orchestrates `/lab-init` and `/lab-data`, then runs the notebook end to end and verifies its numbers
+  - `/lab-init <slug>` — scaffold `<notebooks-dir>/<slug>/`: notebook skeleton, `data/`, `figures/`, the shared figure style, `requirements.txt`
+  - `/lab-data <series-or-concept>` — fetch and cache macro series (FRED, World Bank WDI, Penn World Table, Maddison, BCB SGS, IBGE SIDRA, Ipeadata) with a provenance registry; `--offline` never touches the network
+  - `/explainer <topic>` — plan and produce a 3blue1brown-style narrated video: beat sheet, script, Manim CE scenes timed to synthesised speech, compiled into one **1080p** `.mp4` with subtitles; asks purpose, length, math intensity and examples first. Needs a Speechify key in `.env` (see Step 6.5)
+  - `/manim-kit <project>` — install and drive the shared drawing layer from the **Video explainer** repo, so a new video costs a short scene file instead of a thousand lines of animation
+  - `/companion <model>` — an interactive page with several controls for one model; only ever runs when asked for, and asks in detail first
 - How to run quizzes:
   1. `cd <project-dir>`
   2. `python -m http.server`
@@ -158,6 +256,9 @@ Run `/convert` on the selected files. This is the entry point for the rest of th
 - Converted books feed `/study-map` cross-references (more precise chapter-level linking)
 - Converted exercise lists feed `/list-exercises` and `/solution`
 - Any converted reading feeds `/speechify` when the user wants to study by listening
+- Anything that arrives **after** setup — a new lecture, a new list, a chapter extract —
+  goes through `/intake`, which analyses it and asks what to derive from it instead of
+  guessing; and `/lab` when the topic is worth simulating or confronting with data
 
 If existing `.md` files are found, ask the user once (overwrite all / skip all / let me pick).
 

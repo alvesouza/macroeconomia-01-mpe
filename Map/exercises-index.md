@@ -132,22 +132,30 @@ capítulo, com número, página impressa, subtópico e nível. Voltar ao [[00_in
 | 10.1 | Central Bank Instruments | 202 | Moeda e agregados | foundational | sim |
 | 10.2 | Pickpockets | 202 | Moeda e agregados (multiplicador) | exam | sim |
 | 10.3 | Interest on Reserves | 202 | Moeda e agregados | exam | sim |
-| 10.4 | ATMs | 203 | Demanda por moeda (Baumol-Tobin) | exam | sim |
-| 10.5 | Going to the Bank | 203 | Demanda por moeda (Baumol-Tobin) | advanced | sim |
+| **10.4** | ATMs | 203 | Demanda por moeda (Baumol-Tobin) | exam | sim |
+| **10.5** | Going to the Bank | 203 | Demanda por moeda (Baumol-Tobin) | advanced | sim |
+
+> **10.4** é o parente direto da **Lista 6 Q2(c)** (o custo $F$ caindo) e **10.5** da **Q1(b)**
+> (Baumol-Tobin e velocidade). Plano de leitura da aula: [[leituras-aula-07]].
 
 ### Cap. 11 — The Price Level and Inflation (a partir da p. 218)
 
 | Exercício | Título | Pág. | Subtópico(s) | Nível | Verificado |
 |---|---|---|---|---|---|
-| 11.1 | The Elasticity of Money Demand | 218 | Demanda por moeda | exam | sim |
+| **11.1** | The Elasticity of Money Demand | 218 | Demanda por moeda | exam | sim |
 | **11.2** | The Quantity Theory | 218 | Inflação e TQM | foundational | sim |
 | 11.3 | Seignorage with Zero Inflation and Growth | 219 | Senhoriagem | exam | sim |
 | 11.4 | Growth in the Money Supply | 219 | Inflação e TQM | exam | sim |
-| 11.5 | Inflation Targeting | 219 | Inflação e TQM | exam | sim |
-| **11.6** | Seignorage with High Inflation | 219 | Senhoriagem (curva de Laffer) | advanced | sim |
+| **11.5** | Inflation Targeting | 219 | Inflação e TQM | exam | sim |
+| 11.6 | Seignorage with High Inflation | 219 | Senhoriagem (curva de Laffer) | advanced | sim |
 | 11.7 | Bank Seignorage | 221 | Senhoriagem | advanced | sim |
 | 11.8 | Real Interest Rates | 222 | Inflação e TQM (Fisher) | exam | sim |
 | 11.9 | Money among Prisoners of War | 222 | Moeda e agregados | foundational | sim |
+
+> **Os três da Lista 6:** **11.1** dá o $\eta=\tfrac12$ da Q2(b)(i), **11.2** é a Q1(a)
+> (identidade × teoria) e **11.5** é a aritmética de meta da Q2(b). **11.6 (Cagan) não
+> apareceu na lista**, apesar da previsão — continua valendo como o único lugar do curso onde
+> a curva de Laffer da inflação aparece em álgebra. Ver [[leituras-aula-07]].
 
 > Capítulos **12-15 não são cobrados** (o programa termina no cap. 11; as Aulas 8-9 usam o
 > Benigno). Seus exercícios existem, mas **não** devem entrar em plano de estudo.
@@ -190,6 +198,8 @@ para `/exam-gen` e para prever o conteúdo das listas seguintes.
 | **2** | Q2 (6 pts) | Autoral, sobre **§5.3-5.4** (parente de **5.3** e **5.9** *Disease and TFP*) | "Gotham": capital de segurança $\phi$ por unidade de capital produtivo. Pede *development accounting* (§5.3) e a decomposição da eq. **(5.4.2)** |
 | **3** | Q1 (5 pts) | **6.1** *Two-Period Problem with Taxes and Initial Wealth* | Enunciado praticamente idêntico. Item (c) importa **6.3** *Consumption and Interest Rates* ($\partial c_1/\partial r$ e o papel de $\sigma$); item (e) é a **equivalência ricardiana** |
 | **3** | Q2 | **6.5** *Credit Constraints and Ricardian Equivalence* + item (d) de **6.6** *A Tax on Savings* | Restrição $a \ge -b$; o item (d) troca o *lump-sum* do período 2 por imposto sobre o retorno da poupança |
+| **6** | Q1 (5 pts) | Autoral sobre **§11.2** e **§10.4**, no espírito de **11.2** *The Quantity Theory* e **10.5** *Going to the Bank* | (a) por que $MV=PY$ é identidade e não teoria · (b) o que Baumol-Tobin implica para a **velocidade** · (c) com $p=\bar p$, como $Y$ e $i$ se movem — e se há mecanismo · (d) ler o equilíbrio quando o BC controla $M$ × controla $i$ |
+| **6** | Q2 (5 pts) | Autoral sobre **§11.2**, colado em **11.1** *The Elasticity of Money Demand* e **11.5** *Inflation Targeting*; o item (c) estende **10.4** *ATMs* | (a) derivar $\pi=\mu-\eta g$ · (b) meta $\pi^*=2\%$ com $g=3\%$: $\eta=\tfrac12$ (Baumol-Tobin) dá $\mu=3{,}5\%$, e se a demanda for Cambridge ($\eta=1$) a inflação sai **0,5%** · (c) com $\dot F/F=f<0$, mostrar $\pi=\mu-\tfrac12(g+f)$ e explicar por que $F$ caindo é inflacionário |
 
 **Três regularidades que valem como previsão:**
 
@@ -210,8 +220,24 @@ para `/exam-gen` e para prever o conteúdo das listas seguintes.
 |---|---|---|---|
 | **4** | 5 | 7 | **7.1** *Labor Supply*, **7.3** *Consumption Taxes and Labor Supply*, **7.5** *Prescott's Calculation* (o "grande" da lista), 7.7 *Beveridge Curve* |
 | **5** | 6 | 9 | **9.1** *The First Welfare Theorem*, **9.6** *Capital Income Taxes*, **9.12** *Optimal vs Fixed Savings Rates* (fecha o fio Solow → EG) |
-| **6** | 7 e 8 | 10-11 + Benigno §1-5 | **11.2** *The Quantity Theory*, **11.6** *Seignorage with High Inflation*, 10.4 *ATMs*; parte gráfica AD-AS do Benigno |
-| **7** | 9 | Benigno §6-12 | Sem exercícios de livro — provável análise gráfica de choques (Figs. 6-9) e multiplicador fiscal (§8) |
+| ~~**6**~~ | ~~7 e 8~~ | ~~10-11 + Benigno §1-5~~ | ✅ **RESOLVIDA** — ver abaixo |
+| **7** | **8 e 9** | Benigno §1-12 | Sem exercícios de livro — provável análise gráfica de choques (Figs. 6-9) e multiplicador fiscal (§8), agora cobrindo **também** os microfundamentos (§1-5) que a Lista 6 não cobriu |
+
+**Placar da previsão da Lista 6** (emitida em 12/09/2026):
+
+| O que se previu | O que aconteceu |
+|---|---|
+| Ancorada no cap. 10-11 | ✅ "Based on Kurlat (2020, Cap. 10 e 11)", as duas questões |
+| **11.2** *The Quantity Theory* | ✅ é a Q1(a) — identidade × teoria |
+| **10.4** *ATMs* | ✅ é o espírito da Q2(c) — o custo $F$ caindo |
+| **11.6** *Seignorage with High Inflation* | ❌ **não apareceu**; não há senhoriagem nem Cagan na lista |
+| Parte gráfica AD-AS do Benigno | ❌ **nada de Benigno** — a lista é só moeda e inflação |
+| (não previsto) | ➕ **11.1** e **11.5** entraram, via $\eta$ e a aritmética de meta |
+
+**A consequência é de calendário, não de conteúdo:** como o Benigno não entrou na Lista 6, a
+**Lista 7** tem de cobrir as Aulas 8 **e** 9 — ou o AD-AS fica sem lista nenhuma. Confirmar com
+o professor. A regularidade 3 seguiu valendo: o item final (Q2(c)) é o mais conceitual, e a
+metade que vale nota é o *porquê*, não a log-diferenciação.
 
 ---
 

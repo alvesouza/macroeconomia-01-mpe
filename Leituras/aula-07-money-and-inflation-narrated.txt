@@ -1,0 +1,899 @@
+CLASS 7. MONEY AND INFLATION. A NARRATED READING.
+
+HOW TO LISTEN
+
+This is the spoken version of everything class 7 covers. It follows Kurlat, A Course in Modern Macroeconomics, chapters 10 and 11, printed pages 191 through 222. It also carries the lecture slides for class 7, titled Money and Inflation, and it works through every item of Problem Set 6.
+
+There are fifteen parts. Parts one through seven follow the book and the lecture, section by section. Part eight works the problem set. Parts nine through fifteen are the support material: the pitfalls, a spoken formula sheet, implementation notes, the reading route, a self-test, a glossary, and the whole topic in five lines.
+
+All mathematics is spoken in words. You will never hear a symbol read out. When I say "the square root of Y times F over two i", you should be able to write that down. Pause and do write it down the first few times. A formula you have only heard is a formula you only half know.
+
+A note on scope. This course stops at chapter 11 of Kurlat. Twice in these two chapters the book points forward: to chapter 14 for sticky prices and monetary non-neutrality, and to chapter 15 for what happens when interest rates are near zero. Neither is examinable here. Where the book reaches forward, I will say so and stop. Classes 8 and 9 handle the short run using the Benigno article, not Kurlat's later chapters. Chapter 8 of Kurlat, on investment, is out of scope throughout.
+
+One framing point before we start, because it organises everything that follows. This class is the first half of one of the two threads that run through the whole course. The thread is: money is neutral, but only in the long run. Class 7 builds the case for neutrality. The classical view says real variables are settled by real forces, and money only sets the price level. Classes 8 and 9 break that at short horizons and recover it at long ones. So when something in this class feels too clean, the answer is usually "yes, and class 8 is where it stops being clean". I will flag those moments as they arrive.
+
+Let's begin.
+
+PART ONE. WHAT MONEY IS. SECTION TEN POINT ONE, PRINTED PAGES 191 AND 192.
+
+Kurlat opens with a sentence worth repeating: this question is trickier than it seems.
+
+The standard answer is that money is anything that serves three functions. First, a store of value: you can hold it, for instance by keeping it in your pocket, and use it later. Second, a unit of account: we express the prices of things in terms of how much money it takes to buy them. Third, a medium of exchange: money changes hands when people pay for things.
+
+Many different things have served as money in different times and places. Pieces of paper with the faces of historical figures. Gold and silver. Cigarettes.
+
+Now the question that matters more than the list. Why do we use money at all? Money solves what is known as the double coincidence of wants problem. Without money, to trade I must find someone who has exactly what I need and who wants exactly what I have. That is a demanding coincidence, and most of the time it fails. With money, I can accept payment for the goods I sell, knowing that other people will accept that same money as payment for the goods I want.
+
+Hold on to that. Of the three functions, the medium of exchange is the one that defines money, because it is the one that solves the double coincidence problem. Plenty of assets are a store of value. Plenty of things could serve as a unit of account. Only money is handed over in transactions. When you are asked what distinguishes money from other assets, the answer is the medium of exchange function and the double coincidence of wants, not the recitation of three functions.
+
+For something to be convenient as money, Kurlat says it typically needs five properties. Let me walk them, because each is a small argument and not just an item on a list.
+
+One. It has to be hard to counterfeit. If you pay with money, the seller should not be standing there wondering whether what you handed over is real.
+
+Two. It has to be easy to carry, because transactions happen in many different places.
+
+Three. It has to be durable, otherwise it is a poor store of value. Kurlat's example: it makes more sense to use coffee beans than strawberries as money, because strawberries will spoil before they can be used in the next transaction.
+
+Four. It has to be easily divisible. For transactions to go smoothly you need to pay the exact price without much rounding, and to be able to make change. There is a footnote pointing to a book by Sargent and Velde from 2014, The Big Problem of Small Change, on how Europe dealt with precisely this.
+
+Five. It has to be commonly accepted. Money is only useful if everyone agrees it is money and takes it as payment. Sometimes that acceptance is purely a social convention. Sometimes it is reinforced by law.
+
+Now the consequence, which is the reason the measurement discussion exists at all. Those five properties are satisfied to different degrees by different assets. There is no sharp line between money and not money. As a result, there is no unique measure of what counts as money in an economy, or of how much of it there is.
+
+So by convention several definitions are used, each drawing a somewhat arbitrary line. Here are the four, from narrowest to broadest. You should be able to reproduce this ladder from memory.
+
+The monetary base is physical currency plus central bank reserves.
+
+M0 is physical currency only.
+
+M1 is physical currency plus demand deposits. Demand deposits are basically checking accounts.
+
+M2 is M1 plus savings deposits, plus small time deposits, plus money market mutual fund shares held by individuals.
+
+Notice the structure, because it is easy to get wrong. The monetary base and M0 both start from physical currency, but the base adds central bank reserves, which are in nobody's pocket. M1 and M2 instead move outward into bank deposits. So the base is not simply a smaller M1. It is a different object: it is the part of money the central bank issues directly.
+
+A little on each. Physical currency meets the conditions for money pretty well, though not perfectly: it can be counterfeited, and there are places that will not take it. M1 adds checking accounts, because for most transactions either a check or a debit card is acceptable. Kurlat has a dry footnote here: not for every transaction. Some stands at the Palo Alto farmers market take only physical cash, and so, he has been told, do most drug dealers. M2 adds other deposits and money market fund shares. A money market fund invests in very safe assets, so the total value of the pool does not move much, which makes it behave much like money as a store of value. The assets in the broader measures are slightly harder to use in transactions. Hence the phrase to remember: these assets have an intermediate degree of moneyness, so they enter the broader measures and not the narrower ones.
+
+Finally, why the monetary base carries that name. It is the only part of money under the direct control of the government, so it forms the base on which every other measure is built. That sentence is the bridge to the next section. If the government controls only the base, and M1 is what matters for transactions, then we need the mechanics connecting the two.
+
+Checklist for part one. You should be able to state the three functions and say which one defines money, and why. You should be able to explain the double coincidence of wants in one sentence. You should be able to give the five properties with a reason for each. You should be able to write the four aggregates in order and say what each adds. And you should be able to say why there is no unique measure of money, in terms of properties being satisfied by degrees.
+
+PART TWO. THE SUPPLY OF MONEY, AND THE MULTIPLIER. SECTIONS TEN POINT TWO AND TEN POINT THREE, PRINTED PAGES 192 THROUGH 199.
+
+The monetary aggregates are chosen partly by the government, which decides how much physical currency to issue, and partly determined by what banks do, because deposits are bank liabilities. This part is how those two fit together.
+
+The lecture spends more time here than the book does on one object in particular: the bank balance sheet. Let me describe it in words, because a balance sheet is a table and a table is invisible to a listener.
+
+On the left side are the bank's assets. Loans. Government bonds. Other assets. And one that will matter to us: central bank reserves. The central bank acts as a bank for banks, and reserves are simply the name for deposits that banks hold at the central bank. That makes reserves an asset for the bank and a liability for the central bank. Typically reserves earn either no interest or a very low rate.
+
+On the right side are the bank's liabilities. Mostly deposits, but sometimes also non-deposit borrowing, such as long term bonds the bank has issued. And below the liabilities, the bank's net worth, which is just the difference between assets and liabilities. In Portuguese the lecture writes this as patrimonio liquido.
+
+Now the question the lecture puts on the board: if reserves pay no interest, why do banks hold them? There are two reasons, and their relative importance has changed across history.
+
+The first reason is to meet unexpected withdrawals of deposits. Most bank assets are relatively long term and hard to sell, so if depositors want their money right away it helps to hold an asset that converts to cash immediately. Reserves do that, because in most countries the central bank stands ready to swap reserves for cash whenever banks want it. Kurlat is explicit that nowadays this is usually not the main reason: deposit insurance has made bank runs quite rare, and there are explicit arrangements for emergency loans to meet withdrawals.
+
+The second reason, and today the main one, is regulation. Banks are required to hold a minimum level of reserves, set as a percentage of deposits. The exact percentage usually depends on the type of deposit, and the details vary a great deal across countries.
+
+Keep both reasons in mind, because the whole zero interest rate discussion later turns on which one is binding.
+
+Now the worked example. Kurlat builds an economy with three entities: the central bank; a single commercial bank, meant to represent the sum of all banks; and a single representative household.
+
+Let me give you the three balance sheets in words. The central bank holds government bonds, call the amount b, on the asset side. Its liabilities are the private bank's reserves and the outstanding currency. The private bank holds reserves, bonds and loans as assets, and deposits as its liability. The household holds currency and deposits as assets, and in this simple example has no liabilities at all.
+
+Two pieces of notation. Call the currency held by the household c, and the deposits d. And let the reserve requirement be a fraction of deposits. The lecture and the book both use the Greek letter theta for that fraction. I will say "theta" throughout. The bank is satisfying the requirement exactly, so it holds theta times d in reserves.
+
+In this economy, then, following the definitions from part one: the monetary base is c plus theta times d. M0 is just c. And M1 is c plus d, assuming the deposit is a demand deposit.
+
+Stop and notice something about those three expressions, because it is the cleanest possible illustration of part one's point. The base and M1 are different objects built from the same economy: the base counts theta times d, the fraction of deposits sitting as reserves; M1 counts all of d, the whole deposit. That gap between theta times d and d is exactly where the multiplier is going to come from.
+
+Now section ten point three, changing the supply of money. One caution first, straight from the book: this section studies the traditional way central banks changed the money supply. The way central banks operate has been changing over the last decade or so, and exercise ten point three asks you to compare modern operating procedures with this traditional approach. So read this as the classic mechanism, not as a description of today.
+
+Suppose the central bank wants to change the supply of M1. It does not directly control deposits, which are the biggest component of M1, but it affects them indirectly through open market operations.
+
+An open market operation is a trade in which the central bank either buys bonds and pays for them with reserves, or sells bonds and accepts reserves as payment. It is called an open market operation because the central bank is trading in the open market, just like anyone else.
+
+Let me walk the sequence, because the exam question here is always about the sequence and not the final formula.
+
+Step one. The central bank buys government bonds from the private bank and pays by crediting reserves to that bank. Call the size of the purchase delta. These are new reserves: they come into existence because the central bank creates them.
+
+Step two. Now the bank has more reserves than it is required to hold. It has excess reserves. Since reserves earn no interest, the bank will try to lend them out. The book flags the assumption doing work here: this supposes there are lending opportunities out there on which the bank will in fact earn a positive interest rate. Remember that assumption. It is the one that fails later.
+
+Step three. The bank makes a loan. What happens when a bank makes a loan? It gives the borrower a check, in exchange for a promise to repay with interest later. The borrower deposits the check. Maybe in the same bank, maybe in a different bank, maybe the borrower hands the check to someone else, who deposits it. Since we are adding up over all banks and all households, those variants are equivalent.
+
+Here is the sentence from this section most worth memorising, because it corrects the usual sloppy story. Even though the bank lent out the excess reserves, the reserves do not actually disappear. They are still there. It is more accurate to say that private banks take advantage of the relaxation of the reserve to deposit ratio to expand loans and deposits.
+
+Say that back to yourself. Lending does not spend reserves away. Lending creates new deposits, and new deposits carry a new reserve requirement, which is what eventually stops the process.
+
+Step four. The borrower, or whoever was paid, wants some of the new deposits in cash. Call the fraction taken as cash gamma. So the borrower wants gamma of the new money in cash and one minus gamma in deposits. The borrower goes to the cash machine. The bank asks the central bank for cash. The central bank prints physical currency, hands it to the bank, and in return reduces the reserves it owes the bank. The bank hands the cash to the borrower and reduces the balance in the borrower's deposit.
+
+Notice, and Kurlat points this out explicitly, that nobody's net worth changes in this whole series of transactions. The participants are just exchanging different types of assets and liabilities with each other. That is a good check on your own arithmetic whenever you redo this: if somebody got richer, you made a mistake.
+
+Step five. The process is not over. After the cash withdrawal the bank again has more reserves than required, so the whole thing repeats, scaled down. Each round is smaller than the last by a factor of one minus theta times one minus gamma. That defines a geometric series, and summing it gives the totals.
+
+When you sum it, the result is the money multiplier. In Kurlat's numbering this is equation ten point three point one. Spoken: the change in M1 divided by the change in the monetary base equals one over the quantity theta plus gamma minus theta times gamma.
+
+Let me say that denominator again slowly, because it is easy to garble: theta plus gamma minus theta gamma.
+
+It is called a multiplier because whenever the central bank changes the monetary base, which it controls directly, the change in M1 is the change in the base times this number.
+
+The multiplier depends on two things, and the difference between them matters more than the algebra.
+
+Theta, the ratio of reserves to deposits. For the most part the central bank can change this by changing the legal reserve requirement. Note the assumption riding along: that banks are trying to hold the minimum possible reserves, so the legal requirement binds.
+
+Gamma, the fraction of M1 that people want to hold as physical cash. This is not under the control of the central bank. It varies over time with the evolution of payment systems and with the public's confidence in the banking system.
+
+So one argument of the multiplier is a policy instrument and the other is public behaviour. That asymmetry is why the book can then say: in most of what follows, we will just say the central bank controls the money supply. What that means precisely is that the central bank directly controls the monetary base, and by understanding the multiplier it can control M1 fairly accurately, though indirectly.
+
+A note on notation, because your topic rules file writes this differently and you should not be thrown by it. The rules file gives the multiplier as one plus the currency to deposit ratio, over the reserve ratio plus the currency to deposit ratio. Kurlat instead gives one over theta plus gamma minus theta gamma. These are not contradictory: Kurlat's gamma is the fraction of M1 held as cash, while the rules file's ratio is currency divided by deposits. Different normalisations of the same behaviour. Follow Kurlat in anything you hand in for this course, and if you use the other form, say which you are using.
+
+Now the part the lecture treats as a headline and the book treats as a subsection: what if the interest rate is zero?
+
+Everything above was built on the assumption that banks keep reserves as low as possible. That makes sense as long as reserves pay zero interest and other assets pay positive interest. But if the interest rate fell all the way to zero, or if the central bank started paying market interest rates on reserves, the logic breaks down. Banks would be perfectly willing to hold reserves above the legal requirement, because the alternatives are no better.
+
+And here is the consequence, which is the thing to be able to state: changes in the monetary base need not lead to changes in M1, because all the new reserves would simply sit on bank balance sheets without triggering any expansion of loans and deposits.
+
+This is not hypothetical. The book shows it in figure ten point three point one. Nominal interest rates fell to almost zero in late 2008. At around the same time the Federal Reserve decided to start paying interest on excess reserves, meaning reserves above the legal requirement. Reserves suddenly became a more attractive asset for banks to hold, and banks began holding large amounts of excess reserves. The result: the M1 money multiplier fell from about 2 to less than 1. The monetary base was increased almost fivefold, and M1 increased much less.
+
+Those are the three numbers from this episode worth carrying: a multiplier from about 2 to below 1, and a base up roughly fivefold with M1 up far less.
+
+The book then says we will think more about near-zero interest rates in chapter 15. That is where I stop, because chapter 15 is out of scope for this course.
+
+Checklist for part two. You should be able to draw a bank balance sheet from memory and say what reserves are and to whom they are an asset and a liability. You should be able to give the two reasons banks hold reserves and say which one dominates today. You should be able to narrate the open market operation in five steps, and state correctly that lending does not make reserves disappear. You should be able to write the multiplier as one over theta plus gamma minus theta gamma, say which argument the central bank controls and which it does not, and explain why the multiplier collapses when the interest rate hits zero or reserves are remunerated, citing the late 2008 episode with its numbers.
+
+PART THREE. THE DEMAND FOR MONEY, AND THE BAUMOL-TOBIN MODEL. SECTION TEN POINT FOUR, PRINTED PAGES 199 THROUGH 202.
+
+This is the most important section of chapter 10 for the problem set, and the one place in this class where you derive something from an optimisation problem rather than from an accounting identity. Slow down here.
+
+Take M1 as the definition of money. The question is: why do people hold money at all? Why, instead of holding only assets that earn interest, like physical capital or government bonds, do people choose to hold physical currency and checking deposits, which earn no interest? The book notes in a footnote that some checking deposits do earn interest, but typically much less than you could earn on some other asset.
+
+The answer proposed is a simple model built on the idea that money is necessary to carry out transactions. It is the Baumol-Tobin model, first analysed by Baumol in 1952 and Tobin in 1956. The lecture cites both names and dates, so carry them.
+
+Here is the setup. Six pieces. Let me give them one at a time.
+
+One. There are two types of assets. M1 money, which pays no interest. And assets that do pay interest, all paying the same nominal interest rate, which we call i.
+
+Two. Over the course of a period, say a year, the household spends Y in real terms, where Y is real GDP. The price of a good is p, so in nominal terms the household spends p times Y.
+
+Three. This spending is not all at once. It is spread evenly over the period. If the period is a year, the household spends p times Y over 365, each day.
+
+Four. Whenever the household wants to pay for something it must use money. But it does not need to hold the whole of p times Y all at once. Whenever it wants, it can go to the bank and swap some interest-bearing assets for money.
+
+Five. Going to the bank need not mean literally walking into a branch. One way is to go to the cash machine and get physical currency, which is money, out of a savings account, which is not money under the M1 definition. Another is to log into a brokerage account and sell bonds, which are not money, depositing the proceeds into a checking account, which is money. Both are trips to the bank in the sense of the model.
+
+Six. There is a fixed cost, in real terms, of going to the bank. Call it F. Kurlat is careful about what F represents: it can literally be a cash machine fee, but also the time and the mental cost of dealing with the problem.
+
+Now the decision. The household chooses how many times per period it goes to the bank. Call that number N. And there is a genuine trade-off, which you should be able to state in both directions.
+
+The advantage of going to the bank many times is that it lets the household hold very low money balances, so most of its wealth is earning interest most of the time. The disadvantage is that each trip costs F, so many trips means paying that fixed cost many times.
+
+Before the algebra, picture the path of money holdings over time, because the picture is what makes the key formula obvious. Each time the household goes to the bank, it brings its money balance up to p times Y over N. Then the balance falls gradually as it spends, in a straight line, until it reaches zero, at which point the household goes to the bank again. So the path is a sawtooth: jump up to p Y over N, slide down to zero, jump again. That is the book's figure ten point four point one.
+
+From that picture: if the balance goes linearly from p Y over N down to zero, the average balance over the cycle is half the peak. So the average money balance is p times Y divided by two N. In Kurlat's numbering that is equation ten point four point one.
+
+Say it back: average money holdings equal p Y over two N.
+
+Now the optimisation, equation ten point four point two. The household chooses N to minimise the overall cost of holding money for transactions. Spoken: minimise, over N, the quantity p F N plus i times p Y over two N.
+
+Two terms, and you should be able to say what each is. The first, p F N, is the cost of the trips: if it goes N times it pays F each time, expressed in nominal terms as p F N. The second, i times p Y over two N, is the opportunity cost: it holds on average p Y over two N dollars in money, and since that money earns no interest, the foregone interest is i times that average balance.
+
+Take the first-order condition: differentiate with respect to N and set to zero. Spoken: p F minus i p Y over two, times N to the power minus two, equals zero.
+
+Solve for N. The result, equation ten point four point three: N equals the square root of i Y over two F.
+
+Let me say that again. N star equals the square root of the quantity i times Y, over two times F.
+
+And read the economics off it before going further, because the problem set asks you to. N rises with i and falls with F. Why? If i is high, the opportunity cost of holding money is high, so the household is willing to make many trips in an effort to hold low balances. If F is low, going to the bank is cheap, so other things equal the household goes more often.
+
+Now substitute that N back into the expression for average balances. Put equation ten point four point three into ten point four point one and rearrange. You get average nominal balances equal to p times the square root of Y F over two i. Divide through by the price level and you have the central result of the chapter, equation ten point four point four:
+
+Real money balances, M over p, equal the square root of the quantity Y times F, over two times i.
+
+Say that three times. The square root of Y F over two i. That formula, and the elasticities that fall out of it, are the spine of Problem Set 6.
+
+What are real money balances? They are the answer to the question: how many goods could the household buy with the money it is holding? And equation ten point four point four says real balances are higher when three things hold.
+
+When Y is high. If the household wants to spend more, that involves more payments, so it carries higher real balances.
+
+When i is low. Since i is the opportunity cost of holding money, a low i means the household is content to hold more money and save on trips.
+
+When F is high. If going to the bank is costly, the household holds higher balances to avoid trips.
+
+Now the elasticities, which the book does not compute here but the problem set demands, and which exercise eleven point one asks for directly. Look at the square root form. Real balances are proportional to the square root of Y, so the income elasticity is one half. Real balances are proportional to one over the square root of i, so the interest elasticity is minus one half. And they are proportional to the square root of F, so the elasticity with respect to the fixed cost is also one half.
+
+Say it plainly: Baumol-Tobin gives an income elasticity of money demand of one half, and an interest elasticity of minus one half.
+
+And say why one half and not one, because that is the conceptual content. If income doubles, money demand does not double. It rises by about forty one per cent, the square root of two. The household economises: it makes more trips rather than holding proportionally more cash. There are economies of scale in cash management. That single fact is what drives the whole numerical part of the problem set, because the alternative theory, which we meet in part five, assumes the elasticity is one instead.
+
+The book then shows the demand curve itself, figure ten point four point two. The quantity of money people want to hold decreases with the interest rate, so the curve slopes down in the plane with money on one axis and the interest rate on the other. And a higher cost of going to the bank shifts the entire schedule to the right. Be able to draw that: a downward sloping curve, and a rightward shift when F rises.
+
+Then comes an honest caveat, and it is examinable because it tells you how to use the model. The Baumol-Tobin model makes very specific assumptions about how households manage money: every trip costs the same, spending is spread out exactly evenly over time, and spending is perfectly predictable. We will often want to keep the basic economic forces the model captures while not expecting the exact formula to hold.
+
+For that purpose the book introduces the generalised money demand function. Written as m superscript D, of Y and i. It is increasing in Y and decreasing in i, and nothing more is assumed. The Baumol-Tobin square root formula is then just a special case of this more general object.
+
+This distinction matters enormously for the problem set, so let me be explicit. When a question says "assume money demand is given by Baumol-Tobin", you may use the square root and you may use one half as the elasticity. When a question says only "real money demand is m D of Y and i, increasing in Y and decreasing in i", you may use only the signs, and the elasticity is an unknown parameter. Mixing those two up is the most common way to lose marks in this chapter.
+
+Finally, the stability question, which the lecture puts as a one-line provocation: is money demand stable? There is some debate. At times the quantities of M0, M1 and M2 that people held have moved around quite a bit without changes in interest rates or GDP that would account for them. However, Lucas and Nicolini in 2015, and Kurlat himself in 2019, argue that if you construct an appropriately weighted composite measure, one that accounts for how people substitute between the subcomponents of money, physical currency, checking accounts, savings accounts and so on, then the resulting money demand has a relatively stable relationship with the interest rate, as the theory predicts. That is the book's figure ten point four point three.
+
+Checklist for part three. You should be able to set up the Baumol-Tobin problem from scratch: the two assets, even spending, the fixed cost F, and the choice of N. You should be able to draw the sawtooth and explain from it why average balances are p Y over two N. You should be able to write the minimisation, take the first-order condition, and get N equals the square root of i Y over two F. You should be able to substitute back and get real balances equal to the square root of Y F over two i. You should be able to state the three elasticities, one half in income, minus one half in the interest rate, one half in F, and explain the economies of scale intuition for the one half. And you should be able to say exactly when you may use the square root formula and when you are restricted to the signs of the generalised function.
+
+PART FOUR. MEASURING INFLATION, AND NOMINAL VERSUS REAL INTEREST RATES. SECTION ELEVEN POINT ONE, PRINTED PAGES 205 THROUGH 208.
+
+Chapter 11 opens with the definition. Inflation is a generalised increase in the level of prices.
+
+If the prices of all goods rose by the same percentage, measuring inflation would be straightforward. It gets harder when different prices change at different rates, or even move in opposite directions. How do we define the overall level of change?
+
+The book points out that we have already met this problem. In chapter 1, discussing real and nominal GDP, the question was how to measure the overall change in output when the prices of different goods were changing by different percentages. Here we are interested in the prices for their own sake. So if the index number problem felt unresolved in class 1, it is the same problem, and it is still unresolved. There is no neutral answer; there is a choice of basket.
+
+The basic idea: define a basket of goods, meaning a list of specific quantities of various goods, and measure how the total price of that basket changes. That total price is called a price index. The different methods of measuring inflation differ in how they choose and update the basket.
+
+First index: the GDP deflator. It is a by-product of computing real GDP. Spoken: the GDP deflator equals nominal GDP divided by real GDP, times 100.
+
+The lecture works the example from chapter 1, the country Kurlat calls Expandia, and you should be able to reproduce it. Real GDP in 2018, computed at 2017 prices, is 2,550 dollars. Nominal GDP in 2018 is 1,860 dollars. So the deflator for 2018 is 1,860 divided by 2,550, times 100, which is approximately 73.
+
+By definition the deflator is 100 in the base year. So a deflator of 73 says overall prices went down. And note what the book notes: not all prices went down. Some went up and some went down. Using the GDP deflator as your price index means implicitly choosing to weight each good in proportion to its share of GDP.
+
+Second index: the consumer price index, the CPI. This is the most commonly used, and it weights goods by how much they are consumed rather than how much they are produced. The basket is constructed by surveying households about how much of each good they consume.
+
+The formula, spoken carefully: the CPI equals the sum over goods of the quantity of good j times the price of good j in period t, divided by the sum over goods of the quantity of good j times the price of good j in the base year, all times 100.
+
+Note what is fixed and what moves. The quantities stay the same in numerator and denominator, taken from the survey. Only the prices change. That is what makes it a fixed basket index.
+
+The lecture's worked example is the country Luxuria, whose residents consume only three goods: Ferraris, caviar and champagne. Let me walk the table as a sentence, since you cannot see it.
+
+Ferraris: 2 units, priced 100 in 2017 and 115 in 2018. Caviar: 20 kilograms, priced 4 in 2017 and 3 in 2018. Champagne: 10 litres, priced 2 in 2017 and 4 in 2018.
+
+Now total the basket at each year's prices. At 2017 prices: 2 times 100 is 200, plus 20 times 4 is 80, plus 10 times 2 is 20. Total 300. At 2018 prices: 2 times 115 is 230, plus 20 times 3 is 60, plus 10 times 4 is 40. Total 330.
+
+So the index is 100 in the base year and 330 over 300 times 100, which is 110, in 2018. Inflation is 10 per cent.
+
+Notice the pedagogical point buried in that example: one of the three prices fell. Caviar went from 4 to 3. Inflation of 10 per cent is perfectly compatible with individual prices falling. Inflation is a statement about an index, not about every price.
+
+Then inflation itself. Having a price index, inflation, denoted by the Greek letter pi, is computed as: pi in period t equals the price index in period t divided by the price index in period t minus one, minus one.
+
+In the Expandia example, inflation measured by the GDP deflator was minus 27 per cent. When inflation is negative we call it deflation, a general fall in prices. In the Luxuria example, inflation measured by the CPI was 10 per cent.
+
+Now an important point about coexistence. For a given country several measures of inflation exist side by side, each derived from a different index. Usually it does not make much difference which you look at, because the production-based basket behind the deflator and the consumption-based basket behind the CPI are not that different, at least in the United States. But it can matter more in countries that produce and consume very different goods. The book's example: in a country that produces oil and exports most of it, a rise in the oil price would produce a big rise in the GDP deflator but not as much in the CPI. Carry that example. It is the cleanest test of whether you understand what each index weights.
+
+The book then shows United States CPI inflation over a long span, figure eleven point one point one. Three facts from it. Inflation was very variable until the 1950s, with times of over 20 per cent inflation and over 10 per cent deflation. Between the 1960s and the early 1980s inflation tended to increase. Since the mid-1980s it has been quite low and stable.
+
+Now the second half of this section: nominal and real interest rates.
+
+A basic lending transaction. A lender gives a borrower one dollar in period t. The borrower pays back one plus i, in dollars, in period t plus one. That i is the interest rate between periods t and t plus one.
+
+A convention to note, because it trips people up in the algebra later. The book labels interest rates by the period when the loan must be repaid. So i subscript t plus one is the rate on loans issued in period t and due in period t plus one.
+
+The book also reminds us that we say "the interest rate" although in reality there is no single rate for all loans. Typically the rate on government debt is the lowest in the country, at least in the United States where the government is seen as reliable, and private borrowers pay more, compensating for administrative costs and the probability of default.
+
+Why do we want real rates? Because we are often interested in expressing interest rates in terms of goods rather than in terms of dollars.
+
+Here is the lecture's worked example, the country Usuria. A one year loan issued in January 2018, repaid January 2019, charges 11 per cent. Everyone expects inflation between those dates to be 2 per cent. Someone lends 100 dollars.
+
+Walk it. The price index is 100 in January 2018 and 102 in January 2019. In dollars, the loan is 100 and the repayment is 111. Now convert to goods. At the start, 100 dollars buys 100 over 100, that is exactly 1 consumption basket. At the end, 111 dollars buys 111 over 102, which is approximately 1.088 baskets.
+
+So for each good the lender gave up at the beginning, he gets back 1.088 goods a year later. The extra 0.088 goods is the real interest rate: roughly 8.8 per cent. We call it real because it is expressed in goods, as against a nominal rate expressed in dollars.
+
+Note carefully: the repayment of 111 dollars does not buy 1.11 baskets, because prices rose in the meantime. It buys 1.088. The gap is the inflation.
+
+In general, one plus the real rate equals the goods you can afford with the loan repayment, divided by the goods you could afford with the loan when it was issued. Work that through and you get: one plus the real rate equals one plus the nominal rate, divided by one plus inflation.
+
+And then the approximation, equation eleven point one point one: the real interest rate is approximately the nominal interest rate minus inflation. This is the Fisher equation, named after Irving Fisher. The book is explicit that the approximation is accurate when inflation is small. In high inflation the exact form, a ratio, is the one to use. That is a standard trap: using the subtraction version in a hyperinflation question.
+
+Finally, a distinction that matters whenever expectations enter. It is not always easy to know what the real interest rate is, because there is always uncertainty about future inflation. If you lend or borrow in dollars, as is usual, then until the loan ends you do not know how many goods the future dollars will buy. So we distinguish the ex-ante real interest rate, the real rate expected at the outset, based on expected inflation, from the ex-post real interest rate, computed from what inflation turned out to be.
+
+One cross-reference the book makes, and it is worth holding because it unifies the course. Whenever interest rates appeared in chapters 4 through 9, they meant real interest rates, because we were thinking about exchanges of real goods over time. But when we studied money demand in chapter 10, it was the nominal rate that mattered, because the nominal rate is what determines the opportunity cost of holding money. So the answer to "which rate belongs in this equation" is: real for intertemporal goods decisions, nominal for money holding.
+
+Checklist for part four. You should be able to define inflation and explain why measuring it requires choosing a basket. You should be able to compute a GDP deflator and a CPI from a small table, and reproduce both the Expandia and the Luxuria arithmetic. You should be able to say what each index weights by, and give the oil exporter example where the two diverge. You should be able to state that inflation can be positive while some prices fall. You should be able to derive the exact Fisher relation as a ratio and then the approximation, say when the approximation fails, and distinguish ex-ante from ex-post real rates. And you should be able to say which rate belongs in a money demand function and why.
+
+PART FIVE. EQUILIBRIUM IN THE MONEY MARKET. SECTION ELEVEN POINT TWO, PRINTED PAGES 208 THROUGH 215.
+
+This is the heart of the class. It is seven printed pages, the longest section in either chapter, and almost all of Problem Set 6 lives here. If your time is short, read this section twice and skip the measurement material.
+
+In chapter 10 we looked at money supply and money demand separately. An equilibrium in the money market requires that supply equals demand: all the money created jointly by the central bank and the private banks must be held by someone, voluntarily. That word voluntarily is doing real work. Money is not forced into anyone's pocket; somebody has to be content holding it.
+
+The condition, equation eleven point two point one, spoken: the money supply, M superscript S, equals real money demand, m superscript D of Y and i, times the price level p.
+
+Let me name the two sides. The left hand side is the money supply, and we imagine the central bank simply chooses it, by choosing the monetary base and understanding the multiplier from part two. The right hand side is money demand: real money demand times the price level, which is nominal money demand. It is the result of households' decisions about how much money to hold.
+
+Now the question that organises the whole section. How does a money market equilibrium come about? Suppose the central bank increases the money supply. What changes, to induce households to hold more money?
+
+Look at the right hand side. There are exactly three candidates, and you must be able to list all three with the mechanism for each.
+
+One. The price level p could rise. If the price level is higher, the same amount of real transactions requires more money, so households want to hold extra money.
+
+Two. The nominal interest rate i could fall. If interest rates are lower, the opportunity cost of holding money is lower, so households are willing to hold more of it.
+
+Three. Real GDP, Y, could go up. If GDP is higher there are more real transactions to carry out, which requires more money.
+
+Three channels: the price level, the interest rate, output. Say them in that order and you will not forget one.
+
+And now the sentence that tells you why this chapter exists, and which you should take as the thesis of the whole class. There are different views on which of these three variables tends to respond, and why. This turns out to be an extremely important issue.
+
+In this chapter we look at the so-called classical view, which postulates that the real side of the economy is separate from anything to do with money. Real variables, like real GDP and the real interest rate, are determined purely by real factors, technology and preferences, which do not change when the money supply changes. One way of stating this view is to say that money is neutral.
+
+Be precise about the logic here. If real GDP and the real interest rate are pinned down by real forces, then of the three channels, two are closed off. Y cannot move, and the real rate cannot move. So the price level is what adjusts. Neutrality is not an extra assumption bolted on at the end; it is the statement that the first and third channels are shut.
+
+The book then says something admirably honest: in everything we have done so far, we have implicitly adopted this classical view. We studied the forces determining real variables without any reference to the money supply. Chapters 4 through 9, all that general equilibrium, never mentioned money. And in chapter 14 we will think about reasons why money might not be neutral. Chapter 14 is out of scope for this course; classes 8 and 9 will do that job from the Benigno article. So here I note the forward reference and stop.
+
+Now three scenarios, in increasing order of subtlety. These are the three steady states the lecture puts on the board, and the third one is the problem set.
+
+Scenario one. An economy in steady state with a constant money supply.
+
+Suppose Y and the real rate r are constant, and the central bank holds the money supply constant too. We conjecture that the price level will be constant as well, then verify that this is consistent with money market equilibrium. The book names this method explicitly: guess and verify. It also adds a technical caution worth repeating: we will show that there is an equilibrium with constant prices, not that it is the only one.
+
+If the price level is constant, inflation is zero, so by Fisher the nominal interest rate equals the real interest rate. Then solve the equilibrium condition for p. Equation eleven point two point two, spoken: the price level equals the money supply divided by real money demand evaluated at Y and r.
+
+That is constant, because the money supply, Y and r were all assumed constant. The conjecture checks out.
+
+Read the economics off it. An economy where the money supply is higher will, other things equal, have higher prices. People want a certain level of real money balances, given by money demand at Y and r. So the price level must be whatever makes the real value of the money stock equal to those desired real balances. The price level is the variable that does the reconciling.
+
+Scenario two. An economy in steady state with a growing money supply.
+
+Keep Y and r constant, but now let the money supply grow at a constant rate. Call that rate mu. So the money supply next period is one plus mu times the money supply this period.
+
+Conjecture: the price level also grows at rate mu. Check it.
+
+If the price level next period is one plus mu times the price level this period, then inflation is mu. And therefore the nominal interest rate is the real rate plus inflation, that is, r plus mu.
+
+Now verify the equilibrium. If the money market clears this period, then the money supply this period equals money demand at Y and r plus mu, times the price level this period. Multiply both sides by one plus mu. The left becomes the money supply next period. On the right, money demand at Y and r plus mu is unchanged, because both arguments are constant, and the price level times one plus mu is the price level next period. So the money supply next period equals money demand times the price level next period, which is exactly the equilibrium condition for the next period. The conjecture is confirmed.
+
+State the economics, because that is what gets marked. Since GDP and the nominal interest rate are constant, people want constant real money balances. Since the nominal money supply is growing, prices must grow at the same rate to keep real balances constant. Inflation equals money growth.
+
+And the book brings evidence: figure eleven point two point one plots inflation against money supply growth over a long period for many countries, one dot per country. Comparing across countries, inflation is almost exactly proportional to the growth rate of the money supply. That is the single strongest empirical fact in this chapter, and it is the reason the quantity theory is taken seriously at long horizons.
+
+Scenario three. A growing economy. This is the derivation Problem Set 6, question 2, part a, asks for, so do it with me rather than listening to it.
+
+Now the economy is in a steady state with growth. Y grows at a constant rate g. The real interest rate r is constant. The money supply grows at constant rate mu. We want the inflation rate.
+
+Start from the equilibrium condition and differentiate with respect to time. The left hand side gives the time derivative of the money supply. The right hand side is a product of money demand and the price level, where money demand itself depends on Y and on i, both of which may move. So by the product and chain rules the derivative of the right hand side has three terms: the partial of money demand with respect to Y times the time derivative of Y, plus the partial with respect to i times the time derivative of i, all times p, plus money demand times the time derivative of p.
+
+Now divide both sides by the equilibrium condition itself, that is, by the money supply on the left and by money demand times p on the right. Dividing converts every level into a growth rate. Do it term by term and you get this.
+
+On the left, the growth rate of the money supply, which is mu.
+
+On the right, three terms. First, the partial of money demand with respect to Y, times Y over money demand, times the growth rate of Y. Notice what that first factor is: it is an elasticity. Second, the partial of money demand with respect to i over money demand, times the time derivative of i. Third, the growth rate of p, which is inflation, pi.
+
+Now define the elasticity, because the problem set uses it as a named object. Let eta denote the partial derivative of money demand with respect to Y, times Y over money demand. Eta is the elasticity of money demand with respect to GDP. It answers the question: if GDP rises by one per cent, by what per cent does the demand for real money balances increase? Assume the money demand function is such that this elasticity is constant.
+
+With that definition, the relation reads: mu equals eta times g, plus the interest term, plus pi.
+
+Now kill the interest term. If inflation is constant, then the nominal interest rate, which is r plus pi, is also constant, so its time derivative is zero. The whole middle term vanishes.
+
+What is left is: mu equals eta times g plus pi.
+
+And therefore, rearranging, equation eleven point two point three:
+
+Inflation equals mu minus eta times g.
+
+Say it again. Pi equals mu minus eta g. Inflation equals the growth rate of the money supply, minus the income elasticity of money demand times the growth rate of output.
+
+Note two things about what we just did. First, the result is self-consistent: we assumed inflation was constant in order to kill the interest term, and the formula delivers a constant inflation rate, since mu, eta and g are all constants. Second, the book observes that this formula contains the two earlier scenarios as special cases. Set g to zero and you get inflation equals mu, which is scenario two. Set mu to zero as well and you get zero inflation, which is scenario one.
+
+Now the economics, and there are two separate questions to answer.
+
+First: why does a growing economy have lower inflation, other things equal? Because a growing economy means a growing number of transactions, and therefore a growing demand for real money balances. That means the economy can absorb growing quantities of money without inflation. The new money is soaked up by the extra transactions rather than bidding up prices.
+
+Second: why does eta appear in the formula at all? Because eta measures how much the demand for money increases when the economy grows. The higher eta is, the faster the money supply can grow without causing inflation. Eta is the exchange rate between output growth and absorbable money growth.
+
+That second point is the conceptual core of question 2 of the problem set, so let me put it in the form the exam wants. Eta is not a detail of functional form. It is the number that tells a central bank how much money growth the real economy will absorb for free. Get eta wrong and you miss your inflation target by exactly the amount of your error in eta, times g.
+
+Now two comparative statics experiments. The lecture treats these as separate slides, and the second is genuinely subtle.
+
+Experiment one. A one-time increase in the level of the money supply.
+
+Start from a steady state with a constant money supply. At time t there is a sudden, unexpected increase in the money supply, to a new higher level, and it is expected to stay at that new level forever.
+
+Before time t, the price level was the money supply over money demand at Y and r. After, we are back in a constant-money-supply steady state, just with a higher level. So the new price level is the new money supply over the same money demand. Taking the ratio: the new price level over the old price level equals the new money supply over the old money supply.
+
+So prices jump immediately to their new level, and the size of the jump is proportional to the size of the increase in the money supply. That is neutrality in its purest form: a one-off doubling of money doubles the price level and changes nothing real.
+
+But the book is careful about the mechanism, and so should you be. The exact causal chain leading from an increase in the money supply to a rise in the price level is a matter of some debate. Why does everyone immediately raise their prices? In terms of the logic of the model: when the central bank increases the money supply, everyone suddenly has more money than they want, so they all try to reduce their money balances. But it is impossible for everyone to do that at the same time, because somebody has to hold the money. Everyone immediately realises this, so money immediately loses value, and money losing value is exactly what a higher price level means.
+
+And note the condition the book flags: for this reasoning to be correct, prices must be flexible, reacting immediately to changes in the money supply. From chapter 14 onward the book considers sticky prices, which is a source of monetary non-neutrality. That is the forward reference, and it is precisely what classes 8 and 9 will do with Benigno. So mark this spot: this is the seam in the course.
+
+Experiment two. A change in the rate of growth of the money supply. The book calls this a slightly more subtle exercise, and it is the one most likely to catch you.
+
+Start at a steady state with the money supply growing at rate mu, and therefore inflation equal to mu. At time t there is a sudden, unexpected increase in the growth rate, from mu to a higher mu prime, expected to stay there forever.
+
+The naive guess is that inflation simply rises from mu to mu prime. The book's verdict on that guess is exact, and worth quoting in substance: this guess is not wrong, but it is incomplete.
+
+Why incomplete? Follow the chain. If inflation rises from mu to mu prime, then the nominal interest rate rises from r plus mu to r plus mu prime. A higher nominal rate raises the opportunity cost of holding money, so people want to hold less of it. So real money balances must fall.
+
+But here is the catch. The level of the money supply does not change at time t. It simply starts growing at a different rate from that moment. So if real balances must fall and the nominal quantity of money has not changed, what makes the money market clear?
+
+The price level must jump.
+
+Say that out loud, because it is the answer to the trap. A permanent increase in the growth rate of money causes a one-off jump in the price level at the moment of the announcement, on top of the faster growth thereafter.
+
+The economics: people are all simultaneously trying to reduce their money balances because the opportunity cost has gone up. Since the total nominal supply of money has not changed, money loses value, which is the same as saying prices rise.
+
+The book collects all these cases in figure eleven point two point two, showing how the price level evolves over time in each example. Be able to sketch it: a flat line; a line with constant slope; a steeper line; and a line that jumps and then rises more steeply.
+
+Now the last piece of this section: the velocity of money. This matters because question 1 of the problem set is built on it.
+
+Velocity is the number of times a unit of money is used per period. The book's example, which is worth carrying because it makes the definition concrete. The money supply is 2 dollars. At the start of the period Ann and Bob each hold one dollar. Over the year, six transactions happen: Ann sells an apple to Bob for a dollar and Bob sells a banana to Ann for a dollar; Ann sells asparagus to Bob and Bob sells a blueberry to Ann; Ann sells an apricot to Bob and Bob sells a blackberry to Ann. So nominal GDP is 6 dollars, the money supply is 2 dollars, and each dollar changes hands 3 times. Velocity is 3.
+
+In general, equation eleven point two point four, spoken: the money supply times velocity equals the price level times real GDP. Money supply times velocity equals nominal GDP.
+
+This is sometimes called the quantity equation, or on the lecture slides the exchange equation of the quantity theory of money. And now the single most important sentence in this part, which is question 1 part a of the problem set almost verbatim:
+
+Equation eleven point two point four is a definition. It is true because this is the way we define the velocity of money.
+
+Let that land. Money supply times velocity equals nominal GDP is an accounting identity. Velocity is defined as nominal GDP divided by the money supply. So the equation cannot fail, cannot be tested, and by itself tells you nothing about causation. It does not say that a change in money causes a change in prices, rather than in output or in velocity. As an identity it is empty of behaviour.
+
+So how does it relate to the money market equilibrium condition? Use the equilibrium condition to replace the real money stock in the quantity equation and rearrange. The result, equation eleven point two point five:
+
+Velocity equals Y divided by real money demand at Y and i.
+
+And the book draws the conclusion explicitly: any theory of money demand is also a theory of velocity. Once you have a money demand function, plug it into this and velocity comes out as a function of Y and i.
+
+Now apply it, because this is exactly Problem Set 6, question 1, part b. Our theory of money demand says money demand is decreasing in i. So velocity, which has money demand in the denominator, is increasing in i. Economically: if interest rates are higher, people hold less money, so to carry out the same volume of real transactions each dollar must change hands more times.
+
+And now do it for Baumol-Tobin specifically. Real money demand is the square root of Y F over two i. So velocity is Y divided by that square root. Simplify: Y over the square root of Y F over two i equals the square root of Y squared times two i over Y F, which is the square root of two i Y over F.
+
+So under Baumol-Tobin, velocity equals the square root of two times i times Y, over F.
+
+Look at what that says. Velocity rises with the interest rate, rises with income, and falls with the fixed cost of going to the bank. It is not a constant. It is not even approximately a constant if interest rates move. So the assumption that makes the quantity equation into a theory is flatly contradicted by the model of money demand we derived in part three. That tension is the content of question 1, parts a and b.
+
+The book is even-handed about the evidence. Figure eleven point two point three shows how velocity has evolved in the United States, using M1 and M2. Note that the velocity of M1 is higher than the velocity of M2, which follows from the definitions: M2 includes more things, so by the quantity equation its velocity must be lower. And the figure shows that constant velocity is not completely justified, since velocity has moved around quite a bit over time. Furthermore, a standard model of money demand says velocity should not be expected to remain constant: when interest rates rise, money demand falls and velocity rises.
+
+Nevertheless, sometimes it is useful to hold velocity constant in an other-things-equal sense while considering some other change. And here is the pivot sentence to memorise: if one assumes velocity is constant, then the quantity equation changes from being a definition to being a theory. It is then known as the quantity theory, because it says the price level will be exactly proportional to the quantity of money.
+
+That is the precise answer to "when does the identity become a theory": when you add the assumption that velocity is constant. And the evidence from the cross-country figure is sometimes read as supporting the quantity theory, since the theory implies an exact linear relationship between money growth and price changes. Notice that the relationship becomes much closer for high-inflation countries. Even if velocity is not exactly constant, compared with the scale of money supply changes in those countries it does not move that much, so the quantity theory is not a bad approximation there.
+
+Checklist for part five. You should be able to write the equilibrium condition and name all three adjustment channels with their mechanisms. You should be able to state the classical view and explain why it implies the price level does the adjusting. You should be able to run all three steady states, including the time differentiation that gives inflation equals mu minus eta g, and say why the interest term drops out. You should be able to explain why growth lowers inflation and why eta appears. You should be able to handle both experiments, and in particular to say why a rise in the growth rate of money makes the price level jump. And you should be able to state that the quantity equation is a definition, say exactly which assumption turns it into a theory, derive velocity as Y over money demand, and compute velocity under Baumol-Tobin as the square root of two i Y over F.
+
+PART SIX. SEIGNIORAGE AND THE INFLATION TAX. SECTION ELEVEN POINT THREE, PRINTED PAGES 215 THROUGH 217.
+
+Most countries nowadays keep inflation quite low, though usually not zero. Historically one of the reasons inflation has sometimes been high is that governments used inflation to obtain seigniorage.
+
+Start with the word, because the etymology explains the concept. Seigniorage derives from the French word for lord, seigneur. Originally it meant the profit made in producing coins. Back when coins were made of precious metals, a minted coin was typically worth more than the metal in it. Why? Because minted coins were better money than raw metal: they were standardised, and so more useful in transactions. The profit the mint earned by turning metal into money was the seigniorage. Nowadays the term is used more broadly, for the resources obtained thanks to the ability to create money.
+
+Now the mechanism, and it turns on an asymmetry in the central bank's balance sheet that part two passed over. When the central bank increases the monetary base, it increases both its assets and its liabilities by the same amount. That sounds like a non-event. But there is one important difference: the assets the central bank obtains, government bonds, earn interest, while the liabilities it issues, currency and reserves, typically do not. Standard accounting still treats them as liabilities, but in a certain sense they are not. And the central bank is just a branch of the government.
+
+Therefore, and this is the sentence to remember: increasing the monetary base is a way for the government to get a loan that it will never have to repay and that pays no interest.
+
+The book then writes the government budget constraint, equation eleven point three point one. Let me read it in words, slowly, because you should be able to reconstruct it.
+
+On the left hand side: nominal public debt issued for next period, plus the price level times real tax revenue, plus the change in the monetary base, meaning the monetary base next period minus the monetary base this period.
+
+On the right hand side: the price level times real government spending, plus one plus the nominal interest rate, times the debt inherited from the beginning of the period.
+
+Now the reading, term by term. The right hand side is everything the government must pay: the price level times spending is the bill for this period's purchases; one plus i times the inherited debt is what it owes on past debts, including the interest accrued. The left hand side is everything the government can use to pay: the price level times taxes is what it raises in taxes, in nominal terms; the increase in the monetary base is all the payments it can make purely by virtue of having created extra money; and the new debt is what it can pay for by issuing debt that must be repaid later.
+
+The book also rearranges it to make one point vivid: move things around so that the monetary base next period plus debt next period sits on the left, and the price level times the primary deficit, plus one plus i times inherited debt, plus the monetary base this period, sits on the right. In that form you can see that the monetary base enters the government budget just like debt, except that it does not pay interest.
+
+That is the clean statement. Money is debt that pays no interest.
+
+Now the subtle question, and it is a favourite exam question. Who exactly is the government taxing when it increases the monetary base? It is clear the government can pay for goods and services with monetary expansion. But nobody seems to be paying. How does it add up?
+
+The answer: anyone who holds money is implicitly paying a tax to the government when the monetary base expands. We know from the money market equilibrium that an expansion of the base leads, through the multiplier, to an increase in the money supply, and then to an increase in the price level. Anyone holding money while it is losing value is implicitly giving up some of their wealth to the government, just as if they had paid a regular tax.
+
+That is why seigniorage revenue is also called the inflation tax. And note the structure of that tax: the base of the tax is real money holdings, and the rate is the rate at which money loses value.
+
+The book adds a technical footnote that is worth knowing because it prevents an error. Strictly, it is not quite right to identify seigniorage with inflation. The government can obtain seigniorage revenue with zero inflation if the economy is growing, because a growing economy wants growing real balances. Exercise eleven point three asks you to work out how much. So seigniorage and the inflation tax are closely related but not identical, and treating them as two separate additive things, or as exactly the same thing, are both mistakes.
+
+Why has this been used historically? The book lists the circumstances, and they are worth knowing as a set. Sometimes it results from difficulties in collecting regular taxes, due to tax evasion or political indecision about which other taxes to use. Sometimes from a rapid increase in government spending that leaves no time to raise regular taxes, as in wartime. Sometimes from the inability to borrow, perhaps because lenders do not trust the government to repay. And sometimes from a misperception that expanding the base is a way of obtaining resources without really taking them from anyone. Often several of these at once.
+
+Finally, the limit, which is the most important economic point in the section. Governments usually limit how much seigniorage they try to raise because they want to avoid high inflation. But even if they did not care about inflation at all, there is a limit to how much seigniorage revenue they can obtain.
+
+Follow the chain. To obtain high revenue they need to expand the monetary base very fast. Fast expansion of the base leads to high inflation. High inflation leads to high nominal interest rates. High nominal rates mean real money demand falls. And since seigniorage is implicitly a tax on money holdings, a fall in real money demand means the tax base shrinks.
+
+So revenue is rate times base, and raising the rate shrinks the base. That is a Laffer curve in inflation: past some point, more inflation raises less revenue. The lecture states the limit exactly this way: the tax base, real money demand, falls as inflation and hence the nominal interest rate rise.
+
+The book says exercise eleven point six asks you to work out the limit on seigniorage revenue and compare it with historical experiences of very high inflation. That exercise uses the Cagan money demand function, and it is the one place in this course where the inflation Laffer curve appears in algebra. It is in scope, since it is an exercise in a chapter we cover, and it is worth doing.
+
+Checklist for part six. You should be able to explain the etymology and the original meaning of seigniorage. You should be able to state the balance sheet asymmetry: assets earn interest, monetary liabilities do not. You should be able to write the government budget constraint in words and identify every term. You should be able to say that the monetary base enters the budget like debt that pays no interest. You should be able to answer who pays the inflation tax and why, naming the base of the tax as real money balances. You should be able to explain why seigniorage is possible with zero inflation in a growing economy. And you should be able to narrate the Laffer logic in the four steps from fast base growth to a shrinking tax base.
+
+PART SEVEN. THE COSTS OF INFLATION. SECTION ELEVEN POINT FOUR, PRINTED PAGES 217 AND 218.
+
+Inflation is generally seen as undesirable. There are several reasons, and the first one is not a new idea: it comes straight out of the Baumol-Tobin model from part three. That is elegant, and it is why the book put money demand before inflation.
+
+Cost one: shoe leather. Other things equal, more inflation means higher nominal interest rates, which means people go to the bank more often to avoid holding high money balances. Each of those trips costs F.
+
+Using the expression for the optimal number of trips from part three, we can compute the total cost of trips to the bank. Equation eleven point four point one, spoken: the cost equals N times F, which equals the square root of i times Y times F over two. And since the nominal rate is the real rate plus inflation, that is the square root of the quantity r plus pi, times Y times F, over two.
+
+So the shoe leather cost rises with inflation, through the nominal interest rate. Notice that it is a square root, so the cost rises with inflation but at a decreasing rate.
+
+The lecture presents this as its own numbered equation, so be ready to write it: total cost equals the square root of r plus pi, times Y F, over two.
+
+Kurlat then tells a personal story, and I include it because it is the kind of thing that makes the cost concrete and is worth having in mind rather than the algebra alone. At the times of high inflation in Argentina in the late 1980s, his father would literally go to the bank twice a day, once around noon and once after work, just to make sure he had exactly enough money for the day's expenses and no more. That time spent dealing with the problem of how much money to hold has a real opportunity cost. Shoe leather is not a metaphor about footwear; it is hours of a person's life.
+
+On the basis of this reasoning, Milton Friedman advocated keeping nominal interest rates at or very near zero. That policy is known as the Friedman Rule.
+
+The logic: the point is to eliminate the opportunity cost of holding money. In the cost formula, setting i to zero makes the cost equal zero, because it means you never need to go to the bank at all. If holding money has no opportunity cost, you can simply hold all your wealth as money.
+
+But now do the arithmetic that makes the rule provocative. To have a nominal interest rate of zero, by Fisher, you need inflation equal to minus the real interest rate. Since the real interest rate is usually positive, implementing the Friedman Rule requires deflation.
+
+And the book's verdict, which you should reproduce rather than overclaim: the Friedman Rule is usually seen as a theoretical extreme, more valuable for the underlying logic than as a concrete policy proposal.
+
+Cost two: menu costs. Sometimes real resources must be dedicated to changing prices. Restaurants print new menus, shops print new signs. When inflation is high this has to be done more often, which is a real cost.
+
+Now notice the tension, because this is the examinable part. Minimising menu costs requires keeping inflation at zero, rather than running deflation as the Friedman Rule implies. So the two costs point at two different optimal inflation rates: shoe leather says minus r, menu costs say zero. They disagree, and the book does not pretend otherwise.
+
+And a refinement: even zero inflation would not eliminate menu costs. Zero inflation means the price index stays constant, but the prices of individual goods would still move up and down a great deal, and making those changes incurs menu costs. The book also notes there is some disagreement among economists about whether menu costs are plausibly large.
+
+Cost three: uncertainty about relative prices. To decide what to buy, people need to know the prices of different goods. But they do not look at all the prices of all goods at once. Typically a consumer looks at the prices of a few goods at a time and relies on a rough sense of how much a dollar buys, to judge whether the prices in front of him are worth paying. High inflation makes it harder to keep track of how much a dollar is worth, which makes it harder to make the right consumption decisions.
+
+The book's image for this is the best one in the chapter, and worth memorising verbatim in substance: it is a little bit like trying to take measurements with a ruler that keeps changing size.
+
+And producers face the same problem: to decide what price to charge, they need to track how much a dollar is worth, and inflation makes that harder. So the cost falls on both sides of the market.
+
+Cost four: bank seigniorage and excessive entry into banking. The government is not the only one earning seigniorage. Part of the money supply is made up of bank deposits, which either pay no interest or pay less than market rates, so banks are earning seigniorage too. An additional cost of inflation is that it lets banks earn more seigniorage, which leads to excessive entry into the banking industry. Exercise eleven point seven asks you to compute how much seigniorage banks earn.
+
+That is the complete list: shoe leather, menu costs, relative price uncertainty, and bank seigniorage with excessive entry into banking.
+
+One observation worth making, since your topic rules file organises this differently and the difference is useful. The rules file splits the costs into anticipated and unanticipated inflation, and under unanticipated inflation it lists arbitrary redistribution between creditors and debtors, where surprise inflation favours the debtor. Kurlat's chapter 11 does not organise the list that way; all four of his costs are costs of anticipated inflation. If an exam question asks about the costs of unanticipated inflation specifically, the redistribution argument is the one to reach for, and the ex-ante versus ex-post real rate distinction from part four is the machinery behind it: a borrower who agreed a nominal rate expecting 2 per cent inflation and got 10 per cent repays in cheaper dollars.
+
+Checklist for part seven. You should be able to derive the shoe leather cost from Baumol-Tobin and write it as the square root of r plus pi times Y F over two. You should be able to state the Friedman Rule, show that it requires inflation equal to minus the real rate, and hence deflation, and give the book's own hedge about it being a theoretical extreme. You should be able to explain menu costs and say why they imply zero inflation rather than deflation, and why even zero inflation does not eliminate them. You should be able to give the relative price uncertainty argument with the changing ruler image, for both consumers and producers. You should be able to explain bank seigniorage and excessive entry. And you should be able to say which of these are costs of anticipated inflation, and what the separate cost of unanticipated inflation is.
+
+PART EIGHT. PROBLEM SET 6, WORKED. BOTH QUESTIONS, TEN POINTS, DUE AS PRINTED ON THE SHEET.
+
+A note on the date before we start. The sheet prints the due date as the twenty-first of September, 2025. That year is almost certainly a typographical error for 2026, since the course runs in 2026 and Problem Set 5 was due on the eighth of September, 2026. Confirm it with the professor rather than assuming either way.
+
+Both questions announce themselves as based on Kurlat chapters 10 and 11. There is no Benigno content and no aggregate demand and supply content in this problem set, despite what the course map predicted. So everything you need is in the seven parts you have just heard.
+
+A word on method, because the professor's marking style is documented and consistent. The last item of each question is always the most conceptual, and it is where the marks concentrate. Sign your results before you interpret them, name the structural object you are using, and when a question asks whether there is a mechanism, answer that question directly rather than describing the outcome. Now let's work.
+
+QUESTION ONE. FIVE POINTS. FOUR PARTS. It sets out the quantity equation, money supply times velocity equals the price level times output, and defines velocity as the number of times a unit of money circulates over the period.
+
+Part a asks why that equation is an accounting identity rather than, by itself, a theory of money demand, and in particular whether it tells us whether a change in the money supply causes a change in prices, in output, or in velocity.
+
+The answer has two halves, and you need both.
+
+First half: why it is an identity. Velocity is not measured independently and then inserted. It is defined as nominal GDP divided by the money supply. So the equation is true by construction, for any data whatsoever, in any economy, at any time. It has no content that could fail. Kurlat says this explicitly in section eleven point two: the quantity equation is a definition, true because this is the way we define the velocity of money. An equation that cannot be violated cannot be evidence for anything.
+
+Second half: the causation question, and this is the part that earns the marks. The identity is silent. It says the product of money and velocity equals the product of prices and output, so if the money supply rises, then at least one of three things must happen: prices rise, output rises, or velocity falls. The identity constrains the combination. It says nothing about which one moves, and nothing about direction of causation. Indeed it does not even tell you that money is the cause rather than the effect; a rise in prices with velocity and output fixed would require money to have risen just as surely.
+
+So what turns it into a theory? Two additional assumptions, and name them explicitly. First, that velocity is stable or constant, which is a behavioural claim about money demand. Second, that output is determined by the real side of the economy, independently of money, which is the classical dichotomy. Add those and you get the quantity theory, in which the price level is proportional to the quantity of money. Kurlat's pivot sentence: if one assumes velocity is constant, the quantity equation changes from being a definition to being a theory.
+
+Say that in your answer in those terms. An identity plus an assumption about behaviour equals a theory. The identity alone is empty.
+
+Part b asks, based on that equation and the Baumol-Tobin model from the lecture, what the model implies about the relationship between money demand and the velocity of money.
+
+Start from the general link, Kurlat's equation eleven point two point five: velocity equals Y divided by real money demand at Y and i. Derive it the way the book does: take the quantity equation, use the money market equilibrium condition to replace the real money stock with real money demand, and rearrange. The conclusion, which the book states outright, is that any theory of money demand is also a theory of velocity. They are not two separate objects. Velocity is the reciprocal of real money demand, scaled by output.
+
+Now substitute Baumol-Tobin. Real money demand is the square root of Y F over two i. So velocity is Y divided by that. Simplify: Y over the square root of Y F over two i equals the square root of Y squared times two i over Y F, which equals the square root of two i Y over F.
+
+So velocity equals the square root of two times i times Y, over F.
+
+Now read off the three implications, because the question asks what the model implies.
+
+One. Velocity rises with the nominal interest rate. Economically: a higher opportunity cost of holding money makes people hold less of it, so each unit of money must change hands more often to support the same real transactions.
+
+Two. Velocity rises with output, as the square root. So velocity is not even independent of the scale of the economy.
+
+Three. Velocity falls with the fixed cost F. Cheaper trips to the bank mean lower balances held and therefore faster circulation.
+
+And now the punchline, which is what the question is really after. Baumol-Tobin flatly contradicts the assumption that makes the quantity equation into a theory. Velocity is not a constant; it is a function, and it moves whenever the interest rate moves. So the quantity theory's key assumption is not a harmless simplification from the point of view of this model: it is false in exactly the dimension the model is about. The most you can say is that velocity may be roughly stable when interest rates are roughly stable, which is why, as Kurlat notes, the quantity theory works far better as an approximation in high-inflation countries, where money growth swamps the movement in velocity.
+
+Part c supposes prices are fixed in the short run, at some given level, and asks how real income and the nominal interest rate must change after an exogenous increase in the money supply, whether there is a clear mechanism for how that happens, and whether the answers change if prices were flexible.
+
+Work from the equilibrium condition. The money supply equals real money demand times the price level. With the price level nailed down, the left side rises and the price level cannot move, so real money demand must rise by the full amount. Real money demand has exactly two arguments. So either output rises, or the nominal interest rate falls, or some combination.
+
+Now the second sub-question, and this is the item where most answers go wrong by being too confident. Is there a clear mechanism? The honest answer is no, not within this chapter. Chapters 10 and 11 contain no theory of how output is determined in the short run, and no theory of how the interest rate is set other than by Fisher from the real rate and expected inflation. The classical apparatus we have been using assumes the real side is determined by real forces. That assumption is precisely what pins output down, and with prices fixed by assumption too, the model is over-determined: it has no degree of freedom left to clear the market.
+
+So the correct answer names the gap rather than papering over it. With prices fixed, the equilibrium condition tells you what must happen to the combination of output and the interest rate, but this chapter supplies no mechanism that brings it about. Supplying that mechanism is the job of the sticky-price model. Kurlat defers it to his chapter 14, and in this course it is classes 8 and 9, using the Benigno article, where the aggregate demand relation comes from an Euler equation and the short-run aggregate supply curve comes from price stickiness. Saying that explicitly is not dodging the question; it is the answer, and it shows you know where the seam in the course is.
+
+Third sub-question: do the answers change if prices are flexible? Yes, completely, and this is where you state neutrality. With flexible prices the classical view applies. Output is determined by real factors and does not respond. The real interest rate is determined by real factors. So in the long run the nominal interest rate is unchanged too, because inflation expectations are unchanged after a one-off level increase. The entire adjustment falls on the price level, which jumps in proportion to the increase in the money supply. That is Kurlat's one-time increase experiment: the new price level over the old equals the new money supply over the old. Money is neutral: nothing real has changed.
+
+And you may add the mechanism Kurlat gives for the flexible case, since the question asked about mechanisms. Everyone suddenly holds more money than they want, so everyone tries to run their balances down. But they cannot all succeed, because someone must hold the money. Everyone understands this, so money immediately loses value, and money losing value is what a higher price level is.
+
+Part d asks how we interpret the money market equilibrium if central banks control the money supply, and what changes if instead they control the nominal interest rate.
+
+This part is about reading one equation in two directions, and that is the whole answer.
+
+If the central bank controls the money supply, then the money supply is the exogenous variable on the left hand side. Real money demand is a function of output and the interest rate, and the price level adjusts, in the classical case, to make the two sides equal. The quantity of money is the instrument; the price level is the outcome. This is the reading the chapter uses throughout.
+
+If instead the central bank controls the nominal interest rate, the same equation is read from right to left. The central bank sets i. That, together with output and the price level, determines the quantity of real money balances people wish to hold. The central bank must then supply exactly that quantity, whatever it turns out to be. So the money supply becomes endogenous: it is whatever it takes to keep the market clearing at the chosen interest rate. The central bank has given up control of the quantity in order to control the price of liquidity.
+
+Three further points will strengthen the answer.
+
+First, both regimes are the same equilibrium condition. Nothing about the economy changed; only which variable is taken as given. You cannot choose both the quantity of money and the interest rate independently, because the equation links them.
+
+Second, this is how modern central banks actually operate, and the lecture says so. In practice central banks set a policy rate and let the quantity of money be determined by demand. Your topic rules file makes the same point about Brazil: the central bank operates by fixing the Selic rate, and the quantity of money is endogenous.
+
+Third, connect it back to part two of this narration. Under an interest rate target, the money multiplier story becomes largely irrelevant as a control device, and when the interest rate is at zero or reserves are remunerated, the link from the base to M1 breaks anyway. That is the deep reason the traditional open market operation account is described by Kurlat as the traditional approach, with exercise ten point three inviting you to compare it with modern procedures.
+
+QUESTION TWO. FIVE POINTS. It puts the economy in a steady state with money growing at rate mu, output growing at rate g, and a constant nominal interest rate, and defines eta as the income elasticity of real money demand.
+
+Part a asks you to use the money market equilibrium condition to show that inflation equals mu minus eta times g.
+
+This is exactly the derivation in part five of this narration, so I will give you the skeleton and you should produce the steps.
+
+Start from the money market equilibrium: money supply equals real money demand times the price level. Differentiate both sides with respect to time. On the right, money demand depends on output and the interest rate, and it multiplies the price level, so you get three terms: the partial with respect to output times the growth of output, plus the partial with respect to the interest rate times the time derivative of the interest rate, both multiplied by the price level, plus money demand times the time derivative of the price level.
+
+Then divide both sides by the original equilibrium condition. This is the step that converts levels into growth rates, and it is the step to show clearly. On the left you get the growth rate of the money supply, mu. On the right you get three terms: first, the elasticity of money demand with respect to output, which is eta, times the growth rate of output, g; second, an interest rate term; third, the growth rate of the price level, which is inflation.
+
+Now dispose of the interest term, and say why. The question gives you a constant nominal interest rate. Kurlat arrives at the same place by noting that if inflation is constant then the nominal rate, being the real rate plus inflation, is constant too. Either way its time derivative is zero, and the whole middle term vanishes.
+
+What remains is mu equals eta g plus pi. Rearranged: inflation equals mu minus eta g. That is Kurlat's equation eleven point two point three.
+
+Two remarks to include for full credit. First, the solution is internally consistent: we used constancy of the nominal rate to drop a term, and the answer returns a constant inflation rate, so the conjecture holds. Second, interpret the result rather than just displaying it. Money growth in excess of what the growing economy wants to absorb becomes inflation. Eta is the conversion factor that says how much money growth real growth absorbs.
+
+Part b gives a central bank targeting inflation of 2 per cent in an economy growing at 3 per cent, and asks three things.
+
+Sub-part one. If money demand follows Baumol-Tobin, what is eta?
+
+From part three of this narration: real money demand is the square root of Y F over two i, so it is proportional to Y to the power one half. The elasticity of a power function is its exponent. So eta equals one half. This is exactly Kurlat's exercise eleven point one, and the one-line justification is that the square root is the one-half power.
+
+Sub-part two. What money growth rate should the central bank choose?
+
+Rearrange the formula: mu equals the inflation target plus eta times g. Substitute: mu equals 2 per cent plus one half times 3 per cent, which is 2 plus 1.5, so mu equals 3.5 per cent.
+
+Say it as a sentence: to hit 2 per cent inflation in an economy growing at 3 per cent with an income elasticity of one half, the central bank should let the money supply grow at 3.5 per cent per year.
+
+Sub-part three. If the central bank is wrong, and money demand actually follows the Cambridge equation, with eta equal to one, what is the actual inflation rate?
+
+The central bank has already committed to money growth of 3.5 per cent. The true elasticity is one. So realised inflation is mu minus eta g, which is 3.5 minus 1 times 3, which is 0.5 per cent.
+
+So inflation comes out at 0.5 per cent instead of the 2 per cent target. The central bank undershoots by 1.5 percentage points.
+
+Now the interpretation, which is what the item is testing. Note the direction of the error and be able to explain it. Assuming too low an elasticity means underestimating how much extra money a growing economy wants to hold. The true demand growth, one times three per cent, exceeds the assumed demand growth, one half times three per cent, by 1.5 percentage points. That extra demand absorbs money that the central bank expected to show up as inflation. So the error in eta passes one for one into an inflation error, scaled by g: the miss equals the error in eta, times g, which is one half times three, namely 1.5 points.
+
+You might add the policy reading: a central bank that gets the income elasticity of money demand wrong will systematically miss its target even with perfect control of the money stock, which is one of the practical arguments for targeting an interest rate or inflation directly rather than a monetary aggregate.
+
+Part c is the last item, and therefore the most conceptual. It adds that alongside output growth g, the fixed cost of a trip to the bank falls at a constant rate: the time derivative of F divided by F equals f, which is negative. Using Baumol-Tobin demand and a constant nominal interest rate, you are asked to show that inflation equals mu minus one half times the quantity g plus f, and then to explain why a falling F is inflationary under a constant money growth rule.
+
+Take the demand function: real money demand equals the square root of Y F over two i. The cleanest route is to take logarithms and then differentiate with respect to time.
+
+Take logs. The log of real money demand equals one half times the log of Y, plus one half times the log of F, minus one half times the log of two i.
+
+Now differentiate with respect to time. The time derivative of a log is a growth rate. So the growth rate of real money demand equals one half times the growth rate of Y, plus one half times the growth rate of F, minus one half times the growth rate of two i. The nominal interest rate is constant, so the last term is zero.
+
+The growth rate of Y is g. The growth rate of F is f. So the growth rate of real money demand equals one half times the quantity g plus f.
+
+Now bring in the equilibrium condition. The money supply equals real money demand times the price level. In growth rates, the growth rate of the money supply equals the growth rate of real money demand plus the growth rate of the price level. That is: mu equals one half times g plus f, plus pi.
+
+Rearranged: inflation equals mu minus one half times the quantity g plus f. Which is what was to be shown.
+
+Notice the structure, and point it out in your answer: F enters with exactly the same elasticity as Y, namely one half, because in Baumol-Tobin both sit under the same square root. So a falling F acts on inflation precisely like negative output growth. Setting f to zero recovers the earlier result with eta equal to one half.
+
+Now the explanation, which carries the marks. Why is a falling F inflationary under a constant money growth rule?
+
+Begin with behaviour, not algebra. F is the cost of a trip to the bank. If trips get cheaper, think of the spread of cash machines, online banking, instant transfers, then households make more trips and hold lower average real balances. That is the Baumol-Tobin logic from part three read in reverse: real balances are increasing in F, so falling F means falling demand for real money.
+
+Now put that against a fixed money growth rule. The central bank keeps expanding the nominal money supply at rate mu, on the assumption that growing demand will absorb it. But demand is now growing more slowly than output alone would imply, because the falling F is pulling it down at rate one half times f. Less of the new money is willingly held. The excess has to be absorbed somewhere, and with output and the real interest rate fixed by real forces, the only variable left is the price level. So prices rise faster. Inflation is higher by exactly one half times the absolute value of f.
+
+A good answer closes the loop by naming the general principle, because that is the conceptual content the professor is after. Inflation is the gap between the growth of nominal money supplied and the growth of real money demanded. Anything that slows the growth of real money demand, slower output growth, a falling transaction cost, a financial innovation that economises on cash, is inflationary under a fixed money growth rule. This is also a practical argument against monetary targeting: financial innovation shifts money demand, so a rule fixed in terms of a monetary aggregate delivers drifting inflation. Notice the connection to part three's stability discussion, where Kurlat cites the debate about whether money demand is stable enough to be useful. Question 2 part c is that debate written as an exercise.
+
+Checklist for part eight. For question 1 you should be able to explain why the quantity equation is an identity and name the two assumptions that make it a theory; derive velocity as output over money demand and compute it under Baumol-Tobin; handle the fixed-price case honestly by naming the missing mechanism; and read the equilibrium condition in both directions for a quantity-setting and a rate-setting central bank. For question 2 you should be able to produce the time-differentiation derivation cleanly, get eta equal to one half from the square root, compute money growth of 3.5 per cent and realised inflation of 0.5 per cent, and derive and explain the falling-F result, ending with the general principle that inflation is the gap between nominal money growth and real money demand growth.
+
+PART NINE. THE PITFALLS. EACH ONE AS THE ERROR, THEN THE CORRECTION.
+
+These are the places people actually lose marks on this material. Eleven of them. Listen to this part twice.
+
+One. The error is treating money supply times velocity equals the price level times output as a theory, and concluding that money causes inflation. The correction is that it is an accounting identity, true by the definition of velocity, and therefore empty on its own. It becomes a theory only when you add that velocity is stable and that output is determined by real forces. Always name the assumptions you are adding.
+
+Two. The error is confusing the monetary base with M1, or confusing the level of the money supply with its growth rate. The correction is that the base is currency plus reserves, M1 is currency plus demand deposits, and the multiplier is the bridge between them. And a one-off change in the level of money moves the price level once, whereas a change in the growth rate of money moves the inflation rate permanently. Those are different experiments with different answers.
+
+Three. The error is confusing neutrality with superneutrality. The correction: neutrality says a change in the level of the money supply changes the price level proportionally with no real effects. Superneutrality says a change in the growth rate of money has no real effects. Superneutrality is the stronger claim, and it fails in this very chapter, because a higher money growth rate raises the nominal interest rate, which lowers real balances and raises the real cost of trips to the bank. So this model is neutral but not superneutral. This distinction is a classic true-or-false question.
+
+Four. The error is using the approximate Fisher equation, the real rate equals the nominal rate minus inflation, in a high inflation problem. The correction is that the exact relation is a ratio: one plus the real rate equals one plus the nominal rate over one plus inflation. The subtraction is a small-inflation approximation, and the cross term matters once inflation is large. In a hyperinflation question, always use the ratio.
+
+Five. The error is adding seigniorage and the inflation tax as if they were two distinct, additive revenues. The correction is that they are two descriptions of the same resource transfer: the government issues non-interest-bearing liabilities, and the holders of money pay through the erosion of its real value. Note also Kurlat's footnote: the government can earn seigniorage with zero inflation if the economy is growing, so the two are not perfectly identical either. Do not double count, and do not collapse them completely.
+
+Six. The error is concluding that more inflation always raises more seigniorage revenue. The correction is the Laffer logic: the base of the tax is real money balances, and real money balances fall as inflation and the nominal interest rate rise. Revenue is rate times base, and past a point raising the rate shrinks the base faster than the rate rises. Exercise eleven point six makes this exact.
+
+Seven. The error is applying neutrality in the short run. The correction is that neutrality in this chapter rests on prices being flexible, and Kurlat says so explicitly when he works the one-time increase in the money supply. With sticky prices, which is classes 8 and 9, the conclusion fails. Problem Set 6, question 1 part c, is built precisely on this distinction, so do not answer it with the classical result.
+
+Eight. The error is confusing inflation with a high price level. The correction is that inflation is the rate of change of the price level. A country can have very high prices and zero inflation, or low prices and rapid inflation. And relatedly: positive inflation is perfectly compatible with some individual prices falling, as the caviar in the Luxuria example shows.
+
+Nine. The error is using the Baumol-Tobin square root formula when the question only gave you a generalised money demand function. The correction: if the question says real money demand is a function of output and the interest rate, increasing in the first and decreasing in the second, then you may use only those signs, and the income elasticity is an unnamed parameter. You may use one half for the elasticity only when Baumol-Tobin is assumed. Mixing these is the most common error in this chapter.
+
+Ten. The error is saying that when a bank lends out its excess reserves, the reserves leave the banking system. The correction, in Kurlat's own words, is that the reserves do not disappear; they are still there. What happens is that banks take advantage of the relaxation of the reserve-to-deposit ratio to expand loans and deposits. New deposits carry new reserve requirements, and that is what eventually halts the expansion.
+
+Eleven. The error is answering the question "is there a clear mechanism" with a description of the outcome. The correction is to answer the question that was asked. If the model supplies no mechanism, say that it supplies no mechanism, and say which part of the course supplies it. Naming a gap is a correct answer; disguising it is not.
+
+PART TEN. THE SPOKEN FORMULA SHEET.
+
+Here is how to use this part. I will say the name and number of the equation, then pause, then say the formula. When you hear the name, say the formula out loud before I do. If you cannot, that is the equation to go back to. Nine equations.
+
+Equation ten point three point one, the M1 money multiplier.
+Pause.
+The change in M1 divided by the change in the monetary base equals one over the quantity theta plus gamma minus theta times gamma, where theta is the reserve to deposit ratio and gamma is the fraction of M1 held as physical cash.
+
+Equation ten point four point one, average money balances in Baumol-Tobin.
+Pause.
+Average money holdings equal the price level times output, divided by two times N, where N is the number of trips to the bank.
+
+Equation ten point four point two, the household's problem in Baumol-Tobin.
+Pause.
+Minimise, over N, the price level times F times N, plus the nominal interest rate times the price level times output over two N.
+
+Equation ten point four point three, the optimal number of trips.
+Pause.
+N equals the square root of the nominal interest rate times output, over two times F.
+
+Equation ten point four point four, Baumol-Tobin money demand. The central formula of chapter 10.
+Pause.
+Real money balances equal the square root of output times F, over two times the nominal interest rate. Income elasticity one half, interest elasticity minus one half, elasticity with respect to F one half.
+
+Equation eleven point one point one, the Fisher equation.
+Pause.
+Exactly: one plus the real rate equals one plus the nominal rate, divided by one plus inflation. Approximately, for small inflation: the real rate equals the nominal rate minus inflation.
+
+Equation eleven point two point one, money market equilibrium.
+Pause.
+The money supply equals real money demand at output and the nominal interest rate, times the price level. And the constant money supply version, equation eleven point two point two: the price level equals the money supply divided by real money demand at output and the real interest rate.
+
+Equation eleven point two point three, inflation in a growing economy. The central formula of chapter 11.
+Pause.
+Inflation equals mu minus eta times g. Money growth minus the income elasticity of money demand times output growth.
+
+Equations eleven point two point four and eleven point two point five, the quantity equation and velocity.
+Pause.
+The money supply times velocity equals the price level times output: an identity. And velocity equals output divided by real money demand, so any theory of money demand is a theory of velocity. Under Baumol-Tobin, velocity equals the square root of two times the nominal interest rate times output, over F.
+
+Equation eleven point four point one, the shoe leather cost.
+Pause.
+The cost equals N times F, which equals the square root of the nominal interest rate times output times F over two, which equals the square root of the quantity real rate plus inflation, times output times F, over two.
+
+And the two problem set results you should be able to produce on demand.
+Pause.
+With an inflation target of 2 per cent, output growth of 3 per cent and an income elasticity of one half, money growth should be 3.5 per cent. If the true elasticity is one instead, realised inflation is 0.5 per cent.
+Pause.
+And with the fixed cost falling at rate f, inflation equals mu minus one half times the quantity g plus f.
+
+PART ELEVEN. IMPLEMENTATION NOTES.
+
+If you want to compute with this material, there are four small routines worth having. I will describe each one by its inputs, its steps and the trap that breaks it. Do not try to write code from audio; the point is to know what each routine does and where it fails.
+
+Routine one, the money multiplier. Inputs: the reserve to deposit ratio and the fraction of money held as cash. One line: one divided by the sum of the two ratios minus their product. The trap is the parameterisation. Your topic rules file uses the currency to deposit ratio and writes the multiplier as one plus that ratio, over the reserve ratio plus that ratio. Kurlat uses the cash share of M1. Both are correct with their own definitions and they give different numbers for the same economy if you mix them. Decide which convention you are using and label the variable accordingly.
+
+Routine two, Baumol-Tobin. Inputs: the fixed cost, output, the nominal interest rate. Returns the optimal number of trips, the square root of i Y over two F, and real balances, the square root of Y F over two i. Two useful checks. First, multiply real balances by velocity and confirm you recover output, which verifies your velocity expression. Second, vary the interest rate and confirm the elasticity comes out at minus one half numerically, by comparing the log change in balances with the log change in the rate. If it does not, you have an algebra error.
+
+Routine three, inflation from money growth. Inputs: money growth, output growth, the elasticity. Returns money growth minus the elasticity times output growth. Extend it with the growth rate of the fixed cost to get money growth minus one half times the sum of output growth and the cost growth rate. The trap is units: make sure everything is a rate per period in the same units, and decide once whether you are working in per cent or in decimals. Mixing two per cent and zero point zero two in the same expression is the commonest silent error in this whole topic.
+
+Routine four, the inflation Laffer curve. Inputs: an inflation rate and a money demand function. Revenue is inflation times real money balances, where real balances fall as inflation rises through the nominal interest rate. Evaluate on a grid of inflation rates and find the maximum. With a demand function of the exponential Cagan form, real balances equal to the exponential of minus a times inflation, revenue is inflation times that exponential, and the revenue-maximising inflation rate is exactly one over a. That closed form is a good test of any numerical search you write: if the grid search does not return one over a, the search is wrong, not the formula.
+
+A general note on verification, since it is the project's standing practice. Whenever you produce a number analytically, reproduce it by an independent route, a direct numerical optimisation, a simulation, or a grid search, and make the script stop if the two disagree. In this topic that is easy and worth doing: the Baumol-Tobin solution can be checked by minimising the cost function numerically over a grid of trip counts and confirming the minimiser matches the square root formula.
+
+PART TWELVE. THE READING ROUTE, AND THE EXERCISES.
+
+The reading, in four sittings. I will give the addresses only.
+
+Sitting one. Kurlat, chapter 10, printed pages 191 to 202. Twelve pages. What money is, the supply of money, and money demand. After this sitting you should be able to derive Baumol-Tobin from the trip-cost problem rather than quoting the square root.
+
+Sitting two. Chapter 11, printed pages 205 to 215. Eleven pages. Measurement, nominal and real interest rates, and the equilibrium section. After this sitting you should be able to derive inflation equals mu minus eta g by differentiating the equilibrium condition with respect to time.
+
+Sitting three. Chapter 11, printed pages 215 to 218. Four pages. Seigniorage and the costs of inflation. After this sitting you should be able to explain who pays the inflation tax, why its base erodes, and why the Friedman Rule requires deflation.
+
+Sitting four. The exercises: chapter 10, pages 202 and 203, and chapter 11, pages 218 to 222.
+
+If you are short of time, protect sitting two. Read pages 208 to 215 twice and skip the measurement material, which class 1 already covered.
+
+There is a standalone extract of both chapters in the project readings folder, covering printed pages 189 to 222 in thirty-four pages, so you do not have to open the full three-hundred-page book for one class.
+
+Now the exercises. Fourteen of them, five in chapter 10 and nine in chapter 11. I will give the number, the title and the printed page only, never the statement. Five of them bear directly on the problem set and I will mark those as priority.
+
+Chapter 10. Exercise ten point one, Central Bank Instruments, page 202, foundational. Exercise ten point two, Pickpockets, page 202. Exercise ten point three, Interest on Reserves, page 202, and this is the one that asks you to compare modern central bank operating procedures with the traditional account. Priority: exercise ten point four, ATMs, page 203, which is the fixed cost falling, the direct relative of question 2 part c. Priority: exercise ten point five, Going to the Bank, page 203, Baumol-Tobin and velocity, the relative of question 1 part b.
+
+Chapter 11. Priority: exercise eleven point one, The Elasticity of Money Demand, page 218, which is exactly question 2 part b sub-part one. Priority: exercise eleven point two, The Quantity Theory, page 218, which is question 1 part a. Exercise eleven point three, Seignorage with Zero Inflation and Growth, page 219, which uses the result of eleven point one. Exercise eleven point four, Growth in the Money Supply, page 219. Priority: exercise eleven point five, Inflation Targeting, page 219, the arithmetic of question 2 part b. Exercise eleven point six, Seignorage with High Inflation, page 219, the Cagan function and the inflation Laffer curve, advanced and worth doing even though it did not appear on the problem set. Exercise eleven point seven, Bank Seignorage, page 221, advanced. Exercise eleven point eight, Real Interest Rates, page 222, Fisher and the ex-ante versus ex-post distinction. Exercise eleven point nine, Money among Prisoners of War, page 222, which synthesises both chapters.
+
+Do the five priority exercises before the problem set. Then do eleven point six, because it is the only place in this course where the inflation Laffer curve appears in algebra.
+
+Complementary reading, with addresses. Jones, Macroeconomics, 2020 edition, chapter 8, titled Inflation, printed pages 211 to 239. That is the best complement to this class: more graphical, with real United States data, and with a fiscal account of high inflation that Kurlat only gestures at. Within it: section eight point two on the quantity theory, eight point four on the costs of inflation, eight point five on the fiscal causes of high inflation and the inflation tax, and eight point six on the Great Inflation of the 1970s. And Romer, Advanced Macroeconomics, fourth edition, chapter 11, titled Inflation and Monetary Policy, printed pages 513 to 583, for rigour on seigniorage. Read Romer for intuition only: much of that chapter goes past this course.
+
+Two corrections to the complementary list in your topic rules file, so you do not waste an afternoon. It lists Jones chapter 12 under this class, but chapter 12 is Phillips curve material, which belongs to classes 8 and 9. And it cites Williamson chapter 12, but only the Williamson solutions manual is in the project, not the textbook itself.
+
+PART THIRTEEN. SELF-TEST. TWELVE QUESTIONS, WITH A PAUSE AFTER EACH.
+
+Answer out loud before I move on. If you cannot answer in two sentences, that is your revision target.
+
+Question one. Which of the three functions of money defines it, and what problem does it solve?
+Pause.
+
+Question two. Write the four monetary aggregates in order and say what each one adds to the previous.
+Pause.
+
+Question three. Why do banks hold reserves, and which of the two reasons dominates today?
+Pause.
+
+Question four. State the money multiplier, say which of its two arguments the central bank controls, and explain why the multiplier collapsed in the United States in late 2008.
+Pause.
+
+Question five. Set up the Baumol-Tobin problem and say what the two terms of the cost function represent.
+Pause.
+
+Question six. What are the income and interest elasticities of Baumol-Tobin money demand, and what is the economic reason the income elasticity is one half rather than one?
+Pause.
+
+Question seven. Is money supply times velocity equals the price level times output a theory? If not, what must you add to make it one?
+Pause.
+
+Question eight. Derive velocity under Baumol-Tobin, and say what it implies about the quantity theory's central assumption.
+Pause.
+
+Question nine. Name the three channels through which the money market can clear after an increase in the money supply, and say which one the classical view selects and why.
+Pause.
+
+Question ten. A permanent increase in the growth rate of the money supply. What happens to inflation, and what else happens that the naive answer misses?
+Pause.
+
+Question eleven. Who pays the inflation tax, what is the base of that tax, and why is there a limit to the revenue it can raise?
+Pause.
+
+Question twelve. The Friedman Rule requires what inflation rate, and why does the existence of menu costs argue for a different one?
+Pause.
+
+PART FOURTEEN. GLOSSARY. ONE SENTENCE EACH.
+
+Medium of exchange. The function of money that defines it: money is what changes hands in payment, which is what solves the double coincidence of wants.
+
+Double coincidence of wants. The problem that barter requires finding someone who has what you want and wants what you have; money removes the need for that coincidence.
+
+Monetary base. Physical currency plus central bank reserves; the only part of the money stock under direct government control.
+
+M1. Physical currency plus demand deposits, that is, the money that is directly usable in transactions.
+
+Moneyness. The degree to which an asset satisfies the properties of money; the reason the aggregates form a ladder rather than a single line.
+
+Reserves. Deposits that commercial banks hold at the central bank: an asset for the bank, a liability for the central bank, typically paying little or no interest.
+
+Open market operation. A trade in which the central bank buys or sells bonds, paying or receiving reserves, and so changes the monetary base.
+
+Money multiplier. The ratio of the change in M1 to the change in the monetary base: one over theta plus gamma minus theta gamma.
+
+Excess reserves. Reserves above the legal requirement; normally lent out, but willingly held when the interest rate is zero or reserves are remunerated, which is what breaks the multiplier.
+
+Baumol-Tobin model. The theory that money demand comes from minimising the sum of the fixed costs of trips to the bank and the foregone interest on money held.
+
+Real money balances. The money stock divided by the price level: how many goods the money you hold could buy.
+
+Generalised money demand. A function of output and the nominal interest rate, increasing in the first and decreasing in the second, with no particular functional form assumed.
+
+Income elasticity of money demand, eta. The percentage increase in real money demand when output rises by one per cent; one half under Baumol-Tobin, one under the Cambridge equation.
+
+Velocity. Nominal output divided by the money stock: the number of times a unit of money is used per period. Defined, not measured independently.
+
+Quantity equation. Money supply times velocity equals the price level times output. An identity, true by the definition of velocity.
+
+Quantity theory. The quantity equation plus the assumption that velocity is constant, which makes the price level proportional to the money stock.
+
+Price index. The total price of a fixed basket of goods; the GDP deflator weights by production shares, the consumer price index by consumption shares.
+
+GDP deflator. Nominal output divided by real output, times one hundred.
+
+Inflation. The rate of change of the price level; a generalised increase in prices, compatible with some individual prices falling.
+
+Deflation. Negative inflation: a general fall in the price level.
+
+Fisher equation. One plus the real rate equals one plus the nominal rate over one plus inflation; approximately, the real rate is the nominal rate minus inflation.
+
+Ex-ante and ex-post real interest rates. The real rate computed with expected inflation, and the real rate computed with realised inflation.
+
+Classical view. The position that real variables are determined by real factors alone, so money affects only nominal quantities.
+
+Neutrality of money. A change in the level of the money supply changes the price level proportionally and leaves real variables unchanged.
+
+Superneutrality. The stronger claim that a change in the growth rate of money leaves real variables unchanged; it fails here, because higher money growth raises the nominal rate and so the real cost of managing cash.
+
+Guess and verify. The solution method used throughout section eleven point two: conjecture a path for prices, then confirm it satisfies the equilibrium condition every period.
+
+Seigniorage. The resources the government obtains from its ability to create money; originally the mint's profit from turning metal into coin.
+
+Inflation tax. The same transfer seen from the holder's side: money loses real value, and whoever holds it gives up wealth to the government.
+
+Inflation Laffer curve. The relationship between inflation and seigniorage revenue: because the tax base is real money balances, which shrink as inflation rises, revenue eventually falls as inflation rises.
+
+Shoe leather cost. The real resource cost of the extra trips to the bank that people make to economise on money holdings when inflation, and hence the nominal interest rate, is high.
+
+Friedman Rule. The policy of setting the nominal interest rate to zero, which eliminates the opportunity cost of holding money and requires inflation equal to minus the real interest rate, that is, deflation.
+
+Menu cost. The real cost of changing posted prices; minimised at zero inflation rather than at the deflation the Friedman Rule implies.
+
+PART FIFTEEN. THE WHOLE TOPIC IN FIVE LINES.
+
+Line one. Money is whatever solves the double coincidence of wants, and because the properties that make an asset good at this are satisfied by degrees, there is no single measure of it: only a ladder from the monetary base through M1 to M2.
+
+Line two. The government controls the base; banks turn the base into M1 through a multiplier that depends on a policy ratio and on public behaviour, and that multiplier collapses when reserves become worth holding, as in the United States after late 2008.
+
+Line three. Money demand is a cost-minimisation problem, not an assumption: trips to the bank cost a fixed amount, holding money costs foregone interest, and balancing the two gives real balances equal to the square root of output times the fixed cost over twice the interest rate, with an income elasticity of one half.
+
+Line four. In equilibrium the money supply equals nominal money demand, and if the real side is settled by real forces, then the price level does all the adjusting: a one-off rise in money raises prices proportionally, and sustained money growth gives inflation equal to money growth minus the income elasticity times output growth.
+
+Line five. That last formula is the whole of the policy content of this class, in both directions: a central bank that wants 2 per cent inflation in an economy growing at 3 per cent must grow money at 3.5 per cent if the elasticity is one half, and every error in the elasticity, or any drift in money demand such as a falling cost of banking, shows up one for one as an error in inflation.
+
+And the one sentence that connects this class to the rest of the course. Everything here assumed prices are flexible, which is what makes money neutral; classes 8 and 9 take that assumption away for the short run, and the question on the problem set asking what happens when prices are fixed is the seam where this class hands over to those.
+
+End of the narrated reading for class 7.

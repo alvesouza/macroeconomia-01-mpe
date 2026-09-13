@@ -1,0 +1,115 @@
+{
+  "accessed": "2026-09-12",
+  "not_used": {
+    "bcb_monetary_aggregates": [
+      "27791",
+      "27841",
+      "1788",
+      "27810",
+      "1833"
+    ],
+    "reason": "all return plausible magnitudes and cannot be told apart without a name lookup; the SGS metadata endpoint returns HTTP 400 and the JSON data endpoint carries no names. Calling one of them 'M1' would be an unverified assertion, so no Brazilian monetary aggregate appears in this video. The cross-country broad-money series from the World Bank is used instead, because its payload names itself."
+  },
+  "series": [
+    {
+      "key": "FM.LBL.BMNY.ZG",
+      "source": "World Bank WDI",
+      "code": "FM.LBL.BMNY.ZG",
+      "name": "Broad money growth (annual %)",
+      "units": "annual per cent",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/all/indicator/FM.LBL.BMNY.ZG date=1990:2023, paged",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here",
+      "serves": "lecture 7 - Kurlat Fig. 11.2.1, money growth versus inflation",
+      "accessed": "2026-09-12",
+      "rows": 5110,
+      "date_range": [
+        1990,
+        2023
+      ],
+      "file": "Videos/aula-07-money-and-inflation/data/wdi_fm_lbl_bmny_zg.csv",
+      "sha256": "7e70ca083841e153",
+      "synthetic": false
+    },
+    {
+      "key": "FP.CPI.TOTL.ZG",
+      "source": "World Bank WDI",
+      "code": "FP.CPI.TOTL.ZG",
+      "name": "Inflation, consumer prices (annual %)",
+      "units": "annual per cent",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/all/indicator/FP.CPI.TOTL.ZG date=1990:2023, paged",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here",
+      "serves": "lecture 7 - Kurlat Fig. 11.2.1, money growth versus inflation",
+      "accessed": "2026-09-12",
+      "rows": 7418,
+      "date_range": [
+        1990,
+        2023
+      ],
+      "file": "Videos/aula-07-money-and-inflation/data/wdi_fp_cpi_totl_zg.csv",
+      "sha256": "ecc0bd89066d6f59",
+      "synthetic": false
+    },
+    {
+      "key": "wdi_scatter",
+      "source": "World Bank WDI (derived here)",
+      "code": "FM.LBL.BMNY.ZG + FP.CPI.TOTL.ZG",
+      "name": "Long-run country averages of broad money growth and CPI inflation",
+      "units": "annual per cent, averaged over 1990-2023",
+      "frequency": "one row per country",
+      "query": "country means of the two verified WDI series; countries with at least 15 years of both",
+      "verified_how": "derived from the two self-confirmed series above; row count printed on build",
+      "serves": "lecture 7 - the beat that reproduces Kurlat Fig. 11.2.1",
+      "accessed": "2026-09-12",
+      "rows": 159,
+      "date_range": [
+        1990,
+        2023
+      ],
+      "file": "Videos/aula-07-money-and-inflation/data/wdi_money_vs_inflation_country_averages.csv",
+      "sha256": "8eac4b970aea82b0",
+      "synthetic": false
+    },
+    {
+      "key": "bcb_13522",
+      "source": "BCB SGS",
+      "code": "13522",
+      "name": "IPCA - variacao acumulada em 12 meses",
+      "units": "per cent per year",
+      "frequency": "monthly",
+      "query": "api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados 2000-2026",
+      "verified_how": "confirmed by magnitude: 4.22 per cent for Aug 2026, and the monthly series 433 returned 0.42/0.83/0.16/0.38/0.46/0.21 for Jan-Jun 2024, matching the published IPCA monthly prints. The SGS JSON endpoint returns no series name and the SGS metadata endpoint is dead (HTTP 400), so this is a magnitude confirmation, not an authoritative name lookup.",
+      "serves": "lecture 7 - inflation measurement and the Fisher equation",
+      "accessed": "2026-09-12",
+      "rows": 320,
+      "date_range": [
+        "01/01/2000",
+        "01/08/2026"
+      ],
+      "file": "Videos/aula-07-money-and-inflation/data/bcb_sgs_13522.csv",
+      "sha256": "c60cb885fbf744ac",
+      "synthetic": false
+    },
+    {
+      "key": "bcb_432",
+      "source": "BCB SGS",
+      "code": "432",
+      "name": "Meta Selic definida pelo Copom",
+      "units": "per cent per year",
+      "frequency": "daily",
+      "query": "api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados, six five-year windows 2000-2026; the full 26-year daily pull returns HTTP 406 because of the row cap",
+      "verified_how": "confirmed by magnitude and shape: spans 2.0 to 26.5 per cent across 2000-2026, moves in discrete steps as a policy target must, and reads 14.00 per cent in Sep 2026. The SGS JSON endpoint returns no series name and the SGS metadata endpoint is dead (HTTP 400), so this is a magnitude confirmation, not an authoritative name lookup.",
+      "serves": "lecture 7 - the nominal rate as the opportunity cost of holding money",
+      "accessed": "2026-09-12",
+      "rows": 9756,
+      "date_range": [
+        "01/01/2000",
+        "16/09/2026"
+      ],
+      "file": "Videos/aula-07-money-and-inflation/data/bcb_sgs_432.csv",
+      "sha256": "f09e48da0c5419d8",
+      "synthetic": false
+    }
+  ]
+}

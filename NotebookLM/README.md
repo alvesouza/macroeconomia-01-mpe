@@ -40,9 +40,11 @@ os nomes — os prompts citam os arquivos pelo nome exato.
 | `Aula_MPE_Macro1_SlidesAula2.pdf` | Slides da Aula 2 |
 | `Aula_Handout_MPE_Macro1_Aula3_2026.pdf` | **Handout** da Aula 3 (texto corrido) |
 | `Aula_MPE_Macro1_SlidesAula4.pdf` | Slides da Aula 4 |
-| `Lista_MPE_Macro1_2026_Lista1.pdf` · `Lista2.pdf` · `Lista3.pdf` · `Lista4.pdf` · `Lista5.pdf` | Listas 1-5 |
+| `Lista_MPE_Macro1_2026_Lista1.pdf` · `Lista2.pdf` · `Lista3.pdf` · `Lista4.pdf` · `Lista5.pdf` · **`Lista6.pdf`** | Listas 1-**6** |
 | `Livro_Kurlat_Cap09_General_Equilibrium.pdf` | **Kurlat cap. 9 isolado** (pp. 165-187) — fonte do lote da Lista 5 |
+| **`Livro_Kurlat_Cap10-11_Money_and_Inflation.pdf`** | **Kurlat caps. 10-11 isolados** (pp. 189-222, 34 p.) — o análogo para a Aula 7 e a Lista 6 |
 | `Aula_Slides_Macro1_Aula5.pdf` · `Aula_Slides_Macro1_Aula6.pdf` | Slides das Aulas 5 e 6 |
+| **`Aula_MPE_Macro1_SlidesAula7_2026.pdf`** | **Slides da Aula 7** — *Money and Inflation* (22 p., 8 seções) |
 | `Programa_Macro1_MPE_2026.pdf` | Programa |
 | `Livro_Charles_I._Jones_...pdf` · `Livro_..._Romer_...pdf` · `Livro_..._Carlin_David_Soskice_2024...pdf` | Complementares |
 
@@ -51,7 +53,11 @@ os nomes — os prompts citam os arquivos pelo nome exato.
 
 ---
 
-## Índice — 70 prompts, em quatro lotes
+## Índice — 80 prompts, em cinco lotes
+
+> Contagem verificada no disco em 12/09/2026: **32 slides + 16 áudios + 32 vídeos = 80**
+> (40 das Aulas 1-4 · 12 da Lista 3 · 6 da Aula 6 · 15 da Lista 5 · **7 da Aula 7**).
+> `sources/` tem **24** arquivos.
 
 Quatro recortes coexistem de propósito. O lote **por aula** (40 prompts, Aulas 1-4) segue o programa: cada aula recebe **4 slides + 4 vídeos + 2 áudios**. O lote da **Aula 6** (6 prompts) é **4 vídeos + 2 áudios**, sem slides. Os dois lotes **por mecanismo** — Lista 3 e Lista 5, 12 prompts cada — são **6 slides + 6 vídeos**, um par por mecanismo econômico, atravessando as duas questões da lista. Quem estuda para a aula usa os dois primeiros; quem está resolvendo a lista usa o lote da sua lista.
 
@@ -181,10 +187,50 @@ seis mecanismos seguem essa cadeia: 1 monta a máquina, 2-3 trabalham a margem d
 | [video/lista-05-video-4-juro-sem-ancora.md](video/lista-05-video-4-juro-sem-ancora.md) | Vídeo | Uma equação fixa, o cenário atrás dela sendo trocado | Q1(d), Q2(a) | 4.431 |
 | [video/lista-05-video-5-dono-do-capital.md](video/lista-05-video-5-dono-do-capital.md) | Vídeo | Duas colunas convergindo na mesma linha; o lucro reto em zero | Q2(b,c) | 4.532 |
 | [video/lista-05-video-6-estado-estacionario-e-regra-de-ouro.md](video/lista-05-video-6-estado-estacionario-e-regra-de-ouro.md) | Vídeo | A corcova do consumo e os dois pontos que nunca coincidem | Q2(d,e) | 4.765 |
+| [audio/lista-05-audio-1-the-sign-is-the-answer.md](audio/lista-05-audio-1-the-sign-is-the-answer.md) | Áudio | Fio: assinar a derivada é a resposta; σ é o árbitro | Q1(e) | 4.927 |
+| [audio/lista-05-audio-2-what-the-statement-deleted.md](audio/lista-05-audio-2-what-the-statement-deleted.md) | Áudio | Fio: qual frase do enunciado apagou qual equação | Q1(a,c), Q2(c) | 4.901 |
+| [audio/lista-05-audio-3-impatience-sets-the-rate.md](audio/lista-05-audio-3-impatience-sets-the-rate.md) | Áudio | Fio: preferências fixam o juro, tecnologia fixa o capital | Q2(b,c,d) | 4.974 |
 
-> **Sem áudio neste lote.** Os dois fios do cap. 9 já estão em `aula-06-audio-1` e
-> `aula-06-audio-2`. Para escutar a lista inteira, o material é outro: as três trilhas em
-> [`Leituras/`](../Leituras/), geradas por `/speechify`.
+> **Áudio deste lote — 3 fios, ancorados na prova.** A nota anterior dizia *sem áudio*, no
+> argumento de que `aula-06-audio-1` e `aula-06-audio-2` já cobriam os dois fios do cap. 9.
+> Os três prompts acima foram escritos depois, a pedido, com fios **distintos** desses dois:
+> nenhum reprova o teorema do bem-estar nem refaz a comparação com a Regra de Ouro — cada um
+> declara isso no próprio `Skip entirely`. O recorte é o **estilo de correção** documentado em
+> [`Map/estilo-do-professor.md`](../Map/estilo-do-professor.md): assinar antes de interpretar,
+> nomear o objeto estrutural, e a pergunta-armadilha do tipo *o que um observador competente
+> concluiria errado*. Por isso a Q2(e) (Regra de Ouro) fica **fora** dos três: ela já é o fio
+> inteiro de `aula-06-audio-2`.
+>
+> Nomes de arquivo em inglês, pela regra global de idioma; os slugs em português dos lotes
+> anteriores ficam como estão. Para escutar a lista inteira o material continua sendo outro:
+> as três trilhas em [`Leituras/`](../Leituras/), geradas por `/speechify`.
+
+### Aula 7 — Moeda e Inflação (Kurlat caps. 10-11)
+
+**4 slides + 3 áudios, sem vídeo** — a contagem foi pedida assim. O recorte é **por aula**, e
+o peso está no que a **Lista 6** cobra: demanda por moeda e velocidade, identidade × teoria,
+$\pi = \mu - \eta g$ com $\eta = 1/2$ contra $\eta = 1$, e o caso do custo $F$ caindo.
+Senhoriagem e custos da inflação recebem **uma passagem**, não um deck cada.
+
+| Arquivo | Tipo | Cobre | Chars |
+|---|---|---|---|
+| [slides/aula-07-slides-1-theory.md](slides/aula-07-slides-1-theory.md) | Slide | O que é moeda, agregados, balanço bancário, multiplicador e onde ele quebra, Baumol-Tobin derivado | 4.855 |
+| [slides/aula-07-slides-2-mechanics.md](slides/aula-07-slides-2-mechanics.md) | Slide | Equilíbrio e seus 3 canais, deflator × CPI, Fisher, os 3 estados estacionários, velocidade | 4.870 |
+| [slides/aula-07-slides-3-exercises.md](slides/aula-07-slides-3-exercises.md) | Slide | Lista 6 item a item + os 14 exercícios dos caps. 10-11 por número e página | 4.893 |
+| [slides/aula-07-slides-4-synthesis.md](slides/aula-07-slides-4-synthesis.md) | Slide | O livro-razão de hipóteses, neutro × superneutro, senhoriagem, custos, a costura com as Aulas 8-9 | 4.940 |
+| [audio/aula-07-audio-1-an-identity-cannot-fail.md](audio/aula-07-audio-1-an-identity-cannot-fail.md) | Áudio | Fio: uma equação que não pode ser falsa não explica nada — $MV=PY$ e o preço do conteúdo | 4.870 |
+| [audio/aula-07-audio-2-eta-is-the-policy-number.md](audio/aula-07-audio-2-eta-is-the-policy-number.md) | Áudio | Fio: $\eta$ é o número que o BC não observa e do qual não escapa; errar nele erra a meta | 4.913 |
+| [audio/aula-07-audio-3-neutral-but-not-superneutral.md](audio/aula-07-audio-3-neutral-but-not-superneutral.md) | Áudio | Fio: o modelo é neutro e **não** é superneutro — e a prova está no custo de sola de sapato | 4.944 |
+
+> **Sem vídeo neste lote**, por escolha de contagem. Os objetos visuais da aula que mais
+> pediriam vídeo — a serra do Baumol-Tobin, o multiplicador caindo em 2008, o salto do nível de
+> preços quando $\mu$ muda — ficam disponíveis se o lote for ampliado depois.
+>
+> Para **ouvir a aula inteira** o material é outro: o roteiro narrado em
+> [`Leituras/aula-07-money-and-inflation-narrated.txt`](../Leituras/aula-07-money-and-inflation-narrated.txt),
+> 21.180 palavras, cerca de 141 minutos a 150 ppm, gerado por `/speechify`. Ele cobre os dois
+> capítulos, a aula e a Lista 6, com formulário falado e autoteste. O plano de leitura está em
+> [`Map/leituras-aula-07.md`](../Map/leituras-aula-07.md).
 
 ---
 
@@ -210,9 +256,24 @@ comum, motivação histórica).
 
 ## Ainda falta
 
-Prompts para as **Aulas 5, 7, 8 e 9** — os slides da Aula 5 já estão em `sources/`; os das
-Aulas 7 a 9 ainda não foram disponibilizados, e os prompts citam a fonte pelo nome exato do
-arquivo. Quando chegarem, jogue-os em `Aula/`, copie para `sources/` com o prefixo `Aula_`
-e rode `/notebooklm`. Falta também o lote por mecanismo das **Listas 4 e 6**.
+Prompts para as **Aulas 5, 8 e 9**, o **vídeo da Aula 7**, e os lotes por mecanismo das
+**Listas 4 e 6**.
+
+- **Aula 5**: nada falta do lado das fontes — `Aula_Slides_Macro1_Aula5.pdf` já está em
+  `sources/`. É só rodar `/notebooklm`.
+- **Aula 7**: o lote de **4 slides + 3 áudios** está pronto (ver acima). Falta apenas vídeo, se
+  quiser: os objetos naturais são a serra do Baumol-Tobin, o multiplicador caindo em 2008 e o
+  salto do nível de preços quando a **taxa** de crescimento da moeda muda.
+- **Aulas 8-9**: os slides ainda não foram disponibilizados, e os prompts citam a fonte pelo
+  nome exato do arquivo. Quando chegarem, jogue-os em `Aula/`, copie para `sources/` com o
+  prefixo `Aula_` e rode `/notebooklm`.
+- **Lista 6**: o lote por mecanismo não existe — o da Aula 7 já cobre o que a lista cobra, mas
+  um recorte transversal (um par por mecanismo, atravessando as duas questões) ainda seria
+  outro ângulo, como nas Listas 3 e 5.
+
+> Nada disso deve ser escrito sem antes combinar **unidade, contagem por tipo e conteúdo** —
+> a regra R0 de [`rules/10_notebooklm_prompts.md`](../rules/10_notebooklm_prompts.md). O
+> comando `/intake` faz essa triagem: analisa o material que chegou, diz o que já existe em
+> volta dele, e só então pergunta.
 
 Cobertura por tema em [Map/cobertura.md](../Map/cobertura.md).

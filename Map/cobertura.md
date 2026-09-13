@@ -1,11 +1,11 @@
 ---
 tags: [map, macro1, cobertura, status]
-date: 2026-09-06
+date: 2026-09-12
 ---
 
 # Cobertura — o que existe e o que falta
 
-Estado do material em **2026-09-06**. Voltar ao [[00_indice]].
+Estado do material em **2026-09-12**. Voltar ao [[00_indice]].
 
 | Aula | Regras | Material | Lista | Resolução | Resumo | Quiz | NotebookLM |
 |---|---|---|---|---|---|---|---|
@@ -15,27 +15,41 @@ Estado do material em **2026-09-06**. Voltar ao [[00_indice]].
 | **4** — Consumo e poupança | ✅ | ✅ Slides 4 | ✅ L3 | ✅ | ⬜ | ⬜ | ✅ |
 | **5** — Trabalho e lazer | ✅ | ✅ Slides 5 | ✅ L4 | ✅ | ⬜ | ✅ | ⬜¹ |
 | **6** — Equilíbrio geral | ✅ | ✅ Slides 6 | ✅ L5 ⏰ | ✅ | ⬜ | ✅ | ✅ |
-| **7** — Moeda e inflação | ✅ | ⬜ | ⬜ L6 | — | ⬜ | ⬜ | ⬜ |
-| **8** — AD-AS microfund. | ✅ | ⬜ | ⬜ L6 | — | ⬜ | ⬜ | ⬜ |
+| **7** — Moeda e inflação | ✅ | ✅ Slides 7 | ✅ **L6 ⏰** | ⬜ | ⬜ | ⬜ | ✅² |
+| **8** — AD-AS microfund. | ✅ | ⬜ | ⬜ L7? | — | ⬜ | ⬜ | ⬜ |
 | **9** — AD-AS política | ✅ | ⬜ | ⬜ L7? | — | ⬜ | ⬜ | ⬜ |
 
 ✅ pronto · ⏳ em aberto com prazo · ⬜ falta · — não se aplica ainda
 
-¹ O `NotebookLM/sources/` já tem os PDFs das Aulas 5 e 6 e da Lista 4 (19 fontes no total).
-Falta apenas o **lote de prompts da Aula 5** — o da Aula 6 está pronto, com 4 vídeos e
-2 áudios, e é o primeiro inteiramente em inglês.
+¹ O `NotebookLM/sources/` já tem os PDFs das Aulas 5 e 6 e da Lista 4. Falta apenas o **lote
+de prompts da Aula 5** — o da Aula 6 está pronto, com 4 vídeos e 2 áudios, e é o primeiro
+inteiramente em inglês.
 
-**O curso passou da metade.** Seis aulas com material, **cinco listas emitidas**. A
-**Lista 5** vence em **08/09/2026** e **já está resolvida** (14 páginas + código).
-Chegaram também os **gabaritos do professor** para os PSETs 1-4 e as **correções** das
-Listas 1 e 4: ver [[estilo-do-professor]] e [[avaliacao-listas-1-4]]. O outro gargalo
-permanece: **nenhum resumo** foi gerado para nenhuma aula.
+² **Aula 7:** lote de **4 slides + 3 áudios** escrito (sem vídeo, por escolha de contagem),
+todos aprovados pelo `notebooklm-validate.py`. A **Lista 6** ainda não tem lote por mecanismo.
+
+> ⚠️ **A Lista 6 não tem Benigno.** Ela é "Based on Kurlat (2020, Cap. 10 e 11)" e só isso —
+> ver [[leituras-aula-07]]. A previsão de que a Lista 6 cobriria as Aulas 7 **e** 8 estava
+> errada, então a **Lista 7** passa a carregar as Aulas 8-9 (Benigno §1-12).
+
+**Sete aulas com material, seis listas emitidas.** A **Lista 6** vence em **21/09/2025** como
+impresso no PDF — o ano é quase certamente erro de digitação por **2026** (a Lista 5 venceu
+em 08/09/2026); confirmar com o professor. A **Lista 5** já está resolvida (14 páginas +
+código). Chegaram também os **gabaritos do professor** para os PSETs 1-4 e as **correções**
+das Listas 1 e 4: ver [[estilo-do-professor]] e [[avaliacao-listas-1-4]].
+
+Novidades de 12/09/2026: os **slides da Aula 7** (22 páginas, *Money and Inflation*), a
+**Lista 6**, e o **extrato isolado do Kurlat caps. 10-11** (pp. 189-222) em `Leituras/`, no
+mesmo padrão do extrato do cap. 9. O plano de leitura da aula está em [[leituras-aula-07]].
+
+Gargalos que permanecem: **nenhum resumo** para nenhuma aula, o `.tex` do cap. 7 do Kurlat,
+e a resolução da Lista 6.
 
 ---
 
 ## Materiais por diretório
 
-### `Aula/` — 6 de 9 aulas
+### `Aula/` — 7 de 9 aulas
 
 | Arquivo | Aula | MD? |
 |---|---|---|
@@ -45,11 +59,12 @@ permanece: **nenhum resumo** foi gerado para nenhuma aula.
 | `MPE_Macro1_SlidesAula4.pdf` | 4 — *Microfoundations I: Consumption and Saving* | ✅ |
 | `Slides_Macro1_Aula5.pdf` | 5 — *Microfoundations II: Labor and Leisure* | ✅ |
 | `Slides_Macro1_Aula6.pdf` | 6 — *Microfoundations IV: General Equilibrium* | ✅ |
+| `MPE_Macro1_SlidesAula7_2026.pdf` | 7 — *Money and Inflation* (22 p., 8 seções) | ✅ |
 
 > A Aula 3 veio como **handout** (texto corrido), não como slides — é o material mais
 > denso até agora, 42 KB de MD contra ~20 KB dos slides.
 
-### `Listas/` — 5 de 7
+### `Listas/` — 6 de 7
 
 | Arquivo | Lista | Entrega | MD? |
 |---|---|---|---|
@@ -57,7 +72,8 @@ permanece: **nenhum resumo** foi gerado para nenhuma aula.
 | `MPE_Macro1_2026_Lista2.pdf` | 2 (10 pts) | 17/08/2026 | ✅ |
 | `MPE_Macro1_2026_Lista3.pdf` | 3 | 24/08/2026 — entregue | ✅ |
 | `MPE_Macro1_2026_Lista4.pdf` | 4 (10 pts) | 31/08/2026 — entregue | ✅ |
-| `MPE_Macro1_2026_Lista5.pdf` | 5 (10 pts) | **08/09/2026** ⏰ | ✅ |
+| `MPE_Macro1_2026_Lista5.pdf` | 5 (10 pts) | 08/09/2026 — entregue | ✅ |
+| `MPE_Macro1_2026_Lista6.pdf` | 6 (10 pts) | **21/09/2025** ⏰ *(sic — provável erro por 2026)* | ✅ |
 | `lista-exam.tex` | template LaTeX (`\ifsolucoes`) | — | — |
 
 ### `Resolucao/`
@@ -109,14 +125,28 @@ permanece: **nenhum resumo** foi gerado para nenhuma aula.
 | **7** | 7.1-7.7 (7) | 5 | ⏳ | ✅ | 4 |
 | 8 | — | — | ⛔ fora do escopo | — | — |
 | 9 | 9.1-9.13 (13) | 6 | ✅ 33 p. | ✅ | 3 |
-| 10-11 | — | 7 | ⬜ | ⬜ | ⬜ |
+| **10-11** | 10.1-10.5, 11.1-11.9 (**14**) | 7 | ⬜ | ⬜ | ⬜ |
+| 12-15 | — | — | ⛔ fora do escopo | — | — |
 
-### `Leituras/` — roteiros para TTS
+### `Leituras/` — roteiros para TTS e extratos de capítulo
+
+**Extratos de capítulo** (PDF + MD), para não abrir o livro de 320 páginas por uma aula:
+
+| Arquivo | Capítulo | Pp. impressas | Páginas |
+|---|---|---|---|
+| `Kurlat_cap09_General_Equilibrium.pdf` | cap. 9 — Equilíbrio Geral | 165-187 | 23 |
+| `Kurlat_cap10-11_Money_and_Inflation.pdf` | caps. 10-11 — Moeda e Inflação | **189-222** | **34** |
+
+Ambos também estão em `NotebookLM/sources/` com o prefixo `Livro_`. O Kurlat tem **offset 0**,
+então página impressa = página do PDF ([[books-index]]).
+
+**Roteiros narrados:**
 
 | Arquivo | Escopo | Palavras | Duração |
 |---|---|---|---|
 | `lista-05-general-equilibrium-narrated.txt` | Aula 6 + Kurlat cap. 9 + as duas questões da **Lista 5**, resolvidas | 21.623 | ~144 min a 150 ppm (~96 min a 1,5×) |
 | `psets-01-04-instructor-solutions-narrated.txt` | os **4 gabaritos do professor** (PSETs 1-4), narrados, + as 21 armadilhas que ele anota à margem | 10.750 | ~72 min a 150 ppm (~48 min a 1,5×) |
+| `aula-07-money-and-inflation-narrated.txt` | **Aula 7 inteira**: Kurlat caps. 10-11 (pp. 189-222), os slides e a **Lista 6** resolvida, em 15 partes | 21.180 | ~141 min a 150 ppm (~94 min a 1,5×) |
 
 Gerados por `/speechify`. Texto puro em **inglês** (regra global de idioma), sem símbolo,
 tabela ou código: a matemática é ditada em palavras. Importar no Speechify por **Add file**;
@@ -146,13 +176,16 @@ trabalho próprio sobre a Q3 (convergência) da Lista 1.
 
 ### `NotebookLM/`
 
-`README.md` + `sources/` (19 PDFs prontos para upload) + **58 prompts** em três lotes:
+`README.md` + `sources/` (**24** PDFs prontos para upload) + **80 prompts** em cinco lotes
+(contagem verificada no disco em 12/09/2026: 32 slides, 16 áudios, 32 vídeos):
 
 | Lote | Recorte | Slides | Vídeos | Áudios | Total |
 |---|---|---|---|---|---|
 | Aulas 1-4 | por aula | 16 | 16 | 8 | **40** |
 | Lista 3 | por mecanismo econômico | 6 | 6 | — | **12** |
 | **Aula 6** | por objeto visual | — | 4 | 2 | **6** |
+| **Lista 5** | por mecanismo econômico | 6 | 6 | 3 | **15** |
+| **Aula 7** | por aula, peso na Lista 6 | 4 | — | 3 | **7** |
 
 O lote da Lista 3 é **transversal**: cada par slide+vídeo isola um mecanismo (riqueza e
 Euler · renda permanente · $\sigma$ como árbitro · impostos e Ricardo · restrição de

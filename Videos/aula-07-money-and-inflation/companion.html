@@ -1,0 +1,343 @@
+<title>The Elasticity Dial</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #f6f7f9;
+    --panel: #ffffff;
+    --ink: #14181f;
+    --ink-soft: #535c6b;
+    --ink-faint: #8a93a2;
+    --rule: #dde1e8;
+    --demand: #2c7f99;
+    --eta: #a8761a;
+    --miss: #c4432f;
+    --ontarget: #4a7c3f;
+    --grid: #e6e9ef;
+    --shadow: 0 1px 2px rgba(20, 24, 31, .06), 0 8px 24px -12px rgba(20, 24, 31, .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0f1216;
+      --panel: #171b21;
+      --ink: #e8ebef;
+      --ink-soft: #9aa4b2;
+      --ink-faint: #6b7584;
+      --rule: #272d36;
+      --demand: #58c4dd;
+      --eta: #e8b84b;
+      --miss: #fc6255;
+      --ontarget: #83c167;
+      --grid: #222831;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 28px -14px rgba(0, 0, 0, .7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0f1216;
+    --panel: #171b21;
+    --ink: #e8ebef;
+    --ink-soft: #9aa4b2;
+    --ink-faint: #6b7584;
+    --rule: #272d36;
+    --demand: #58c4dd;
+    --eta: #e8b84b;
+    --miss: #fc6255;
+    --ontarget: #83c167;
+    --grid: #222831;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 28px -14px rgba(0, 0, 0, .7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 0 20px;
+  }
+  .wrap { max-width: 1020px; margin: 0 auto; padding-block: 36px 44px; }
+
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 0 0 10px;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 600; font-size: clamp(27px, 4.4vw, 40px);
+    line-height: 1.12; margin: 0 0 10px; text-wrap: balance;
+  }
+  .standfirst {
+    margin: 0; max-width: 62ch; color: var(--ink-soft);
+    font-size: 17px;
+  }
+
+  .grid {
+    display: grid; gap: 26px; margin-top: 28px;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+  figure {
+    margin: 0; background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 16px 16px 10px; box-shadow: var(--shadow);
+  }
+  svg { display: block; width: 100%; height: auto; max-width: 100%; }
+  figcaption {
+    font-size: 13.5px; color: var(--ink-faint); padding: 6px 2px 0;
+    border-top: 1px solid var(--rule); margin-top: 10px;
+  }
+
+  .controls { display: flex; flex-direction: column; gap: 22px; }
+
+  .dial { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+          padding: 18px; box-shadow: var(--shadow); }
+  .dial-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  label[for="eta"] { font-weight: 600; font-size: 15px; }
+  .dial-val {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums;
+    font-size: 30px; color: var(--eta); font-weight: 500;
+  }
+  input[type="range"] { width: 100%; margin: 14px 0 4px; accent-color: var(--eta); }
+  input[type="range"]:focus-visible { outline: 2px solid var(--eta); outline-offset: 4px; }
+  .ticks {
+    display: flex; justify-content: space-between;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px; color: var(--ink-faint);
+  }
+  .hint { margin: 12px 0 0; font-size: 13.5px; color: var(--ink-soft); }
+
+  .readout { display: flex; flex-direction: column; gap: 1px;
+             background: var(--rule); border: 1px solid var(--rule);
+             border-radius: 10px; overflow: hidden; }
+  .row { display: flex; justify-content: space-between; align-items: baseline;
+         gap: 14px; background: var(--panel); padding: 11px 15px; }
+  .row dt { color: var(--ink-soft); font-size: 14.5px; margin: 0; }
+  .row dd {
+    margin: 0; font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums; font-size: 17px;
+  }
+  .row.fixed dd { color: var(--ink-faint); }
+  .row.out dd { font-size: 21px; font-weight: 500; }
+
+  .verdict {
+    display: flex; align-items: center; gap: 10px; padding: 13px 15px;
+    background: var(--panel); font-size: 15px;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
+    letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px;
+    border-radius: 4px; border: 1px solid currentColor; white-space: nowrap;
+  }
+
+  .formula {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 14px;
+    color: var(--ink-soft); background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 14px 15px; overflow-x: auto;
+  }
+  .formula b { color: var(--ink); font-weight: 500; }
+
+  footer {
+    margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--rule);
+    font-size: 13.5px; color: var(--ink-faint);
+  }
+  footer p { margin: 0 0 5px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  .pt { transition: transform .12s ease-out; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Aula 7 &middot; Money and Inflation &middot; companion</p>
+    <h1>The one number that decides whether the target is hit</h1>
+    <p class="standfirst">
+      A central bank wants 2&nbsp;per cent inflation in an economy growing at 3&nbsp;per cent.
+      Believing the income elasticity of money demand is one half, it sets money growth at
+      3.5&nbsp;per cent &mdash; and then lives with whatever the elasticity <em>actually</em> is.
+      Move the dial to the truth and watch the target get missed.
+    </p>
+  </header>
+
+  <div class="grid">
+    <figure>
+      <svg viewBox="0 0 580 376" role="img"
+           aria-label="Realised inflation falls as the true income elasticity of money demand rises, crossing the two per cent target at an elasticity of one half.">
+        <g id="grid-lines"></g>
+        <!-- axes -->
+        <line x1="62" y1="316" x2="556" y2="316" stroke="var(--ink-faint)" stroke-width="1"></line>
+        <line x1="62" y1="26" x2="62" y2="316" stroke="var(--ink-faint)" stroke-width="1"></line>
+        <g id="y-ticks"></g>
+        <g id="x-ticks"></g>
+        <text x="309" y="366" text-anchor="middle" fill="var(--ink-soft)"
+              font-family="Source Sans 3, sans-serif" font-size="13.5">
+          the true income elasticity of money demand
+        </text>
+        <text x="16" y="171" text-anchor="middle" fill="var(--ink-soft)"
+              font-family="Source Sans 3, sans-serif" font-size="13.5"
+              transform="rotate(-90 16 171)">realised inflation, per cent</text>
+
+        <!-- target -->
+        <line id="target" x1="62" x2="556" stroke="var(--ink-faint)" stroke-width="1.5"
+              stroke-dasharray="5 4"></line>
+        <text id="target-lab" x="552" text-anchor="end" fill="var(--ink-soft)"
+              font-family="IBM Plex Mono, monospace" font-size="12">target 2.0</text>
+
+        <!-- the locus of realised inflation -->
+        <line id="locus" stroke="var(--demand)" stroke-width="2.5"></line>
+
+        <!-- the two landmarks from the video -->
+        <g id="marks"></g>
+
+        <!-- the live point, plus its gap to target -->
+        <line id="gap" stroke="var(--miss)" stroke-width="2" stroke-dasharray="3 3"></line>
+        <circle id="pt" class="pt" r="6.5" stroke="var(--ground)" stroke-width="2"></circle>
+      </svg>
+      <figcaption id="cap">At an elasticity of one half the bank is exactly right.</figcaption>
+    </figure>
+
+    <div class="controls">
+      <div class="dial">
+        <div class="dial-head">
+          <label for="eta">True elasticity</label>
+          <span class="dial-val" id="eta-val">1.00</span>
+        </div>
+        <input type="range" id="eta" min="0" max="1.5" step="0.01" value="1">
+        <div class="ticks"><span>0</span><span>0.5</span><span>1.0</span><span>1.5</span></div>
+        <p class="hint">Baumol&ndash;Tobin implies one half, from economies of scale in cash
+          management. The Cambridge equation implies one. The bank assumed one half.</p>
+      </div>
+
+      <dl class="readout">
+        <div class="row fixed"><dt>Inflation target</dt><dd>2.00</dd></div>
+        <div class="row fixed"><dt>Output growth</dt><dd>3.00</dd></div>
+        <div class="row fixed"><dt>Elasticity assumed</dt><dd>0.50</dd></div>
+        <div class="row fixed"><dt>Money growth chosen</dt><dd>3.50</dd></div>
+        <div class="row out"><dt>Realised inflation</dt><dd id="pi">0.50</dd></div>
+        <div class="row out"><dt>Miss, percentage points</dt><dd id="miss">&minus;1.50</dd></div>
+        <div class="verdict"><span class="chip" id="chip">undershoot</span>
+          <span id="verdict-text">The economy absorbed more money than the bank expected.</span>
+        </div>
+      </dl>
+
+      <p class="formula">
+        &pi; = &mu; &minus; &eta;g<br>
+        &mu; = &pi;* + &eta;<sub>assumed</sub>&middot;g = 2 + 0.5(3) = <b>3.5</b><br>
+        miss = &minus;(&eta;<sub>true</sub> &minus; &eta;<sub>assumed</sub>) &times; g
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Companion to the <strong>Aula&nbsp;7</strong> explainer video, <em>Money and
+      Inflation</em>. Model from Kurlat (2020), <em>A Course in Modern Macroeconomics</em>,
+      &sect;11.2, equation 11.2.3, printed page&nbsp;211; the calibration is Lista&nbsp;6,
+      question&nbsp;2(b).</p>
+    <p>The locus is exact, not fitted: money growth is held at the bank&rsquo;s choice of
+      3.5&nbsp;per cent, so realised inflation is 3.5&nbsp;&minus;&nbsp;3&eta;.</p>
+  </footer>
+</div>
+
+<script>
+  const PI_STAR = 2, G = 3, ETA_ASSUMED = 0.5, MU = PI_STAR + ETA_ASSUMED * G;
+  const X0 = 62, X1 = 556, Y0 = 316, Y1 = 26;
+  const EMIN = 0, EMAX = 1.5, PMIN = -1.5, PMAX = 4;
+
+  const sx = e => X0 + (e - EMIN) / (EMAX - EMIN) * (X1 - X0);
+  const sy = p => Y0 - (p - PMIN) / (PMAX - PMIN) * (Y0 - Y1);
+  const inflation = e => MU - e * G;
+  const ns = "http://www.w3.org/2000/svg";
+
+  function el(tag, attrs, text) {
+    const n = document.createElementNS(ns, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (text !== undefined) n.textContent = text;
+    return n;
+  }
+
+  // gridlines and ticks, drawn to the same scale the marks use
+  const gl = document.getElementById("grid-lines");
+  const yt = document.getElementById("y-ticks");
+  for (let p = -1; p <= 4; p++) {
+    gl.appendChild(el("line", { x1: X0, x2: X1, y1: sy(p), y2: sy(p),
+      stroke: "var(--grid)", "stroke-width": 1 }));
+    yt.appendChild(el("text", { x: X0 - 9, y: sy(p) + 4, "text-anchor": "end",
+      fill: "var(--ink-faint)", "font-family": "IBM Plex Mono, monospace",
+      "font-size": 11.5 }, p.toFixed(0)));
+  }
+  const xt = document.getElementById("x-ticks");
+  [0, 0.5, 1, 1.5].forEach(e => {
+    xt.appendChild(el("text", { x: sx(e), y: Y0 + 20, "text-anchor": "middle",
+      fill: "var(--ink-faint)", "font-family": "IBM Plex Mono, monospace",
+      "font-size": 11.5 }, e.toFixed(1)));
+  });
+
+  document.getElementById("target").setAttribute("y1", sy(PI_STAR));
+  document.getElementById("target").setAttribute("y2", sy(PI_STAR));
+  document.getElementById("target-lab").setAttribute("y", sy(PI_STAR) - 7);
+
+  const locus = document.getElementById("locus");
+  locus.setAttribute("x1", sx(EMIN)); locus.setAttribute("y1", sy(inflation(EMIN)));
+  locus.setAttribute("x2", sx(EMAX)); locus.setAttribute("y2", sy(inflation(EMAX)));
+
+  // the two landmarks the video names
+  const marks = document.getElementById("marks");
+  [[0.5, "Baumol-Tobin", "var(--ontarget)"], [1, "Cambridge", "var(--miss)"]]
+    .forEach(([e, name, colour]) => {
+      marks.appendChild(el("circle", { cx: sx(e), cy: sy(inflation(e)), r: 3.5,
+        fill: colour }));
+      marks.appendChild(el("text", { x: sx(e), y: sy(inflation(e)) + 22,
+        "text-anchor": "middle", fill: colour,
+        "font-family": "IBM Plex Mono, monospace", "font-size": 11 }, name));
+    });
+
+  const slider = document.getElementById("eta");
+  const out = {
+    eta: document.getElementById("eta-val"), pi: document.getElementById("pi"),
+    miss: document.getElementById("miss"), chip: document.getElementById("chip"),
+    text: document.getElementById("verdict-text"), cap: document.getElementById("cap"),
+    pt: document.getElementById("pt"), gap: document.getElementById("gap"),
+  };
+
+  function render() {
+    const eta = parseFloat(slider.value);
+    const pi = inflation(eta);
+    const miss = pi - PI_STAR;
+
+    out.eta.textContent = eta.toFixed(2);
+    out.pi.textContent = pi.toFixed(2);
+    out.miss.textContent = (miss >= 0 ? "+" : "−") + Math.abs(miss).toFixed(2);
+
+    const onTarget = Math.abs(miss) < 0.005;
+    const colour = onTarget ? "var(--ontarget)" : "var(--miss)";
+    out.pi.style.color = colour;
+    out.miss.style.color = colour;
+    out.chip.style.color = colour;
+    out.chip.textContent = onTarget ? "on target" : (miss < 0 ? "undershoot" : "overshoot");
+    out.text.textContent = onTarget
+      ? "The assumption was right, so the choice of money growth was right."
+      : (miss < 0
+        ? "The economy absorbed more money than the bank expected, so less was left to bid prices up."
+        : "The economy absorbed less money than the bank expected, so more was left to bid prices up.");
+
+    out.pt.setAttribute("cx", sx(eta));
+    out.pt.setAttribute("cy", sy(pi));
+    out.pt.setAttribute("fill", colour);
+    out.gap.setAttribute("x1", sx(eta)); out.gap.setAttribute("x2", sx(eta));
+    out.gap.setAttribute("y1", sy(pi)); out.gap.setAttribute("y2", sy(PI_STAR));
+    out.gap.setAttribute("stroke", colour);
+    out.gap.setAttribute("opacity", onTarget ? 0 : 1);
+
+    out.cap.textContent = onTarget
+      ? "At an elasticity of one half the bank is exactly right."
+      : "Error in the elasticity " + Math.abs(eta - ETA_ASSUMED).toFixed(2)
+        + ", times growth of 3, gives a miss of " + Math.abs(miss).toFixed(2)
+        + " percentage points.";
+  }
+
+  slider.addEventListener("input", render);
+  render();
+</script>
