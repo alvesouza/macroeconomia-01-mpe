@@ -221,7 +221,7 @@ para `/exam-gen` e para prever o conteúdo das listas seguintes.
 | **4** | 5 | 7 | **7.1** *Labor Supply*, **7.3** *Consumption Taxes and Labor Supply*, **7.5** *Prescott's Calculation* (o "grande" da lista), 7.7 *Beveridge Curve* |
 | **5** | 6 | 9 | **9.1** *The First Welfare Theorem*, **9.6** *Capital Income Taxes*, **9.12** *Optimal vs Fixed Savings Rates* (fecha o fio Solow → EG) |
 | ~~**6**~~ | ~~7 e 8~~ | ~~10-11 + Benigno §1-5~~ | ✅ **RESOLVIDA** — ver abaixo |
-| **7** | **8 e 9** | Benigno §1-12 | Sem exercícios de livro — provável análise gráfica de choques (Figs. 6-9) e multiplicador fiscal (§8), agora cobrindo **também** os microfundamentos (§1-5) que a Lista 6 não cobriu |
+| ~~**7**~~ | ~~8 e 9~~ | ~~Benigno §1-12~~ | ✅ **RESOLVED** — pure Benigno, no book exercise; 4 conceptual questions (NK vs NC vs Keynesian; mark-up shock and rate cut; $y_n$ vs $y_e$; loss function subject to AS). Map: [[lista-07]] |
 
 **Placar da previsão da Lista 6** (emitida em 12/09/2026):
 
@@ -238,6 +238,16 @@ para `/exam-gen` e para prever o conteúdo das listas seguintes.
 **Lista 7** tem de cobrir as Aulas 8 **e** 9 — ou o AD-AS fica sem lista nenhuma. Confirmar com
 o professor. A regularidade 3 seguiu valendo: o item final (Q2(c)) é o mais conceitual, e a
 metade que vale nota é o *porquê*, não a log-diferenciação.
+
+
+**Lista 7 forecast scorecard** (issued 2026-09-25):
+
+| Forecast | What happened |
+|---|---|
+| Covers lectures 8 **and** 9 | ✅ §1-5 (Q1, Q3) and §6-11 (Q2, Q4) |
+| Graphical shock analysis (Figs. 6-9) | ✅ Q2(a) is exactly §7/Fig. 9; Q2(b) is a rate cut instead of a productivity shock |
+| Fiscal multiplier (§8) | ❌ did not appear; neither did the liquidity trap or deleveraging |
+| (not forecast) | ➕ an essay question comparing NK, New Classical and Keynesian (Q1), and Q4 generalises eq. (33) to free weights |
 
 ---
 

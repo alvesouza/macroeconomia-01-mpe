@@ -1,0 +1,211 @@
+<title>The Inflation Tax</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §11.3 · Cagan (1956) · printed pages 215–222</p>
+  <h1>The Inflation Tax</h1>
+  <p class="lede">Printing money raises revenue equal to <em>rate × base</em> — and the base is
+  real money balances, which people cut precisely when the rate rises. Past
+  <span class="mono">π = 1/a</span> the base shrinks faster than the rate grows, and more inflation
+  raises <em>less</em> revenue. A government that needs more than the peak cannot get it at any
+  inflation rate, which is how hyperinflations start.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="laffer" viewBox="0 0 600 320" role="img"
+             aria-label="Seigniorage revenue against the inflation rate, with the Laffer peak"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--it)"><i class="swatch"></i>revenue, πLe<sup>−aπ</sup></span>
+        <span style="color:var(--ad)"><i class="swatch"></i>the base, Le<sup>−aπ</sup></span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>peak at π = 1⁄a</span>
+        <span style="color:var(--neg)"><i class="swatch dash"></i>revenue needed</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Revenue at this inflation rate</div>
+        <div class="v" id="revOut"></div>
+        <div class="w" id="revW"></div>
+      </div>
+      <div>
+        <div class="k">Maximum attainable revenue</div>
+        <div class="v" id="maxOut"></div>
+        <div class="w">L⁄(ae) — a few per cent of GDP, realistically</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The tax</legend>
+      <div class="ctl">
+        <span class="hint">Push this past the peak and watch revenue fall while inflation rises —
+        the defining feature of a Laffer curve.</span>
+        <label for="pi">Inflation rate <span class="sym">π</span></label>
+        <output id="pio"></output><input type="range" id="pi" min="0.005" max="3" step="0.005" value="0.20">
+      </div>
+      <div class="ctl">
+        <span class="hint">Cagan's semi-elasticity: a one-point rise in inflation cuts real
+        balances by a per cent. As people learn to economise, a rises and the peak falls.</span>
+        <label for="a">Semi-elasticity <span class="sym">a</span></label>
+        <output id="ao"></output><input type="range" id="a" min="0.5" max="12" step="0.1" value="3">
+      </div>
+      <div class="ctl">
+        <label for="L">Base at zero inflation <span class="sym">L</span></label>
+        <output id="Lo"></output><input type="range" id="L" min="0.05" max="0.5" step="0.01" value="0.25">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The government's need</legend>
+      <div class="ctl">
+        <span class="hint">Set this above the peak and no inflation rate can finance it. That is
+        the trap: the government raises money growth, the base shrinks, revenue falls, it raises
+        money growth again.</span>
+        <label for="need">Revenue required, share of GDP</label>
+        <output id="needo"></output><input type="range" id="need" min="0.005" max="0.12" step="0.002" value="0.02">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="moderate">Moderate inflation</button>
+      <button data-p="peak">Exactly at the peak</button>
+      <button data-p="past">Past the peak</button>
+      <button data-p="hyper">Unattainable demand</button>
+    </div>
+
+    <details>
+      <summary>The Laffer condition, in general form</summary>
+      <p>Revenue is maximised where the elasticity of the base with respect to the rate equals
+      −1. Here d ln(M⁄P)⁄d ln π = −aπ, so the condition is aπ = 1 and the peak is at π = 1⁄a.
+      That is the same condition as for any tax; what is special about inflation is only that the
+      base responds so strongly. Derivation in <b>04-seigniorage-and-costs.md</b> §4.2.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 11 · companion to <b>Map/aula-07-moeda-inflacao/04-seigniorage-and-costs.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["pi","a","L","need"];
+
+const base = (pi, v) => v.L * Math.exp(-v.a * pi);
+const revenue = (pi, v) => pi * base(pi, v);
+
+function draw(v){
+  const W=600,H=320,L=58,R=20,T=16,B=44;
+  const pimax = 3.0;
+  const peak = 1 / v.a;
+  const rmax = Math.max(revenue(peak, v), v.need) * 1.25;
+  const X = pi => L + (W-L-R) * pi / pimax;
+  const Y = r => T + (H-T-B) * (1 - Math.min(r, rmax)/rmax);
+
+  let out = "";
+  for(let k=0;k<=4;k++){
+    const rr = rmax*k/4, yy = Y(rr);
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    out += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">${(rr*100).toFixed(1)}%</text>`;
+  }
+  const curve = (fn, col, wid, dash) => {
+    let d = "";
+    for(let k=1;k<=400;k++){
+      const pi = pimax*k/400;
+      d += (d?"L":"M") + X(pi).toFixed(1) + "," + Y(fn(pi)).toFixed(1);
+    }
+    return `<path d="${d}" fill="none" stroke="${col}" stroke-width="${wid}" ${dash||''}/>`;
+  };
+  out += curve(pi => base(pi, v), "var(--ad)", 1.8, 'opacity="0.75"');
+  out += curve(pi => revenue(pi, v), "var(--it)", 2.6);
+
+  // peak
+  out += `<line x1="${X(peak).toFixed(1)}" y1="${T}" x2="${X(peak).toFixed(1)}" y2="${H-B}" stroke="var(--nat)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  out += `<text x="${(X(peak)+5).toFixed(1)}" y="${T+13}" font-size="10.5" fill="var(--nat)">π = 1⁄a = ${(peak*100).toFixed(0)}%</text>`;
+  // requirement
+  out += `<line x1="${L}" y1="${Y(v.need).toFixed(1)}" x2="${W-R}" y2="${Y(v.need).toFixed(1)}" stroke="var(--neg)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  // current point
+  out += `<circle cx="${X(v.pi).toFixed(1)}" cy="${Y(revenue(v.pi,v)).toFixed(1)}" r="6" fill="var(--it)"/>`;
+
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  [0,0.5,1,1.5,2,2.5,3].forEach(p=>{
+    out += `<text x="${X(p).toFixed(1)}" y="${H-B+16}" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">${(p*100).toFixed(0)}%</text>`;
+  });
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">inflation rate π</text>`;
+  $("laffer").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+
+  $("pio").textContent = (v.pi*100).toFixed(1) + "%";
+  $("ao").textContent = v.a.toFixed(1) + " (peak at " + ((1/v.a)*100).toFixed(0) + "%)";
+  $("Lo").textContent = v.L.toFixed(2);
+  $("needo").textContent = (v.need*100).toFixed(1) + "% of GDP";
+
+  draw(v);
+
+  const peak = 1/v.a;
+  const rev = revenue(v.pi, v), rmaxv = revenue(peak, v);
+  $("revOut").textContent = (rev*100).toFixed(2) + "%";
+  $("revW").textContent = v.pi < peak ? "below the peak — more inflation would raise more"
+      : (v.pi > peak ? "past the peak — more inflation raises LESS" : "at the peak");
+  $("maxOut").textContent = (rmaxv*100).toFixed(2) + "%";
+
+  const elast = -v.a * v.pi;
+  $("eqline").innerHTML = `S = π · Le<sup>−aπ</sup> &nbsp;·&nbsp; dS⁄dπ = Le<sup>−aπ</sup>(1 − aπ) = 0 `
+    + `⟹ π* = 1⁄a &nbsp;·&nbsp; base elasticity here = <b>${elast.toFixed(2)}</b> (−1 at the peak)`;
+
+  const rows = [
+    ["the rate, π", v.pi/3],
+    ["the base, M⁄P", base(v.pi, v)/v.L],
+    ["revenue", rev/Math.max(rmaxv,1e-9)],
+  ];
+  const labels = [(v.pi*100).toFixed(0)+"%", (base(v.pi,v)*100).toFixed(1)+"%", (rev*100).toFixed(2)+"%"];
+  $("bars").innerHTML = rows.map(([lab,val],k)=>
+    `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${k===1?'alt':''}" style="width:${Math.min(100,val*100).toFixed(1)}%"></i></span>
+      <span class="val">${labels[k]}</span></div>`).join("");
+
+  const attainable = v.need <= rmaxv;
+  $("verdict").innerHTML = attainable
+    ? `<span class="flag ok">financeable</span> &nbsp; The government needs ${(v.need*100).toFixed(1)}% of GDP
+       and the peak delivers ${(rmaxv*100).toFixed(2)}%, so some inflation rate works. Note there are
+       generally <b>two</b> such rates — one below the peak and one above — and only the lower one is
+       sensible, since the higher one gets the same revenue with far more inflation.`
+    : `<span class="flag bad">unattainable at any rate</span> &nbsp; The government needs
+       ${(v.need*100).toFixed(1)}% of GDP but the maximum is <b>${(rmaxv*100).toFixed(2)}%</b>. Raising money
+       growth now <i>lowers</i> revenue, so the government raises it again, the public economises further,
+       a itself rises and the peak falls further still. That divergent loop is the standard account of why
+       hyperinflations accelerate rather than settling at a high rate.`;
+}
+
+const presets = {
+  moderate: {pi:0.15, a:3, L:0.25, need:0.02},
+  peak:     {pi:1/3,  a:3, L:0.25, need:0.02},
+  past:     {pi:0.90, a:3, L:0.25, need:0.02},
+  hyper:    {pi:1.50, a:3, L:0.25, need:0.06},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

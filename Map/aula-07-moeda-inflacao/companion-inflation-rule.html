@@ -1,0 +1,388 @@
+<title>The Elasticity Dial</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- one of these two resolves: ../companion.css locally in Map/, companion.css when published -->
+<link rel="stylesheet" href="../companion.css">
+<link rel="stylesheet" href="companion.css">
+<style>
+  .panels{display:flex; flex-direction:column; gap:22px; min-width:0}
+  .eq{margin:0; padding:10px 16px 14px; border-top:1px solid var(--rule);
+      font-family:"IBM Plex Mono",ui-monospace,monospace;
+      font-size:.86rem; color:var(--ink-soft); overflow-x:auto}
+  .lock{display:flex; align-items:center; gap:8px; margin:10px 0 2px; font-size:.86rem}
+  .lock input{width:auto; accent-color:var(--ad)}
+  input[type=range]:focus-visible, input[type=checkbox]:focus-visible, button:focus-visible{
+      outline:2px solid var(--focus); outline-offset:2px}
+  .prov{font-size:.76rem; color:var(--ink-faint); padding:0 16px 14px; margin:0}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §10.4 and §11.2–11.3 · printed pages 199–218 · Problem Set 6, Q2</p>
+  <h1>The Elasticity Dial</h1>
+  <p class="lede">Inflation is not money growth. It is money growth <em>minus</em> the growth of the
+  demand for real balances — and that second term is an elasticity times a growth rate. Move the
+  dial from one half to one and a central bank that never changed its rule misses its target by
+  one and a half points a year, every year.</p>
+</header>
+
+<div class="cols">
+  <div class="panels">
+
+    <div class="answer">
+      <div>
+        <div class="k">Realised inflation π</div>
+        <div class="v" id="piOut"></div>
+        <div class="w" id="piWord"></div>
+      </div>
+      <div>
+        <div class="k">Gap against the target</div>
+        <div class="v" id="gapOut"></div>
+        <div class="w" id="gapWord"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="p1" viewBox="0 0 600 300" role="img"
+             aria-label="Realised inflation against the income elasticity of money demand"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--it)"><i class="swatch"></i>π = μ − η(g+f)</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>target π*</span>
+        <span style="color:var(--ad)"><i class="swatch dash"></i>η = ½, Baumol–Tobin</span>
+        <span style="color:var(--as)"><i class="swatch dash"></i>η = 1, Cambridge</span>
+      </div>
+      <p class="eq" id="eq1"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="p2" viewBox="0 0 600 300" role="img"
+             aria-label="The money growth rate needed to hit the target, against real growth"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>μ = π* + ½(g+f)</span>
+        <span style="color:var(--as)"><i class="swatch"></i>μ = π* + 1·(g+f)</span>
+        <span style="color:var(--it)"><i class="swatch"></i>your η</span>
+        <span style="color:var(--eff)"><i class="swatch dash"></i>the μ you announced</span>
+      </div>
+      <p class="eq" id="eq2"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="p3" viewBox="0 0 600 300" role="img"
+             aria-label="Inflation against the rate of decline of the cost of a trip to the bank"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--it)"><i class="swatch"></i>π = μ − η(g+f)</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>the f = 0 design value</span>
+      </div>
+      <p class="eq" id="eq3"></p>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">μ you would need</div><div class="v" id="muReq"></div><div class="n">π* + η(g+f), to hit the target</div></div>
+      <div><div class="k">Elasticity your μ assumes</div><div class="v" id="etaImp"></div><div class="n">(μ − π*)/(g+f)</div></div>
+      <div><div class="k">Real money demand drift</div><div class="v" id="mdHat"></div><div class="n">η(g+f) — what the economy absorbs</div></div>
+      <div><div class="k">Velocity drift V̂</div><div class="v" id="vHat"></div><div class="n">g − η(g+f) = (1−η)g − ηf</div></div>
+      <div><div class="k">Trips to the bank n*</div><div class="v" id="nOut"></div><div class="n" id="nDrift"></div></div>
+      <div><div class="k">Real balances m<sup>D</sup></div><div class="v" id="mOut"></div><div class="n" id="mDrift"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The policy rule</legend>
+      <div class="ctl">
+        <span class="hint">The growth rate of the money stock the central bank commits to. Under a
+        constant-money-growth rule this is the only instrument.</span>
+        <label for="mu">Money growth <span class="sym">μ</span></label>
+        <output id="muo"></output><input type="range" id="mu" min="0" max="12" step="0.1" value="3.5">
+      </div>
+      <div class="ctl">
+        <span class="hint">What the bank is aiming at. It moves the reference line, not the
+        economy.</span>
+        <label for="pis">Inflation target <span class="sym">π*</span></label>
+        <output id="piso"></output><input type="range" id="pis" min="0" max="8" step="0.25" value="2">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The economy</legend>
+      <div class="ctl">
+        <span class="hint">Trend growth of real output. It is the only reason a growing economy
+        wants to hold more money at an unchanged interest rate.</span>
+        <label for="g">Real growth <span class="sym">g</span></label>
+        <output id="go"></output><input type="range" id="g" min="0" max="6" step="0.1" value="3">
+      </div>
+      <div class="ctl">
+        <span class="hint">How much real money demand rises with income. Baumol–Tobin says one
+        half — there are scale economies in cash management. The Cambridge equation says one, which
+        is the same thing as a trendless velocity.</span>
+        <label for="eta">Income elasticity <span class="sym">η</span></label>
+        <output id="etao"></output><input type="range" id="eta" min="0" max="1.5" step="0.01" value="0.5">
+      </div>
+      <label class="lock"><input type="checkbox" id="lock"> Lock η to Baumol–Tobin (η = ½)</label>
+      <div class="ctl">
+        <span class="hint">The rate at which the cost of one trip to the bank is falling. ATMs,
+        debit cards and Pix all make it negative, which shrinks money demand with no change in
+        income or interest rates.</span>
+        <label for="f">Trip-cost drift <span class="sym">f = Ḟ/F</span></label>
+        <output id="fo"></output><input type="range" id="f" min="-6" max="2" step="0.1" value="0">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="base">Problem Set 6 baseline</button>
+      <button data-p="cambridge">The bank is wrong (η = 1)</button>
+      <button data-p="pix">Pix (f = −2%)</button>
+      <button data-p="friedman">k-per-cent rule, no growth</button>
+      <button data-p="reset">Reset</button>
+    </div>
+
+    <details>
+      <summary>Where the expression comes from</summary>
+      <p>Money market equilibrium holds at every date: M<sup>S</sup> = p·m<sup>D</sup>(Y, i).
+      Take logs, differentiate in time, and note that a <b>constant</b> nominal rate kills the
+      interest term — not because money demand is interest-inelastic, but because i is not moving.
+      What is left is μ = π + η·g. Let the cost of a trip drift too, and Baumol–Tobin's
+      m<sup>D</sup> = √(YF/2i) adds ½·f, giving π = μ − ½(g+f). This page writes the general form
+      π = μ − η(g+f): the elasticity of money demand with respect to F is tied to η, which is exact
+      in Baumol–Tobin, where both are ½.</p>
+      <p>The trap the algebra hides: η multiplies <b>g</b>, never μ. With g = 0 every extra unit of
+      money lands on prices, whatever the elasticity is — set g and f to zero and watch π sit on μ.</p>
+    </details>
+
+    <p class="prov">Defaults are Problem Set 6's own calibration: μ = 3.5%, g = 3%, π* = 2%,
+    η = ½ (Kurlat §10.4, p. 199–202), f = 0. The Baumol–Tobin read-outs are evaluated at the
+    reference household of <b>companion-baumol-tobin.html</b>: Y = 1000, i = 5%, F = 2.</p>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 10–11 · companion to <b>Map/aula-07-moeda-inflacao/03-equilibrium-and-neutrality.md</b>
+and <b>Resolucao/lista6_resolucao.pdf</b> Q2 · notation follows Kurlat</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["mu", "pis", "g", "eta", "f"];
+const DEFAULTS = {mu: 3.5, pis: 2, g: 3, eta: 0.5, f: 0};
+const REF = {Y: 1000, i: 0.05, F: 2};          // the reference household, companion-baumol-tobin
+
+// ---- the model, exactly as derived in Problem Set 6 Q2 -------------------
+const infl = v => v.mu - v.eta * (v.g + v.f);           // pi = mu - eta (g+f)
+const muNeeded = v => v.pis + v.eta * (v.g + v.f);      // mu* = pi* + eta (g+f)
+const mdDrift = v => v.eta * (v.g + v.f);               // growth of real balances
+const vDrift = v => v.g - v.eta * (v.g + v.f);          // growth of velocity
+const nStar = r => Math.sqrt(r.i * r.Y / (2 * r.F));
+const mBal = r => Math.sqrt(r.F * r.Y / (2 * r.i));
+
+const fmt = (x, d = 2) => (x < 0 ? "−" : "") + Math.abs(x).toFixed(d);
+const pct = (x, d = 2) => fmt(x, d) + "%";
+
+// ---- a small plotting layer: one scale, ticks where they are read -------
+function plot(svg, {x0, x1, y0, y1, xlab, ylab, series, vlines, hlines, dots, band}) {
+  const W = 600, H = 300, L = 62, R = 18, T = 16, B = 46;
+  const X = x => L + (W - L - R) * (x - x0) / (x1 - x0);
+  const Y = y => T + (H - T - B) * (1 - (y - y0) / (y1 - y0));
+  const tick = (a, b, n) => Array.from({length: n + 1}, (_, k) => a + (b - a) * k / n);
+  let o = "";
+
+  tick(y0, y1, 4).forEach(y => {
+    o += `<line x1="${L}" y1="${Y(y).toFixed(1)}" x2="${W - R}" y2="${Y(y).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    o += `<text x="${L - 8}" y="${(Y(y) + 3.5).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)">${fmt(y, 1)}</text>`;
+  });
+
+  if (band) {
+    const d = band.pts.map((p, k) => (k ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1)).join("")
+      + "L" + X(band.pts[band.pts.length - 1][0]).toFixed(1) + "," + Y(band.base).toFixed(1)
+      + "L" + X(band.pts[0][0]).toFixed(1) + "," + Y(band.base).toFixed(1) + "Z";
+    o += `<path d="${d}" fill="${band.color}" fill-opacity="0.13" stroke="none"/>`;
+  }
+
+  (hlines || []).forEach(h => {
+    o += `<line x1="${L}" y1="${Y(h.y).toFixed(1)}" x2="${W - R}" y2="${Y(h.y).toFixed(1)}" stroke="${h.color}" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+    if (h.label) o += `<text x="${W - R - 4}" y="${(Y(h.y) - 6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${h.color}">${h.label}</text>`;
+  });
+  (vlines || []).forEach(v => {
+    o += `<line x1="${X(v.x).toFixed(1)}" y1="${T}" x2="${X(v.x).toFixed(1)}" y2="${H - B}" stroke="${v.color}" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+    if (v.label) o += `<text x="${(X(v.x) + 4).toFixed(1)}" y="${T + 12}" font-size="10.5" fill="${v.color}">${v.label}</text>`;
+  });
+
+  series.forEach(s => {
+    let d = "";
+    for (let k = 0; k <= 300; k++) {
+      const x = x0 + (x1 - x0) * k / 300, y = s.fn(x);
+      if (!isFinite(y) || y < y0 - 1e9 || y > y1 + 1e9) continue;
+      const yc = Math.min(Math.max(y, y0), y1);
+      d += (d ? "L" : "M") + X(x).toFixed(1) + "," + Y(yc).toFixed(1);
+    }
+    o += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.w || 2.2}" stroke-dasharray="${s.dash || ""}"/>`;
+  });
+
+  (dots || []).forEach(p => {
+    o += `<circle cx="${X(p.x).toFixed(1)}" cy="${Y(Math.min(Math.max(p.y, y0), y1)).toFixed(1)}" r="5.5" fill="${p.color}"/>`;
+    if (p.label) o += `<text x="${(X(p.x) + 9).toFixed(1)}" y="${(Y(Math.min(Math.max(p.y, y0), y1)) - 8).toFixed(1)}" font-size="10.5" fill="${p.color}">${p.label}</text>`;
+  });
+
+  o += `<line x1="${L}" y1="${H - B}" x2="${W - R}" y2="${H - B}" stroke="var(--rule)" stroke-width="1"/>`;
+  o += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H - B}" stroke="var(--rule)" stroke-width="1"/>`;
+  tick(x0, x1, 5).forEach(x => {
+    o += `<text x="${X(x).toFixed(1)}" y="${H - B + 16}" text-anchor="middle" font-size="11" fill="var(--ink-faint)">${fmt(x, x1 - x0 <= 2 ? 2 : 1)}</text>`;
+  });
+  o += `<text x="${((L + W - R) / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${xlab}</text>`;
+  o += `<text transform="translate(14,${((T + H - B) / 2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${ylab}</text>`;
+  $(svg).innerHTML = o;
+}
+
+const pad = (lo, hi) => {                       // a readable y-range that always contains both
+  let a = Math.min(lo, hi), b = Math.max(lo, hi);
+  if (b - a < 1) { const m = (a + b) / 2; a = m - 0.5; b = m + 0.5; }
+  const e = (b - a) * 0.12;
+  return [Math.floor((a - e) * 2) / 2, Math.ceil((b + e) * 2) / 2];
+};
+
+function render() {
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+
+  $("muo").textContent = pct(v.mu, 1);
+  $("piso").textContent = pct(v.pis, 2);
+  $("go").textContent = pct(v.g, 1);
+  $("etao").textContent = fmt(v.eta, 2);
+  $("fo").textContent = pct(v.f, 1);
+
+  const pi = infl(v), gap = pi - v.pis, drift = v.g + v.f;
+
+  // ---------- headline ----------
+  $("piOut").textContent = pct(pi, 2);
+  $("piOut").className = "v " + (pi < 0 ? "neg" : "");
+  $("piWord").innerHTML = drift === 0
+    ? "No real growth and a frozen payments technology: money demand is flat, so <b>every point of μ lands on prices</b>."
+    : `μ = ${pct(v.mu, 1)} less the ${pct(mdDrift(v), 2)} a year the economy wants to absorb. `
+      + (pi < 0 ? "Prices <b>fall</b>." : "Prices rise.");
+  $("gapOut").textContent = (gap >= 0 ? "+" : "−") + Math.abs(gap).toFixed(2) + " p.p.";
+  $("gapOut").className = "v " + (Math.abs(gap) < 0.005 ? "pos" : "neg");
+  $("gapWord").innerHTML = Math.abs(gap) < 0.005
+    ? "<b>On target.</b> The announced μ matches the elasticity the economy actually has."
+    : `Inflation comes in <b>${gap > 0 ? "above" : "below"}</b> the ${pct(v.pis, 2)} target, `
+      + `every year the rule is in force.`;
+
+  // ---------- panel 1: pi against eta ----------
+  const f1 = e => v.mu - e * drift;
+  const [a1, b1] = pad(Math.min(f1(0), f1(1.5), v.pis), Math.max(f1(0), f1(1.5), v.pis));
+  plot("p1", {
+    x0: 0, x1: 1.5, y0: a1, y1: b1,
+    xlab: "income elasticity of real money demand, η",
+    ylab: "realised inflation π (% a year)",
+    series: [{fn: f1, color: "var(--it)", w: 2.6}],
+    hlines: [{y: v.pis, color: "var(--nat)", label: "target π* = " + pct(v.pis, 2)}],
+    vlines: [{x: 0.5, color: "var(--ad)", label: "½"}, {x: 1, color: "var(--as)", label: "1"}],
+    dots: [
+      {x: 0.5, y: f1(0.5), color: "var(--ad)"},
+      {x: 1, y: f1(1), color: "var(--as)"},
+      {x: v.eta, y: pi, color: "var(--it)", label: "you: " + pct(pi, 2)}
+    ]
+  });
+  $("eq1").innerHTML = `π = μ − η(g+f) = ${pct(v.mu, 1)} − ${fmt(v.eta, 2)}×(${pct(v.g, 1)} ${v.f < 0 ? "−" : "+"} ${pct(Math.abs(v.f), 1)}) = <b>${pct(pi, 2)}</b>`;
+
+  // ---------- panel 2: the mu(g) schedules ----------
+  const sched = e => gg => v.pis + e * (gg + v.f);
+  const cand = [sched(0.5)(0), sched(0.5)(6), sched(1)(0), sched(1)(6), sched(v.eta)(0), sched(v.eta)(6), v.mu];
+  const [a2, b2] = pad(Math.min(...cand), Math.max(...cand));
+  plot("p2", {
+    x0: 0, x1: 6, y0: a2, y1: b2,
+    xlab: "real growth g (% a year)",
+    ylab: "money growth needed for π* (% a year)",
+    series: [
+      {fn: sched(0.5), color: "var(--ad)"},
+      {fn: sched(1), color: "var(--as)"},
+      {fn: sched(v.eta), color: "var(--it)", w: 2.6, dash: "7 3"}
+    ],
+    hlines: [{y: v.mu, color: "var(--eff)", label: "announced μ = " + pct(v.mu, 1)}],
+    vlines: [{x: v.g, color: "var(--nat)"}],
+    dots: [
+      {x: v.g, y: sched(0.5)(v.g), color: "var(--ad)"},
+      {x: v.g, y: sched(1)(v.g), color: "var(--as)"},
+      {x: v.g, y: muNeeded(v), color: "var(--it)", label: "need " + pct(muNeeded(v), 2)}
+    ]
+  });
+  $("eq2").innerHTML = `μ* = π* + η(g+f) = <b>${pct(muNeeded(v), 2)}</b> &nbsp;·&nbsp; the slope of each schedule <i>is</i> η, `
+    + `so the vertical gap between ½ and 1 at g = ${pct(v.g, 1)} is ${pct(0.5 * drift, 2)}`;
+
+  // ---------- panel 3: pi against the trip-cost drift ----------
+  const f3 = ff => v.mu - v.eta * (v.g + ff);
+  const [a3, b3] = pad(Math.min(f3(-6), f3(2), v.pis), Math.max(f3(-6), f3(2), v.pis));
+  const bandPts = [];
+  const lo = Math.min(0, v.f), hi = Math.max(0, v.f);
+  for (let k = 0; k <= 60; k++) { const x = lo + (hi - lo) * k / 60; bandPts.push([x, f3(x)]); }
+  plot("p3", {
+    x0: -6, x1: 2, y0: a3, y1: b3,
+    xlab: "rate of change of the trip cost, f = Ḟ/F (% a year)",
+    ylab: "realised inflation π (% a year)",
+    series: [{fn: f3, color: "var(--it)", w: 2.6}],
+    hlines: [{y: f3(0), color: "var(--nat)", label: "f = 0: π = " + pct(f3(0), 2)}],
+    vlines: [{x: 0, color: "var(--nat)"}],
+    dots: [{x: v.f, y: pi, color: "var(--it)", label: pct(pi, 2)}],
+    band: v.f !== 0 ? {pts: bandPts, base: f3(0), color: "var(--it)"} : null
+  });
+  $("eq3").innerHTML = `∂π/∂f = −η = ${fmt(-v.eta, 2)} &nbsp;·&nbsp; a payments technology improving at `
+    + `${pct(Math.abs(v.f), 1)} a year ${v.f === 0 ? "would add" : "adds"} <b>${pct(-v.eta * v.f, 2)}</b> to inflation under an unchanged μ`;
+
+  // ---------- supporting read-outs ----------
+  $("muReq").textContent = pct(muNeeded(v), 2);
+  $("etaImp").textContent = Math.abs(drift) < 1e-9 ? "—" : fmt((v.mu - v.pis) / drift, 2);
+  $("mdHat").textContent = pct(mdDrift(v), 2);
+  $("vHat").textContent = pct(vDrift(v), 2);
+
+  const n = nStar(REF), m = mBal(REF);
+  $("nOut").textContent = fmt(n, 2);
+  $("mOut").textContent = fmt(m, 1);
+  $("nDrift").innerHTML = `at Y=1000, i=5%, F=2 · drifting ${pct(0.5 * (v.g - v.f), 2)} a year`;
+  $("mDrift").innerHTML = `√(FY/2i) · drifting ${pct(0.5 * (v.g + v.f), 2)} a year`;
+
+  // ---------- the verdict ----------
+  const piCamb = v.mu - 1 * drift, piBT = v.mu - 0.5 * drift;
+  const miss = piCamb - piBT;
+  $("verdict").innerHTML = Math.abs(drift) < 1e-9
+    ? `<span class="flag">no growth</span> With g + f = 0 the elasticity does nothing at all: money demand is
+       static, so π = μ = ${pct(v.mu, 1)} whatever η is. This is the one case where the crude quantity theory
+       and Baumol–Tobin agree exactly — and it is why η must multiply g, not μ.`
+    : `<span class="flag ${Math.abs(v.eta - 0.5) < 1e-9 ? "ok" : ""}">η = ${fmt(v.eta, 2)}</span>
+       A bank that announced μ = ${pct(v.mu, 1)} gets ${pct(piBT, 2)} if the truth is Baumol–Tobin (η = ½) and
+       ${pct(piCamb, 2)} if the truth is Cambridge (η = 1) — a spread of <b>${fmt(Math.abs(miss), 2)} p.p.</b>,
+       which is exactly ½(g+f). Velocity meanwhile drifts at ${pct(vDrift(v), 2)} a year: with η
+       ${v.eta < 1 ? "below" : v.eta > 1 ? "above" : "at"} one, the constant-velocity shortcut
+       ${v.eta === 1 ? "holds" : "is wrong by that much every year"}.`;
+}
+
+const presets = {
+  base:      {mu: 3.5, pis: 2, g: 3, eta: 0.5, f: 0},
+  cambridge: {mu: 3.5, pis: 2, g: 3, eta: 1, f: 0},
+  pix:       {mu: 3.5, pis: 2, g: 3, eta: 0.5, f: -2},
+  friedman:  {mu: 3.5, pis: 2, g: 0, eta: 0.5, f: 0},
+  reset:     DEFAULTS
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k, val] of Object.entries(p)) $(k).value = val;
+    // the lock survives a preset that keeps eta at a half; Cambridge and Reset clear it
+    const keep = $("lock").checked && b.dataset.p !== "cambridge" && b.dataset.p !== "reset";
+    $("lock").checked = keep;
+    if (keep) $("eta").value = 0.5;
+    $("eta").disabled = keep;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+$("lock").addEventListener("change", () => {
+  if ($("lock").checked) $("eta").value = 0.5;
+  $("eta").disabled = $("lock").checked;
+  render();
+});
+render();
+</script>

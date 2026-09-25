@@ -1,0 +1,280 @@
+<title>When Demand Slopes Up</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Benigno (2015) · §10 · eq. (32) · Figure 13 · printed pages 518–521</p>
+  <h1>When Demand Slopes Up</h1>
+  <p class="lede">Put a borrowing limit on some households and the AD curve changes slope. Prices
+  now move the real value of nominal debt — the <em>Fisher effect</em> — and with enough debt the
+  demand curve turns upward, falling prices become contractionary, and the spending multiplier
+  goes past one.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="answer">
+      <div>
+        <div class="k">AD slope parameter ϖ = σ − d₀(1−β)(1−χ)/χ</div>
+        <div class="v" id="ansVarpi">0.000</div>
+        <div class="w" id="ansVarpiW"></div>
+      </div>
+      <div>
+        <div class="k">Spending multiplier, long-run prices anchored</div>
+        <div class="v" id="ansMult">0.000</div>
+        <div class="w" id="ansMultW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 470" role="img"
+             aria-label="AS and AD with debt-constrained agents"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>AS</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>AD after the shock</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>AD before (d̂ = 0)</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">AD slope dp/dy</div><div class="v" id="slopeOut"></div><div class="n" id="slopeW"></div></div>
+      <div><div class="k">Interest sensitivity φ</div><div class="v" id="phiOut"></div><div class="n">[σχ + (1−χ)d₀β]/χ ≥ σ</div></div>
+      <div><div class="k">Fisher term d₀(1−β)(1−χ)/χ</div><div class="v" id="fishOut"></div><div class="n">what eats σ</div></div>
+      <div><div class="k">AS slope κ</div><div class="v" id="kOut"></div><div class="n">(1−α)(σ⁻¹+η)/α, η = 0.2</div></div>
+      <div><div class="k">Output y</div><div class="v" id="yOut"></div><div class="n">% dev., after the shock</div></div>
+      <div><div class="k">Price level p − pᵉ</div><div class="v" id="pOut"></div><div class="n">%</div></div>
+      <div><div class="k">Multiplier, zero long-run inflation</div><div class="v" id="mult0Out"></div><div class="n" id="mult0W"></div></div>
+      <div><div class="k">Stability, 1 + κϖ > 0</div><div class="v" id="stabOut"></div><div class="n">AS must be flatter than AD (fn. 19)</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Who owes what</legend>
+      <div class="ctl">
+        <label for="chi"><span class="sym">χ</span> share of savers</label><output id="chiV"></output>
+        <p class="hint">Borrowers are 1 − χ. Only savers respond to the interest rate, so a low χ
+        weakens conventional monetary policy.</p>
+        <input type="range" id="chi" min="0.40" max="0.95" step="any" value="0.6667">
+      </div>
+      <div class="ctl">
+        <label for="d0"><span class="sym">d₀</span> initial debt, ratio to GDP</label><output id="d0V"></output>
+        <p class="hint">The stock the Fisher effect works on. Benigno uses 1.2, i.e. 120% of GDP.</p>
+        <input type="range" id="d0" min="0" max="3" step="0.05" value="1.20">
+      </div>
+      <div class="ctl">
+        <label for="beta"><span class="sym">β</span> discount factor</label><output id="betaV"></output>
+        <p class="hint">Enters the Fisher term through 1 − β: patient agents, weak effect.</p>
+        <input type="range" id="beta" min="0.90" max="1.00" step="0.002" value="0.99">
+      </div>
+      <div class="ctl">
+        <label for="dhat"><span class="sym">d̂</span> deleveraging shock</label><output id="dhatV"></output>
+        <p class="hint">Change in the debt limit, ratio to GDP. Negative is deleveraging: AD shifts left.</p>
+        <input type="range" id="dhat" min="-0.30" max="0.10" step="0.005" value="-0.10">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Structure</legend>
+      <div class="ctl">
+        <label for="sigma"><span class="sym">σ</span> substitution, scaled to output</label><output id="sigmaV"></output>
+        <p class="hint">Without debt this alone would set the AD slope, at −1/σ.</p>
+        <input type="range" id="sigma" min="0.25" max="1.50" step="0.05" value="0.50">
+      </div>
+      <div class="ctl">
+        <label for="alpha"><span class="sym">α</span> sticky-price firms</label><output id="alphaV"></output>
+        <p class="hint">More flexible prices — lower α, steeper AS — deepen the contraction here.
+        That is the paradox of flexibility.</p>
+        <input type="range" id="alpha" min="0.30" max="0.95" step="0.01" value="0.66">
+      </div>
+    </fieldset>
+    <div class="btns">
+      <button type="button" id="half">Half borrowers</button>
+      <button type="button" id="flip">Make AD slope up</button>
+      <button type="button" id="normal">No debt (d₀ = 0)</button>
+      <button type="button" id="reset">Reset</button>
+    </div>
+    <p class="verdict" id="verdict"></p>
+  </div>
+</div>
+
+<details>
+  <summary>Control contract and provenance</summary>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Control</th><th>Symbol</th><th>Range</th><th>Step</th><th>Default</th><th>Source</th><th>What moves</th></tr></thead>
+    <tbody>
+      <tr><td>Savers</td><td class="num">χ</td><td class="num">0.40–0.95</td><td class="num">continuous</td><td class="num">2/3</td><td>§10, p. 521 (one third borrowers)</td><td>ϖ, φ, both multipliers</td></tr>
+      <tr><td>Initial debt</td><td class="num">d₀</td><td class="num">0–3</td><td class="num">0.05</td><td class="num">1.20</td><td>§10, p. 521 (120% of GDP)</td><td>the Fisher term, hence the slope</td></tr>
+      <tr><td>Discount factor</td><td class="num">β</td><td class="num">0.90–1.00</td><td class="num">0.002</td><td class="num">0.99</td><td>eq. (32), p. 520</td><td>Fisher term through 1 − β</td></tr>
+      <tr><td>Deleveraging</td><td class="num">d̂</td><td class="num">−0.30–0.10</td><td class="num">0.005</td><td class="num">−0.10</td><td>eq. (32), p. 520</td><td>AD position</td></tr>
+      <tr><td>Substitution</td><td class="num">σ</td><td class="num">0.25–1.50</td><td class="num">0.05</td><td class="num">0.50</td><td>§8 calibration, p. 515</td><td>ϖ, φ, κ</td></tr>
+      <tr><td>Sticky-price firms</td><td class="num">α</td><td class="num">0.30–0.95</td><td class="num">0.01</td><td class="num">0.66</td><td>§8 calibration, p. 515</td><td>AS slope κ</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:10px">Held fixed: η = 0.2, ρ = 2%, i = ρ, g = ḡ = 0, τ<sub>b</sub> = τ̄<sub>b</sub> = 0,
+  y<sub>n</sub> = 0. The AS curve is unchanged from the baseline model — that is the point of the
+  exponential-utility assumption (§10, p. 519), not an approximation made here.</p>
+</details>
+
+<footer>
+  <p><b>Model.</b> AD, eq. (32): y = y<sub>n</sub> − φ[i − (p̄<sub>n</sub> − p) − ρ]
+  + χ⁻¹[(g − ḡ) − (1−χ)(τ<sub>b</sub> − τ̄<sub>b</sub>)] + [(1−χ)/χ][d̂ + d₀(p − pᵉ)], with
+  φ = [σχ + (1−χ)d₀β]/χ, so dy/dp = −ϖ and ϖ = σ − d₀(1−β)(1−χ)/χ. AS: p − pᵉ = κ(y − y<sub>n</sub>).
+  Multipliers as printed on p. 521.</p>
+  <p><b>Source.</b> Benigno, <i>Research in Economics</i> 69 (2015), §10, drawn from Eggertsson and
+  Krugman (2012). Derivation: <span class="mono">Map/benigno/09-deleveraging.md</span>; the three
+  published multipliers (1.29, 1.62, 2.75) are asserted in
+  <span class="mono">Map/benigno/check_multipliers.py</span>.</p>
+  <p>Macroeconomia I — MPE Insper, Aula 9.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const RHO = 0.02, ETA = 0.2;
+const D = id => document.getElementById(id);
+const IDS = ["chi","d0","beta","dhat","sigma","alpha"];
+const DEFAULTS = {chi:2/3, d0:1.20, beta:0.99, dhat:-0.10, sigma:0.50, alpha:0.66};
+const P = {};
+
+function state(){
+  const k = (1 - P.alpha) * (1 / P.sigma + ETA) / P.alpha;
+  const fisher = P.d0 * (1 - P.beta) * (1 - P.chi) / P.chi;
+  const varpi = P.sigma - fisher;
+  const phi = (P.sigma * P.chi + (1 - P.chi) * P.d0 * P.beta) / P.chi;
+  const A = (1 - P.chi) / P.chi * P.dhat;             // i = rho, g = gbar = 0, y_n = 0
+  const stable = 1 + k * varpi > 1e-9;
+  const p = stable ? k * A / (1 + k * varpi) : NaN;
+  const y = stable ? A - varpi * p : NaN;
+  const mAnch = (1 / P.chi + varpi * k / (1 + P.sigma * ETA)) / (1 + varpi * k);
+  const den0 = P.chi - P.d0 * (1 - P.chi) * k;
+  const m0 = den0 > 1e-9 ? (1 - P.d0 * (1 - P.chi) * k / (1 + P.sigma * ETA)) / den0 : NaN;
+  return {k, varpi, phi, fisher, A, p, y, stable, mAnch, m0, den0};
+}
+
+/* ---- plot: parametrise AD by p so a vertical AD is drawable ---- */
+const VB = {w:600, h:470}, M = {l:58, r:26, t:22, b:46};
+const PW = VB.w - M.l - M.r, PH = VB.h - M.t - M.b;
+const LIM = 0.15;
+const X = y => M.l + (y + LIM) / (2 * LIM) * PW;
+const Y = p => M.t + (LIM - p) / (2 * LIM) * PH;
+const okY = y => y >= -LIM && y <= LIM;
+const okP = p => p >= -LIM && p <= LIM;
+
+function adLine(A, varpi){
+  const pts = [];
+  for (let j = 0; j <= 240; j++){
+    const p = -LIM + 2 * LIM * j / 240, y = A - varpi * p;
+    if (okY(y)) pts.push(X(y).toFixed(1) + "," + Y(p).toFixed(1));
+  }
+  return pts.join(" ");
+}
+function asLine(k){
+  const pts = [];
+  for (let j = 0; j <= 240; j++){
+    const y = -LIM + 2 * LIM * j / 240, p = k * y;
+    if (okP(p)) pts.push(X(y).toFixed(1) + "," + Y(p).toFixed(1));
+  }
+  return pts.join(" ");
+}
+
+function draw(s){
+  const g = [];
+  for (let t = -0.15; t <= 0.1501; t += 0.05){
+    const strong = Math.abs(t) < 1e-9;
+    g.push(`<line x1="${X(t).toFixed(1)}" y1="${M.t}" x2="${X(t).toFixed(1)}" y2="${M.t+PH}"
+      stroke="${strong ? "var(--grid-strong)" : "var(--grid)"}" stroke-width="1"/>
+      <line x1="${M.l}" y1="${Y(t).toFixed(1)}" x2="${M.l+PW}" y2="${Y(t).toFixed(1)}"
+      stroke="${strong ? "var(--grid-strong)" : "var(--grid)"}" stroke-width="1"/>
+      <text x="${X(t).toFixed(1)}" y="${M.t+PH+18}" text-anchor="middle" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${(t*100).toFixed(0)}</text>
+      <text x="${M.l-9}" y="${(Y(t)+4).toFixed(1)}" text-anchor="end" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${(t*100).toFixed(0)}</text>`);
+  }
+  D("plot").innerHTML = `${g.join("")}
+    <line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <text x="${M.l+PW}" y="${M.t+PH+34}" text-anchor="end" font-size="12" fill="var(--ink-soft)">
+      output y, % deviation</text>
+    <text x="${M.l-40}" y="${M.t-8}" font-size="12" fill="var(--ink-soft)">p − pᵉ, %</text>
+    <polyline points="${adLine(0, s.varpi)}" fill="none" stroke="var(--nat)" stroke-width="2"
+      stroke-dasharray="6 4"/>
+    <polyline points="${asLine(s.k)}" fill="none" stroke="var(--as)" stroke-width="2.6"/>
+    <polyline points="${adLine(s.A, s.varpi)}" fill="none" stroke="var(--ad)" stroke-width="2.6"/>
+    ${s.stable && okY(s.y) && okP(s.p) ? `
+      <circle cx="${X(s.y).toFixed(1)}" cy="${Y(s.p).toFixed(1)}" r="5.5" fill="var(--ink)"/>
+      <text x="${(X(s.y)+10).toFixed(1)}" y="${(Y(s.p)+16).toFixed(1)}" font-size="13" fill="var(--ink)"
+        font-family="Source Serif 4, serif" font-style="italic">E′</text>` :
+    `<text x="${M.l+10}" y="${M.t+PH-10}" font-size="12" fill="var(--neg)">
+      ${s.stable ? "equilibrium outside the ±15% frame" : "no stable equilibrium: AD is steeper than AS"}</text>`}`;
+}
+
+const pc = (v, dp = 2) => (v >= 0 ? "+" : "−") + Math.abs(v * 100).toFixed(dp);
+
+function render(){
+  IDS.forEach(id => { P[id] = parseFloat(D(id).value); });
+  const s = state();
+  D("chiV").textContent = P.chi.toFixed(3) + "  (borrowers " + (1 - P.chi).toFixed(3) + ")";
+  D("d0V").textContent = (P.d0 * 100).toFixed(0) + "% of GDP";
+  D("betaV").textContent = P.beta.toFixed(3);
+  D("dhatV").textContent = pc(P.dhat, 1) + " of GDP";
+  D("sigmaV").textContent = P.sigma.toFixed(2);
+  D("alphaV").textContent = P.alpha.toFixed(2);
+
+  D("ansVarpi").textContent = s.varpi.toFixed(3);
+  D("ansVarpi").className = "v " + (Math.abs(s.varpi) < 5e-4 ? "" : s.varpi > 0 ? "pos" : "neg");
+  D("ansVarpiW").textContent = Math.abs(s.varpi) < 5e-4
+    ? "zero — AD is vertical: the two debt channels exactly cancel the interest-rate channel"
+    : s.varpi > 0
+      ? `positive — AD still slopes down, but steeper than the no-debt −1/σ = ${(-1/P.sigma).toFixed(2)}`
+      : "negative — AD slopes UP. Lower prices now reduce demand, through the real value of debt";
+
+  D("ansMult").textContent = s.mAnch.toFixed(3);
+  D("ansMultW").textContent = s.mAnch > 1
+    ? `above one — impossible in normal times, where §8 caps it at ${(1).toFixed(2)}`
+    : "at or below one — not yet in the constrained regime";
+
+  D("slopeOut").textContent = Math.abs(s.varpi) < 5e-4 ? "vertical" : (-1 / s.varpi).toFixed(2);
+  D("slopeW").textContent = Math.abs(s.varpi) < 5e-4 ? "dy/dp = 0"
+    : s.varpi > 0 ? "downward sloping" : "upward sloping";
+  D("phiOut").textContent = s.phi.toFixed(3);
+  D("fishOut").textContent = s.fisher.toFixed(3);
+  D("kOut").textContent = s.k.toFixed(3);
+  D("yOut").textContent = s.stable ? pc(s.y) + "%" : "—";
+  D("pOut").textContent = s.stable ? pc(s.p) + "%" : "—";
+  D("mult0Out").textContent = Number.isFinite(s.m0) ? s.m0.toFixed(3) : "undefined";
+  D("mult0W").textContent = Number.isFinite(s.m0)
+    ? "χ − d₀(1−χ)κ = " + s.den0.toFixed(3)
+    : "denominator χ − d₀(1−χ)κ ≤ 0: outside the stable region, no number to quote";
+  D("stabOut").innerHTML = s.stable
+    ? '<span class="flag ok">stable</span>' : '<span class="flag bad">unstable</span>';
+
+  D("eqline").innerHTML = `AD <i>y</i> = ${pc(s.A,2)}% − ${s.varpi.toFixed(2)}·<i>p</i>
+    &nbsp;·&nbsp; AS <i>p</i> = ${s.k.toFixed(2)}·<i>y</i>
+    &nbsp;·&nbsp; Fisher term ${s.fisher.toFixed(3)} against σ = ${P.sigma.toFixed(2)}`;
+
+  const flipD0 = P.sigma * P.chi / ((1 - P.beta) * (1 - P.chi));
+  D("verdict").innerHTML = s.varpi < 0
+    ? `<b>Paradox territory.</b> With AD upward sloping, a downward shift of AS — a productivity
+       gain, a tax cut, a lower mark-up — is <em>contractionary</em> (the paradox of toil), and more
+       price flexibility deepens the fall (the paradox of flexibility). Footnote 20: both disappear
+       if the long-run price level is credibly anchored.`
+    : `<b>Still conventional.</b> AD slopes down. It would turn upward at d₀ above
+       ${flipD0 < 10 ? (flipD0 * 100).toFixed(0) + "% of GDP" : "an implausible debt level"}
+       for this χ and β — the threshold σχ/[(1−β)(1−χ)].`;
+  draw(s);
+}
+
+const setAll = o => { Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); };
+IDS.forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEFAULTS));
+D("normal").addEventListener("click", () => setAll({...DEFAULTS, d0:0}));
+D("half").addEventListener("click", () => setAll({...DEFAULTS, chi:0.5}));
+D("flip").addEventListener("click", () => setAll({...DEFAULTS, chi:0.40, d0:3, beta:0.90, sigma:0.25, dhat:-0.02}));
+render();
+</script>

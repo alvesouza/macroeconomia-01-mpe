@@ -1,0 +1,69 @@
+{
+  "accessed": "2026-09-20",
+  "countries": "all",
+  "series": [
+    {
+      "key": "NY.GDP.PCAP.PP.KD",
+      "source": "World Bank WDI",
+      "code": "NY.GDP.PCAP.PP.KD",
+      "name": "GDP per capita, PPP (constant 2021 international $)",
+      "units": "constant 2021 international $",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.KD date=1960:2024 (via curl)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted verbatim",
+      "serves": "Act I convergence scatter; Act V the Brazil-US ratio",
+      "accessed": "2026-09-20",
+      "rows": 17225,
+      "date_range": [
+        1990,
+        2024
+      ],
+      "file": "Videos/aula-02-solow/data/wdi_ny_gdp_pcap_pp_kd.csv",
+      "sha256": "7f2dfa99c48b64a0",
+      "synthetic": false
+    },
+    {
+      "key": "NE.GDI.TOTL.ZS",
+      "source": "World Bank WDI",
+      "code": "NE.GDI.TOTL.ZS",
+      "name": "Gross capital formation (% of GDP)",
+      "units": "per cent of GDP",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/all/indicator/NE.GDI.TOTL.ZS date=1960:2024 (via curl)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted verbatim",
+      "serves": "the model's s, measured",
+      "accessed": "2026-09-20",
+      "rows": 17225,
+      "date_range": [
+        1960,
+        2024
+      ],
+      "file": "Videos/aula-02-solow/data/wdi_ne_gdi_totl_zs.csv",
+      "sha256": "b44b02a586081a64",
+      "synthetic": false
+    },
+    {
+      "key": "SP.POP.GROW",
+      "source": "World Bank WDI",
+      "code": "SP.POP.GROW",
+      "name": "Population growth (annual %)",
+      "units": "per cent a year",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/all/indicator/SP.POP.GROW date=1960:2024 (via curl)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted verbatim",
+      "serves": "the model's n, measured",
+      "accessed": "2026-09-20",
+      "rows": 17225,
+      "date_range": [
+        1961,
+        2024
+      ],
+      "file": "Videos/aula-02-solow/data/wdi_sp_pop_grow.csv",
+      "sha256": "32fe55cf28c41685",
+      "synthetic": false
+    }
+  ],
+  "derived": {
+    "brazil_vs_us": "data/check_solow_brazil.py -- puts the measured investment rates and population growth through the Solow closed form. observed 0.257, predicted 0.920, unexplained factor 3.58x; asserts that the saving rate needed to close the gap (1.4% of GDP) is implausibly small."
+  }
+}

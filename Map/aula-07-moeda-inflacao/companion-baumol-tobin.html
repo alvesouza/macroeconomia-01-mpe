@@ -1,0 +1,201 @@
+<title>The Trip to the Bank</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §10.4 · printed pages 199–204</p>
+  <h1>The Trip to the Bank</h1>
+  <p class="lede">Money pays no interest, so holding it is a pure loss — unless converting bonds
+  into cash costs something. That one friction produces a square root, and the square root
+  produces an income elasticity of <em>one half</em>: a household whose income doubles does not
+  double its cash, it goes to the bank more often.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="cost" viewBox="0 0 600 300" role="img"
+             aria-label="Transaction cost and forgone interest against the number of trips"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>transaction cost, Fn</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>forgone interest, iY⁄2n</span>
+        <span style="color:var(--it)"><i class="swatch"></i>total</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>n*</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="saw" viewBox="0 0 600 180" role="img"
+             aria-label="The sawtooth path of money holdings over the period"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--eff)"><i class="swatch"></i>money held</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>average = Y⁄2n</span>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Trips n*</div><div class="v" id="nOut"></div><div class="n">√(iY⁄2F)</div></div>
+      <div><div class="k">Real balances</div><div class="v" id="mOut"></div><div class="n">√(FY⁄2i)</div></div>
+      <div><div class="k">Velocity</div><div class="v" id="vOut"></div><div class="n">√(2iY⁄F)</div></div>
+      <div><div class="k">Income elasticity</div><div class="v" id="eyOut"></div><div class="n">scale economies in cash</div></div>
+      <div><div class="k">Interest elasticity</div><div class="v" id="eiOut"></div><div class="n">the opportunity cost is i, not r</div></div>
+      <div><div class="k">Total cost at n*</div><div class="v" id="cOut"></div><div class="n">the two halves are equal</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The household's problem</legend>
+      <div class="ctl">
+        <label for="Y">Spending over the period <span class="sym">Y</span></label>
+        <output id="Yo"></output><input type="range" id="Y" min="100" max="5000" step="50" value="1000">
+      </div>
+      <div class="ctl">
+        <span class="hint">The opportunity cost of holding cash. It is the <b>nominal</b> rate —
+        inflation erodes money and bonds equally, so what matters is the interest forgone.</span>
+        <label for="i">Nominal interest rate <span class="sym">i</span></label>
+        <output id="io"></output><input type="range" id="i" min="0.005" max="0.60" step="0.005" value="0.05">
+      </div>
+      <div class="ctl">
+        <span class="hint">The cost of one trip. Cash machines, debit cards and phone banking all
+        cut it — which shifts money demand down with no change in income or interest rates, and is
+        why money-demand equations fitted in the 1970s broke down in the 1980s.</span>
+        <label for="F">Cost per trip <span class="sym">F</span></label>
+        <output id="Fo"></output><input type="range" id="F" min="0.1" max="20" step="0.1" value="2">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="base">Baseline</button>
+      <button data-p="double">Double income</button>
+      <button data-p="highi">High inflation (i = 40%)</button>
+      <button data-p="atm">Financial innovation</button>
+    </div>
+
+    <details>
+      <summary>Why the elasticity is one half, and why it matters</summary>
+      <p>Take logs of M⁄P = √(FY⁄2i): every exponent is ±½. The Cambridge alternative,
+      M⁄P = kY, has an income elasticity of <b>one</b>. The difference is not a parameter quibble —
+      one says cash management has scale economies, the other says it does not. A central bank that
+      believes ½ when the truth is 1 misses its inflation target by exactly
+      (ε̂ − ε)·g<sub>Y</sub>. Derivation in <b>02-money-demand.md</b> §2.3 and the policy cost in
+      <b>03-equilibrium-and-neutrality.md</b> §3.5.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 10 · companion to <b>Map/aula-07-moeda-inflacao/02-money-demand.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["Y","i","F"];
+
+const nStar = v => Math.sqrt(v.i * v.Y / (2 * v.F));
+const mdemand = v => Math.sqrt(v.F * v.Y / (2 * v.i));
+const totalCost = (n, v) => v.F * n + v.i * v.Y / (2 * n);
+
+function drawCost(v){
+  const W=600,H=300,L=58,R=20,T=16,B=42;
+  const ns = nStar(v);
+  const nmax = Math.max(ns * 3, 4);
+  const cmax = Math.max(totalCost(nmax, v), totalCost(Math.max(ns/3, 0.2), v)) * 0.65;
+  const X = n => L + (W-L-R) * n / nmax;
+  const Y = c => T + (H-T-B) * (1 - Math.min(c, cmax)/cmax);
+
+  let out = "";
+  for(let k=0;k<=4;k++){
+    const yy = T+(H-T-B)*k/4;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+  }
+  const curve = (fn, col, wid) => {
+    let d = "";
+    for(let k=1;k<=300;k++){
+      const n = nmax*k/300;
+      const c = fn(n);
+      if (c > cmax*1.5) continue;
+      d += (d?"L":"M") + X(n).toFixed(1) + "," + Y(c).toFixed(1);
+    }
+    return `<path d="${d}" fill="none" stroke="${col}" stroke-width="${wid}"/>`;
+  };
+  out += curve(n => v.F*n, "var(--as)", 2);
+  out += curve(n => v.i*v.Y/(2*n), "var(--ad)", 2);
+  out += curve(n => totalCost(n, v), "var(--it)", 2.6);
+  out += `<line x1="${X(ns).toFixed(1)}" y1="${T}" x2="${X(ns).toFixed(1)}" y2="${H-B}" stroke="var(--nat)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  out += `<circle cx="${X(ns).toFixed(1)}" cy="${Y(totalCost(ns,v)).toFixed(1)}" r="5.5" fill="var(--it)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">number of trips to the bank, n</text>`;
+  $("cost").innerHTML = out;
+}
+
+function drawSaw(v){
+  const W=600,H=180,L=58,R=20,T=14,B=32;
+  const ns = Math.max(1, Math.round(nStar(v)));
+  const peak = v.Y / ns;
+  const X = t => L + (W-L-R)*t;
+  const Y = m => T + (H-T-B)*(1 - m/(peak*1.12));
+  let d = "";
+  for(let k=0;k<ns;k++){
+    const t0 = k/ns, t1 = (k+1)/ns;
+    d += `M${X(t0).toFixed(1)},${Y(peak).toFixed(1)}L${X(t1).toFixed(1)},${Y(0).toFixed(1)}`;
+  }
+  let out = `<path d="${d}" fill="none" stroke="var(--eff)" stroke-width="2.2"/>`;
+  out += `<line x1="${L}" y1="${Y(peak/2).toFixed(1)}" x2="${W-R}" y2="${Y(peak/2).toFixed(1)}" stroke="var(--nat)" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+  out += `<text x="${W-R-4}" y="${(Y(peak/2)-6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--nat)">average = Y⁄2n</text>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">the period — cash is withdrawn, spent down, withdrawn again (${ns} trip${ns===1?'':'s'})</text>`;
+  $("saw").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+
+  $("Yo").textContent = v.Y.toFixed(0);
+  $("io").textContent = (v.i*100).toFixed(1) + "%";
+  $("Fo").textContent = v.F.toFixed(1);
+
+  drawCost(v); drawSaw(v);
+
+  const ns = nStar(v), md = mdemand(v);
+  $("nOut").textContent = ns.toFixed(2);
+  $("mOut").textContent = md.toFixed(1);
+  $("vOut").textContent = (v.Y/md).toFixed(2);
+  $("eyOut").textContent = "+0.500";
+  $("eiOut").textContent = "−0.500";
+  $("cOut").textContent = totalCost(ns, v).toFixed(2);
+
+  $("eqline").innerHTML = `min<sub>n</sub> Fn + iY⁄2n &nbsp;⟹&nbsp; n* = √(iY⁄2F) = <b>${ns.toFixed(2)}</b> `
+    + `&nbsp;⟹&nbsp; M⁄P = Y⁄2n* = √(FY⁄2i) = <b>${md.toFixed(1)}</b>`;
+
+  const md2 = mdemand({...v, Y: 2*v.Y});
+  $("verdict").innerHTML = `<span class="flag ok">scale economies</span> &nbsp; At the optimum the two
+    costs are exactly equal, at ${(v.F*ns).toFixed(2)} each. Double income to ${(2*v.Y).toFixed(0)} and cash
+    rises only to <b>${md2.toFixed(1)}</b> — a factor of ${(md2/md).toFixed(3)}, which is √2, not 2. The
+    household makes <b>${nStar({...v, Y:2*v.Y}).toFixed(2)}</b> trips instead of ${ns.toFixed(2)}. The
+    Cambridge form M⁄P = kY would have predicted ${(2*md).toFixed(1)}, and a central bank believing it
+    would miss its inflation target by (ε̂ − ε)·g<sub>Y</sub>.`;
+}
+
+const presets = {
+  base:   {Y:1000, i:0.05, F:2},
+  double: {Y:2000, i:0.05, F:2},
+  highi:  {Y:1000, i:0.40, F:2},
+  atm:    {Y:1000, i:0.05, F:0.4},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

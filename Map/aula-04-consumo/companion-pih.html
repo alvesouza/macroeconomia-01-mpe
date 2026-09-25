@@ -1,0 +1,221 @@
+<title>Wealth, Not Income</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §6.2–§6.4 · Friedman (1957) · printed pages 115–126</p>
+  <h1>Wealth, Not Income</h1>
+  <p class="lede">The same household, hit with the same number of dollars. If the shock is a
+  one-off it is almost entirely saved; if it is permanent it is almost entirely spent. That
+  factor-of-twenty difference is the permanent income hypothesis — and it disappears the moment
+  the household cannot borrow.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 300" role="img"
+             aria-label="Income and consumption paths after a transitory and a permanent shock"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--nat)"><i class="swatch dash"></i>income</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>consumption</span>
+        <span style="color:var(--neg)"><i class="swatch"></i>constrained consumption</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">MPC out of this shock</div>
+        <div class="v" id="mpcOut"></div>
+        <div class="w" id="mpcW"></div>
+      </div>
+      <div>
+        <div class="k">Ratio to the permanent MPC</div>
+        <div class="v" id="ratioOut"></div>
+        <div class="w">how much less a windfall is spent</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The shock</legend>
+      <div class="ctl">
+        <span class="hint">0 = a one-off windfall this period. 1 = a permanent raise, every
+        period from now on. In between: a shock that decays.</span>
+        <label for="pers">Persistence</label>
+        <output id="perso"></output><input type="range" id="pers" min="0" max="1" step="0.05" value="0">
+      </div>
+      <div class="ctl">
+        <label for="size">Size, as a share of income</label>
+        <output id="sizeo"></output><input type="range" id="size" min="0.05" max="1" step="0.05" value="0.20">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The household</legend>
+      <div class="ctl">
+        <span class="hint">The remaining horizon. A windfall is spread over it, so the MPC falls
+        roughly as 1⁄T — but only when r is near zero; discounting raises it above that.</span>
+        <label for="T">Horizon <span class="sym">T</span></label>
+        <output id="To"></output><input type="range" id="T" min="2" max="50" step="1" value="40">
+      </div>
+      <div class="ctl">
+        <label for="r">Interest rate <span class="sym">r</span></label>
+        <output id="ro"></output><input type="range" id="r" min="0.005" max="0.12" step="0.005" value="0.04">
+      </div>
+      <div class="ctl">
+        <span class="hint">Turn this on and the household cannot borrow against future income.
+        It consumes what it receives, and the Keynesian consumption function becomes exactly
+        right for it.</span>
+        <label for="con">Borrowing limit</label>
+        <output id="cono"></output><input type="range" id="con" min="0" max="1" step="1" value="0">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="rebate">A tax rebate</button>
+      <button data-p="raise">A permanent raise</button>
+      <button data-p="short">Near retirement (T = 3)</button>
+      <button data-p="hand">Hand-to-mouth</button>
+    </div>
+
+    <details>
+      <summary>The annuity formula</summary>
+      <p>With r = ρ the optimal path is flat at c = (r⁄(1+r))·W⁄[1 − (1+r)<sup>−T</sup>], so a
+      windfall of 1 raises consumption by exactly that annuity factor. As T → ∞ it becomes
+      r⁄(1+r) ≈ 0.038 — consume the interest, never the principal. A permanent rise of 1 per
+      period raises W by (1+r)⁄r, so consumption rises by exactly 1: an MPC of one. The ratio
+      between the two is 26 at r = 4%. Derivation in <b>04-permanent-income.md</b> §4.3.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 6 · companion to <b>Map/aula-04-consumo/04-permanent-income.md</b> and <b>05-ricardian-and-constraints.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["pers","size","T","r","con"];
+const Y0 = 100, SHOCK_AT = 5, SHOW = 30;
+
+function paths(v){
+  const T = Math.round(v.T), r = v.r, rho = v.pers;
+  const dY = v.size * Y0;
+  const inc = [], con = [], conC = [];
+  for (let t = 0; t < SHOW; t++){
+    inc.push(Y0 + (t >= SHOCK_AT ? dY * Math.pow(rho, t - SHOCK_AT) : 0));
+  }
+  const ann = k => (r/(1+r)) / (1 - Math.pow(1+r, -k));
+  for (let t = 0; t < SHOW; t++){
+    const left = Math.max(1, T - t);
+    // present value of remaining income, from the household's viewpoint at t
+    let W = 0;
+    for (let k = 0; k < left; k++){
+      const tt = t + k;
+      const y = Y0 + (tt >= SHOCK_AT ? dY * Math.pow(rho, tt - SHOCK_AT) : 0);
+      W += y / Math.pow(1 + r, k);
+    }
+    con.push(ann(left) * W);
+    conC.push(inc[t]);                       // hand-to-mouth
+  }
+  // MPCs
+  const mpcPerm = 1.0;
+  let Wshock = 0;
+  for (let k = 0; k < Math.max(1, T - SHOCK_AT); k++) Wshock += Math.pow(rho, k) / Math.pow(1 + r, k);
+  const mpc = ann(Math.max(1, T - SHOCK_AT)) * Wshock;
+  return {inc, con, conC, mpc, mpcPerm, annInf: r/(1+r)};
+}
+
+function draw(v, p){
+  const W=600,H=300,L=54,R=20,T0=16,B=42;
+  const series = v.con === 1 ? p.conC : p.con;
+  const hi = Math.max(...p.inc, ...series)*1.06;
+  const lo = Math.min(...p.inc, ...series)*0.94;
+  const X = t => L + (W-L-R)*t/(SHOW-1);
+  const Y = y => T0 + (H-T0-B)*(1-(y-lo)/(hi-lo));
+  const line = (arr,col,dash,wid) => `<path d="${arr.map((y,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(y).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="${wid||2}" ${dash||''}/>`;
+
+  let out = "";
+  for(let i=0;i<=4;i++){ const yy=T0+(H-T0-B)*i/4;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+  out += `<line x1="${X(SHOCK_AT).toFixed(1)}" y1="${T0}" x2="${X(SHOCK_AT).toFixed(1)}" y2="${H-B}" stroke="var(--it)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  out += `<text x="${(X(SHOCK_AT)+5).toFixed(1)}" y="${T0+12}" font-size="10.5" fill="var(--it)">shock</text>`;
+  out += line(p.inc, "var(--nat)", 'stroke-dasharray="5 4"');
+  out += line(series, v.con===1 ? "var(--neg)" : "var(--ad)", "", 2.4);
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">periods</text>`;
+  $("plot").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const p = paths(v);
+
+  $("perso").textContent = v.pers === 0 ? "0 — purely transitory"
+      : (v.pers === 1 ? "1 — fully permanent" : v.pers.toFixed(2));
+  $("sizeo").textContent = (v.size*100).toFixed(0) + "% of income";
+  $("To").textContent = v.T.toFixed(0) + " periods";
+  $("ro").textContent = (v.r*100).toFixed(1) + "%";
+  $("cono").textContent = v.con === 1 ? "binding — cannot borrow" : "none";
+
+  draw(v, p);
+
+  const mpc = v.con === 1 ? 1.0 : p.mpc;
+  $("mpcOut").textContent = mpc.toFixed(3);
+  $("mpcW").textContent = v.con === 1
+    ? "constrained: the whole shock is consumed, whatever its persistence"
+    : (v.pers < 0.2 ? "a windfall — mostly saved" : (v.pers > 0.8 ? "a permanent change — mostly spent" : "partly persistent"));
+
+  $("ratioOut").textContent = (mpc/p.mpcPerm).toFixed(3) + "×";
+
+  $("eqline").innerHTML = `c = (r⁄(1+r))·W ⁄ [1 − (1+r)<sup>−T</sup>] &nbsp;·&nbsp; annuity factor = `
+    + `<b>${((v.r/(1+v.r))/(1-Math.pow(1+v.r,-v.T))).toFixed(4)}</b>, against 1⁄T = <b>${(1/v.T).toFixed(4)}</b>`;
+
+  const rows = [
+    ["MPC, this shock", mpc],
+    ["MPC, purely transitory", v.con===1 ? 1 : (v.r/(1+v.r))/(1-Math.pow(1+v.r,-Math.max(1,v.T-SHOCK_AT)))],
+    ["MPC, fully permanent", 1],
+  ];
+  $("bars").innerHTML = rows.map(([lab,val])=>{
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${lab.includes('permanent')?'alt':''}" style="width:${Math.min(100,val*100).toFixed(1)}%"></i></span>
+      <span class="val">${val.toFixed(3)}</span></div>`;
+  }).join("");
+
+  $("verdict").innerHTML = v.con === 1
+    ? `<span class="flag bad">Euler holds as an inequality</span> &nbsp; u′(c₁) &gt; β(1+r)u′(c₂): the household
+       would like to borrow and cannot, so it consumes its income period by period. Its MPC out of <i>any</i>
+       shock is <b>1</b>, Ricardian equivalence fails, and the Keynesian consumption function describes it
+       exactly. This is the case that rescues the empirical MPC estimates of 0.2–0.4.`
+    : `<span class="flag ${mpc<0.2?'ok':'mid'}">${mpc<0.2?'wealth, not income':'substantially persistent'}</span>
+       &nbsp; This shock raises lifetime wealth enough to justify spending <b>${(mpc*100).toFixed(1)}%</b> of it now.
+       A purely transitory shock of the same size would move consumption by
+       <b>${(((v.r/(1+v.r))/(1-Math.pow(1+v.r,-Math.max(1,v.T-SHOCK_AT))))*100).toFixed(1)}%</b> — the timing of
+       income is nearly irrelevant, its present value is everything.`;
+}
+
+const presets = {
+  rebate: {pers:0,    size:0.20, T:40, r:0.04, con:0},
+  raise:  {pers:1,    size:0.20, T:40, r:0.04, con:0},
+  short:  {pers:0,    size:0.20, T:3,  r:0.04, con:0},
+  hand:   {pers:0,    size:0.20, T:40, r:0.04, con:1},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

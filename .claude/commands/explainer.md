@@ -471,6 +471,24 @@ goes into `provenance.md` with its source URL, its licence, and the date it was 
 the same discipline the data series already follow. `image_asset()` refuses to load anything
 without a `credit`, deliberately.
 
+### Step 5c: Prove the layout before spending a render
+
+```bash
+layoutcheck "Videos/<slug>"        # every scene, no frames written, ~30 s a beat
+```
+
+It runs each scene with Manim's own `skip_animations` and fails on any text drawn over other
+text or over a brace. Fix every collision before rendering. A covered glyph is a **wrong
+caption** -- beat 1 of aula-07 once read `.5 points` because a brace sat on the `1` -- and
+neither the renderer nor a glance at the file will tell you.
+
+**A checker that flags everything is broken, not thorough.** The first version of this probe
+imitated Manim's staging instead of using it, re-added every faded-out mobject, and reported
+a collision in all twenty beats. What exposed it was pulling the flagged frame out of the
+rendered video with `ffmpeg -ss <t> -frames:v 1` and looking: the frame was clean. Before
+reporting collisions to the user, check one flagged frame against the actual video. Before
+trusting a clean result, break something on purpose and confirm the checker says so.
+
 ### Step 6: Render the beats
 
 ```bash

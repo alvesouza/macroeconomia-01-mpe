@@ -1,0 +1,235 @@
+<title>Whose Fault Is the Gap?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §5.3–§5.5 · eq. (5.3.4) · printed pages 80–95</p>
+  <h1>Whose Fault Is the Gap?</h1>
+  <p class="lede">A country is a tenth as rich as the United States. How much of that is missing
+  capital, how much is missing schooling, and how much is the residual we call productivity?
+  The answer depends on a modelling choice most readers never notice — and the same parameters
+  produce the interest rate that <em>should</em> prevail there, which is where the capital
+  hypothesis dies.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 260" role="img"
+             aria-label="Decomposition of the log income gap into capital, human capital and TFP"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>physical capital</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>human capital</span>
+        <span style="color:var(--it)"><i class="swatch"></i>TFP residual</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">TFP's share of the log gap</div>
+        <div class="v" id="tfpShare"></div>
+        <div class="w" id="tfpW"></div>
+      </div>
+      <div>
+        <div class="k">Implied rental rate, relative to the US</div>
+        <div class="v" id="rRatio"></div>
+        <div class="w" id="rW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The country, relative to the US</legend>
+      <div class="ctl">
+        <label for="y">Income per worker <span class="sym">y<sub>i</sub>/y<sub>US</sub></span></label>
+        <output id="yo"></output><input type="range" id="y" min="0.02" max="1.2" step="0.01" value="0.10">
+      </div>
+      <div class="ctl">
+        <span class="hint">Capital per worker. Used by the K/L decomposition.</span>
+        <label for="k">Capital per worker <span class="sym">k<sub>i</sub>/k<sub>US</sub></span></label>
+        <output id="ko"></output><input type="range" id="k" min="0.02" max="1.5" step="0.01" value="0.15">
+      </div>
+      <div class="ctl">
+        <span class="hint">Capital–output ratio. Used by the K/Y decomposition, and much more
+        similar across countries than capital per worker is.</span>
+        <label for="ky">Capital–output ratio <span class="sym">(K/Y)<sub>i</sub>/(K/Y)<sub>US</sub></span></label>
+        <output id="kyo"></output><input type="range" id="ky" min="0.3" max="1.6" step="0.01" value="0.80">
+      </div>
+      <div class="ctl">
+        <label for="S">Years of schooling</label>
+        <output id="So"></output><input type="range" id="S" min="0" max="14" step="0.5" value="4">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Method and parameters</legend>
+      <div class="ctl">
+        <span class="hint">The choice that moves the answer by ten points. K/Y is preferred
+        because the capital–output ratio does not respond to TFP in the long run.</span>
+        <label for="form">Decomposition</label>
+        <output id="formo"></output><input type="range" id="form" min="0" max="1" step="1" value="1">
+      </div>
+      <div class="ctl">
+        <span class="hint">0.35 from the national accounts. Push it toward 0.7 for "broad"
+        capital including human capital and watch the Lucas paradox shrink.</span>
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.2" max="0.8" step="0.01" value="0.35">
+      </div>
+      <div class="ctl">
+        <label for="phi">Mincer return per year <span class="sym">φ</span></label>
+        <output id="phio"></output><input type="range" id="phi" min="0" max="0.15" step="0.005" value="0.10">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="poor">A poor country</button>
+      <button data-p="mexico">Kurlat's Mexico</button>
+      <button data-p="broad">Broad capital (α = 0.7)</button>
+    </div>
+
+    <details>
+      <summary>The exponent on h changes with the method</summary>
+      <p>K/L form: y = A k<sup>α</sup> h<sup>1−α</sup>, so schooling enters as h<sup>1−α</sup>.
+      K/Y form: y = A<sup>1/(1−α)</sup> (K/Y)<sup>α/(1−α)</sup> h, so it enters as h<sup>1</sup>.
+      Using the first exponent in the second decomposition understates human capital by about a
+      third. Derivation in <b>05-growth-accounting-and-tfp.md</b> §5.3–§5.4.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 5 · companion to <b>Map/aula-03-solow-evidencias/04-quantifying-and-convergence.md</b> and <b>05-growth-accounting-and-tfp.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["y","k","ky","S","form","alpha","phi"];
+const S_US = 12;
+
+function compute(v){
+  const useKY = v.form === 1;
+  const h = Math.exp(v.phi * (v.S - S_US));
+  const lnY = Math.log(v.y);
+  const capTerm = useKY
+    ? (v.alpha/(1-v.alpha)) * Math.log(v.ky)
+    : v.alpha * Math.log(v.k);
+  const humTerm = useKY
+    ? Math.log(h)
+    : (1-v.alpha) * Math.log(h);
+  const tfpTerm = lnY - capTerm - humTerm;
+  // Implied rental-rate ratio, eq. (5.3.4), under Conjecture 5.1 (capital only).
+  const rRatio = Math.pow(v.y, (v.alpha-1)/v.alpha);
+  return {h, lnY, capTerm, humTerm, tfpTerm, rRatio, useKY};
+}
+
+function draw(r){
+  const W=600,H=260,L=44,R=20,T=26,B=46;
+  const parts = [["physical capital", r.capTerm, "var(--as)"],
+                 ["human capital", r.humTerm, "var(--eff)"],
+                 ["TFP", r.tfpTerm, "var(--it)"]];
+  const total = r.lnY;
+  const span = Math.max(Math.abs(total), ...parts.map(p=>Math.abs(p[1])))*1.15 || 1;
+  const Y = x => T + (H-T-B)*(1 - (x + span)/(2*span));
+  let out = "";
+  for(let i=0;i<=4;i++){
+    const val = -span + 2*span*i/4, yy = Y(val);
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    out += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">${val.toFixed(1)}</text>`;
+  }
+  out += `<line x1="${L}" y1="${Y(0).toFixed(1)}" x2="${W-R}" y2="${Y(0).toFixed(1)}" stroke="var(--grid-strong)" stroke-width="1.5"/>`;
+
+  // waterfall
+  let cum = 0;
+  const n = parts.length + 1, bw = (W-L-R)/n*0.55;
+  const cx = i => L + (W-L-R)*(i+0.5)/n;
+  parts.forEach(([lab,val,col],i)=>{
+    const a = cum, b = cum + val; cum = b;
+    const top = Math.min(Y(a),Y(b)), hgt = Math.max(2, Math.abs(Y(a)-Y(b)));
+    out += `<rect x="${(cx(i)-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${hgt.toFixed(1)}" fill="${col}" opacity="0.85"/>`;
+    out += `<text x="${cx(i).toFixed(1)}" y="${(top-6).toFixed(1)}" text-anchor="middle" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="var(--ink)">${val.toFixed(3)}</text>`;
+    out += `<text x="${cx(i).toFixed(1)}" y="${H-B+17}" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">${lab}</text>`;
+    if (i < parts.length-1)
+      out += `<line x1="${(cx(i)+bw/2).toFixed(1)}" y1="${Y(b).toFixed(1)}" x2="${(cx(i+1)-bw/2).toFixed(1)}" y2="${Y(b).toFixed(1)}" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="3 3"/>`;
+  });
+  const i = parts.length;
+  const top = Math.min(Y(0),Y(total)), hgt = Math.max(2,Math.abs(Y(0)-Y(total)));
+  out += `<rect x="${(cx(i)-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${hgt.toFixed(1)}" fill="var(--ad)" opacity="0.9"/>`;
+  out += `<text x="${cx(i).toFixed(1)}" y="${(top-6).toFixed(1)}" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--ink)">${total.toFixed(3)}</text>`;
+  out += `<text x="${cx(i).toFixed(1)}" y="${H-B+17}" text-anchor="middle" font-size="11" fill="var(--ink)">ln(y<tspan baseline-shift="sub" font-size="8">i</tspan>/y<tspan baseline-shift="sub" font-size="8">US</tspan>)</text>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">the log income gap, split into its sources</text>`;
+  $("plot").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const r = compute(v);
+
+  $("yo").textContent = v.y.toFixed(2);
+  $("ko").textContent = v.k.toFixed(2);
+  $("kyo").textContent = v.ky.toFixed(2);
+  $("So").textContent = v.S.toFixed(1) + " yr (US " + S_US + ")";
+  $("formo").textContent = r.useKY ? "K/Y (preferred)" : "K/L";
+  $("alphao").textContent = v.alpha.toFixed(2);
+  $("phio").textContent = (v.phi*100).toFixed(1) + "%/yr";
+
+  draw(r);
+
+  const share = x => r.lnY === 0 ? 0 : x/r.lnY*100;
+  $("tfpShare").textContent = share(r.tfpTerm).toFixed(0) + "%";
+  $("tfpW").textContent = r.useKY
+    ? "K/Y form — the Hall–Jones number is about 60%"
+    : "K/L form — typically attributes less to TFP";
+
+  $("rRatio").textContent = r.rRatio.toFixed(1) + "×";
+  $("rW").textContent = r.rRatio > 4
+    ? "implausible — capital would have flooded in (the Lucas paradox)"
+    : "within the range actually observed";
+
+  $("eqline").innerHTML = r.useKY
+    ? `ln y = (1⁄(1−α))·ln A + (α⁄(1−α))·ln(K/Y) + ln h &nbsp;·&nbsp; α⁄(1−α) = <b>${(v.alpha/(1-v.alpha)).toFixed(2)}</b>`
+    : `ln y = ln A + α·ln k + (1−α)·ln h &nbsp;·&nbsp; h = e<sup>φ(S−S<sub>US</sub>)</sup> = <b>${r.h.toFixed(3)}</b>`;
+
+  const rows = [
+    ["physical capital", share(r.capTerm)],
+    ["human capital", share(r.humTerm)],
+    ["TFP residual", share(r.tfpTerm)],
+  ];
+  $("bars").innerHTML = rows.map(([lab,val])=>{
+    const w = Math.min(100, Math.abs(val));
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${val<0?'neg':''} ${lab.startsWith('TFP')?'alt':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${val.toFixed(0)}%</span></div>`;
+  }).join("");
+
+  const capTotal = share(r.capTerm) + share(r.humTerm);
+  $("verdict").innerHTML = `<span class="flag ${share(r.tfpTerm)>50?'bad':'mid'}">
+    ${share(r.tfpTerm)>50 ? 'TFP carries the majority' : 'accumulation carries the majority'}</span>
+    &nbsp; Capital and schooling together explain <b>${capTotal.toFixed(0)}%</b> of the log gap.
+    Switching to the ${r.useKY ? 'K/L' : 'K/Y'} decomposition would move that by roughly ten points —
+    which is why the method has to be stated, not assumed. Meanwhile eq. (5.3.4) says the rental rate
+    there should be <b>${r.rRatio.toFixed(1)}×</b> the US rate, and capital has conspicuously not moved.`;
+}
+
+const presets = {
+  poor:   {y:0.10, k:0.15, ky:0.80, S:4,  form:1, alpha:0.35, phi:0.10},
+  mexico: {y:0.30, k:0.35, ky:0.95, S:9,  form:1, alpha:0.35, phi:0.10},
+  broad:  {y:0.10, k:0.15, ky:0.80, S:4,  form:1, alpha:0.70, phi:0.10},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

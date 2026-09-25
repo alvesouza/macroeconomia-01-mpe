@@ -127,8 +127,8 @@ import matplotlib.pyplot as plt
 SIGMA, ETA, KAPPA, RHO = 1.0, 1.0, 0.5, 0.02
 inv = 1 / SIGMA
 
-y_natural  = lambda a=0, g=0, mu=0: ((1 + ETA) * a + (inv - 1) * g - mu) / (inv + ETA)
-y_eficiente = lambda a=0, g=0:      ((1 + ETA) * a + (inv - 1) * g) / (inv + ETA)
+y_natural  = lambda a=0, g=0, mu=0: ((1 + ETA) * a + inv * g - mu) / (inv + ETA)
+y_eficiente = lambda a=0, g=0:      ((1 + ETA) * a + inv * g) / (inv + ETA)
 
 def equilibrio(i, a=0, g=0, mu=0, a_bar=0, pe=0, p_bar=0):
     """Retorna (y, p, y_n, y_e). a_bar entra via ybar_n (desloca a AD)."""

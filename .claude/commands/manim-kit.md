@@ -178,6 +178,51 @@ look at, not the scene.
 4. **`show()` returns animations; it does not animate.** A bare `st.show(...)` whose result is
    never passed to `.step()` changes nothing on screen and fails silently.
 
+## Never position a label by eye. Binding.
+
+A label goes where the thing it annotates actually is, measured at run time:
+
+```python
+blab = label_near(brace, note("1.5 points", P["focus"], 21), RIGHT)   # measures
+blab = note("1.5 points", P["focus"], 21).move_to(ax.c2p(5.1, 1.25))  # guesses
+```
+
+`move_to(ax.c2p(x, y))` puts a label at a coordinate someone estimated from the plot. It
+knows nothing about how wide the anchor is or how wide the label is, so it survives exactly
+until a font size, a data range or a phrase changes. In beat 1 of aula-07 the brace reached
+past the guessed point and covered the leading `1` of `1.5 points`: the caption on screen
+read `.5 points`. **That is a wrong number, not an ugly frame** -- and nothing in the render
+complained.
+
+`label_near(anchor, mob, direction, buff=0.22)` calls `next_to`, which measures both boxes.
+
+| Use | Not |
+|---|---|
+| `label_near(brace, note("1.5 points"), RIGHT)` | `note(...).move_to(ax.c2p(5.1, 1.25))` |
+| `lab.next_to(ax.c2p(1, 1), RIGHT, buff=0.15)` (anchored to a data point, offset measured) | `lab.move_to(ax.c2p(1.3, 1.05))` (offset guessed) |
+
+Anchoring to a data point with `next_to` is fine -- the offset is still measured. What is
+banned is a coordinate chosen so the label "looks about right" next to something else.
+
+## Two collision checks, and what each one sees
+
+| | Sees | Cost |
+|---|---|---|
+| `Stage` | One slot's box against another's. Blind to anything inside a single slot. | free |
+| `check_ink` (inside `Beat.run`) | Every piece of text and every brace on screen, pairwise, after each step. | free, but only during a render |
+| `layoutcheck <project>` | The same check, over every scene, with no frames written. | ~30 s per beat |
+
+`Stage` could never have caught the brace: the brace and its label were in the same slot, in
+the same `VGroup`. Slot-level checking is necessary and nowhere near sufficient.
+
+`check_ink` deliberately ignores axes, curves and dots -- a label may sit on a chart's
+furniture, never on another glyph. If a scene genuinely needs one label over another, set
+`STRICT_INK = False` and say why in a comment; nothing in this course does.
+
+**Run `layoutcheck` before you compile.** It is the cheap version of the check that the
+render performs anyway, and finding a covered caption after an hour of rendering is how an
+hour gets wasted twice.
+
 ## Pacing rules, binding
 
 - **12 to 20 `.step()` calls per beat.** A 150-second beat with 7 steps is the bug being fixed.

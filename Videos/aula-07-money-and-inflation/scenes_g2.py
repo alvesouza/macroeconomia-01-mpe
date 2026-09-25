@@ -6,9 +6,9 @@ Render: python -m manim render -ql --media_dir media scenes_g2.py BeatX
 import numpy as np
 from manim import *
 
-from video_explainer import (axes_panel, balance_sheet, Beat, bullets, cell, eq, note, ols,
-                             palette, read_csv, sawtooth, scatter, series, Stage, table,
-                             title, FAST, NORMAL, SLOW)
+from video_explainer import (axes_panel, balance_sheet, Beat, bullets, cell, eq,
+                             label_near, note, ols, palette, read_csv, sawtooth, scatter,
+                             series, Stage, table, title, FAST, NORMAL, SLOW)
 
 
 class BeatSix(Scene):
@@ -155,7 +155,10 @@ class BeatSeven(Scene):
         b.step(st.add_to("left", ghosts), t=0.8, hold=2)
 
         cap = DashedLine(ax.c2p(0, limit), ax.c2p(9, limit), color=GREY, stroke_width=3)
-        cap_lab = Text(f"{limit:.2f}", font_size=19, color=GREY).next_to(ax.c2p(0, limit), UL, buff=0.06)
+        # Above the RIGHT end of the cap line, inside the plot. Hanging it up-left of the
+        # y-axis at x=0 pushes it off the axis and onto the rotated axis title.
+        cap_lab = label_near(cap, Text(f"{limit:.2f}", font_size=19, color=GREY), UP,
+                             buff=0.08).align_to(cap, RIGHT)
         b.step(st.add_to("left", VGroup(cap, cap_lab)), t=0.9, hold=2)
 
         cum, total = [], 0.0

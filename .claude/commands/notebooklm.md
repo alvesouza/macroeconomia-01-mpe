@@ -20,7 +20,12 @@ Each prompt should:
 
 **CRITICAL — Prompt language:** All prompts MUST be written in **English**, regardless of the course language, CLAUDE.md language setting, or source material language. NotebookLM processes English prompts more reliably.
 
-**Output language — set it in the app, not in the prompt:** NotebookLM's Settings → Output language applies to everything the notebook generates, so no prompt spends characters on it. Set it to **English** once (audio included — never Portuguese audio) and confirm it before generating a batch; a wrong setting there sends the whole output into the wrong language and no prompt can override it.
+**CRITICAL — Output language is an app setting, never a prompt line.** Do NOT write an output-language instruction into any prompt you generate, of any type. The language is set once in NotebookLM's Settings → Output language (English, for every type — audio included) and applies to everything the notebook generates; no prompt can override it. A language line burns ~140 of the ~5,000-character budget restating a setting that is already in force, and that budget belongs to content.
+
+Two consequences for how you work:
+
+- **Before generating a batch, remind the user to confirm Settings → Output language.** If it is wrong, everything comes back in the wrong language and no prompt can rescue it.
+- **Spend the reclaimed characters.** The budget freed by dropping the language line goes into depth — one more derivation step, one more numerical detail, one richer code snippet — never into slack. The fill targets below are unchanged and still binding.
 
 ## Limits reference
 
@@ -212,7 +217,7 @@ A **Video Overview** is narrated slides: it has images, unlike audio, and a fixe
 - **Numbers go on screen, not into the narration.** The viewer reads a table; the narration names only the cells that carry the argument.
 - **Every transition is a step in the argument** and the prompt says which: a curve shifting, an axis rescaling, a column lighting up. If the transition is just "next topic", it should have been a slide.
 - **Close on one image** the student should be able to redraw from memory, named explicitly.
-- Same character budget as the other types.
+- Same character budget as the other types, and the same rule: no output-language line — the language comes from NotebookLM's own setting.
 
 Save to `NotebookLM/video/`.
 
@@ -289,5 +294,4 @@ Show:
 - [ ] No bullet-point summaries — full paragraph explanations demanded
 - [ ] Derivation steps are requested, not just results
 - [ ] Code snippets demanded where computation is relevant (in the project's code language, default Python)
-- [ ] No output-language line anywhere in the prompt — that lives in the app setting
 - [ ] File contains ONLY the prompt — zero metadata, zero headers, pure copy-paste ready

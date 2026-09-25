@@ -1,0 +1,223 @@
+<title>Unemployment Is a Flow</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §7.5 · printed pages 142–150</p>
+  <h1>Unemployment Is a Flow</h1>
+  <p class="lede">The unemployment rate is a <em>stock</em> sitting between two flows, and it
+  settles wherever they balance: <span class="mono">u* = λ ⁄ (λ + f)</span>. Only the ratio
+  matters — so two economies can share a rate and be completely different places to lose a job.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="path" viewBox="0 0 600 230" role="img"
+             aria-label="Unemployment converging to its steady state from several starting points"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>paths from different starts</span>
+        <span style="color:var(--it)"><i class="swatch dash"></i>u*</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="bev" viewBox="0 0 600 260" role="img"
+             aria-label="Beveridge curve: vacancies against unemployment"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>Beveridge curve</span>
+        <span style="color:var(--neg)"><i class="swatch dash"></i>with worse matching</span>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">u*</div><div class="v" id="uOut"></div><div class="n">λ ⁄ (λ+f)</div></div>
+      <div><div class="k">Spell duration</div><div class="v" id="durOut"></div><div class="n">1 ⁄ f, in months</div></div>
+      <div><div class="k">Half-life of a deviation</div><div class="v" id="hlOut"></div><div class="n">ln2 ⁄ (λ+f)</div></div>
+      <div><div class="k">Monthly inflow</div><div class="v" id="inOut"></div><div class="n">λ(1−u), share of labour force</div></div>
+      <div><div class="k">Market tightness θ</div><div class="v" id="thOut"></div><div class="n">vacancies per searcher</div></div>
+      <div><div class="k">Vacancy fill rate q</div><div class="v" id="qOut"></div><div class="n">A<sub>m</sub>θ<sup>−ξ</sup></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The two flows, monthly</legend>
+      <div class="ctl">
+        <span class="hint">US monthly separations run near 0.034; continental Europe is far
+        lower, around 0.01. Employment protection lowers this.</span>
+        <label for="lam">Separation rate <span class="sym">λ</span></label>
+        <output id="lamo"></output><input type="range" id="lam" min="0.002" max="0.08" step="0.001" value="0.034">
+      </div>
+      <div class="ctl">
+        <span class="hint">US job-finding runs near 0.43 a month; Europe near 0.10. Unemployment
+        insurance lowers it by raising the reservation wage.</span>
+        <label for="f">Job-finding rate <span class="sym">f</span></label>
+        <output id="fo"></output><input type="range" id="f" min="0.02" max="0.60" step="0.005" value="0.43">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Matching</legend>
+      <div class="ctl">
+        <span class="hint">M = A<sub>m</sub>U<sup>ξ</sup>V<sup>1−ξ</sup>. Lower efficiency means
+        the same searchers and vacancies produce fewer matches — the Beveridge curve shifts out.</span>
+        <label for="Am">Matching efficiency <span class="sym">A<sub>m</sub></span></label>
+        <output id="Amo"></output><input type="range" id="Am" min="0.2" max="1.2" step="0.02" value="0.60">
+      </div>
+      <div class="ctl">
+        <label for="xi">Matching elasticity <span class="sym">ξ</span></label>
+        <output id="xio"></output><input type="range" id="xi" min="0.2" max="0.8" step="0.02" value="0.50">
+      </div>
+      <div class="ctl">
+        <label for="v">Vacancy rate <span class="sym">v</span></label>
+        <output id="vo"></output><input type="range" id="v" min="0.005" max="0.09" step="0.002" value="0.04">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="us">US-style flows</button>
+      <button data-p="eu">Europe-style flows</button>
+      <button data-p="same">Same rate, different world</button>
+      <button data-p="mismatch">Matching breakdown</button>
+    </div>
+
+    <details>
+      <summary>Why only the ratio matters</summary>
+      <p>u* = 1⁄(1 + f⁄λ). Triple both flows and u* is unchanged while spell duration 1⁄f falls to
+      a third. A high unemployment rate made of short spells is a different social problem from
+      one made of long spells, and the rate alone cannot tell them apart — which is the whole
+      reason to look at flows. Derivation in <b>05-search-and-equilibrium.md</b> §5.2.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 7 · companion to <b>Map/aula-05-trabalho/05-search-and-equilibrium.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["lam","f","Am","xi","v"];
+const ustar = (lam,f) => lam/(lam+f);
+
+function drawPath(v){
+  const W=600,H=230,L=54,R=20,T=14,B=36, TN=36;
+  const us = ustar(v.lam, v.f);
+  const starts = [0.005, 0.05, 0.15, 0.30];
+  const paths = starts.map(u0 => {
+    const arr = [u0]; let u = u0;
+    for(let t=0;t<TN;t++){ u = u + v.lam*(1-u) - v.f*u; arr.push(u); }
+    return arr;
+  });
+  const hi = Math.max(0.35, ...paths.flat())*1.05;
+  const X = t => L + (W-L-R)*t/TN;
+  const Y = u => T + (H-T-B)*(1-u/hi);
+  let out = "";
+  for(let i=0;i<=3;i++){ const yy=T+(H-T-B)*i/3;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+  out += `<line x1="${L}" y1="${Y(us).toFixed(1)}" x2="${W-R}" y2="${Y(us).toFixed(1)}" stroke="var(--it)" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+  out += `<text x="${W-R-4}" y="${(Y(us)-6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--it)">u* = ${(us*100).toFixed(1)}%</text>`;
+  paths.forEach(arr => {
+    out += `<path d="${arr.map((u,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(u).toFixed(1)}`).join('')}" fill="none" stroke="var(--ad)" stroke-width="1.8" opacity="0.85"/>`;
+  });
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">months — the stock reverts fast whatever it starts at</text>`;
+  $("path").innerHTML = out;
+}
+
+function uGivenV(vv, lam, Am, xi){
+  let lo = 1e-9, hi = 0.999;
+  for(let i=0;i<200;i++){
+    const u = 0.5*(lo+hi);
+    const f = Am*Math.pow(vv/u, 1-xi);
+    if (lam*(1-u) - f*u > 0) lo = u; else hi = u;
+  }
+  return 0.5*(lo+hi);
+}
+
+function drawBev(v){
+  const W=600,H=260,L=56,R=20,T=16,B=42;
+  const vs = [];
+  for(let i=1;i<=120;i++) vs.push(0.004 + (0.10-0.004)*i/120);
+  const cur = vs.map(x => uGivenV(x, v.lam, v.Am, v.xi));
+  const bad = vs.map(x => uGivenV(x, v.lam, v.Am*0.6, v.xi));
+  const umax = Math.max(0.2, ...cur, ...bad)*1.05;
+  const X = u => L + (W-L-R)*u/umax;
+  const Y = vv => T + (H-T-B)*(1-vv/0.105);
+  let out = "";
+  for(let i=0;i<=4;i++){
+    const uu = umax*i/4;
+    out += `<line x1="${X(uu).toFixed(1)}" y1="${T}" x2="${X(uu).toFixed(1)}" y2="${H-B}" stroke="var(--grid)" stroke-width="1"/>`;
+    out += `<text x="${X(uu).toFixed(1)}" y="${H-B+16}" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">${(uu*100).toFixed(0)}%</text>`;
+  }
+  const line = (arr,col,dash) => `<path d="${arr.map((u,i)=>`${i?'L':'M'}${X(u).toFixed(1)},${Y(vs[i]).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="2.2" ${dash||''}/>`;
+  out += line(bad, "var(--neg)", 'stroke-dasharray="5 4"');
+  out += line(cur, "var(--as)");
+  const u0 = uGivenV(v.v, v.lam, v.Am, v.xi);
+  out += `<circle cx="${X(u0).toFixed(1)}" cy="${Y(v.v).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">unemployment rate</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">vacancy rate</text>`;
+  $("bev").innerHTML = out;
+  return u0;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+
+  $("lamo").textContent = v.lam.toFixed(3);
+  $("fo").textContent = v.f.toFixed(3);
+  $("Amo").textContent = v.Am.toFixed(2);
+  $("xio").textContent = v.xi.toFixed(2);
+  $("vo").textContent = (v.v*100).toFixed(1) + "%";
+
+  drawPath(v);
+  const uBev = drawBev(v);
+
+  const us = ustar(v.lam, v.f);
+  $("uOut").textContent = (us*100).toFixed(2) + "%";
+  $("durOut").textContent = (1/v.f).toFixed(1) + " mo";
+  $("hlOut").textContent = (Math.log(2)/(v.lam+v.f)).toFixed(2) + " mo";
+  $("inOut").textContent = (v.lam*(1-us)*100).toFixed(2) + "%";
+  const theta = v.v/Math.max(uBev,1e-9);
+  $("thOut").textContent = theta.toFixed(2);
+  $("qOut").textContent = (v.Am*Math.pow(theta,-v.xi)).toFixed(3);
+
+  $("eqline").innerHTML = `λ(1−u) = f·u &nbsp;⟹&nbsp; u* = λ⁄(λ+f) = ${v.lam.toFixed(3)}⁄${(v.lam+v.f).toFixed(3)} = `
+    + `<b>${(us*100).toFixed(2)}%</b> &nbsp;·&nbsp; u* ≈ λ × duration = ${(v.lam*(1/v.f)*100).toFixed(2)}%`;
+
+  const longSpell = 1/v.f > 6;
+  $("verdict").innerHTML = `<span class="flag ${longSpell?'bad':'ok'}">${longSpell?'long spells':'short spells'}</span>
+    &nbsp; Unemployment is <b>${(us*100).toFixed(1)}%</b>, made of a monthly inflow of
+    ${(v.lam*100).toFixed(1)}% lasting <b>${(1/v.f).toFixed(1)} months</b> each.
+    ${longSpell
+      ? "Few people become unemployed but those who do stay a long time — skill depreciation and detachment make this far costlier per unit of measured unemployment."
+      : "Many people pass through unemployment briefly. The same headline rate as a long-spell economy describes a completely different experience."}
+    Cutting matching efficiency to 60% would push unemployment at this vacancy rate from
+    ${(uBev*100).toFixed(1)}% to ${(uGivenV(v.v, v.lam, v.Am*0.6, v.xi)*100).toFixed(1)}% — an outward shift of
+    the Beveridge curve, which is mismatch rather than weak demand.`;
+}
+
+const presets = {
+  us:        {lam:0.034, f:0.43, Am:0.60, xi:0.50, v:0.04},
+  eu:        {lam:0.009, f:0.10, Am:0.35, xi:0.50, v:0.02},
+  same:      {lam:0.009, f:0.10, Am:0.35, xi:0.50, v:0.02},
+  mismatch:  {lam:0.034, f:0.20, Am:0.28, xi:0.50, v:0.06},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

@@ -9,7 +9,7 @@ Summarize the file(s) or directory specified by `$ARGUMENTS`.
 ## Instructions
 
 1. Read the target file(s). If a directory, scan its contents to identify all relevant files (MD, HTML, PDF, notebooks, tex) — do NOT assume fixed directory names; identify file types by extension and content.
-2. Detect the language of the source material — output the summary in the same language.
+2. **Write the summary in English**, per the global rule in `~/.claude/CLAUDE.md`, whatever language the source is in. Quoted passages, error messages, UI strings and book/chapter/section titles keep the original wording; the surrounding prose stays English. Another language only when the user asks for it explicitly for this summary.
 3. Produce a structured summary:
 
 ### For lecture slides/notes:

@@ -1,0 +1,261 @@
+<title>Two Periods, One Line</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §6.2 · printed pages 105–115</p>
+  <h1>Two Periods, One Line</h1>
+  <p class="lede">The budget line always passes through the endowment, so a change in the
+  interest rate <em>pivots</em> it about that point. Everything about income and substitution
+  effects follows from that one geometric fact — including why a higher interest rate can make
+  a saver save <em>less</em>.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 420" role="img"
+             aria-label="Budget line, indifference curve and optimum in the two-period plane"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>budget line</span>
+        <span style="color:var(--as)"><i class="swatch"></i>indifference curve</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>compensated line (Hicks)</span>
+        <span style="color:var(--eff)"><i class="swatch dash"></i>45°, the smooth path</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Saving in period 1</div>
+        <div class="v" id="sOut"></div>
+        <div class="w" id="sW"></div>
+      </div>
+      <div>
+        <div class="k">d ln c₁ ⁄ d ln(1+r)</div>
+        <div class="v" id="elOut"></div>
+        <div class="w">−ω − θ(1⁄σ − 1)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Endowment</legend>
+      <div class="ctl">
+        <span class="hint">Front-load income and the household lends; back-load it and the
+        household borrows. The sign of the income effect flips with it.</span>
+        <label for="y1">Income now <span class="sym">y<sub>1</sub></span></label>
+        <output id="y1o"></output><input type="range" id="y1" min="10" max="190" step="1" value="150">
+      </div>
+      <div class="ctl">
+        <label for="y2">Income later <span class="sym">y<sub>2</sub></span></label>
+        <output id="y2o"></output><input type="range" id="y2" min="10" max="190" step="1" value="50">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences and prices</legend>
+      <div class="ctl">
+        <label for="r">Interest rate <span class="sym">r</span></label>
+        <output id="ro"></output><input type="range" id="r" min="-0.02" max="0.25" step="0.005" value="0.04">
+      </div>
+      <div class="ctl">
+        <span class="hint">β = 1⁄(1+ρ). When β(1+r) = 1 the path is exactly flat, whatever σ is.</span>
+        <label for="beta">Discount factor <span class="sym">β</span></label>
+        <output id="betao"></output><input type="range" id="beta" min="0.80" max="1.00" step="0.005" value="0.96">
+      </div>
+      <div class="ctl">
+        <span class="hint">σ is risk aversion; 1⁄σ is the elasticity of intertemporal
+        substitution. σ = 1 is the knife-edge where the two effects cancel on the allocation.</span>
+        <label for="sigma">Curvature <span class="sym">σ</span></label>
+        <output id="sigmao"></output><input type="range" id="sigma" min="0.25" max="6" step="0.05" value="1">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="lender">A lender</button>
+      <button data-p="borrower">A borrower (student)</button>
+      <button data-p="flat">Perfect smoothing</button>
+      <button data-p="lowEIS">Low EIS (σ = 4)</button>
+    </div>
+
+    <details>
+      <summary>Reading the compensated line</summary>
+      <p>The dashed line is the budget line at the <i>new</i> interest rate, shifted until the
+      household could just afford its <i>old</i> bundle. Moving from the old optimum to the
+      tangency on that dashed line is the pure <b>substitution</b> effect; moving from there to
+      the new optimum is the <b>income</b> effect. Its direction is set by the household's net
+      trade — which is why lenders and borrowers differ. Derivation in
+      <b>03-income-and-substitution.md</b> §3.2.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 6 · companion to <b>Map/aula-04-consumo/02-two-period-problem.md</b> and <b>03-income-and-substitution.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["y1","y2","r","beta","sigma"];
+
+function solve(y1, y2, r, beta, sigma){
+  const W = y1 + y2/(1+r);
+  const D = 1 + Math.pow(beta, 1/sigma) * Math.pow(1+r, 1/sigma - 1);
+  const c1 = W/D;
+  const c2 = Math.pow(beta*(1+r), 1/sigma) * c1;
+  return {W, D, c1, c2};
+}
+
+function elasticity(y1,y2,r,beta,sigma){
+  const W = y1 + y2/(1+r);
+  const omega = (y2/(1+r))/W;
+  const D = 1 + Math.pow(beta,1/sigma)*Math.pow(1+r,1/sigma-1);
+  const theta = 1 - 1/D;
+  return {omega, theta, val: -omega - theta*(1/sigma - 1)};
+}
+
+function draw(v, s, comp){
+  const W=600,H=420,L=54,R=20,T=16,B=44;
+  const hi = Math.max(v.y1, v.y2, s.c1, s.c2, s.W)*1.15;
+  const X = c => L + (W-L-R)*c/hi;
+  const Y = c => T + (H-T-B)*(1-c/hi);
+
+  let out = "";
+  for(let i=0;i<=4;i++){
+    const t = hi*i/4;
+    out += `<line x1="${L}" y1="${Y(t).toFixed(1)}" x2="${W-R}" y2="${Y(t).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    out += `<line x1="${X(t).toFixed(1)}" y1="${T}" x2="${X(t).toFixed(1)}" y2="${H-B}" stroke="var(--grid)" stroke-width="1"/>`;
+  }
+  // 45 degree line
+  out += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(hi).toFixed(1)}" y2="${Y(hi).toFixed(1)}" stroke="var(--eff)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.8"/>`;
+
+  // budget line: c2 = (1+r)(W - c1)
+  const xmax = Math.min(hi, s.W);
+  out += `<line x1="${X(0)}" y1="${Y((1+v.r)*s.W).toFixed(1)}" x2="${X(xmax).toFixed(1)}" y2="${Y((1+v.r)*(s.W-xmax)).toFixed(1)}" stroke="var(--ad)" stroke-width="2.4"/>`;
+
+  // compensated line
+  if (comp){
+    out += `<line x1="${X(0)}" y1="${Y((1+comp.r)*comp.W).toFixed(1)}" x2="${X(Math.min(hi,comp.W)).toFixed(1)}" y2="${Y((1+comp.r)*(comp.W-Math.min(hi,comp.W))).toFixed(1)}" stroke="var(--nat)" stroke-width="1.6" stroke-dasharray="6 4"/>`;
+  }
+
+  // indifference curve through the optimum
+  const sig = v.sigma, beta = v.beta;
+  const uu = c => Math.abs(sig-1)<1e-9 ? Math.log(c) : (Math.pow(c,1-sig)-1)/(1-sig);
+  const Ubar = uu(s.c1) + beta*uu(s.c2);
+  let d = "";
+  for(let i=1;i<=260;i++){
+    const c1 = hi*i/260;
+    // solve beta*u(c2) = Ubar - u(c1)
+    const rhs = (Ubar - uu(c1))/beta;
+    let c2;
+    if (Math.abs(sig-1)<1e-9) c2 = Math.exp(rhs);
+    else {
+      const inner = rhs*(1-sig)+1;
+      if (inner <= 0) continue;
+      c2 = Math.pow(inner, 1/(1-sig));
+    }
+    if (!isFinite(c2) || c2 > hi*1.4) continue;
+    d += (d?"L":"M") + X(c1).toFixed(1) + "," + Y(c2).toFixed(1);
+  }
+  out += `<path d="${d}" fill="none" stroke="var(--as)" stroke-width="2"/>`;
+
+  // endowment and optimum
+  out += `<circle cx="${X(v.y1).toFixed(1)}" cy="${Y(v.y2).toFixed(1)}" r="5.5" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+  out += `<text x="${(X(v.y1)+9).toFixed(1)}" y="${(Y(v.y2)-8).toFixed(1)}" font-size="11" fill="var(--ink-soft)">endowment</text>`;
+  out += `<circle cx="${X(s.c1).toFixed(1)}" cy="${Y(s.c2).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<text x="${(X(s.c1)+9).toFixed(1)}" y="${(Y(s.c2)+15).toFixed(1)}" font-size="11" fill="var(--it)">optimum</text>`;
+
+  // saving bracket along the c1 axis
+  out += `<line x1="${X(Math.min(v.y1,s.c1)).toFixed(1)}" y1="${(H-B+8).toFixed(1)}" x2="${X(Math.max(v.y1,s.c1)).toFixed(1)}" y2="${(H-B+8).toFixed(1)}" stroke="${s.c1<v.y1?'var(--pos)':'var(--neg)'}" stroke-width="3"/>`;
+
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">consumption now, c₁</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">consumption later, c₂</text>`;
+  $("plot").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const s = solve(v.y1, v.y2, v.r, v.beta, v.sigma);
+
+  $("y1o").textContent = v.y1.toFixed(0);
+  $("y2o").textContent = v.y2.toFixed(0);
+  $("ro").textContent = (v.r*100).toFixed(1) + "%";
+  $("betao").textContent = v.beta.toFixed(3) + " (ρ=" + ((1/v.beta-1)*100).toFixed(1) + "%)";
+  $("sigmao").textContent = v.sigma.toFixed(2) + " (EIS " + (1/v.sigma).toFixed(2) + ")";
+
+  // compensated bundle at a slightly higher r
+  const r1 = v.r + 0.02;
+  const Wc = s.c1 + s.c2/(1+r1);
+  draw(v, s, {r:r1, W:Wc});
+
+  const sav = v.y1 - s.c1;
+  $("sOut").textContent = (sav>=0?"+":"") + sav.toFixed(2);
+  $("sW").textContent = sav > 0 ? "a lender — income effect opposes substitution"
+        : (sav < 0 ? "a borrower — both effects raise saving" : "neither; pure substitution");
+
+  const el = elasticity(v.y1,v.y2,v.r,v.beta,v.sigma);
+  $("elOut").textContent = el.val.toFixed(3);
+
+  const brk = v.beta*(1+v.r);
+  $("eqline").innerHTML = `u′(c₁) = β(1+r)u′(c₂) &nbsp;⟹&nbsp; c₂⁄c₁ = [β(1+r)]<sup>1/σ</sup> = `
+    + `<b>${Math.pow(brk,1/v.sigma).toFixed(3)}</b> &nbsp;·&nbsp; β(1+r) = <b>${brk.toFixed(4)}</b>`;
+
+  // how saving responds to a 2pp rise in r
+  const s2 = solve(v.y1, v.y2, r1, v.beta, v.sigma);
+  const dsav = (v.y1 - s2.c1) - sav;
+  const rows = [
+    ["ω — future share of wealth", el.omega],
+    ["θ — wealth consumed later", el.theta],
+    ["Δ saving from r +2pp", dsav/Math.max(1,Math.abs(sav))],
+  ];
+  $("bars").innerHTML = rows.map(([lab,val],i)=>{
+    const w = Math.min(100, Math.abs(val)*(i===2?100:100));
+    const txt = i===2 ? (dsav>=0?"+":"")+dsav.toFixed(2) : val.toFixed(3);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${val<0?'neg':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${txt}</span></div>`;
+  }).join("");
+
+  const flat = Math.abs(brk - 1) < 5e-4;
+  $("verdict").innerHTML = flat
+    ? `<span class="flag ok">β(1+r) = 1</span> &nbsp; Impatience exactly offsets the interest rate, so the
+       household chooses a <b>perfectly flat</b> path — c₁ = c₂ — however uneven its income is, and whatever
+       σ is. This is the benchmark the whole session is measured against.`
+    : (sav > 0
+      ? `<span class="flag ${dsav>0?'ok':'bad'}">saving ${dsav>0?'rises':'falls'} with r</span>
+         &nbsp; A lender at σ = ${v.sigma.toFixed(2)}. A 2-point rise in r changes saving by
+         <b>${(dsav>=0?"+":"")+dsav.toFixed(2)}</b>. ${v.sigma<1
+           ? "With σ below one the household substitutes readily, so substitution wins."
+           : (v.sigma>1 ? "With σ above one it is reluctant to tilt its path, so the wealth gain wins and it saves less."
+                        : "At σ = 1 the two exactly cancel on the allocation; only the wealth term moves c₁.")}`
+      : `<span class="flag ok">unambiguous</span> &nbsp; A borrower. Higher rates make repayment dearer,
+         so the household is poorer <i>and</i> future consumption is cheaper — both effects cut c₁ and raise
+         saving. A 2-point rise changes saving by <b>${(dsav>=0?"+":"")+dsav.toFixed(2)}</b>.`);
+}
+
+const presets = {
+  lender:   {y1:150, y2:50,  r:0.04, beta:0.96, sigma:1},
+  borrower: {y1:20,  y2:180, r:0.04, beta:0.96, sigma:1},
+  flat:     {y1:150, y2:50,  r:0.04, beta:1/1.04, sigma:2},
+  lowEIS:   {y1:150, y2:50,  r:0.04, beta:0.96, sigma:4},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

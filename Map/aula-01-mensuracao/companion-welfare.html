@@ -1,0 +1,236 @@
+<title>What Rawls Would Pay</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §2.2 · Jones &amp; Klenow (2016) · printed pages 33–41</p>
+  <h1>What Rawls Would Pay</h1>
+  <p class="lede">Behind the veil of ignorance, how much would you need US consumption scaled by,
+  to be as well off as a random resident of this country? That factor <em>λ</em> is the welfare
+  measure — and with log utility it splits into four additive terms, one of which prices
+  inequality at exactly half the variance of log consumption.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 300" role="img"
+             aria-label="Waterfall of the four terms in log lambda"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--pos)"><i class="swatch"></i>raises welfare</span>
+        <span style="color:var(--neg)"><i class="swatch"></i>lowers welfare</span>
+        <span style="color:var(--it)"><i class="swatch"></i>ln λ</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">λ — welfare relative to the US</div>
+        <div class="v" id="lamOut"></div>
+        <div class="w" id="lamW"></div>
+      </div>
+      <div>
+        <div class="k">Consumption ratio alone</div>
+        <div class="v" id="cOut"></div>
+        <div class="w" id="cW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>This country</legend>
+      <div class="ctl">
+        <label for="c">Consumption per head <span class="sym">c̄</span></label>
+        <output id="co"></output><input type="range" id="c" min="1000" max="60000" step="500" value="24000">
+      </div>
+      <div class="ctl">
+        <span class="hint">Standard deviation of log consumption. A Gini of 0.35 is about s = 0.65;
+        a Gini of 0.55 is about s = 1.07.</span>
+        <label for="s">Inequality <span class="sym">s</span></label>
+        <output id="so"></output><input type="range" id="s" min="0.2" max="1.6" step="0.01" value="0.95">
+      </div>
+      <div class="ctl">
+        <label for="l">Leisure share of time <span class="sym">l</span></label>
+        <output id="lo"></output><input type="range" id="l" min="0.55" max="0.92" step="0.005" value="0.76">
+      </div>
+      <div class="ctl">
+        <label for="e">Life expectancy</label>
+        <output id="eo"></output><input type="range" id="e" min="40" max="90" step="0.5" value="83">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences — the parameters that must be calibrated</legend>
+      <div class="ctl">
+        <span class="hint">Risk aversion behind the veil. It is also, mechanically, aversion to
+        inequality: the penalty is σs²⁄2. Jones &amp; Klenow use σ = 1, the conservative end.</span>
+        <label for="sig">Risk aversion <span class="sym">σ</span></label>
+        <output id="sigo"></output><input type="range" id="sig" min="1" max="6" step="0.1" value="1">
+      </div>
+      <div class="ctl">
+        <span class="hint">Flow value of being alive at zero consumption. It has no market price,
+        and the life-expectancy term is entirely at its mercy.</span>
+        <label for="ubar">Value of life <span class="sym">ū</span></label>
+        <output id="ubaro"></output><input type="range" id="ubar" min="0" max="12" step="0.25" value="5">
+      </div>
+      <div class="ctl">
+        <label for="th">Disutility of work <span class="sym">θ</span></label>
+        <output id="tho"></output><input type="range" id="th" min="0" max="20" step="0.5" value="8">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="europe">Western Europe</button>
+      <button data-p="poor">A poor country</button>
+      <button data-p="us">The US itself</button>
+    </div>
+
+    <details>
+      <summary>Where the −s²⁄2 comes from</summary>
+      <p>If consumption is lognormal, E[ln c] = ln E[c] − s²⁄2. Expected utility runs on the mean of
+      the <i>log</i>, while GDP per head reports the log of the <i>mean</i>. The wedge between them
+      is Jensen's inequality, and it is exactly the inequality penalty. With general σ the penalty is
+      σs²⁄2 — linear in risk aversion, which is why σ is the parameter that decides how much
+      inequality costs. Derivation in <b>05-beyond-gdp.md</b> §5.4.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 2 · companion to <b>Map/aula-01-mensuracao/05-beyond-gdp.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["c","s","l","e","sig","ubar","th"];
+const US = {c:40000, s:0.75, l:0.70, e:79};
+
+function terms(v){
+  // sigma = 1 is the log case; for sigma != 1 the consumption term is the CRRA
+  // certainty-equivalent, and the inequality penalty scales linearly in sigma.
+  const termC = Math.log(v.c / US.c);
+  const termI = -0.5 * v.sig * (v.s*v.s - US.s*US.s);
+  const termL = -v.th * (Math.pow(1-v.l,2) - Math.pow(1-US.l,2));
+  const eJ = v.e/100, eUS = US.e/100;
+  const innerJ = v.ubar + Math.log(v.c) - 0.5*v.sig*v.s*v.s - v.th*Math.pow(1-v.l,2);
+  const termE = (eJ - eUS)/eUS * innerJ;
+  return {termC, termI, termL, termE, ln: termC+termI+termL+termE};
+}
+
+function draw(t){
+  const W=600,H=300,L=46,R=20,T=22,B=52;
+  const items = [
+    ["consumption", t.termC],
+    ["inequality", t.termI],
+    ["leisure", t.termL],
+    ["life exp.", t.termE],
+  ];
+  let cum = 0; const steps = [];
+  items.forEach(([lab,v]) => { steps.push([lab, cum, cum+v, v]); cum += v; });
+  const lo = Math.min(0, ...steps.map(s=>Math.min(s[1],s[2])), t.ln) - 0.15;
+  const hi = Math.max(0, ...steps.map(s=>Math.max(s[1],s[2])), t.ln) + 0.15;
+  const y = v => T + (H-T-B)*(1-(v-lo)/(hi-lo));
+  const n = items.length + 1;
+  const bw = (W-L-R)/n * 0.56;
+  const cx = i => L + (W-L-R)*(i+0.5)/n;
+
+  let s = "";
+  for (let i=0;i<=4;i++){
+    const v = lo + (hi-lo)*i/4, yy=y(v);
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)">${v.toFixed(2)}</text>`;
+  }
+  s += `<line x1="${L}" y1="${y(0).toFixed(1)}" x2="${W-R}" y2="${y(0).toFixed(1)}" stroke="var(--grid-strong)" stroke-width="1.5"/>`;
+
+  steps.forEach((st,i)=>{
+    const [lab,a,b,v] = st;
+    const top = Math.min(y(a), y(b)), h = Math.max(2, Math.abs(y(a)-y(b)));
+    const col = v >= 0 ? "var(--pos)" : "var(--neg)";
+    s += `<rect x="${(cx(i)-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="${col}" opacity="0.85"/>`;
+    s += `<text x="${cx(i).toFixed(1)}" y="${(top-6).toFixed(1)}" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--ink)">${(v>=0?'+':'')+v.toFixed(3)}</text>`;
+    s += `<text x="${cx(i).toFixed(1)}" y="${H-B+18}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">${lab}</text>`;
+    if (i < steps.length-1)
+      s += `<line x1="${(cx(i)+bw/2).toFixed(1)}" y1="${y(b).toFixed(1)}" x2="${(cx(i+1)-bw/2).toFixed(1)}" y2="${y(b).toFixed(1)}" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="3 3"/>`;
+  });
+  // total
+  const i = items.length, top = Math.min(y(0), y(t.ln)), h = Math.max(2, Math.abs(y(0)-y(t.ln)));
+  s += `<rect x="${(cx(i)-bw/2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" fill="var(--it)" opacity="0.9"/>`;
+  s += `<text x="${cx(i).toFixed(1)}" y="${(top-6).toFixed(1)}" text-anchor="middle" font-size="11.5" font-family="IBM Plex Mono, monospace" fill="var(--ink)">${(t.ln>=0?'+':'')+t.ln.toFixed(3)}</text>`;
+  s += `<text x="${cx(i).toFixed(1)}" y="${H-B+18}" text-anchor="middle" font-size="11.5" fill="var(--ink)">ln λ</text>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">each bar is one additive term in ln λ</text>`;
+  $("plot").innerHTML = s;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const t = terms(v);
+
+  $("co").textContent = "$" + v.c.toLocaleString();
+  $("so").textContent = v.s.toFixed(2);
+  $("lo").textContent = (v.l*100).toFixed(1) + "%";
+  $("eo").textContent = v.e.toFixed(1) + " yr";
+  $("sigo").textContent = v.sig.toFixed(1);
+  $("ubaro").textContent = v.ubar.toFixed(2);
+  $("tho").textContent = v.th.toFixed(1);
+
+  draw(t);
+
+  const lam = Math.exp(t.ln);
+  $("lamOut").textContent = lam.toFixed(3);
+  $("lamW").textContent = lam >= 1
+    ? `better off than the US by ${((lam-1)*100).toFixed(0)}%`
+    : `worse off than the US by ${((1-lam)*100).toFixed(0)}%`;
+
+  const cr = v.c/US.c;
+  $("cOut").textContent = cr.toFixed(3);
+  const gapPP = (t.ln - t.termC)*100;
+  $("cW").textContent = `everything else adds ${(gapPP>=0?'+':'')}${gapPP.toFixed(0)} log points`;
+
+  $("eqline").innerHTML = `ln λ = ln(c̄<sub>j</sub>/c̄<sub>US</sub>) − (σ⁄2)(s<sub>j</sub>² − s<sub>US</sub>²) `
+    + `− θ[(1−l<sub>j</sub>)² − (1−l<sub>US</sub>)²] + (e<sub>j</sub>−e<sub>US</sub>)⁄e<sub>US</sub> · [·]`;
+
+  const rows = [
+    ["consumption", t.termC],
+    ["inequality", t.termI],
+    ["leisure", t.termL],
+    ["life exp.", t.termE],
+  ];
+  const m = Math.max(...rows.map(r=>Math.abs(r[1])), 0.05);
+  $("bars").innerHTML = rows.map(([lab,val])=>{
+    const w = Math.min(100, Math.abs(val)/m*100);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${val<0?'neg':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${(val>=0?'+':'')+val.toFixed(3)}</span></div>`;
+  }).join("");
+
+  const biggest = rows.slice().sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]))[0];
+  const penalty = 0.5*v.sig*(v.s*v.s - US.s*US.s);
+  $("verdict").innerHTML = `<span class="flag ${lam>=cr?'ok':'bad'}">${lam>=cr?'welfare above the consumption ratio':'welfare below the consumption ratio'}</span>
+    &nbsp; The largest single term is <b>${biggest[0]}</b> at ${(biggest[1]>=0?'+':'')+biggest[1].toFixed(3)}.
+    Inequality alone costs ${(penalty*100).toFixed(1)} log points at σ = ${v.sig.toFixed(1)}; raise σ to
+    ${Math.min(6,v.sig+2).toFixed(1)} and it would cost ${(0.5*Math.min(6,v.sig+2)*(v.s*v.s-US.s*US.s)*100).toFixed(1)}.`;
+}
+
+const presets = {
+  europe: {c:30000, s:0.60, l:0.78, e:82, sig:1, ubar:5, th:8},
+  poor:   {c:4000,  s:1.10, l:0.72, e:58, sig:1, ubar:5, th:8},
+  us:     {c:40000, s:0.75, l:0.70, e:79, sig:1, ubar:5, th:8},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

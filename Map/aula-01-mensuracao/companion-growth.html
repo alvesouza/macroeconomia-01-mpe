@@ -1,0 +1,222 @@
+<title>Reading a Log Scale</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · growth arithmetic · used from ch. 3 onward</p>
+  <h1>Reading a Log Scale</h1>
+  <p class="lede">The same two economies, drawn twice. On the left, levels: the rich country
+  pulls away and the poor one looks flat. On the right, logs: the <em>slope</em> is the growth
+  rate, parallel lines mean a constant income <em>ratio</em>, and convergence is visible as
+  lines that meet. Most misreadings of a growth chart are a confusion between these two panels.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 300" role="img"
+             aria-label="Two income paths on linear and log axes"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>Country A</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>Country B</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>doubling of A</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">A doubles in</div><div class="v" id="dA"></div><div class="n">rule of 70: <span id="r70A"></span></div></div>
+      <div><div class="k">B doubles in</div><div class="v" id="dB"></div><div class="n">rule of 70: <span id="r70B"></span></div></div>
+      <div><div class="k">Income ratio at year 0</div><div class="v" id="ratio0"></div><div class="n">A ⁄ B</div></div>
+      <div><div class="k">Income ratio at the end</div><div class="v" id="ratioT"></div><div class="n" id="convW"></div></div>
+      <div><div class="k">Years until B catches A</div><div class="v" id="catch"></div><div class="n">where the log lines cross</div></div>
+      <div><div class="k">Log-approximation error</div><div class="v" id="errOut"></div><div class="n">g − ln(1+g) at B's rate, ≈ g²⁄2</div></div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="note">Volatility is pure loss. The arithmetic mean of a country's annual growth
+      rates always exceeds what it actually realised, by more the more the rates scatter — the
+      same convexity (Jensen's inequality) that prices inequality in note 05.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Two economies</legend>
+      <div class="ctl">
+        <label for="y0A">A starts at</label>
+        <output id="y0Ao"></output><input type="range" id="y0A" min="500" max="60000" step="500" value="40000">
+      </div>
+      <div class="ctl">
+        <label for="gA">A grows at <span class="sym">g<sub>A</sub></span></label>
+        <output id="gAo"></output><input type="range" id="gA" min="0" max="12" step="0.1" value="2">
+      </div>
+      <div class="ctl">
+        <label for="y0B">B starts at</label>
+        <output id="y0Bo"></output><input type="range" id="y0B" min="500" max="60000" step="500" value="4000">
+      </div>
+      <div class="ctl">
+        <label for="gB">B grows at <span class="sym">g<sub>B</sub></span></label>
+        <output id="gBo"></output><input type="range" id="gB" min="0" max="12" step="0.1" value="7">
+      </div>
+      <div class="ctl">
+        <label for="T">Horizon</label>
+        <output id="To"></output><input type="range" id="T" min="10" max="120" step="5" value="60">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Volatility — same mean, different path</legend>
+      <div class="ctl">
+        <span class="hint">B's growth alternates ±v around its mean each year. The arithmetic mean
+        is unchanged; what B actually realises is not.</span>
+        <label for="vol">Swing <span class="sym">v</span></label>
+        <output id="volo"></output><input type="range" id="vol" min="0" max="40" step="1" value="0">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="miracle">Growth miracle</button>
+      <button data-p="parallel">Parallel — no convergence</button>
+      <button data-p="stagnation">The very long run</button>
+    </div>
+
+    <details>
+      <summary>Why the slope is the growth rate</summary>
+      <p>d(ln Y)/dt = Ẏ⁄Y. So a straight line on the log panel is constant proportional growth,
+      and the vertical distance between two lines is ln(Y<sub>A</sub>⁄Y<sub>B</sub>) — a constant
+      distance is a constant <i>ratio</i>, which is the absence of convergence however small the
+      gap looks. Derivation in <b>03-growth-arithmetic.md</b> §3.5.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), growth arithmetic · companion to <b>Map/aula-01-mensuracao/03-growth-arithmetic.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["y0A","gA","y0B","gB","T","vol"];
+
+function paths(v){
+  const T = Math.round(v.T), gA = v.gA/100, gB = v.gB/100, vol = v.vol/100;
+  const A = [], B = [], Bsmooth = [];
+  let a = v.y0A, b = v.y0B, bs = v.y0B;
+  A.push(a); B.push(b); Bsmooth.push(bs);
+  for (let t = 1; t <= T; t++){
+    a *= (1 + gA);
+    bs *= (1 + gB);
+    b *= (1 + gB + (t % 2 ? vol : -vol));
+    A.push(a); B.push(b); Bsmooth.push(bs);
+  }
+  return {A, B, Bsmooth, T, gA, gB, vol};
+}
+
+function draw(p){
+  const W=600,H=300,T0=14,Bm=34,gapx=26;
+  const pw=(W-2*40-gapx)/2, lx=40, rx=lx+pw+gapx;
+  const n=p.A.length;
+  const maxLin = Math.max(...p.A, ...p.B);
+  const all = [...p.A, ...p.B].filter(x=>x>0);
+  const loL = Math.log(Math.min(...all)), hiL = Math.log(Math.max(...all));
+  const xs = (x0,i) => x0 + pw*i/(n-1);
+  const yLin = v => T0 + (H-T0-Bm)*(1 - v/maxLin);
+  const yLog = v => T0 + (H-T0-Bm)*(1 - (Math.log(v)-loL)/(hiL-loL||1));
+
+  const line = (arr,x0,f,col,dash="") =>
+    `<path d="${arr.map((v,i)=>`${i?'L':'M'}${xs(x0,i).toFixed(1)},${f(v).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="2" ${dash}/>`;
+
+  let s = "";
+  [[lx,"Levels",yLin],[rx,"Logs",yLog]].forEach(([x0,lab,f])=>{
+    s += `<rect x="${x0}" y="${T0}" width="${pw}" height="${H-T0-Bm}" fill="none" stroke="var(--rule)" stroke-width="1"/>`;
+    for(let i=1;i<4;i++){
+      const yy=T0+(H-T0-Bm)*i/4;
+      s += `<line x1="${x0}" y1="${yy.toFixed(1)}" x2="${(x0+pw).toFixed(1)}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    }
+    s += line(p.A,x0,f,"var(--as)");
+    s += line(p.B,x0,f,"var(--ad)");
+    if (p.vol > 0) s += line(p.Bsmooth,x0,f,"var(--ad)",'stroke-dasharray="3 3" opacity="0.5"');
+    s += `<text x="${(x0+pw/2).toFixed(1)}" y="${H-Bm+18}" text-anchor="middle" font-size="12" fill="var(--ink)">${lab}</text>`;
+    s += `<text x="${(x0+pw/2).toFixed(1)}" y="${H-Bm+33}" text-anchor="middle" font-size="10.5" fill="var(--ink-faint)">0 → ${p.T} years</text>`;
+  });
+  // doubling marks for A on the log panel
+  let d = p.A[0]*2, guard = 0;
+  while (d <= Math.max(...p.A) && guard++ < 12){
+    const yy = yLog(d);
+    s += `<line x1="${rx}" y1="${yy.toFixed(1)}" x2="${(rx+pw).toFixed(1)}" y2="${yy.toFixed(1)}" stroke="var(--nat)" stroke-width="1" stroke-dasharray="4 4" opacity="0.7"/>`;
+    d *= 2;
+  }
+  $("plot").innerHTML = s;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const p = paths(v);
+
+  $("y0Ao").textContent = v.y0A.toLocaleString();
+  $("gAo").textContent = v.gA.toFixed(1) + "%";
+  $("y0Bo").textContent = v.y0B.toLocaleString();
+  $("gBo").textContent = v.gB.toFixed(1) + "%";
+  $("To").textContent = v.T + " yr";
+  $("volo").textContent = "±" + v.vol.toFixed(0) + " pp";
+
+  draw(p);
+
+  const dbl = g => g <= 0 ? Infinity : Math.log(2)/Math.log(1+g);
+  const show = x => isFinite(x) ? x.toFixed(1) + " yr" : "never";
+  $("dA").textContent = show(dbl(p.gA));
+  $("dB").textContent = show(dbl(p.gB));
+  $("r70A").textContent = p.gA > 0 ? (70/v.gA).toFixed(1) + " yr" : "—";
+  $("r70B").textContent = p.gB > 0 ? (70/v.gB).toFixed(1) + " yr" : "—";
+
+  const r0 = p.A[0]/p.B[0], rT = p.A[p.A.length-1]/p.B[p.B.length-1];
+  $("ratio0").textContent = r0.toFixed(2) + "×";
+  $("ratioT").textContent = rT.toFixed(2) + "×";
+  $("convW").textContent = Math.abs(rT-r0) < 1e-6 ? "parallel lines — no convergence at all"
+    : (rT < r0 ? "gap narrowing — the log lines converge" : "gap widening — divergence");
+
+  const catchT = p.gB > p.gA ? Math.log(p.A[0]/p.B[0])/Math.log((1+p.gB)/(1+p.gA)) : Infinity;
+  $("catch").textContent = (isFinite(catchT) && catchT > 0) ? catchT.toFixed(0) + " yr" : "never";
+
+  const err = p.gB - Math.log(1+p.gB);
+  $("errOut").textContent = (err*100).toFixed(2) + " pp";
+
+  $("eqline").innerHTML = `d(ln Y)⁄dt = Ẏ⁄Y &nbsp;·&nbsp; a straight log line is constant proportional growth; `
+    + `the vertical gap is ln(Y<sub>A</sub>⁄Y<sub>B</sub>) = <b>${Math.log(rT).toFixed(3)}</b> at the end`;
+
+  // arithmetic mean vs realised, for B
+  const Tn = p.B.length - 1;
+  const realised = Math.pow(p.B[Tn]/p.B[0], 1/Tn) - 1;
+  const arith = p.gB;
+  const rows = [["arithmetic mean", arith, "what averaging the annual rates reports"],
+                ["realised CAGR", realised, "what the endpoints actually deliver"]];
+  const m = Math.max(...rows.map(r=>Math.abs(r[1])), 0.01);
+  $("bars").innerHTML = rows.map(([lab,val,hint])=>{
+    const w = Math.min(100, Math.abs(val)/m*100);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${val<0?'neg':''} ${lab==='realised CAGR'?'alt':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${(val*100).toFixed(2)}%</span></div>
+      <div style="grid-column:1/-1;font-size:.76rem;color:var(--ink-faint);margin:-4px 0 2px">${hint}</div>`;
+  }).join("") + `<div class="bar"><span class="sym">shortfall</span>
+      <span class="track"><i class="fill neg" style="width:${Math.min(100,Math.abs(arith-realised)/m*100).toFixed(1)}%"></i></span>
+      <span class="val">${((arith-realised)*100).toFixed(2)}pp</span></div>`;
+}
+
+const presets = {
+  miracle:    {y0A:40000,gA:2,y0B:4000,gB:7,T:60,vol:0},
+  parallel:   {y0A:40000,gA:2,y0B:4000,gB:2,T:60,vol:0},
+  stagnation: {y0A:1200,gA:0.1,y0B:1000,gB:0.1,T:120,vol:0},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

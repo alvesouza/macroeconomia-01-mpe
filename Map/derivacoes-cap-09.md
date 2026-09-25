@@ -5,7 +5,7 @@ date: 2026-08-31
 
 # Derivações — Kurlat, cap. 9 (*General Equilibrium*)
 
-**Aula 6** · [[06_equilibrio_geral|regras do tópico]] · [[Aula/Slides_Macro1_Aula6|slides]] ·
+**Aula 6** · [[aula-06-equilibrio-geral/00-index|índice da Aula 6]] · [[06_equilibrio_geral|regras do tópico]] · [[Aula/Slides_Macro1_Aula6|slides]] ·
 [[topics-index#Tópico Equilíbrio geral|índice de tópicos]] · volta ao [[00_indice]]
 
 As **33 equações numeradas** do capítulo, uma a uma: o que a equação diz, **de onde ela

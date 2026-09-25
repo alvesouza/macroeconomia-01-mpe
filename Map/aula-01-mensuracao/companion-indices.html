@@ -1,0 +1,272 @@
+<title>The Index Bench</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §1.2 · Example 1.13 · printed pages 22–25</p>
+  <h1>The Index Bench</h1>
+  <p class="lede">Two goods, two years. Real growth has no single answer — it has a
+  <em>Laspeyres</em> answer, a <em>Paasche</em> answer, and a <em>Fisher</em> answer between them.
+  The gap is one number: the share-weighted covariance between price growth and quantity growth.
+  Move the sliders until that covariance changes sign and watch the ordering reverse.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 340" role="img"
+             aria-label="Price and quantity indices on a common scale"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>Laspeyres</span>
+        <span style="color:var(--it)"><i class="swatch"></i>Fisher (ideal)</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>Paasche</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Cov<sub>s</sub>(p̂, q̂) — the sign decides everything</div>
+        <div class="v" id="covOut">+0.000</div>
+        <div class="w" id="covW"></div>
+      </div>
+      <div>
+        <div class="k">Substitution bias in the price index</div>
+        <div class="v" id="biasOut">+0.00%</div>
+        <div class="w">ln(P<sup>L</sup>/P<sup>F</sup>), the CPI's overstatement</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="card">
+      <div class="tablewrap">
+        <table id="tbl">
+          <thead><tr><th>Index</th><th class="num">Price</th><th class="num">Quantity</th><th class="num">P×Q</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="note">The <b>factor-reversal test</b>: only the Fisher row has P×Q equal to the
+      nominal value ratio exactly. That is why it is called the <i>ideal</i> index, and why chained
+      national accounts use it.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Year 0 — the base</legend>
+      <div class="ctl">
+        <label for="pA">Price of A <span class="sym">p<sub>A0</sub></span></label>
+        <output id="pAo"></output><input type="range" id="pA" min="10" max="200" step="1" value="50">
+      </div>
+      <div class="ctl">
+        <label for="qA">Quantity of A <span class="sym">q<sub>A0</sub></span></label>
+        <output id="qAo"></output><input type="range" id="qA" min="1" max="40" step="1" value="10">
+      </div>
+      <div class="ctl">
+        <label for="pB">Price of B <span class="sym">p<sub>B0</sub></span></label>
+        <output id="pBo"></output><input type="range" id="pB" min="100" max="2000" step="20" value="1000">
+      </div>
+      <div class="ctl">
+        <label for="qB">Quantity of B <span class="sym">q<sub>B0</sub></span></label>
+        <output id="qBo"></output><input type="range" id="qB" min="1" max="20" step="1" value="1">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Year 1 — the shock</legend>
+      <div class="ctl">
+        <span class="hint">Gross price change of each good. Quantities respond with elasticity ε below.</span>
+        <label for="sA">Price change, A <span class="sym">p̂<sub>A</sub></span></label>
+        <output id="sAo"></output><input type="range" id="sA" min="0.4" max="2.5" step="0.01" value="1.2">
+      </div>
+      <div class="ctl">
+        <label for="sB">Price change, B <span class="sym">p̂<sub>B</sub></span></label>
+        <output id="sBo"></output><input type="range" id="sB" min="0.2" max="2.5" step="0.01" value="0.6">
+      </div>
+      <div class="ctl">
+        <span class="hint">ε &gt; 0 is ordinary substitution. ε &lt; 0 forces quantities to move
+        <i>with</i> prices — the covariance turns positive and the ordering flips.</span>
+        <label for="eps">Substitution elasticity <span class="sym">ε</span></label>
+        <output id="epso"></output><input type="range" id="eps" min="-2" max="4" step="0.05" value="1">
+      </div>
+      <div class="ctl">
+        <span class="hint">Extra quantity growth applied to both goods — real growth that has
+        nothing to do with relative prices. It shifts every index equally and leaves the gap alone.</span>
+        <label for="drift">Common quantity growth</label>
+        <output id="drifto"></output><input type="range" id="drift" min="-0.3" max="0.6" step="0.01" value="0">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button id="bExpandia">Kurlat's Expandia</button>
+      <button id="bKemal">Kemalchistan (uniform)</button>
+      <button id="bFlip">Flip the covariance</button>
+    </div>
+
+    <details>
+      <summary>What the algebra says</summary>
+      <p>With base-period value shares <i>s</i><sub>i0</sub>, the two quantity indices are
+      Q<sup>L</sup> = Σ s q̂ and Q<sup>P</sup> = Σ s p̂q̂ ⁄ Σ s p̂, so their difference is
+      Cov<sub>s</sub>(p̂,q̂) ⁄ E<sub>s</sub>[p̂]. Demand curves slope down, so that covariance is
+      normally negative and the early base gives the larger growth number. Nothing else is going on.</p>
+      <p>Derivation in <b>02-real-nominal-and-indices.md</b> §2.2–§2.3; verified numerically in
+      <b>check_measurement.py</b>.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 1 · companion to <b>Map/aula-01-mensuracao/02-real-nominal-and-indices.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["pA","qA","pB","qB","sA","sB","eps","drift"];
+const fmt = (x,d=3) => (x>=0?"+":"") + x.toFixed(d);
+
+function state(){
+  const o = {};
+  ids.forEach(k => o[k] = parseFloat($(k).value));
+  return o;
+}
+
+function compute(v){
+  const p0 = [v.pA, v.pB], q0 = [v.qA, v.qB];
+  const ph = [v.sA, v.sB];
+  const p1 = [p0[0]*ph[0], p0[1]*ph[1]];
+  const g  = 1 + v.drift;
+  const qh = [Math.pow(ph[0], -v.eps)*g, Math.pow(ph[1], -v.eps)*g];
+  const q1 = [q0[0]*qh[0], q0[1]*qh[1]];
+  const dot = (a,b) => a[0]*b[0] + a[1]*b[1];
+
+  const V0 = dot(p0,q0), V1 = dot(p1,q1);
+  const QL = dot(p0,q1)/V0, QP = V1/dot(p1,q0);
+  const PL = dot(p1,q0)/V0, PP = V1/dot(p0,q1);
+  const QF = Math.sqrt(QL*QP), PF = Math.sqrt(PL*PP);
+
+  const s = [p0[0]*q0[0]/V0, p0[1]*q0[1]/V0];
+  const Ep = dot(s,ph), Eq = dot(s,qh), Epq = s[0]*ph[0]*qh[0] + s[1]*ph[1]*qh[1];
+  const cov = Epq - Ep*Eq;
+
+  return {QL,QP,QF,PL,PP,PF,V:V1/V0,cov,Ep,p0,q0,p1,q1};
+}
+
+function draw(r){
+  const W=600,H=340,L=56,R=18,T=18,B=46;
+  const vals=[r.QL,r.QP,r.QF,r.PL,r.PP,r.PF,1];
+  let lo=Math.min(...vals), hi=Math.max(...vals);
+  const pad=Math.max(0.06,(hi-lo)*0.25); lo-=pad; hi+=pad;
+  const y = v => T + (H-T-B)*(1-(v-lo)/(hi-lo));
+  const cw = (W-L-R)/2;
+  const cx = i => L + cw*i + cw/2;
+
+  let s = `<rect x="0" y="0" width="${W}" height="${H}" fill="none"/>`;
+  // gridlines
+  const ticks=5;
+  for(let i=0;i<=ticks;i++){
+    const v = lo + (hi-lo)*i/ticks, yy=y(v);
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)">${v.toFixed(2)}</text>`;
+  }
+  // the no-change line
+  s += `<line x1="${L}" y1="${y(1).toFixed(1)}" x2="${W-R}" y2="${y(1).toFixed(1)}" stroke="var(--grid-strong)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  s += `<text x="${W-R-4}" y="${(y(1)-6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">no change</text>`;
+
+  const groups=[{lab:"Price index",set:[["L",r.PL,"var(--as)"],["F",r.PF,"var(--it)"],["P",r.PP,"var(--ad)"]]},
+                {lab:"Quantity index",set:[["L",r.QL,"var(--as)"],["F",r.QF,"var(--it)"],["P",r.QP,"var(--ad)"]]}];
+  groups.forEach((gr,gi)=>{
+    const bw=34, gap=16, total=gr.set.length*bw+(gr.set.length-1)*gap;
+    gr.set.forEach((d,di)=>{
+      const x = cx(gi)-total/2 + di*(bw+gap);
+      const yy = y(d[1]), y0=y(Math.max(lo,Math.min(1,d[1])));
+      const top=Math.min(yy,y(1)), h=Math.abs(yy-y(1));
+      s += `<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${bw}" height="${Math.max(1.5,h).toFixed(1)}" fill="${d[2]}" opacity="0.85"/>`;
+      s += `<text x="${(x+bw/2).toFixed(1)}" y="${(yy + (d[1]>=1?-7:15)).toFixed(1)}" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="var(--ink)">${d[1].toFixed(3)}</text>`;
+      s += `<text x="${(x+bw/2).toFixed(1)}" y="${H-B+16}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">${d[0]}</text>`;
+    });
+    s += `<text x="${cx(gi).toFixed(1)}" y="${H-B+34}" text-anchor="middle" font-size="12" fill="var(--ink)">${gr.lab}</text>`;
+  });
+  s += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  $("plot").innerHTML = s;
+}
+
+function bars(r){
+  const rows = [
+    ["P<sup>L</sup> − P<sup>P</sup>", r.PL-r.PP, "the substitution wedge in prices"],
+    ["Q<sup>L</sup> − Q<sup>P</sup>", r.QL-r.QP, "the same wedge in quantities"],
+  ];
+  const m = Math.max(0.02, ...rows.map(x=>Math.abs(x[1])));
+  $("bars").innerHTML = rows.map(([lab,v,hint])=>{
+    const w = Math.min(100, Math.abs(v)/m*100);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${v<0?'neg':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${fmt(v,4)}</span></div>
+      <div style="grid-column:1/-1;font-size:.76rem;color:var(--ink-faint);margin:-4px 0 2px">${hint}</div>`;
+  }).join("");
+}
+
+function table(r){
+  const rows = [["Laspeyres",r.PL,r.QL],["Fisher",r.PF,r.QF],["Paasche",r.PP,r.QP]];
+  $("tbl").querySelector("tbody").innerHTML = rows.map(([n,p,q])=>{
+    const prod = p*q, exact = Math.abs(prod-r.V) < 1e-9;
+    return `<tr><td>${n}</td><td class="num">${p.toFixed(4)}</td><td class="num">${q.toFixed(4)}</td>
+      <td class="num">${prod.toFixed(4)} ${exact?'<span class="flag ok">exact</span>':''}</td></tr>`;
+  }).join("") + `<tr><td><b>nominal V</b></td><td class="num">—</td><td class="num">—</td><td class="num"><b>${r.V.toFixed(4)}</b></td></tr>`;
+}
+
+function render(){
+  const v = state(), r = compute(v);
+  $("pAo").textContent = v.pA.toFixed(0);
+  $("qAo").textContent = v.qA.toFixed(0);
+  $("pBo").textContent = v.pB.toFixed(0);
+  $("qBo").textContent = v.qB.toFixed(0);
+  $("sAo").textContent = "×" + v.sA.toFixed(2);
+  $("sBo").textContent = "×" + v.sB.toFixed(2);
+  $("epso").textContent = v.eps.toFixed(2);
+  $("drifto").textContent = (v.drift*100).toFixed(0) + "%";
+
+  draw(r); bars(r); table(r);
+
+  $("covOut").textContent = fmt(r.cov,4);
+  $("covW").textContent = r.cov < 0
+    ? "negative — quantities rise where prices fall, the ordinary case"
+    : (r.cov > 0 ? "positive — quantities rise where prices rise; the ordering is reversed" : "zero — no substitution, all three indices agree");
+
+  const bias = Math.log(r.PL/r.PF);
+  $("biasOut").textContent = (bias*100).toFixed(2) + "%";
+
+  $("eqline").innerHTML = `Q<sup>P</sup> − Q<sup>L</sup> = Cov<sub>s</sub>(p̂,q̂) ⁄ E<sub>s</sub>[p̂] = `
+    + `${fmt(r.cov,4)} ⁄ ${r.Ep.toFixed(3)} = <b>${fmt(r.QP-r.QL,4)}</b>`;
+
+  const ordered = r.PL >= r.PF && r.PF >= r.PP - 1e-12;
+  $("verdict").innerHTML = ordered
+    ? `<span class="flag ok">P<sup>L</sup> ≥ P<sup>F</sup> ≥ P<sup>P</sup></span> &nbsp; A fixed-basket CPI
+       <b>overstates</b> inflation by ${(bias*100).toFixed(2)} percentage points here, because it never lets
+       the consumer substitute away from what became expensive.`
+    : `<span class="flag bad">ordering reversed</span> &nbsp; The covariance is positive, so a fixed basket
+       <b>understates</b> inflation. The theorem was never about Laspeyres being biased upward — it was about
+       the sign of Cov<sub>s</sub>(p̂,q̂).`;
+}
+
+const presets = {
+  bExpandia: {pA:50,qA:10,pB:1000,qB:1,sA:1.2,sB:0.6,eps:1,drift:0},
+  bKemal:    {pA:10,qA:50,pB:100,qB:10,sA:2,sB:2,eps:0,drift:0},
+  bFlip:     {pA:50,qA:10,pB:1000,qB:1,sA:1.4,sB:0.7,eps:-1.2,drift:0},
+};
+for (const [btn, p] of Object.entries(presets)) {
+  $(btn).addEventListener("click", () => {
+    // Expandia needs the exact quantities, not an elasticity-generated pair.
+    if (btn === "bExpandia") { p.eps = Math.log(2)/Math.log(1/0.6); }
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  });
+}
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

@@ -1,0 +1,229 @@
+<title>The Solow Diagram</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §4.2 · eq. (4.2.2) · printed pages 57–61</p>
+  <h1>The Solow Diagram</h1>
+  <p class="lede">One concave curve, one straight line, one crossing. Everything in this lecture
+  is a statement about where they meet and how fast the economy gets there. The dotted path is
+  the <em>exact</em> discrete law; the solid one is the continuous approximation everybody
+  memorises — the gap between them is the factor <span class="mono">1/(1+n)</span>.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 340" role="img"
+             aria-label="Actual investment against break-even investment"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>s f(k) — actual investment</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>(δ+n)k — break-even</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>f(k) — output</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>k<sub>ss</sub></span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">k<sub>ss</sub></div><div class="v" id="kss"></div><div class="n">(s/(δ+n))<sup>1/(1−α)</sup></div></div>
+      <div><div class="k">y<sub>ss</sub></div><div class="v" id="yss"></div><div class="n">f(k<sub>ss</sub>)</div></div>
+      <div><div class="k">c<sub>ss</sub></div><div class="v" id="css"></div><div class="n">(1−s) y<sub>ss</sub></div></div>
+      <div><div class="k">Convergence rate λ</div><div class="v" id="lam"></div><div class="n">(1−α)(δ+n)</div></div>
+      <div><div class="k">Half-life</div><div class="v" id="hl"></div><div class="n">ln2 ⁄ λ</div></div>
+      <div><div class="k">f′(k<sub>ss</sub>) vs δ+n</div><div class="v" id="mpk"></div><div class="n" id="mpkW"></div></div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="path" viewBox="0 0 600 200" role="img"
+             aria-label="Capital per worker over time from the chosen starting point"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>exact discrete law</span>
+        <span style="color:var(--ad)"><i class="swatch dash"></i>continuous approximation</span>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Parameters</legend>
+      <div class="ctl">
+        <span class="hint">Saving rate. Exogenous here — that is Assumption 4.7, and it is what
+        session 4 replaces with an optimising household.</span>
+        <label for="s">Saving rate <span class="sym">s</span></label>
+        <output id="so"></output><input type="range" id="s" min="0.02" max="0.9" step="0.005" value="0.20">
+      </div>
+      <div class="ctl">
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.1" max="0.85" step="0.01" value="0.3333">
+      </div>
+      <div class="ctl">
+        <span class="hint">δ and n enter only as a sum, so raising either is the same experiment.</span>
+        <label for="delta">Depreciation <span class="sym">δ</span></label>
+        <output id="deltao"></output><input type="range" id="delta" min="0" max="0.2" step="0.005" value="0.05">
+      </div>
+      <div class="ctl">
+        <label for="n">Population growth <span class="sym">n</span></label>
+        <output id="no"></output><input type="range" id="n" min="0" max="0.08" step="0.002" value="0.01">
+      </div>
+      <div class="ctl">
+        <label for="k0">Starting capital <span class="sym">k<sub>0</sub></span></label>
+        <output id="k0o"></output><input type="range" id="k0" min="0.05" max="3" step="0.01" value="0.3">
+      </div>
+      <div class="ctl">
+        <span class="hint">k₀ is a multiple of k<sub>ss</sub>, so the path stays on screen whatever
+        the parameters are.</span>
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="base">Baseline</button>
+      <button data-p="golden">Golden Rule (s = α)</button>
+      <button data-p="oversave">Over-saving</button>
+      <button data-p="highn">High population growth</button>
+    </div>
+
+    <details>
+      <summary>Why they cross exactly once</summary>
+      <p>s f(k)/k is strictly decreasing — the chord from the origin lies above the tangent when f
+      is concave — and it runs from +∞ (first Inada condition) down to 0 (second Inada condition).
+      A strictly decreasing function crossing a positive constant does so exactly once.
+      Diminishing returns give <i>at most</i> one crossing; Inada gives <i>at least</i> one.
+      Proof in <b>04-steady-state-and-stability.md</b> §4.2.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 4 · companion to <b>Map/aula-02-solow-mecanica/03-fundamental-equation.md</b> and <b>04-steady-state-and-stability.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["s","alpha","delta","n","k0"];
+
+function model(v){
+  const f = k => Math.pow(k, v.alpha);
+  const kss = Math.pow(v.s/(v.delta+v.n), 1/(1-v.alpha));
+  const lam = (1-v.alpha)*(v.delta+v.n);
+  return {f, kss, lam, mpk: v.alpha*Math.pow(kss, v.alpha-1)};
+}
+
+function drawDiagram(v, m){
+  const W=600,H=340,L=52,R=18,T=16,B=42;
+  const kmax = m.kss*2.2;
+  const ymax = m.f(kmax)*1.05;
+  const X = k => L + (W-L-R)*k/kmax;
+  const Y = y => T + (H-T-B)*(1-y/ymax);
+
+  let s = "";
+  for(let i=0;i<=4;i++){
+    const yy = T+(H-T-B)*i/4;
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+  }
+  const curve = (fn,col,wid) => {
+    let d="";
+    for(let i=0;i<=240;i++){
+      const k = kmax*i/240 + 1e-9;
+      d += (i?"L":"M") + X(k).toFixed(1) + "," + Y(fn(k)).toFixed(1);
+    }
+    return `<path d="${d}" fill="none" stroke="${col}" stroke-width="${wid}"/>`;
+  };
+  s += curve(k=>m.f(k), "var(--eff)", 1.6);
+  s += curve(k=>v.s*m.f(k), "var(--as)", 2.4);
+  s += `<line x1="${X(0)}" y1="${Y(0)}" x2="${X(kmax).toFixed(1)}" y2="${Y((v.delta+v.n)*kmax).toFixed(1)}" stroke="var(--ad)" stroke-width="2.4"/>`;
+
+  // steady state marker and the consumption gap
+  s += `<line x1="${X(m.kss).toFixed(1)}" y1="${Y(0)}" x2="${X(m.kss).toFixed(1)}" y2="${Y(m.f(m.kss)).toFixed(1)}" stroke="var(--nat)" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+  s += `<circle cx="${X(m.kss).toFixed(1)}" cy="${Y(v.s*m.f(m.kss)).toFixed(1)}" r="5" fill="var(--it)"/>`;
+  s += `<text x="${X(m.kss).toFixed(1)}" y="${Y(0)+16}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">k<tspan baseline-shift="sub" font-size="8">ss</tspan></text>`;
+  // consumption bracket at k_ss
+  const xk = X(m.kss)+9;
+  s += `<line x1="${xk.toFixed(1)}" y1="${Y(v.s*m.f(m.kss)).toFixed(1)}" x2="${xk.toFixed(1)}" y2="${Y(m.f(m.kss)).toFixed(1)}" stroke="var(--pos)" stroke-width="2.5"/>`;
+  s += `<text x="${(xk+6).toFixed(1)}" y="${((Y(v.s*m.f(m.kss))+Y(m.f(m.kss)))/2+4).toFixed(1)}" font-size="11" fill="var(--pos)">c<tspan baseline-shift="sub" font-size="8">ss</tspan></text>`;
+
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">capital per worker k</text>`;
+  $("plot").innerHTML = s;
+}
+
+function drawPath(v, m){
+  const W=600,H=200,L=52,R=18,T=14,B=34;
+  const Tn = 160;
+  const k0 = v.k0 * m.kss;
+  const exact = [k0], approx = [k0];
+  let ke = k0, ka = k0;
+  for(let t=0;t<Tn;t++){
+    ke = ((1-v.delta)*ke + v.s*m.f(ke))/(1+v.n);
+    ka = ka + v.s*m.f(ka) - (v.delta+v.n)*ka;
+    exact.push(ke); approx.push(Math.max(ka, 1e-9));
+  }
+  const hi = Math.max(m.kss, ...exact, ...approx)*1.08;
+  const X = t => L + (W-L-R)*t/Tn;
+  const Y = k => T + (H-T-B)*(1-k/hi);
+  const line = (arr,col,dash) => `<path d="${arr.map((k,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(k).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="2" ${dash||''}/>`;
+
+  let s = `<line x1="${L}" y1="${Y(m.kss).toFixed(1)}" x2="${W-R}" y2="${Y(m.kss).toFixed(1)}" stroke="var(--nat)" stroke-width="1.3" stroke-dasharray="5 4"/>`;
+  s += line(approx, "var(--ad)", 'stroke-dasharray="4 3"');
+  s += line(exact, "var(--as)");
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">years</text>`;
+  $("path").innerHTML = s;
+  return {exact, approx};
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const m = model(v);
+
+  $("so").textContent = v.s.toFixed(3);
+  $("alphao").textContent = v.alpha.toFixed(2);
+  $("deltao").textContent = v.delta.toFixed(3);
+  $("no").textContent = v.n.toFixed(3);
+  $("k0o").textContent = v.k0.toFixed(2) + "× k_ss";
+
+  drawDiagram(v, m);
+  const p = drawPath(v, m);
+
+  $("kss").textContent = m.kss.toFixed(3);
+  $("yss").textContent = m.f(m.kss).toFixed(3);
+  $("css").textContent = ((1-v.s)*m.f(m.kss)).toFixed(3);
+  $("lam").textContent = (m.lam*100).toFixed(2) + "%";
+  $("hl").textContent = m.lam > 0 ? (Math.log(2)/m.lam).toFixed(1) + " yr" : "∞";
+  $("mpk").textContent = m.mpk.toFixed(3);
+  const gap = m.mpk - (v.delta+v.n);
+  $("mpkW").textContent = Math.abs(gap) < 1e-4 ? "equal — the Golden Rule"
+    : (gap > 0 ? "above — saving more raises c_ss" : "below — over-saving, dynamically inefficient");
+
+  $("eqline").innerHTML = `Δk = s f(k) − (δ+n)k &nbsp;·&nbsp; at k<sub>ss</sub>, `
+    + `s f(k<sub>ss</sub>) = (δ+n)k<sub>ss</sub> = <b>${((v.delta+v.n)*m.kss).toFixed(4)}</b>`;
+
+  const halfway = p.exact.findIndex(k => Math.abs(k-m.kss) < Math.abs(p.exact[0]-m.kss)/2);
+  const halfwayA = p.approx.findIndex(k => Math.abs(k-m.kss) < Math.abs(p.approx[0]-m.kss)/2);
+  $("verdict").innerHTML = `<span class="flag ${v.k0<1?'ok':'mid'}">${v.k0<1?'below k_ss — capital grows':'above k_ss — capital shrinks'}</span>
+    &nbsp; The exact law needs <b>${halfway<0?'—':halfway}</b> years to close half the gap; the approximation
+    needs <b>${halfwayA<0?'—':halfwayA}</b>. Dividing by 1+n cannot move the steady state, only the speed of
+    getting there.`;
+}
+
+const presets = {
+  base:     {s:0.20, alpha:0.3333, delta:0.05, n:0.01, k0:0.30},
+  golden:   {s:0.3333, alpha:0.3333, delta:0.05, n:0.01, k0:0.30},
+  oversave: {s:0.70, alpha:0.3333, delta:0.05, n:0.01, k0:0.30},
+  highn:    {s:0.20, alpha:0.3333, delta:0.05, n:0.06, k0:0.30},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

@@ -20,6 +20,16 @@ pelos wiki-links e ver o grafo.
 | [[cobertura]] | o que existe, o que falta, conteúdo das listas emitidas | leitura humana |
 | [[formulario-aula-05]] | **fórmulas da Aula 5** — cola densa + versão anotada | véspera de prova |
 | [[leituras-aula-07]] | **o que ler para a Aula 7** — Kurlat caps. 10-11 página a página, em 4 sessões, o diff aula × livro, os 14 exercícios e a Lista 6 item a item | estudo da Aula 7 |
+| [[aula-01-mensuracao/00-index|derivações Aula 1]] | **contabilidade nacional, índices de preço, PPP e bem-estar** — 5 notas, 4 companions interativos e script de verificação | estudo da Aula 1 |
+| [[aula-02-solow-mecanica/00-index|derivações Aula 2]] | **fatos de Kaldor e mecânica do Solow** — 5 notas, 2 companions, existência/unicidade/estabilidade provadas | estudo da Aula 2 |
+| [[aula-03-solow-evidencias/00-index|derivações Aula 3]] | **Regra de Ouro, progresso técnico e a rejeição da hipótese do capital** — 5 notas, 2 companions, contabilidade do crescimento vs. do desenvolvimento | estudo da Aula 3 |
+| [[aula-04-consumo/00-index|derivações Aula 4]] | **Euler, renda permanente e equivalência ricardiana** — 5 notas, 2 companions, decomposição renda/substituição exata | estudo da Aula 4 |
+| [[aula-05-trabalho/00-index|derivações Aula 5]] | **oferta de trabalho, três elasticidades e busca** — 5 notas, 2 companions, Prescott e u* = λ/(λ+f) derivados | estudo da Aula 5 |
+| [[aula-06-equilibrio-geral/00-index|derivações Aula 6]] | **equilíbrio competitivo como benchmark e a trajetória de sela** — 2 notas + companion; as 33 equações estão em [[derivacoes-cap-09]] | estudo da Aula 6 |
+| [[aula-07-moeda-inflacao/00-index|derivações Aula 7]] | **Baumol-Tobin, neutralidade e o imposto inflacionário** — 4 notas, 2 companions, pico de Laffer em 1/a derivado | estudo da Aula 7 |
+| [[aula-08-adas-micro/00-index|derivações Aula 8]] | **roteiro da Aula 8** — quais notas do conjunto Benigno pertencem à aula, em que ordem, e as duas fricções que quebram o benchmark | estudo da Aula 8 |
+| [[aula-09-adas-politica/00-index|derivações Aula 9]] | **roteiro da Aula 9** — os dois princípios que unificam §6-§12 e os quatro resultados mais cobrados | estudo da Aula 9 |
+| [[benigno/00-index|derivações Benigno (2015)]] | **as 35 equações do artigo** — AS-AD novo-keynesiano derivado do zero, 10 notas + script de verificação | estudo das Aulas 8-9 |
 | [[derivacoes-cap-09]] | **as 33 equações do Kurlat cap. 9** — derivação e história | estudo da Aula 6 |
 | [[exogenous-capital-lista-05]] | **por que $K_1$ e $K_2$ são exógenos** na Lista 5, Q1 — e o que isso desliga | estudo da Aula 6 |
 | `Leituras/` | **roteiros narrados para TTS** — o material inteiro, falado | Speechify, ouvir |

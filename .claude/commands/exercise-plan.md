@@ -8,7 +8,7 @@ Generate a **practice plan** from `$ARGUMENTS` (the topics the student wants to 
 
 This differs from `/list-exercises` (which extracts every exercise from a file) and from `/exam-gen` (which writes original exercises): here the deliverable is a **referenced curation** so the student practices directly from the source.
 
-Write all instructions/output structure in English (config). User-facing question text and the "what it trains" notes follow the course language (from `CLAUDE.md`, default Portuguese).
+Write everything in English, per the global rule in `~/.claude/CLAUDE.md` — the instructions, the user-facing question text and the "what it trains" notes alike — whatever language the course and the books are in. Exercise titles, chapter and section names are cited verbatim from the source. Another language only when the user asks for it explicitly.
 
 ## Step 1 — Scope
 
@@ -25,7 +25,7 @@ Parse `$ARGUMENTS`: topics/lectures to practice and the count (if given). If vag
 
 ## Step 3 — Ask the student (AskUserQuestion)
 
-Make **one** call (adapt options to the scope and to the available sources; present option text in the course language):
+Make **one** call (adapt options to the scope and to the available sources; option text in English):
 
 1. **Sources** — which books to pull exercises from? (multiSelect: *N&S 12e* [floor], *Jehle-Reny*, *MWG*, *ZaE*, *course problem sets*). Flag non-converted ones as "ref. via Map, to confirm".
 2. **Knowledge-level distribution** —

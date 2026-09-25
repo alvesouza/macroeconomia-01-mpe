@@ -184,7 +184,11 @@ Ask the user for:
 - **Institution / program** (e.g., "Insper — Mestrado Profissional em Economia")
 - **Bibliography**: main textbook + complementary references (title, author, edition) — or say "look at the files" to auto-detect from existing book PDFs and lecture slides
 - **Topics list**: each topic with its corresponding lecture number and textbook chapters — or say "look at the files" to auto-extract from lecture filenames/contents and match to book TOCs
-- **Language**: for content output (default: Portuguese Brazil)
+- **Language**: for content output (default: **English**, per the global rule in
+  `~/.claude/CLAUDE.md` — everything generated is written in English even when the course,
+  the slides and the books are in another language). Ask only to confirm; a different
+  language is set here only if the user explicitly asks for one, and existing files already
+  written in another language are never translated as part of the setup.
 - **Code language**: R, Python, or both (default: R). ⚠️ The notebook commands (`/lab`,
   `/lab-init`, `/lab-data`) are **Python/Jupyter only** — if the course is R-based, record
   that in `CLAUDE.md` and tell the user those three do not apply.
@@ -237,8 +241,31 @@ Follow the Econometria project pattern:
 - Topic × textbook reference table (Aula | Tópico | Livro principal | Outros)
 - Lists covered
 - Bibliography section with usage guidelines
-- Language and format restrictions
+- Language and format restrictions (see below)
 - Rules index table linking to each `rules/*.md` file
+
+**The language and format section must agree with `~/.claude/CLAUDE.md`, and must not
+restate it at length.** The global file already mandates these; the project file records
+only what is project-specific. Write it as:
+
+- **Output language: English** — every new file, document, prompt and answer generated for
+  this project is written in English, even when the course, the books and the existing
+  materials are in another language. Quotes keep the original language; identifiers, file
+  paths and book/chapter/section titles are cited verbatim. Existing files written in
+  another language are not translated unless the user asks.
+- **Technical terms** stay in the form the course uses them, and section, chapter and figure
+  names from the books are cited in the original.
+- **Math in LaTeX**: `$...$` inline, `$$...$$` display. Never a bare `$` for currency —
+  write "120 reais" / "120 dollars".
+- **PDFs must be copyable**: any `.tex` compiled with `pdflatex` carries `\usepackage{lmodern}`
+  and `\usepackage{cmap}` right after `\usepackage[T1]{fontenc}`; verify with `pdffonts`
+  (every font Type 1, never Type 3). LuaLaTeX or XeLaTeX is the equivalent alternative.
+- **NotebookLM output language is an app setting**, never a prompt line: it is set once in
+  NotebookLM's Settings → Output language and applies to every type, audio included. A
+  generated prompt must not carry a language instruction — it burns ~140 of the ~5,000
+  characters to restate a setting no prompt can override. Record in `CLAUDE.md` that the
+  setting is confirmed before generating a batch.
+- **Code language** as chosen in Step 1, with the reference implementation named.
 
 ### Step 4: Generate rules/ files
 
@@ -298,6 +325,59 @@ in `.env` as `SPEECHIFY_API_KEY`, **Manim CE** (`python -m pip install manim`), 
 PATH, and a **LaTeX** install for `MathTex`. Then have them run
 `speechify-tts --check`, which verifies the key, the models, the voice list
 and ffprobe in one call. Do not install anything silently.
+
+### Step 6.6: Set up the agent tooling (Ponytail, Graphify)
+
+Both are **third-party** and neither is installed silently — print the commands and let the
+user run them, the same contract as Step 6.5.
+
+**Ponytail** ([DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)) — a
+Claude Code plugin that makes the agent justify code before writing it. It is installed at
+**user scope, once per machine**, and then applies to every project, so this step is a
+*check*, not a per-project install. Run `claude plugin list`; if it is absent, tell the user:
+
+```bash
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin install ponytail@ponytail --scope user
+```
+
+Controls are `/ponytail [lite|full|ultra|off]` and `/ponytail-review`. Do not pin a default
+mode in the project's settings unless the user asks — `PONYTAIL_DEFAULT_MODE` is a personal
+preference, not a project convention.
+
+**Graphify** — the code-knowledge-graph behind the first rung of the retrieval ladder in
+`CLAUDE.md` ("graph query → symbol lookup → structural search → ripgrep → file slice →
+whole file"). Efficient Token's `docs/03-context-tooling.md` is the authority; `tools/adopt.py`
+prints the canonical sequence:
+
+```bash
+pip install graphifyy          # note: two y's on PyPI; the CLI is `graphify`
+graphify update .              # AST-only, fast, no API key
+graphify claude install        # PreToolUse hook: redirects grep/find to graph queries
+```
+
+Then, in the project:
+
+1. Write a **`.graphifyignore`** at the repo root. For a study project this matters more than
+   in a code repo: the bibliography is hundreds of megabytes of PDFs plus their plain-text
+   conversions, and indexing it swamps the graph. At minimum exclude the books directory, the
+   NotebookLM sources, converted readings, `graphify-out/`, `__pycache__/`, `.venv/`, `*.pdf`
+   and every `data/`, `cache/` and `figures/` directory.
+2. Add `graphify-out/` to `.gitignore`.
+3. Add to `.claude/settings.json`: `"Bash(graphify query:*)"`, `"Bash(graphify path:*)"`,
+   `"Bash(graphify explain:*)"`, `"Bash(graphify update:*)"` under `permissions.allow`, and
+   `"GRAPH_PATH": "graphify-out/graph.json"` under `env` — matching Efficient Token's own
+   `.claude/settings.json`.
+
+> ⚠️ **Measure before adopting, and say so.** Efficient Token's own guidance: Graphify is the
+> *wrong* tool for "small repos (<200 files) where ripgrep is already cheap" and "repos that
+> are mostly config or data". A study project is usually exactly that — mostly markdown, PDFs
+> and notebooks, with a handful of Python files. Count the parseable code files first
+> (`git ls-files | grep -cE '\.(py|ipynb|js|ts)$'`). If the answer is a few dozen against
+> hundreds of prose files, install Graphify but **skip `graphify claude install`**: the hook
+> intercepts grep/find and redirects to the graph, which actively gets in the way when most
+> searching is over prose. Report the count to the user and let them decide, rather than
+> wiring the hook by default.
 
 ### Step 7: Generate README.md
 

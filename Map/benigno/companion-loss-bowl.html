@@ -1,0 +1,298 @@
+<title>The Loss Bowl</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+<style>
+.panels{display:grid; grid-template-columns:1.25fr 1fr; gap:22px}
+@media (max-width:900px){.panels{grid-template-columns:1fr}}
+.panel h2{font-family:"Source Serif 4",Georgia,serif; font-weight:600; font-size:1.1rem; margin:0; padding:14px 16px 0}
+.ctlgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0 22px; padding:0 16px}
+.ctlgrid fieldset{padding-inline:0}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Lista 7 · Question 4 · Benigno (2015) §11, eqs. (33)–(35), Fig. 14 · printed pages 521–523</p>
+  <h1>The Loss Bowl</h1>
+  <p class="lede">The central bank wants to sit at the bottom of a bowl,
+  <em>𝓛 = φ<sub>y</sub>(y − y*)² + φ<sub>p</sub>(p − pᵉ)²</em>. It can only reach points on the AS
+  line, because its one instrument moves AD and nothing else. The optimum is where the
+  lowest ellipse touches AS. When AS runs through the bottom of the bowl there is no trade-off
+  at all.</p>
+</header>
+
+<div class="panels">
+  <div class="card panel">
+    <h2>Iso-loss ellipses and the AS constraint</h2>
+    <figure><svg id="plotA" viewBox="0 0 560 420" role="img" aria-label="Iso-loss ellipses tangent to the AS line"></svg></figure>
+    <div class="legend">
+      <span style="color:var(--as)"><i class="swatch"></i><em style="font-style:normal">AS: p − pᵉ = κ(y − yₙ)</em></span>
+      <span style="color:var(--it)"><i class="swatch"></i><em style="font-style:normal">iso-loss, through the optimum</em></span>
+      <span style="color:var(--eff)"><i class="swatch dash"></i><em style="font-style:normal">targeting rule φ<sub>y</sub>(y − y*) + κφ<sub>p</sub>(p − pᵉ) = 0</em></span>
+    </div>
+  </div>
+  <div class="card panel">
+    <h2>The same problem along AS</h2>
+    <figure><svg id="plotB" viewBox="0 0 460 420" role="img" aria-label="Loss along the AS line, decomposed"></svg></figure>
+    <div class="legend">
+      <span style="color:var(--ad)"><i class="swatch dash"></i><em style="font-style:normal">output part φ<sub>y</sub>(y − y*)²</em></span>
+      <span style="color:var(--as)"><i class="swatch dash"></i><em style="font-style:normal">price part φ<sub>p</sub>κ²(y − yₙ)²</em></span>
+      <span style="color:var(--it)"><i class="swatch"></i><em style="font-style:normal">total</em></span>
+    </div>
+  </div>
+</div>
+
+<div class="answer">
+  <div>
+    <div class="k">Share of the conflict let into prices</div>
+    <div class="v" id="share"></div>
+    <div class="w" id="shareW"></div>
+  </div>
+  <div>
+    <div class="k">Minimum loss 𝓛°</div>
+    <div class="v" id="loss"></div>
+    <div class="w" id="lossW"></div>
+  </div>
+</div>
+
+<div class="stats">
+  <div><div class="k">Optimal output y°</div><div class="v" id="yo"></div><div class="n">(φ<sub>y</sub>y* + φ<sub>p</sub>κ²yₙ)/(φ<sub>y</sub> + φ<sub>p</sub>κ²)</div></div>
+  <div><div class="k">Optimal p° − pᵉ</div><div class="v" id="po"></div><div class="n">κ(y° − yₙ)</div></div>
+  <div><div class="k">Conflict y* − yₙ</div><div class="v" id="conf"></div><div class="n">zero ⇒ divine coincidence</div></div>
+  <div><div class="k">Natural yₙ</div><div class="v" id="yn"></div><div class="n">−dμ/(σ⁻¹+η)</div></div>
+  <div><div class="k">Implementing rate i°</div><div class="v" id="io"></div><div class="n" id="ioW"></div></div>
+  <div><div class="k">Mandate</div><div class="v" id="hawk"></div><div class="n" id="hawkW"></div></div>
+</div>
+
+<div class="card">
+  <div class="ctlgrid">
+    <fieldset>
+      <legend>The mandate: the shape of the bowl</legend>
+      <div class="ctl">
+        <label for="phiy"><span class="sym">φ<sub>y</sub></span> weight on output</label><output id="phiyV"></output>
+        <p class="hint">Makes the bowl steeper in the output direction and the ellipses narrower.</p>
+        <input type="range" id="phiy" min="0.05" max="2" step="0.05" value="0.5">
+      </div>
+      <div class="ctl">
+        <label for="phip"><span class="sym">φ<sub>p</sub></span> weight on price surprises</label><output id="phipV"></output>
+        <p class="hint">Makes the ellipses flatter. The welfare-based value is θ/(2κ) = 3.53 (eq. 33).</p>
+        <input type="range" id="phip" min="0.05" max="20" step="any" value="3.5294">
+      </div>
+      <div class="ctl">
+        <label for="ystar"><span class="sym">y*</span> output target</label><output id="ystarV"></output>
+        <p class="hint">The bottom of the bowl. The welfare-based target is yₑ = 0 here.</p>
+        <input type="range" id="ystar" min="-4" max="4" step="any" value="0">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>The constraint: where AS sits</legend>
+      <div class="ctl">
+        <label for="kappa"><span class="sym">κ</span> AS slope</label><output id="kappaV"></output>
+        <p class="hint">Private-sector pricing, not a policy choice. Benigno's calibration gives 1.133.</p>
+        <input type="range" id="kappa" min="0.1" max="5" step="any" value="1.1333">
+      </div>
+      <div class="ctl">
+        <label for="dmu"><span class="sym">dμ</span> temporary mark-up shock</label><output id="dmuV"></output>
+        <p class="hint">Moves AS's anchor yₙ, not y*. At dμ = 0, AS passes through the bottom of the bowl.</p>
+        <input type="range" id="dmu" min="-10" max="10" step="0.5" value="5">
+      </div>
+    </fieldset>
+  </div>
+  <div class="btns">
+    <button type="button" id="benigno">Welfare weights: φ<sub>y</sub> = ½, φ<sub>p</sub> = θ/2κ</button>
+    <button type="button" id="hawkB">Hawk (φ<sub>p</sub> = 20)</button>
+    <button type="button" id="doveB">Dove (φ<sub>p</sub> = 0.05)</button>
+    <button type="button" id="coinc">Set y* = yₙ</button>
+    <button type="button" id="reset">Reset</button>
+  </div>
+  <p class="verdict" id="verdict"></p>
+</div>
+
+<details>
+  <summary>Control contract and provenance</summary>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Control</th><th>Symbol</th><th>Range</th><th>Step</th><th>Default</th><th>Unit</th><th>Source</th><th>What moves</th></tr></thead>
+    <tbody>
+      <tr><td>Output weight</td><td class="num">φ<sub>y</sub></td><td class="num">0.05 – 2</td><td class="num">0.05</td><td class="num">0.5</td><td>—</td><td>eq. (33): ½</td><td>ellipse width, optimum</td></tr>
+      <tr><td>Price weight</td><td class="num">φ<sub>p</sub></td><td class="num">0.05 – 20</td><td class="num">continuous</td><td class="num">3.5294</td><td>—</td><td>eq. (33): θ/2κ, θ = 8 (fn. 24, p. 522)</td><td>ellipse height, optimum</td></tr>
+      <tr><td>Output target</td><td class="num">y*</td><td class="num">−4 – 4</td><td class="num">continuous</td><td class="num">0</td><td>%</td><td>y* = yₑ in eq. (33)</td><td>bowl centre</td></tr>
+      <tr><td>AS slope</td><td class="num">κ</td><td class="num">0.1 – 5</td><td class="num">continuous</td><td class="num">1.1333</td><td>—</td><td>eq. (17); α = .66, σ = .5, η = .2, p. 515</td><td>AS slope, rule slope</td></tr>
+      <tr><td>Mark-up shock</td><td class="num">dμ</td><td class="num">−10 – 10</td><td class="num">0.5</td><td class="num">5</td><td>%</td><td>§7, p. 513; eq. (15)</td><td>yₙ, AS anchor</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:10px">Held fixed, and declared: σ⁻¹ + η = 2.2 (σ = 0.5, η = 0.2) to map dμ into yₙ, and σ = 0.5,
+  ρ = 2%, p̄ = pᵉ = 0 for the implementing rate i° = rₙ − (1+σκ)(y° − yₙ)/σ with rₙ = ρ − yₙ/σ. The
+  continuous controls use step="any" so that the buttons land on their landmarks exactly. “Share into prices” is
+  (p° − pᵉ)/[κ(y* − yₙ)] = φ<sub>y</sub>/(φ<sub>y</sub> + φ<sub>p</sub>κ²). With the welfare weights it equals 1/(1+θκ).</p>
+</details>
+
+<footer>
+  <p><b>Model.</b> min over (y, p) of φ<sub>y</sub>(y − y*)² + φ<sub>p</sub>(p − pᵉ)² subject to p − pᵉ = κ(y − yₙ).
+  First-order conditions give the targeting rule φ<sub>y</sub>(y − y*) + κφ<sub>p</sub>(p − pᵉ) = 0; with φ<sub>y</sub> = ½,
+  φ<sub>p</sub> = θ/2κ and y* = yₑ it is Benigno's eq. (34), (y − yₑ) + θ(p − pᵉ) = 0.</p>
+  <p><b>Source.</b> Benigno, “New-Keynesian economics: an AS–AD view”, <i>Research in Economics</i> 69 (2015),
+  printed pages 503–524; derivation in <span class="mono">Map/benigno/10-optimal-policy.md</span>. Solution:
+  <span class="mono">Resolucao/lista7_resolucao.pdf</span>, Question 4. Ellipses are drawn parametrically from the loss itself.</p>
+  <p>Macroeconomia I — MPE Insper, Aulas 8–9. Notation follows the problem set, which generalises Benigno.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const S = 2.2, SIGMA = 0.5, RHO = 2, THETA = 8;
+const D = id => document.getElementById(id);
+const IDS = ["phiy","phip","ystar","kappa","dmu"];
+const DEF = {phiy:0.5, phip:THETA / (2 * 1.1333), ystar:0, kappa:1.1333, dmu:5};
+const P = {};
+
+function solve(){
+  const k = P.kappa, yn = -P.dmu / S, conf = P.ystar - yn;
+  const den = P.phiy + P.phip * k * k;
+  const yo = (P.phiy * P.ystar + P.phip * k * k * yn) / den;
+  const po = k * (yo - yn);
+  const lo = P.phiy * (yo - P.ystar) ** 2 + P.phip * po * po;
+  const share = P.phiy / den;
+  const rn = RHO - yn / SIGMA;
+  const io = rn - (1 + SIGMA * k) * (yo - yn) / SIGMA;
+  return {k, yn, conf, yo, po, lo, share, rn, io};
+}
+
+function niceStep(span, n = 6){
+  const raw = span / n, pow = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / pow;
+  return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * pow;
+}
+const fmt = v => Math.abs(v) < 1e-9 ? "0" : (+v.toFixed(2)).toString().replace("-", "−");
+function axes(W, H, M, XL, XR, YB, YT, xlab, ylab){
+  const PW = W - M.l - M.r, PH = H - M.t - M.b;
+  const X = x => M.l + (x - XL) / (XR - XL) * PW, Y = v => M.t + (YT - v) / (YT - YB) * PH;
+  const g = [], sx = niceStep(XR - XL), sy = niceStep(YT - YB, 5);
+  for (let t = Math.ceil(XL / sx) * sx; t <= XR + 1e-9; t += sx){
+    const x = X(t).toFixed(1);
+    g.push(`<line x1="${x}" y1="${M.t}" x2="${x}" y2="${M.t+PH}" stroke="var(${Math.abs(t)<1e-9?"--grid-strong":"--grid"})"/>`,
+      `<text x="${x}" y="${M.t+PH+16}" text-anchor="middle" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  for (let t = Math.ceil(YB / sy) * sy; t <= YT + 1e-9; t += sy){
+    const y = Y(t).toFixed(1);
+    g.push(`<line x1="${M.l}" y1="${y}" x2="${M.l+PW}" y2="${y}" stroke="var(${Math.abs(t)<1e-9?"--grid-strong":"--grid"})"/>`,
+      `<text x="${M.l-7}" y="${(+y+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  g.push(`<line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>`,
+    `<line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>`,
+    `<text x="${M.l+PW}" y="${H-6}" text-anchor="end" font-size="12" fill="var(--ink-soft)">${xlab}</text>`,
+    `<text x="${M.l+4}" y="${M.t+12}" font-size="12" fill="var(--ink-soft)">${ylab}</text>`,
+    `<clipPath id="clip${W}"><rect x="${M.l}" y="${M.t}" width="${PW}" height="${PH}"/></clipPath>`);
+  return {X, Y, g:g.join(""), clip:`clip-path="url(#clip${W})"`};
+}
+const lbl = (x, y, t, col, anchor = "start") => `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}" font-size="12" fill="${col}" font-family="Source Serif 4, serif" font-style="italic">${t}</text>`;
+
+function drawA(s){
+  const W = 560, H = 420, M = {l:52, r:18, t:20, b:42};
+  const xs = [s.yn, P.ystar, s.yo], ps = [0, s.k * s.conf, s.po];
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), p0 = Math.min(...ps), p1 = Math.max(...ps);
+  const sx = Math.max(2, x1 - x0), sp = Math.max(1.5, p1 - p0);
+  const XL = x0 - 0.35 * sx, XR = x1 + 0.35 * sx, YB = p0 - 0.35 * sp, YT = p1 + 0.35 * sp;
+  const A = axes(W, H, M, XL, XR, YB, YT, "output y, %", "p − pᵉ, %");
+  // ellipses: levels relative to the optimum, or to the frame when the optimum loss is zero
+  const base = s.lo > 1e-9 ? s.lo : P.phiy * (0.15 * (XR - XL)) ** 2;
+  const ell = (L, w, op) => {
+    const pts = [];
+    for (let j = 0; j <= 160; j++){
+      const t = 2 * Math.PI * j / 160;
+      pts.push(A.X(P.ystar + Math.sqrt(L / P.phiy) * Math.cos(t)).toFixed(1) + "," + A.Y(Math.sqrt(L / P.phip) * Math.sin(t)).toFixed(1));
+    }
+    return `<polyline points="${pts.join(" ")}" fill="none" stroke="var(--it)" stroke-width="${w}" opacity="${op}"/>`;
+  };
+  const line = fn => `<polyline points="${[XL, XR].map(x => A.X(x).toFixed(1) + "," + A.Y(fn(x)).toFixed(1)).join(" ")}" fill="none"`;
+  const dot = (x, p, col, r = 5) => `<circle cx="${A.X(x).toFixed(1)}" cy="${A.Y(p).toFixed(1)}" r="${r}" fill="${col}"/>`;
+  const conflict = Math.abs(s.conf) > 1e-6;
+  D("plotA").innerHTML = A.g + `<g ${A.clip}>`
+    + ell(base * 0.25, 1, .5) + (s.lo > 1e-9 ? ell(s.lo, 2.4, 1) : "") + ell(base * 2.25, 1, .5) + ell(base * 4, 1, .35)
+    + line(y => -P.phiy / (P.phip * s.k) * (y - P.ystar)) + ` stroke="var(--eff)" stroke-width="1.6" stroke-dasharray="6 4"/>`
+    + line(y => s.k * (y - s.yn)) + ` stroke="var(--as)" stroke-width="2.6"/>`
+    + (conflict ? dot(s.yn, 0, "var(--nat)", 4) + dot(P.ystar, s.k * s.conf, "var(--nat)", 4) : "")
+    + dot(P.ystar, 0, "var(--eff)", 5) + dot(s.yo, s.po, "var(--it)", 6) + `</g>`
+    + lbl(A.X(P.ystar) + 8, A.Y(0) + 16, "bliss (y*, pᵉ)", "var(--eff)")
+    + (conflict
+      ? lbl(A.X(s.yn) - 8, A.Y(0) + 16, "strict price", "var(--nat)", "end")
+        + lbl(A.X(P.ystar) + 8, A.Y(s.k * s.conf) + 4, "strict output", "var(--nat)")
+        + lbl(A.X(s.yo) - 9, A.Y(s.po) - 9, "optimum", "var(--it)", "end")
+      : lbl(A.X(s.yo) + 8, A.Y(s.po) - 10, "optimum = bliss", "var(--it)"));
+}
+
+function drawB(s){
+  const W = 460, H = 420, M = {l:52, r:16, t:20, b:42};
+  const a = Math.min(s.yn, P.ystar), b = Math.max(s.yn, P.ystar), sp = Math.max(1.5, b - a);
+  const XL = a - 0.3 * sp, XR = b + 0.3 * sp;
+  const out = y => P.phiy * (y - P.ystar) ** 2, pri = y => P.phip * (s.k * (y - s.yn)) ** 2;
+  const top = s.lo > 1e-9 ? 3.2 * s.lo : 0.4 * Math.max(out(s.yn), pri(P.ystar), 0.3);
+  const A = axes(W, H, M, XL, XR, 0, top, "output y along AS, %", "loss 𝓛");
+  const curve = (fn, st) => {
+    const pts = [];
+    for (let j = 0; j <= 200; j++){ const y = XL + (XR - XL) * j / 200; pts.push(A.X(y).toFixed(1) + "," + A.Y(fn(y)).toFixed(1)); }
+    return `<polyline points="${pts.join(" ")}" fill="none" ${st}/>`;
+  };
+  const vl = (v, col, t, dy) => `<line x1="${A.X(v).toFixed(1)}" y1="${M.t}" x2="${A.X(v).toFixed(1)}" y2="${H-M.b}" stroke="${col}" stroke-dasharray="5 4"/>`
+    + lbl(A.X(v) + 5, M.t + 14 + dy, t, col);
+  D("plotB").innerHTML = A.g + `<g ${A.clip}>`
+    + curve(out, `stroke="var(--ad)" stroke-width="1.6" stroke-dasharray="6 4"`)
+    + curve(pri, `stroke="var(--as)" stroke-width="1.6" stroke-dasharray="6 4"`)
+    + curve(y => out(y) + pri(y), `stroke="var(--it)" stroke-width="2.6"`)
+    + `<circle cx="${A.X(s.yo).toFixed(1)}" cy="${A.Y(s.lo).toFixed(1)}" r="5.5" fill="var(--it)"/></g>`
+    + (Math.abs(s.conf) > 1e-6 ? vl(s.yn, "var(--nat)", "yₙ", 0) + vl(P.ystar, "var(--eff)", "y*", 16) : vl(P.ystar, "var(--eff)", "y* = yₙ", 0));
+}
+
+const pc = (v, d = 2) => (Math.abs(v) < 5e-5 ? "±" : v > 0 ? "+" : "−") + Math.abs(v).toFixed(d) + "%";
+function render(){
+  IDS.forEach(id => { P[id] = parseFloat(D(id).value); });
+  const s = solve();
+  D("phiyV").textContent = P.phiy.toFixed(2);
+  D("phipV").textContent = P.phip.toFixed(2);
+  D("ystarV").textContent = pc(P.ystar);
+  D("kappaV").textContent = P.kappa.toFixed(3);
+  D("dmuV").textContent = pc(P.dmu, 1);
+
+  const conflict = Math.abs(s.conf) > 1e-6;
+  D("share").textContent = conflict ? (100 * s.share).toFixed(1) + "%" : "n/a";
+  D("shareW").textContent = conflict
+    ? `of the gap between the two corners goes into prices; ${(100 - 100 * s.share).toFixed(1)}% is absorbed by output`
+    : "no conflict: AS runs through the bliss point, so nothing has to be split";
+  D("loss").textContent = s.lo.toFixed(3);
+  D("lossW").textContent = conflict ? "φyφpκ²(y* − yₙ)²/(φy + φpκ²), strictly positive: the constraint binds"
+    : "zero: divine coincidence, the constraint does not bind";
+  D("yo").textContent = pc(s.yo);
+  D("po").textContent = pc(s.po);
+  D("conf").textContent = pc(s.conf);
+  D("yn").textContent = pc(s.yn);
+  D("io").textContent = s.io.toFixed(2) + "%";
+  const di = s.io - RHO;
+  D("ioW").textContent = Math.abs(di) < 5e-3 ? "unchanged from 2%" : (di > 0 ? "raise by " : "cut by ") + Math.abs(di).toFixed(2) + " pp from 2%";
+  const itSlope = P.phiy / (P.phip * s.k), adSlope = 1 / SIGMA;
+  D("hawk").textContent = "φp/φy = " + (P.phip / P.phiy).toFixed(2);
+  D("hawkW").textContent = itSlope < adSlope ? "rule flatter than AD: leans toward prices" : "rule steeper than AD: leans toward output";
+
+  D("verdict").innerHTML = !conflict
+    ? `<b>No trade-off.</b> y* = yₙ, so the AS line passes through the bottom of the bowl. The bank sets i = rₙ and gets
+       y = y*, p = pᵉ and zero loss, whatever the weights.`
+    : `<b>Trade-off.</b> AS misses the bliss point by ${pc(s.conf)} of output. The bank cannot move AS, so it slides AD to the
+       tangency: output ${pc(s.yo)}, prices ${pc(s.po)}, with ${(100 * s.share).toFixed(1)}% of the conflict let into prices.`
+      + (Math.abs(P.phiy - 0.5) < 1e-9 && Math.abs(P.phip - THETA / (2 * P.kappa)) < 1e-6 && Math.abs(P.ystar) < 1e-9
+        ? ` With the welfare weights that share is 1/(1+θκ) = ${(100 / (1 + THETA * P.kappa)).toFixed(1)}%.` : "");
+  drawA(s); drawB(s);
+}
+function setAll(o){ Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); }
+IDS.forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEF));
+D("benigno").addEventListener("click", () => setAll({phiy:0.5, phip:THETA / (2 * parseFloat(D("kappa").value)), ystar:0}));
+D("hawkB").addEventListener("click", () => setAll({phip:20}));
+D("doveB").addEventListener("click", () => setAll({phip:0.05}));
+D("coinc").addEventListener("click", () => {
+  const yn = -parseFloat(D("dmu").value) / S;
+  if (yn < -4 || yn > 4){
+    D("verdict").innerHTML = `<b>Out of range.</b> yₙ = ${pc(yn)} lies outside the y* slider's ±4%. Reduce dμ first.`;
+    return;
+  }
+  setAll({ystar:yn});
+});
+setAll(DEF);
+</script>

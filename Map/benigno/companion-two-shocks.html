@@ -1,0 +1,282 @@
+<title>Two Shocks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+<style>
+.panels{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+@media (max-width:900px){.panels{grid-template-columns:1fr}}
+.panel h2{font-family:"Source Serif 4",Georgia,serif; font-weight:600; font-size:1.15rem; margin:0; padding:14px 16px 0}
+.panel .sub{margin:2px 16px 0; font-size:.82rem; color:var(--ink-soft)}
+.panel .answer{margin:0 16px 16px}
+.panel .stats{margin:0 16px 16px; grid-template-columns:repeat(2,minmax(0,1fr))}
+.panel .answer .v{font-size:clamp(1.3rem,3.6vw,1.7rem)}
+.ctlgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0 22px; padding:0 16px}
+.ctlgrid fieldset{padding-inline:0}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Lista 7 · Question 2 · Benigno (2015) §5 and §7 · printed pages 509–514</p>
+  <h1>Two Shocks</h1>
+  <p class="lede">Two changes, two diagrams. A temporary rise in firms' desired mark-up moves
+  <em>AS</em> and leaves <em>AD</em> alone. A cut in the nominal rate moves <em>AD</em> and leaves
+  <em>AS</em> alone. The first gives stagflation; the second, a boom. In the first case the two
+  output gaps have opposite signs.</p>
+</header>
+
+<div class="panels">
+  <div class="card panel">
+    <h2>(a) Desired mark-up rises</h2>
+    <p class="sub">AS moves up and left through (pᵉ, yₙ′). AD does not move: the shock is temporary, so ȳₙ is unchanged.</p>
+    <figure><svg id="plotA" viewBox="0 0 520 400" role="img" aria-label="AS shifts left after a mark-up shock"></svg></figure>
+    <div class="answer">
+      <div><div class="k">Output y</div><div class="v" id="aDy"></div><div class="w" id="aDyW"></div></div>
+      <div><div class="k">Price level p − pᵉ</div><div class="v" id="aDp"></div><div class="w" id="aDpW"></div></div>
+    </div>
+    <div class="stats">
+      <div><div class="k">Gap y − yₙ</div><div class="v" id="aGn"></div><div class="n" id="aGnW"></div></div>
+      <div><div class="k">Gap y − yₑ</div><div class="v" id="aGe"></div><div class="n" id="aGeW"></div></div>
+      <div><div class="k">Natural yₙ′</div><div class="v" id="aYn"></div><div class="n">−dμ/(σ⁻¹+η)</div></div>
+      <div><div class="k">AS vertical shift</div><div class="v" id="aSh"></div><div class="n">(1−α)/α · dμ</div></div>
+    </div>
+  </div>
+
+  <div class="card panel">
+    <h2>(b) Central bank cuts i</h2>
+    <p class="sub">AD moves up by |di| at every output. AS does not move: yₙ and pᵉ are out of the central bank's reach.</p>
+    <figure><svg id="plotB" viewBox="0 0 520 400" role="img" aria-label="AD shifts right after a rate cut"></svg></figure>
+    <div class="answer">
+      <div><div class="k">Output y</div><div class="v" id="bDy"></div><div class="w" id="bDyW"></div></div>
+      <div><div class="k">Price level p − pᵉ</div><div class="v" id="bDp"></div><div class="w" id="bDpW"></div></div>
+    </div>
+    <div class="stats">
+      <div><div class="k">Gap y − yₙ = y − yₑ</div><div class="v" id="bGn"></div><div class="n" id="bGnW"></div></div>
+      <div><div class="k">AD shift, right</div><div class="v" id="bSh"></div><div class="n">σ·|di| at fixed p</div></div>
+      <div><div class="k">Output share of shift</div><div class="v" id="bSr"></div><div class="n">1/(1+σκ)</div></div>
+      <div><div class="k">AS slope κ</div><div class="v" id="kOut"></div><div class="n">(1−α)(σ⁻¹+η)/α</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="legend" style="padding:0">
+  <span style="color:var(--as)"><i class="swatch"></i>AS</span>
+  <span style="color:var(--ad)"><i class="swatch"></i>AD</span>
+  <span style="color:var(--ink-faint)"><i class="swatch dash"></i>before the change</span>
+  <span style="color:var(--nat)"><i class="swatch dash"></i>natural yₙ</span>
+  <span style="color:var(--eff)"><i class="swatch dash"></i>efficient yₑ</span>
+  <span>Axes rescale so E and E′ stay in frame.</span>
+</div>
+
+<div class="card">
+  <div class="ctlgrid">
+    <fieldset>
+      <legend>The two changes</legend>
+      <div class="ctl">
+        <label for="dmu"><span class="sym">dμ</span> desired mark-up, temporary</label><output id="dmuV"></output>
+        <p class="hint">Monopoly power, a payroll or sales tax, or oil (p. 513). Moves yₙ, not yₑ.</p>
+        <input type="range" id="dmu" min="-10" max="10" step="0.5" value="5">
+      </div>
+      <div class="ctl">
+        <label for="di"><span class="sym">di</span> change in the nominal rate</label><output id="diV"></output>
+        <p class="hint">Negative is a cut. Starts from i = rₙ, so the economy begins at E.</p>
+        <input type="range" id="di" min="-4" max="4" step="0.25" value="-1">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Structure, Benigno's calibration</legend>
+      <div class="ctl">
+        <label for="alpha"><span class="sym">α</span> share of sticky-price firms</label><output id="alphaV"></output>
+        <p class="hint">Higher α flattens AS: more of either change goes into output, less into prices.</p>
+        <input type="range" id="alpha" min="0.30" max="0.95" step="0.01" value="0.66">
+      </div>
+      <div class="ctl">
+        <label for="sigma"><span class="sym">σ</span> EIS scaled to output</label><output id="sigmaV"></output>
+        <p class="hint">How strongly consumption responds to the real rate; AD slope is −1/σ.</p>
+        <input type="range" id="sigma" min="0.25" max="1.50" step="0.05" value="0.50">
+      </div>
+      <div class="ctl">
+        <label for="eta"><span class="sym">η</span> inverse Frisch elasticity</label><output id="etaV"></output>
+        <p class="hint">How fast the real wage the household asks rises with hours; it steepens AS and damps yₙ's response to μ.</p>
+        <input type="range" id="eta" min="0" max="1.50" step="0.05" value="0.20">
+      </div>
+    </fieldset>
+  </div>
+  <div class="btns">
+    <button type="button" id="rigid">Very rigid prices (α = 0.95)</button>
+    <button type="button" id="flex">Nearly flexible (α = 0.30)</button>
+    <button type="button" id="reset">Reset</button>
+  </div>
+  <p class="verdict" id="verdict"></p>
+</div>
+
+<details>
+  <summary>Control contract and provenance</summary>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Control</th><th>Symbol</th><th>Range</th><th>Step</th><th>Default</th><th>Unit</th><th>Source</th><th>What moves</th></tr></thead>
+    <tbody>
+      <tr><td>Desired mark-up</td><td class="num">dμ</td><td class="num">−10 – 10</td><td class="num">0.5</td><td class="num">5</td><td>%</td><td>eqs. (13), (15); §7, p. 513</td><td>AS anchor in panel (a)</td></tr>
+      <tr><td>Nominal rate change</td><td class="num">di</td><td class="num">−4 – 4</td><td class="num">0.25</td><td class="num">−1</td><td>pp</td><td>eq. (21); §4.3, p. 508</td><td>AD position in panel (b)</td></tr>
+      <tr><td>Sticky share</td><td class="num">α</td><td class="num">0.30 – 0.95</td><td class="num">0.01</td><td class="num">0.66</td><td>—</td><td>§8 calibration, p. 515</td><td>κ, both panels</td></tr>
+      <tr><td>Scaled EIS</td><td class="num">σ</td><td class="num">0.25 – 1.50</td><td class="num">0.05</td><td class="num">0.50</td><td>—</td><td>p. 515</td><td>AD slope, κ, yₙ′</td></tr>
+      <tr><td>Inverse Frisch</td><td class="num">η</td><td class="num">0 – 1.50</td><td class="num">0.05</td><td class="num">0.20</td><td>—</td><td>p. 515</td><td>κ, yₙ′</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:10px">Held fixed: ρ = 2%, p̄ = pᵉ = 0, g = ḡ, no tax changes. Initial rate i = rₙ, so both
+  panels start at E = (0, 0) with yₙ = yₑ = 0. All quantities are log-deviations from an efficient steady state, in per cent.</p>
+</details>
+
+<footer>
+  <p><b>Model.</b> AS: p − pᵉ = κ(y − yₙ), eq. (17). AD: y = ȳₙ − σ[i − (p̄ − p) − ρ], eq. (21).
+  yₙ = −μ/(σ⁻¹+η) from eq. (15); yₑ unaffected by μ, eq. (19). Closed form (note 04):
+  y − yₙ = σ(rₙ − i)/(1+σκ), rₙ = ρ + σ⁻¹(ȳₙ − yₙ).</p>
+  <p><b>Source.</b> Benigno, “New-Keynesian economics: an AS–AD view”, <i>Research in Economics</i> 69 (2015),
+  printed pages 503–524. Solution: <span class="mono">Resolucao/lista7_resolucao.pdf</span>, Question 2.
+  Curves are the exact linear expressions, sampled on a 200-point grid.</p>
+  <p>Macroeconomia I — MPE Insper, Aulas 8–9. Notation follows Benigno.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const RHO = 2;                                   // per cent
+const D = id => document.getElementById(id);
+const IDS = ["dmu","di","alpha","sigma","eta"];
+const DEF = {dmu:5, di:-1, alpha:0.66, sigma:0.5, eta:0.2};
+const P = {};
+
+function solve(){
+  const S = 1 / P.sigma + P.eta;
+  const k = (1 - P.alpha) * S / P.alpha;
+  const sk = P.sigma * k;
+  // (a): yn falls, i stays at rho (= initial r_n), AD fixed
+  const yn = -P.dmu / S;
+  const ya = sk / (1 + sk) * yn, pa = -k * yn / (1 + sk);
+  // (b): r_n = rho, i = rho + di
+  const yb = -P.sigma * P.di / (1 + sk), pb = k * yb;
+  return {S, k, sk, yn, ya, pa, yb, pb};
+}
+
+/* ---- plotting ---- */
+const W = 520, H = 400, M = {l:52, r:18, t:18, b:42};
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+function niceStep(span){
+  const raw = span / 5, pow = Math.pow(10, Math.floor(Math.log10(raw)));
+  const f = raw / pow;
+  return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * pow;
+}
+function frame(xs, ys){
+  const pad = v => Math.max(1, 1.35 * v);
+  const LX = pad(Math.max(...xs.map(Math.abs))), LY = pad(Math.max(...ys.map(Math.abs)));
+  const X = x => M.l + (x + LX) / (2 * LX) * PW;
+  const Y = p => M.t + (LY - p) / (2 * LY) * PH;
+  return {LX, LY, X, Y};
+}
+function poly(F, fn, style){
+  const pts = [];
+  for (let j = 0; j <= 200; j++){
+    const x = -F.LX + 2 * F.LX * j / 200, p = fn(x);
+    if (Math.abs(p) <= F.LY) pts.push(F.X(x).toFixed(1) + "," + F.Y(p).toFixed(1));
+  }
+  return `<polyline points="${pts.join(" ")}" fill="none" ${style}/>`;
+}
+function grid(F){
+  const g = [], sx = niceStep(2 * F.LX), sy = niceStep(2 * F.LY);
+  const fmt = v => Math.abs(v) < 1e-9 ? "0" : (+v.toFixed(2)).toString().replace("-", "−");
+  for (let t = Math.ceil(-F.LX / sx) * sx; t <= F.LX + 1e-9; t += sx){
+    const zero = Math.abs(t) < 1e-9, x = F.X(t).toFixed(1);
+    g.push(`<line x1="${x}" y1="${M.t}" x2="${x}" y2="${M.t+PH}" stroke="var(${zero?"--grid-strong":"--grid"})"/>`,
+      `<text x="${x}" y="${M.t+PH+16}" text-anchor="middle" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  for (let t = Math.ceil(-F.LY / sy) * sy; t <= F.LY + 1e-9; t += sy){
+    const zero = Math.abs(t) < 1e-9, y = F.Y(t).toFixed(1);
+    g.push(`<line x1="${M.l}" y1="${y}" x2="${M.l+PW}" y2="${y}" stroke="var(${zero?"--grid-strong":"--grid"})"/>`,
+      `<text x="${M.l-7}" y="${(+y+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  g.push(`<line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>`,
+    `<line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>`,
+    `<text x="${M.l+PW}" y="${H-6}" text-anchor="end" font-size="12" fill="var(--ink-soft)">output y, %</text>`,
+    `<text x="${M.l+4}" y="${M.t+12}" font-size="12" fill="var(--ink-soft)">p − pᵉ, %</text>`);
+  return g.join("");
+}
+const vline = (F, v, col, lab, dy = 0) => `
+  <line x1="${F.X(v).toFixed(1)}" y1="${M.t}" x2="${F.X(v).toFixed(1)}" y2="${M.t+PH}" stroke="${col}" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="${(F.X(v)+5).toFixed(1)}" y="${M.t+PH-8-dy}" font-size="12" fill="${col}" font-family="Source Serif 4, serif" font-style="italic">${lab}</text>`;
+const dot = (F, x, p, lab, filled) => `
+  <circle cx="${F.X(x).toFixed(1)}" cy="${F.Y(p).toFixed(1)}" r="5" fill="${filled ? "var(--ink)" : "var(--panel)"}" stroke="var(--ink)" stroke-width="1.8"/>
+  <text x="${(F.X(x)+9).toFixed(1)}" y="${(F.Y(p)-8).toFixed(1)}" font-size="13" fill="var(--ink)" font-family="Source Serif 4, serif" font-style="italic">${lab}</text>`;
+
+function drawA(s){
+  const F = frame([s.yn, s.ya, 1], [s.pa, -s.k * s.yn, 1]);
+  const as0 = y => s.k * y, as1 = y => s.k * (y - s.yn), ad = y => -y / P.sigma;
+  const same = Math.abs(s.yn) < 1e-9;
+  D("plotA").innerHTML = grid(F)
+    + vline(F, 0, "var(--eff)", "yₑ", 0)
+    + (same ? "" : vline(F, s.yn, "var(--nat)", "yₙ′", 16))
+    + (same ? "" : poly(F, as0, `stroke="var(--as)" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"`))
+    + poly(F, as1, `stroke="var(--as)" stroke-width="2.6"`)
+    + poly(F, ad, `stroke="var(--ad)" stroke-width="2.6"`)
+    + dot(F, 0, 0, "E", same) + (same ? "" : dot(F, s.ya, s.pa, "E′", true));
+}
+function drawB(s){
+  const F = frame([s.yb, -P.sigma * P.di, 1], [s.pb, -P.di, 1]);
+  const as = y => s.k * y, ad0 = y => -y / P.sigma, ad1 = y => -P.di - y / P.sigma;
+  const same = Math.abs(P.di) < 1e-9;
+  D("plotB").innerHTML = grid(F)
+    + vline(F, 0, "var(--eff)", "yₙ = yₑ", 0)
+    + (same ? "" : poly(F, ad0, `stroke="var(--ad)" stroke-width="1.6" stroke-dasharray="6 5" opacity=".55"`))
+    + poly(F, as, `stroke="var(--as)" stroke-width="2.6"`)
+    + poly(F, ad1, `stroke="var(--ad)" stroke-width="2.6"`)
+    + dot(F, 0, 0, "E", same) + (same ? "" : dot(F, s.yb, s.pb, "E′", true));
+}
+
+/* ---- read-outs ---- */
+const pc = (v, d = 2) => (Math.abs(v) < 5e-5 ? "±" : v > 0 ? "+" : "−") + Math.abs(v).toFixed(d) + "%";
+const cls = v => "v " + (Math.abs(v) < 5e-5 ? "" : v > 0 ? "pos" : "neg");
+const word = (v, up, down, flat) => Math.abs(v) < 5e-5 ? flat : v > 0 ? up : down;
+function put(id, v, up, down, flat){
+  D(id).textContent = pc(v); D(id).className = cls(v);
+  D(id + "W").textContent = word(v, up, down, flat);
+}
+
+function render(){
+  IDS.forEach(id => { P[id] = parseFloat(D(id).value); });
+  const s = solve();
+  D("dmuV").textContent = (P.dmu > 0 ? "+" : P.dmu < 0 ? "−" : "") + Math.abs(P.dmu).toFixed(1) + "%";
+  D("diV").textContent = (P.di > 0 ? "+" : P.di < 0 ? "−" : "") + Math.abs(P.di).toFixed(2) + " pp";
+  D("alphaV").textContent = P.alpha.toFixed(2);
+  D("sigmaV").textContent = P.sigma.toFixed(2);
+  D("etaV").textContent = P.eta.toFixed(2);
+
+  put("aDy", s.ya, "rises", "falls", "unchanged");
+  put("aDp", s.pa, "rises", "falls", "unchanged");
+  put("aGn", s.ya - s.yn, "above natural: prices pushed up", "below natural: prices pushed down", "at natural");
+  put("aGe", s.ya, "above efficient", "below efficient: welfare lost", "at efficient");
+  D("aYn").textContent = pc(s.yn);
+  D("aSh").textContent = pc(-s.k * s.yn) + " in p";
+
+  put("bDy", s.yb, "rises", "falls", "unchanged");
+  put("bDp", s.pb, "rises", "falls", "unchanged");
+  put("bGn", s.yb, "overheating: above both targets", "slack: below both targets", "closed");
+  D("bSh").textContent = pc(-P.sigma * P.di);
+  D("bSr").textContent = (100 / (1 + s.sk)).toFixed(0) + "%";
+  D("kOut").textContent = s.k.toFixed(3);
+
+  const a = Math.abs(P.dmu) < 1e-9 ? "<b>(a)</b> no mark-up change: AS stays put."
+    : P.dmu > 0
+      ? `<b>(a) Stagflation.</b> Output ${pc(s.ya)}, prices ${pc(s.pa)}. The gaps have opposite signs:
+         ${pc(s.ya - s.yn)} against natural (why prices rise), ${pc(s.ya)} against efficient (why welfare falls).`
+      : `<b>(a) A mark-up fall</b> is the mirror image: output ${pc(s.ya)}, prices ${pc(s.pa)}.`;
+  const b = Math.abs(P.di) < 1e-9 ? " <b>(b)</b> no rate change: AD stays put."
+    : ` <b>(b) ${P.di < 0 ? "Boom" : "Contraction"}.</b> Output ${pc(s.yb)} and prices ${pc(s.pb)} move together along AS;
+       only ${(100 / (1 + s.sk)).toFixed(0)}% of AD's horizontal shift reaches output, because rising prices push the real rate back up.`;
+  D("verdict").innerHTML = a + b;
+  drawA(s); drawB(s);
+}
+function setAll(o){ Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); }
+IDS.forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEF));
+D("rigid").addEventListener("click", () => setAll({...DEF, alpha:0.95}));
+D("flex").addEventListener("click", () => setAll({...DEF, alpha:0.30}));
+render();
+</script>

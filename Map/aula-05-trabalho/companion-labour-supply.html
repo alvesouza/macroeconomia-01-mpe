@@ -1,0 +1,246 @@
+<title>The Backward Bend</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §7.2–§7.3 · printed pages 131–140</p>
+  <h1>The Backward Bend</h1>
+  <p class="lede">The wage is the price of leisure <em>and</em> a source of income, so a wage
+  rise pulls hours in both directions. Where the two balance is a matter of preferences — and
+  the same curve carries three different elasticities depending on what you hold fixed.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="supply" viewBox="0 0 600 300" role="img"
+             aria-label="Labour supply curve: hours against the wage"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>hours supplied</span>
+        <span style="color:var(--it)"><i class="swatch dash"></i>reservation wage</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>current wage</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="budget" viewBox="0 0 600 260" role="img"
+             aria-label="Consumption-leisure choice with the budget line pivoting about the endowment"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>budget line</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>indifference curve</span>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Hours</div><div class="v" id="hOut"></div><div class="n" id="hW"></div></div>
+      <div><div class="k">Reservation wage</div><div class="v" id="wrOut"></div><div class="n">θπ ⁄ h̄</div></div>
+      <div><div class="k">Marshallian ε<sup>M</sup></div><div class="v" id="emOut"></div><div class="n">π fixed — can be negative</div></div>
+      <div><div class="k">Hicksian ε<sup>H</sup></div><div class="v" id="ehOut"></div><div class="n">utility fixed — always positive</div></div>
+      <div><div class="k">Frisch ε<sup>F</sup> = 1⁄η</div><div class="v" id="efOut"></div><div class="n">marginal utility of wealth fixed</div></div>
+      <div><div class="k">Prescott needs</div><div class="v" id="preOut"></div><div class="n">to explain the EU–US hours gap</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Preferences and income</legend>
+      <div class="ctl">
+        <span class="hint">u = ln c + θ ln ℓ. With π = 0 the income and substitution effects
+        cancel exactly and hours do not depend on the wage at all — the balanced-growth case.</span>
+        <label for="theta">Taste for leisure <span class="sym">θ</span></label>
+        <output id="thetao"></output><input type="range" id="theta" min="0.2" max="4" step="0.05" value="1.5">
+      </div>
+      <div class="ctl">
+        <span class="hint">Non-wage income: a partner's earnings, a transfer, an inheritance.
+        Raising it is a <i>pure</i> income effect — the clean test of the model.</span>
+        <label for="pi">Non-wage income <span class="sym">π</span></label>
+        <output id="pio"></output><input type="range" id="pi" min="0" max="1.5" step="0.01" value="0.30">
+      </div>
+      <div class="ctl">
+        <label for="w">Wage <span class="sym">w</span></label>
+        <output id="wo"></output><input type="range" id="w" min="0.05" max="6" step="0.05" value="2">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The Frisch elasticity</legend>
+      <div class="ctl">
+        <span class="hint">η is the inverse Frisch elasticity — the same η that sets the slope of
+        the AS curve in session 8. Micro studies of prime-age men suggest η between 3 and 10;
+        Prescott's calculation needs η near 1.</span>
+        <label for="eta">Inverse Frisch <span class="sym">η</span></label>
+        <output id="etao"></output><input type="range" id="eta" min="0.2" max="10" step="0.1" value="1">
+      </div>
+      <div class="ctl">
+        <span class="hint">Effective marginal tax wedge in Europe against the US. Prescott's
+        numbers are 0.60 and 0.40.</span>
+        <label for="tauEU">European tax wedge</label>
+        <output id="tauEUo"></output><input type="range" id="tauEU" min="0.40" max="0.75" step="0.01" value="0.60">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="balanced">Balanced growth (π = 0)</button>
+      <button data-p="bend">Backward bending</button>
+      <button data-p="corner">Below the reservation wage</button>
+      <button data-p="prescott">Prescott's calibration</button>
+    </div>
+
+    <details>
+      <summary>Why ε<sup>F</sup> ≥ ε<sup>H</sup> ≥ ε<sup>M</sup></summary>
+      <p>Each holds something looser fixed than the last, so each allows more adjustment. The
+      Slutsky decomposition is ε<sup>M</sup> = ε<sup>H</sup> + (wh⁄c)·ε<sub>π</sub>, and since
+      leisure is a normal good ε<sub>π</sub> &lt; 0, so the Marshallian is the smallest. Most
+      micro–macro disagreements about "the" labour supply elasticity are about which of the
+      three is being quoted. Derivation in <b>03-elasticities-and-evidence.md</b> §3.1.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 7 · companion to <b>Map/aula-05-trabalho/02-static-model.md</b> and <b>03-elasticities-and-evidence.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["theta","pi","w","eta","tauEU"];
+const HBAR = 1.0;
+
+function hours(w, pi, theta){
+  const l = theta/(1+theta) * (w*HBAR + pi)/w;
+  return Math.max(HBAR - l, 0);
+}
+const wres = (pi, theta) => theta*pi/HBAR;
+
+function drawSupply(v){
+  const W=600,H=300,L=56,R=20,T=16,B=42;
+  const wmax = 6;
+  const X = h => L + (W-L-R)*h/HBAR;
+  const Y = w => T + (H-T-B)*(1-w/wmax);
+  let out = "";
+  for(let i=0;i<=4;i++){
+    const ww = wmax*i/4, yy=Y(ww);
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    out += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">${ww.toFixed(1)}</text>`;
+  }
+  let d = "";
+  for(let i=1;i<=400;i++){
+    const ww = wmax*i/400;
+    const h = hours(ww, v.pi, v.theta);
+    d += (d?"L":"M") + X(h).toFixed(1) + "," + Y(ww).toFixed(1);
+  }
+  out += `<path d="${d}" fill="none" stroke="var(--as)" stroke-width="2.4"/>`;
+  const wr = wres(v.pi, v.theta);
+  if (wr > 0 && wr < wmax){
+    out += `<line x1="${L}" y1="${Y(wr).toFixed(1)}" x2="${W-R}" y2="${Y(wr).toFixed(1)}" stroke="var(--it)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+    out += `<text x="${W-R-4}" y="${(Y(wr)-6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--it)">reservation wage</text>`;
+  }
+  out += `<line x1="${L}" y1="${Y(v.w).toFixed(1)}" x2="${W-R}" y2="${Y(v.w).toFixed(1)}" stroke="var(--nat)" stroke-width="1.2" stroke-dasharray="3 3"/>`;
+  const h0 = hours(v.w, v.pi, v.theta);
+  out += `<circle cx="${X(h0).toFixed(1)}" cy="${Y(v.w).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">hours worked h</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">wage w</text>`;
+  $("supply").innerHTML = out;
+}
+
+function drawBudget(v){
+  const W=600,H=260,L=56,R=20,T=14,B=40;
+  const h0 = hours(v.w, v.pi, v.theta);
+  const l0 = HBAR - h0, c0 = v.w*h0 + v.pi;
+  const cmax = Math.max(v.w*HBAR + v.pi, c0)*1.1;
+  const X = l => L + (W-L-R)*l/HBAR;
+  const Y = c => T + (H-T-B)*(1-c/cmax);
+  let out = "";
+  for(let i=0;i<=3;i++){ const yy=T+(H-T-B)*i/3;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+  // budget line: c = pi + w(hbar - l)
+  out += `<line x1="${X(0)}" y1="${Y(v.pi + v.w*HBAR).toFixed(1)}" x2="${X(HBAR).toFixed(1)}" y2="${Y(v.pi).toFixed(1)}" stroke="var(--ad)" stroke-width="2.4"/>`;
+  // indifference curve through the optimum: ln c + theta ln l = U
+  const U = Math.log(Math.max(c0,1e-9)) + v.theta*Math.log(Math.max(l0,1e-9));
+  let d = "";
+  for(let i=1;i<=300;i++){
+    const l = HBAR*i/300;
+    const c = Math.exp(U - v.theta*Math.log(l));
+    if (!isFinite(c) || c > cmax*1.3) continue;
+    d += (d?"L":"M") + X(l).toFixed(1) + "," + Y(c).toFixed(1);
+  }
+  out += `<path d="${d}" fill="none" stroke="var(--eff)" stroke-width="2"/>`;
+  out += `<circle cx="${X(HBAR).toFixed(1)}" cy="${Y(v.pi).toFixed(1)}" r="5" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+  out += `<text x="${(X(HBAR)-8).toFixed(1)}" y="${(Y(v.pi)-9).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-soft)">endowment</text>`;
+  out += `<circle cx="${X(l0).toFixed(1)}" cy="${Y(c0).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">leisure ℓ  ·  hours are the distance from the endowment</text>`;
+  $("budget").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+
+  $("thetao").textContent = v.theta.toFixed(2);
+  $("pio").textContent = v.pi.toFixed(2);
+  $("wo").textContent = v.w.toFixed(2);
+  $("etao").textContent = v.eta.toFixed(1);
+  $("tauEUo").textContent = (v.tauEU*100).toFixed(0) + "% vs 40% US";
+
+  drawSupply(v); drawBudget(v);
+
+  const h0 = hours(v.w, v.pi, v.theta);
+  const wr = wres(v.pi, v.theta);
+  $("hOut").textContent = h0.toFixed(3);
+  $("hW").textContent = h0 <= 1e-9 ? "does not participate" : (v.pi === 0 ? "independent of the wage" : "rises with the wage");
+  $("wrOut").textContent = wr.toFixed(3);
+
+  const d = 1e-5;
+  const em = h0 > 1e-9
+    ? (Math.log(hours(v.w*(1+d), v.pi, v.theta)) - Math.log(hours(v.w*(1-d), v.pi, v.theta)))/(2*d)
+    : 0;
+  $("emOut").textContent = em.toFixed(3);
+  $("ehOut").textContent = (v.theta/(1+v.theta)).toFixed(3);
+  $("efOut").textContent = (1/v.eta).toFixed(3);
+
+  const req = Math.log(1/1.5)/Math.log((1-v.tauEU)/(1-0.40));
+  $("preOut").textContent = req.toFixed(2);
+
+  $("eqline").innerHTML = `u<sub>ℓ</sub>⁄u<sub>c</sub> = θc⁄ℓ = w &nbsp;⟹&nbsp; `
+    + `h = h̄⁄(1+θ) − [θ⁄(1+θ)]·π⁄w = <b>${h0.toFixed(3)}</b>`;
+
+  $("verdict").innerHTML = h0 <= 1e-9
+    ? `<span class="flag bad">corner solution</span> &nbsp; The wage is below the reservation wage
+       ${wr.toFixed(2)}, so the household does not work at all. This is the <b>extensive</b> margin, and
+       because it is a discrete switch a small wage change produces a large employment change — which is
+       how a tiny individual elasticity can add up to a large aggregate one.`
+    : (v.pi === 0
+      ? `<span class="flag ok">exact cancellation</span> &nbsp; With no non-wage income, log-log preferences
+         make hours <b>completely independent</b> of the wage: ε<sup>M</sup> = 0. This is not a coincidence —
+         it is the restriction balanced growth imposes, since a century of rising wages came with roughly
+         stable hours. The compensated elasticity is still ${(v.theta/(1+v.theta)).toFixed(2)}, so labour supply
+         does respond; two responses simply cancel.`
+      : `<span class="flag mid">ε<sup>M</sup> = ${em.toFixed(2)}</span> &nbsp; With π = ${v.pi.toFixed(2)} the
+         cancellation breaks. Prescott's calculation needs a Frisch elasticity of about
+         <b>${req.toFixed(2)}</b> to explain the Europe–US hours gap from tax wedges alone; micro studies of
+         prime-age men find 0.1–0.3 on the intensive margin. That gap is the open question of §3.3.`);
+}
+
+const presets = {
+  balanced:  {theta:1.5, pi:0,    w:2,    eta:1, tauEU:0.60},
+  bend:      {theta:1.5, pi:0.8,  w:0.6,  eta:1, tauEU:0.60},
+  corner:    {theta:1.5, pi:0.8,  w:0.9,  eta:1, tauEU:0.60},
+  prescott:  {theta:1.5, pi:0.30, w:2,    eta:1, tauEU:0.60},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

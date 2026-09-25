@@ -1,0 +1,237 @@
+<title>Level, Not Rate</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §4.2 · printed pages 59–61 · the exam's most expensive confusion</p>
+  <h1>Level, Not Rate</h1>
+  <p class="lede">Raise the saving rate permanently. Growth in output per worker jumps, then dies
+  away; the <em>level</em> stays permanently higher. The shaded area under the growth spike is
+  exactly the permanent log level gain — which is the precise sense in which a level effect is not
+  a rate effect.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="lev" viewBox="0 0 600 220" role="img"
+             aria-label="Log output per worker over time, before and after the saving-rate rise"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>ln y with the higher s</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>counterfactual: s unchanged</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="gr" viewBox="0 0 600 200" role="img"
+             aria-label="Growth rate of output per worker over time"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>growth rate of y</span>
+        <span style="color:var(--pos)"><i class="swatch"></i>area = permanent level gain</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Permanent level gain</div>
+        <div class="v" id="gain"></div>
+        <div class="w">(α⁄(1−α)) · ln(s₁⁄s₀), realised in full only in the limit</div>
+      </div>
+      <div>
+        <div class="k">Long-run growth rate of y</div>
+        <div class="v">0.00%</div>
+        <div class="w">unchanged, whatever s is — this is the point</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The policy</legend>
+      <div class="ctl">
+        <label for="s0">Saving rate before <span class="sym">s<sub>0</sub></span></label>
+        <output id="s0o"></output><input type="range" id="s0" min="0.05" max="0.6" step="0.005" value="0.20">
+      </div>
+      <div class="ctl">
+        <label for="s1">Saving rate after <span class="sym">s<sub>1</sub></span></label>
+        <output id="s1o"></output><input type="range" id="s1" min="0.05" max="0.9" step="0.005" value="0.25">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Structure</legend>
+      <div class="ctl">
+        <span class="hint">α governs both the size of the level gain, through α⁄(1−α), and the
+        speed, through λ = (1−α)(δ+n). A larger α means a bigger prize collected more slowly.</span>
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.1" max="0.85" step="0.01" value="0.3333">
+      </div>
+      <div class="ctl">
+        <label for="delta">Depreciation <span class="sym">δ</span></label>
+        <output id="deltao"></output><input type="range" id="delta" min="0" max="0.2" step="0.005" value="0.05">
+      </div>
+      <div class="ctl">
+        <label for="n">Population growth <span class="sym">n</span></label>
+        <output id="no"></output><input type="range" id="n" min="0" max="0.08" step="0.002" value="0.01">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="modest">Modest rise</button>
+      <button data-p="china">China-sized rise</button>
+      <button data-p="cut">A cut instead</button>
+      <button data-p="slow">Slow convergence (high α)</button>
+    </div>
+
+    <details>
+      <summary>The integral identity</summary>
+      <p>∫ (ẏ⁄y) dt from the date of the change to infinity equals ln y<sub>ss</sub>(s₁) −
+      ln y<sub>ss</sub>(s₀). A finite integral is a level effect. A permanent change in the growth
+      rate would make that integral diverge — which is what happens in the AK model, where
+      diminishing returns are absent. So "level not rate" is a consequence of Assumption 4.3 and
+      of nothing else. Derivation in <b>05-comparative-statics.md</b> §5.2.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 4 · companion to <b>Map/aula-02-solow-mecanica/05-comparative-statics.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["s0","s1","alpha","delta","n"];
+const YEARS = 150, SHOCK = 20;
+
+function run(v){
+  const f = k => Math.pow(k, v.alpha);
+  const kss = s => Math.pow(s/(v.delta+v.n), 1/(1-v.alpha));
+  const k0 = kss(v.s0);
+  const dt = 0.02;
+  const ln_y = [], growth = [], ln_y_cf = [];
+  let k = k0;
+  for (let t = 0; t <= YEARS; t += 1){
+    ln_y.push(Math.log(f(k)));
+    ln_y_cf.push(Math.log(f(k0)));
+    const s = t < SHOCK ? v.s0 : v.s1;
+    const g = v.alpha * (s*f(k)/k - (v.delta+v.n));
+    growth.push(g);
+    for (let i = 0; i < 1/dt; i++){
+      const ss = t < SHOCK ? v.s0 : v.s1;
+      k += dt * (ss*f(k) - (v.delta+v.n)*k);
+    }
+  }
+  const gain = (v.alpha/(1-v.alpha))*Math.log(v.s1/v.s0);
+  const lam = (1-v.alpha)*(v.delta+v.n);
+  const realised = ln_y[ln_y.length-1] - Math.log(f(k0));
+  return {ln_y, ln_y_cf, growth, gain, lam, realised, kss0:k0, kss1:kss(v.s1),
+          cDrop:(v.s1-v.s0)*f(k0), peak: Math.max(...growth)};
+}
+
+function drawLevels(r){
+  const W=600,H=220,L=54,R=18,T=14,B=32;
+  const lo = Math.min(...r.ln_y, ...r.ln_y_cf) - 0.02;
+  const hi = Math.max(...r.ln_y, ...r.ln_y_cf) + 0.04;
+  const X = t => L + (W-L-R)*t/YEARS;
+  const Y = y => T + (H-T-B)*(1-(y-lo)/(hi-lo));
+  const line = (arr,col,dash) => `<path d="${arr.map((y,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(y).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="2" ${dash||''}/>`;
+  let s = "";
+  for(let i=0;i<=3;i++){ const yy=T+(H-T-B)*i/3;
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+  s += `<line x1="${X(SHOCK).toFixed(1)}" y1="${T}" x2="${X(SHOCK).toFixed(1)}" y2="${H-B}" stroke="var(--it)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  s += `<text x="${(X(SHOCK)+5).toFixed(1)}" y="${T+12}" font-size="10.5" fill="var(--it)">s rises</text>`;
+  s += line(r.ln_y_cf, "var(--nat)", 'stroke-dasharray="5 4"');
+  s += line(r.ln_y, "var(--as)");
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">ln y per worker — the gap that opens is permanent</text>`;
+  $("lev").innerHTML = s;
+}
+
+function drawGrowth(r){
+  const W=600,H=200,L=54,R=18,T=14,B=32;
+  const hi = Math.max(0.002, ...r.growth)*1.15;
+  const lo = Math.min(0, ...r.growth)*1.15 - 0.0005;
+  const X = t => L + (W-L-R)*t/YEARS;
+  const Y = g => T + (H-T-B)*(1-(g-lo)/(hi-lo));
+  let s = "";
+  for(let i=0;i<=3;i++){ const yy=T+(H-T-B)*i/3;
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+  // shaded area under the growth path after the shock
+  let d = `M${X(SHOCK).toFixed(1)},${Y(0).toFixed(1)}`;
+  for (let t = SHOCK; t <= YEARS; t++) d += `L${X(t).toFixed(1)},${Y(r.growth[t]).toFixed(1)}`;
+  d += `L${X(YEARS).toFixed(1)},${Y(0).toFixed(1)}Z`;
+  s += `<path d="${d}" fill="var(--pos)" opacity="0.22"/>`;
+  s += `<line x1="${L}" y1="${Y(0).toFixed(1)}" x2="${W-R}" y2="${Y(0).toFixed(1)}" stroke="var(--grid-strong)" stroke-width="1.4"/>`;
+  s += `<path d="${r.growth.map((g,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(g).toFixed(1)}`).join('')}" fill="none" stroke="var(--ad)" stroke-width="2.2"/>`;
+  s += `<line x1="${X(SHOCK).toFixed(1)}" y1="${T}" x2="${X(SHOCK).toFixed(1)}" y2="${H-B}" stroke="var(--it)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">growth rate of y — spikes, then returns to zero</text>`;
+  $("gr").innerHTML = s;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const r = run(v);
+
+  $("s0o").textContent = v.s0.toFixed(3);
+  $("s1o").textContent = v.s1.toFixed(3);
+  $("alphao").textContent = v.alpha.toFixed(2);
+  $("deltao").textContent = v.delta.toFixed(3);
+  $("no").textContent = v.n.toFixed(3);
+
+  drawLevels(r); drawGrowth(r);
+
+  $("gain").textContent = (Math.expm1(r.gain)*100).toFixed(1) + "%";
+  $("eqline").innerHTML = `∫ (ẏ⁄y) dt = ln y<sub>ss</sub>(s₁) − ln y<sub>ss</sub>(s₀) = `
+    + `<b>${r.gain.toFixed(4)}</b> &nbsp;·&nbsp; realised so far: <b>${r.realised.toFixed(4)}</b>`;
+
+  const hl = r.lam > 0 ? Math.log(2)/r.lam : Infinity;
+  const rows = [
+    ["peak growth", r.peak, (r.peak*100).toFixed(2)+"%/yr"],
+    ["λ", r.lam, (r.lam*100).toFixed(2)+"%"],
+    ["half-life", isFinite(hl)? hl/100 : 1, isFinite(hl)? hl.toFixed(1)+" yr" : "∞"],
+    ["consumption drop on impact", r.cDrop, "−"+r.cDrop.toFixed(3)],
+  ];
+  const m = Math.max(...rows.map(x=>Math.abs(x[1])), 1e-6);
+  $("bars").innerHTML = rows.map(([lab,val,txt])=>{
+    const w = Math.min(100, Math.abs(val)/m*100);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${lab.startsWith('consumption')?'neg':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${txt}</span></div>`;
+  }).join("");
+
+  const pct = r.gain === 0 ? 0 : r.realised/r.gain*100;
+  $("verdict").innerHTML = v.s1 === v.s0
+    ? `<span class="flag mid">no change</span> &nbsp; Nothing happens, which is the null case worth seeing.`
+    : `<span class="flag ${v.s1>v.s0?'ok':'bad'}">${v.s1>v.s0?'permanently richer':'permanently poorer'}</span>
+       &nbsp; After ${YEARS-SHOCK} years the economy has collected <b>${pct.toFixed(0)}%</b> of the level
+       change, and its growth rate is back to <b>${(r.growth[YEARS]*100).toFixed(3)}%</b> — essentially zero.
+       Consumption ${v.s1>v.s0?'fell':'rose'} immediately by ${Math.abs(r.cDrop).toFixed(3)} per worker and
+       only recovered later. The prize is a level; the sacrifice is immediate.`;
+}
+
+const presets = {
+  modest: {s0:0.20, s1:0.25, alpha:0.3333, delta:0.05, n:0.01},
+  china:  {s0:0.25, s1:0.45, alpha:0.3333, delta:0.05, n:0.01},
+  cut:    {s0:0.30, s1:0.18, alpha:0.3333, delta:0.05, n:0.01},
+  slow:   {s0:0.20, s1:0.25, alpha:0.70,   delta:0.05, n:0.01},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

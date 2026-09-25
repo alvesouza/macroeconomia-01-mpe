@@ -1,0 +1,225 @@
+<title>The Golden Rule</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §4.3 · printed pages 61–63</p>
+  <h1>The Golden Rule</h1>
+  <p class="lede">Steady-state consumption is a hump in the saving rate, peaking at
+  <span class="mono">s = α</span>. To the right of the peak the economy is <em>dynamically
+  inefficient</em> and cutting saving makes every generation better off at once. To the left it
+  is not inefficient at all — only impatient, and this model has nothing to say about that.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="hump" viewBox="0 0 600 300" role="img"
+             aria-label="Steady-state consumption against the saving rate"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>c<sub>ss</sub>(s)</span>
+        <span style="color:var(--it)"><i class="swatch dash"></i>Golden Rule, s = α</span>
+        <span style="color:var(--neg)"><i class="swatch"></i>dynamically inefficient</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="path" viewBox="0 0 600 210" role="img"
+             aria-label="Consumption path after a move to the Golden Rule saving rate"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>consumption per efficiency unit</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>old steady state</span>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Current s</div><div class="v" id="sOut"></div><div class="n" id="sW"></div></div>
+      <div><div class="k">s<sub>gold</sub> = α</div><div class="v" id="sgOut"></div><div class="n">save capital's share of income</div></div>
+      <div><div class="k">f′(k<sub>ss</sub>)</div><div class="v" id="mpkOut"></div><div class="n" id="mpkW"></div></div>
+      <div><div class="k">δ+n+g</div><div class="v" id="brkOut"></div><div class="n">the cost of maintaining capital</div></div>
+      <div><div class="k">Capital income</div><div class="v" id="ciOut"></div><div class="n">f′(k)k — an accounts line</div></div>
+      <div><div class="k">Investment</div><div class="v" id="invOut"></div><div class="n">(δ+n+g)k — also an accounts line</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The economy</legend>
+      <div class="ctl">
+        <span class="hint">Move this past α and the shaded region opens: the economy is holding
+        capital that cannot pay for its own upkeep.</span>
+        <label for="s">Saving rate <span class="sym">s</span></label>
+        <output id="so"></output><input type="range" id="s" min="0.02" max="0.95" step="0.005" value="0.20">
+      </div>
+      <div class="ctl">
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.1" max="0.8" step="0.01" value="0.35">
+      </div>
+      <div class="ctl">
+        <label for="delta">Depreciation <span class="sym">δ</span></label>
+        <output id="deltao"></output><input type="range" id="delta" min="0" max="0.2" step="0.005" value="0.04">
+      </div>
+      <div class="ctl">
+        <label for="n">Population growth <span class="sym">n</span></label>
+        <output id="no"></output><input type="range" id="n" min="0" max="0.06" step="0.002" value="0.01">
+      </div>
+      <div class="ctl">
+        <span class="hint">Adding g moves the break-even line but leaves s<sub>gold</sub> = α
+        untouched — the rule is about the production function, not about the growth rates.</span>
+        <label for="g">Technical progress <span class="sym">g</span></label>
+        <output id="go"></output><input type="range" id="g" min="0" max="0.05" step="0.0025" value="0.015">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="us">Kurlat's US calibration</button>
+      <button data-p="gold">Exactly the Golden Rule</button>
+      <button data-p="over">Over-accumulating</button>
+    </div>
+
+    <details>
+      <summary>The observable test</summary>
+      <p>You never need to measure the capital stock. Dynamic inefficiency is
+      f′(k) &lt; δ+n+g, which multiplied by k is <b>capital income &lt; investment</b> — two
+      national-accounts line items. In US data capital income is around 35% of GDP and
+      investment around 20%, so the US is comfortably below the Golden Rule. Every developed
+      economy that has been checked is. Derivation in <b>01-golden-rule.md</b> §1.5.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 4 · companion to <b>Map/aula-03-solow-evidencias/01-golden-rule.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["s","alpha","delta","n","g"];
+
+function M(v){
+  const brk = v.delta + v.n + v.g;
+  const f = k => Math.pow(k, v.alpha);
+  const fp = k => v.alpha * Math.pow(k, v.alpha - 1);
+  const kss = s => Math.pow(s/brk, 1/(1-v.alpha));
+  const css = s => f(kss(s)) - brk*kss(s);
+  return {brk, f, fp, kss, css};
+}
+
+function drawHump(v, m){
+  const W=600,H=300,L=56,R=18,T=16,B=42;
+  const S = [];
+  for (let i=0;i<=300;i++) S.push(0.02 + (0.95-0.02)*i/300);
+  const C = S.map(m.css);
+  const hi = Math.max(...C)*1.12, lo = Math.min(0, ...C);
+  const X = s => L + (W-L-R)*(s-0.02)/(0.95-0.02);
+  const Y = c => T + (H-T-B)*(1-(c-lo)/(hi-lo));
+
+  let out = "";
+  for(let i=0;i<=4;i++){ const yy=T+(H-T-B)*i/4;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`; }
+
+  // shaded inefficient region: s > alpha
+  if (v.alpha < 0.95){
+    out += `<rect x="${X(v.alpha).toFixed(1)}" y="${T}" width="${(X(0.95)-X(v.alpha)).toFixed(1)}" height="${H-T-B}" fill="var(--neg)" opacity="0.10"/>`;
+    out += `<text x="${((X(v.alpha)+X(0.95))/2).toFixed(1)}" y="${T+16}" text-anchor="middle" font-size="10.5" fill="var(--neg)">dynamically inefficient</text>`;
+  }
+  out += `<path d="${S.map((s,i)=>`${i?'L':'M'}${X(s).toFixed(1)},${Y(C[i]).toFixed(1)}`).join('')}" fill="none" stroke="var(--as)" stroke-width="2.4"/>`;
+  out += `<line x1="${X(v.alpha).toFixed(1)}" y1="${T}" x2="${X(v.alpha).toFixed(1)}" y2="${H-B}" stroke="var(--it)" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+  out += `<circle cx="${X(v.alpha).toFixed(1)}" cy="${Y(m.css(v.alpha)).toFixed(1)}" r="5" fill="var(--it)"/>`;
+  out += `<circle cx="${X(v.s).toFixed(1)}" cy="${Y(m.css(v.s)).toFixed(1)}" r="6" fill="var(--ad)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  [0.1,0.3,0.5,0.7,0.9].forEach(s=>{
+    out += `<text x="${X(s).toFixed(1)}" y="${H-B+16}" text-anchor="middle" font-size="11" fill="var(--ink-faint)">${s.toFixed(1)}</text>`; });
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">saving rate s</text>`;
+  $("hump").innerHTML = out;
+}
+
+function drawPath(v, m){
+  const W=600,H=210,L=56,R=18,T=14,B=34;
+  const Tn=120, shock=15;
+  const k0 = m.kss(v.s);
+  let k = k0;
+  const c = [];
+  for(let t=0;t<=Tn;t++){
+    const s = t < shock ? v.s : v.alpha;
+    c.push((1-s)*m.f(k));
+    for(let i=0;i<50;i++) k += (1/50)*(s*m.f(k) - m.brk*k);
+  }
+  const hi = Math.max(...c)*1.06, lo = Math.min(...c)*0.94;
+  const X = t => L + (W-L-R)*t/Tn;
+  const Y = y => T + (H-T-B)*(1-(y-lo)/(hi-lo));
+  let out = `<line x1="${L}" y1="${Y(c[0]).toFixed(1)}" x2="${W-R}" y2="${Y(c[0]).toFixed(1)}" stroke="var(--nat)" stroke-width="1.3" stroke-dasharray="5 4"/>`;
+  out += `<line x1="${X(shock).toFixed(1)}" y1="${T}" x2="${X(shock).toFixed(1)}" y2="${H-B}" stroke="var(--it)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+  out += `<text x="${(X(shock)+5).toFixed(1)}" y="${T+12}" font-size="10.5" fill="var(--it)">s → α</text>`;
+  out += `<path d="${c.map((y,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(y).toFixed(1)}`).join('')}" fill="none" stroke="var(--ad)" stroke-width="2.2"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="11.5" fill="var(--ink-soft)">consumption after moving to the Golden Rule saving rate</text>`;
+  $("path").innerHTML = out;
+  return {c0: c[0], cImpact: c[shock], cFinal: c[Tn]};
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const m = M(v);
+
+  $("so").textContent = v.s.toFixed(3);
+  $("alphao").textContent = v.alpha.toFixed(2);
+  $("deltao").textContent = v.delta.toFixed(3);
+  $("no").textContent = v.n.toFixed(3);
+  $("go").textContent = v.g.toFixed(4);
+
+  drawHump(v, m);
+  const p = drawPath(v, m);
+
+  const kss = m.kss(v.s);
+  const mpk = m.fp(kss);
+  $("sOut").textContent = v.s.toFixed(3);
+  $("sW").textContent = v.s > v.alpha ? "above the Golden Rule" : (v.s < v.alpha ? "below the Golden Rule" : "exactly at it");
+  $("sgOut").textContent = v.alpha.toFixed(3);
+  $("mpkOut").textContent = mpk.toFixed(4);
+  $("mpkW").textContent = mpk > m.brk ? "above δ+n+g" : (mpk < m.brk ? "below δ+n+g — over-accumulation" : "equal");
+  $("brkOut").textContent = m.brk.toFixed(4);
+  $("ciOut").textContent = (mpk*kss).toFixed(4);
+  $("invOut").textContent = (m.brk*kss).toFixed(4);
+
+  $("eqline").innerHTML = `f′(k<sub>gold</sub>) = δ+n+g &nbsp;⟹&nbsp; s<sub>gold</sub> = `
+    + `f′(k)k ⁄ f(k) = <b>α = ${v.alpha.toFixed(2)}</b> &nbsp;·&nbsp; c<sub>ss</sub> at the peak = `
+    + `<b>${m.css(v.alpha).toFixed(4)}</b>, here <b>${m.css(v.s).toFixed(4)}</b>`;
+
+  const eps = 1e-9;
+  if (v.s > v.alpha + eps){
+    $("verdict").innerHTML = `<span class="flag ok">Pareto improvement</span> &nbsp; Cutting s to α raises
+      consumption <b>immediately</b> — from ${p.c0.toFixed(3)} to ${p.cImpact.toFixed(3)} on impact — and
+      leaves it higher forever at ${p.cFinal.toFixed(3)}. No generation loses. This is the one welfare
+      verdict the Solow model can deliver without preferences.`;
+  } else if (v.s < v.alpha - eps){
+    $("verdict").innerHTML = `<span class="flag mid">a trade-off, not an inefficiency</span> &nbsp; Raising s to α
+      cuts consumption on impact, from ${p.c0.toFixed(3)} to ${p.cImpact.toFixed(3)}, before it recovers to
+      ${p.cFinal.toFixed(3)}. Early generations lose and later ones gain, and this model has no discount rate
+      with which to rank them. That gap is why session 4 exists.`;
+  } else {
+    $("verdict").innerHTML = `<span class="flag ok">at the Golden Rule</span> &nbsp; Capital income exactly equals
+      investment, f′(k) = δ+n+g, and consumption per efficiency unit is at its maximum.`;
+  }
+}
+
+const presets = {
+  us:   {s:0.20, alpha:0.35, delta:0.04, n:0.01, g:0.015},
+  gold: {s:0.35, alpha:0.35, delta:0.04, n:0.01, g:0.015},
+  over: {s:0.65, alpha:0.35, delta:0.04, n:0.01, g:0.015},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

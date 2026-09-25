@@ -1,0 +1,290 @@
+<title>The Floor Under Demand</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Benigno (2015) · §9 · Figures 11–12 · printed pages 516–518</p>
+  <h1>The Floor Under Demand</h1>
+  <p class="lede">The zero bound is not a statement about interest rates but about the
+  <em>natural</em> real rate. When pessimism about the long run pushes r<sub>n</sub> below zero, no
+  admissible nominal rate reaches it — and the only instrument left is the long-run price level the
+  central bank promises.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="answer">
+      <div>
+        <div class="k">Natural real rate r<sub>n</sub></div>
+        <div class="v" id="ansRn">+2.00%</div>
+        <div class="w" id="ansRnW"></div>
+      </div>
+      <div>
+        <div class="k">Output gap now</div>
+        <div class="v" id="ansGap">+0.00%</div>
+        <div class="w" id="ansGapW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 470" role="img"
+             aria-label="AS, AD and the zero-lower-bound AD ceiling"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>AS</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>AD at your rate</span>
+        <span style="color:var(--it)"><i class="swatch dash"></i>AD₀ — the i = 0 ceiling</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>y<sub>n</sub> = y<sub>e</sub></span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Rate needed to close the gap</div><div class="v" id="iWant"></div><div class="n" id="iWantW"></div></div>
+      <div><div class="k">Is the bound binding?</div><div class="v" id="bind"></div><div class="n">i ≥ 0 (fn. 11, p. 517)</div></div>
+      <div><div class="k">Best gap attainable at i = 0</div><div class="v" id="bestGap"></div><div class="n">σ(rₙ + p̄)/(1+σκ)</div></div>
+      <div><div class="k">Commitment that closes it</div><div class="v" id="pbarNeed"></div><div class="n">p̄ − pᵉ = −rₙ</div></div>
+      <div><div class="k">Long-run natural output ȳ<sub>n</sub></div><div class="v" id="ybarOut"></div><div class="n">% — what the future is worth</div></div>
+      <div><div class="k">Price level p − pᵉ</div><div class="v" id="pOut"></div><div class="n">% — deflation is negative</div></div>
+      <div><div class="k">Output y</div><div class="v" id="yOut"></div><div class="n">% deviation</div></div>
+      <div><div class="k">AS slope κ</div><div class="v" id="kOut"></div><div class="n">(1−α)(σ⁻¹+η)/α, η = 0.2</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>What the future looks like</legend>
+      <div class="ctl">
+        <label for="abar"><span class="sym">ā</span> long-run productivity</label><output id="abarV"></output>
+        <p class="hint">Negative is pessimism, or a growth downgrade. It lowers ȳ<sub>n</sub>, and
+        with it the natural real rate.</p>
+        <input type="range" id="abar" min="-0.15" max="0.05" step="0.005" value="0">
+      </div>
+      <div class="ctl">
+        <label for="rho"><span class="sym">ρ</span> time preference</label><output id="rhoV"></output>
+        <p class="hint">The floor under r<sub>n</sub> when growth expectations are flat. ρ = −ln β.</p>
+        <input type="range" id="rho" min="0" max="0.05" step="0.0025" value="0.02">
+      </div>
+      <div class="ctl">
+        <label for="sigma"><span class="sym">σ</span> substitution, scaled to output</label><output id="sigmaV"></output>
+        <p class="hint">Divides the growth term in r<sub>n</sub>, and sets how much a price-level
+        promise is worth.</p>
+        <input type="range" id="sigma" min="0.25" max="1.50" step="0.05" value="0.50">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Policy</legend>
+      <div class="ctl">
+        <label for="i"><span class="sym">i</span> nominal rate — cannot go below zero</label><output id="iV"></output>
+        <p class="hint">The slider stops at zero because the model does: otherwise households would
+        borrow to fund unbounded consumption.</p>
+        <input type="range" id="i" min="0" max="0.12" step="any" value="0.02">
+      </div>
+      <div class="ctl">
+        <label for="pbar"><span class="sym">p̄</span> long-run price-level commitment</label><output id="pbarV"></output>
+        <p class="hint">The second instrument. Promising a higher future price level raises expected
+        inflation and cuts the real rate at an unchanged i.</p>
+        <input type="range" id="pbar" min="0" max="0.12" step="any" value="0">
+      </div>
+      <div class="ctl">
+        <label for="alpha"><span class="sym">α</span> sticky-price firms</label><output id="alphaV"></output>
+        <p class="hint">Flatter AS means the slump shows up as output, not deflation.</p>
+        <input type="range" id="alpha" min="0.30" max="0.95" step="0.01" value="0.66">
+      </div>
+    </fieldset>
+    <div class="btns">
+      <button type="button" id="slump">Pessimism: ā = −10%</button>
+      <button type="button" id="floor">Cut i to zero</button>
+      <button type="button" id="commit">Commit p̄ = −rₙ</button>
+      <button type="button" id="reset">Reset</button>
+    </div>
+    <p class="verdict" id="verdict"></p>
+  </div>
+</div>
+
+<details>
+  <summary>Control contract and provenance</summary>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Control</th><th>Symbol</th><th>Range</th><th>Step</th><th>Default</th><th>Source</th><th>What moves</th></tr></thead>
+    <tbody>
+      <tr><td>Long-run productivity</td><td class="num">ā</td><td class="num">−0.15–0.05</td><td class="num">0.005</td><td class="num">0</td><td>eq. (15) with bars, p. 508</td><td>ȳ<sub>n</sub>, r<sub>n</sub>, AD and AD₀ together</td></tr>
+      <tr><td>Time preference</td><td class="num">ρ</td><td class="num">0–0.05</td><td class="num">0.0025</td><td class="num">0.02</td><td>eq. (4), p. 506</td><td>r<sub>n</sub> level</td></tr>
+      <tr><td>Substitution</td><td class="num">σ</td><td class="num">0.25–1.50</td><td class="num">0.05</td><td class="num">0.50</td><td>§8 calibration, p. 515</td><td>AD slope, r<sub>n</sub>, the value of a promise</td></tr>
+      <tr><td>Nominal rate</td><td class="num">i</td><td class="num">0–0.12</td><td class="num">continuous</td><td class="num">0.02</td><td>§9, p. 517</td><td>AD position, bounded below by AD₀</td></tr>
+      <tr><td>Price commitment</td><td class="num">p̄</td><td class="num">0–0.12</td><td class="num">continuous</td><td class="num">0</td><td>§9, p. 517 (Krugman, 1998)</td><td>AD <em>and</em> AD₀ together</td></tr>
+      <tr><td>Sticky-price firms</td><td class="num">α</td><td class="num">0.30–0.95</td><td class="num">0.01</td><td class="num">0.66</td><td>§8 calibration, p. 515</td><td>AS slope κ</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:10px">Held fixed: η = 0.2, a = g = ḡ = μ = 0 and all tax rates zero, so
+  y<sub>n</sub> = y<sub>e</sub> = 0 and the whole gap is a demand gap. The deleveraging route into
+  the same trap — the article's second source of a negative r<sub>n</sub> — is the deleveraging
+  companion. A consumption-tax path (τ̄<sub>c</sub> − τ<sub>c</sub>) would enter exactly where p̄
+  does; that equivalence is in note 08, not a separate control.</p>
+</details>
+
+<footer>
+  <p><b>Model.</b> AD: y = ȳ<sub>n</sub> − σ[i − (p̄ − p) − ρ], eq. (21); AD₀ is the same at i = 0.
+  AS: p − pᵉ = κ(y − y<sub>n</sub>), eq. (17). Equilibrium gap
+  σ[r<sub>n</sub> − i + (p̄ − pᵉ)]/(1 + σκ), with
+  r<sub>n</sub> = ρ + σ⁻¹(ȳ<sub>n</sub> − y<sub>n</sub>).</p>
+  <p><b>Source.</b> Benigno, <i>Research in Economics</i> 69 (2015), §9, following Krugman (1998)
+  and Bernanke (2002). Derivation: <span class="mono">Map/benigno/08-liquidity-trap.md</span>.</p>
+  <p>Macroeconomia I — MPE Insper, Aula 9.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const ETA = 0.2, PE = 0;
+const D = id => document.getElementById(id);
+const IDS = ["abar","rho","sigma","i","pbar","alpha"];
+const DEFAULTS = {abar:0, rho:0.02, sigma:0.50, i:0.02, pbar:0, alpha:0.66};
+const P = {};
+
+function state(){
+  const k = (1 - P.alpha) * (1 / P.sigma + ETA) / P.alpha;
+  const ybar = (1 + ETA) * P.abar / (1 / P.sigma + ETA);      // y_n = 0 by construction
+  const rn = P.rho + ybar / P.sigma;
+  const gap = i => P.sigma * (rn - i + (P.pbar - PE)) / (1 + P.sigma * k);
+  const y = gap(P.i), p = PE + k * y;
+  return {k, ybar, rn, y, p, gap0: gap(0), iWant: rn + (P.pbar - PE), need: -rn};
+}
+
+const VB = {w:600, h:470}, M = {l:58, r:26, t:22, b:46};
+const PW = VB.w - M.l - M.r, PH = VB.h - M.t - M.b;
+const LIM = 0.15;
+const X = y => M.l + (y + LIM) / (2 * LIM) * PW;
+const Y = p => M.t + (LIM - p) / (2 * LIM) * PH;
+const okP = p => p >= -LIM && p <= LIM;
+const okY = y => y >= -LIM && y <= LIM;
+
+function line(fn){
+  const pts = [];
+  for (let j = 0; j <= 240; j++){
+    const y = -LIM + 2 * LIM * j / 240, p = fn(y);
+    if (Number.isFinite(p) && okP(p)) pts.push(X(y).toFixed(1) + "," + Y(p).toFixed(1));
+  }
+  return pts.join(" ");
+}
+
+function draw(s){
+  const g = [];
+  for (let t = -0.15; t <= 0.1501; t += 0.05){
+    const strong = Math.abs(t) < 1e-9;
+    g.push(`<line x1="${X(t).toFixed(1)}" y1="${M.t}" x2="${X(t).toFixed(1)}" y2="${M.t+PH}"
+      stroke="${strong ? "var(--grid-strong)" : "var(--grid)"}" stroke-width="1"/>
+      <line x1="${M.l}" y1="${Y(t).toFixed(1)}" x2="${M.l+PW}" y2="${Y(t).toFixed(1)}"
+      stroke="${strong ? "var(--grid-strong)" : "var(--grid)"}" stroke-width="1"/>
+      <text x="${X(t).toFixed(1)}" y="${M.t+PH+18}" text-anchor="middle" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${(t*100).toFixed(0)}</text>
+      <text x="${M.l-9}" y="${(Y(t)+4).toFixed(1)}" text-anchor="end" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${(t*100).toFixed(0)}</text>`);
+  }
+  const ad  = line(y => P.pbar + P.rho - P.i + (s.ybar - y) / P.sigma);
+  const ad0 = line(y => P.pbar + P.rho + (s.ybar - y) / P.sigma);
+  const as  = line(y => PE + s.k * y);
+  D("plot").innerHTML = `${g.join("")}
+    <line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <text x="${M.l+PW}" y="${M.t+PH+34}" text-anchor="end" font-size="12" fill="var(--ink-soft)">
+      output y, % deviation</text>
+    <text x="${M.l-40}" y="${M.t-8}" font-size="12" fill="var(--ink-soft)">p − pᵉ, %</text>
+    <line x1="${X(0).toFixed(1)}" y1="${M.t}" x2="${X(0).toFixed(1)}" y2="${M.t+PH}"
+      stroke="var(--nat)" stroke-width="1.6" stroke-dasharray="6 4"/>
+    <text x="${(X(0)+5).toFixed(1)}" y="${M.t+14}" font-size="12" fill="var(--nat)"
+      font-family="Source Serif 4, serif" font-style="italic">yₙ = yₑ</text>
+    <polyline points="${ad0}" fill="none" stroke="var(--it)" stroke-width="2.2" stroke-dasharray="7 4"/>
+    <polyline points="${as}" fill="none" stroke="var(--as)" stroke-width="2.6"/>
+    <polyline points="${ad}" fill="none" stroke="var(--ad)" stroke-width="2.6"/>
+    ${okY(s.y) && okP(s.p) ? `
+      <circle cx="${X(s.y).toFixed(1)}" cy="${Y(s.p).toFixed(1)}" r="5.5" fill="var(--ink)"/>
+      <text x="${(X(s.y)+10).toFixed(1)}" y="${(Y(s.p)+16).toFixed(1)}" font-size="13" fill="var(--ink)"
+        font-family="Source Serif 4, serif" font-style="italic">E</text>` :
+      `<text x="${M.l+10}" y="${M.t+PH-10}" font-size="12" fill="var(--neg)">
+        equilibrium outside the ±15% frame</text>`}
+    ${okY(s.gap0) && okP(s.k * s.gap0) ? `
+      <circle cx="${X(s.gap0).toFixed(1)}" cy="${Y(s.k * s.gap0).toFixed(1)}" r="4.5"
+        fill="none" stroke="var(--it)" stroke-width="2"/>
+      <text x="${(X(s.gap0)+8).toFixed(1)}" y="${(Y(s.k * s.gap0)-8).toFixed(1)}" font-size="12"
+        fill="var(--it)" font-family="Source Serif 4, serif" font-style="italic">best at i = 0</text>` : ""}`;
+}
+
+const pc = (v, dp = 2) => (v >= 0 ? "+" : "−") + Math.abs(v * 100).toFixed(dp);
+
+function render(){
+  IDS.forEach(id => { P[id] = parseFloat(D(id).value); });
+  const s = state();
+  D("abarV").textContent = pc(P.abar, 1) + "%";
+  D("rhoV").textContent = (P.rho * 100).toFixed(2) + "%";
+  D("sigmaV").textContent = P.sigma.toFixed(2);
+  D("iV").textContent = (P.i * 100).toFixed(2) + "%";
+  D("pbarV").textContent = pc(P.pbar, 2) + "%";
+  D("alphaV").textContent = P.alpha.toFixed(2);
+
+  D("ansRn").textContent = (s.rn * 100).toFixed(2) + "%";
+  D("ansRn").className = "v " + (Math.abs(s.rn) < 5e-5 ? "" : s.rn > 0 ? "pos" : "neg");
+  D("ansRnW").textContent = s.rn >= 0
+    ? "non-negative — a nominal rate exists that closes the gap with stable prices"
+    : "negative — no admissible nominal rate reaches it. This is the trap, and it is not about i";
+
+  D("ansGap").textContent = pc(s.y) + "%";
+  D("ansGap").className = "v " + (Math.abs(s.y) < 5e-5 ? "" : s.y > 0 ? "pos" : "neg");
+  D("ansGapW").textContent = Math.abs(s.y) < 5e-5 ? "closed: output at its natural and efficient level"
+    : s.y < 0 ? "output below potential, and prices below expectations" : "output above potential";
+
+  D("iWant").textContent = (s.iWant * 100).toFixed(2) + "%";
+  D("iWant").className = "v " + (s.iWant < 0 ? "neg" : "");
+  D("iWantW").textContent = s.iWant < 0 ? "negative: unreachable" : "reachable with the slider";
+  const binding = s.iWant < 0;
+  D("bind").innerHTML = binding ? '<span class="flag bad">binding</span>'
+                               : '<span class="flag ok">slack</span>';
+  D("bestGap").textContent = pc(s.gap0) + "%";
+  D("bestGap").className = "v " + (s.gap0 < -5e-5 ? "neg" : "");
+  D("pbarNeed").textContent = s.need > 0 ? "+" + (s.need * 100).toFixed(2) + "%" : "none needed";
+  D("ybarOut").textContent = pc(s.ybar) + "%";
+  D("pOut").textContent = pc(s.p) + "%";
+  D("yOut").textContent = pc(s.y) + "%";
+  D("kOut").textContent = s.k.toFixed(3);
+
+  D("eqline").innerHTML = `rₙ = ρ + σ⁻¹ȳₙ = ${(P.rho*100).toFixed(2)}% +
+    ${(s.ybar/P.sigma*100).toFixed(2)}% = <i>${(s.rn*100).toFixed(2)}%</i> &nbsp;·&nbsp;
+    AD₀ sits ${(P.sigma*(P.rho+P.pbar)*100/(1)).toFixed(2)}σ-points above the i = rₙ line`;
+
+  D("verdict").innerHTML = binding
+    ? `<b>Trapped.</b> Cutting i to zero leaves a gap of ${pc(s.gap0)}% — AD₀ is the ceiling and the
+       economy sits under it. The instrument that remains is the long-run price level: commit to
+       p̄ − pᵉ = ${(s.need * 100).toFixed(2)}% and the gap closes at i = 0, because expected
+       inflation does the work the nominal rate cannot. It requires credibility, not arithmetic.`
+    : `<b>Not trapped.</b> The rate that closes the gap is ${(s.iWant * 100).toFixed(2)}%, which is
+       admissible. Conventional policy is enough here; drag ā down until rₙ turns negative to see
+       the bound bite.`;
+  draw(s);
+}
+
+const setAll = o => { Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); };
+IDS.forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEFAULTS));
+D("slump").addEventListener("click", () => setAll({...DEFAULTS, abar:-0.10}));
+D("floor").addEventListener("click", () => { D("i").value = 0; render(); });
+D("commit").addEventListener("click", () => {
+  const s = state();
+  if (s.need <= 0){
+    D("verdict").innerHTML = `<b>Nothing to commit to.</b> rₙ = ${(s.rn * 100).toFixed(2)}% is
+      already non-negative, so the conventional instrument suffices.`;
+    return;
+  }
+  if (s.need > 0.12){
+    D("verdict").innerHTML = `<b>Beyond this slider.</b> Closing the gap would need a commitment of
+      ${(s.need * 100).toFixed(2)}%, past the 12% the control allows. The article's own caveat
+      applies: at some point the promise stops being credible, and credibility is the binding
+      constraint, not the algebra.`;
+    return;
+  }
+  D("pbar").value = s.need; D("i").value = 0; render();
+});
+render();
+</script>

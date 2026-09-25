@@ -232,6 +232,25 @@ Senhoriagem e custos da inflação recebem **uma passagem**, não um deck cada.
 > capítulos, a aula e a Lista 6, com formulário falado e autoteste. O plano de leitura está em
 > [`Map/leituras-aula-07.md`](../Map/leituras-aula-07.md).
 
+### Lista 7 — New-Keynesian AS–AD (Benigno 2015)
+
+**4 audio prompts, no slides or video**, as requested: one per Lista 7 question, each with its
+own thesis. Custom Prompt format (Audio Overview → Customize), Hard depth. Upload
+`sources/Lista_MPE_Macro1_2026_Lista7.pdf` (added 2026-09-25) alongside the Benigno PDF. These
+do not repeat `aula-09-audio-1`, which already spends one segment on natural vs efficient output.
+
+| File | Type | Thesis | Q | Chars |
+|---|---|---|---|---|
+| [audio/lista-07-audio-1-one-equation-three-readings.md](audio/lista-07-audio-1-one-equation-three-readings.md) | Audio | NK = New Classical method + Keynesian friction; one AS equation, three readings of $p^e$ | Q1 | 4,719 |
+| [audio/lista-07-audio-2-what-does-not-shift.md](audio/lista-07-audio-2-what-does-not-shift.md) | Audio | The answer lives in the curve that does *not* shift; mark-up shock vs rate cut, and four wrong answers taken apart | Q2 | 4,511 |
+| [audio/lista-07-audio-3-the-planner-has-no-markup.md](audio/lista-07-audio-3-the-planner-has-no-markup.md) | Audio | Market and planner solve the same equation minus one wedge; whatever sits in only one problem moves only one level | Q3 | 4,912 |
+| [audio/lista-07-audio-4-the-bowl-and-the-line.md](audio/lista-07-audio-4-the-bowl-and-the-line.md) | Audio | Optimal policy as a consumer's choice: loss = preferences, AS = budget line, targeting rule = tangency | Q4 | 4,974 |
+
+> To **listen to the whole list**, use the narration
+> [`Leituras/lista-07-benigno-narrated.txt`](../Leituras/lista-07-benigno-narrated.txt), produced by
+> `/speechify`. The written solution is `Resolucao/lista7_resolucao.pdf`; the map is
+> [`Map/lista-07.md`](../Map/lista-07.md).
+
 ---
 
 ## Anatomia

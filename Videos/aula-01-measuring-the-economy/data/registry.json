@@ -1,0 +1,200 @@
+{
+  "accessed": "2026-09-18",
+  "countries": [
+    "BRA",
+    "USA",
+    "MEX"
+  ],
+  "not_used": {
+    "bcb_sgs_ipca": [
+      "433",
+      "13522"
+    ],
+    "reason": "the Brazilian CPI is already in this set as FP.CPI.TOTL.ZG, from the same source and the same vintage as the GDP deflator it is compared against. Mixing a BCB series with a WDI series would put a source difference inside a wedge the video attributes to basket composition."
+  },
+  "derived": {
+    "lambda": "data/check_lambda.py -- Jones-Klenow four-term decomposition for BRA vs USA, sigma=1, leisure term omitted (no verified hours series), ubar reported at 0/5/10 because it has no market price. Closed form checked against a 400k-draw Monte Carlo of E[ln c]-ln E[c] against -s^2/2."
+  },
+  "series": [
+    {
+      "key": "NY.GDP.PCAP.CD",
+      "source": "World Bank WDI",
+      "code": "NY.GDP.PCAP.CD",
+      "name": "GDP per capita (current US$)",
+      "units": "current US$",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/NY.GDP.PCAP.CD date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "cold open + Act IV: the market-rate conversion",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1960,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_ny_gdp_pcap_cd.csv",
+      "sha256": "b4876fb3572c9c0d",
+      "synthetic": false
+    },
+    {
+      "key": "NY.GDP.PCAP.PP.CD",
+      "source": "World Bank WDI",
+      "code": "NY.GDP.PCAP.PP.CD",
+      "name": "GDP per capita, PPP (current international $)",
+      "units": "current international $",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/NY.GDP.PCAP.PP.CD date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "cold open + Act IV: the PPP conversion",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1990,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_ny_gdp_pcap_pp_cd.csv",
+      "sha256": "78b1190aea21a595",
+      "synthetic": false
+    },
+    {
+      "key": "NY.GDP.PCAP.PP.KD",
+      "source": "World Bank WDI",
+      "code": "NY.GDP.PCAP.PP.KD",
+      "name": "GDP per capita, PPP (constant 2021 international $)",
+      "units": "constant 2021 international $",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/NY.GDP.PCAP.PP.KD date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act III: the log-scale chart, Brazil against the US",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1990,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_ny_gdp_pcap_pp_kd.csv",
+      "sha256": "b69128a5414a05ce",
+      "synthetic": false
+    },
+    {
+      "key": "NY.GDP.DEFL.KD.ZG",
+      "source": "World Bank WDI",
+      "code": "NY.GDP.DEFL.KD.ZG",
+      "name": "Inflation, GDP deflator (annual %)",
+      "units": "annual per cent",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/NY.GDP.DEFL.KD.ZG date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act II: the deflator-vs-CPI wedge",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1961,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_ny_gdp_defl_kd_zg.csv",
+      "sha256": "253b54fc522fec7b",
+      "synthetic": false
+    },
+    {
+      "key": "FP.CPI.TOTL.ZG",
+      "source": "World Bank WDI",
+      "code": "FP.CPI.TOTL.ZG",
+      "name": "Inflation, consumer prices (annual %)",
+      "units": "annual per cent",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/FP.CPI.TOTL.ZG date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act II: the deflator-vs-CPI wedge",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1960,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_fp_cpi_totl_zg.csv",
+      "sha256": "2f5952683b47c1f1",
+      "synthetic": false
+    },
+    {
+      "key": "SI.POV.GINI",
+      "source": "World Bank WDI",
+      "code": "SI.POV.GINI",
+      "name": "Gini index",
+      "units": "index 0-100",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/SI.POV.GINI date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act V: the lognormal s behind the inequality term",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1963,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_si_pov_gini.csv",
+      "sha256": "506b02bb0c958704",
+      "synthetic": false
+    },
+    {
+      "key": "SP.DYN.LE00.IN",
+      "source": "World Bank WDI",
+      "code": "SP.DYN.LE00.IN",
+      "name": "Life expectancy at birth, total (years)",
+      "units": "years",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/SP.DYN.LE00.IN date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act V: the mortality term",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1960,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_sp_dyn_le00_in.csv",
+      "sha256": "74049c4c3dfe8c6b",
+      "synthetic": false
+    },
+    {
+      "key": "NE.CON.PRVT.PP.KD",
+      "source": "World Bank WDI",
+      "code": "NE.CON.PRVT.PP.KD",
+      "name": "Households and NPISHs Final consumption expenditure, PPP (constant 2021 international $)",
+      "units": "constant 2021 international $",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/NE.CON.PRVT.PP.KD date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act V: the consumption term",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1990,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_ne_con_prvt_pp_kd.csv",
+      "sha256": "dfeb5f07db50283c",
+      "synthetic": false
+    },
+    {
+      "key": "SP.POP.TOTL",
+      "source": "World Bank WDI",
+      "code": "SP.POP.TOTL",
+      "name": "Population, total",
+      "units": "persons",
+      "frequency": "annual",
+      "query": "api.worldbank.org/v2/country/BRA;USA;MEX/indicator/SP.POP.TOTL date=1960:2024 (via curl; Python TLS fails here)",
+      "verified_how": "self-confirming: the API payload carries the indicator's own name, quoted here verbatim",
+      "serves": "Act V: consumption per head",
+      "accessed": "2026-09-18",
+      "rows": 195,
+      "date_range": [
+        1960,
+        2024
+      ],
+      "file": "Videos/aula-01-measuring-the-economy/data/wdi_sp_pop_totl.csv",
+      "sha256": "88d9ad06f0698c37",
+      "synthetic": false
+    }
+  ]
+}

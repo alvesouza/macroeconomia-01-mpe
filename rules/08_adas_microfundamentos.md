@@ -78,12 +78,12 @@ uma "curva de Phillips novo-clássica": **desvios não antecipados de preço** r
 
 **Natural** ($y_n$) — o que prevaleceria com **preços flexíveis**:
 
-$$y_n = \frac{1+\eta}{\sigma^{-1}+\eta}\,a + \frac{\sigma^{-1}-1}{\sigma^{-1}+\eta}\,g - \frac{1}{\sigma^{-1}+\eta}\,\mu \tag{15}$$
+$$y_n = \frac{1+\eta}{\sigma^{-1}+\eta}\,a + \frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,g - \frac{1}{\sigma^{-1}+\eta}\,\mu \tag{15}$$
 
 **Eficiente** ($y_e$) — o que um planejador escolheria maximizando $u(C)-v(L)$ s.a.
 $Y=C+G$ e $Y=AL$:
 
-$$y_e = \frac{1+\eta}{\sigma^{-1}+\eta}\,a + \frac{\sigma^{-1}-1}{\sigma^{-1}+\eta}\,g \tag{19}$$
+$$y_e = \frac{1+\eta}{\sigma^{-1}+\eta}\,a + \frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,g \tag{19}$$
 
 $$\Longrightarrow\quad \boxed{y_n - y_e = -\frac{\mu}{\sigma^{-1}+\eta}}$$
 
@@ -124,11 +124,11 @@ SIGMA, ETA, KAPPA, RHO = 1.0, 1.0, 0.5, 0.02
 
 def y_natural(a=0.0, g=0.0, mu=0.0, sigma=SIGMA, eta=ETA):
     inv = 1 / sigma
-    return ((1 + eta) * a + (inv - 1) * g - mu) / (inv + eta)
+    return ((1 + eta) * a + inv * g - mu) / (inv + eta)
 
 def y_eficiente(a=0.0, g=0.0, sigma=SIGMA, eta=ETA):
     inv = 1 / sigma
-    return ((1 + eta) * a + (inv - 1) * g) / (inv + eta)
+    return ((1 + eta) * a + inv * g) / (inv + eta)
 
 # --- curvas ---
 AS = lambda y, pe, yn: pe + KAPPA * (y - yn)          # p = pe + kappa (y - yn)

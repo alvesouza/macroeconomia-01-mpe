@@ -1,0 +1,1201 @@
+---
+tags: [video, aula-04, explainer, script]
+date: 2026-09-22
+slug: aula-04-consumption
+---
+
+# Narration — Aula 4: Consumption and Saving, Microfounded
+
+Sources: Kurlat (2020) ch. 6, printed pp. 103–126.
+
+---
+
+## BeatOpen - 75 s
+
+Here is a household. One household, one utility function, one set of preferences.
+
+Hand it a thousand reais, once, as a one-off windfall. It consumes about **five hundred and
+ten** of them this year, and saves the rest.
+
+[pause]
+
+Now hand the same household a thousand reais a year, every year, from now on. How much of this
+year's thousand does it consume?
+
+**All of it.**
+
+[pause]
+
+Same household. Same preferences. Two marginal propensities to consume, differing by a factor
+of two — and *which* one applies depends not on who the household is, but on what it believes
+about the future.
+
+No consumption function of current income can produce that. It has one marginal propensity to
+consume, by construction.
+
+[pause]
+
+And there is a twist, which is where this session ends. Take the same household and forbid it
+from borrowing. Now both numbers become one hundred per cent, and the old Keynesian function
+of current income is exactly, precisely right.
+
+So this is not a video about a wrong theory being replaced by a right one. It is about a
+theory that tells you **which households** the old one describes — and why.
+
+## BeatKeynes - 95 s
+
+Let us start with what we are replacing, because it is not stupid.
+
+Keynes, nineteen thirty-six: consumption is a constant, plus a fraction of current disposable
+income. That fraction is the **marginal propensity to consume**.
+
+[pause]
+
+Keynes gave it two properties and called them a psychological law.
+
+First, the marginal propensity to consume is between zero and one. Give someone an extra real
+and they spend some of it and save the rest. Uncontroversial.
+
+Second — and this is the one that matters — the **average** propensity to consume falls as
+income rises. Look at the function: consumption over income is the constant, divided by income,
+plus the marginal propensity. As income grows, that first piece shrinks. So richer people save
+a larger share.
+
+[pause]
+
+This is the consumption function underneath the Keynesian cross and the textbook multiplier —
+one over one minus the marginal propensity to consume — and it is the reason that multiplier
+exceeds one.
+
+[pause]
+
+But notice its methodological status, because it is exactly the status of Assumption four point
+seven, the fixed saving rate we have been using for two sessions.
+
+It is a **rule**. Not a decision. Nobody in it is choosing anything, nobody is trading off
+anything, and no parameter in it is a preference. It is a description of behaviour that someone
+wrote down because it looked like the data.
+
+And that is fine, right up until you ask it a question it has no machinery to answer.
+
+## BeatKuznets - 120 s
+
+Here is the first question it cannot answer, and it is called the Kuznets puzzle.
+
+**In a cross-section of households**, the Keynesian function fits well. Take a survey, sort
+households by income, and richer households really do save a larger share. The average
+propensity to consume falls with income, exactly as predicted.
+
+[pause]
+
+**In long-run time series**, it fails completely.
+
+Simon Kuznets, in nineteen forty-six, looked at US data from the eighteen seventies to the
+nineteen forties. Over that period real income per head rose several times over. So if the
+average propensity to consume really falls with income, the aggregate saving rate should have
+climbed steadily, decade after decade.
+
+It did not. It was roughly **constant** across the whole period.
+
+[pause]
+
+So the same function cannot describe both facts. Something distinguishes "having a high income
+this year" from "being a high-income economy". And a function of current income cannot see
+that distinction, because current income is all it has.
+
+[pause]
+
+Here is the resolution, and I will state it now so you know where we are going.
+
+Consumption depends on **lifetime wealth**. So a household whose income is unusually high
+*this year* consumes a smaller share of it — because it knows this year is unusual.
+
+Now think about who is in the high-income group of a cross-section. Disproportionately, people
+having a **good year**. Not permanently rich people — people whose current income is above
+their own average. And those are exactly the people who save a lot.
+
+So the cross-sectional pattern is a **composition effect**, not a preference.
+
+And in the long run, when everybody's permanent income rises together, nobody is having an
+unusual year, and the saving rate does not move.
+
+Both facts. One model. That is Friedman's permanent income hypothesis, and we will derive it.
+
+## BeatThreeFacts - 115 s
+
+Two more failures, and they are worth having because each one names a mechanism the new model
+has to supply.
+
+**Fact two: consumption is much smoother than income.**
+
+Over the business cycle, the volatility of aggregate consumption growth is roughly half to
+two-thirds that of output growth. Non-durable consumption is smoother still.
+
+Now put the Keynesian function to that test. With a marginal propensity to consume around
+nought point seven to nought point nine — which is what cross-sections give you — consumption
+would be almost as volatile as income.
+
+And the function has no mechanism to do anything else. There is no borrowing in it. There is no
+saving motive. There is no future in it at all.
+
+[pause]
+
+**Fact three: consumption moves when things are announced, not when the money arrives.**
+
+A pre-announced tax rebate moves consumption at the date of the **announcement**. The cash
+arrives months later and, when it does, consumption barely twitches — it already moved.
+
+And a tax change that everyone knows is temporary moves consumption far less than one believed
+to be permanent, even when the cash amounts this year are identical.
+
+[pause]
+
+Neither of those is possible in a function of current income. Current income has not changed on
+the day of the announcement. Nothing observable has changed. Only **beliefs** changed.
+
+[pause]
+
+So the checklist for the model we are about to build:
+
+It must depend on **wealth**, so transitory and permanent income differ.
+
+It must **smooth**, with a parameter saying how strongly.
+
+It must say what happens when the **interest rate** moves — and be allowed to say "it depends".
+
+And — this is the one people forget — it must say **when the old function is right after all**.
+
+## BeatMethod - 90 s
+
+One more thing before we build, because this is the first time in the course we replace a rule
+with an optimisation problem, and the same move happens twice more — for labour supply in
+session five, and for price-setting in session eight.
+
+What exactly do we gain?
+
+[pause]
+
+**First, comparative statics become meaningful.** Ask the Keynesian function what happens when
+the interest rate rises. It has no answer — the interest rate does not appear in it. Ask a
+household that is choosing, and there is an answer, possibly an ambiguous one, which the model
+can then decompose into pieces.
+
+[pause]
+
+**Second, welfare becomes computable.** A utility function can be evaluated. A rule cannot. That
+is what finally lets us settle the question the Golden Rule left open two sessions ago — should
+this economy save more? With preferences in the model, that is a question with an answer.
+
+[pause]
+
+**Third, policy invariance.** A rule is fitted to data generated under one policy regime. There
+is no reason at all for it to survive a change in that regime — and this is the Lucas critique.
+A preference parameter is *meant* to survive, because it describes the household rather than
+the environment.
+
+[pause]
+
+Whether preference parameters really are stable is an empirical question, and a contested one.
+But the aspiration is coherent in a way that fitting a rule and extrapolating is not.
+
+## BeatPreferences - 115 s
+
+So. A household lives two periods. It consumes in both, and it values the pair.
+
+Utility is u of c-one, plus beta times u of c-two, with u increasing and concave, and beta
+between zero and one.
+
+Three assumptions are hiding in that line and each is doing work.
+
+[pause]
+
+**One: additive separability across time.** Utility today does not depend on what you consumed
+yesterday. That rules out habit formation — which is one of the main modifications the
+empirical literature makes — and it is what will make the Euler equation a relation between two
+adjacent periods and nothing else.
+
+**Two: concavity.** Diminishing marginal utility. The first unit of consumption matters more
+than the tenth. This is what makes a smooth path desirable — and it is the same curvature that
+produced risk aversion in session one, though here, under certainty, it has nothing to do with
+risk. It is a statement about trading consumption across *dates*.
+
+[pause]
+
+**Three: geometric discounting.** The discount factor between any period and the next is the
+same beta, whenever you are standing.
+
+That is what makes plans **time-consistent**: the plan you make today is still the plan you
+want to follow tomorrow. Drop it — make discounting hyperbolic — and your future self
+systematically overturns your present self's plan, which is the behavioural alternative we
+mention at the end.
+
+[pause]
+
+And one piece of bookkeeping that causes more errors than it should. Beta is a **factor**. Rho
+is a **rate**. Beta equals one over one plus rho.
+
+If beta is nought point nine six, then rho is one over nought point nine six, minus one — about
+four point two per cent. Not four per cent. Write which one you mean.
+
+## BeatBudget - 150 s
+
+Now the constraint.
+
+Period one: the household receives income y-one, consumes c-one, and puts whatever is left into
+assets, a. So c-one plus a equals y-one.
+
+And a can be **negative** — that is borrowing, and it will matter enormously later.
+
+Period two: the household receives y-two, plus its assets with interest. And since there is no
+period three, it consumes everything. So c-two equals y-two, plus one plus r, times a.
+
+[pause]
+
+Now eliminate a. From the first equation, a is y-one minus c-one. Substitute into the second:
+
+c-two equals y-two, plus one plus r, times the quantity y-one minus c-one.
+
+Rearrange — move the consumption terms to one side, the income terms to the other, and divide
+through — and you get the **intertemporal budget constraint**:
+
+**c-one, plus c-two over one plus r, equals y-one, plus y-two over one plus r.**
+
+Call the right-hand side W. Lifetime wealth.
+
+[pause]
+
+Three readings of that line, and all three get used.
+
+**First: one over one plus r is a price.** It is the price of future consumption, in units of
+present consumption. So this is an ordinary budget line with an ordinary relative price, and
+everything you already know about consumer theory applies to it. That is the main reason to
+write it this way.
+
+And here is the trap: future consumption is **divided** by one plus r, not multiplied. If you
+ever forget which, ask what a high interest rate should do. It should make future consumption
+**cheap**. So its price must be falling. Divided.
+
+[pause]
+
+**Second: W is the only feature of the income path that appears.** Not y-one, not y-two
+separately — only their present value. Two households with completely different income timing
+but the same W face the *same* problem and make the *same* choice.
+
+That single sentence is the permanent income hypothesis. Everything later in this video is its
+elaboration.
+
+[pause]
+
+**Third: the endowment point is always on the line.** Whatever r is, consuming exactly your
+income in each period is feasible — you just set a to zero.
+
+So when r changes, the budget line **pivots about the endowment**. It does not shift. Hold that
+picture: it is the entire content of the interest-rate discussion in Act Three.
+## BeatEuler - 175 s
+
+Now solve it. And I want to do this three ways, because the three routes teach different
+things and exam questions ask for different ones.
+
+**Route one: substitution.**
+
+The constraint says c-two equals one plus r, times the quantity W minus c-one. So substitute
+that into the objective, and now we are maximising over a single variable.
+
+Differentiate with respect to c-one. The first term gives u prime of c-one. The second gives
+beta, times u prime of c-two, times the derivative of c-two with respect to c-one — which is
+minus one plus r.
+
+Set it to zero:
+
+**u prime of c-one equals beta, times one plus r, times u prime of c-two.**
+
+[pause]
+
+**Route two: the Lagrangian.** Put a multiplier lambda on the intertemporal constraint.
+
+Differentiate with respect to c-one: u prime of c-one equals lambda.
+
+Differentiate with respect to c-two: beta times u prime of c-two equals lambda over one plus r.
+
+Divide the first by the second. Lambda cancels, and the same condition falls out.
+
+And notice in passing what lambda is: it is the **marginal utility of wealth**. Remember that
+object — in session eight it becomes the multiplier in front of the aggregate demand curve.
+
+[pause]
+
+**Route three: the perturbation argument.** This is the one to give if someone asks for
+intuition rather than algebra, and it is the one worth being able to say out loud.
+
+Start from any candidate plan — any plan at all. Now consider a small deviation: consume one
+unit less today, and invest it.
+
+What does that cost? One unit of consumption today, valued at its marginal utility: u prime of
+c-one.
+
+What does it earn? The unit becomes one plus r units tomorrow. Each is worth u prime of c-two
+in tomorrow's utility, and tomorrow's utility is discounted by beta. So the benefit is beta,
+times one plus r, times u prime of c-two.
+
+[pause]
+
+Now here is the argument. **If you are at an optimum, no such deviation can make you better
+off.** If the benefit exceeded the cost you would save more; if the cost exceeded the benefit
+you would save less. So at the optimum they are exactly equal.
+
+That is the **Euler equation**, and every route gives the same thing.
+
+[pause]
+
+The reading that matters: divide both sides by the marginal utility of future consumption and
+you get the ratio of marginal utilities equal to beta times one plus r.
+
+That is a tangency condition. The marginal rate of substitution between present and future
+consumption equals their relative price. It is ordinary consumer theory, in a costume that
+says "dates" instead of "apples and oranges".
+
+## BeatSmoothing - 90 s
+
+Now read the Euler equation for the case that will be the benchmark for the rest of the course.
+
+Suppose beta times one plus r equals exactly one. Equivalently — since beta is one over one
+plus rho — suppose the interest rate equals the discount rate. r equals rho.
+
+[pause]
+
+Then the Euler equation says u prime of c-one equals u prime of c-two.
+
+And u prime is strictly decreasing, so it is invertible: if two marginal utilities are equal,
+the consumptions are equal.
+
+**c-one equals c-two.** A perfectly flat consumption path.
+
+[pause]
+
+Now notice what is *not* in that conclusion. Nothing about income. The household's income could
+be a thousand in period one and nothing in period two, or the reverse, or anything in between.
+
+As long as the interest rate equals the discount rate, it consumes the same amount in both
+periods, and uses saving or borrowing to absorb the entire difference.
+
+**That is consumption smoothing, and it is a theorem, not an assumption.**
+
+[pause]
+
+And when they are not equal?
+
+If r exceeds rho — the market pays more than the household's own impatience demands — the
+household tilts consumption **towards the future**. It postpones. c-two exceeds c-one.
+
+If r is below rho — impatience wins — it tilts **towards the present**.
+
+So the interest rate and impatience are pulling against each other, and the Euler equation is
+the referee.
+
+## BeatClosedForms - 170 s
+
+Let us get actual numbers out. Pick a utility function.
+
+**Logarithmic utility first.** u of c is the natural log of c, so u prime is one over c.
+
+The Euler equation becomes: one over c-one equals beta times one plus r, over c-two.
+
+Cross-multiply: **c-two equals beta, times one plus r, times c-one.**
+
+[pause]
+
+Now put that into the budget constraint. c-one, plus c-two over one plus r — and c-two over one
+plus r is just beta times c-one, because the one plus r cancels.
+
+So c-one, plus beta c-one, equals W. Factor:
+
+**c-one equals W over one plus beta.**
+
+[pause]
+
+Two remarkable things about that expression, and they are worth pausing on.
+
+**First: the interest rate does not appear**, except inside W. Given lifetime wealth, changing
+the interest rate does not change current consumption at all. We will see in the next act
+exactly why — two effects cancel — but you can already see the cancellation sitting in the
+formula.
+
+**Second: the share of wealth consumed today depends only on impatience.** One over one plus
+beta. With beta at nought point nine six, that is nought point five one.
+
+Fifty-one per cent of lifetime wealth, consumed in the first of two periods. Hold that number —
+it is the first of the two headline MPCs from the cold open.
+
+[pause]
+
+**Now the general case.** Constant relative risk aversion: u prime of c is c to the minus sigma.
+
+The Euler equation reads c-one to the minus sigma equals beta, one plus r, times c-two to the
+minus sigma. Rearranging for the ratio:
+
+**c-two over c-one equals beta times one plus r, all raised to the power one over sigma.**
+
+[pause]
+
+Substitute that into the budget constraint and solve, and you get c-one equals W, over one plus
+beta to the one over sigma, times one plus r to the power one-over-sigma minus one.
+
+Check it nests the log case. Set sigma to one. The exponent one over sigma, minus one, is zero.
+One plus r to the power zero is one. The denominator collapses to one plus beta.
+
+It checks.
+
+[pause]
+
+And look at that exponent — one over sigma, minus one — because it is about to do all the work.
+It is **positive** when sigma is below one, and **negative** when sigma is above one. Which
+means the denominator moves in opposite directions depending on sigma, which means consumption
+does too.
+
+The entire ambiguity of the next act is sitting in that one exponent, before we decompose
+anything.
+
+## BeatEIS - 120 s
+
+One more thing to extract from that closed form, because the terminology trips people up
+permanently.
+
+Take the CRRA Euler equation in ratio form and take logs.
+
+Log of c-two minus log of c-one equals one over sigma, times the quantity log beta plus log of
+one plus r. And to first order, that is one over sigma, times r minus rho.
+
+[pause]
+
+So differentiate: the responsiveness of the log consumption **path** to the log interest rate is
+**one over sigma**.
+
+That object has a name. It is the **elasticity of intertemporal substitution** — how strongly
+the household is willing to tilt its consumption path when the price of tilting changes.
+
+[pause]
+
+And sigma itself — the curvature of the utility function — is the coefficient of **relative risk
+aversion**, which is what governs behaviour under uncertainty.
+
+So: risk aversion is sigma. The elasticity of intertemporal substitution is one over sigma.
+They are **reciprocals**.
+
+[pause]
+
+Now here is the thing worth saying out loud, because it is a genuine limitation rather than a
+piece of trivia.
+
+There is no economic reason those two should be reciprocals. One is about attitudes to
+**risk** — gambles at a point in time. The other is about attitudes to **timing** — smoothness
+across dates. They are different questions.
+
+They come out as reciprocals because we chose a utility function with a single curvature
+parameter, and that one parameter has to do both jobs.
+
+It is an artefact of CRRA. Epstein-Zin preferences exist precisely to break the link and let
+the two be set separately.
+
+For this course they are reciprocals. But know why.
+
+[pause]
+
+And note, before it appears again: that log-linear Euler equation we just wrote is, essentially
+verbatim, equation four of Benigno's paper. In session eight it becomes the aggregate demand
+curve of the whole New-Keynesian model. Same object. Met twice.
+
+## BeatPivot - 115 s
+
+Now the question everyone gets wrong. **Do higher interest rates encourage saving?**
+
+The answer people give is yes, obviously — saving pays more, so people do more of it.
+
+Let us see.
+
+[pause]
+
+There are two channels, and they are the standard pair from consumer theory.
+
+**The substitution effect.** A higher r makes future consumption cheaper relative to present
+consumption. So substitute towards it: consume less now, save more.
+
+That channel always pushes saving **up**, for everybody, because it is purely about relative
+prices.
+
+[pause]
+
+**The income effect.** And here is where it gets interesting, because the sign depends on who
+you are.
+
+Go back to the geometry. When r rises, the budget line gets **steeper**, and it pivots about
+the **endowment point** — which stays affordable no matter what.
+
+Now: a **lender** consumes less than their income in period one, so they sit to the **left** of
+the endowment. And to the left of the pivot, the new steeper line lies **above** the old one.
+
+Their feasible set has expanded. **They are richer.**
+
+[pause]
+
+And richer households consume more of everything, including consumption today. So the income
+effect **reduces** their saving — it works *against* the substitution effect.
+
+[pause]
+
+A **borrower** sits to the **right** of the endowment. There, the new line lies **below** the
+old one. They are **poorer** — their debt just got more expensive. So they cut consumption
+today, which **increases** saving.
+
+For a borrower, both effects push the same way.
+
+[pause]
+
+So, before any algebra: for a **borrower**, a higher interest rate unambiguously raises saving.
+For a **lender**, the two effects oppose, and which wins is a quantitative question.
+
+And lenders are, of course, the households that do most of the saving.
+
+## BeatDecomposition - 125 s
+
+Let us make that exact, because "it depends" is only useful if you can say on what.
+
+Take the CRRA closed form. Consumption today is W over D, where D is that denominator with the
+awkward exponent in it. Both W and D depend on the interest rate.
+
+Take logs: log c-one equals log W minus log D.
+
+Differentiate with respect to log of one plus r. Two terms, and they are exactly our two
+channels.
+
+[pause]
+
+**The wealth term first.** W is y-one plus y-two over one plus r. So the derivative of W with
+respect to one plus r is minus y-two over one plus r, squared.
+
+Convert to an elasticity — multiply by one plus r over W — and you get minus, the present value
+of future income, over total wealth.
+
+Call that ratio omega. It is the **share of lifetime wealth that comes from future income**, and
+it is between zero and one.
+
+So the wealth term is simply **minus omega**.
+
+[pause]
+
+Think about what omega measures. A household whose income is mostly still ahead of it — a
+student, a young worker — has omega near one. A retiree living off accumulated assets has omega
+near zero.
+
+It is a measure of how back-loaded your income is. And it is about to decide the sign.
+
+[pause]
+
+**The substitution term.** Differentiate log D. The algebra gives you theta, times the quantity
+one over sigma minus one — where theta is the share of wealth consumed in period two, also
+between zero and one.
+
+Put the two together:
+
+**The elasticity of current consumption with respect to the gross interest rate is minus omega,
+minus theta times one over sigma minus one.**
+
+[pause]
+
+And saving is income minus consumption, so the effect on **saving** is the opposite sign of the
+effect on consumption.
+
+That single line contains everything. Let us read it.
+
+## BeatThreeCases - 145 s
+
+Three cases, from one formula.
+
+**Case one: sigma equals one — log utility.** Then one over sigma minus one is zero, and the
+second term vanishes entirely.
+
+So the elasticity is just minus omega. Consumption falls when r rises — but *only* because the
+present value of future income fell. Given wealth, the interest rate does nothing to the
+allocation at all.
+
+[pause]
+
+That is the **knife-edge**. Income and substitution effects cancel exactly. It is why log
+utility is the default benchmark in this course — not because it is realistic, but because it
+is the case where the ambiguity has been resolved by construction, so you can see everything
+else clearly.
+
+[pause]
+
+**Case two: sigma below one — a high elasticity of intertemporal substitution.** Then one over
+sigma minus one is positive, so the second term is negative too. Consumption falls by *more*
+than the wealth effect alone.
+
+**Substitution dominates. Saving rises with the interest rate.** This is the case everyone
+assumes is universal.
+
+[pause]
+
+**Case three: sigma above one — a low elasticity of intertemporal substitution.** Now one over
+sigma minus one is negative, so the second term is **positive** and works against the wealth
+term.
+
+Make sigma large enough and consumption actually **rises** with the interest rate. **Saving
+falls.**
+
+Why? The household is so unwilling to tilt its consumption path that a higher return does not
+tempt it to postpone. It simply notices it is richer, and spends some of the proceeds.
+
+[pause]
+
+And standard macro calibrations put sigma between one and two — right at, or slightly past,
+the knife-edge.
+
+So: "higher interest rates encourage saving" is not a theorem. It is a claim about a parameter
+that the profession has been arguing about for forty years, with estimates of the elasticity of
+intertemporal substitution running from near zero to above one.
+
+And notice where else that argument lands. In session eight, sigma is the slope of the
+aggregate demand curve. A low elasticity means a steep AD curve and a **weak** interest-rate
+channel — which is to say, the unsettled question about household saving is the same unsettled
+question about how much a central bank can actually do.
+
+## BeatPolicyCorollary - 90 s
+
+One immediate application, because it shows what a decomposition buys you over an opinion.
+
+Governments frequently try to raise national saving with tax-favoured savings accounts — a
+retirement account whose returns are untaxed. In our terms, that raises the after-tax r for the
+people who use it.
+
+Does national saving rise?
+
+[pause]
+
+Take the three groups in turn.
+
+For **borrowing or constrained households**, the effect on saving is unambiguously positive —
+both channels push the same way, as we established. But those are exactly the households least
+likely to have a tax-favoured retirement account, because they have nothing to put in it.
+
+For **lenders**, the effect is ambiguous, and possibly negative. And those are precisely the
+households that do hold such accounts.
+
+In the **log benchmark**, the effect on the allocation is exactly zero.
+
+[pause]
+
+And now the part that is usually left out. The scheme is funded by forgone tax revenue. Forgone
+revenue is a larger deficit. A larger deficit is negative **public** saving.
+
+So: an ambiguous and possibly zero effect on private saving, financed by a definite reduction
+in public saving.
+
+**National saving can easily fall.**
+
+[pause]
+
+That is the standard critique of savings-incentive policy, and notice how we got there. Not by
+an opinion about whether such schemes are good. By a decomposition, a sign, and an accounting
+identity.
+## BeatTwoMPCs - 150 s
+
+Now the central result of the session, and the two numbers from the cold open.
+
+Work in the log case, where consumption today is W over one plus beta. That means the marginal
+propensity to consume out of anything is one over one plus beta, times how much that thing
+changes **wealth**.
+
+So everything reduces to one question: how much does this shock move W?
+
+[pause]
+
+**Transitory shock.** Income today rises by delta. Income tomorrow is unchanged.
+
+Wealth rises by exactly delta.
+
+So consumption rises by delta over one plus beta. With beta at nought point nine six, that is
+**nought point five one** times delta.
+
+And saving absorbs the rest — beta over one plus beta, about **nought point four nine**. Half
+the windfall is saved.
+
+[pause]
+
+**Permanent shock.** Income rises by delta today **and** by delta tomorrow.
+
+Now wealth rises by delta, plus delta over one plus r. Factor: delta times two plus r, over one
+plus r.
+
+With r at four per cent, that factor is about one point nine six. So wealth rises by nearly
+twice the annual amount — which makes sense, because you are getting the raise twice.
+
+Consumption rises by nought point five one, times one point nine six, times delta.
+
+**Which is delta.** One hundred per cent.
+
+[pause]
+
+There they are.
+
+Marginal propensity to consume out of transitory income: **about a half**.
+
+Out of permanent income: **essentially one**.
+
+The same household. The same preferences. The same utility function. The difference is entirely
+in what the household believes about the future.
+
+[pause]
+
+And here is a check worth doing, because it tells you the result is not an accident of the
+numbers.
+
+When is the permanent MPC exactly one? When beta times one plus r equals one — that is, when r
+equals rho.
+
+Because then the household already wants a perfectly flat path. A permanent income rise shifts
+the whole path up one-for-one, and there is nothing left to smooth. Saving does not move at all.
+
+With beta at nought point nine six, rho is four point two per cent against an r of four, so we
+are a hair off — and the MPC comes out a hair below one. Exactly as it should.
+
+## BeatHorizon - 100 s
+
+Now, students often expect the transitory MPC to be near **zero**, not near a half. The
+reasoning is: a one-off windfall gets spread over a whole lifetime, so the amount consumed this
+year should be tiny.
+
+That reasoning is correct. The number is wrong because our model has a **two-period** lifetime.
+Spread over two periods, half. The intuition is right; the horizon is short.
+
+[pause]
+
+So generalise it. Suppose there are T periods left, the household wants a flat path — set r
+equal to rho so smoothing is exactly desired — and a windfall of delta arrives now.
+
+It must be spread over T periods. So consumption rises by roughly **delta over T** in each of
+them.
+
+The marginal propensity to consume out of transitory income is about **one over T**.
+
+[pause]
+
+Put numbers on it. A household with forty years left, receiving a one-off thousand reais,
+raises annual consumption by about twenty-five reais. An MPC of nought point zero two five.
+
+Against a permanent raise of a thousand a year, where the MPC is still essentially one.
+
+[pause]
+
+So the gap between the two MPCs is not a factor of two. In a realistic lifetime it is a factor
+of **forty**.
+
+And that is why this matters for policy. A one-off stimulus cheque and a permanent tax cut of
+the same annual size are, to this model, almost entirely different instruments — even though
+they put identical amounts of cash in the household's hands this year.
+
+## BeatKuznetsResolved - 120 s
+
+Let us go back and close the Kuznets puzzle properly, because we now have the machinery.
+
+The puzzle: in a cross-section, richer households save more of their income. In long-run time
+series, the aggregate saving rate does not move as income grows. Both are facts.
+
+[pause]
+
+Take the cross-section first. You survey a thousand households and sort by **current** income.
+
+Who is in the top group? Two kinds of people. Genuinely rich households — high permanent
+income. And ordinary households having an unusually **good year** — a bonus, a good harvest, a
+one-off contract.
+
+And who is in the bottom group? Genuinely poor households, and ordinary households having a
+**bad year**.
+
+[pause]
+
+Now apply what we just derived. A household having a good year has current income above its
+permanent income. Its consumption is set by permanent income. So it consumes a **small share**
+of this year's income and saves the rest.
+
+And the household having a bad year consumes a **large share** — larger than one, in fact; it
+dissaves.
+
+[pause]
+
+So the top income group saves a lot and the bottom group saves little — not because rich people
+are thriftier, but because the top group is **stuffed with people having a good year**.
+
+It is a composition effect. Sort on a variable that contains a transitory component, and you
+sort partly on that transitory component.
+
+[pause]
+
+And now the time series. When an economy grows over decades, everybody's **permanent** income
+rises together. Nobody is having an unusual year. The transitory component is not systematically
+different. So the saving rate does not move.
+
+[pause]
+
+Both facts. One model. And notice what the model had to have in order to do this: a distinction
+between current and permanent income — which the Keynesian function structurally cannot contain,
+because current income is its only argument.
+
+## BeatRandomWalk - 80 s
+
+One more implication, stated rather than derived, because deriving it properly needs machinery
+this course does not cover.
+
+If consumption is set by expected lifetime wealth, then consumption should change **only when
+expected lifetime wealth changes** — which is to say, only on **news**.
+
+Anything you already knew was going to happen is already in your wealth calculation, and
+therefore already in your consumption.
+
+[pause]
+
+So: income rising next month, as scheduled, should not move consumption next month. It moved
+when you learned about it.
+
+Which means the change in consumption should be unforecastable. Consumption should follow a
+**random walk** — Hall, nineteen seventy-eight.
+
+[pause]
+
+And that is a startlingly sharp prediction, because it says something about the *statistical
+properties* of a time series rather than about a sign. It can be tested directly.
+
+It fails. Not catastrophically, but clearly. Consumption responds to **predictable** income
+changes — more than it should. That is the **excess sensitivity** puzzle, and it has been the
+central empirical fact of consumption research for forty-odd years.
+
+[pause]
+
+Hold on to it, because the last act of this video supplies the leading explanation — and it
+turns out not to require abandoning anything we have built.
+
+## BeatTaxes - 100 s
+
+Now put a government in, and something surprising happens.
+
+Let the government levy lump-sum taxes: T-one in the first period, T-two in the second.
+
+The household's budget constraint now uses **disposable** income: y-one minus T-one, and y-two
+minus T-two.
+
+[pause]
+
+Collect the terms. Wealth is what it was, minus the quantity T-one plus T-two over one plus r.
+
+So only the **present value of taxes** enters. Nothing about their timing appears anywhere at
+all.
+
+That is already interesting, and it follows from nothing more than the budget constraint.
+
+[pause]
+
+But now add a second constraint we have not used: the **government's own**.
+
+The government spends G-one and G-two, and collects T-one and T-two. With no initial debt and
+no ability to run off with the money, its intertemporal budget constraint is:
+
+**the present value of spending equals the present value of taxes.**
+
+[pause]
+
+Now substitute that into the household's constraint. Wherever the present value of taxes
+appears, replace it with the present value of spending.
+
+And you get:
+
+**c-one, plus c-two over one plus r, equals y-one, plus y-two over one plus r, minus G-one,
+minus G-two over one plus r.**
+
+[pause]
+
+Look at that line carefully, because it is the whole result.
+
+The household's budget constraint contains **G**. And it does **not contain T** — at all. T has
+vanished completely.
+
+The household cares how much the government **spends**, because spending consumes real
+resources that the household could otherwise have had. It does not care at all **when the
+government collects the money**.
+
+## BeatRicardian - 135 s
+
+That result has a name — **Ricardian equivalence** — and it is worth stating precisely and then
+walking through the mechanism, because the mechanism is what makes it believable.
+
+**The statement:** holding government spending fixed, a change in the *timing* of taxes leaves
+the household's budget set, and therefore its consumption, completely unchanged.
+
+[pause]
+
+Now the mechanism, concretely.
+
+The government cuts this year's taxes by delta and borrows to cover the shortfall. Next period
+it must repay that borrowing with interest, so next period's taxes rise by one plus r, times
+delta.
+
+What happens to the household?
+
+Its disposable income rises by delta today. And falls by one plus r, times delta, tomorrow.
+
+Present value of that change: delta, minus one plus r delta, over one plus r.
+
+**Zero.** Exactly zero. The one plus r cancels.
+
+[pause]
+
+So the household's wealth has not changed, and therefore its consumption does not change — not
+today, not tomorrow.
+
+But it has an extra delta of cash in its hands today. What does it do with it?
+
+**It saves every cent of it.** Because it knows the tax bill is coming, and it needs exactly
+that amount, with interest, to pay it.
+
+[pause]
+
+Now add up national saving.
+
+Private saving rises by delta. Public saving falls by delta — that is what the deficit is.
+National saving: **unchanged**.
+
+[pause]
+
+So a deficit-financed tax cut is not stimulus. It is a **forced loan** — the government hands
+you money and simultaneously commits you to paying it back, and you, being able to see this,
+simply set the money aside.
+
+[pause]
+
+And notice this is not a claim about whether people are clever. It is a claim about what the
+budget constraint permits. If the household *did* spend the tax cut, it would be unable to pay
+next period's taxes without cutting consumption then — and it already decided it did not want
+a lumpy consumption path.
+
+Which is exactly why the result is so fragile, and why the next beat is a list of assumptions.
+
+## BeatFiveAssumptions - 130 s
+
+Kurlat lists five assumptions behind that result, and they are examinable as a list. More
+usefully: each one names a **way it fails**, and every real-world objection you have ever heard
+is one of these five.
+
+[pause]
+
+**One: households understand the government's budget constraint.** They have to see the future
+tax bill coming. If they simply do not, the tax cut looks like a windfall and gets spent.
+
+**Two: expected government spending does not change.** If people read a tax cut as a signal
+that spending will eventually be cut too, then wealth genuinely has risen, and consumption
+genuinely should move.
+
+[pause]
+
+**Three: the government and households borrow and lend at the same rate — and everyone can
+borrow at all.** This is the big one, and it gets its own beat next, because it is the one that
+actually fails.
+
+**Four: taxes are lump-sum.** If taxes depend on your behaviour — an income tax, a consumption
+tax — then changing them changes relative prices, and allocations move for reasons that have
+nothing to do with wealth.
+
+**Five: an infinite horizon, or bequests that people actually care about.** With finite lives,
+some of that future tax falls on people not yet born. The present generation really is richer,
+and really does spend. Barro's answer is that altruistic bequests restore the result — you care
+about your children's tax bill as if it were your own.
+
+[pause]
+
+And now Kurlat's own warning, which he flags because people get it wrong constantly.
+
+Ricardian equivalence does **not** say that government policy is irrelevant. It says nothing
+whatsoever about what happens when the government changes **spending**.
+
+Look back at the constraint we derived: G is in it, plainly, with a minus sign. A rise in
+government spending lowers household consumption, one-for-one in present value. That is a real
+effect, and this model has it.
+
+**The only thing that is irrelevant is the timing of taxes, everything else held equal.**
+
+## BeatConstraints - 155 s
+
+Now let us break assumption three, because it is the one that breaks in reality.
+
+Add a restriction: the household **cannot borrow**. Assets must be non-negative. Equivalently,
+consumption today cannot exceed income today.
+
+[pause]
+
+Two cases.
+
+**If the unconstrained optimum already had positive saving**, nothing changes. The constraint is
+there but it does not bind. A saver never notices a borrowing limit.
+
+**If the unconstrained optimum wanted to borrow** — a household with low income now and high
+expected income later; a student, a young worker, someone between jobs — then the constraint
+binds, and the solution is the corner.
+
+**c-one equals y-one. c-two equals y-two.**
+
+[pause]
+
+The household consumes its income, each period, exactly.
+
+Look at what that is. It is **hand-to-mouth** behaviour — and it is precisely the Keynesian
+consumption function, which we spent the first act criticising.
+
+It is not wrong. It is the correct solution to the correct problem for **this** household.
+
+[pause]
+
+And there is a technical point here that is one of the most common errors in the whole subject.
+
+At the corner, the Euler equation **does not hold as an equality**. The household would *like*
+to move consumption forward and cannot. So the marginal utility of consumption today is
+**greater** than the discounted marginal benefit of saving.
+
+The Euler equation becomes an **inequality**. Writing it as an equality at a binding constraint
+is simply a wrong answer — it is the standard way to get a Kuhn-Tucker problem wrong.
+
+[pause]
+
+Now the three consequences, which are the point of the whole beat.
+
+**One: the MPC out of transitory income jumps to one.** Give this household a windfall and it
+consumes all of it, immediately — because it was liquidity-constrained and wanted to consume
+more all along.
+
+And there is our resolution of the **excess sensitivity** puzzle. Estimated rebate MPCs of
+nought point two to nought point four are perfectly consistent with theory once you accept that
+a fraction of households is constrained.
+
+**Two: Ricardian equivalence fails.** A tax cut today **relaxes a binding constraint**. The
+household wanted to borrow against its future income and could not; the government has now
+borrowed on its behalf. That is genuine stimulus.
+
+**Three: the timing of income matters again.** The one variable permanent income theory told us
+was irrelevant is, for these households, the only thing that matters.
+
+## BeatTwoTypes - 110 s
+
+So which is it? Are households permanent-income optimisers, or are they hand-to-mouth?
+
+The answer the literature settled on is: **both, in proportions**.
+
+Let a fraction chi of households be unconstrained — they behave exactly as Act Four described.
+And one minus chi be constrained — they behave exactly as the last beat described.
+
+[pause]
+
+Then the aggregate marginal propensity to consume is a weighted average.
+
+The unconstrained households have an MPC of roughly r over one plus r out of a transitory
+windfall — tiny, because they spread it over a long horizon.
+
+The constrained households have an MPC of **one**.
+
+So aggregate MPC is approximately chi times something near zero, plus one minus chi, times one.
+Which is essentially **one minus chi** — the constrained share.
+
+[pause]
+
+Empirically, the constrained share is commonly estimated around thirty per cent. Which gives an
+aggregate MPC around **nought point three three**.
+
+And that is right in the middle of the range estimated from actual tax rebates.
+
+[pause]
+
+Notice what just happened. We started with a model whose central prediction was an MPC near
+zero out of transitory income. The data said nought point three. Rather than abandoning the
+model, we recognised that it describes one type of household, added the type it does not
+describe, and recovered the number.
+
+[pause]
+
+And hold on to this two-type structure, because it is not a patch. In session nine it becomes
+the **entire mechanism** — Eggertsson and Krugman's deleveraging model is exactly this, borrowers
+and savers, and it is what produces fiscal multipliers above one at the zero lower bound.
+
+The thing we are adding as a caveat here becomes the engine there.
+
+## BeatPrecaution - 80 s
+
+One last extension, and it is quick, because the machinery is already familiar.
+
+Drop certainty. Make second-period income **random**.
+
+The Euler equation barely changes — it just picks up an expectation: marginal utility today
+equals beta, one plus r, times the **expected** marginal utility tomorrow.
+
+[pause]
+
+Now ask what uncertainty itself does. And the answer turns on a property of the **third**
+derivative.
+
+If marginal utility is **convex** — if u triple prime is positive — then by Jensen's inequality
+the expected marginal utility exceeds the marginal utility of the expected consumption.
+
+[pause]
+
+And that means the right-hand side of the Euler equation is larger than it would be under
+certainty. To restore equality, marginal utility today must be larger — so consumption today
+must be **smaller**.
+
+**Uncertainty raises saving.** That is precautionary saving, and it requires nothing but a
+convex marginal utility, which CRRA has.
+
+[pause]
+
+Take note of what just did the work: **Jensen's inequality**, for the third time in this course.
+It priced substitution bias in session one. It priced inequality in the welfare measure. And now
+it prices risk.
+
+Same mathematical fact, three completely different economic costumes. That is worth noticing
+about how this subject is built.
+
+## BeatClose - 110 s
+
+Here is the frame to hold.
+
+One budget line. The endowment marked on it — your income, in both periods. The optimum marked
+on it — your consumption. And the horizontal distance between them is your **saving**.
+
+That is the entire theory of consumption: a household trading along a line, with the interest
+rate as the slope and its own impatience as the shape of its indifference curves.
+
+[pause]
+
+Now drop a wall at the endowment — the borrowing limit.
+
+The optimum slides back onto the endowment. Saving collapses to zero. And the marginal
+propensity to consume flips from nought point five one to **one**.
+
+Same diagram. Same household. Two entirely different theories of consumption, separated by
+whether one line can be crossed.
+
+[pause]
+
+So what have we got?
+
+Consumption depends on **wealth**, not income. Transitory and permanent shocks therefore have
+completely different effects, which resolves Kuznets. A higher interest rate has an **ambiguous**
+effect on saving, and we can name the parameter that decides it. The timing of taxes is
+irrelevant — unless a constraint binds, in which case it is everything.
+
+[pause]
+
+And two handovers.
+
+The saving rate is now a **function** — of r, of impatience, of the whole expected income path.
+That is exactly what session six needs to finally close the model and determine the interest
+rate in equilibrium, rather than reading it off the production function.
+
+And the Euler equation we derived today is, essentially verbatim, equation three of the paper
+we study in session eight — where it becomes the aggregate demand curve of the entire
+New-Keynesian model.
+
+You have already built it. Next session: labour.

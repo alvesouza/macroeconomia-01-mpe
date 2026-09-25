@@ -1,0 +1,263 @@
+<title>The Multiplier Bench</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Benigno (2015) · §8 · Tables 1–2 · printed pages 514–516</p>
+  <h1>The Multiplier Bench</h1>
+  <p class="lede">Six fiscal multipliers, all of them functions of three parameters. The page
+  exists for one comparison: the multiplier on <em>output</em> against the multiplier on the
+  <em>gap</em>. They differ by an order of magnitude, and for a consumption-tax cut they differ
+  in sign.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="answer">
+      <div>
+        <div class="k">Spending now, on output — m<sub>g</sub></div>
+        <div class="v" id="ansOut">0.000</div>
+        <div class="w" id="ansOutW"></div>
+      </div>
+      <div>
+        <div class="k">Spending now, on the gap — m<sub>ḡ</sub></div>
+        <div class="v" id="ansGap">0.000</div>
+        <div class="w" id="ansGapW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 400" role="img"
+             aria-label="Multipliers as a function of the inverse Frisch elasticity"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>m<sub>g</sub> — output</span>
+        <span style="color:var(--as)"><i class="swatch"></i>m<sub>ḡ</sub> — the gap</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>m<sub>τc</sub> — consumption tax, output</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>unit multiplier</span>
+      </div>
+      <p class="note">Every curve is the Table 1 expression evaluated at the current α and σ, over
+      η from 0 to 1.5, on a 240-point grid. The vertical marker is your η.</p>
+    </div>
+
+    <div class="card">
+      <p class="note" style="border-top:0"><b>On output</b> — eq. (22):
+      y = m<sub>g</sub>g − m<sub>ḡ</sub>ḡ − m<sub>τ</sub>τ − m<sub>τ̄</sub>τ̄ − m<sub>τc</sub>τ<sub>c</sub>
+      + m<sub>τ̄c</sub>τ̄<sub>c</sub></p>
+      <div class="bars" id="barsOut"></div>
+      <p class="note"><b>On the gap against the natural rate</b> — eq. (23):
+      y − y<sub>n</sub> = m<sub>ḡ</sub>(g − ḡ) + m<sub>τ̄</sub>(τ − τ̄) − m<sub>τ̄c</sub>(τ<sub>c</sub> − τ̄<sub>c</sub>).
+      Only differences appear: permanent fiscal policy cannot move the gap.</p>
+      <div class="bars" id="barsGap"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The three parameters</legend>
+      <div class="ctl">
+        <label for="alpha"><span class="sym">α</span> sticky-price firms</label><output id="alphaV"></output>
+        <p class="hint">Price duration D = 1/(1−α). α = 0.66 is three quarters.</p>
+        <input type="range" id="alpha" min="0.30" max="0.95" step="0.01" value="0.66">
+      </div>
+      <div class="ctl">
+        <label for="sigma"><span class="sym">σ</span> substitution, scaled to output</label><output id="sigmaV"></output>
+        <p class="hint">Scales every consumption-tax multiplier one-for-one: m<sub>τc</sub> = σm<sub>g</sub>.</p>
+        <input type="range" id="sigma" min="0.25" max="1.50" step="0.05" value="0.50">
+      </div>
+      <div class="ctl">
+        <label for="eta"><span class="sym">η</span> inverse Frisch elasticity</label><output id="etaV"></output>
+        <p class="hint">The parameter the gap multipliers are made of: every one of them is
+        proportional to η or vanishes with it.</p>
+        <input type="range" id="eta" min="0" max="1.50" step="0.05" value="0.20">
+      </div>
+    </fieldset>
+    <div class="stats" style="border:0;border-top:1px solid var(--rule);border-radius:0">
+      <div><div class="k">AS slope κ</div><div class="v" id="kOut"></div><div class="n">(1−α)(σ⁻¹+η)/α</div></div>
+      <div><div class="k">Price duration</div><div class="v" id="durOut"></div><div class="n">quarters, D = 1/(1−α)</div></div>
+      <div><div class="k">Gap-to-output ratio</div><div class="v" id="ratioOut"></div><div class="n">m<sub>ḡ</sub> / m<sub>g</sub></div></div>
+      <div><div class="k">Crowding out</div><div class="v" id="crowdOut"></div><div class="n">1 − m<sub>g</sub>, per unit of g</div></div>
+    </div>
+    <div class="btns">
+      <button type="button" id="rowA">Table 2, row 1</button>
+      <button type="button" id="rowE">Table 2, row 5</button>
+      <button type="button" id="linear">η = 0 (linear disutility)</button>
+      <button type="button" id="reset">Reset</button>
+    </div>
+    <p class="verdict" id="verdict"></p>
+  </div>
+</div>
+
+<div class="card">
+  <p class="note" style="border-top:0"><b>Table 2 of the article, p. 516.</b> The row matching your
+  parameters is highlighted; “computed” is this page evaluating Table 1, “printed” is Benigno’s
+  own figure. Agreement to two decimals is the check that the formulas here are the article’s.</p>
+  <div class="tablewrap" style="padding:0 16px 16px">
+    <table id="t2">
+      <thead><tr><th>α</th><th>σ</th><th>η</th><th></th><th>m<sub>g</sub></th><th>m<sub>ḡ</sub></th>
+        <th>m<sub>τ</sub></th><th>m<sub>τ̄</sub></th><th>m<sub>τc</sub></th><th>m<sub>τ̄c</sub></th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <p><b>Model.</b> κ = (1−α)(σ⁻¹+η)/α; D = (σ⁻¹+η)(1+κσ);
+  m<sub>g</sub> = 1/(1+κσ) + κ/D; m<sub>ḡ</sub> = η/D; m<sub>τ</sub> = κσ/D; m<sub>τ̄</sub> = 1/D;
+  m<sub>τc</sub> = σm<sub>g</sub>; m<sub>τ̄c</sub> = σm<sub>ḡ</sub>. Table 1, printed page 515.
+  τ collapses τ<sub>l</sub>, τ<sub>w</sub>, τ<sub>y</sub>, which enter only through the mark-up.</p>
+  <p><b>Source.</b> Benigno, <i>Research in Economics</i> 69 (2015), pp. 503–524. Derivation of every
+  entry, including the sign flip on the gap: <span class="mono">Map/benigno/07-fiscal-multipliers.md</span>.
+  Verified against <span class="mono">Map/benigno/check_multipliers.py</span>.</p>
+  <p>Macroeconomia I — MPE Insper, Aula 9.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const D = id => document.getElementById(id);
+const DEFAULTS = {alpha:0.66, sigma:0.50, eta:0.20};
+const P = {};
+
+function mult(alpha, sigma, eta){
+  const k = (1 - alpha) * (1 / sigma + eta) / alpha;
+  const den = (1 / sigma + eta) * (1 + k * sigma);
+  const m_g = 1 / (1 + k * sigma) + k / den;
+  const m_gbar = eta / den;
+  return {k, m_g, m_gbar, m_tau: k * sigma / den, m_taubar: 1 / den,
+          m_tauc: sigma * m_g, m_taucbar: sigma * m_gbar};
+}
+
+const TABLE2 = [
+  [0.66,0.5,0.2,[0.96,0.06,0.16,0.29,0.48,0.03]],
+  [0.75,0.5,0.2,[0.98,0.06,0.12,0.33,0.49,0.03]],
+  [0.66,1.0,0.2,[0.94,0.10,0.32,0.52,0.94,0.10]],
+  [0.75,1.0,0.2,[0.95,0.12,0.24,0.60,0.95,0.12]],
+  [0.66,1.0,1.0,[0.75,0.25,0.25,0.25,0.75,0.25]],
+  [0.75,1.0,1.0,[0.80,0.30,0.20,0.30,0.80,0.30]],
+  [0.66,0.5,1.0,[0.86,0.18,0.15,0.19,0.43,0.09]],
+  [0.75,0.5,1.0,[0.88,0.22,0.11,0.22,0.44,0.11]]
+];
+const KEYS = ["m_g","m_gbar","m_tau","m_taubar","m_tauc","m_taucbar"];
+
+/* ---- plot: multipliers against eta ---- */
+const VB = {w:600, h:400}, M = {l:52, r:22, t:20, b:44};
+const PW = VB.w - M.l - M.r, PH = VB.h - M.t - M.b;
+const ETA_MAX = 1.5, Y_MAX = 1.6;
+const X = e => M.l + e / ETA_MAX * PW;
+const Y = v => M.t + (Y_MAX - v) / Y_MAX * PH;
+
+function curve(sel){
+  const pts = [];
+  for (let j = 0; j <= 240; j++){
+    const e = ETA_MAX * j / 240, v = sel(mult(P.alpha, P.sigma, e));
+    if (Number.isFinite(v) && v <= Y_MAX) pts.push(X(e).toFixed(1) + "," + Y(v).toFixed(1));
+  }
+  return pts.join(" ");
+}
+
+function draw(){
+  const g = [];
+  for (let v = 0; v <= Y_MAX + 1e-9; v += 0.2){
+    g.push(`<line x1="${M.l}" y1="${Y(v).toFixed(1)}" x2="${M.l+PW}" y2="${Y(v).toFixed(1)}"
+      stroke="var(--grid)" stroke-width="1"/>
+      <text x="${M.l-9}" y="${(Y(v)+4).toFixed(1)}" text-anchor="end" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${v.toFixed(1)}</text>`);
+  }
+  for (let e = 0; e <= ETA_MAX + 1e-9; e += 0.25){
+    g.push(`<line x1="${X(e).toFixed(1)}" y1="${M.t}" x2="${X(e).toFixed(1)}" y2="${M.t+PH}"
+      stroke="var(--grid)" stroke-width="1"/>
+      <text x="${X(e).toFixed(1)}" y="${M.t+PH+18}" text-anchor="middle" font-size="11"
+        fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${e.toFixed(2)}</text>`);
+  }
+  D("plot").innerHTML = `${g.join("")}
+    <line x1="${M.l}" y1="${Y(1).toFixed(1)}" x2="${M.l+PW}" y2="${Y(1).toFixed(1)}"
+      stroke="var(--nat)" stroke-width="1.6" stroke-dasharray="6 4"/>
+    <text x="${M.l+PW-4}" y="${(Y(1)-7).toFixed(1)}" text-anchor="end" font-size="12"
+      fill="var(--nat)">multiplier = 1</text>
+    <line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+    <text x="${M.l+PW}" y="${M.t+PH+34}" text-anchor="end" font-size="12" fill="var(--ink-soft)">
+      η — inverse Frisch elasticity</text>
+    <text x="${M.l-42}" y="${M.t-6}" font-size="12" fill="var(--ink-soft)">multiplier</text>
+    <line x1="${X(P.eta).toFixed(1)}" y1="${M.t}" x2="${X(P.eta).toFixed(1)}" y2="${M.t+PH}"
+      stroke="var(--ink)" stroke-width="1.4"/>
+    <polyline points="${curve(m => m.m_tauc)}" fill="none" stroke="var(--eff)" stroke-width="2.2"/>
+    <polyline points="${curve(m => m.m_gbar)}" fill="none" stroke="var(--as)" stroke-width="2.6"/>
+    <polyline points="${curve(m => m.m_g)}" fill="none" stroke="var(--ad)" stroke-width="2.6"/>`;
+}
+
+function bar(sym, label, v, cls){
+  const w = Math.min(100, Math.abs(v) / 1.0 * 100);
+  return `<div class="bar"><span><span class="sym">${sym}</span></span>
+    <span class="track" title="${label}"><span class="fill ${cls}" style="width:${w.toFixed(1)}%"></span></span>
+    <span class="val">${v.toFixed(3)}</span></div>`;
+}
+
+function renderTable(m){
+  const rows = TABLE2.map(([a, s, e, printed]) => {
+    const c = mult(a, s, e);
+    const hit = Math.abs(a - P.alpha) < 1e-9 && Math.abs(s - P.sigma) < 1e-9 && Math.abs(e - P.eta) < 1e-9;
+    const cells = KEYS.map((k, j) =>
+      `<td class="num">${c[k].toFixed(2)}<span style="color:var(--ink-faint)"> / ${printed[j].toFixed(2)}</span></td>`).join("");
+    return `<tr style="${hit ? "background:var(--paper);font-weight:600" : ""}">
+      <td class="num">${a}</td><td class="num">${s}</td><td class="num">${e}</td>
+      <td style="color:var(--ink-faint);font-size:.7rem">comp / print</td>${cells}</tr>`;
+  });
+  D("t2").querySelector("tbody").innerHTML = rows.join("");
+}
+
+function render(){
+  ["alpha","sigma","eta"].forEach(id => { P[id] = parseFloat(D(id).value); });
+  const m = mult(P.alpha, P.sigma, P.eta);
+  D("alphaV").textContent = P.alpha.toFixed(2);
+  D("sigmaV").textContent = P.sigma.toFixed(2);
+  D("etaV").textContent = P.eta.toFixed(2);
+
+  D("ansOut").textContent = m.m_g.toFixed(3);
+  D("ansOutW").textContent = m.m_g >= 0.999
+    ? "exactly one — no crowding out, the knife-edge case η = 0"
+    : `below one: ${(100 * (1 - m.m_g)).toFixed(0)}% of the stimulus leaks into higher prices and a higher real rate`;
+  D("ansGap").textContent = m.m_gbar.toFixed(3);
+  D("ansGapW").textContent = m.m_gbar < 1e-9
+    ? "exactly zero — AS and AD shift proportionally, the gap does not move at all"
+    : `${(m.m_gbar / m.m_g * 100).toFixed(0)}% of the output multiplier: spending moves the natural rate almost as much as output`;
+
+  D("kOut").textContent = m.k.toFixed(3);
+  D("durOut").textContent = (1 / (1 - P.alpha)).toFixed(2);
+  D("ratioOut").textContent = (m.m_gbar / m.m_g).toFixed(3);
+  D("crowdOut").textContent = (1 - m.m_g).toFixed(3);
+
+  D("barsOut").innerHTML =
+      bar("m<sub>g</sub>", "spending now", m.m_g, "")
+    + bar("m<sub>ḡ</sub>", "spending later", m.m_gbar, "")
+    + bar("m<sub>τ</sub>", "sales/payroll taxes now", m.m_tau, "alt")
+    + bar("m<sub>τ̄</sub>", "sales/payroll taxes later", m.m_taubar, "alt")
+    + bar("m<sub>τc</sub>", "consumption tax now", m.m_tauc, "alt")
+    + bar("m<sub>τ̄c</sub>", "consumption tax later", m.m_taucbar, "alt");
+  D("barsGap").innerHTML =
+      bar("m<sub>ḡ</sub>", "spending, short minus long", m.m_gbar, "")
+    + bar("m<sub>τ̄</sub>", "taxes, short minus long", m.m_taubar, "alt")
+    + bar("m<sub>τ̄c</sub>", "consumption tax, short minus long", m.m_taucbar, "alt");
+
+  const tauc_gap = -m.m_taucbar;
+  D("verdict").innerHTML = `<b>The sign that reverses.</b> A cut in the current consumption tax
+    raises output by ${m.m_tauc.toFixed(3)} per unit — and changes the gap by
+    ${tauc_gap.toFixed(3)}, the other way. Judged on output it is a stimulus; judged on the gap it
+    is a mistake. ${P.eta < 1e-9
+      ? "At η = 0 every gap multiplier is zero: fiscal policy cannot move the gap at all."
+      : ""}`;
+  draw();
+  renderTable(m);
+}
+
+const setAll = o => { Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); };
+["alpha","sigma","eta"].forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEFAULTS));
+D("rowA").addEventListener("click", () => setAll({alpha:0.66, sigma:0.5, eta:0.2}));
+D("rowE").addEventListener("click", () => setAll({alpha:0.66, sigma:1.0, eta:1.0}));
+D("linear").addEventListener("click", () => setAll({...DEFAULTS, eta:0}));
+render();
+</script>

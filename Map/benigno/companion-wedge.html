@@ -1,0 +1,245 @@
+<title>The Wedge</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Lista 7 · Question 3 · Benigno (2015) §4.1–§4.4, eqs. (14), (15), (19) · printed pages 507–509</p>
+  <h1>The Wedge</h1>
+  <p class="lede">The planner hires labour until the <em>marginal rate of substitution</em> reaches
+  labour's product, <em>a</em>. The market stops earlier, where it reaches the wage firms pay,
+  <em>a − μ</em>. The whole distance between natural and efficient output is that mark-up wedge.
+  Productivity moves both targets; the mark-up moves only one.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure><svg id="plot" viewBox="0 0 600 440" role="img" aria-label="Labour-supply MRS line against the planner's MRT and the market wage"></svg></figure>
+      <div class="legend">
+        <span style="color:var(--pos)"><i class="swatch"></i>MRS: log(v′/u′) = η(y − a) + σ⁻¹(y − g)</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>MRT = a (planner)</span>
+        <span style="color:var(--as)"><i class="swatch"></i>a − μ (wage firms pay)</span>
+        <span style="color:var(--neg)"><i class="swatch"></i>lost surplus</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Natural minus efficient, yₙ − yₑ</div>
+        <div class="v" id="gap"></div>
+        <div class="w" id="gapW"></div>
+      </div>
+      <div>
+        <div class="k">Lost surplus (triangle)</div>
+        <div class="v" id="dwl"></div>
+        <div class="w">½μ²/(σ⁻¹+η), share of steady-state output, second order</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Natural yₙ</div><div class="v" id="yn"></div><div class="n">eq. (15), flexible prices, with μ</div></div>
+      <div><div class="k">Efficient yₑ</div><div class="v" id="ye"></div><div class="n">eq. (19), planner, no μ</div></div>
+      <div><div class="k">Slope of MRS</div><div class="v" id="slope"></div><div class="n">σ⁻¹ + η</div></div>
+      <div><div class="k">∂yₙ/∂μ · ∂yₑ/∂μ</div><div class="v" id="deriv"></div><div class="n">why μ moves only one</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The wedge</legend>
+      <div class="ctl">
+        <label for="mu"><span class="sym">μ</span> aggregate mark-up</label><output id="muV"></output>
+        <p class="hint">Monopoly power and taxes together, eq. (13). Lowers the wage firms pay below labour's product.</p>
+        <input type="range" id="mu" min="-5" max="15" step="0.5" value="5">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Technology and resources (efficient shocks)</legend>
+      <div class="ctl">
+        <label for="a"><span class="sym">a</span> productivity</label><output id="aV"></output>
+        <p class="hint">Raises labour's product and shifts MRS: yₙ and yₑ rise together.</p>
+        <input type="range" id="a" min="-5" max="5" step="0.5" value="0">
+      </div>
+      <div class="ctl">
+        <label for="g"><span class="sym">g</span> public spending</label><output id="gV"></output>
+        <p class="hint">Less consumption at each output raises marginal utility: households work more, and yₙ and yₑ rise together.</p>
+        <input type="range" id="g" min="-5" max="5" step="0.5" value="0">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Preferences, Benigno's calibration</legend>
+      <div class="ctl">
+        <label for="eta"><span class="sym">η</span> inverse Frisch elasticity</label><output id="etaV"></output>
+        <p class="hint">Steeper MRS: the same wedge costs fewer units of output.</p>
+        <input type="range" id="eta" min="0" max="1.50" step="0.05" value="0.20">
+      </div>
+      <div class="ctl">
+        <label for="sigma"><span class="sym">σ</span> EIS scaled to output</label><output id="sigmaV"></output>
+        <p class="hint">Lower σ makes marginal utility fall faster with consumption, steepening MRS.</p>
+        <input type="range" id="sigma" min="0.25" max="1.50" step="0.05" value="0.50">
+      </div>
+    </fieldset>
+    <div class="btns">
+      <button type="button" id="shockMu">Mark-up shock (μ = +5%)</button>
+      <button type="button" id="shockA">Productivity shock (a = +2%)</button>
+      <button type="button" id="comp">Perfect competition (μ = 0)</button>
+      <button type="button" id="reset">Reset</button>
+    </div>
+    <p class="verdict" id="verdict"></p>
+  </div>
+</div>
+
+<details>
+  <summary>Control contract and provenance</summary>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Control</th><th>Symbol</th><th>Range</th><th>Step</th><th>Default</th><th>Unit</th><th>Source</th><th>What moves</th></tr></thead>
+    <tbody>
+      <tr><td>Mark-up</td><td class="num">μ</td><td class="num">−5 – 15</td><td class="num">0.5</td><td class="num">5</td><td>%</td><td>eq. (13), p. 507; §7, p. 513</td><td>market wage line; yₙ only</td></tr>
+      <tr><td>Productivity</td><td class="num">a</td><td class="num">−5 – 5</td><td class="num">0.5</td><td class="num">0</td><td>%</td><td>eqs. (15), (19)</td><td>MRT, MRS, both levels</td></tr>
+      <tr><td>Public spending</td><td class="num">g</td><td class="num">−5 – 5</td><td class="num">0.5</td><td class="num">0</td><td>% of output</td><td>eqs. (15), (19)</td><td>MRS, both levels</td></tr>
+      <tr><td>Inverse Frisch</td><td class="num">η</td><td class="num">0 – 1.50</td><td class="num">0.05</td><td class="num">0.20</td><td>—</td><td>p. 515</td><td>MRS slope</td></tr>
+      <tr><td>Scaled EIS</td><td class="num">σ</td><td class="num">0.25 – 1.50</td><td class="num">0.05</td><td class="num">0.50</td><td>—</td><td>p. 515</td><td>MRS slope</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:10px">Not exposed: α and κ. Price stickiness appears in neither yₙ nor yₑ, so a
+  control for it would change nothing on this page. That absence is the point: the wedge is market power, not rigidity.
+  Levels are log-deviations from an efficient steady state (μ = 0 there), in per cent. The lost-surplus figure is the
+  triangle ½(σ⁻¹+η)(yₙ − yₑ)², the second-order welfare cost in units of steady-state output.</p>
+</details>
+
+<footer>
+  <p><b>Model.</b> Household: log MRS = η(y − a) + σ⁻¹(y − g), from v(L) = L^{1+η}/(1+η), u′(C) = C^{−σ̃⁻¹} and
+  y = s_c c + g. Planner: MRS = a (eq. 19). Market: MRS = a − μ (eq. 14 → 15).
+  Result: yₙ − yₑ = −μ/(σ⁻¹+η), Benigno §4.4, p. 509.</p>
+  <p><b>Source.</b> Benigno, “New-Keynesian economics: an AS–AD view”, <i>Research in Economics</i> 69 (2015),
+  printed pages 503–524; derivation in <span class="mono">Map/benigno/03-natural-and-efficient.md</span>.
+  Solution: <span class="mono">Resolucao/lista7_resolucao.pdf</span>, Question 3.</p>
+  <p>Macroeconomia I — MPE Insper, Aulas 8–9. Notation follows Benigno.</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+const D = id => document.getElementById(id);
+const IDS = ["mu","a","g","eta","sigma"];
+const DEF = {mu:5, a:0, g:0, eta:0.2, sigma:0.5};
+const P = {};
+
+function solve(){
+  const S = 1 / P.sigma + P.eta;
+  const ye = ((1 + P.eta) * P.a + P.g / P.sigma) / S;
+  const yn = ye - P.mu / S;
+  const mrs = y => P.eta * (y - P.a) + (y - P.g) / P.sigma;
+  const dwl = 0.5 * Math.pow(P.mu / 100, 2) / S * 100;       // per cent of output
+  return {S, ye, yn, mrs, dwl};
+}
+
+const W = 600, H = 440, M = {l:56, r:20, t:20, b:44};
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+function niceStep(span){
+  const raw = span / 6, pow = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / pow;
+  return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * pow;
+}
+const fmt = v => Math.abs(v) < 1e-9 ? "0" : (+v.toFixed(2)).toString().replace("-", "−");
+
+function draw(s){
+  // frame: both levels and both horizontal lines, with room either side
+  const x0 = Math.min(s.yn, s.ye), x1 = Math.max(s.yn, s.ye);
+  const span = Math.max(3, x1 - x0);
+  const XL = x0 - 0.45 * span, XR = x1 + 0.45 * span;
+  const lo = Math.min(P.a, P.a - P.mu, s.mrs(XL)), hi = Math.max(P.a, P.a - P.mu, s.mrs(XR));
+  const yspan = Math.max(3, hi - lo), YB = lo - 0.08 * yspan, YT = hi + 0.08 * yspan;
+  const X = x => M.l + (x - XL) / (XR - XL) * PW;
+  const Y = w => M.t + (YT - w) / (YT - YB) * PH;
+  const g = [];
+  const sx = niceStep(XR - XL), sy = niceStep(YT - YB);
+  for (let t = Math.ceil(XL / sx) * sx; t <= XR + 1e-9; t += sx){
+    const x = X(t).toFixed(1);
+    g.push(`<line x1="${x}" y1="${M.t}" x2="${x}" y2="${M.t+PH}" stroke="var(${Math.abs(t)<1e-9?"--grid-strong":"--grid"})"/>`,
+      `<text x="${x}" y="${M.t+PH+16}" text-anchor="middle" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  for (let t = Math.ceil(YB / sy) * sy; t <= YT + 1e-9; t += sy){
+    const y = Y(t).toFixed(1);
+    g.push(`<line x1="${M.l}" y1="${y}" x2="${M.l+PW}" y2="${y}" stroke="var(${Math.abs(t)<1e-9?"--grid-strong":"--grid"})"/>`,
+      `<text x="${M.l-7}" y="${(+y+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)" font-family="IBM Plex Mono, monospace">${fmt(t)}</text>`);
+  }
+  const hline = (w, col, lab) => `<line x1="${M.l}" y1="${Y(w).toFixed(1)}" x2="${M.l+PW}" y2="${Y(w).toFixed(1)}" stroke="${col}" stroke-width="2.4"/>
+    <text x="${M.l+PW-4}" y="${(Y(w)-6).toFixed(1)}" text-anchor="end" font-size="12" fill="${col}" font-family="Source Serif 4, serif" font-style="italic">${lab}</text>`;
+  const vl = (v, top, lab, col) => `<line x1="${X(v).toFixed(1)}" y1="${Y(top).toFixed(1)}" x2="${X(v).toFixed(1)}" y2="${M.t+PH}" stroke="${col}" stroke-width="1.3" stroke-dasharray="5 4"/>
+    <text x="${(X(v)+5).toFixed(1)}" y="${M.t+PH-8}" font-size="13" fill="${col}" font-family="Source Serif 4, serif" font-style="italic">${lab}</text>`;
+  // triangle between MRS and MRT from yn to ye
+  const tri = [];
+  for (let j = 0; j <= 60; j++){
+    const y = s.yn + (s.ye - s.yn) * j / 60;
+    tri.push(X(y).toFixed(1) + "," + Y(s.mrs(y)).toFixed(1));
+  }
+  tri.push(X(s.ye).toFixed(1) + "," + Y(P.a).toFixed(1), X(s.yn).toFixed(1) + "," + Y(P.a).toFixed(1));
+  const mrsPts = [];
+  for (let j = 0; j <= 200; j++){
+    const y = XL + (XR - XL) * j / 200, w = s.mrs(y);
+    if (w >= YB && w <= YT) mrsPts.push(X(y).toFixed(1) + "," + Y(w).toFixed(1));
+  }
+  const noWedge = Math.abs(P.mu) < 1e-9;
+  const arrowX = X(Math.max(s.yn, s.ye) + 0.12 * span).toFixed(1);
+  D("plot").innerHTML = g.join("")
+    + `<line x1="${M.l}" y1="${M.t+PH}" x2="${M.l+PW}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+       <line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${M.t+PH}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+       <text x="${M.l+PW}" y="${H-6}" text-anchor="end" font-size="12" fill="var(--ink-soft)">output y, %</text>
+       <text x="${M.l+4}" y="${M.t+12}" font-size="12" fill="var(--ink-soft)">log real wage / MRS, %</text>`
+    + (noWedge ? "" : `<polygon points="${tri.join(" ")}" fill="var(--neg)" fill-opacity=".16" stroke="none"/>`)
+    + hline(P.a, "var(--eff)", "MRT = a")
+    + (noWedge ? "" : hline(P.a - P.mu, "var(--as)", "a − μ"))
+    + `<polyline points="${mrsPts.join(" ")}" fill="none" stroke="var(--pos)" stroke-width="2.6"/>`
+    + (noWedge ? vl(s.ye, P.a, "yₙ = yₑ", "var(--eff)")
+               : vl(s.ye, P.a, "yₑ", "var(--eff)") + vl(s.yn, P.a - P.mu, "yₙ", "var(--nat)"))
+    + (noWedge ? "" : `<line x1="${arrowX}" y1="${Y(P.a).toFixed(1)}" x2="${arrowX}" y2="${Y(P.a - P.mu).toFixed(1)}" stroke="var(--ink-soft)" stroke-width="1.2"/>
+       <text x="${(+arrowX + 6).toFixed(1)}" y="${((Y(P.a) + Y(P.a - P.mu)) / 2 + 4).toFixed(1)}" font-size="13" fill="var(--ink-soft)" font-family="Source Serif 4, serif" font-style="italic">μ</text>`)
+    + `<circle cx="${X(s.ye).toFixed(1)}" cy="${Y(P.a).toFixed(1)}" r="5" fill="var(--eff)"/>`
+    + (noWedge ? "" : `<circle cx="${X(s.yn).toFixed(1)}" cy="${Y(P.a - P.mu).toFixed(1)}" r="5" fill="var(--as)"/>`);
+}
+
+const pc = (v, d = 2) => (Math.abs(v) < 5e-5 ? "±" : v > 0 ? "+" : "−") + Math.abs(v).toFixed(d) + "%";
+function render(){
+  IDS.forEach(id => { P[id] = parseFloat(D(id).value); });
+  const s = solve(), gap = s.yn - s.ye;
+  D("muV").textContent = pc(P.mu, 1);
+  D("aV").textContent = pc(P.a, 1);
+  D("gV").textContent = pc(P.g, 1);
+  D("etaV").textContent = P.eta.toFixed(2);
+  D("sigmaV").textContent = P.sigma.toFixed(2);
+
+  D("gap").textContent = pc(gap);
+  D("gap").className = "v " + (Math.abs(gap) < 5e-5 ? "" : gap > 0 ? "pos" : "neg");
+  D("gapW").textContent = Math.abs(gap) < 5e-5 ? "no wedge: the market reaches the planner's output"
+    : gap < 0 ? "the market produces too little" : "negative mark-up (a net subsidy): the market produces too much";
+  D("dwl").textContent = s.dwl.toFixed(3) + "%";
+  D("yn").textContent = pc(s.yn);
+  D("ye").textContent = pc(s.ye);
+  D("slope").textContent = s.S.toFixed(2);
+  D("deriv").textContent = (-1 / s.S).toFixed(3) + " · 0";
+  D("eqline").innerHTML = `yₙ − yₑ = −μ/(σ⁻¹+η) = −${Math.abs(P.mu).toFixed(1)}/${s.S.toFixed(2)} = ${pc(gap)}
+     &nbsp;·&nbsp; yₑ = [(1+η)a + σ⁻¹g]/(σ⁻¹+η) = ${pc(s.ye)}`;
+
+  const moved = [];
+  if (Math.abs(P.a) > 1e-9) moved.push("productivity");
+  if (Math.abs(P.g) > 1e-9) moved.push("public spending");
+  D("verdict").innerHTML = (moved.length
+      ? `<b>${moved.join(" and ")}</b> moved MRT or MRS in <em>both</em> problems, so yₙ and yₑ shifted by the same ${pc(s.ye)}. `
+      : "")
+    + (Math.abs(P.mu) < 1e-9
+      ? `<b>No wedge.</b> With μ = 0 the wage equals labour's product and the flexible-price economy is efficient.`
+      : `<b>The mark-up</b> appears only in the market's condition. It lowers yₙ by ${Math.abs(P.mu).toFixed(1)}/${s.S.toFixed(2)} = ${pc(gap)} and leaves yₑ where it was, which is why it is an <em>inefficient</em> shock and creates a policy trade-off.`);
+  draw(s);
+}
+function setAll(o){ Object.entries(o).forEach(([k, v]) => { D(k).value = v; }); render(); }
+IDS.forEach(id => D(id).addEventListener("input", render));
+D("reset").addEventListener("click", () => setAll(DEF));
+D("shockMu").addEventListener("click", () => setAll({...DEF, mu:5}));
+D("shockA").addEventListener("click", () => setAll({...DEF, mu:0, a:2}));
+D("comp").addEventListener("click", () => setAll({...DEF, mu:0}));
+render();
+</script>

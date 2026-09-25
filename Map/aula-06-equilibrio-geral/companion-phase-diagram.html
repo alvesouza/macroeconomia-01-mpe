@@ -1,0 +1,310 @@
+<title>The Saddle Path</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §9.3 · eqs. (9.3.14)–(9.3.17) · printed pages 172–190</p>
+  <h1>The Saddle Path</h1>
+  <p class="lede">Capital is inherited and cannot jump. Consumption is chosen and can. Pick
+  consumption too high and the economy runs out of capital; pick it too low and it accumulates
+  forever and never spends it. Exactly one choice survives — and that knife-edge <em>is</em> the
+  equilibrium.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 430" role="img"
+             aria-label="Phase diagram in the capital-consumption plane with both loci and the saddle path"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>ċ = 0 (vertical at k*)</span>
+        <span style="color:var(--as)"><i class="swatch"></i>k̇ = 0 (the hump)</span>
+        <span style="color:var(--it)"><i class="swatch"></i>saddle path</span>
+        <span style="color:var(--neg)"><i class="swatch dash"></i>your trajectory</span>
+        <span style="color:var(--eff)"><i class="swatch dash"></i>Golden Rule</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">Your choice of c₀</div>
+        <div class="v" id="c0Out"></div>
+        <div class="w" id="c0W"></div>
+      </div>
+      <div>
+        <div class="k">The saddle-path value</div>
+        <div class="v" id="cstarOut"></div>
+        <div class="w">the only c₀ that converges</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">k*</div><div class="v" id="kstar"></div><div class="n">f′(k*) = δ + ρ</div></div>
+      <div><div class="k">k<sub>gold</sub></div><div class="v" id="kgold"></div><div class="n">f′(k) = δ</div></div>
+      <div><div class="k">k* ⁄ k<sub>gold</sub></div><div class="v" id="ratio"></div><div class="n">always below one</div></div>
+      <div><div class="k">c*</div><div class="v" id="cstar2"></div><div class="n">f(k*) − δk*</div></div>
+      <div><div class="k">det J</div><div class="v" id="det"></div><div class="n">negative ⇒ saddle</div></div>
+      <div><div class="k">Eigenvalues</div><div class="v" id="eig"></div><div class="n">opposite signs</div></div>
+    </div>
+
+    <div class="card">
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Where the economy starts, and what it chooses</legend>
+      <div class="ctl">
+        <span class="hint">The inherited capital stock. It cannot jump — that is what makes it a
+        state variable.</span>
+        <label for="k0">Initial capital <span class="sym">k<sub>0</sub></span></label>
+        <output id="k0o"></output><input type="range" id="k0" min="0.1" max="2.5" step="0.02" value="0.4">
+      </div>
+      <div class="ctl">
+        <span class="hint">Your consumption choice, as a multiple of the saddle-path value. Move
+        it off 1.000 and watch the trajectory fail in one of the two possible ways.</span>
+        <label for="mult">c₀ relative to the saddle path</label>
+        <output id="multo"></output><input type="range" id="mult" min="0.90" max="1.10" step="0.001" value="1.000">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences and technology</legend>
+      <div class="ctl">
+        <span class="hint">Impatience. It appears only in the ċ = 0 locus, so it moves the
+        vertical line and leaves the hump alone.</span>
+        <label for="rho">Discount rate <span class="sym">ρ</span></label>
+        <output id="rhoo"></output><input type="range" id="rho" min="0.002" max="0.12" step="0.002" value="0.03">
+      </div>
+      <div class="ctl">
+        <label for="sigma">Curvature <span class="sym">σ</span></label>
+        <output id="sigmao"></output><input type="range" id="sigma" min="0.5" max="5" step="0.1" value="2">
+      </div>
+      <div class="ctl">
+        <label for="delta">Depreciation <span class="sym">δ</span></label>
+        <output id="deltao"></output><input type="range" id="delta" min="0.01" max="0.15" step="0.005" value="0.06">
+      </div>
+      <div class="ctl">
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.2" max="0.7" step="0.01" value="0.35">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="base">Baseline</button>
+      <button data-p="high">Start c₀ too high</button>
+      <button data-p="low">Start c₀ too low</button>
+      <button data-p="patient">More patient (ρ ↓)</button>
+    </div>
+
+    <details>
+      <summary>Why exactly one path survives</summary>
+      <p>Above the saddle path, capital is run down and hits zero in finite time with consumption
+      still positive — <b>infeasible</b>. Below it, capital grows without bound and is never
+      consumed, which violates the transversality condition
+      lim e<sup>−ρt</sup>u′(c<sub>t</sub>)k<sub>t</sub> = 0 — <b>not optimal</b>. Feasibility rules
+      out one side, optimality the other, and a single trajectory remains. Contrast Solow, where
+      every starting point converges because there is no jump variable to get wrong. Derivation in
+      <b>02-dynamics-and-saddle-path.md</b> §2.4.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 9 · companion to <b>Map/aula-06-equilibrio-geral/02-dynamics-and-saddle-path.md</b> · equations in <b>Map/derivacoes-cap-09.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["k0","mult","rho","sigma","delta","alpha"];
+
+function M(v){
+  const f  = k => Math.pow(k, v.alpha);
+  const fp = k => v.alpha * Math.pow(k, v.alpha - 1);
+  const kstar = Math.pow(v.alpha/(v.delta+v.rho), 1/(1-v.alpha));
+  const kgold = Math.pow(v.alpha/v.delta, 1/(1-v.alpha));
+  return {f, fp, kstar, kgold, cstar: f(kstar) - v.delta*kstar};
+}
+
+function step(k, c, v, m, dt){
+  const kd = m.f(k) - v.delta*k - c;
+  const cd = c/v.sigma * (m.fp(k) - v.delta - v.rho);
+  return [k + dt*kd, c + dt*cd];
+}
+
+function classify(c0, k0, v, m){
+  let k = k0, c = c0;
+  const dt = 2e-3, N = 60000;
+  for (let i = 0; i < N; i++){
+    [k, c] = step(k, c, v, m, dt);
+    if (k <= 1e-4) return "high";
+    if (k > 4*m.kgold || c <= 1e-6) return "low";
+  }
+  return "path";
+}
+
+function saddleC0(k0, v, m){
+  let lo = 1e-6, hi = m.f(k0) - v.delta*k0;
+  if (hi <= lo) return lo;
+  for (let i = 0; i < 60; i++){
+    const mid = 0.5*(lo+hi);
+    if (classify(mid, k0, v, m) === "high") hi = mid; else lo = mid;
+  }
+  return 0.5*(lo+hi);
+}
+
+function trajectory(c0, k0, v, m, steps){
+  const pts = [[k0, c0]];
+  let k = k0, c = c0;
+  const dt = 4e-3;
+  for (let i = 0; i < steps; i++){
+    [k, c] = step(k, c, v, m, dt);
+    if (k <= 1e-4 || c <= 1e-6 || k > 4*m.kgold) { pts.push([Math.max(k,0), Math.max(c,0)]); break; }
+    pts.push([k, c]);
+  }
+  return pts;
+}
+
+function draw(v, m, traj, saddle){
+  const W=600,H=430,L=56,R=20,T=16,B=44;
+  const kmax = Math.max(m.kgold*1.35, v.k0*1.2);
+  const cmax = Math.max(m.cstar*1.9, ...traj.map(p=>p[1]))*1.05;
+  const X = k => L + (W-L-R)*Math.min(k,kmax)/kmax;
+  const Y = c => T + (H-T-B)*(1-Math.min(c,cmax)/cmax);
+
+  let out = "";
+  for(let i=0;i<=4;i++){
+    const yy = T+(H-T-B)*i/4;
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+  }
+
+  // k-dot = 0 hump
+  let d = "";
+  for(let i=1;i<=300;i++){
+    const k = kmax*i/300;
+    const c = m.f(k) - v.delta*k;
+    if (c < 0) continue;
+    d += (d?"L":"M") + X(k).toFixed(1) + "," + Y(c).toFixed(1);
+  }
+  out += `<path d="${d}" fill="none" stroke="var(--as)" stroke-width="2.2"/>`;
+
+  // c-dot = 0 vertical
+  out += `<line x1="${X(m.kstar).toFixed(1)}" y1="${T}" x2="${X(m.kstar).toFixed(1)}" y2="${H-B}" stroke="var(--ad)" stroke-width="2.2"/>`;
+  // Golden Rule marker
+  out += `<line x1="${X(m.kgold).toFixed(1)}" y1="${T}" x2="${X(m.kgold).toFixed(1)}" y2="${H-B}" stroke="var(--eff)" stroke-width="1.2" stroke-dasharray="4 4"/>`;
+  out += `<text x="${(X(m.kgold)-5).toFixed(1)}" y="${T+13}" text-anchor="end" font-size="10" fill="var(--eff)">k_gold</text>`;
+
+  // region arrows
+  const arrows = [
+    [m.kstar*0.5, m.cstar*1.45, -1, +1],
+    [Math.min(kmax*0.92, m.kgold*1.15), m.cstar*1.45, -1, -1],
+    [Math.min(kmax*0.92, m.kgold*1.15), m.cstar*0.5, +1, -1],
+    [m.kstar*0.5, m.cstar*0.5, +1, +1],
+  ];
+  arrows.forEach(([k,c,dx,dy])=>{
+    const x0 = X(k), y0 = Y(c), len = 15;
+    const x1 = x0 + dx*len, y1 = y0 - dy*len;
+    out += `<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="var(--ink-faint)" stroke-width="1.4"/>`;
+    out += `<circle cx="${x1.toFixed(1)}" cy="${y1.toFixed(1)}" r="2.4" fill="var(--ink-faint)"/>`;
+  });
+
+  // saddle path, drawn by shooting from a grid of starting capitals
+  let sd = "";
+  const ks = [];
+  for(let i=1;i<=26;i++) ks.push(kmax*i/27);
+  ks.forEach(kk=>{
+    const c0 = saddleC0(kk, v, m);
+    sd += (sd?"L":"M") + X(kk).toFixed(1) + "," + Y(c0).toFixed(1);
+  });
+  out += `<path d="${sd}" fill="none" stroke="var(--it)" stroke-width="2.6"/>`;
+
+  // the chosen trajectory
+  out += `<path d="${traj.map((p,i)=>`${i?'L':'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join('')}" fill="none" stroke="var(--neg)" stroke-width="2" stroke-dasharray="6 3"/>`;
+
+  // steady state and start
+  out += `<circle cx="${X(m.kstar).toFixed(1)}" cy="${Y(m.cstar).toFixed(1)}" r="6" fill="var(--ad)"/>`;
+  out += `<circle cx="${X(traj[0][0]).toFixed(1)}" cy="${Y(traj[0][1]).toFixed(1)}" r="5" fill="none" stroke="var(--neg)" stroke-width="2"/>`;
+
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  out += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">capital per worker k</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">consumption c</text>`;
+  $("plot").innerHTML = out;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const m = M(v);
+
+  $("k0o").textContent = v.k0.toFixed(2);
+  $("multo").textContent = v.mult.toFixed(3) + "×";
+  $("rhoo").textContent = v.rho.toFixed(3);
+  $("sigmao").textContent = v.sigma.toFixed(1);
+  $("deltao").textContent = v.delta.toFixed(3);
+  $("alphao").textContent = v.alpha.toFixed(2);
+
+  const cSaddle = saddleC0(v.k0, v, m);
+  const c0 = cSaddle * v.mult;
+  const traj = trajectory(c0, v.k0, v, m, 5000);
+  draw(v, m, traj, cSaddle);
+
+  $("c0Out").textContent = c0.toFixed(4);
+  $("cstarOut").textContent = cSaddle.toFixed(4);
+  $("kstar").textContent = m.kstar.toFixed(3);
+  $("kgold").textContent = m.kgold.toFixed(3);
+  $("ratio").textContent = (m.kstar/m.kgold).toFixed(3);
+  $("cstar2").textContent = m.cstar.toFixed(3);
+
+  // Jacobian
+  const fpp = v.alpha*(v.alpha-1)*Math.pow(m.kstar, v.alpha-2);
+  const det = m.cstar/v.sigma * fpp;
+  const tr = v.rho;
+  const disc = Math.sqrt(tr*tr - 4*det);
+  $("det").textContent = det.toFixed(4);
+  $("eig").textContent = ((tr-disc)/2).toFixed(3) + " , " + ((tr+disc)/2).toFixed(3);
+
+  const verdict = classify(c0, v.k0, v, m);
+  $("c0W").textContent = verdict === "path" ? "on the saddle path"
+      : (verdict === "high" ? "too high — capital hits zero" : "too low — capital explodes");
+
+  $("eqline").innerHTML = `k̇ = f(k) − δk − c &nbsp;·&nbsp; ċ⁄c = (1⁄σ)[f′(k) − δ − ρ] `
+    + `&nbsp;⟹&nbsp; f′(k*) = δ+ρ = <b>${(v.delta+v.rho).toFixed(3)}</b>, against f′(k_gold) = δ`;
+
+  const msg = {
+    path: `<span class="flag ok">on the saddle path</span> &nbsp; The economy converges to
+      (k*, c*) = (${m.kstar.toFixed(2)}, ${m.cstar.toFixed(2)}). Note where it settles:
+      k*⁄k<sub>gold</sub> = <b>${(m.kstar/m.kgold).toFixed(2)}</b>, strictly below the Golden Rule. An
+      optimising household deliberately under-accumulates relative to the consumption-maximising stock,
+      because ρ > 0 means it does not value the extra future consumption enough. This is why an economy
+      with optimal saving can never be dynamically inefficient.`,
+    high: `<span class="flag bad">infeasible</span> &nbsp; Consumption starts above the saddle path, so
+      capital is run down while consumption keeps <i>rising</i> — as k falls, f′(k) rises above δ+ρ and the
+      Euler equation tilts consumption up. The trajectory reaches k = 0 in finite time with consumption
+      still positive, which cannot happen. <b>Feasibility</b> rules this side out.`,
+    low: `<span class="flag bad">not optimal</span> &nbsp; Consumption starts below the saddle path, so the
+      economy accumulates capital without bound and never consumes it. The present value of terminal wealth
+      stays positive, so the household could have consumed some of it and been better off. The
+      <b>transversality condition</b> rules this side out.`,
+  }[verdict];
+  $("verdict").innerHTML = msg;
+}
+
+const presets = {
+  base:    {k0:0.40, mult:1.000, rho:0.03,  sigma:2, delta:0.06, alpha:0.35},
+  high:    {k0:0.40, mult:1.030, rho:0.03,  sigma:2, delta:0.06, alpha:0.35},
+  low:     {k0:0.40, mult:0.970, rho:0.03,  sigma:2, delta:0.06, alpha:0.35},
+  patient: {k0:0.40, mult:1.000, rho:0.008, sigma:2, delta:0.06, alpha:0.35},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("change", render));
+render();
+</script>

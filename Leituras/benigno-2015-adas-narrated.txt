@@ -1,0 +1,497 @@
+BENIGNO, TWO THOUSAND FIFTEEN. NEW-KEYNESIAN ECONOMICS, AN AGGREGATE SUPPLY AND AGGREGATE DEMAND VIEW. A NARRATED READING.
+
+HOW TO LISTEN
+
+This is the spoken version of the whole article: Pierpaolo Benigno, "New-Keynesian economics, an aggregate supply and aggregate demand view", published in Research in Economics, volume sixty-nine, two thousand fifteen, printed pages five hundred and three to five hundred and twenty-four. It is the reading for classes eight and nine of this course. Twelve sections, thirty-five numbered equations, two tables, fourteen figures. Nothing is skipped, including the two sections the article itself says a reader in a hurry may skip.
+
+There are fourteen parts. Parts one through eleven follow the article section by section. Part twelve is what the model cannot do, in the author's own words. Part thirteen is the pitfalls, which is where marks are lost. Part fourteen is a spoken formula sheet and the whole article in five lines.
+
+All mathematics is spoken in words. You will never hear a symbol read out on its own. When I say "the natural level of output equals one plus eta, over the inverse of sigma plus eta, times productivity", you should be able to write that down. Pause and do write it down the first few times. A formula you have only heard is a formula you only half know.
+
+Two conventions to fix before we start, because everything depends on them.
+
+First, lower-case letters are not logs of levels. They are proportional deviations from a steady state. Output, consumption and productivity are measured as proportional deviations from their own steady states. Public spending is different: it is measured as a deviation scaled by steady-state output, not by steady-state spending. That asymmetry is not a typo in the article. It is what makes the resource constraint aggregate as "output equals the consumption share times consumption, plus public spending", instead of the simpler thing you would expect.
+
+Second, a bar over a letter means the long run. This is a two-period model. The first period is the short run, the second is the long run. There is no third period and no dynamics in between. When I say "long-run output" I mean the second period, not a limit as time goes to infinity.
+
+One framing point before we begin, because it organises everything.
+
+This article is an argument, not only a model. The argument is that New-Keynesian economics can be taught with two curves on one diagram, which is what undergraduate textbooks do with the Hicksian version of Keynes, and that it therefore has no excuse for not replacing them. Benigno quotes two critics on his own side of the profession. Mankiw, in two thousand six, says New Keynesian research "has had little impact on practical macroeconomists who are charged with the messy task of conducting actual monetary and fiscal policy", and that from an engineering standpoint the last several decades look like an unfortunate wrong turn. Krugman, in two thousand, says the small models have not got any better, and that it would be a shame if the old ones vanished from the curriculum because they were thought insufficiently rigorous, replaced by models that are indeed more rigorous but not demonstrably better. The paper is the reply to both: here is the small model, here is the diagram, and here are the modern results it delivers.
+
+Let us begin.
+
+PART ONE. WHAT THE MODEL IS, AND WHAT IT IS NOT. SECTIONS ONE AND TWO, PRINTED PAGES FIVE HUNDRED AND THREE TO FIVE HUNDRED AND FIVE.
+
+The model has two periods. In the short run there is a downward-sloping aggregate demand equation and an upward-sloping aggregate supply equation, drawn with prices on the vertical axis and output on the horizontal axis. In the long run the classical dichotomy holds: real variables are determined by real forces, money determines only the price level, and the aggregate supply equation is vertical.
+
+Hold on to the axes, because they are the first thing people get wrong. The vertical axis is the price level, not inflation. Everything in this model is about the level of prices relative to the level people expected. There is no inflation rate anywhere in the core diagram.
+
+The demand curve comes from households choosing how to allocate consumption over time. The supply curve comes from firms choosing prices, given how households supply labour. Both are optimising decisions, and that is the first difference from the textbook model: the curves are derived, not posited.
+
+Now the difference that matters most for how the model is used. The analysis is consistent with what central banks actually do, which is to target a short-term nominal interest rate, not a monetary aggregate. There is no money supply in this model and there is no LM equation. The transmission from interest rates to output runs entirely through the intertemporal behaviour of consumers: the central bank moves the nominal rate, which moves the real rate, which moves the consumption-saving decision.
+
+The article's roadmap, which is also the plan of this narration. Section two is the literature. Section three derives aggregate demand and section four aggregate supply. Section five puts them together. Sections six and seven are productivity shocks and mark-up shocks. Section eight is fiscal multipliers, section nine the liquidity trap, section ten debt deleveraging, section eleven optimal monetary policy, section twelve the conclusion.
+
+On the literature, briefly, because the names tell you where each result comes from. The menu-cost model of Mankiw, nineteen eighty-five. The monopolistic-competition model of Blanchard and Kiyotaki, nineteen eighty-seven. The dynamic models of Yun, of Goodfriend and King, of Rotemberg and Woodford, and of Clarida, Gali and Gertler. And the comprehensive treatments, which are the standard graduate references: Woodford's Interest and Prices, two thousand three, and Gali's textbook, two thousand eight. The optimal policy section draws on Giannoni and Woodford, and borrows terminology from Svensson. The liquidity-trap solution is Krugman, nineteen ninety-eight. The deleveraging section is Eggertsson and Krugman, two thousand twelve.
+
+Three earlier attempts at a simplified New-Keynesian model are worth distinguishing from this one, because the exam-relevant question "what is different here" has a precise answer. Romer, two thousand, presents a Keynesian model without the LM equation, but not microfounded, and with demand represented by an aggregate demand-inflation curve that already embeds a monetary policy rule. Walsh, two thousand two, derives the demand curve from what an optimising central bank wants, which is close to what Benigno will call the inflation-targeting line, not to his demand curve. Carlin and Soskice, two thousand five, give a three-equation model with a modern treatment of central bank operating targets, but with no aggregate demand equation and needing two graphs instead of one. Benigno's version keeps the Euler equation as the demand curve, with no interest-rate rule inside it, and fits on one diagram.
+
+Checklist for part one. You should be able to say what is on each axis. You should be able to state, in one sentence, why there is no LM curve. You should be able to name the policy instrument in the short run and in the long run. And you should be able to say what the two periods are for.
+
+PART TWO. THE HOUSEHOLD, AND WHERE THE DEMAND CURVE COMES FROM. SECTION THREE, EQUATIONS ONE THROUGH EIGHT, PRINTED PAGES FIVE HUNDRED AND FIVE TO FIVE HUNDRED AND SIX.
+
+The household gets utility from consumption and disutility from work, in both periods, with the second period discounted by a factor beta strictly between zero and one. That is equation one.
+
+It faces one constraint, and the word "one" is doing work here. There is a single intertemporal budget constraint: the price of goods times consumption today, plus the long-run price times long-run consumption discounted by one plus the nominal interest rate, equals the wage times hours today, plus the long-run wage times long-run hours discounted the same way, plus a lump-sum transfer. That is equation two. There is no separate constraint per period, because the household can borrow and lend freely. When we get to section ten and some households cannot borrow freely, that single constraint will break into two, and the model will change character.
+
+A detail in footnote three that matters later: firms' profits are included in the lump-sum transfer. Because the transfer is lump-sum and absorbs whatever the government needs it to absorb, Ricardian equivalence holds in this model. Every fiscal experiment before section ten is implicitly financed that way.
+
+Now solve it. Attach a multiplier to the constraint and take four first-order conditions, one for each choice: consumption today, consumption tomorrow, hours today, hours tomorrow.
+
+Divide the hours condition by the consumption condition and the multiplier cancels. What is left is: the marginal disutility of work divided by the marginal utility of consumption equals the real wage. Period by period. This is the intratemporal condition, and I want you to notice something about it: it is not a demand-side equation at all. It is the equation the firm will use in a moment to convert its wage bill into a function of output. Keep it in view.
+
+Divide the consumption-today condition by the consumption-tomorrow condition and you get the Euler equation, equation three: the marginal utility of consumption today, divided by beta times the marginal utility of consumption tomorrow, equals one plus the nominal interest rate times the ratio of today's price level to tomorrow's. And that product is defined as one plus the real interest rate.
+
+Nothing has been assumed about functional form yet. Now assume it. Utility is isoelastic, so that the marginal utility of consumption is consumption raised to the power minus one over sigma-tilde, where sigma-tilde is the elasticity of intertemporal substitution in consumption, a positive number.
+
+Substitute and take logs. Using two first-order approximations — the log of one plus the real rate is approximately the real rate, and the rate of time preference rho is defined as minus the log of beta — you get equation four:
+
+Long-run consumption minus short-run consumption equals sigma-tilde times the real interest rate minus the rate of time preference.
+
+Say that to yourself in words. Consumption growth between the two periods rises with the real interest rate. A high real rate means the household postpones: low consumption now, high consumption later. A low real rate discourages saving and pulls consumption forward. And sigma-tilde is how willing the household is to do that reallocating.
+
+Write the real rate as the nominal rate minus expected inflation, which is the long-run price level minus the short-run price level. Now you have equation five, and equation five is already a demand curve. Hold the nominal rate fixed, hold the long-run price level fixed, hold long-run consumption fixed, and raise the current price level. Expected inflation falls, because the gap between the future and the present price level has narrowed. The real rate therefore rises. Saving rises, current consumption falls.
+
+That is the downward-sloping demand curve, and notice what did not appear in the argument: money.
+
+Now turn consumption into output. Goods-market clearing in each period says output equals consumption plus public spending. Using the scaling conventions I gave at the start, that aggregates to first order as: output equals the steady-state consumption share times consumption, plus public spending. The derivation is one line. Start from "output minus steady-state output equals consumption minus steady-state consumption, plus spending minus steady-state spending", and divide through by steady-state output. On the consumption term, multiply and divide by steady-state consumption, which is what produces the consumption share out in front.
+
+Invert that, substitute into equation five, and define sigma — no tilde — as sigma-tilde times the consumption share. You get equation six, the aggregate demand equation:
+
+Output equals long-run output, plus current minus long-run public spending, minus sigma times the quantity in brackets: the nominal interest rate, minus expected inflation, minus the rate of time preference.
+
+Two things to take from that, and both are examinable.
+
+First: sigma is not the elasticity of intertemporal substitution. It is that elasticity times the consumption share. A one-point change in the real rate moves output by sigma, not by sigma-tilde, because only the consumption part of output responds. Every fiscal multiplier later in the paper is a function of sigma, never of sigma-tilde.
+
+Second: public spending enters as a difference between the short run and the long run. Only that difference shifts the demand curve. A permanent rise in spending — today and tomorrow together — does not shift demand at all. That one fact is the reason "permanent fiscal policy does not alter the output gap" in section eight.
+
+Last piece of this part: taxes. Put a consumption tax and a labour income tax into the budget constraint. Two things change. The intratemporal condition picks up a tax wedge — one minus the labour tax, over one plus the consumption tax, times the real wage — and that is equation seven, which the supply side will use. And the Euler equation picks up the ratio of the tax-inclusive price of consumption today to the tax-inclusive price tomorrow, which after logs adds one term to the demand curve. That gives equation eight, the demand curve with fiscal instruments in it.
+
+Look at where the new term sits. The difference between the long-run and the short-run consumption tax rate occupies exactly the same slot in the bracket as expected inflation. What the household substitutes across dates is the tax-inclusive relative price of consumption. So a credible announcement that consumption taxes will be higher next year is expansionary today, by precisely the mechanism through which a promise of a higher future price level is expansionary. Remember that equivalence; it comes back in the liquidity trap.
+
+Checklist for part two. You should be able to derive the Euler equation from the Lagrangian. You should be able to explain the downward slope without using the words money demand. You should be able to say why sigma differs from sigma-tilde. And you should be able to list what shifts the curve: the nominal rate, current spending, the current consumption tax, the long-run price level, the long-run consumption tax, and long-run natural consumption.
+
+PART THREE. FIRMS, THE MARK-UP, AND THE SUPPLY CURVE. SECTION FOUR AND SUBSECTION FOUR POINT ONE, EQUATIONS NINE THROUGH SEVENTEEN, PRINTED PAGES FIVE HUNDRED AND SIX TO FIVE HUNDRED AND EIGHT.
+
+There is a continuum of producers, each making a differentiated good. The demand for the good of firm j is: the ratio of firm j's price to the general price index, raised to the power minus theta, all times consumption plus public spending. That is equation nine, and theta is the elasticity of substitution across goods. Footnote five says this comes from consumption and public spending being Dixit–Stiglitz aggregators over all the goods. The constant-elasticity form is what makes the mark-up a constant, and that is what makes the whole model tractable.
+
+Technology is linear in labour: output of firm j equals productivity times hours at firm j. Profits are: one minus the sales tax, times price times output, minus one plus the payroll tax, times the wage bill. That is equation ten.
+
+Price rigidity is imposed as follows. In the short run a fraction alpha of firms must keep their price at a pre-set level, fixed on information dated before the shocks hit. At that price they serve whatever demand asks of them. The remaining fraction — one minus alpha — re-optimises. In the long run everybody re-optimises.
+
+Two justifications for that, both on page five hundred and seven, and both worth being able to give. First: under monopolistic competition, a firm sitting at its optimum loses nothing to first order from a small price error, so arbitrarily small unmodelled menu costs are enough to rationalise not moving. The loss is second order; the cost is first order. Second: the same algebra describes a sticky-information model, because the pre-set price is set on pre-shock information rather than physically frozen.
+
+Now derive the optimal price, because this is the step where the mark-up appears.
+
+Substitute the demand curve and the production function into profits. The firm is too small to move the price index or aggregate consumption, so those are constants to it. Differentiate with respect to firm j's price and set the derivative to zero. The common factor cancels. Rearranging gives equation eleven:
+
+Firm j's price equals theta over theta minus one, times one plus the payroll tax over one minus the sales tax, times the wage divided by productivity.
+
+The wage divided by productivity is nominal marginal cost. So price is a mark-up over marginal cost, and the mark-up is that product of theta over theta minus one and the two tax wedges. Two sanity checks. As theta goes to infinity the goods become perfect substitutes, theta over theta minus one goes to one, and price collapses to marginal cost — perfect competition. And theta must exceed one for a finite mark-up to exist.
+
+Next, divide by the price index and eliminate the real wage using the household's intratemporal condition, equation seven. What comes out is equation twelve: the relative price the adjusting firms want equals one plus the aggregate mark-up, divided by productivity, times the marginal disutility of work over the marginal utility of consumption.
+
+And the aggregate mark-up, equation thirteen, is: one plus the pure monopoly mark-up, times one plus the payroll tax, times one plus the consumption tax, divided by one minus the sales tax, times one minus the labour income tax. Where the pure monopoly mark-up is theta over theta minus one, minus one.
+
+Read equation thirteen as a list. Four tax rates and one market structure, all doing exactly the same thing. Nothing in this model can distinguish a monopoly wedge from a tax wedge. That is precisely why, in section seven, a "mark-up shock" can be read as the oil price, as a value-added tax rise, or as market concentration. They are the same shock.
+
+Now the natural level of output, which is the anchor of the supply curve. Definition: the natural level is what output would be if every firm could reset its price. Then the relative price of the adjusting firms is one, and with consumption equal to output minus public spending and hours equal to output over productivity, you get equation fourteen: natural output over productivity, raised to the power eta, divided by natural consumption raised to the power minus the inverse of sigma-tilde, equals productivity divided by one plus the mark-up. Here eta is the inverse of the Frisch elasticity of labour supply, from assuming the disutility of work is hours raised to one plus eta, over one plus eta.
+
+Take logs of equation fourteen and eliminate natural consumption using the resource constraint. Collecting terms gives equation fifteen, the natural level of output:
+
+Natural output equals one plus eta, divided by the inverse of sigma plus eta, times productivity; plus the inverse of sigma, divided by the inverse of sigma plus eta, times public spending; minus one, divided by the inverse of sigma plus eta, times the mark-up.
+
+Three signs, each with its economics. Natural output rises with productivity, obviously. It rises with public spending, and the reason is a negative wealth effect: a household made poorer by government absorbing resources takes less leisure and works more. That is a supply-side channel, and it is why the supply curve moves when spending moves — a point students routinely miss. And natural output falls with the mark-up, because a wider wedge means firms want a higher price at any level of output.
+
+I have to flag something here, and this is the one place where this narration departs from the printed version of the article that this project holds. In the converted text of the paper, the coefficient on public spending in equations fifteen and nineteen appears as "the inverse of sigma, minus one" over "the inverse of sigma plus eta". That is an artefact of the text extraction. The correct coefficient is just the inverse of sigma, over the inverse of sigma plus eta. Three independent confirmations. One: log-linearising equation fourteen directly gives it, and you can do that yourself in two lines. Two: the article's own text on page five hundred and eight says that when the disutility of labour is linear — that is, when eta is zero — output rises one-to-one with public expenditure while consumption stays unchanged. With the correct coefficient, the derivative at eta equal to zero is exactly one; with the mis-transcribed one it would be one minus sigma, and the sentence would be false. Three: the long-run spending multiplier in Table One equals eta over a denominator, and that eta in the numerator can only arise from the correct coefficient. If you use the wrong one, no row of Table Two reproduces.
+
+Now the supply curve itself. Divide equation twelve by equation fourteen. Every constant, including the mark-up and productivity, cancels, and the ratio of desired relative price to one is a function of output relative to natural output. Log-linearising gives equation sixteen:
+
+The adjusting firms' relative price, in logs, equals the inverse of sigma plus eta, times the output gap.
+
+That is the marginal-cost equation. Producing above the natural rate pushes the real wage up along labour supply, which is where eta comes from, and up along the consumption-smoothing margin, which is where the inverse of sigma comes from. Real marginal cost rises, and the unconstrained firm responds by raising its relative price.
+
+One step left: aggregate. The price index is a weighted average of frozen and flexible prices — alpha times the pre-set price plus one minus alpha times the adjusting price. Solve that for the adjusting firms' relative price, and you find it equals alpha over one minus alpha, times the gap between the actual price level and the expected price level. Set that equal to equation sixteen, solve, and you have equation seventeen, the short-run aggregate supply curve:
+
+The price level minus the expected price level equals kappa times the output gap, where kappa equals one minus alpha, times the inverse of sigma plus eta, all divided by alpha.
+
+Everything about kappa is worth stating. It falls with alpha, rises with eta, and falls with sigma.
+
+As alpha goes to one — almost nobody can reset — kappa goes to zero and the supply curve is flat: output moves and prices do not. As alpha goes to zero — everyone resets — kappa goes to infinity, the supply curve is vertical, and we are in the classical model. So more rigidity means a flatter curve. Students get this backwards constantly, and the mnemonic is that alpha sits in the denominator.
+
+For calibration, note that in a Calvo scheme the expected duration of a price is one over one minus alpha. Three quarters, the usual figure for the United States, gives alpha about zero point six six, and zero point seven five is the high-rigidity experiment.
+
+Then the plotting rule, which is the single thing to memorise from this part. Set output equal to the natural rate in equation seventeen and the price level equals the expected price level. So the supply curve always passes through the point whose horizontal coordinate is the natural level of output and whose vertical coordinate is the expected price level. Both of those are predetermined or real. To shift the supply curve after any shock, do exactly two things: recompute the natural rate from equation fifteen, and draw a line of slope kappa through the new anchor point.
+
+Finally, an honest caveat that Benigno makes himself. Equation seventeen is not a New-Keynesian Phillips curve. It relates the price level to the level of the output gap. It has no expected future inflation in it. It is what undergraduate textbooks call the New-Classical Phillips curve, derived on different principles by Phelps in nineteen sixty-seven and Lucas in nineteen seventy-three, out of imperfect information rather than sticky prices. Footnote seven explains the choice: the forward-looking staggered-pricing alternative would add expectational terms without changing any qualitative result in the sections that follow, and it is outside the paper's pedagogical scope. It is outside this course's scope as well. The price of that choice is stated in the conclusion: this model cannot speak about inflation dynamics or disinflation.
+
+Checklist for part three. You should be able to derive the mark-up from the profit-maximisation problem. You should be able to say what the aggregate mark-up contains and why taxes and monopoly power are indistinguishable. You should be able to derive kappa and say which way rigidity tilts the curve. And you should be able to state the anchor point of the supply curve from memory.
+
+PART FOUR. THE LONG RUN, AND THE DIFFERENCE BETWEEN NATURAL AND EFFICIENT. SUBSECTIONS FOUR POINT TWO THROUGH FOUR POINT FOUR, EQUATIONS EIGHTEEN AND NINETEEN, PRINTED PAGES FIVE HUNDRED AND EIGHT TO FIVE HUNDRED AND NINE.
+
+This is the shortest part and it decides the answer to every policy question in class nine. It contains one subtraction.
+
+In the long run all firms reset, so output is at the natural level, the long-run Phillips curve is vertical, and the classical dichotomy holds. Long-run consumption follows from the resource constraint, and when you substitute you find the coefficient on long-run public spending is minus eta over the consumption share times the inverse of sigma plus eta.
+
+Three statements from the article, each of which is a check on that algebra. Money is neutral in the long run: the long-run price level appears nowhere in long-run output or consumption. Fiscal policy is not neutral: any tax rise raises the mark-up and reduces both output and consumption. And with linear disutility of labour, output rises one-to-one with public spending while consumption is unchanged — which is exactly the coefficient minus eta going to zero.
+
+On instrument assignment, being sloppy here is the fastest route to a wrong comparative static. In the long run monetary policy sets the long-run price level and can do nothing else. In the short run it sets the nominal interest rate. Fiscal policy sets spending and the four tax rates in each period, and the lump-sum transfer closes the government's intertemporal budget constraint, which is equation eighteen.
+
+Now the efficient level of output. Different question: not what a decentralised economy with flexible prices does, but what a planner would choose. Maximise utility from consumption minus disutility from work, subject to the resource constraint and the technology. Substitute both constraints and it becomes a one-variable problem in output. The first-order condition says: the marginal rate of substitution between labour and consumption equals the marginal rate of transformation, which is productivity.
+
+Compare that with the natural-rate condition, which said the same ratio equals productivity divided by one plus the mark-up. They are the same equation except for the wedge. So log-linearising with the mark-up set to zero gives equation nineteen: efficient output equals one plus eta over the inverse of sigma plus eta, times productivity, plus the inverse of sigma over the same denominator, times public spending.
+
+And now the subtraction. Subtract efficient from natural. The productivity terms cancel. The spending terms cancel. What is left is:
+
+Natural output minus efficient output equals minus the mark-up, divided by the inverse of sigma plus eta.
+
+Two properties, and between them they organise everything that follows.
+
+Productivity and public spending move the natural and the efficient level by the same amount. They are efficient shocks: the economy's target moves along with its capacity. Tracking the natural rate and maximising welfare are then the same policy, and one instrument can do both. That is the divine coincidence.
+
+The mark-up moves the natural level only. It is an inefficient shock: capacity as the market computes it falls, while what a planner would want has not moved. Now the two objectives point in different directions, and policy must choose. That is the trade-off.
+
+One corollary that pays off in exam questions. If the mark-up is positive in steady state, the natural rate sits permanently below the efficient one, and that is a level gap, not just a shock response. Footnote twenty-one is careful about this: the welfare function used in section eleven is an approximation taken around an efficient steady state, one where the mark-up is zero. With a distorted steady state, the welfare-relevant target need not be the efficient level at all, and Benigno and Woodford, two thousand five, is where that harder case is done.
+
+Checklist for part four. You should be able to set up and solve the planner's problem. You should be able to state the natural-minus-efficient formula and say which shocks move it. And you should be able to say which gap prices respond to, and which gap welfare responds to. Prices respond to the gap against the natural rate, because firms price off marginal cost. Welfare responds to the gap against the efficient rate, because households consume and work.
+
+PART FIVE. THE DIAGRAM, AND THE NATURAL REAL RATE OF INTEREST. SECTION FIVE, EQUATIONS TWENTY AND TWENTY-ONE, FIGURES ONE THROUGH FIVE, PRINTED PAGES FIVE HUNDRED AND NINE TO FIVE HUNDRED AND ELEVEN.
+
+Two equations, two unknowns: the price level and output. Supply, equation twenty, is the curve we just derived. Demand, equation twenty-one, is the curve from part two with long-run output written as long-run natural output, since in the long run output is always natural.
+
+Slopes. Demand has slope minus one over sigma. Supply has slope plus kappa. And the anchors: supply passes through the point given by expected prices and the natural rate; demand passes through that same point only if the nominal rate has been set at the natural real rate and the long-run price level equals the expected price level.
+
+That asymmetry is the thing to keep straight. The supply anchor is a property of the model. The demand anchor is a normalisation the author chooses for the figures, and he says so on page five hundred and ten: to simplify the graph, assume prices equal expected prices and the curve also crosses the natural level of output, which requires setting the nominal and real interest rate at their natural level. So whenever a figure shows both curves crossing at the natural rate with stable prices, monetary policy has already been assumed to be doing exactly the right thing.
+
+Now let me solve the system algebraically, because the article does not, and the closed form turns every later figure into a signed and sized statement.
+
+Substitute supply into demand, and collect the output terms. You get: output times one plus sigma-kappa equals long-run natural output, plus the spending difference, plus sigma-kappa times the current natural rate, minus sigma times the bracket containing the nominal rate, the time preference, the consumption-tax difference and the long-run price level.
+
+Subtract the natural rate from both sides and factor, and the whole model reduces to two lines that are worth memorising:
+
+The output gap equals sigma over one plus sigma-kappa, times the quantity: the natural real rate, minus the nominal rate, plus the difference between the long-run price level and the expected price level.
+
+And the price surprise equals kappa times that same gap.
+
+Where the natural real rate of interest is: the rate of time preference, plus the inverse of sigma times long-run natural output minus current natural output, plus the inverse of sigma times the spending difference, plus the consumption-tax difference.
+
+Read the four terms of the natural real rate. Time preference, because even a flat consumption path must compensate impatience. Then the growth term, and this is the important one: an economy expected to be much richer tomorrow wants to borrow today, so the real rate must be high to choke that off. Turn it around: bad long-run prospects push the natural real rate down, possibly below zero, and that single term is the origin of the liquidity trap in part nine. Then temporarily high public spending, which crowds out and raises the natural rate. And then the expected consumption-tax change, which acts exactly like expected inflation.
+
+The whole of the next two parts can now be stated in one sentence. A shock moves the natural rate of output and the natural real rate of interest; policy is right when the nominal rate moves to the new natural real rate; and whatever gap is left equals sigma over one plus sigma-kappa, times the distance between them.
+
+Four facts fall out of differentiating those two lines, and it is worth stating them before any shock is named.
+
+One. A current supply shock passes through partially. With demand fixed, the derivative of output with respect to the natural rate is sigma-kappa over one plus sigma-kappa, which is strictly between zero and one. Output follows the natural rate, but never all the way, and the residual is a negative gap of minus one over one plus sigma-kappa, times the shock.
+
+Two. A future shock also passes through partially, but with nothing to offset it. The derivative of output with respect to long-run natural output is one over one plus sigma-kappa, and since the current natural rate has not moved, the entire response is a gap.
+
+Three. Prices move only with the gap. A shock that leaves the gap at zero leaves the price level exactly at expectations, whatever it does to output.
+
+Four, and this is the one that matters for the liquidity trap. The nominal rate enters with minus sigma, and the long-run price level enters with plus sigma, in the same slot. Cutting the current nominal rate by one point and raising the expected long-run price level by one point do the same thing to demand. When the nominal rate is stuck at zero, the second instrument survives.
+
+Checklist for part five. You should be able to write both curves, give both slopes, and give both anchors. You should be able to derive the natural real rate by setting the gap and the price surprise to zero. And you should be able to state the gap formula, because every result from here is a substitution into it.
+
+PART SIX. PRODUCTIVITY SHOCKS. THREE CASES, THREE DIFFERENT POLICIES. SECTION SIX, FIGURES SIX THROUGH EIGHT, PRINTED PAGES FIVE HUNDRED AND ELEVEN TO FIVE HUNDRED AND THIRTEEN.
+
+The starting point is figure five: prices equal expected prices equal long-run prices, output is at the natural level, which coincides with the efficient level, and the nominal rate is at the natural real rate.
+
+A productivity change moves both real anchors by the same amount: one plus eta, over the inverse of sigma plus eta, times the change in productivity.
+
+Case one, subsection six point one: a temporary gain. Productivity rises now and not later.
+
+The natural rate rises, so supply shifts down and to the right through its new anchor. Demand does not move at all, because current productivity appears nowhere in the demand equation. From the closed form: output rises by sigma-kappa over one plus sigma-kappa times the shock, the gap is negative at minus one over one plus sigma-kappa times the shock, and the price level falls.
+
+Read those three together, because the combination is counter-intuitive and that is what makes it a good exam question. Output rises. Prices fall. And the output gap is negative. Good news for output is not good news for the gap, and the reason is sticky prices: only the adjusting firms cut their prices, so the fall in the real rate is too small to pull demand up by the full amount that capacity rose.
+
+For welfare, the efficient level rose by the same amount, so the gap against the efficient level is negative too. The economy is inefficiently small even while it grows.
+
+Optimal policy: set the gap to zero, which requires cutting the nominal rate by the shock divided by sigma. Expansionary. Cross-check it against the natural real rate: the growth term fell by the inverse of sigma times the shock, so the natural real rate fell by exactly that much, and the policy rate must follow it down. Same number. At that rate output rises by the full amount and prices are stable — point E double prime in figure six.
+
+Case two, subsection six point two: a permanent gain. Productivity rises now and later, equally.
+
+Supply shifts down as before. But now demand shifts up as well, because long-run natural output has risen: the household expects to be richer and, to smooth consumption, raises spending today. Put the two changes into the closed form and the gap is exactly zero, the price level does not move, and output rises by the full amount. The two shifts are precisely the right size relative to one another.
+
+Why exactly? Because the natural real rate depends on the difference between long-run and current natural output, and a permanent level shift leaves that difference unchanged. So the natural real rate does not move and holding the nominal rate fixed is already optimal. Monetary policy should be neutral.
+
+That is a general lesson worth extracting: what monetary policy tracks is not the level of technology but the gap between future and current natural output. A shock that raises both equally is invisible to it.
+
+Case three, subsection six point three: optimism about the future. Long-run productivity rises; current productivity does not. Read it as either a genuine future improvement or a belief about one — the model cannot distinguish them, and that is itself the point.
+
+Supply does not move. Demand shifts up. Output rises by one over one plus sigma-kappa times the shock, and the entire response is a gap: output is above the natural level and above the efficient level, since neither moved. Prices rise. The economy is overheating on the strength of a forecast.
+
+Optimal policy: raise the nominal rate by the shock divided by sigma. Restrictive. Which is again exactly the change in the natural real rate.
+
+So: three shocks to the same variable, three different signs for the policy response. Temporary, cut. Permanent, nothing. Merely expected, raise. Any answer of the form "positive productivity shock, therefore expansionary policy" is wrong two times out of three. The rule that is always right is: move the nominal rate to the new natural real rate.
+
+Now let me state precisely why there is no trade-off in this whole part, because "no trade-off" is a claim with a proof. The welfare loss penalises two things: the price surprise and the gap against the efficient level. The supply curve says the price surprise is kappa times the gap against the natural level. So both terms can be zeroed at once if and only if output can be made equal to the natural rate and to the efficient rate simultaneously — that is, if and only if the natural rate equals the efficient rate, which by part four means the mark-up has not moved. Productivity shocks do not touch the mark-up. One instrument, two targets, no conflict.
+
+Two conditions sit underneath that, and both are examinable. First, wage flexibility. Footnote nine says so explicitly: an important assumption here is wage flexibility, and trade-offs will occur with sticky wages. Second, an efficient steady state, per footnote twenty-one.
+
+Checklist for part six. For each of the three cases you should be able to say which curve moves, the sign of the gap, the sign of the price change, and the direction of optimal policy. And you should be able to prove the no-trade-off claim rather than assert it.
+
+PART SEVEN. MARK-UP SHOCKS, AND THE FIRST REAL TRADE-OFF. SECTION SEVEN, FIGURE NINE, PRINTED PAGES FIVE HUNDRED AND THIRTEEN TO FIVE HUNDRED AND FOURTEEN.
+
+A mark-up shock is a rise in the aggregate mark-up. By equation thirteen, it can be more monopoly power, or higher payroll, income or sales taxes, or — the interpretation the article calls most appealing — a rise in the price of an input that is demanded inelastically as a factor of production. Oil is the example. The model has one factor, so an imported input price enters as a wedge between the price a firm charges and the labour cost it faces, which is what the mark-up is.
+
+The asymmetry with the previous part is the whole story: the natural rate falls by the shock divided by the inverse of sigma plus eta, and the efficient level does not move at all.
+
+With no policy response: supply shifts up and to the left, demand does not move, output falls, and the price level rises. Stagflation. The transmission is: firms facing a wider wedge raise prices; a higher price level with the long-run level given means a higher real rate; households save more and postpone; demand and output fall.
+
+And now the subtle part, which is where most errors happen. The two gaps have opposite signs. Output is above the natural rate — which is why prices are rising, since prices respond only to that gap — and simultaneously below the efficient rate, which is why welfare has fallen. Anyone who reports a single "output gap" here has already lost the question.
+
+Monetary policy can reach any point on the new supply curve by sliding demand. Three of those points have names.
+
+Point E prime: do nothing. Prices up, output down, positive gap against natural, negative gap against efficient.
+
+Point E double prime: price stability. Requires raising the nominal rate by minus the change in the natural rate, divided by sigma. The price level is held at expectations, and output takes the whole hit — it falls by the full fall in the natural rate, the deepest contraction of the three.
+
+Point E triple prime: efficient output. Requires cutting the nominal rate by kappa times the change in the natural rate. Output is held at the efficient level, and prices take the whole hit — the price rise is larger than under doing nothing.
+
+That is the trade-off, and it is genuine: the two objectives require interest-rate moves of opposite sign. No choice of the nominal rate reaches both, because one instrument cannot hit two targets that no longer coincide.
+
+The optimum is neither column but a point between, and we will price it exactly in part eleven. The answer, to anticipate: optimal policy admits a fraction one over one plus theta-kappa of the shock into prices.
+
+Here is the test for whether a trade-off exists at all. Do not memorise cases; ask whether the shock moves the mark-up. Productivity: no, and so no trade-off. Public spending: no, and so no trade-off. Monopoly power or oil: yes. Distorting taxes on labour and sales: yes. And the consumption tax is its own case, because it acts as a mark-up shock and as an intertemporal price change at the same time — it is the only instrument in the model that moves both curves on its own.
+
+Section seven restricts itself to temporary mark-up shocks and leaves the rest to the reader. Let me do the two omitted cases, since the machinery is built. A permanent mark-up rise shifts supply up and demand down, because long-run natural output falls with the long-run mark-up. Since both natural rates move together, the gap is zero and prices do not move, with output down by the full amount. But the welfare loss is now permanent and no interest rate can close it: that is a supply-side problem, not a stabilisation problem. An expected mark-up rise — long run only — leaves supply still and shifts demand down: output and prices fall, both gaps are negative, and the optimal response is a cut. Note that the coincidence is restored in that case, because the current natural and efficient rates have not moved.
+
+Checklist for part seven. You should be able to say why the two gaps have opposite signs. You should be able to name the three reachable points and the sign of the interest-rate move each needs. And you should be able to state the trade-off criterion in terms of the mark-up.
+
+PART EIGHT. FISCAL MULTIPLIERS. SECTION EIGHT, EQUATIONS TWENTY-TWO AND TWENTY-THREE, TABLES ONE AND TWO, FIGURE TEN, PRINTED PAGES FIVE HUNDRED AND FOURTEEN TO FIVE HUNDRED AND SIXTEEN.
+
+The moral of this section first, so the algebra has somewhere to go: judging fiscal policy by its multiplier on output is misleading, because the object that matters for welfare is the gap, and for some instruments the two have different signs.
+
+Keep only the fiscal terms of the demand curve and substitute the supply curve for the price level. Collecting output terms gives output equal to a numerator over one plus sigma-kappa, where the numerator contains current spending, long-run natural output, minus long-run spending, plus sigma-kappa times the current natural rate, plus sigma times the consumption-tax difference.
+
+Then bring in the fiscal content of the natural rates. To first order the aggregate mark-up is the sum of its components, so I will write tau for the sum of the labour income, payroll and sales tax rates, and keep the consumption tax separate because it also enters demand directly. The natural rate then contains the inverse of sigma times spending, minus tau, minus the consumption tax, all divided by the inverse of sigma plus eta.
+
+Substituting and reading off coefficients gives equation twenty-two and Table One. Let me give you all six, with a shared denominator I will call D, equal to the inverse of sigma plus eta, times one plus kappa-sigma.
+
+The multiplier on current spending is one over one plus kappa-sigma, plus kappa over D.
+
+The multiplier on long-run spending is eta over D, and it enters with a minus sign: more future spending reduces current output.
+
+The multiplier on current sales and payroll taxes is kappa-sigma over D.
+
+The multiplier on long-run sales and payroll taxes is one over D.
+
+The multiplier on the current consumption tax is sigma times the current spending multiplier.
+
+And the multiplier on the long-run consumption tax is sigma times the long-run spending multiplier, and it enters positively: a promised future consumption tax raises output today.
+
+Two of these deserve a comment. The long-run spending multiplier's numerator, eta, comes from a cancellation: the inverse of sigma, over the inverse of sigma plus eta, minus one, equals minus eta over that same denominator. That cancellation is the third proof that the coefficient on spending in equation fifteen is what I said it was in part three. And the long-run consumption-tax multiplier comes from sigma minus one over the inverse of sigma plus eta, which simplifies to sigma-eta over that denominator — so it is exactly zero when eta is zero, which is the article's own remark that with linear disutility the two channels offset one another.
+
+Benigno is candid that "multiplier" is a courtesy title here: most of these do not have multiplying effects on output in the Keynesian sense. The current spending multiplier is below one always, and equals one only in the knife-edge case of eta equal to zero. With eta positive there is genuine crowding out: spending raises prices, the real rate rises, and private consumption falls.
+
+The calibration, from page five hundred and fifteen. Alpha of zero point six six or zero point seven five. Sigma of one half or one. And eta of zero point two or one — because the inverse of eta is around five in micro studies but close to one in estimated dynamic models, as in Smets and Wouters.
+
+Table Two evaluates all six multipliers at eight combinations, and every one of them is below one. A one-percent-of-GDP rise in current public spending raises output by between zero point seven five and zero point nine eight percent. A current tax rise cuts output by between zero point one and zero point three two. The consumption-tax multiplier is the one that swings most with sigma — around zero point four eight at sigma of one half, but zero point nine four at sigma of one — because it is literally sigma times the spending multiplier: it works through intertemporal substitution and inherits the household's willingness to substitute.
+
+Now the gap. Subtract equation fifteen from equation twenty-two. Three cancellations, all of which I invite you to do by hand, deliver equation twenty-three:
+
+The output gap equals the long-run spending multiplier times current minus long-run spending, plus the long-run tax multiplier times current minus long-run taxes, minus the long-run consumption-tax multiplier times current minus long-run consumption tax.
+
+Three results follow, and all three are examinable.
+
+One: permanent fiscal policy cannot move the gap. Every term is a short-minus-long difference. Fiscal policy stabilises only by being temporary.
+
+Two: the gap multipliers are the long-run output multipliers, which are the small ones. A one-point rise in the spending-to-GDP ratio narrows the gap by between zero point zero six and zero point three, and at the more realistic eta of zero point two by no more than zero point one two. Compare zero point nine six on output. The multiplier on the gap is roughly one eighth of the multiplier on output.
+
+Three, and this is the counter-intuitive one: a consumption-tax cut has the wrong sign. It raises output, and it widens the gap. Conversely a rise in sales and payroll taxes cuts output and yet narrows the gap, because it cuts the natural rate by more than it cuts output.
+
+You can also compute the gap against the efficient level. Since distorting taxes do not move the efficient level at all, their coefficients there are their full output coefficients; and since current spending moves the natural and the efficient level proportionally, only the small long-run spending multiplier survives. So: tax multipliers as in equation twenty-two, spending multipliers as in equation twenty-three. I should note that the article's prose on page five hundred and fifteen states this the other way round on both counts. The derivation and the article's own next sentence — that a short-run spending shock moves the natural and the efficient level proportionally — both say the version I just gave.
+
+Finally the picture, figure ten. A temporary rise in current spending moves both curves: demand up, because spending enters demand directly, and supply down and to the right, because the natural rate rises with spending. By equation twenty-three the gap rises, so from an initial zero gap the new equilibrium lies to the right of the new natural rate. Prices rise, the real rate rises, private consumption is crowded out. The article's summary of that point is worth quoting because it is the whole ambiguity of fiscal stimulus in one line: on one hand the economy is overheated by a positive output gap, on the other hand private consumption is crowded out. To stabilise, raise the nominal rate and walk demand back.
+
+And the knife-edge in footnote ten: when eta is zero, supply and demand shift proportionally, the new equilibrium lands exactly on the new natural rate, and prices are stable with no intervention at all. Consistent with the long-run spending multiplier being eta over D, which is zero.
+
+One caveat covering the whole section: every number assumes the government satisfies its budget constraint through lump-sum transfers. If lump-sum transfers are unavailable, a spending rise must be matched by a distorting tax and the entries must be combined.
+
+Checklist for part eight. You should be able to derive at least two of the six Table One entries from scratch. You should be able to state why the gap multipliers are the long-run output multipliers. And you should be able to name the instrument whose output and gap effects have opposite signs.
+
+PART NINE. THE LIQUIDITY TRAP. SECTION NINE, FIGURES ELEVEN AND TWELVE, PRINTED PAGES FIVE HUNDRED AND SIXTEEN TO FIVE HUNDRED AND EIGHTEEN.
+
+Two claims to establish: that a zero bound puts a ceiling on the demand curve, and that even with the conventional instrument exhausted the model still has an instrument.
+
+First, why there is a bound at all in a model with no money. The article's answer: because otherwise agents could borrow to run infinite consumption. Footnote eleven is more careful and it undercuts the naive story — in a genuinely cashless economy money pays the same rate as bonds and there is no zero bound; the bound is the remuneration of money, and it is zero only because currency pays zero and keeps its store-of-value function.
+
+So the nominal rate is at least zero, and a liquidity trap is the state where it equals zero and conventional policy has run out of its standard tool.
+
+Put the nominal rate at zero in the demand curve and you get a locus the article calls AD-zero: the same slope, and the highest position the demand curve can occupy for a given long-run price level, spending and taxes. Every expansionary rate cut shifts demand towards that ceiling and can never pass it.
+
+Using the closed form with the nominal rate at zero, the best attainable gap is sigma over one plus sigma-kappa, times the natural real rate plus the difference between the long-run and the expected price level. With long-run prices anchored at expectations, that is simply sigma over one plus sigma-kappa, times the natural real rate. So: if the natural real rate is non-negative, the gap can be closed. If it is negative, the economy is stuck below potential.
+
+Say that in words, because it is the most important sentence in this part. The trap is not fundamentally about the interest rate. It is about the natural real rate being negative, with the nominal floor preventing the actual real rate from reaching it.
+
+Where does a negative natural real rate come from? From the growth term. Following Krugman, nineteen ninety-eight, the article names two sources: poor long-run growth prospects — pessimism, which is section six point three run in reverse — and forced deleveraging, which is the next part. Note the symmetry: optimism about the future called for a restrictive response; pessimism deep enough calls for an expansionary one that the floor forbids. Figure twelve draws demand falling and the zero-bound ceiling falling with it, because both contain long-run natural output. Cutting the rate to zero reaches the best available point, where — in the article's words — the real interest rate is too high, household consumption too low, and the economy still in a slump with output far below potential.
+
+The exit. Recall fact four from part five: the nominal rate and the long-run price level occupy the same slot. So when the rate is unavailable, use the price level. Solving for the commitment that closes the gap at a zero nominal rate gives: the long-run price level must exceed the expected price level by exactly the absolute value of the natural real rate.
+
+The mechanism, stated carefully: raising the expected long-run price level raises expected inflation, which lowers the real rate at an unchanged zero nominal rate, which raises consumption. Both the demand curve and the ceiling shift up.
+
+Three things this exit needs, none of them algebraic. Credibility, because it is a promise about a future the central bank will be tempted to renege on once the trap is over; Eggertsson and Woodford, two thousand three, treat it as a commitment problem for exactly that reason. A transmission story: the article names quantitative easing — expand the balance sheet and inject liquidity until the price level turns, since the general price index is the value of money in terms of goods — and lists Bernanke's two thousand two menu: expand the scale and the menu of asset purchases; commit to holding the nominal rate at zero for a long period; announce explicit ceilings on long-maturity yields and enforce them with unlimited purchases; offer fixed-term loans to banks at near-zero rates against a wide set of collateral; and buy foreign debt. And third, a substitute if prices will not move: since the expected consumption-tax change sits in the same bracket as expected inflation, a pre-announced path of rising consumption taxes is an expected-inflation policy run by the treasury.
+
+Fiscal policy in the trap. Apply the two multiplier equations. There are two desiderata — raise output and narrow the gap — and the lists of policies that satisfy them nearly coincide. Raising current spending, cutting future spending, cutting future sales and payroll taxes, cutting the current consumption tax and raising the future consumption tax all do both. Exactly one policy fails the pair: a current cut in sales and payroll taxes raises output while worsening the gap, because it raises the natural rate by more than it raises output. The article says it should be avoided, and footnote fourteen notes that Eggertsson, two thousand eleven, in a fully dynamic model, finds the tax-cut multiplier turning negative once the rate hits zero, while the spending multiplier rises above one.
+
+Among the survivors the article's preference is the surprising one: long-run instruments beat short-run ones. Three reasons, each mapping onto a curve. First, raising current spending also shifts supply down, holding prices down — and in a depression with deflation, downward nominal wage rigidity and nominal debt, lower prices worsen balance sheets. Cutting future spending moves demand only. Second, composition: current spending crowds out private consumption, while cutting future spending raises it, and in a slump driven by a consumption collapse that is the margin one wants to move. Third, sustainability: a temporary stimulus works only if it is genuinely reversed, and if lump-sum financing is unavailable it must be paid for with future taxes — and higher future taxes are among the most contractionary items on the list.
+
+So the recommendation is a package of future actions with expansionary effects on current consumption: cut future taxes, cut future spending, raise future consumption taxes. All shift demand up, none push prices down, and all respect the government's budget constraint.
+
+One comparison to finish. The traditional Keynesian version has a flat LM curve on the left, so monetary expansion is absorbed without effect, and the conclusion drawn from it is that fiscal policy is the only effective instrument in a trap. This model reaches a different conclusion from the same starting point: the nominal rate is stuck, but demand depends on the real rate, and the real rate depends on an expectation the central bank can still act on. Monetary policy has not left the game; it has changed instrument.
+
+Checklist for part nine. You should be able to write the zero-bound locus. You should be able to state the trap condition in terms of the natural real rate rather than the nominal rate. You should be able to give the size of the price-level commitment that closes the gap. And you should be able to name the one fiscal instrument that helps output and hurts the gap.
+
+PART TEN. DEBT DELEVERAGING. SECTION TEN, EQUATIONS TWENTY-FOUR THROUGH THIRTY-TWO, FIGURE THIRTEEN, PRINTED PAGES FIVE HUNDRED AND EIGHTEEN TO FIVE HUNDRED AND TWENTY-ONE.
+
+This section is the model of Eggertsson and Krugman, two thousand twelve, compressed onto the same diagram. Everything follows from one change: some households are at a borrowing limit, so their Euler equation does not hold.
+
+A fraction chi are savers and one minus chi are borrowers. Borrowers are more impatient — a lower discount factor — which is why they borrow at all. Each type has flow budget constraints, one per period, rather than a single lifetime constraint; that is forced, because with a borrowing limit the two periods can no longer be collapsed. Profits are now separated from taxes, because the distribution of both across types will matter.
+
+The debt limit says the real value of debt, discounted at the real rate, cannot exceed a threshold that can be interpreted as the level below which debt is considered safe. It applies in each period. The shock of interest is a fall in that threshold, and the article is candid that it is unmodelled: for reasons not modelled here, borrowers suddenly realise that they have to reduce their debt exposure.
+
+Assume borrowers start constrained, because they are impatient, and stay constrained through the deleveraging. Then their Euler equation is replaced by the debt limit holding with equality: their consumption is whatever the budget constraint allows, given the maximum debt they may carry. That single step drives the whole section.
+
+Two tricks keep it tractable, and both are worth understanding rather than memorising.
+
+First, labour is a Cobb–Douglas aggregate of the two types' hours, with a matching wage index, so that each type's compensation moves with total compensation. A consequence used later: labour income and profits together exhaust output.
+
+Second — and this is the clever one — utility from consumption is exponential rather than isoelastic. Take each type's intratemporal condition and average across types. With exponential utility the marginal utilities multiply into the sum of consumptions rather than a messy average, so only aggregate consumption appears in the averaged condition. That is why, using the production function, the resource constraint and long-run mark-up pricing, the long-run natural level of output is independent of the distribution of wealth, and log-linearises into exactly the same equation fifteen as before, with the elasticity of substitution now given by one over the product of the exponential parameter and steady-state output.
+
+So: the supply curve is unchanged, still the price surprise equal to kappa times the output gap. All the action is on the demand side. With isoelastic utility this would fail and the model would not fit on one diagram.
+
+Now the demand curve. Savers are unconstrained, so their Euler equation survives — in levels, not logs, because exponential utility makes the level of consumption the relevant object. Difference the resource constraints across periods and substitute the savers' Euler equation, and you get equation thirty-one. Two changes from the old demand curve, and both matter.
+
+The interest-rate term is now scaled by chi: only savers respond to the real rate, so the conventional monetary channel is weaker the more borrowers there are.
+
+And a new shifter appears: the difference between borrowers' short-run and long-run consumption. If deleveraging forces them to cut today relative to tomorrow, aggregate demand falls for reasons no interest rate authorised.
+
+Solve for borrowers' consumption from the two flow constraints with the limit binding. Their consumption is income, minus the real value of inherited debt service, plus what they are newly allowed to borrow, minus taxes. Approximate around the initial debt position and substitute, and the demand curve takes its final form, equation thirty-two, with a new interest sensitivity — call it phi — equal to sigma-chi plus one minus chi times initial debt times beta, all over chi. Note that phi is at least sigma.
+
+Now the slope, which is the payoff of the section. Differentiate with respect to the price level. The interest term contributes minus phi; the new debt term contributes plus one minus chi, times initial debt, over chi. Adding them, and substituting phi, the answer is minus the quantity: sigma, minus initial debt times one minus beta times one minus chi, over chi. Call that bracket varpi. So the derivative of output with respect to prices is minus varpi, and the slope of the demand curve in the diagram is minus one over varpi.
+
+There are two new channels inside varpi, and they pull opposite ways. The borrowing-limit channel: a higher price level raises the real rate, so the amount that may be safely borrowed today falls, so borrowers consume less. That flattens demand. And the Fisher channel: a higher price level cuts the real value of inherited nominal debt, so borrowers consume more. That steepens demand.
+
+The Fisher channel dominates, because the term subtracted from sigma is positive. So for a given sigma, debt-constrained agents make the demand curve steeper. And the term can be large enough to flip the sign entirely: the demand curve slopes upward when initial debt is high or the share of savers is low. Under the Eggertsson–Krugman assumption that inflation between the short and the long run is tied to zero — which switches the expected-inflation channel off and leaves only Fisher — the slope is positive unambiguously. That is what figure thirteen draws, with the caveat of footnote nineteen that supply must be flatter than demand for the equilibrium to be stable.
+
+In that regime lower prices are contractionary. They raise the real burden of nominal debt, cut borrowers' consumption, and cut output.
+
+A deleveraging shock is a fall in the debt limit, which shifts demand left. Output and prices fall, and the fall can be deep enough to put the economy in the trap of part nine.
+
+Once demand slopes up, three things that are expansionary in normal times reverse sign, and they have names.
+
+The paradox of thrift: borrowers save more to pay down debt, aggregate demand and income fall, and realised saving ends up lower.
+
+The paradox of toil: a downward shift of the supply curve — from a temporary productivity gain, a lower mark-up, even a tax cut that should encourage work — is contractionary, because along an upward-sloping demand curve pushing prices down destroys borrower consumption faster than cheaper output creates demand.
+
+And the paradox of flexibility: more price flexibility, meaning a steeper supply curve, produces a larger output contraction, because it delivers a larger fall in prices and so a larger increase in the real debt burden.
+
+There is an escape clause in footnote twenty and it is worth knowing. If the long-run price level is well anchored irrespective of short-run prices, the demand curve must be drawn downward-sloping for a given future price level — and then the paradoxes of toil and flexibility disappear. The paradoxes are not properties of debt alone; they need the expectations channel to be switched off. A central bank with a credible long-run price-level target is doing paradox prevention.
+
+Policy in this environment. The monetary exit of part nine — commit to a higher long-run price level — works here reinforced, because phi exceeds sigma. Raising the long-run price level lowers the real rate, which raises savers' consumption and also relieves borrowers, whose debt service falls. Two beneficiaries rather than one.
+
+Fiscal policy changes in two structural ways. First, Ricardian equivalence fails: lump-sum transfers to the borrowers appear in the demand curve, so who is taxed matters, and so does how spending is financed — a euro taken from a constrained household is a euro of lost consumption, while a euro taken from a saver is largely absorbed by saving. Second, the multiplier exceeds one, which section eight ruled out by construction. With long-run prices anchored, the multiplier on short-run spending is: one over chi, plus varpi-kappa over one plus sigma-eta, all divided by one plus varpi-kappa. At the article's calibration — alpha of zero point six six, sigma of one half, eta of zero point two, initial debt at a hundred and twenty percent of output — with one third of households borrowing, that is one point two nine. With half borrowing, one point six two. And when long-run inflation is instead tied to zero, the formula is one minus initial debt times one minus chi times kappa over one plus sigma-eta, all over chi minus initial debt times one minus chi times kappa — which for one third borrowers gives two point seven five.
+
+Why so big? In normal times the spending multiplier is held below one by two leaks: prices rise, the real rate rises, and private consumption is crowded out. In the trap the nominal rate cannot rise, and a share of households is constrained and spends every euro of income. Both leaks are plugged. Note also that in the zero-inflation case the denominator shrinks as debt rises, so the multiplier grows with the debt stock and becomes explosive exactly where footnote nineteen says the equilibrium stops being stable. Numbers from that region should not be quoted.
+
+Checklist for part ten. You should be able to say why the supply curve is unchanged and which assumption buys that. You should be able to derive the slope and name the two channels inside it. You should be able to state the condition for the demand curve to slope upward. And you should be able to give the three paradoxes with their mechanisms, and say what switches them off.
+
+PART ELEVEN. OPTIMAL MONETARY POLICY, AND THE THIRD LINE. SECTION ELEVEN, EQUATIONS THIRTY-THREE THROUGH THIRTY-FIVE, FIGURE FOURTEEN, PRINTED PAGES FIVE HUNDRED AND TWENTY-ONE TO FIVE HUNDRED AND TWENTY-TWO.
+
+Up to here the model said what happens. Now it says what should happen, and the answer is a third straight line on the same axes.
+
+This is the payoff of microfoundations. A second-order approximation to the household's utility, from Woodford's chapter three, gives a loss function — equation thirty-three — equal to one half the squared gap between output and the efficient level, plus theta over two-kappa, times the squared price surprise.
+
+Three readings of that. The output term is measured against the efficient level, not the natural level, because households care about consumption and leisure and not about firms' marginal cost. The price term is the unanticipated price movement, because anticipated price levels are costless in this model. And the relative weight on prices, theta over kappa, rises with theta and rises with the share of sticky-price firms. The article's phrasing: the smaller the fraction of firms that adjust, the greater the weight to give to price stability. The logic is that with few adjusters, a given price surprise implies a large dispersion of relative prices across identical firms, and it is the dispersion that destroys welfare. Higher theta does the same for a different reason: with goods more substitutable, consumers punish that dispersion harder.
+
+Svensson reads this objective as flexible inflation targeting with price and output targets.
+
+The article poses the obvious implementation first: an instrument rule, a Taylor rule, setting the nominal rate as a constant plus a coefficient on the output gap plus a coefficient on the price surprise, and then choosing the two coefficients to minimise the loss. The objection is not that it cannot be done, but that the answer is not robust — it would be fortuitous if such a policy were optimal in all circumstances, since the optimal coefficients depend on the properties of the shocks. Re-optimise the coefficients for every shock process and it is no longer a rule.
+
+The alternative, following Giannoni and Woodford, is a targeting rule: a relationship between the target variables that the instrument must be moved to satisfy, whatever the shock. Derive it in three steps. Substitute the supply curve into the loss function to eliminate prices, which turns the loss into one half the squared efficient gap plus theta-kappa over two times the squared natural gap. Minimise over output, since the central bank can pick any output level it likes by sliding demand: the first-order condition is the efficient gap plus theta-kappa times the natural gap equals zero. Then substitute kappa times the natural gap back for the price surprise, and you get equation thirty-four:
+
+The gap between output and the efficient level, plus theta times the price surprise, equals zero.
+
+That is the inflation-targeting line. Svensson describes it as the equality of the marginal rates of transformation and substitution between the target variables, in an operational way. And it is robust in a strong sense: it does not mention the shock. Move the nominal rate so that this holds, whether the shock is to the mark-up, to productivity or to public spending, and whether it is temporary, permanent or merely expected.
+
+As geometry: the line has slope minus one over theta and passes through the point given by the expected price level and the efficient level of output. It is flatter than the demand curve if and only if theta exceeds sigma, and the article argues that this is the empirically relevant case — footnote twenty-four notes that a theta around eight delivers a fifteen percent mark-up, while sigma is usually taken near one. So in the picture, the optimum is where this line crosses the supply curve, and the central bank then chooses the nominal rate to put demand through that same point.
+
+That is the four-step procedure which is all of class nine: shock, recompute the natural rate and redraw supply through its anchor; recompute the efficient level and redraw the targeting line through its anchor; find where the new targeting line meets the new supply curve; set the nominal rate so demand passes through it.
+
+Let me price the mark-up case, since that is the one with a genuine trade-off. Solve the supply curve and the targeting line together. Output equals the efficient level plus theta-kappa times the natural level, all over one plus theta-kappa. The resulting efficient gap is minus theta-kappa over one plus theta-kappa, times the fall in the natural rate; and the price surprise is plus kappa over one plus theta-kappa, times the same quantity.
+
+So optimal policy lets exactly a fraction one over one plus theta-kappa of the shock through to prices, and absorbs the rest as an output loss. Two limits, which are the two extreme points of part seven: as theta-kappa goes to infinity, strict price stability and output takes the whole hit; as it goes to zero, output is held at the efficient level and prices take the whole hit. With the article's own numbers, theta of eight and kappa of about one point one three, theta-kappa is around nine and only about ten percent of the shock is allowed into prices. A welfare-based central bank in this model is close to, but not identical with, a strict inflation targeter. Figure fourteen draws exactly that, with a relatively flat targeting line and an optimum that requires raising the nominal rate relative to doing nothing.
+
+One line in the article deserves emphasis: a bank less concerned with price stability, with a targeting line steeper than the demand curve, should lower the nominal rate after the same shock. The sign of the optimal response to a cost-push shock is not a property of the economy. It is a property of the mandate.
+
+Which brings us to equation thirty-five. Nothing forces society to give the central bank the household's utility. Replace theta by a free preference parameter and the targeting rule becomes the efficient gap plus that parameter times the price surprise equal to zero. A large parameter means a flat line: a hawk, tolerating output losses to hold the price level. A small one means a steep line: a dove. The welfare-based benchmark is the parameter equal to theta, and the article notes why one might not use it — a monetary policy committee has heterogeneous preferences, and a general price-stability mandate rarely comes with explicit weights.
+
+And the caveat that constrains the whole section, footnote twenty-one: the approximation holds around an efficient steady state with a zero mark-up. In the distorted case of Benigno and Woodford, two thousand five, the welfare-relevant output target need not be the efficient level, and it is the optimal response to mark-up shocks that changes most. The one result the model is least willing to carry is exactly the one where the trade-off lives.
+
+Checklist for part eleven. You should be able to derive the targeting rule in three steps from the loss function. You should be able to give the slope and the anchor of the line, and the condition for it to be flatter than demand. You should be able to state the optimal split of a mark-up shock. And you should be able to say why a targeting rule is preferred to an instrument rule.
+
+PART TWELVE. WHAT THE MODEL CANNOT DO. SECTION TWELVE, PRINTED PAGE FIVE HUNDRED AND TWENTY-THREE.
+
+What it delivers, with two curves and a third line: short-run non-neutrality and long-run neutrality; the optimal response to real and cost-push shocks; the zero lower bound; deleveraging; and the case for flexible inflation targeting. All without a money supply, without an LM curve, and without a forward-looking Phillips curve.
+
+What it does not deliver, in the author's own list. Inflation dynamics: the supply curve is a New-Classical Phillips curve in the price level, so disinflation paths, inflation persistence and sacrifice ratios are outside it. Two periods only, so every long-run statement is about a single future date. No financial intermediation and no financial frictions, beyond the reduced-form borrowing limit of section ten. No open economy: no exchange rate and no terms of trade. And the dispensing with interest-rate rules, which he presents as possibly an asset and possibly a liability — long-run prices are anchored by assumption, so the current nominal rate pins down the equilibrium with no feedback needed, which is convenient and also assumes away the determinacy questions that Taylor rules exist to answer.
+
+PART THIRTEEN. THE PITFALLS. WHERE MARKS ARE LOST.
+
+Eight of them, and each has appeared in this narration already. This part exists so you hear them in one place.
+
+One. Bringing the LM curve. There is no money supply in this model; the central bank sets the nominal rate. If your explanation of the demand curve's slope mentions money demand, you have described a different model.
+
+Two. Confusing the vertical axis. It is the price level, not inflation.
+
+Three. Getting the rigidity direction backwards. More sticky-price firms means a smaller kappa and a flatter supply curve, not a steeper one.
+
+Four. Forgetting the anchor. The supply curve passes through the expected price level and the natural rate. Without that, every shift you draw is in the wrong place.
+
+Five. Using one output gap. Prices respond to the gap against the natural level. Welfare responds to the gap against the efficient level. They coincide if and only if the mark-up has not moved.
+
+Six. Assuming positive productivity shocks call for expansionary policy. Temporary, yes. Permanent, no policy at all. Merely expected, restrictive.
+
+Seven. Judging fiscal policy by its multiplier on output. The multiplier on the gap is about one eighth of it, and for a consumption-tax cut it has the opposite sign.
+
+Eight. Applying normal-times conclusions to an economy in deleveraging. There, the multiplier is above one, the demand curve may slope upward, and supply-side improvements can be contractionary.
+
+PART FOURTEEN. A SPOKEN FORMULA SHEET, AND THE WHOLE ARTICLE IN FIVE LINES.
+
+Six formulas. Say each one back before moving on.
+
+The demand curve. Output equals long-run natural output, plus current minus long-run public spending, minus sigma times the bracket: the nominal rate, minus the long-run minus the current price level, minus the long-run minus the current consumption tax, minus the rate of time preference.
+
+The supply curve. The price level minus the expected price level equals kappa times output minus natural output, where kappa equals one minus alpha, times the inverse of sigma plus eta, over alpha.
+
+The natural rate of output. One plus eta over the inverse of sigma plus eta, times productivity; plus the inverse of sigma over the inverse of sigma plus eta, times public spending; minus one over the inverse of sigma plus eta, times the mark-up.
+
+The efficient rate of output. The same, without the mark-up term. So natural minus efficient equals minus the mark-up over the inverse of sigma plus eta.
+
+The natural real rate of interest. The rate of time preference, plus the inverse of sigma times long-run minus current natural output, plus the inverse of sigma times current minus long-run public spending, plus the long-run minus the current consumption tax.
+
+And the targeting rule. Output minus the efficient level, plus theta times the price level minus the expected price level, equals zero.
+
+Now the five lines.
+
+One. Aggregate demand is an Euler equation, so the demand curve slopes down because a higher current price level means a higher real interest rate and more saving — not because of money demand, of which there is none.
+
+Two. Aggregate supply is mark-up pricing under sticky prices, so the price surprise is proportional to the gap between output and the natural rate, with a slope that flattens as rigidity rises.
+
+Three. Productivity and public spending move the natural and the efficient level of output together, so one interest rate hits both of a central bank's targets; the mark-up moves only the natural level, and that is the only source of a genuine trade-off.
+
+Four. Fiscal multipliers on output are below one in normal times and the corresponding multipliers on the gap are far smaller, sometimes of the opposite sign — but when the nominal rate is at zero and some households cannot borrow, the spending multiplier goes well above one.
+
+Five. Optimal policy is a third line on the same diagram, along which the trade-off between price stability and the efficient level of output is exploited at the right rate — and the slope of that line is the mandate, not the economy.
+
+End of the narrated reading.

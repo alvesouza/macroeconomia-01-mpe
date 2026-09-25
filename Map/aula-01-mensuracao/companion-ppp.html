@@ -1,0 +1,217 @@
+<title>Two Countries, Two Baskets</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §1.2 · printed pages 25–27 · Balassa–Samuelson</p>
+  <h1>Two Countries, Two Baskets</h1>
+  <p class="lede">Why is a haircut cheap in a poor country? Not because the country is poor.
+  Because wages are set by productivity in <em>tradables</em> and paid to barbers whose
+  productivity has not moved. That one line — <span class="mono">P<sub>N</sub>/P<sub>T</sub> =
+  A<sub>T</sub>/A<sub>N</sub></span> — is the whole of Balassa–Samuelson, and it is what makes the
+  PPP correction large and predictable rather than noise.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 330" role="img"
+             aria-label="Price level against income per head, with the Balassa-Samuelson line"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>Balassa–Samuelson prediction</span>
+        <span style="color:var(--as)"><i class="swatch"></i>this country</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>US benchmark</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">GDP per head at market rates</div>
+        <div class="v" id="mkt"></div>
+        <div class="w">what the exchange rate says</div>
+      </div>
+      <div>
+        <div class="k">GDP per head at PPP</div>
+        <div class="v" id="ppp"></div>
+        <div class="w" id="upliftW"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="bars" id="bars"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Technology, relative to the US</legend>
+      <div class="ctl">
+        <span class="hint">Tradables: manufacturing, modern agriculture. This is where poor
+        countries are furthest behind.</span>
+        <label for="aT">Tradable productivity <span class="sym">A<sub>T</sub></span></label>
+        <output id="aTo"></output><input type="range" id="aT" min="0.05" max="1.2" step="0.01" value="0.25">
+      </div>
+      <div class="ctl">
+        <span class="hint">Non-tradables: haircuts, bus rides, domestic service. The gap here is
+        much smaller — which is the entire mechanism.</span>
+        <label for="aN">Non-tradable productivity <span class="sym">A<sub>N</sub></span></label>
+        <output id="aNo"></output><input type="range" id="aN" min="0.05" max="1.2" step="0.01" value="0.80">
+      </div>
+      <div class="ctl">
+        <span class="hint">Set both to the same value and the price-level gap vanishes however
+        poor the country is. Poverty predicts nothing; <i>asymmetric</i> productivity does.</span>
+        <label for="gamma">Non-tradable share of the basket <span class="sym">γ</span></label>
+        <output id="gammao"></output><input type="range" id="gamma" min="0" max="0.9" step="0.01" value="0.5">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Scale</legend>
+      <div class="ctl">
+        <label for="usY">US GDP per head</label>
+        <output id="usYo"></output><input type="range" id="usY" min="30000" max="90000" step="1000" value="62700">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="mexico">Kurlat's Mexico</button>
+      <button data-p="uniform">Uniformly poor</button>
+      <button data-p="catchup">Catching up fast</button>
+    </div>
+
+    <details>
+      <summary>The three lines of algebra</summary>
+      <p>Law of one price in tradables sets P<sub>T</sub> = 1 everywhere. Labour mobility equalises
+      wages across sectors: W = P<sub>T</sub>A<sub>T</sub> = P<sub>N</sub>A<sub>N</sub>. Divide, and
+      P<sub>N</sub>/P<sub>T</sub> = A<sub>T</sub>/A<sub>N</sub>. With a Cobb–Douglas basket the price
+      level is P = (A<sub>T</sub>/A<sub>N</sub>)<sup>γ</sup>. Full derivation in
+      <b>04-cross-country-and-ppp.md</b> §4.3.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 1 · companion to <b>Map/aula-01-mensuracao/04-cross-country-and-ppp.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["aT","aN","gamma","usY"];
+
+function compute(v){
+  // US normalised to A_T = A_N = 1, so its price level is 1 by construction.
+  const relPN = v.aT / v.aN;            // eq. (4.1), relative to the US ratio of 1
+  const P = Math.pow(relPN, v.gamma);   // eq. (4.2): price level relative to the US
+  // Real output per head: tradable productivity drives measured income in this
+  // one-factor model; PPP income is the real quantity, market income deflates by P.
+  const realY = v.usY * (v.gamma * v.aN + (1 - v.gamma) * v.aT);
+  const mktY  = realY * P;              // market rates value the basket at local prices
+  return {P, relPN, realY, mktY, uplift: realY / mktY};
+}
+
+function draw(v, r){
+  const W=600,H=330,L=58,R=20,T=18,B=44;
+  const x = y => L + (W-L-R) * (Math.log(y) - Math.log(1000)) / (Math.log(100000) - Math.log(1000));
+  const yv = p => T + (H-T-B) * (1 - (p - 0.15) / (1.45 - 0.15));
+
+  let s = "";
+  for (let i=0;i<=5;i++){
+    const p = 0.15 + (1.45-0.15)*i/5, yy = yv(p);
+    s += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)">${p.toFixed(2)}</text>`;
+  }
+  [1000,3000,10000,30000,100000].forEach(t=>{
+    const xx=x(t);
+    s += `<line x1="${xx.toFixed(1)}" y1="${T}" x2="${xx.toFixed(1)}" y2="${H-B}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${xx.toFixed(1)}" y="${H-B+17}" text-anchor="middle" font-size="11" fill="var(--ink-faint)">${t>=1000?(t/1000)+'k':t}</text>`;
+  });
+
+  // The prediction locus: sweep tradable productivity holding A_N and gamma fixed.
+  const pts = [];
+  for (let a=0.05; a<=1.2001; a+=0.01){
+    const rr = compute({aT:a, aN:v.aN, gamma:v.gamma, usY:v.usY});
+    pts.push([x(Math.max(1000, rr.realY)), yv(rr.P)]);
+  }
+  s += `<path d="${pts.map((q,i)=>`${i?'L':'M'}${q[0].toFixed(1)},${q[1].toFixed(1)}`).join('')}" fill="none" stroke="var(--ad)" stroke-width="2.2"/>`;
+
+  // US benchmark at price level 1
+  s += `<line x1="${L}" y1="${yv(1).toFixed(1)}" x2="${W-R}" y2="${yv(1).toFixed(1)}" stroke="var(--nat)" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+  s += `<circle cx="${x(v.usY).toFixed(1)}" cy="${yv(1).toFixed(1)}" r="5" fill="var(--nat)"/>`;
+  s += `<text x="${(x(v.usY)-8).toFixed(1)}" y="${(yv(1)-10).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-soft)">US</text>`;
+
+  const cx = x(Math.max(1000, r.realY)), cy = yv(r.P);
+  s += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="6.5" fill="var(--as)"/>`;
+  s += `<text x="${(cx+11).toFixed(1)}" y="${(cy+4).toFixed(1)}" font-size="11.5" fill="var(--ink)">this country</text>`;
+
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">real GDP per head, log scale</text>`;
+  s += `<text transform="translate(14,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">price level, US = 1</text>`;
+  $("plot").innerHTML = s;
+}
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const r = compute(v);
+
+  $("aTo").textContent = v.aT.toFixed(2) + "× US";
+  $("aNo").textContent = v.aN.toFixed(2) + "× US";
+  $("gammao").textContent = v.gamma.toFixed(2);
+  $("usYo").textContent = "$" + v.usY.toLocaleString();
+
+  draw(v, r);
+
+  const usd = x => "$" + Math.round(x).toLocaleString();
+  $("mkt").textContent = usd(r.mktY);
+  $("ppp").textContent = usd(r.realY);
+  $("upliftW").textContent = `PPP correction: ×${r.uplift.toFixed(2)}`;
+
+  $("eqline").innerHTML = `P<sub>N</sub>/P<sub>T</sub> = A<sub>T</sub>/A<sub>N</sub> = `
+    + `${v.aT.toFixed(2)} ⁄ ${v.aN.toFixed(2)} = <b>${r.relPN.toFixed(3)}</b> &nbsp;→&nbsp; `
+    + `price level = (A<sub>T</sub>/A<sub>N</sub>)<sup>γ</sup> = <b>${r.P.toFixed(3)}</b>`;
+
+  const rows = [
+    ["tradable gap", Math.log(v.aT), "ln A_T relative to the US"],
+    ["non-tradable gap", Math.log(v.aN), "ln A_N relative to the US"],
+    ["price level, ln P", Math.log(r.P), "γ × (tradable gap − non-tradable gap)"],
+  ];
+  const m = Math.max(...rows.map(x=>Math.abs(x[1])), 0.05);
+  $("bars").innerHTML = rows.map(([lab,val,hint])=>{
+    const w = Math.min(100, Math.abs(val)/m*100);
+    return `<div class="bar"><span class="sym">${lab}</span>
+      <span class="track"><i class="fill ${val<0?'neg':''}" style="width:${w.toFixed(1)}%"></i></span>
+      <span class="val">${(val>=0?'+':'')+val.toFixed(3)}</span></div>
+      <div style="grid-column:1/-1;font-size:.76rem;color:var(--ink-faint);margin:-4px 0 2px">${hint}</div>`;
+  }).join("");
+
+  const sym = Math.abs(Math.log(v.aT) - Math.log(v.aN)) < 1e-6;
+  $("verdict").innerHTML = sym
+    ? `<span class="flag mid">no price-level gap</span> &nbsp; Productivity is <b>uniformly</b> below
+       the US, so the wage-to-barber channel never opens. The country is poor and its prices are
+       American. Balassa–Samuelson predicts nothing from poverty alone.`
+    : (r.P < 1
+      ? `<span class="flag ok">cheap country</span> &nbsp; Market rates <b>understate</b> real income by
+         ${((r.uplift-1)*100).toFixed(0)}%. Converting at the exchange rate would make this country look
+         poorer than it is, and the error grows the wider the tradable-productivity gap.`
+      : `<span class="flag bad">expensive country</span> &nbsp; Non-tradables are dear here, so market rates
+         <b>overstate</b> real income. This is the Switzerland case, and the same algebra produces it.`);
+}
+
+const presets = {
+  mexico:  {aT:0.30, aN:0.85, gamma:0.50, usY:62700},
+  uniform: {aT:0.40, aN:0.40, gamma:0.50, usY:62700},
+  catchup: {aT:0.85, aN:0.90, gamma:0.50, usY:62700},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

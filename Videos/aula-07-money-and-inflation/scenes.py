@@ -18,8 +18,9 @@ import numpy as np
 from manim import *
 
 from video_explainer import (axes_panel, balance_sheet, Beat, bullets, cell, eq,
-                             mpl_figure, note, ols, palette, read_csv, sawtooth, scatter,
-                             series, Stage, table, title, FAST, NORMAL, SLOW)
+                             label_near, mpl_figure, note, ols, palette, read_csv,
+                             sawtooth, scatter, series, Stage, table, title, FAST, NORMAL,
+                             SLOW)
 
 class BeatOne(Scene):
     """The miss: a target, a realisation, and the one number in between."""
@@ -55,7 +56,7 @@ class BeatOne(Scene):
 
         brace = BraceBetweenPoints(ax.c2p(3.2, 0.5), ax.c2p(3.2, 2),
                                    direction=RIGHT, color=P["focus"])
-        blab = note("1.5 points", P["focus"], 21).move_to(ax.c2p(5.1, 1.25))
+        blab = label_near(brace, note("1.5 points", P["focus"], 21), RIGHT)
         gap = VGroup(brace, blab)
         b.step(st.add_to("left", gap), t=1.0, hold=1.5)
 
@@ -499,18 +500,22 @@ class BeatFive(Scene):
         r2 = self._box("currency + demand deposits", 5.8, P["demand"])
         r3 = self._box("+ savings, small time deposits, money funds", 8.4,
                        P["demand"], font_size=19)
-        rungs = VGroup(r1, r2, r3).arrange(DOWN, buff=0.2, aligned_edge=LEFT)
-        tags = []
-        for rung, name in ((r1, "currency"), (r2, "M1"), (r3, "M2")):
-            tags.append(note(name, P["focus"], 22).next_to(rung, LEFT, buff=0.25))
+        # Lay the BOXES out first and hang each tag off its own box afterwards. Arranging
+        # the tagged groups instead aligns the left edge of (tag + box), and the tags differ
+        # in width, so every box slides out from under the one above it -- which is how the
+        # M2 rung ended up drawn straight through the currency rung.
+        base = self._box("currency + bank reserves", 5.4, P["focus"])
+        rule = DashedLine(LEFT * 4.8, RIGHT * 4.8, color=P["muted"], stroke_width=2)
+        column = VGroup(r1, r2, r3, rule, base) \
+            .arrange(DOWN, buff=0.3, aligned_edge=LEFT)
+
+        tags = [note(name, P["focus"], 22).next_to(box, LEFT, buff=0.25)
+                for box, name in ((r1, "currency"), (r2, "M1"), (r3, "M2"))]
+        btag = note("monetary base", P["focus"], 22).next_to(base, LEFT, buff=0.25)
         rung1 = VGroup(r1, tags[0])
         rung2 = VGroup(r2, tags[1])
         rung3 = VGroup(r3, tags[2])
-        base = self._box("currency + bank reserves", 5.4, P["focus"])
-        btag = note("monetary base", P["focus"], 22).next_to(base, LEFT, buff=0.25)
-        rule = DashedLine(LEFT * 4.8, RIGHT * 4.8, color=P["muted"], stroke_width=2)
-        whole = VGroup(VGroup(rung1, rung2, rung3), rule, VGroup(base, btag)) \
-            .arrange(DOWN, buff=0.35, aligned_edge=LEFT)
+        whole = VGroup(column, *tags, btag)
         Stage.fit(whole, "main")
 
         b.step(st.show("main", rung1, fit=False)
@@ -673,7 +678,10 @@ class BeatSeven(Scene):
         b.step(st.add_to("left", ghosts), t=0.8, hold=2)
 
         cap = DashedLine(ax.c2p(0, limit), ax.c2p(9, limit), color=GREY, stroke_width=3)
-        cap_lab = Text(f"{limit:.2f}", font_size=19, color=GREY).next_to(ax.c2p(0, limit), UL, buff=0.06)
+        # Above the RIGHT end of the cap line, inside the plot. Hanging it up-left of the
+        # y-axis at x=0 pushes it off the axis and onto the rotated axis title.
+        cap_lab = label_near(cap, Text(f"{limit:.2f}", font_size=19, color=GREY), UP,
+                             buff=0.08).align_to(cap, RIGHT)
         b.step(st.add_to("left", VGroup(cap, cap_lab)), t=0.9, hold=2)
 
         cum, total = [], 0.0
