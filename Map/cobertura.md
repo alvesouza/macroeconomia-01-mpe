@@ -42,7 +42,7 @@ Novidades de 12/09/2026: os **slides da Aula 7** (22 páginas, *Money and Inflat
 **Lista 6**, e o **extrato isolado do Kurlat caps. 10-11** (pp. 189-222) em `Leituras/`, no
 mesmo padrão do extrato do cap. 9. O plano de leitura da aula está em [[leituras-aula-07]].
 
-Gargalos que permanecem: **nenhum resumo** para nenhuma aula, o `.tex` do cap. 7 do Kurlat,
+Gargalos que permanecem: **nenhum resumo** para nenhuma aula
 e a resolução da Lista 6.
 
 ---
@@ -95,9 +95,12 @@ e a resolução da Lista 6.
 | `kurlat_ch05_codigo/` | `ch05_numerico.py` (verifica os 9), `ch05_figuras.py` (3 figuras), `estilo_mpl.py` |
 | `kurlat_solutions_ch06.tex` / `.pdf` | Soluções do Kurlat cap. 6 — os 9 problemas (6.1-6.9), 31 páginas |
 | `kurlat_ch06_codigo/` | `ch06_numerico.py` (verifica os 9), `ch06_figuras.py` (5 figuras), `estilo_mpl.py` |
-| `kurlat_ch07_codigo/` | `ch07_numerico.py` (verifica 7.1, 7.2, 7.3, 7.5, 7.6, 7.7), `ch07_figuras.py` (4 figuras), `estilo_mpl.py` — ⏳ o `.tex` do cap. 7 ainda não foi escrito |
+| `kurlat_solutions_ch07.tex` / `.pdf` | Soluções do Kurlat cap. 7 — os 7 problemas (7.1-7.7), 24 páginas |
+| `kurlat_ch07_codigo/` | `ch07_numerico.py` (verifica os 7), `ch07_figuras.py` (4 figuras), `estilo_mpl.py` |
 | `kurlat_solutions_ch09.tex` / `.pdf` | Soluções do Kurlat cap. 9 — os 13 problemas, 33 páginas |
 | `kurlat_ch09_codigo/` | `ch09_numerico.py` (verifica 9.6, 9.11, 9.12, 9.13), `ch09_figuras.py`, `estilo_mpl.py` |
+| `kurlat_solutions_ch10-11.tex` / `.pdf` | Soluções do Kurlat caps. 10-11 — os 14 problemas (10.1-10.5, 11.1-11.9), 27 páginas |
+| `kurlat_ch10-11_codigo/` | `ch10_11_numerico.py` (verifica 10.1-10.5, 11.1, 11.3-11.8), `ch10_11_figuras.py` (3 figuras: `fig_k11_*`), `estilo_mpl.py` |
 | `fig/` | 32 figuras PDF — 16 das listas (Solow, convergência, crime; $\sigma$, Ricardo, restrição, imposto; lazer, oferta, Beveridge, $f$ e $q$) + 12 dos caps. 5-7 do Kurlat (`fig_k5_*`, `fig_k6_*`, `fig_k7_*`) |
 
 > A Lista 3 é a primeira com **módulo de modelo separado**: `modelo.py` centraliza as
@@ -111,8 +114,7 @@ e a resolução da Lista 6.
 > gabarito**, então cada resultado é verificado por outra via: o `ch0N_numerico.py` refaz
 > toda fórmula analítica por caminho independente — maximização numérica direta do problema
 > do agregado familiar, simulação, diferenças finitas ou busca em grade — e **aborta em
-> qualquer divergência**. Cobertura atual: caps. **1-4, 5, 6 e 9**; falta redigir o `.tex`
-> do cap. **7** (numérico e figuras já prontos e verificados). O cap. **8 está fora do
+> qualquer divergência**. Cobertura atual: caps. **1-4, 5, 6, 7 e 9**. O cap. **8 está fora do
 > escopo** do curso.
 
 **Estado da cobertura dos exercícios do Kurlat:**
@@ -122,10 +124,10 @@ e a resolução da Lista 6.
 | 1-4 | 1.1-4.5 (23) | 1-3 | ✅ 59 p. | — | — |
 | **5** | 5.1-5.9 (9) | 3 | ✅ 28 p. | ✅ | 3 |
 | **6** | 6.1-6.9 (9) | 4 | ✅ 31 p. | ✅ | 5 |
-| **7** | 7.1-7.7 (7) | 5 | ⏳ | ✅ | 4 |
+| **7** | 7.1-7.7 (7) | 5 | ✅ 24 p. | ✅ | 4 |
 | 8 | — | — | ⛔ fora do escopo | — | — |
 | 9 | 9.1-9.13 (13) | 6 | ✅ 33 p. | ✅ | 3 |
-| **10-11** | 10.1-10.5, 11.1-11.9 (**14**) | 7 | ⬜ | ⬜ | ⬜ |
+| **10-11** | 10.1-10.5, 11.1-11.9 (**14**) | 7 | ✅ 27 p. | ✅ | 3 |
 | 12-15 | — | — | ⛔ fora do escopo | — | — |
 
 ### `Leituras/` — roteiros para TTS e extratos de capítulo
@@ -147,6 +149,9 @@ então página impressa = página do PDF ([[books-index]]).
 | `lista-05-general-equilibrium-narrated.txt` | Aula 6 + Kurlat cap. 9 + as duas questões da **Lista 5**, resolvidas | 21.623 | ~144 min a 150 ppm (~96 min a 1,5×) |
 | `psets-01-04-instructor-solutions-narrated.txt` | os **4 gabaritos do professor** (PSETs 1-4), narrados, + as 21 armadilhas que ele anota à margem | 10.750 | ~72 min a 150 ppm (~48 min a 1,5×) |
 | `aula-07-money-and-inflation-narrated.txt` | **Aula 7 inteira**: Kurlat caps. 10-11 (pp. 189-222), os slides e a **Lista 6** resolvida, em 15 partes | 21.180 | ~141 min a 150 ppm (~94 min a 1,5×) |
+| `lista-05-topics-explained-narrated.txt` | the **topics Lista 5 tests**, concept by concept (equilibrium, welfare theorem, frozen factors, σ and hours, r as a price, ownership, steady state vs golden rule, saddle path, shocks); no solutions | 17,126 | ~114 min at 150 wpm (~76 min at 1.5×) |
+| `lista-07-topics-explained-narrated.txt` | the **topics Lista 7 tests** (Benigno §1-7, §11), concept by concept, from the three schools to optimal policy; no solutions | 14,094 | ~94 min at 150 wpm (~63 min at 1.5×) |
+| `correction-gaps-narrated.txt` | the **gaps found in the graded Listas 1-4 and 6**, one chapter per gap, with the answer that earns each lost mark and the nine-rule checklist ([[avaliacao-listas-2-3-6]]) | 10,997 | ~73 min at 150 wpm (~49 min at 1.5×) |
 
 Gerados por `/speechify`. Texto puro em **inglês** (regra global de idioma), sem símbolo,
 tabela ou código: a matemática é ditada em palavras. Importar no Speechify por **Add file**;
@@ -165,6 +170,9 @@ os parágrafos viram pontos de navegação.
 |---|---|---|---|
 | `quiz-aulas-01-03-2026-08-25.md` | Aulas 1-3 — Kurlat caps. 1-5 | 30 (3 numéricas) | difícil |
 | `quiz-aulas-05-06-2026-08-31.md` | Aulas 5-6 — Kurlat caps. 7 e 9 | 30 (sem álgebra simbólica) | difícil |
+| `simulado-01.tex` → `-exam.pdf` / `-solutions.pdf` | full final format, Aulas 1-9 (2026-09-26) | 8 (4 blocks × 25) | final level, every question retests a graded mistake |
+| `simulado-02.tex` → `-exam.pdf` / `-solutions.pdf` | full final format, Aulas 1-9 (2026-09-26) | 8 (4 blocks × 25) | final level, every question retests a graded mistake |
+| `simulado-03.tex` → `-exam.pdf`; solution in `Map/simulado-03/` | conceptual final, Aulas 1-9 (2026-09-28) | 8 (4 blocks × 25) | explanation-heavy: T/F with justification, draw and interpret |
 
 Player: `quiz.html` na raiz — abrir e carregar o `.md`. O botão **💾 HTML** exporta uma
 cópia autocontida com a sessão embutida; o JSON exportado alimenta `/quiz-analyze`.
@@ -281,14 +289,14 @@ construção do diagrama de fase · a antecipação), e os 2 áudios levam um fi
 - `Listas/soluções do instrutor/` — os **gabaritos manuscritos** dos PSETs 1-4 (scans, sem
   camada de texto). Analisados em [[estilo-do-professor]].
 - `Listas/correções/` — as **correções** das Listas 1 e 4 (scans). Analisadas em
-  [[avaliacao-listas-1-4]]. Faltam as das Listas 2 e 3.
+  [[avaliacao-listas-1-4]]. Lists 2, 3 and 6 analysed on 2026-09-26 in
+  [[avaliacao-listas-2-3-6]], with the audio-coverage table. Lists 5 and 7 are not graded yet.
 - `Prova/`, `Design/` vazios.
 - Nenhum **resumo** (`/summarize`) gerado para nenhuma aula.
 - Prompts do NotebookLM para as **Aulas 1-4 e 6** (a Aula 5 ficou de fora) e para a
   **Lista 3**; as demais dependem do material ser divulgado, já que cada prompt cita a
   fonte pelo nome exato do arquivo. A Aula 6 tem **2 áudios + 4 vídeos**, sem slides.
-- **Soluções do livro:** falta redigir o `.tex` do **cap. 7** — o `ch07_numerico.py` e as
-  4 figuras já estão prontos e verificados. Caps. 10-11 (Aula 7) ainda não iniciados.
+- **Soluções do livro:** todos os capítulos do escopo (1-7, 9-11) concluídos.
 
 ## Próximos passos sugeridos
 

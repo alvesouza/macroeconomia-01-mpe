@@ -1,0 +1,272 @@
+<title>Two Economies, One Border</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · ch. 4 · §4.2 · Lista 2, question 1</p>
+  <h1>Two Economies, One Border</h1>
+  <p class="lede">North and South are two closed Solow economies with different technologies,
+  saving rates and population growth. Each converges to <em>its own</em> steady state. Then the
+  border opens: capital and labour are pooled and everyone produces with the South's technology.
+  Per-worker output moves in opposite directions on each side, while total output rises.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="path" viewBox="0 0 600 300" role="img"
+             aria-label="Output per worker over time for North, South and the unified economy, log scale"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>North, closed</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>South, closed</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>unified at t = 0</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>each one's y*</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">North: change in y on unification</div>
+        <div class="v" id="dyN"></div>
+        <div class="w" id="dyNw"></div>
+      </div>
+      <div>
+        <div class="k">South: change in y on unification</div>
+        <div class="v" id="dyS"></div>
+        <div class="w" id="dySw"></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">North k₀, y₀</div><div class="v" id="n0"></div><div class="n">K<sub>N,0</sub>/L<sub>N,0</sub>, A<sub>N</sub>k<sup>α<sub>N</sub></sup></div></div>
+      <div><div class="k">North k*, y*</div><div class="v" id="nss"></div><div class="n" id="nDir"></div></div>
+      <div><div class="k">South k₀, y₀</div><div class="v" id="s0"></div><div class="n">K<sub>S,0</sub>/L<sub>S,0</sub>, A<sub>S</sub>k<sup>α<sub>S</sub></sup></div></div>
+      <div><div class="k">South k*, y*</div><div class="v" id="sss"></div><div class="n" id="sDir"></div></div>
+      <div><div class="k">Unified k, y</div><div class="v" id="u0"></div><div class="n">pooled K/L, A<sub>S</sub>k<sup>α<sub>S</sub></sup></div></div>
+      <div><div class="k">Unified k*, y*</div><div class="v" id="uss"></div><div class="n" id="uDir"></div></div>
+      <div><div class="k">Y before: Y<sub>N</sub>+Y<sub>S</sub></div><div class="v" id="Ysep"></div><div class="n">separate economies</div></div>
+      <div><div class="k">Y after: Y<sub>U</sub></div><div class="v" id="YU"></div><div class="n" id="YUn"></div></div>
+      <div><div class="k">n<sub>U</sub></div><div class="v" id="nU"></div><div class="n">labour-weighted average</div></div>
+      <div><div class="k">MPK: North k₀ on S tech vs South k₀</div><div class="v" id="mpk"></div><div class="n">α<sub>S</sub>A<sub>S</sub>k<sup>α<sub>S</sub>−1</sup></div></div>
+    </div>
+
+    <div class="card">
+      <div class="verdict" id="verdict"></div>
+      <div class="verdict" id="verdictSS"></div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+  <div class="card">
+    <fieldset>
+      <legend>North</legend>
+      <div class="ctl">
+        <label for="sN">Saving rate <span class="sym">s<sub>N</sub></span></label>
+        <output id="sNo"></output><input type="range" id="sN" min="0.02" max="0.6" step="0.005" value="0.16">
+      </div>
+      <div class="ctl">
+        <label for="nN">Population growth <span class="sym">n<sub>N</sub></span></label>
+        <output id="nNo"></output><input type="range" id="nN" min="0" max="0.08" step="0.001" value="0.03">
+      </div>
+      <div class="ctl">
+        <span class="hint">L<sub>N,0</sub> = 10 is fixed, so this sets k<sub>N,0</sub> = K<sub>N,0</sub>/10.</span>
+        <label for="KN0">Initial capital <span class="sym">K<sub>N,0</sub></span></label>
+        <output id="KN0o"></output><input type="range" id="KN0" min="10" max="6000" step="10" value="100">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>South, and the unified economy</legend>
+      <div class="ctl">
+        <span class="hint">The unified economy inherits the South's saving rate.</span>
+        <label for="sS">Saving rate <span class="sym">s<sub>S</sub></span></label>
+        <output id="sSo"></output><input type="range" id="sS" min="0.02" max="0.6" step="0.005" value="0.30">
+      </div>
+      <div class="ctl">
+        <label for="nS">Population growth <span class="sym">n<sub>S</sub></span></label>
+        <output id="nSo"></output><input type="range" id="nS" min="0" max="0.08" step="0.001" value="0.01">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Common</legend>
+      <div class="ctl">
+        <label for="delta">Depreciation <span class="sym">δ</span></label>
+        <output id="deltao"></output><input type="range" id="delta" min="0.01" max="0.2" step="0.005" value="0.05">
+      </div>
+      <div class="ctl">
+        <span class="hint">Fixed at the list's values: L<sub>S,0</sub> = 20, K<sub>S,0</sub> = 8000,
+        L<sub>N,0</sub> = 10, α<sub>N</sub> = 0.25, A<sub>N</sub> = 4, α<sub>S</sub> = 0.5, A<sub>S</sub> = 5.</span>
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="list">The list's numbers</button>
+      <button data-p="samen">Same n on both sides</button>
+      <button data-p="richN">North capital-rich</button>
+      <button data-p="thrifty">North saves like South</button>
+    </div>
+
+    <details>
+      <summary>Why the gain has two sources</summary>
+      <p>Split the change in total output by who produces it:
+      Y<sub>U</sub> − (Y<sub>N</sub>+Y<sub>S</sub>) = L<sub>N</sub>(y<sub>U</sub>−y<sub>N</sub>) +
+      L<sub>S</sub>(y<sub>U</sub>−y<sub>S</sub>). The North term is large and positive: its workers
+      get a better technology (A<sub>S</sub>, α<sub>S</sub>) <i>and</i> more capital each. The South
+      term is negative: the South's capital is now spread over the North's workers too. The sum
+      is positive at the list's values because a unit of capital moved North earns far more there — its marginal
+      product at k<sub>N,0</sub> on the South's technology is several times the South's own.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <div class="note"><b>Where marks were lost.</b> <b>1(b)</b> called the two paths
+    "divergence" — wrong: each economy converges to <i>its own</i> steady state
+    (conditional convergence); the gap in levels persists only because the parameters differ.
+    <b>1(c)</b> gave the changes in y but not where each comes from (South: capital dilution;
+    North: better technology plus more capital per worker). <b>1(d)</b> gave k*<sub>U</sub>,
+    y*<sub>U</sub> without explaining why y*<sub>U</sub> &lt; y*<sub>S</sub>: n<sub>U</sub> &gt;
+    n<sub>S</sub>, and faster labour growth dilutes capital.</div>
+  </div>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 4 · Lista 2 Q1 · companion to <b>Map/aula-02-solow-mecanica/05-comparative-statics.md</b> §5.5</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["sN","sS","nN","nS","delta","KN0"];
+const YEARS = 100;
+
+// MODEL-START
+const FIXED = {LN:10, LS:20, KS0:8000, aN:0.25, AN:4, aS:0.5, AS:5};
+function model(v){
+  const P = FIXED;
+  const f = (A,a,k) => A*Math.pow(k,a);
+  const kss = (s,A,a,n) => Math.pow(s*A/(n+v.delta), 1/(1-a));
+  const step = (k,s,A,a,n) => ((1-v.delta)*k + s*f(A,a,k))/(1+n);
+  const L = P.LN + P.LS;
+  const r = {};
+  r.kN0 = v.KN0/P.LN;            r.yN0 = f(P.AN,P.aN,r.kN0);
+  r.kS0 = P.KS0/P.LS;            r.yS0 = f(P.AS,P.aS,r.kS0);
+  r.kssN = kss(v.sN,P.AN,P.aN,v.nN); r.yssN = f(P.AN,P.aN,r.kssN);
+  r.kssS = kss(v.sS,P.AS,P.aS,v.nS); r.yssS = f(P.AS,P.aS,r.kssS);
+  r.kU = (v.KN0+P.KS0)/L;        r.yU = f(P.AS,P.aS,r.kU);
+  r.Ysep = P.LN*r.yN0 + P.LS*r.yS0;
+  r.YU = L*r.yU;
+  r.gainN = P.LN*(r.yU-r.yN0);   r.gainS = P.LS*(r.yU-r.yS0);
+  r.nU = (P.LN*v.nN + P.LS*v.nS)/L;
+  r.kssU = kss(v.sS,P.AS,P.aS,r.nU); r.yssU = f(P.AS,P.aS,r.kssU);
+  r.mpkNonS = P.aS*P.AS*Math.pow(r.kN0,P.aS-1);
+  r.mpkS0 = P.aS*P.AS*Math.pow(r.kS0,P.aS-1);
+  r.pathN = [], r.pathS = [], r.pathU = [];
+  let kN = r.kN0, kS = r.kS0, kU = r.kU;
+  for (let t = 0; t <= YEARS; t++){
+    r.pathN.push(f(P.AN,P.aN,kN)); r.pathS.push(f(P.AS,P.aS,kS)); r.pathU.push(f(P.AS,P.aS,kU));
+    kN = step(kN,v.sN,P.AN,P.aN,v.nN);
+    kS = step(kS,v.sS,P.AS,P.aS,v.nS);
+    kU = step(kU,v.sS,P.AS,P.aS,r.nU);
+  }
+  return r;
+}
+// MODEL-END
+
+function draw(r){
+  const W=600,H=300,L=52,R=18,T=14,B=34;
+  const all = [...r.pathN, ...r.pathS, ...r.pathU, r.yssN, r.yssS, r.yssU];
+  const lo = Math.log(Math.min(...all)*0.85), hi = Math.log(Math.max(...all)*1.15);
+  const X = t => L + (W-L-R)*t/YEARS;
+  const Y = y => T + (H-T-B)*(1-(Math.log(y)-lo)/(hi-lo));
+  const line = (arr,col) => `<path d="${arr.map((y,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(y).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="2.2"/>`;
+  const ss = (y,col) => `<line x1="${L}" y1="${Y(y).toFixed(1)}" x2="${W-R}" y2="${Y(y).toFixed(1)}" stroke="${col}" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.8"/>`;
+  let s = "";
+  for (const g of [1,2,5,10,20,50,100,200,500,1000,2000]){
+    if (Math.log(g) < lo || Math.log(g) > hi) continue;
+    s += `<line x1="${L}" y1="${Y(g).toFixed(1)}" x2="${W-R}" y2="${Y(g).toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`;
+    s += `<text x="${L-6}" y="${(Y(g)+4).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">${g}</text>`;
+  }
+  s += ss(r.yssN,"var(--as)") + ss(r.yssS,"var(--ad)") + ss(r.yssU,"var(--eff)");
+  s += line(r.pathN,"var(--as)") + line(r.pathS,"var(--ad)") + line(r.pathU,"var(--eff)");
+  s += `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`;
+  s += `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">output per worker y, log scale — ${YEARS} periods of the exact law</text>`;
+  $("path").innerHTML = s;
+}
+
+const dir = (k0,kss) => Math.abs(k0-kss) < 1e-6*kss ? "at its steady state"
+  : (k0 < kss ? "below → k and y grow" : "above → k and y shrink");
+const sg = x => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(2);
+
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const r = model(v);
+
+  $("sNo").textContent = v.sN.toFixed(3);
+  $("sSo").textContent = v.sS.toFixed(3);
+  $("nNo").textContent = v.nN.toFixed(3);
+  $("nSo").textContent = v.nS.toFixed(3);
+  $("deltao").textContent = v.delta.toFixed(3);
+  $("KN0o").textContent = v.KN0.toFixed(0);
+
+  draw(r);
+
+  $("dyN").textContent = sg(r.yU-r.yN0);
+  $("dyN").className = "v " + (r.yU >= r.yN0 ? "pos" : "neg");
+  $("dyNw").textContent = r.yU >= r.yN0
+    ? `${r.yN0.toFixed(2)} → ${r.yU.toFixed(2)}: better technology and more capital per worker`
+    : `${r.yN0.toFixed(2)} → ${r.yU.toFixed(2)}: North was capital-rich enough to lose from pooling`;
+  $("dyS").textContent = sg(r.yU-r.yS0);
+  $("dyS").className = "v " + (r.yU >= r.yS0 ? "pos" : "neg");
+  $("dySw").textContent = r.yU < r.yS0
+    ? `${r.yS0.toFixed(2)} → ${r.yU.toFixed(2)}: same technology, capital diluted over more workers`
+    : `${r.yS0.toFixed(2)} → ${r.yU.toFixed(2)}: North brought more capital per worker than it holds`;
+
+  const kv = (k,y) => `${k.toFixed(2)}, ${y.toFixed(2)}`;
+  $("n0").textContent = kv(r.kN0,r.yN0);   $("nss").textContent = kv(r.kssN,r.yssN);
+  $("s0").textContent = kv(r.kS0,r.yS0);   $("sss").textContent = kv(r.kssS,r.yssS);
+  $("u0").textContent = kv(r.kU,r.yU);     $("uss").textContent = kv(r.kssU,r.yssU);
+  $("nDir").textContent = "k₀ " + dir(r.kN0,r.kssN);
+  $("sDir").textContent = "k₀ " + dir(r.kS0,r.kssS);
+  $("uDir").textContent = "unified k " + dir(r.kU,r.kssU);
+  $("Ysep").textContent = r.Ysep.toFixed(2);
+  $("YU").textContent = r.YU.toFixed(2);
+  $("YUn").innerHTML = `<span class="${r.YU>=r.Ysep?'pos':'neg'}">${sg(r.YU-r.Ysep)}</span> = North ${sg(r.gainN)} + South ${sg(r.gainS)}`;
+  $("nU").textContent = (r.nU*100).toFixed(3) + "%";
+  $("mpk").textContent = `${r.mpkNonS.toFixed(3)} vs ${r.mpkS0.toFixed(3)}`;
+
+  $("eqline").innerHTML = `k<sub>i,t+1</sub> = [(1−δ)k<sub>i,t</sub> + s<sub>i</sub>A<sub>i</sub>k<sub>i,t</sub><sup>α<sub>i</sub></sup>]⁄(1+n<sub>i</sub>)
+    &nbsp;·&nbsp; k*<sub>i</sub> = (s<sub>i</sub>A<sub>i</sub>⁄(n<sub>i</sub>+δ))<sup>1/(1−α<sub>i</sub>)</sup>
+    &nbsp;·&nbsp; unified: s<sub>S</sub>, A<sub>S</sub>, α<sub>S</sub>, n<sub>U</sub> = <b>${r.nU.toFixed(5)}</b>`;
+
+  const bothBelow = r.kN0 < r.kssN && r.kS0 < r.kssS;
+  $("verdict").innerHTML = `<span class="flag ${bothBelow?'ok':'mid'}">${bothBelow?'both below steady state — both grow':'not both below steady state'}</span>
+    &nbsp; Without unification, each economy converges to <b>its own</b> y*: ${r.yssN.toFixed(2)} in the North,
+    ${r.yssS.toFixed(2)} in the South. This is <b>conditional convergence</b>, not divergence: the gap in
+    levels persists because s, n, A and α differ, not because the paths fan out.`;
+
+  const d = r.yssU - r.yssS;
+  $("verdictSS").innerHTML = `<span class="flag ${d<0?'bad':(d>0?'ok':'mid')}">y*<sub>U</sub> ${d<0?'&lt;':(d>0?'&gt;':'=')} y*<sub>S</sub></span>
+    &nbsp; The unified economy has the South's s, A and α, so its steady state differs only through
+    n<sub>U</sub> = ${r.nU.toFixed(4)} against n<sub>S</sub> = ${v.nS.toFixed(4)}.
+    ${d<0?'Faster labour growth means more of each period\'s saving goes to equipping new workers: capital per worker is diluted and y* is lower.'
+      :(d>0?'Slower labour growth dilutes capital less, so y* is higher.':'Equal n gives the same steady state.')}
+    Starting from k = ${r.kU.toFixed(2)} it is ${r.kU<r.kssU?'below':'above'} k*<sub>U</sub> = ${r.kssU.toFixed(2)}.`;
+}
+
+const presets = {
+  list:    {sN:0.16, sS:0.30, nN:0.03, nS:0.01, delta:0.05, KN0:100},
+  samen:   {sN:0.16, sS:0.30, nN:0.01, nS:0.01, delta:0.05, KN0:100},
+  richN:   {sN:0.16, sS:0.30, nN:0.03, nS:0.01, delta:0.05, KN0:5000},
+  thrifty: {sN:0.30, sS:0.30, nN:0.03, nS:0.01, delta:0.05, KN0:100},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

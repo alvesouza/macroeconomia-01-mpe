@@ -3,6 +3,7 @@
 Prints every number quoted in lista7_resolucao.tex, then writes into Resolucao/fig/:
 
   fig_l7q2_shocks.pdf  -- Q2: (a) temporary mark-up rise, (b) nominal-rate cut
+  fig_l7q2_paths.pdf   -- Q2: before / short-run / long-run paths (short version)
   fig_l7q3_wedge.pdf   -- Q3: the mark-up wedge between y_n and y_e, against a
                           productivity shock that moves both
   fig_l7q4_loss.pdf    -- Q4: iso-loss ellipses tangent to AS, and the loss along AS
@@ -229,8 +230,34 @@ def fig_q4(yn1, opt):
     salvar(fig, "fig_l7q4_loss.pdf")
 
 
+# ================================================= Q2: time paths (short version)
+def fig_q2_paths(e_a, e_b):
+    """Two-period paths of y and p - p^e under each Q2 change.
+
+    Period 0 is the pre-shock steady state, 1 the short run (AS-AD crossing),
+    2 the long run: every firm resets, y = ybar_n = 0 and p = pbar = p^e.
+    Used by lista7_resolucao_curta.tex, which pairs each AS-AD panel with a path.
+    """
+    t = [0, 1, 2]
+    fig, axes = plt.subplots(1, 2, figsize=(TEXTWIDTH_IN, TEXTWIDTH_IN * 0.26))
+    for ax, (y1, p1), titulo in ((axes[0], e_a, r"(a) $d\mu=+5\%$"),
+                                 (axes[1], e_b, r"(b) $di=-1$ pp")):
+        ax.plot(t, [0, y1, 0], "o-", color=AZUL, lw=1.4, ms=3.5, label=r"$y$")
+        ax.plot(t, [0, p1, 0], "s--", color=OCRE, lw=1.4, ms=3.5, label=r"$p-p^e$")
+        ax.axhline(0, color=CINZA, lw=0.5)
+        ax.set_xticks(t, ["before", "SR", "LR"])
+        ax.set_title(titulo)
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.legend(loc="upper left", frameon=False,
+                  fontsize=7, ncol=2)
+    axes[0].set_ylabel(r"\% dev.")
+    fig.tight_layout()
+    salvar(fig, "fig_l7q2_paths.pdf")
+
+
 if __name__ == "__main__":
     yn1, e_a, e_b, opt = numeros()
     fig_q2(yn1, e_a, e_b)
+    fig_q2_paths(e_a, e_b)
     fig_q3()
     fig_q4(yn1, opt)

@@ -39,6 +39,9 @@ and that no other CRRA pair does, computes all three elasticities and checks the
 ordering, reproduces the steady-state unemployment formula against a simulated flow model,
 and reproduces Prescott's implied elasticity.
 
+Figures: `make_figures.py` writes every `fig/*.svg` embedded in the notes and asserts each
+labelled number before drawing it.
+
 ## Interactive companions
 
 | Companion | Drives | Note |

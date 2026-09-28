@@ -1,0 +1,599 @@
+PROBLEM SET SEVEN. THE TOPICS BEHIND IT, EXPLAINED. A NARRATED READING.
+
+HOW TO LISTEN
+
+This is not a solution. The worked solution to problem set seven has its own narration, and so does the article, Pierpaolo Benigno, "New-Keynesian economics, an aggregate supply and aggregate demand view", Research in Economics, two thousand fifteen. This script explains the ideas the problem set tests, one at a time and from the ground up, so that when you write an answer you already own the concept and only have to apply it.
+
+There are sixteen parts. Parts one to twelve are one concept each. Part thirteen is the pitfalls. Part fourteen is a spoken formula sheet. Part fifteen is a glossary. Part sixteen is the whole topic in five lines, which is the part worth replaying the night before an exam.
+
+Every concept part follows the same seven steps, announced as they come. The question the concept answers. The mechanism in plain words. The model statement, spoken. A worked example with clean numbers. The contrast with earlier classes: consumption in class four, labour supply in class five, general equilibrium in class six, and money in class seven. The classic confusion. And a two-question self-check.
+
+All mathematics is spoken in words. When I say "p minus p e equals kappa times, y minus y n", the pause after "times" means the bracket starts there: kappa multiplies the whole difference. Write the formulas down the first few times you hear them.
+
+The numbers are Benigno's own calibration, from printed pages five hundred and fifteen and five hundred and twenty-two. Alpha, the share of firms whose price is stuck, is zero point six six. Sigma, the sensitivity of output to the real interest rate, is zero point five. Eta, the inverse of the Frisch elasticity of labour supply, is zero point two. Theta, the elasticity of substitution between goods, is eight. So the inverse of sigma plus eta is two point two, and kappa, the slope of the supply curve, is one minus alpha, times two point two, divided by alpha: about one point one three three.
+
+Scope, said once and repeated where it bites. This script stays inside Benigno, sections one to seven and section eleven, at the article's own level. There are two periods, a short run and a long run. The supply curve is the New-Classical form in the price level. The forward-looking Calvo Phillips curve, stochastic dynamic models and dynamic programming are outside this course, and I will say so out loud when the temptation to use them arises.
+
+And one personal note, because this script is for a specific student. The graded lists so far show a clear pattern. The algebra is right. The marks are lost in two places: a sentence whose words contradict a sign that was correctly derived, and an object the question named that never got answered. This model is a minefield for both. It has two output gaps, and they can have opposite signs at the same moment. And every shock has a curve that moves and a curve that stays still. So throughout, I will hold you to two habits. Always state both gaps, output minus natural output and output minus efficient output, with their signs. And always name the curve that did not shift, as well as the one that did.
+
+Let us begin.
+
+
+PART ONE. THREE SCHOOLS OF SHORT-RUN MACROECONOMICS: ORIGINAL KEYNESIAN, NEW CLASSICAL, NEW KEYNESIAN.
+
+Step one, the question. Why does a central bank matter for output at all, and how should we model the reason? Three generations of economists gave three answers, and the New-Keynesian answer only makes sense as a reaction to the other two.
+
+Step two, the mechanism in plain words. Think of it as a story with three chapters.
+
+Chapter one, the original Keynesian model, from the nineteen forties to the nineteen sixties. Prices or wages are rigid by assumption; nobody's decision produces the rigidity. Output is set by demand, through IS and LM, with the central bank setting the money supply. Expectations are absent or adaptive. The Phillips curve is read as a stable menu: more inflation buys permanently less unemployment.
+
+Chapter two, the New Classical revolution, in the nineteen seventies. Its method is the thing to remember: optimising agents with rational expectations, in general equilibrium. Prices are flexible and money moves output only by surprise. In Lucas's imperfect-information story, a producer who sees her own price rise cannot tell at once whether it is her relative price or all prices, so she supplies a bit more. That gives the New-Classical supply curve, p minus p e equals a slope times, y minus y n, from Phelps and Lucas. Its consequence, from Sargent and Wallace, is policy ineffectiveness: a systematic rule is built into expectations, so only random policy moves output. With perfect competition the equilibrium is efficient, so there is nothing to stabilise.
+
+Chapter three, the New-Keynesian synthesis, from the late nineteen eighties onward. It keeps the New Classical method: optimisation, rational expectations, general equilibrium. It brings back the Keynesian friction: nominal prices that do not adjust at once. And it adds two ingredients to make the combination work. Monopolistic competition, so that someone actually sets the prices that are sticky. And an interest rate as the policy instrument, so that demand runs through the household's Euler equation rather than through a money market.
+
+Now the evidence that moved the field, in four facts and one institutional fact.
+
+One: the nineteen seventies. Inflation and unemployment rose together, and the stable Phillips menu broke down, as Friedman and Phelps had warned, because expectations adjust. That is why every New-Keynesian model keeps rational expectations.
+
+Two: the Lucas critique of nineteen seventy-six. Estimated models failed out of sample because their coefficients shifted when policy changed. So equations should be built from preferences and technology.
+
+Three: monetary policy has large and persistent real effects even when announced. The Volcker disinflation of the early nineteen eighties was deliberate and public, and still caused a deep recession. Misperception cannot last that long, which undermined the New Classical short run.
+
+Four: individual prices change infrequently, about every three quarters in the United States, which is where alpha of about zero point six six comes from.
+
+And the institutional fact: central banks set short-term interest rates, not money stocks, and money demand proved too unstable for money targets. Benigno, page five hundred and four, says his analysis follows that practice.
+
+Step three, the model statement. Here is the compact way to say the comparison along the four dimensions the problem set names.
+
+On price adjustment, expectations and the short-run effect of money. Keynesian: rigid by assumption, adaptive expectations, money matters for as long as the rigidity lasts. New Classical: flexible prices, rational expectations, only surprises matter. New Keynesian: prices pre-set as a firm's decision, rational expectations, and systematic policy matters in the short run and is neutral in the long run.
+
+On market structure. Keynesian: left unmodelled. New Classical: perfect competition, so no one sets prices. New Keynesian: monopolistic competition with a mark-up.
+
+On aggregate demand and the instrument. Keynesian: IS and LM, with the money supply as the instrument. New Classical: essentially the quantity equation, with the money stock as the nominal anchor. New Keynesian: the Euler equation, with the nominal interest rate as the instrument and no LM curve.
+
+On microfoundations and welfare. Keynesian: behavioural equations and an assumed loss function. New Classical: full microfoundations, but an efficient economy with nothing to stabilise. New Keynesian: microfoundations with distortions, so a welfare loss can be derived from household utility, with the efficient level of output as its target.
+
+Step four, a worked example. The cleanest way to feel the difference between the three is to ask each one the same question. The central bank announces, in advance, that it will cut the interest rate by one point when a recession hits. What happens to output when it does?
+
+The original Keynesian answer: output rises, and by a multiplier, and nobody's expectations change anything.
+
+The New Classical answer: nothing real happens. The rule was announced, so it is in everyone's expectations. Prices adjust fully. Output stays at its natural level.
+
+The New-Keynesian answer, with Benigno's numbers. The cut raises output by sigma, divided by one plus sigma kappa. Sigma is zero point five. Sigma kappa is zero point five times one point one three three, which is zero point five six seven. So output rises by zero point five divided by one point five six seven, which is zero point three two per cent, and the price level rises by kappa times that, zero point three six per cent. The announcement does not neutralise it, because a share alpha of prices was fixed before the recession was observed. Being known is not the same as being built into prices that are already posted. That is the one-sentence reason systematic policy works again.
+
+Step five, the contrast with earlier classes. Class seven lived entirely in chapter two of this story. The classical dichotomy said real variables are pinned down by real forces. The money market equation said money supply equals the price level times real money demand. So a rise in money could only raise prices. In the New-Keynesian model, class seven survives intact, but only in the second period: in the long run every firm resets, the supply curve is vertical, and money is neutral. What is new is the first period, where the dichotomy fails because prices were set before the shock.
+
+Step six, the classic confusion. The error is to call Benigno's supply curve a Keynesian Phillips curve, or a New-Keynesian Phillips curve in inflation. The correction: it has exactly the New Classical form, as Benigno says on page five hundred and eight; the forward-looking Calvo curve is left out on purpose, in footnote seven, and is outside this course. What differs from Lucas is the reading. In Lucas, p e is a forecast that turns out wrong. In Benigno, p e is a price some firms have already posted. A forecast error cannot be exploited systematically; a posted price can.
+
+Step seven, the self-check. Two questions. Pause after each and answer out loud.
+
+Question one. Which of the three schools gave the New-Keynesian model its method, and which gave it its friction?
+
+Question two. Name one piece of evidence that hurt the original Keynesian model, and one that hurt the New Classical account of the short run.
+
+Answers. One: the method, meaning optimisation, rational expectations and general equilibrium, comes from the New Classicals. The friction, meaning nominal prices that do not clear markets at once, comes from the Keynesians. Two: the stagflation of the nineteen seventies, and with it the Lucas critique, hurt the Keynesian model. The large and persistent real effects of announced monetary policy, such as the Volcker disinflation, together with micro evidence that prices change infrequently, hurt the New Classical short run.
+
+Checklist for part one. You should be able to state each school's position on each of the four dimensions. You should be able to give one empirical fact that motivated each New-Keynesian choice. And you should be able to explain, in one sentence, why the same supply equation means something different in Lucas and in Benigno.
+
+
+PART TWO. WHY PRICES ARE PRE-SET: MENU COSTS AND STICKY INFORMATION.
+
+Step one, the question. If firms are rational and maximise profits, why would any of them keep a price it knows is wrong? A friction that is just assumed is exactly what the New Classicals objected to. So the New Keynesians owe an explanation.
+
+Step two, the mechanism in plain words. There are two stories, and Benigno gives both on page five hundred and seven.
+
+Story one: menu costs, from Mankiw, nineteen eighty-five. Changing a price costs something: reprinting a menu, relabelling shelves, renegotiating with customers, the management attention it takes. These costs are small. The insight is that the private gain from changing the price is even smaller, for small shocks. A firm sitting at its profit-maximising price is at the top of a hill. At the top of a hill the ground is flat. So a small error in price costs the firm a second-order amount: proportional to the square of the error, not to the error itself. So a tiny menu cost is enough to justify not moving.
+
+And here is the twist that makes this macroeconomics. The private loss to each firm is second order, but the social consequence is first order. When many firms leave prices unchanged after a monetary shock, aggregate demand moves output, not prices. Small private costs, large aggregate effects. That asymmetry needs monopolistic competition, as part three explains, because under perfect competition a firm with the wrong price does not sit at the top of a gentle hill; it loses all its customers or all its margin.
+
+Story two: sticky information. The firm does change its price, but it sets it on information that is out of date: its price was chosen before the shock was observed. The algebra is identical. What matters for the model is only that a share alpha of prices was fixed at a level p e before the shock, and does not respond to it within the period.
+
+Step three, the model statement. In the short run, a fraction alpha of firms keep their price at p e, set on information dated before the shocks hit. At that price, each serves whatever demand arrives. The remaining fraction, one minus alpha, set their price optimally after seeing the shock. In the long run, every firm resets. So the aggregate price level in the short run is a weighted average: p equals alpha times p e, plus one minus alpha times p tilde, where p tilde is the price chosen by the adjusting firms.
+
+Step four, a worked example. Take a firm with Benigno's elasticity, theta equal to eight, so its optimal price is eight sevenths of marginal cost. Now suppose its price is one per cent away from that optimum. I computed its profit loss directly from the demand curve. It loses about zero point two seven per cent of its profits. Two per cent away, it loses about one point zero one per cent. So doubling the error roughly quadruples the loss. That is what second order means: the loss grows with the square. A menu cost of, say, half a per cent of profits would keep this firm from correcting a one per cent error, while the aggregate consequence of thousands of firms doing the same can be a recession.
+
+A second example, on the price index. Suppose, after a shock, the adjusting firms raise their price by three point three three per cent relative to p e. The sticky firms stay at p e. Then the price level rises by one minus alpha times three point three three, which is zero point three four times three point three three, about one point one three per cent. The index moves by only about a third of what the adjusters did. Keep that number in mind; it comes back in part five.
+
+Step five, the contrast with earlier classes. In class seven, the money market could clear after a monetary shock through the price level, the interest rate or output, and the classical model shut the last two. Pre-set prices reopen the output channel in the short run.
+
+Step six, the classic confusion. The error is to say that a small menu cost means a small effect. The correction: the private loss is second order, the aggregate effect first order, and that gap is the point. A second confusion: sticky prices do not freeze the price level; the one minus alpha adjusters move it. A third: p e is predetermined within the period, not revised; it can change next period, which is why the long run is classical.
+
+Step seven, the self-check.
+
+Question one. Why is a small menu cost enough to stop a firm from adjusting its price, and why does that argument need monopolistic competition?
+
+Question two. With alpha equal to zero point six six, if adjusting firms raise their price by six per cent relative to p e, by how much does the price level rise?
+
+Answers. One: at the profit-maximising price the profit function is flat, so a small price error costs only a second-order amount, which a small fixed cost outweighs. Under perfect competition there is no flat top: a firm pricing above the market loses all its sales, so the argument needs firms that face a downward-sloping demand curve and choose their price. Two: zero point three four times six, which is two point zero four per cent.
+
+Checklist for part two. You should be able to give both justifications for pre-set prices. You should be able to explain the second-order private loss and the first-order aggregate effect. And you should be able to write the price level as a weighted average of the sticky price and the adjusters' price.
+
+
+PART THREE. MONOPOLISTIC COMPETITION AND THE MARK-UP: WHY SOMEONE MUST SET PRICES.
+
+Step one, the question. Who sets prices in an economy, and at what level? Under perfect competition the answer is nobody: every firm takes the price as given, and the price is whatever clears the market. But then "firms keep their price fixed" is a sentence with no subject. The New-Keynesian model needs a firm whose decision variable is its price.
+
+Step two, the mechanism in plain words. Give each firm its own slightly different product. Consumers like variety, and goods are close but imperfect substitutes. Then each firm faces a downward-sloping demand curve for its own variety: raise the price a little and you lose some customers, not all. A firm facing such a curve chooses its price, and it sets it above marginal cost, trading a higher margin against fewer sales. The more substitutable the goods, the less power each firm has, and the lower the mark-up.
+
+This single choice does three separate jobs in the model, and you should be able to name all three.
+
+Job one. It gives the price a decision-maker, so a pre-set price is a meaningful decision.
+
+Job two. Because price is above marginal cost, a firm stuck at its old price is happy to sell more when demand rises. Every extra unit still earns a margin. That is why, in the short run, output is determined by demand: the sticky firms serve whatever customers arrive. Under perfect competition a firm at a fixed price equal to marginal cost would refuse extra sales, and demand shocks would not move output.
+
+Job three. The mark-up is a wedge between what a worker's effort is worth to society and what firms pay for it. It keeps the natural level of output below the efficient level. That wedge is the whole of part six, and it is where the policy trade-off comes from.
+
+Step three, the model statement. The demand for firm j's good is: the ratio of firm j's price to the aggregate price index, raised to the power minus theta, times total spending, C plus G. That is Benigno's equation nine, from Dixit and Stiglitz preferences. Maximising profit gives equation eleven: firm j's price equals theta over theta minus one, times one plus the payroll tax, over one minus the sales tax, times the wage divided by productivity. The wage divided by productivity is marginal cost, since one unit of output takes one over A hours.
+
+Now bundle. Everything in front of marginal cost is a mark-up. Add the household's taxes on consumption and on labour income, which act the same way once you substitute the real wage from the household's labour-supply condition, and you get equation thirteen. One plus the aggregate mark-up mu equals the pure monopoly mark-up, theta over theta minus one, times a tax factor. The tax factor has, on top, one plus the payroll tax times one plus the consumption tax. And underneath, one minus the sales tax times one minus the labour-income tax.
+
+Read that as a list. Market power and four taxes all do the same thing in this model. The model cannot tell a monopoly wedge from a tax wedge. That is why a "mark-up shock" can be read as more market concentration, as a rise in a distorting tax, or, in the interpretation Benigno likes best on page five hundred and thirteen, as a rise in the price of an input like oil, which drives a wedge between the price firms charge and the labour cost they face.
+
+Step four, a worked example. With theta equal to eight, the pure monopoly mark-up is eight sevenths minus one, which is one seventh, about fourteen point three per cent. Benigno, in footnote twenty-four, rounds this to "about fifteen per cent". So a firm with marginal cost one hundred charges about one hundred and fourteen point three. Now make goods more substitutable, theta equal to twenty: the mark-up is twenty nineteenths minus one, about five point three per cent. As theta goes to infinity, theta over theta minus one goes to one, the mark-up goes to zero, and price equals marginal cost: perfect competition is the limiting case. Theta must be greater than one for the mark-up to be finite.
+
+Now a tax example, to see the equivalence. Suppose there is no monopoly power at all, and the government introduces a ten per cent payroll tax. Then one plus mu is one point one, a ten per cent mark-up, and for every macroeconomic purpose in this model it behaves exactly like ten per cent of market power.
+
+Step five, the contrast with earlier classes. Class six built the competitive benchmark: price-taking firms, and the first welfare theorem, so the equilibrium was efficient. Monopolistic competition is exactly the assumption that breaks price-taking, and so it breaks the welfare theorem's conclusion. The other ingredient, marginal cost equal to the wage over productivity, is the same linear production function you have used all along. And the consumption and labour taxes inside the aggregate mark-up are the same wedges you met in the tax questions of class four and in the labour-supply condition of class five.
+
+Step six, the classic confusion. The error is to think monopolistic competition is there to make firms earn profits, or to add realism. The correction: it is there to give the sticky price a decision-maker, and to make output demand-determined in the short run.
+
+Step seven, the self-check.
+
+Question one. Give two reasons why the New-Keynesian model cannot use perfect competition.
+
+Question two. With theta equal to five, what is the pure monopoly mark-up?
+
+Answers. One: under perfect competition no firm sets its price, so price stickiness has no decision-maker; and a firm pricing at marginal cost would not want to serve extra demand at a fixed price, so output would not be demand-determined. Two: five quarters minus one, which is one quarter, twenty-five per cent.
+
+Checklist for part three. You should be able to state the firm's demand curve and its pricing rule. You should be able to list what goes into the aggregate mark-up. And you should be able to name the three jobs monopolistic competition does.
+
+
+PART FOUR. AGGREGATE DEMAND FROM THE EULER EQUATION, WITH THE INTEREST RATE AS THE INSTRUMENT. WHY THERE IS NO LM CURVE.
+
+Step one, the question. Why does the demand for goods fall when the price level rises, in a model that has no money in it? And what exactly does the central bank control?
+
+Step two, the mechanism in plain words. Start with a household deciding how to split its spending between today and tomorrow. What governs that split is the real interest rate: the reward, in goods tomorrow, for giving up a good today. A high real rate makes saving attractive, so the household consumes less now and more later. A low real rate does the opposite.
+
+Now the central bank. It sets the nominal interest rate, and in the short run prices are partly stuck, so moving the nominal rate moves the real rate. That is the whole transmission mechanism: nominal rate, then real rate, then the consumption-saving choice, then output.
+
+And the slope. Fix the nominal rate and fix the long-run price level, which the central bank anchors. Now imagine today's price level higher. Then the price increase expected between today and the long run is smaller: expected inflation falls. With the nominal rate fixed, a fall in expected inflation is a rise in the real rate. The household saves more and spends less today. So a higher price level today goes with lower demand today. That is a downward-sloping demand curve, and not one word of it mentioned money.
+
+One more feature matters, and it is new relative to any demand curve you have seen before. The household is solving one problem across two periods. So anything that makes it expect to be richer in the long run raises what it spends today, because it wants to smooth consumption. The future is inside today's demand curve.
+
+Step three, the model statement. Start from the Euler equation, Benigno's equation four: long-run consumption minus short-run consumption equals sigma tilde times, the real rate minus rho. Here sigma tilde is the intertemporal elasticity of substitution and rho is the rate of time preference. Replace the real rate by the nominal rate minus expected inflation, where expected inflation is p bar minus p. Replace consumption by output using the resource constraint, output equals the consumption share times consumption plus public spending. Define sigma, with no tilde, as sigma tilde times the consumption share. You get the aggregate demand curve, equation twenty-one:
+
+y equals y bar n, plus g minus g bar, minus sigma times a bracket. Inside the bracket: i, minus the quantity p bar minus p, minus the quantity tau c bar minus tau c, minus rho.
+
+In words: output today equals expected long-run natural output, plus any temporary excess of public spending, minus sigma times the gap between the real interest rate and the rate of time preference. The consumption-tax term sits in the same slot as expected inflation, because what the household cares about is the tax-inclusive price of consumption today relative to tomorrow.
+
+The slope, solved for the price level, is minus one over sigma.
+
+What shifts the curve up and to the right: a cut in the nominal rate; a rise in the long-run price level p bar, which raises expected inflation; a rise in current public spending relative to future spending; a fall in the current consumption tax, or a rise in the future one; and anything that raises long-run natural output, such as expected future productivity. What moves you along it: the current price level, and nothing else.
+
+Step four, a worked example. With sigma equal to zero point five, the slope is minus two. Check it by the mechanism. Raise today's price level by one per cent, with p bar fixed. Expected inflation falls by one point. The real rate rises by one point. Output demanded falls by sigma times one, which is zero point five per cent. So a one per cent rise in p goes with a zero point five per cent fall in y: the curve drops two units of price for each unit of output. Slope minus two.
+
+Now shift it. Cut the nominal rate by one point. At every price level, the real rate is one point lower, so output demanded is zero point five per cent higher. The curve moves right by sigma, zero point five. Equivalently, at every output level, the price level consistent with demand is one point higher: the curve moves up by exactly the size of the cut. Hold on to both descriptions: up by one, right by zero point five. They are the same shift.
+
+Where does the economy end up after that cut? The supply curve does not move, because a nominal interest rate appears nowhere in firms' pricing. So the economy slides up along the supply curve. The closed form says output rises by sigma, divided by one plus sigma kappa, times the cut: zero point five divided by one point five six seven, which is zero point three two per cent. The price level rises by kappa times that, about zero point three six per cent. Check the real rate: the nominal rate fell by one, and expected inflation fell by zero point three six because today's prices rose while p bar did not. So the real rate fell by only zero point six four. Sigma times zero point six four is zero point three two. The numbers agree.
+
+And now the two habits. The curve that shifted: aggregate demand, up and to the right. The curve that did not: aggregate supply. Both gaps: we started at a point where natural and efficient output coincide, so output minus natural output is plus zero point three two, and output minus efficient output is also plus zero point three two. Both positive. The economy is overheating: output above capacity, prices above what firms expected.
+
+Step five, the contrast with earlier classes. Two contrasts, both exam material.
+
+With class four. The Euler equation here is word for word the Euler equation of the two-period consumption problem. In class four you held the real rate fixed and asked how the household splits its income; here the same equation is read as a relation between output and the real rate, and, through expected inflation, between output and the price level.
+
+With class seven. There, demand ran through the money market, with the money stock as the instrument: a higher price level lowers real balances, the rate rises to clear the market, and spending falls. Here the instrument is the rate itself, and money is supplied in whatever amount households want at that rate. That is the rate-targeting regime of the last question of problem set six, where the money stock became endogenous. The LM curve is what you draw when the money stock is fixed and the rate must adjust, so there is none to draw.
+
+Step six, the classic confusion. The error is to explain the downward slope with the IS-LM story: prices rise, real money balances fall, interest rates rise, spending falls. In this model that is not a shortcut; it is a different model. The correction: the nominal rate is fixed by the central bank; a higher current price level lowers expected inflation toward the anchored long-run price level; that raises the real rate; households postpone consumption. A second confusion: thinking sigma is the elasticity of intertemporal substitution. It is that elasticity times the consumption share, because only the consumption part of output responds to the real rate. 
+
+Step seven, the self-check.
+
+Question one. Explain, without mentioning money, why a higher current price level lowers aggregate demand.
+
+Question two. The central bank raises the nominal rate by two points. By how much does the demand curve shift, vertically and horizontally, with sigma equal to zero point five? Which curve does not move?
+
+Answers. One: with the nominal rate set by the central bank and the long-run price level anchored, a higher current price level means lower expected inflation, hence a higher real rate, hence more saving and less consumption today. Two: down by two points vertically, and left by sigma times two, which is one per cent horizontally. Aggregate supply does not move; the economy slides down along it.
+
+Checklist for part four. You should be able to derive the demand curve from the Euler equation. You should be able to explain its slope with no reference to money. You should be able to list what shifts it. And you should be able to say why there is no LM curve.
+
+
+PART FIVE. AGGREGATE SUPPLY FROM PRICE SETTING, AND ITS NEW-CLASSICAL FORM IN THE PRICE LEVEL.
+
+Step one, the question. When output rises in the short run, why does the price level rise, and by how much?
+
+Step two, the mechanism in plain words. Follow one unit of extra output. To produce it, firms need more hours of work. Households supply more hours only at a higher real wage, for two reasons. First, the marginal disutility of work rises as hours rise; that is eta. Second, with more output there is more consumption, so each extra unit of consumption is worth less to the household, and it needs a higher wage to be persuaded to earn it; that is the inverse of sigma. So the real wage rises, and with it real marginal cost, because marginal cost is the wage divided by productivity.
+
+Now the pricing. The one minus alpha firms that can adjust set price as a mark-up over marginal cost. Marginal cost has risen, so they raise their price. The alpha firms that cannot adjust stay at p e. The price level rises by the adjusters' increase times their share. That is the supply curve: higher output, higher marginal cost, higher prices from the adjusters, a higher price level.
+
+Two anchors. When output equals the natural level, marginal cost is exactly where firms expected, so the adjusters choose the same price as the pre-set firms, and the price level equals p e. So the supply curve always passes through the point where output is natural and the price level is p e. That is the only plotting rule you need.
+
+Step three, the model statement. The adjusters' desired relative price is p tilde minus p equals, the inverse of sigma plus eta, times y minus y n. That is Benigno's equation sixteen, the marginal-cost equation. The price level is p equals alpha times p e plus one minus alpha times p tilde. Solve the second for p tilde minus p: it equals alpha over one minus alpha, times p minus p e. Set the two expressions equal and you get equation seventeen:
+
+p minus p e equals kappa times, y minus y n. And kappa equals one minus alpha, times the inverse of sigma plus eta, all divided by alpha.
+
+Read what kappa depends on. More rigidity, a higher alpha, gives a smaller kappa and a flatter curve. Alpha sits in the denominator; students get this backwards more often than anything else. If almost no firm can adjust, output moves and the price level barely does. As alpha goes to zero, kappa goes to infinity, the curve is vertical at natural output, and you are back in the classical model of class seven. A steeper labour supply curve, a higher eta, gives a steeper supply curve, because extra output is more expensive to produce.
+
+Step four, a worked example. Put output one per cent above its natural level. Real marginal cost rises by the inverse of sigma plus eta, two point two per cent, so adjusting firms want a relative price two point two per cent above the price level. Kappa is zero point three four over zero point six six, about zero point five one five, times two point two: one point one three three. So the price level ends up one point one three three per cent above p e, and the adjusters three point three three per cent above it. Their share, zero point three four, times three point three three is one point one three three: the example of part two, now with its cause.
+
+Change the rigidity. With alpha equal to zero point seven five, the higher-rigidity case Benigno also uses, kappa is zero point two five times two point two over zero point seven five, which is zero point seven three three. The same one per cent of excess output now raises the price level by only zero point seven three per cent. More rigidity, flatter supply, more of any demand shock going into output.
+
+Step five, the contrast with earlier classes. With class five: "households supply more hours only at a higher real wage" is the intratemporal condition, and eta is the inverse of the Frisch elasticity you met there. Nothing new was assumed about workers. With class seven: there, supply was vertical at natural output at every date; here only in the long run.
+
+Step six, the classic confusion. Two of them.
+
+The first: calling this a New-Keynesian Phillips curve. It relates the price level, not inflation, to the level of the gap, with no expected future inflation in it. If asked what Benigno's supply curve is, the answer is "a New-Classical Phillips curve in the price level, microfounded by sticky prices". The Calvo version is outside this course.
+
+The second: getting the rigidity comparative static backwards. The fix is to go to the limits. Alpha near one: nobody adjusts, prices do not move, the curve is flat. Alpha near zero: everybody adjusts, the curve is vertical. Check the sign by the limit before you write the sentence.
+
+Step seven, the self-check.
+
+Question one. What happens to the slope of the supply curve if prices become more rigid, and why?
+
+Question two. With kappa equal to one point one three three, if output is two per cent below its natural level, where is the price level?
+
+Answers. One: it becomes flatter, because kappa is one minus alpha over alpha times a positive constant, which falls as alpha rises; fewer firms adjust, so a given change in marginal cost moves the price level less. Two: two point two seven per cent below p e, since one point one three three times minus two is minus two point two six seven.
+
+Checklist for part five. You should be able to explain the upward slope through marginal cost and the adjusting firms. You should be able to derive kappa from the two equations. You should be able to state that the curve always passes through p e at natural output. And you should be able to say why it is a New-Classical curve and not a Calvo curve.
+
+
+PART SIX. NATURAL OUTPUT VERSUS EFFICIENT OUTPUT: THE MARK-UP WEDGE.
+
+Step one, the question. The model has two benchmark levels of output. Which one should policy aim for, why do they differ, and what moves each of them?
+
+Step two, the mechanism in plain words. Natural output is what the market economy would produce if every firm could reset its price. It is the output at which the real wage households demand for their work equals the real wage firms are willing to pay. But firms with market power pay less than the marginal product of labour, because they keep a mark-up. So the wage offered is productivity divided by one plus mu, and the economy settles where the value of leisure equals that reduced wage. Too little work, too little output.
+
+Efficient output is what a benevolent planner would choose. The planner has no mark-up, because the planner is not a firm. It asks directly: is the extra output from one more hour worth more to the household than the leisure given up? It keeps going until the marginal rate of substitution between leisure and consumption equals productivity, the marginal rate of transformation. So the planner produces more.
+
+The difference between the two is the mark-up wedge, and nothing else. Now the crucial question: what does not appear in that difference? Productivity appears in both problems in the same way, so it moves both levels by the same amount. Public spending appears in both in the same way. And price stickiness appears in neither: natural output is defined as the flexible-price outcome, and the planner does not set prices at all. So the gap between natural and efficient output has nothing to do with sticky prices. It is market power and taxes.
+
+Step three, the model statement. Natural output, equation fifteen: y n equals, one plus eta over the inverse of sigma plus eta, times a, plus the inverse of sigma over the inverse of sigma plus eta, times g, minus one over the inverse of sigma plus eta, times mu.
+
+Efficient output, equation nineteen: y e equals, one plus eta over the inverse of sigma plus eta, times a, plus the inverse of sigma over the inverse of sigma plus eta, times g. The same expression with the mark-up removed.
+
+Subtract, and everything cancels except one term:
+
+y n minus y e equals minus mu, divided by the inverse of sigma plus eta.
+
+The market condition is: the marginal rate of substitution equals productivity divided by one plus mu. The planner's condition is: the marginal rate of substitution equals productivity. The planner's problem has no mu in it, so a mark-up shock cannot move efficient output. And neither condition has alpha in it, so stickiness cannot move the gap.
+
+Step four, a worked example. First the building block. A one per cent rise in productivity moves both natural and efficient output by one plus eta over two point two, which is one point two over two point two, about zero point five four five per cent. Both, by the same amount. No gap opens between them.
+
+Now a mark-up rise of two point two per cent. Natural output falls by two point two divided by two point two: exactly one per cent. Efficient output does not move. So natural output is now one per cent below efficient output. This is the shock I will use from now on as "the mark-up shock", because it moves natural output by a clean minus one.
+
+How much welfare is lost? The lost surplus is a triangle: one half times the square of the mark-up, divided by the inverse of sigma plus eta. For a five per cent mark-up that is one half times zero point zero five squared, over two point two, which is about zero point zero five seven per cent of output. Small, because it is second order in the wedge. Which is exactly why, in part ten, the welfare loss will be a sum of squares.
+
+Step five, the contrast with earlier classes. In class six, the competitive equilibrium and the planner's solution coincided, by the first welfare theorem, so there was one level of output, not two. Monopolistic competition breaks price-taking, and they part ways by the wedge. And in class five, a labour-income tax drove a wedge between the marginal rate of substitution and the marginal product of labour. The mark-up is that same wedge; the taxes are literally part of mu.
+
+Step six, the classic confusion. The error that costs the most marks: blaming sticky prices for the gap between natural and efficient output. The correction: natural output is the flexible-price level by definition, so stickiness cannot create a gap between it and anything. Alpha appears neither in y n nor in y e. Stickiness creates a different gap, between actual output and natural output, and that one is temporary. Two gaps, two causes. Actual minus natural: sticky prices, and it moves prices. Natural minus efficient: market power and taxes, and it is invisible to prices.
+
+A second confusion: saying that a mark-up shock "reduces potential output", full stop. It reduces natural output. It leaves efficient output, what society should produce, unchanged. "Potential" is ambiguous; name which one.
+
+Step seven, the self-check.
+
+Question one. Why does a temporary rise in firms' desired mark-up change natural output but not efficient output?
+
+Question two. A rise in productivity of two per cent: by how much do natural and efficient output change, and what happens to their difference?
+
+Answers. One: natural output comes from the market condition, where the wage firms pay is productivity divided by one plus the mark-up, so a higher mark-up lowers it; efficient output comes from the planner's condition, where the marginal rate of substitution equals productivity, and the planner charges no mark-up, so mu does not appear. Two: both rise by one point two over two point two times two, about one point zero nine per cent; their difference does not change.
+
+Checklist for part six. You should be able to state both conditions, market and planner, and subtract them. You should be able to write y n minus y e equals minus mu over the inverse of sigma plus eta. You should be able to say which shocks move both and which move only natural output. And you should be able to explain why stickiness plays no role in that gap.
+
+
+PART SEVEN. THE NATURAL REAL RATE OF INTEREST.
+
+Step one, the question. If the central bank sets the nominal interest rate, what number should it set it to? And why does the right number change after a shock?
+
+Step two, the mechanism in plain words. Imagine the economy with flexible prices, producing its natural output today and its natural output in the long run. The household will only be happy consuming that path if the real interest rate is just right: high enough that it does not want to borrow against a richer future, low enough that it does not want to save more. That rate is the natural real rate. It is the real rate of the classical economy.
+
+If the central bank sets the nominal rate equal to the natural real rate, with the long-run price level anchored at p e, then demand is exactly enough to buy natural output at the expected price level. Both gaps with respect to natural output close: output equals natural output, and prices equal what firms expected. If it sets the rate above the natural rate, demand is too weak; below, too strong.
+
+What moves the natural rate? Anything that changes how much richer the household expects to be tomorrow relative to today. If the long run looks better than today, the household wants to borrow and spend now, so the real rate must be high to hold it back. If today looks better than the long run, the rate must be low to persuade it to spend.
+
+Step three, the model statement. The natural real rate is: r n equals rho, plus the inverse of sigma times, y bar n minus y n, plus the inverse of sigma times, g minus g bar, plus the quantity tau c bar minus tau c.
+
+And the equilibrium, solved in closed form: output minus natural output equals sigma over one plus sigma kappa, times a bracket; inside the bracket, r n minus i, plus p bar minus p e. And p minus p e equals kappa times that same gap.
+
+So the whole of monetary policy in this model is one comparison: is the nominal rate above or below the natural real rate? The gap between them, scaled by sigma over one plus sigma kappa, is the output gap relative to natural output.
+
+Step four, a worked example. Suppose rho is two per cent, and start from a point where the nominal rate equals the natural rate, two per cent, and all gaps are zero. Now four shocks.
+
+A temporary productivity gain that raises natural output by one per cent today but not in the long run. Then y bar n minus y n falls by one, and the natural rate falls by the inverse of sigma times one, which is two points, to zero. The right policy is to cut the nominal rate to zero.
+
+A mark-up shock that lowers natural output by one per cent today. Then y bar n minus y n rises by one, and the natural rate rises by two points, to four per cent.
+
+News that long-run natural output will be one per cent higher, with nothing today. The natural rate rises by two points, to four per cent.
+
+A permanent productivity gain that raises natural output by one per cent both today and in the long run. The difference y bar n minus y n does not change. The natural rate stays at two per cent. Nothing to do.
+
+Step five, the contrast with earlier classes. The natural rate is class four's Euler equation read backwards: given the growth of natural output, what real rate makes households content? It is exactly the classical real rate of class six, set by preferences and technology. And class seven's Fisher equation is what lets a bank that sets the nominal rate move the real rate, because pre-set prices stop expected inflation from adjusting one for one.
+
+Step six, the classic confusion. The error: "a positive supply shock always calls for a rate cut", or "good news calls for easing". The correction: the natural rate depends on the difference between long-run and current natural output, not on the level of either. A temporary gain lowers it, a permanent gain leaves it alone, and an expected gain raises it. Three shocks to productivity, three different policies. The rule that is always right is: move the nominal rate to the new natural rate.
+
+Step seven, the self-check.
+
+Question one. Why does a permanent productivity gain require no change in the nominal interest rate?
+
+Question two. With sigma equal to zero point five, current public spending rises temporarily by one per cent of output. By how much does the natural rate change?
+
+Answers. One: the natural rate depends on long-run minus current natural output, and a permanent gain raises both equally, so the natural rate and the right nominal rate are unchanged. Two: it rises, but by much less than the direct term suggests, which is the trap. The direct term adds two points. But spending also raises current natural output by two over two point two, about zero point nine one per cent, which enters through y bar n minus y n and subtracts about one point eight two. The net rise is about zero point one eight points. Read every term of the formula.
+
+Checklist for part seven. You should be able to dictate the natural real rate and read each of its terms. You should be able to state that the output gap relative to natural output is proportional to r n minus i. And you should be able to sign the natural-rate change for temporary, permanent and expected shocks.
+
+
+PART EIGHT. THE TWO-STEP PROCEDURE FOR ANY SHOCK: THE CURVE THAT SHIFTS, THE CURVE THAT DOES NOT, AND MOVEMENT ALONG VERSUS SHIFT.
+
+Step one, the question. Faced with any shock, how do you get the direction of every variable right, every time, without memorising cases?
+
+Step two, the mechanism in plain words. Each curve has its own list of inputs, and a shock shifts a curve only if it is on that curve's list. The supply curve is anchored at natural output and the pre-set price, so it moves only if natural output moves: productivity, current public spending, or the mark-up. The demand curve moves only with the nominal rate, the long-run price level, long-run natural output, the difference between current and future public spending, and the consumption taxes. Everything else is a movement along a curve.
+
+So the procedure has two steps. Step A: check each curve's list, and say which curve shifts and which does not. Step B: find the new crossing, and describe the adjustment as a movement along the curve that did not shift. That last clause is where the economics lives. The curve that stays still is the one telling you how the rest of the economy responds.
+
+Step three, the model statement. Supply is anchored at the point p e, y n, with slope kappa. Demand has slope minus one over sigma. The comparative-statics machine, from the closed form: the change in output minus natural output equals, the change in y bar n minus the change in y n, plus the change in g minus g bar, minus sigma times the change in i, plus sigma times the change in p bar, all divided by one plus sigma kappa. And the change in the price level is kappa times that. Output itself is natural output plus that gap.
+
+Step four, a worked example. Two shocks, one on each curve.
+
+First, a temporary rise in desired mark-ups, sized so that natural output falls by one per cent. Step A. The mark-up is on the supply list: supply shifts. At the old output, adjusting firms now want higher prices, so the curve shifts up by kappa times one, one point one three, and left by one. The mark-up is not on the demand list, and since it is temporary, long-run natural output does not change: demand does not shift. Step B. The new crossing is found by sliding along the unchanged demand curve. Prices rise by kappa over one plus sigma kappa, which is zero point seven two per cent. Output falls by sigma kappa over one plus sigma kappa, which is zero point three six per cent. That is stagflation.
+
+The causal chain, along demand: firms raise prices, a higher current price level with p bar anchored means lower expected inflation, so a higher real rate at an unchanged nominal rate, so households postpone consumption, so quantity demanded falls. Demand fell, but the demand curve did not move. Say it exactly like that.
+
+Now both gaps. Natural output fell by one, output fell by only zero point three six, so output minus natural output is plus zero point six four. Efficient output did not move, so output minus efficient output is minus zero point three six. Opposite signs, at the same moment. Output is above what firms' costs justify, which is why prices rise, and below what welfare requires, which is why households are worse off.
+
+Second, the one-point rate cut of part four, which is the mirror image: demand shifts, supply does not, and the economy slides up along supply, through higher output, higher marginal cost and higher prices from the adjusters.
+
+Step five, the contrast with earlier classes. In class seven, a money-supply increase in the classical model moved only the price level, because output was pinned at natural output by a vertical supply curve. Here the same logic appears as a limit. As alpha goes to zero, the supply curve becomes vertical, sliding along it means prices do all the moving, and the one-point rate cut would raise prices and leave output alone.
+
+Step six, the classic confusion. The error that costs the most here: shifting demand after a temporary mark-up shock, because "demand fell". The correction: ask whether the shock is on the demand list. A temporary mark-up is not, so demand does not move, and the fall in spending is a movement along it, driven by the higher real rate. The mirror error is shifting supply after a rate cut because "prices rose". The rate is not on the supply list; prices rose along supply.
+
+A second confusion: forgetting that a permanent or expected supply shock also moves demand, through long-run natural output. The word "temporary" in a question is not decoration; it tells you which list to check.
+
+Step seven, the self-check.
+
+Question one. News arrives that productivity will be higher in the long run, and nothing changes today. Which curve shifts, and which does not?
+
+Question two. After a temporary mark-up rise, a student writes "aggregate demand shifts down because consumption falls". What is wrong?
+
+Answers. One: demand shifts up, through long-run natural output; supply does not shift, because current natural output has not changed. Two: the mark-up is not an input of the demand curve. Consumption falls because the higher price level raises the real rate, which is a movement along the unchanged demand curve.
+
+Checklist for part eight. You should be able to recite what shifts each curve. You should be able to apply the two steps to any shock. And you should always name the curve that did not shift, and describe the adjustment as a movement along it.
+
+
+PART NINE. PRODUCTIVITY, MARK-UP AND DEMAND SHOCKS, AND THE DIVINE COINCIDENCE.
+
+Step one, the question. When can a central bank with one instrument stabilise prices and deliver the efficient level of output at the same time, and when must it choose?
+
+Step two, the mechanism in plain words. Prices respond to one gap: output minus natural output. Welfare responds to another: output minus efficient output. One instrument can close one gap. So both gaps close together only if natural and efficient output move together, which, by part six, happens exactly when the shock does not move the mark-up. Productivity and demand shocks do not move the mark-up: one instrument hits both targets, and this is called the divine coincidence. Mark-up shocks do: the targets separate, and policy must choose.
+
+Step three, the model statement. The criterion: a trade-off exists if and only if the shock moves y n minus y e, which equals minus mu over the inverse of sigma plus eta. That is, if and only if it moves mu. When there is no trade-off, the optimal policy is to set the nominal rate to the new natural rate. When there is one, no rate closes both gaps.
+
+Step four, a worked example. Three shocks, each sized to move natural output, or expected natural output, by one per cent.
+
+A temporary productivity gain. Supply shifts right; demand does not move. With no policy: output up zero point three six, prices down zero point seven two, and both gaps minus zero point six four, since efficient output rose by the same one per cent as natural output. Output rises and yet the economy is below both benchmarks. The policy: cut the rate by one over sigma, two points, to the new natural rate. Then output rises the full one per cent, prices stay at p e, and both gaps are zero.
+
+A demand shock: optimism, meaning long-run natural output expected one per cent higher. Demand shifts up; supply does not move. With no policy: output up zero point six four, prices up zero point seven two, both gaps plus zero point six four. The policy: raise the rate by two points. Both gaps close.
+
+The mark-up shock of part eight. With no policy: gaps of plus zero point six four and minus zero point three six. Now try to close them. To stabilise prices, raise the rate by two points: prices stay at p e, but output falls by the full one per cent, so the efficient gap widens to minus one. To deliver efficient output, cut the rate by kappa, one point one three: output stays at zero, but prices rise by one point one three, more than doing nothing. The two objectives need rate moves of opposite sign. That is a genuine trade-off.
+
+Step five, the contrast with earlier classes. In the classical economy of class six there was one output level, both natural and efficient, so there was never anything to trade off. The trade-off is a creature of two frictions at once: market power, which separates natural from efficient output, and sticky prices, which let policy move output away from natural output at the cost of price surprises.
+
+Step six, the classic confusion. The error: "supply shocks create a trade-off, demand shocks do not". The correction: productivity is a supply shock with no trade-off; the dividing line is whether the shock moves the mark-up. A second error: "positive productivity shock, so raise rates". Temporary means cut, permanent means nothing, expected means raise. A third: treating the divine coincidence as unconditional. It needs flexible wages, footnote nine, and a welfare approximation around an efficient steady state, footnote twenty-one.
+
+Step seven, the self-check.
+
+Question one. A rise in the payroll tax: is there a trade-off? Why?
+
+Question two. After a temporary productivity gain with no policy response, the price level falls. A student writes "output is above potential, so the gap is positive". What should the sentence say?
+
+Answers. One: yes, because the payroll tax is part of the aggregate mark-up; it lowers natural output and leaves efficient output unchanged. Two: output rose, but by less than natural and efficient output did, so both gaps are negative; the falling price level is the sign of that, since prices move with the natural gap. The words must agree with the sign.
+
+Checklist for part nine. You should be able to state the criterion for a trade-off. You should be able to sign both gaps for productivity, demand and mark-up shocks. And you should be able to state the two conditions under which the divine coincidence holds.
+
+
+PART TEN. THE LOSS FUNCTION: WHY ONLY PRICE SURPRISES COST, AND WHY THE TARGET IS EFFICIENT OUTPUT.
+
+Step one, the question. What should a central bank minimise, and why those arguments and those weights?
+
+Step two, the mechanism in plain words. Take a second-order approximation of household utility around an efficient steady state. Two things go wrong for the household in the short run.
+
+The first is output away from its efficient level: too much work for what it buys, or too little. What matters is the distance from efficient output, not from natural output, because households care about consumption and leisure, not about firms' marginal cost.
+
+The second is a price surprise. When the price level differs from p e, the adjusting firms charge a different price from the sticky ones. Identical goods, identical costs, different prices. Consumers switch toward the cheaper varieties, so identical firms produce different quantities. That misallocation is a pure waste. And it exists only when prices differ from p e. An anticipated price level, one every firm set in advance, creates no dispersion, so it costs nothing in this model.
+
+The weights follow from the mechanism. The more substitutable the goods, a higher theta, the more consumers switch after a given price difference, so the more each surprise costs. The more rigid the prices, a higher alpha and so a lower kappa, the more firms are left at the old price, so the more dispersion any given change in the price level implies. Both push toward more weight on price stability.
+
+Both costs are squared because the approximation is second order, the same reason the menu-cost loss and the lost-surplus triangle were squares. Small misses are cheap, large ones very costly, so a planner facing a conflict spreads the miss across both targets.
+
+Step three, the model statement. Benigno's equation thirty-three: L equals one half times the square of y minus y e, plus theta over two kappa, times the square of p minus p e.
+
+The problem set's version generalises it: L equals phi y times the square of y minus y star, plus phi p times the square of p minus p e, with both weights positive. Set phi y to one half, phi p to theta over two kappa, and y star to efficient output, and you recover equation thirty-three. Replace theta by a free parameter phi and you get equation thirty-five, the mandate version.
+
+Geometrically, the loss is a bowl, and its contour lines in the output and price plane are ellipses centred at the bliss point: y star, p e.
+
+Step four, a worked example. With Benigno's numbers, the weight on the price term relative to the output term is theta over kappa: eight over one point one three three, about seven point zero six. So a one per cent price surprise costs about seven times as much as a one per cent output shortfall.
+
+Now price the three points of the mark-up shock, measured in the loss units, which are squares of percentage points. Doing nothing: one half times zero point three six squared, plus three point five three times zero point seven two squared, about one point nine one. Strict price stability: one half times one squared, which is zero point five. Pure output targeting: three point five three times one point one three squared, about four point five three. With these weights, price stability is far better than doing nothing, and targeting output alone is the worst of the three. Part eleven will find a point that beats even zero point five.
+
+Step five, the contrast with earlier classes. In class seven, the costs of inflation were costs of anticipated inflation: the shoe-leather cost of holding less money, and the inflation tax. They came from money demand. Here there is no money in utility, and anticipated prices cost nothing. The cost is a completely different object: relative-price dispersion from unanticipated price movements. Two costs of inflation, from two different models; do not mix them in one answer. And in the older Keynesian tradition, the loss function was simply written down by the modeller. Here its arguments and weights are derived from preferences. That is the payoff of microfoundations, and it is the fourth dimension of the three-schools comparison.
+
+Step six, the classic confusion. The error: writing the output target as natural output. The correction: prices move with the natural gap, welfare with the efficient gap. Stabilising output at its natural level is what firms' costs recommend, not what households want. A second error: writing the price term as inflation, or as the price level alone. It is the surprise, p minus p e. A third: thinking more price flexibility means more weight on prices. It is the opposite: more rigidity means more weight, because each surprise then leaves more firms at the wrong price.
+
+Step seven, the self-check.
+
+Question one. Why does an anticipated rise in the price level cost nothing in this model?
+
+Question two. If alpha rises from zero point six six to zero point seven five, does the weight on price stability rise or fall? By how much?
+
+Answers. One: because every firm set its price knowing it, so all firms charge the same price and there is no dispersion between identical goods; the welfare cost comes only from dispersion. Two: it rises. Kappa falls from one point one three three to zero point seven three three, so theta over kappa rises from about seven point zero six to about ten point nine.
+
+Checklist for part ten. You should be able to explain each argument of the loss and why each is squared. You should be able to explain why the weight rises with theta and with alpha. And you should be able to map the problem set's general loss to Benigno's equations thirty-three and thirty-five.
+
+
+PART ELEVEN. OPTIMAL POLICY AS A TANGENCY: WHY SUPPLY IS THE CONSTRAINT, THE TARGETING RULE, AND HAWKS AND DOVES.
+
+Step one, the question. Given the loss, what should the central bank do? And why is the problem written "subject to the supply curve", with no mention of demand?
+
+Step two, the mechanism in plain words. The central bank has one instrument, the nominal rate, and the rate appears only in the demand curve. Moving the rate slides demand along supply. So the bank can reach any point on the supply curve, and only points on it. The supply curve is private behaviour the bank cannot override within the period: adjusting firms price off marginal cost, and the rest are stuck at p e. That makes supply the bank's feasible set, just as a budget line is a consumer's feasible set.
+
+Demand is not a constraint, because it contains the free variable. For any point on supply, there is a rate that puts demand through it. So choosing output and prices subject to supply, then backing out the rate, is the same as choosing the rate directly.
+
+The solution is then the familiar picture from consumer theory: the lowest ellipse of the loss that still touches the supply line. At the tangency, the rate at which the bank is willing to trade price surprises for output equals the rate at which supply lets it, which is kappa.
+
+Step three, the model statement. Substitute the supply curve into the loss and minimise over output. For the problem set's version, the first-order condition is the targeting rule: phi y times, y minus y star, plus kappa times phi p times, p minus p e, equals zero. With Benigno's weights it becomes equation thirty-four: y minus y e, plus theta times, p minus p e, equals zero. That line is called the inflation-targeting line. It passes through the point p e, y e, with slope minus one over theta.
+
+After a mark-up shock, solving the targeting rule with supply gives the optimal split. The price surprise, p minus p e, equals kappa over one plus theta kappa, times d mu over the inverse of sigma plus eta. And the efficient gap equals minus theta kappa over one plus theta kappa, times the same d mu over the inverse of sigma plus eta. The kappa in the first formula matters; do not drop it. The price surprise is a fraction one over one plus theta kappa of what pure output targeting would let into prices, which is kappa times d mu over the inverse of sigma plus eta.
+
+For the mandate version, replace theta with phi. A large phi is a hawk: a flat targeting line, holding prices and accepting output losses. A small phi is a dove.
+
+Step four, a worked example. Theta kappa is eight times one point one three three, about nine point zero seven. So one over one plus theta kappa is about zero point zero nine nine: the optimal policy lets in about ten per cent of the price rise that pure output targeting would allow.
+
+Take the mark-up shock with d mu over the inverse of sigma plus eta equal to one, so natural output falls by one. The optimal price surprise is one point one three three over ten point zero seven, about zero point one one per cent. The efficient gap is about minus zero point nine. The natural gap is plus zero point one, which matches: kappa times zero point one is zero point one one. Both gaps, stated, with opposite signs again, but both small in the metric that matters. To get there, raise the nominal rate by about one point six nine points: between doing nothing, zero, and strict price stability, two. The loss is about zero point four five, below the zero point five of strict price stability. The tangency does beat every corner.
+
+Now hawks and doves. With phi equal to one, the price surprise is kappa over one plus kappa, about zero point five three, and the rate goes up by about zero point five three points. With phi equal to sigma, zero point five, the targeting line has slope minus two, the same as demand. It lies along the demand curve itself, so the optimum is the do-nothing point, and the rate does not change at all. With phi equal to zero point two five, a dove whose targeting line is steeper than demand, the optimum has more output than doing nothing, and the rate is cut, by about zero point four four points. Same shock, same economy: raise, hold or cut, depending only on the mandate. Benigno makes that point on page five hundred and twenty-two.
+
+Step five, the contrast with earlier classes. In class four, the consumer chose a point on a budget line by a tangency with an indifference curve. Here the bank chooses a point on the supply line by a tangency with an iso-loss ellipse. Same geometry, different agent. And, as with a rate target in class seven, the demand curve is the equation that backs out the instrument once the point is chosen.
+
+Step six, the classic confusion. The error: saying demand is the constraint, or that the problem is subject to both curves. The correction: demand contains the instrument, so it restricts nothing; supply contains no policy variable, so it is the frontier. A second error: reading the optimal split as "ten per cent of the shock goes into prices", with no kappa. The price surprise is kappa over one plus theta kappa times the shock to natural output; the ten per cent is relative to what pure output targeting would have allowed. A third: thinking the sign of the optimal rate move is a fact about the economy. It is a fact about the mandate.
+
+Step seven, the self-check.
+
+Question one. Why is the targeting rule a better guide than a rate rule with fixed coefficients?
+
+Question two. If the bank's targeting line is exactly parallel to the demand curve, what should it do after a temporary mark-up shock, and why?
+
+Answers. One: the targeting rule does not mention the shock; keeping it satisfied is optimal whether the shock is to productivity, spending or the mark-up, temporary or expected. The optimal coefficients of an instrument rule, by contrast, depend on the shock process. Benigno follows Giannoni and Woodford here. Two: nothing. Demand then lies along the targeting line, so the equilibrium without any policy move already sits on the tangency.
+
+Checklist for part eleven. You should be able to say why supply is the constraint and demand is not. You should be able to derive the targeting rule and the optimal split, with kappa. And you should be able to explain why a hawk raises and a dove may cut after the same shock.
+
+
+PART TWELVE. WHAT MONETARY POLICY CANNOT DO: MOVE NATURAL OUTPUT. AND THE KYDLAND AND PRESCOTT CAVEAT.
+
+Step one, the question. If efficient output is above natural output, why not just keep output above natural output forever?
+
+Step two, the mechanism in plain words. The central bank chooses a point on the supply curve. It cannot move the curve. Natural output is fixed by productivity, spending and the mark-up, none of which the interest rate touches. In the long run every firm resets, supply is vertical at natural output, and the bank sets only the long-run price level. So the permanent part of the gap between natural and efficient output, the level distortion from market power and taxes, is beyond monetary policy's reach. That is a job for structural and fiscal policy: competition policy that raises theta, a cut in distorting taxes, or a subsidy that offsets the mark-up.
+
+And a deeper reason, borrowed from Kydland and Prescott, with Barro and Gordon. Output above natural requires a price surprise. Suppose price-setters know the bank would like output above natural every period. Then they set p e high enough to take that into account. Surprises cannot be systematic: with rationally pre-set prices they average zero, so output equals its natural level on average, and all the bank achieves is a higher price level. That is time inconsistency. This argument goes slightly beyond Benigno, who has two periods, and it is here as a contrast, not to raise the level. It explains why Benigno approximates welfare around an efficient steady state, footnote twenty-one: then natural and efficient output coincide absent shocks, and the bank has no permanent incentive to surprise.
+
+Step three, the model statement. In the problem set's language: the minimum loss is positive only when y star differs from y n. If y star is permanently above y n, the targeting rule asks for a positive price surprise every period, which rational price-setters will anticipate.
+
+Step four, a worked example. A permanent mark-up rise, one that lowers natural output by one per cent today and in the long run. Supply shifts up; demand shifts down too, because long-run natural output fell. The natural gap is zero and prices do not move, while output falls by the full one per cent. So the efficient gap is minus one, and it is permanent. What rate would close it? Any cut would raise output above natural and prices above p e today, and in the long run nothing at all. No interest rate fixes a permanent wedge.
+
+Step five, the contrast with earlier classes. This is class seven's neutrality, restated: in the long run money cannot move real variables. And it is class five's lesson on taxes and hours: a wedge in the labour market is removed by removing the wedge, not by printing money.
+
+Step six, the classic confusion. The error: "the central bank should target efficient output, so it should keep output above natural output". The correction: it should aim at efficient output only in the sense of the targeting rule, trading off shocks around an efficient steady state. It cannot permanently raise natural output. A second error: listing only what monetary policy does. Questions on this topic reward stating what it cannot do.
+
+Step seven, the self-check.
+
+Question one. Name two policies that could close the steady-state gap between natural and efficient output.
+
+Question two. Why can a central bank not exploit pre-set prices to keep output above natural output every period?
+
+Answers. One: competition policy that raises theta and so lowers the monopoly mark-up; and a cut in distorting taxes, or an employment or production subsidy that offsets the mark-up. Two: because price-setters would build the bank's intention into p e, so the average surprise would be zero; output would stay at natural on average, with only a higher price level to show for it.
+
+Checklist for part twelve. You should be able to say what monetary policy cannot do and who can do it instead. And you should be able to state the Kydland and Prescott logic in three sentences.
+
+
+PART THIRTEEN. PITFALLS. EACH ONE SAID AS: THE ERROR IS, THE CORRECTION IS.
+
+One. The error is reporting "the output gap". The correction is reporting both: output minus natural output, which drives prices, and output minus efficient output, which drives welfare, each with its sign.
+
+Two. The error is shifting demand after a temporary mark-up shock. The correction is: supply shifts, demand does not, and spending falls along demand because the real rate rose.
+
+Three. The error is explaining a rate cut with money supply and a liquidity effect. The correction is: the instrument is the rate itself, and the channel is the real rate through the Euler equation. There is no LM curve.
+
+Four. The error is blaming sticky prices for the gap between natural and efficient output. The correction is: alpha appears in neither; that gap is market power and taxes.
+
+Five. The error is making demand the constraint of the central bank's problem. The correction is: demand contains the instrument, so supply is the feasible set.
+
+Six. The error is calling Benigno's supply curve a New-Keynesian Phillips curve. The correction is: it is the New-Classical form, in the price level, microfounded by sticky prices; the forward-looking Calvo curve is outside this course.
+
+Seven. The error is getting the rigidity comparative static backwards. The correction is: alpha is in the denominator of kappa, so more rigidity flattens supply and raises the weight on prices.
+
+Eight. The error is a sentence that contradicts a correct sign, for example deriving a positive natural gap and then writing "output is below potential". The correction is: before writing the sentence, read the sign aloud, and name which benchmark it is relative to.
+
+Nine. The error is answering only part of what was asked: the direction of output but not of prices, the curve that moved but not the one that stayed. The correction is: list the objects the question names before you start, and tick each one off at the end.
+
+Ten. The error is dropping kappa from the optimal price surprise. The correction is: the price surprise is kappa over one plus theta kappa, times the shock to natural output.
+
+
+PART FOURTEEN. SPOKEN FORMULA SHEET.
+
+Pause after each name, say the formula yourself, then listen to the answer.
+
+The aggregate demand curve. y equals y bar n, plus g minus g bar, minus sigma times, i minus the quantity p bar minus p, minus the quantity tau c bar minus tau c, minus rho. Slope minus one over sigma.
+
+The aggregate supply curve. p minus p e equals kappa times, y minus y n.
+
+Kappa. One minus alpha, times the inverse of sigma plus eta, all divided by alpha.
+
+The adjusters' relative price. p tilde minus p equals the inverse of sigma plus eta, times y minus y n.
+
+The aggregate mark-up. One plus mu equals theta over theta minus one, times one plus the payroll tax, times one plus the consumption tax, divided by the product of one minus the sales tax and one minus the labour-income tax.
+
+Natural output. y n equals, one plus eta over the inverse of sigma plus eta, times a, plus the inverse of sigma over the inverse of sigma plus eta, times g, minus mu over the inverse of sigma plus eta.
+
+Efficient output. The same, without the mu term.
+
+The wedge. y n minus y e equals minus mu over the inverse of sigma plus eta.
+
+The natural real rate. r n equals rho, plus the inverse of sigma times, y bar n minus y n, plus the inverse of sigma times, g minus g bar, plus tau c bar minus tau c.
+
+The natural gap in equilibrium. y minus y n equals sigma over one plus sigma kappa, times, r n minus i plus p bar minus p e.
+
+The welfare loss. One half times the square of y minus y e, plus theta over two kappa times the square of p minus p e.
+
+The targeting rule. y minus y e, plus theta times, p minus p e, equals zero. In the problem set's form: phi y times, y minus y star, plus kappa phi p times, p minus p e, equals zero.
+
+The optimal split after a mark-up shock. p minus p e equals kappa over one plus theta kappa, times d mu over the inverse of sigma plus eta. y minus y e equals minus theta kappa over one plus theta kappa, times the same.
+
+The calibration numbers. The inverse of sigma plus eta, two point two. Kappa, one point one three three. Sigma kappa, zero point five six seven. Theta kappa, nine point zero seven. One over one plus theta kappa, zero point zero nine nine.
+
+
+PART FIFTEEN. GLOSSARY.
+
+Pre-set price, p e. The price a share alpha of firms fixed before the shock and cannot change within the period.
+
+Alpha. The share of firms with pre-set prices; the measure of rigidity.
+
+Kappa. The slope of the supply curve; falls as rigidity rises.
+
+Sigma. The response of output to the real interest rate: the intertemporal elasticity of substitution times the consumption share.
+
+Eta. The inverse of the Frisch elasticity of labour supply.
+
+Theta. The elasticity of substitution between goods; a higher theta means less market power.
+
+Mark-up, mu. The wedge between price and marginal cost, including distorting taxes.
+
+Natural output, y n. Output with flexible prices; the anchor of the supply curve.
+
+Efficient output, y e. The planner's output, with no mark-up; the welfare target.
+
+Natural gap. Output minus natural output; it moves prices.
+
+Efficient gap. Output minus efficient output; it moves welfare.
+
+Natural real rate, r n. The real rate that keeps output at its natural level with prices at p e.
+
+Divine coincidence. The case where one instrument closes both gaps, because the shock does not move the mark-up.
+
+Targeting rule. A relation between the target variables that the instrument must be set to satisfy, whatever the shock.
+
+Inflation-targeting line. The targeting rule drawn in the output and price plane: through p e and y e, slope minus one over theta.
+
+Hawk and dove. A central bank with a high or a low weight on price stability.
+
+Time inconsistency. The temptation to create price surprises that rational price-setters anticipate, so that surprises average zero.
+
+
+PART SIXTEEN. THE WHOLE TOPIC IN FIVE LINES.
+
+One. The New-Keynesian model is the New Classical method with the Keynesian friction: rational agents, but prices pre-set by firms with market power, so systematic policy moves output in the short run and is neutral in the long run.
+
+Two. Demand is the Euler equation with the interest rate as the instrument, so there is no LM curve; supply is mark-up pricing by the adjusting firms, p minus p e equals kappa times, y minus y n.
+
+Three. Natural output is below efficient output by the mark-up wedge, minus mu over the inverse of sigma plus eta; stickiness plays no part in that gap.
+
+Four. For any shock, name the curve that shifts and the curve that does not, move along the one that did not, and report both gaps; a trade-off exists only if the shock moves the mark-up.
+
+Five. The central bank minimises a derived loss in efficient output and price surprises, subject to supply, because the rate moves only demand; the optimum is a tangency, the mandate sets its direction, and natural output is beyond its reach.
+
+End of the reading.

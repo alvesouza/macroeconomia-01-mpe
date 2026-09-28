@@ -20,6 +20,9 @@ From (15) and (19), a productivity change moves both real anchors by the same am
 
 $$dy_n=dy_e=\frac{1+\eta}{\sigma^{-1}+\eta}\,da,\qquad d\bar y_n=\frac{1+\eta}{\sigma^{-1}+\eta}\,d\bar a$$
 
+![The three productivity cases](fig/fig_b05_three_cases.svg)
+*Each panel moves the relevant anchor by 1%. Dashed lines are the initial curves; E′ is where the economy lands if i is held; E″ is where the optimal rate move puts it, back on p = pᵉ. The optimal move is a 2-point cut, nothing, and a 2-point rise.*
+
 ---
 
 ## 5.1 Temporary gain: $a\uparrow$, $\bar a$ unchanged (§6.1, Fig. 6)
@@ -47,14 +50,23 @@ real rate, which stimulates consumption — but not enough.
 **Welfare.** $y_e$ moved by the same $dy_n$, so $y-y_e=-dy_n/(1+\sigma\kappa)<0$ too.
 The economy is inefficiently *small* even while it grows.
 
-**Optimal policy.** Set $d(y-y_n)=0$ in the machine:
+(The price line is $dp=\kappa\,d(y-y_n)$ from §4.4, i.e. $\kappa$ times the gap line.)
 
-$$-dy_n-\sigma\,di=0\quad\Longrightarrow\quad \boxed{di=-\frac{dy_n}{\sigma}<0}$$
+**Optimal policy.** Set $d(y-y_n)=0$ in the machine, with $d\bar y_n=d\bar p=0$ but $di$
+free, and multiply both sides by $1+\sigma\kappa$:
+
+$$\frac{-dy_n-\sigma\,di}{1+\sigma\kappa}=0\quad\Longrightarrow\quad-dy_n-\sigma\,di=0$$
+
+Add $dy_n$ to both sides and divide by $-\sigma$:
+
+$$\boxed{di=-\frac{dy_n}{\sigma}<0}$$
 
 An **expansionary** cut. Cross-check against the natural rate: $r_n$ contains
 $\sigma^{-1}(\bar y_n-y_n)$, so $dr_n=-\sigma^{-1}dy_n<0$ — the natural real rate has
 fallen and the policy rate must follow it down, which is the same number. At that rate,
-$dy=dy_n$ and $dp=0$: point $E''$ in Fig. 6, with stable prices and a closed gap.
+the $dy$ line gives $dy=[\sigma\kappa\,dy_n-\sigma(-dy_n/\sigma)]/(1+\sigma\kappa)
+=(1+\sigma\kappa)dy_n/(1+\sigma\kappa)=dy_n$, and $dp=\kappa\cdot0=0$: point $E''$ in
+Fig. 6, with stable prices and a closed gap.
 
 ## 5.2 Permanent gain: $a\uparrow$ and $\bar a\uparrow$ (§6.2, Fig. 7)
 
@@ -62,9 +74,10 @@ $dy=dy_n$ and $dp=0$: point $E''$ in Fig. 6, with stable prices and a closed gap
 $\bar y_n$ rises: the household expects to be richer and, to smooth, raises consumption
 today.
 
-**Equilibrium.** Put $d\bar y_n=dy_n$ in the machine:
+**Equilibrium.** Put $d\bar y_n=dy_n$ in the machine, with $di=0$:
 
-$$d(y-y_n)=\frac{dy_n-dy_n}{1+\sigma\kappa}=0,\qquad dp=0,\qquad dy=dy_n$$
+$$d(y-y_n)=\frac{dy_n-dy_n}{1+\sigma\kappa}=0,\qquad dp=\kappa\cdot0=0,\qquad
+dy=\frac{dy_n+\sigma\kappa\,dy_n}{1+\sigma\kappa}=dy_n$$
 
 The two shifts are exactly the right size relative to one another — AD moves up by
 precisely the amount that makes the new AS cross it at the new natural rate. No policy
@@ -89,7 +102,8 @@ algebra with the sign flipped and is the starting gun for [[08-liquidity-trap]].
 **Curves.** AS does **not** move: current productivity is unchanged, so $y_n$ is
 unchanged. AD shifts up, through $\bar y_n$.
 
-**Equilibrium.** With $dy_n=0$:
+**Equilibrium.** With $dy_n=0$ and $di=0$, the $dy$ and gap lines of §4.4 have the same
+numerator, $d\bar y_n$, and $dp$ is $\kappa$ times the gap:
 
 $$dy=d(y-y_n)=\frac{d\bar y_n}{1+\sigma\kappa}>0,\qquad
 dp=\frac{\kappa\,d\bar y_n}{1+\sigma\kappa}>0$$
@@ -98,7 +112,8 @@ Output and prices both rise, and the whole of the output response *is* a gap: ou
 above natural **and** above efficient, since $y_e$ did not move either. The economy is
 overheating on the strength of a forecast.
 
-**Optimal policy.** Set the gap to zero: $d\bar y_n-\sigma\,di=0$, so
+**Optimal policy.** Set the gap to zero and multiply by $1+\sigma\kappa$:
+$d\bar y_n-\sigma\,di=0$. Add $\sigma\,di$ to both sides and divide by $\sigma$:
 
 $$\boxed{di=\frac{d\bar y_n}{\sigma}>0}$$
 
@@ -116,6 +131,9 @@ $i$ walks AD back down to $E$.
 Three shocks to the same variable, three different signs for the policy response. Any
 answer of the form "positive productivity shock ⇒ expansionary policy" is wrong two
 times out of three. The rule that is always right: **move $i$ to the new $r_n$**.
+
+![Gap without policy and optimal rate move](fig/fig_b05_policy.svg)
+*For each case the blue bar (optimal di) has the sign of the orange bar (the gap that opens if i is held) and is σ⁻¹ = 2 times the moved anchor. The permanent case needs nothing.*
 
 ## 5.5 Why there is no trade-off here — stated precisely
 

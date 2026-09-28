@@ -35,6 +35,9 @@ pelos wiki-links e ver o grafo.
 | `Leituras/` | **roteiros narrados para TTS** — o material inteiro, falado | Speechify, ouvir |
 | [[estilo-do-professor]] | **como o professor resolve e o que ele cobra** — os 4 gabaritos dele | `/solution`, `/exam-grade` |
 | [[avaliacao-listas-1-4]] | **as correções das Listas 1 e 4**, item a item, com o diagnóstico | o que consertar antes da prova |
+| [[avaliacao-listas-2-3-6]] | **the corrections of Listas 2, 3 and 6**, the pattern across all five graded lists, 6 figures, and which gaps the NotebookLM audio covers or misses | what to fix before the final |
+| `Simulados/simulado-0{1,2}` | **two mock finals** (4 blocks × 25 pts) with full solutions and rubric; every question retests a graded mistake | timed practice |
+| [[simulado-03/00-index\|Simulado 3]] | **a conceptual mock final** (`Simulados/simulado-03-exam.pdf`): True/False with justification plus explain-draw-interpret questions; the solution is a set of linked notes with every step, figures, the sentences that earn the mark and the tempting wrong answer | practising the written explanation |
 | [[Resolucao/kurlat_solutions_ch09\|soluções cap. 9]] | os **13 exercícios** do cap. 9, resolvidos | treino da Aula 6 |
 
 ## Soluções do livro-texto

@@ -42,12 +42,43 @@ behind it: $\ln$ imposes diminishing returns, so a \$1,000 rise matters more at 
 \$60,000. The others are linear, which asserts that a year of life expectancy is worth the same
 at 45 as at 80.
 
+To put numbers on it: the denominator is $\ln 75{,}000-\ln 100=\ln 750=6.620$, and a \$1,000
+rise changes the index by the log-difference over that denominator:
+
+$$\Delta I_{\text{inc}}\big|_{2{,}000\to3{,}000}=\frac{\ln(3{,}000/2{,}000)}{6.620}=\frac{0.405}{6.620}=0.061,
+\qquad
+\Delta I_{\text{inc}}\big|_{60{,}000\to61{,}000}=\frac{\ln(61/60)}{6.620}=\frac{0.0165}{6.620}=0.0025$$
+
+— about 25 times more at the bottom. Equivalently, differentiate:
+$\partial I_{\text{inc}}/\partial\,\text{GNI}=1/(6.620\cdot\text{GNI})$, which falls as $1/\text{GNI}$.
+
+![The HDI income index against GNI per head](fig/fig_05_income_index.svg)
+*Compare the two coloured steps: the same \$1,000 lifts the index by 0.061 at \$2,000 and by 0.0025 at \$60,000. Past the \$75k cap the index keeps rising above one, as Kurlat's footnote notes.*
+
 *The geometric mean, not arithmetic.* This is not cosmetic. Take logs:
 
 $$\ln \mathrm{HDI} = \tfrac{1}{3}\left(\ln I_{\text{life}}+\ln I_{\text{educ}}+\ln I_{\text{inc}}\right)$$
 
 so the sub-indices are **complements**: the marginal contribution of income rises when health is
-high, and any sub-index at zero sends the HDI to zero. An arithmetic mean would make them perfect
+high, and any sub-index at zero sends the HDI to zero.
+
+The complementarity, derived. Write $H=(I_{\text{life}}I_{\text{educ}}I_{\text{inc}})^{1/3}$.
+Differentiate with respect to $I_{\text{inc}}$ (power rule, the other two held fixed):
+
+$$\frac{\partial H}{\partial I_{\text{inc}}}=\tfrac13\left(I_{\text{life}}I_{\text{educ}}\right)^{1/3}I_{\text{inc}}^{-2/3}$$
+
+then differentiate that with respect to $I_{\text{life}}$:
+
+$$\frac{\partial^2 H}{\partial I_{\text{life}}\,\partial I_{\text{inc}}}
+=\tfrac19\,I_{\text{life}}^{-2/3}I_{\text{educ}}^{1/3}I_{\text{inc}}^{-2/3}
+=\frac{H}{9\,I_{\text{life}}I_{\text{inc}}}>0$$
+
+The cross-partial is positive, which is the definition of complements. For the arithmetic mean
+$(I_{\text{life}}+I_{\text{educ}}+I_{\text{inc}})/3$ the first derivative is the constant $1/3$
+and the cross-partial is zero: perfect substitutes.
+
+![Iso-HDI curves under the geometric and the arithmetic mean](fig/fig_05_hdi_isoquants.svg)
+*The dashed arithmetic contours are straight lines, so income trades against life one-for-one at any level; the solid geometric contours bend towards the axes, so near $I_{\text{life}}=0$ no amount of income holds the index up. The marked country scores 0.65 arithmetically but 0.49 geometrically.* An arithmetic mean would make them perfect
 substitutes and let a rich, short-lived country buy its way to a high score. The UN switched from
 arithmetic to geometric in 2010 for exactly this reason.
 
@@ -120,6 +151,19 @@ $c^{1-\sigma}/(1-\sigma)$ is undefined but its limit behaviour is $\ln c$ (Kurla
 for $\sigma>1$ the level of utility is negative, which means nothing because only comparisons are
 interpretable.
 
+The derivatives, step by step: by the power rule,
+$u'(c)=\frac{(1-\sigma)c^{-\sigma}}{1-\sigma}=c^{-\sigma}>0$ and
+$u''(c)=-\sigma c^{-\sigma-1}<0$ for $\sigma>0$ — strict concavity, which is what Jensen needs.
+The limit: subtracting the constant $1/(1-\sigma)$ changes no comparison, so use
+$\frac{c^{1-\sigma}-1}{1-\sigma}$; at $\sigma=1$ it is $0/0$, and L'Hôpital in $\sigma$
+(the derivative of $c^{1-\sigma}$ with respect to $\sigma$ is $-c^{1-\sigma}\ln c$, that of
+$1-\sigma$ is $-1$) gives
+
+$$\lim_{\sigma\to1}\frac{c^{1-\sigma}-1}{1-\sigma}=\lim_{\sigma\to1}\frac{-c^{1-\sigma}\ln c}{-1}=\ln c$$
+
+![Jensen's inequality for log utility](fig/fig_05_jensen.svg)
+*A 50–50 gamble between \$10k and \$50k. Read the vertical gap at the mean: the utility of the mean (10.31) is above the mean of the utilities on the chord (10.02). The green segment is the same gap in consumption: a sure \$22,361 is as good as the gamble with mean \$30,000.*
+
 > **Kurlat's methodological warning, worth repeating verbatim (p. 35).** *"It's wrong to say people
 > dislike risk because their utility function is concave. Instead, one should say: in economic
 > models, we describe people's preferences with concave utility functions to capture the fact that
@@ -141,8 +185,12 @@ $[0,100]$, alive if age is below life expectancy, so $e = \text{LE}/100$). Then
 
 $$u^{j} = e^{j}\left[\bar u + \mathbb{E}\left[\ln c^{j}\right] - \theta\left(1-l^{j}\right)^2\right]$$
 
+(Why $e$ multiplies the bracket: $a=1$ with probability $e$ and $a=0$ otherwise, and the bracket
+does not depend on $a$, so $\mathbb E[(\cdot)\,a]=e\cdot\mathbb E[(\cdot)]$.)
+
 Set $u^{\text{US}}(\lambda) = u^{j}$. Scaling US consumption by $\lambda$ adds $\ln\lambda$ inside
-the expectation:
+the expectation, because $\ln(\lambda c)=\ln\lambda+\ln c$ and $\ln\lambda$ is a constant that
+passes through $\mathbb E$:
 
 $$e^{\text{US}}\left[\bar u + \ln\lambda + \mathbb{E}\ln c^{\text{US}} - \theta(1-l^{\text{US}})^2\right]
 = e^{j}\left[\bar u + \mathbb{E}\ln c^{j} - \theta(1-l^{j})^2\right]$$
@@ -153,7 +201,38 @@ that
 $$\mathbb{E}\left[\ln c\right] = \ln \mathbb{E}[c] - \tfrac{1}{2}s^2$$
 
 — the mean of the log is the log of the mean minus half the log variance, which is Jensen's
-inequality made quantitative. Substituting and solving for $\ln\lambda$, with
+inequality made quantitative.
+
+*Where that comes from.* Let $x=\ln c\sim\mathcal N(\mu,s^2)$, so $c=e^{x}$ and
+$\mathbb E[\ln c]=\mu$. Compute $\mathbb E[c]=\mathbb E[e^{x}]$ by completing the square in the
+exponent of the normal density:
+
+$$x-\frac{(x-\mu)^2}{2s^2}=-\frac{\left(x-(\mu+s^2)\right)^2}{2s^2}+\mu+\frac{s^2}{2}$$
+
+(expand both sides to check). The first term, integrated against $\frac{1}{s\sqrt{2\pi}}$, is the
+density of $\mathcal N(\mu+s^2,s^2)$ and integrates to 1, leaving
+
+$$\mathbb E[c]=e^{\mu+s^2/2}\;\Longrightarrow\;\ln\mathbb E[c]=\mu+\tfrac12s^2
+\;\Longrightarrow\;\mathbb E[\ln c]=\mu=\ln\mathbb E[c]-\tfrac12s^2$$
+
+*Solving for $\ln\lambda$.* Name the flow utility of a year alive in each country,
+$B^{j}\equiv\bar u+\mathbb E\ln c^{j}-\theta(1-l^{j})^2$ and likewise $B^{\text{US}}$. The
+indifference condition above is then $e^{\text{US}}\left(\ln\lambda+B^{\text{US}}\right)=e^{j}B^{j}$.
+Divide by $e^{\text{US}}$ and subtract $B^{\text{US}}$:
+
+$$\ln\lambda=\frac{e^{j}}{e^{\text{US}}}B^{j}-B^{\text{US}}$$
+
+Add and subtract $B^{j}$ on the right, and group:
+
+$$\ln\lambda=\left(B^{j}-B^{\text{US}}\right)+\left(\frac{e^{j}}{e^{\text{US}}}-1\right)B^{j}
+=\left(B^{j}-B^{\text{US}}\right)+\frac{e^{j}-e^{\text{US}}}{e^{\text{US}}}\,B^{j}$$
+
+The second piece is term (4). Expand the first, substituting
+$\mathbb E\ln c=\ln\bar c-\tfrac12s^2$ in both countries ($\bar u$ cancels):
+
+$$B^{j}-B^{\text{US}}=\left(\ln\bar c^{\,j}-\ln\bar c^{\,\text{US}}\right)-\tfrac12\left(s_j^2-s_{\text{US}}^2\right)-\theta\left[(1-l^{j})^2-(1-l^{\text{US}})^2\right]$$
+
+which is terms (1)–(3). Substituting and solving for $\ln\lambda$, with
 $\bar c^{j}=\mathbb{E}[c^{j}]$:
 
 $$\boxed{\;
@@ -166,11 +245,24 @@ $$\boxed{\;
 
 to first order in the mortality difference. **Four additive terms in logs.** Read them:
 
+> **Precision (added on audit).** With this utility function the derivation above shows the
+> decomposition is **exact**, not first-order: the add-and-subtract step introduces no
+> approximation. "First order" only describes the reading of term (4) as "mortality gap times
+> value of a year", because its weight $B^{j}$ is the *other* country's flow value.
+> `check_measurement.py` confirms it against a brute-force solve to $10^{-6}$.
+
 1. **Consumption.** The only term GDP per capita comes close to capturing, and even here it is
    $C+G$ and not $Y$, so a high-investment country scores below its GDP rank in the one-year
    experiment.
 2. **Inequality, priced at exactly half the log variance.** With $\sigma\ne1$ the penalty is
-   $-\tfrac{\sigma}{2}s^2$, so it scales linearly in risk aversion. This is the same convexity that
+   $-\tfrac{\sigma}{2}s^2$, so it scales linearly in risk aversion. (Derivation: the certainty
+   equivalent $c^{\ast}$ solves $u(c^{\ast})=\mathbb E[u(c)]$, i.e.
+   $(c^{\ast})^{1-\sigma}=\mathbb E[c^{1-\sigma}]=\mathbb E[e^{(1-\sigma)x}]$. The completing-the-square
+   result above with $x$ scaled by $1-\sigma$ gives $\mathbb E[e^{(1-\sigma)x}]=e^{(1-\sigma)\mu+\frac12(1-\sigma)^2s^2}$.
+   Take logs and divide by $1-\sigma$: $\ln c^{\ast}=\mu+\tfrac12(1-\sigma)s^2$. Substitute
+   $\mu=\ln\bar c-\tfrac12s^2$: $\ln c^{\ast}=\ln\bar c-\tfrac12s^2+\tfrac12s^2-\tfrac12\sigma s^2=\ln\bar c-\tfrac{\sigma}{2}s^2$.
+   This prices the consumption lottery alone; with $\sigma\ne1$ the four terms no longer separate
+   exactly, because $\lambda$ multiplies rather than adds inside $c^{1-\sigma}$.) This is the same convexity that
    made the arithmetic mean overstate growth in [[03-growth-arithmetic]] §3.3 — Jensen's inequality
    appearing twice in one session, in two different costumes.
 3. **Leisure.** Convex in hours worked, so the marginal hour of work costs more the more you already
@@ -198,6 +290,11 @@ The $s^2$ in term (2) is one inequality statistic among several, and the course'
   complete concentration. For a lognormal distribution it maps to the log standard deviation
   exactly: $G = 2\Phi(s/\sqrt2)-1$, so $s=0.5\Rightarrow G\simeq0.28$ and $s=1.0\Rightarrow G\simeq0.52$.
   That identity is what lets term (2) be computed from published Gini coefficients.
+  (Arithmetic: $0.5/\sqrt2=0.354$, $\Phi(0.354)=0.638$, $G=2(0.638)-1=0.276$; and
+  $1/\sqrt2=0.707$, $\Phi(0.707)=0.760$, $G=0.520$.)
+
+![Gini against the log standard deviation for a lognormal](fig/fig_05_gini_s.svg)
+*Go from a published Gini on the vertical axis across to the curve and down to s; the inequality term is then s²/2 — 0.125 at a Gini of 0.28, 0.5 at a Gini of 0.52, so doubling s quadruples the penalty.*
 - **Why the variance of logs and not the Gini in the formula.** Because it is the statistic the
   log utility function actually produces. The Gini enters only as a way to recover $s$.
 

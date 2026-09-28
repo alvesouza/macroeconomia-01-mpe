@@ -8,6 +8,11 @@ date: 2026-09-19
 **Kurlat §9.1–§9.2.** Up: [[00-index]] · Equations: [[derivacoes-cap-09]] Parts I–III ·
 Next: [[02-dynamics-and-saddle-path]] · Rules: [[06_equilibrio_geral]]
 
+> **Companion:** [When Capital Is Frozen, σ Decides](companion-frozen-capital.html) — Lista 5
+> Q1 as a live equilibrium: labour clears period by period, $r$ is set last by the Euler equation,
+> and the sign of the hours response to $A$ flips with $1-\sigma$. The verdict line switches between
+> substitution and income effect as σ crosses 1.
+
 The equation-by-equation walk is in [[derivacoes-cap-09]]. This note states the two structural
 facts that the walk demonstrates but does not isolate: **why five conditions containing prices
 collapse into two that do not**, and **what the First Welfare Theorem is a theorem about**.
@@ -38,7 +43,9 @@ found. It says which prices are *consistent* with everyone's optimisation. This 
 model has no story about adjustment — and why a model that wants one needs sticky prices.
 
 **Market clearing in every market.** Kurlat's (9.1.3)–(9.1.6) in [[derivacoes-cap-09]] Part II.
-Note that with $n$ markets you only need $n-1$ clearing conditions, by §1.3.
+Note that with $n$ markets you only need $n-1$ clearing conditions, by §1.3. What happens
+when a price is stuck and a market does *not* clear (the short side decides the quantity) is
+worked out in [[benigno/11-three-schools-and-market-clearing]] §11.1.
 
 ## 1.2 Why the prices cancel — the structural fact
 
@@ -56,6 +63,40 @@ signs: once in the problem of whoever pays it, once in the problem of whoever re
 When you impose market clearing you are asserting that the quantity bought equals the quantity
 sold, so the two appearances are attached to the *same* quantity and the price drops out of the
 combined system. What survives is a relation between quantities only.
+
+**The cancellation, one operation per line.** Take the two prices of the two-period economy in
+turn.
+
+*The wage.* The household's labour condition (9.1.7) and the firm's (9.1.10) both end in the
+same $w_t$, because one labour market clears at one price:
+
+$$\frac{v'(l_t)}{u'(c_t)} = w_t \qquad\text{(household)}\qquad\qquad F_L(K_t,L_t) = w_t \qquad\text{(firm)}$$
+
+Both left-hand sides equal the same number $w_t$, so they equal each other; and market clearing
+(9.1.6) says the $L_t$ the firm hires is the $1-l_t$ the household sells:
+
+$$\frac{v'(l_t)}{u'(c_t)} = F_L(K_t,\,1-l_t) \tag{9.1.12}$$
+
+*The interest rate.* Start from the Euler equation (9.1.8) and divide both sides by
+$\beta u'(c_2)$:
+
+$$u'(c_1)=\beta(1+r)\,u'(c_2) \;\Longrightarrow\; \frac{u'(c_1)}{\beta u'(c_2)} = 1+r$$
+
+Replace $1+r$ by $r^K_2$ (arbitrage, 9.1.11), then $r^K_2$ by $F_K(K_2,L_2)$ (the firm's
+capital condition 9.1.9 at $t=2$):
+
+$$\frac{u'(c_1)}{\beta u'(c_2)} = 1+r = r^K_2 = F_K(K_2,L_2) \tag{9.1.13}$$
+
+Each price was used exactly twice — once on the buying side, once on the selling side — and
+then it is gone.
+
+![Tangency of indifference curve, budget line and technology](fig/fig_ge_tangency.svg)
+*Read the common slope at the black dot: the household's indifference curve (MRS), the market
+budget line ($1+r$) and the technology frontier (MRT) all have slope $-1.254$ there. The price
+is just the name of that slope; delete it and the tangency between preferences and technology
+is still there. The pink point is used in §1.4. (The figure is `check_ge.py`'s economy, where
+capital survives into period 2, so MRT $=F_K+1-\delta$; with Kurlat's two-period $\delta_2=1$ it
+is the $F_K$ of (9.1.13).)*
 
 **The economic content.** Prices are the device by which the decentralised economy communicates.
 Once every market clears, the communication has done its job and the outcome can be described
@@ -79,6 +120,39 @@ where $z_j$ is excess demand in market $j$.
 *Proof sketch.* Each agent's budget constraint says the value of what it demands equals the
 value of what it supplies. Sum over agents: the value of aggregate demand equals the value of
 aggregate supply, at any prices. ∎
+
+*The same proof, one operation per line.* Let household $h$ own endowment $e^h_j$ of good $j$,
+demand $x^h_j(\mathbf p)$, and own a share $\theta^{hf}$ of firm $f$; firm $f$ supplies net
+output $y^f_j(\mathbf p)$ and earns $\pi^f=\sum_j p_j y^f_j$.
+
+1. Household $h$'s budget holds with equality (more consumption is always wanted):
+   $$\sum_j p_j x^h_j = \sum_j p_j e^h_j + \sum_f \theta^{hf}\pi^f$$
+2. Sum step 1 over all households, and use $\sum_h \theta^{hf}=1$ (every firm is fully owned):
+   $$\sum_j p_j \underbrace{\textstyle\sum_h x^h_j}_{X_j} = \sum_j p_j \underbrace{\textstyle\sum_h e^h_j}_{E_j} + \sum_f \pi^f$$
+3. Substitute the definition of profit, $\sum_f\pi^f=\sum_j p_j\sum_f y^f_j \equiv \sum_j p_j Y_j$:
+   $$\sum_j p_j X_j = \sum_j p_j E_j + \sum_j p_j Y_j$$
+4. Move everything to the left and collect by good; $z_j \equiv X_j-E_j-Y_j$ is excess demand:
+   $$\sum_j p_j\,(X_j-E_j-Y_j)=\sum_j p_j\,z_j(\mathbf p)=0$$
+
+No step used market clearing — only budgets and the definition of profit — so the identity holds
+at every price vector.
+
+*In the two-period economy of `check_ge.py`.* The household saves $a$ out of period-1
+resources $R_1$, so $C_1=R_1-a$ and $C_2=(1+r)a+\pi_2$, with $\pi_2=f(K_2)-f'(K_2)K_2$ the wage
+bill; the firm demands $K_2$ with $f'(K_2)=r+\delta$. Then
+
+$$z_1 = C_1+K_2-R_1 = (R_1-a)+K_2-R_1 = K_2-a$$
+
+$$z_2 = C_2-f(K_2)-(1-\delta)K_2 = (1+r)a + f - (r+\delta)K_2 - f - (1-\delta)K_2 = (1+r)(a-K_2)$$
+
+Divide $z_2$ by $1+r$ (the period-2 price in period-1 goods) and add:
+
+$$z_1+\frac{z_2}{1+r} = (K_2-a)+(a-K_2) = 0 \quad\text{for every } r$$
+
+![Walras' law in the two-period economy](fig/fig_ge_walras.svg)
+*Read the two curves as mirror images: at every interest rate the period-1 excess demand is
+exactly offset by the period-2 one in present value (their sum is the flat dashed line). They
+cross zero together at $r^*=25.36\%$, so imposing either market clears the other.*
 
 **Two consequences that matter for this chapter.**
 
@@ -118,6 +192,13 @@ the algebra:
 optimisation) $\Rightarrow$ infeasibility (from firm optimisation plus market clearing). Each
 arrow uses exactly one of the three parts of the equilibrium definition in §1.1. That is why the
 theorem needs all three and fails if any is dropped.
+
+*On the figure of §1.2.* The pink point $\hat{\mathbf x}$ lies above the indifference curve
+(preferred), therefore above the budget line (unaffordable — step 2), therefore above the
+technology frontier (infeasible — step 3). Because the frontier lies everywhere on or below the
+budget line, which is tangent to it at the equilibrium, no point can be preferred and feasible
+at once. The full algebra of step 4, with every cancellation, is written out in
+[[derivacoes-cap-09]] under (9.2.3).
 
 ### The four assumptions, and which session breaks each
 

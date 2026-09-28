@@ -41,10 +41,15 @@ parameters you can check.
 | 8 | [[08-liquidity-trap]] | §9, Figs. 11–12, pp. 516–518 | The $\mathrm{AD}_0$ locus, why $r_n<0$ traps the economy, the expectations exit |
 | 9 | [[09-deleveraging]] | §10, eqs. (24)–(32), Fig. 13, pp. 518–521 | Borrowers and savers, the Fisher channel, an **upward-sloping AD**, multipliers above one |
 | 10 | [[10-optimal-policy]] | §11, eqs. (33)–(35), Fig. 14, pp. 521–522 | Second-order welfare loss, the IT line, the targeting rule |
+| 11 | [[11-three-schools-and-market-clearing]] | §1–§4, §11, pp. 503–508 (fn. 7), 521–522 | **Lista 7 Q1**: what market clearing means; original Keynesian vs New Classical vs New Keynesian, each derived (IS–LM, policy ineffectiveness, NK stabilisation) and compared on the four dimensions |
 
 Runnable check: `check_multipliers.py` in this folder reproduces Table 2 and the three
 deleveraging multipliers from the Table 1 formulas. It fails loudly if any formula in
-[[07-fiscal-multipliers]] or [[09-deleveraging]] is mistyped.
+[[07-fiscal-multipliers]] or [[09-deleveraging]] is mistyped. It also checks, with sympy,
+every intermediate algebra step written out in notes 1–10.
+
+Figures: `make_figures.py` in this folder draws every `fig/fig_b*.svg` embedded in the
+notes from the same closed forms, asserting each labelled number before drawing it.
 
 ## Interactive companions
 

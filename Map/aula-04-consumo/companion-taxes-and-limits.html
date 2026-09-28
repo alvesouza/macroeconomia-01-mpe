@@ -1,0 +1,324 @@
+<title>Taxes, Timing and the Limit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §6.2–§6.3 · printed pages 105–126 · Lista 3</p>
+  <h1>Taxes, Timing and the Limit</h1>
+  <p class="lede">Lump-sum taxes enter the household's problem only through their <em>present
+  value</em>, so moving them across periods changes nothing — until a borrowing limit binds.
+  A tax on the return to saving is different in kind: it does not just make the household
+  poorer, it changes the price of future consumption.</p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 420" role="img"
+             aria-label="Budget line with borrowing limit, indifference curve, endowment and optimum"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch"></i>budget line (cut off at a = −b)</span>
+        <span style="color:var(--as)"><i class="swatch"></i>indifference curve</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>equal-revenue lump sum</span>
+        <span style="color:var(--it)"><i class="swatch dash"></i>after the Ricardian swap</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div><div class="k">Consumption now, c₁</div><div class="v" id="c1Out"></div><div class="w" id="c1W"></div></div>
+      <div><div class="k">Consumption later, c₂</div><div class="v" id="c2Out"></div><div class="w" id="c2W"></div></div>
+    </div>
+    <div class="stats" id="stats"></div>
+
+    <div class="card">
+      <div class="btns" style="padding-bottom:0">
+        <button id="swapBtn">Ricardian swap: τ₁ − 1, τ₂ + (1+r)</button>
+      </div>
+      <div class="note" style="border-top:0"><div class="tablewrap" style="margin:0"><table style="min-width:0" id="swapTab"></table></div></div>
+      <div class="verdict" id="swapV"></div>
+    </div>
+
+    <div class="card">
+      <div class="note" style="border-top:0"><b>Savings tax against an equal-revenue lump sum.</b>
+        Same τ₁, same limit; the lump sum is levied in period 2 and set to the revenue R = τ<sub>s</sub>·a
+        that the savings tax actually raises.
+        <div class="tablewrap"><table style="min-width:0" id="cmpTab"></table></div></div>
+      <div class="verdict" id="cmpV"></div>
+    </div>
+
+    <div class="card">
+      <figure style="padding-bottom:0"><svg id="rplot" viewBox="0 0 600 190" role="img"
+        aria-label="c1 against r for the current sigma, with y2 = tau1 = tau2 = 0"></svg></figure>
+      <div class="verdict" id="sigV"></div>
+    </div>
+
+    <div class="card">
+      <div class="note" style="border-top:0"><b>Where marks were lost</b> (graded Lista 3)
+      <ul style="margin:6px 0 0; padding-left:18px">
+        <li><b>1(a), 1(d)</b> — c₁ and c₂ solved, savings <i>a</i> never solved for. It is asked for: a = a₀ + y₁ − τ₁ − c₁.</li>
+        <li><b>1(c)</b> — the sign condition was right and the conclusion reversed. Correct: <b>σ &gt; 1 ⟹ c₁ rises with r</b>; σ &lt; 1 ⟹ it falls.</li>
+        <li><b>1(e)</b> — proved taxes enter only through τ₁ + τ₂⁄(1+r), then wrote “yes, timing matters”. The proof says the opposite: without a binding limit, timing does not matter.</li>
+        <li><b>2(b)</b> — one example of a binding limit where two were asked (e.g. a steep income profile, the young professional with low y₁ and high y₂; a transitory fall in y₁; also impatience, low β, or taxes front-loaded in τ₁).</li>
+        <li><b>2(d)</b> — derived (c₂⁄c₁)<sup>σ</sup> = β(1+r−τ<sub>s</sub>) but never compared it with the lump sum or named the distorted margin: the <b>intertemporal</b> one.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Endowment</legend>
+      <div class="ctl"><label for="y1">Income now <span class="sym">y<sub>1</sub></span></label>
+        <output id="y1o"></output><input type="range" id="y1" min="0" max="200" step="1" value="100"></div>
+      <div class="ctl"><label for="y2">Income later <span class="sym">y<sub>2</sub></span></label>
+        <output id="y2o"></output><input type="range" id="y2" min="0" max="200" step="1" value="69"></div>
+      <div class="ctl"><label for="a0">Initial wealth <span class="sym">a<sub>0</sub></span></label>
+        <output id="a0o"></output><input type="range" id="a0" min="0" max="50" step="1" value="10"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Preferences and prices</legend>
+      <div class="ctl"><label for="r">Interest rate <span class="sym">r</span></label>
+        <output id="ro"></output><input type="range" id="r" min="-0.02" max="0.6" step="0.01" value="0.5"></div>
+      <div class="ctl"><label for="beta">Discount factor <span class="sym">β</span></label>
+        <output id="betao"></output><input type="range" id="beta" min="0.8" max="1" step="0.005" value="0.96"></div>
+      <div class="ctl"><span class="hint">σ is the curvature; 1⁄σ is the elasticity of intertemporal substitution. σ = 1 is log.</span>
+        <label for="sigma">Curvature <span class="sym">σ</span></label>
+        <output id="sigmao"></output><input type="range" id="sigma" min="0.25" max="6" step="0.05" value="2"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Taxes and the limit</legend>
+      <div class="ctl"><span class="hint">Lump sum: c₂ = y₂ − τ₂ + (1+r)a. Savings tax: c₂ = y₂ + (1+r−τ<sub>s</sub>)a, and τ₂ is off.</span>
+        <label for="mode">Period-2 tax</label>
+        <output id="modeo"></output><input type="range" id="mode" min="0" max="1" step="1" value="0"></div>
+      <div class="ctl"><label for="tau1">Tax now <span class="sym">τ<sub>1</sub></span></label>
+        <output id="tau1o"></output><input type="range" id="tau1" min="-20" max="40" step="1" value="6"></div>
+      <div class="ctl"><label for="tau2">Lump-sum tax later <span class="sym">τ<sub>2</sub></span></label>
+        <output id="tau2o"></output><input type="range" id="tau2" min="-20" max="40" step="1" value="9"></div>
+      <div class="ctl"><label for="taus">Tax on the return to saving <span class="sym">τ<sub>s</sub></span></label>
+        <output id="tauso"></output><input type="range" id="taus" min="0" max="0.5" step="0.01" value="0.2"></div>
+      <div class="ctl"><span class="hint">a ≥ −b. b = 0 forbids borrowing; the right end removes the limit.</span>
+        <label for="b">Borrowing limit <span class="sym">b</span></label>
+        <output id="bo"></output><input type="range" id="b" min="0" max="61" step="1" value="61"></div>
+    </fieldset>
+    <div class="btns">
+      <button data-p="q1">Lista 3, 1(a)</button>
+      <button data-p="young">Young, b = 10 (2c)</button>
+      <button data-p="stax">Savings tax (2d)</button>
+      <button data-p="borrow">Savings tax on a borrower</button>
+    </div>
+    <details>
+      <summary>Why only the present value matters</summary>
+      <p>Substitute a from period 1 into period 2: c₁ + c₂⁄(1+r) = a₀ + y₁ + y₂⁄(1+r) − [τ₁ + τ₂⁄(1+r)].
+      Taxes appear only through the bracket, and the Euler equation c₂⁄c₁ = [β(1+r)]<sup>1/σ</sup> does
+      not contain them at all. A swap that keeps the bracket fixed leaves the budget set and hence
+      (c₁, c₂) unchanged; the household saves the cut to pay the later bill. The limit a ≥ −b is the
+      one place τ₁ enters on its own: binding, c₁ = a₀ + y₁ − τ₁ + b. Derivation in
+      <b>05-ricardian-and-constraints.md</b> §5.1–§5.3.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 6 · Lista 3 · companion to <b>Map/aula-04-consumo/05-ricardian-and-constraints.md</b> and <b>03-income-and-substitution.md</b></footer>
+</div>
+
+<script>
+// MODEL-BEGIN  (mirrored in check_consumption.py; keep the two in step)
+function u(c, s){ return c <= 0 ? -Infinity : Math.abs(s-1) < 1e-9 ? Math.log(c) : (Math.pow(c,1-s)-1)/(1-s); }
+// p: y1,y2,a0,r,beta,sigma,tau1,tau2,taus,b  (b = Infinity: no limit). Gross return on a is R = 1+r-taus.
+function solve(p){
+  const R = 1 + p.r - p.taus;
+  const x1 = p.a0 + p.y1 - p.tau1, x2 = p.y2 - p.tau2;   // the a = 0 point
+  const W = x1 + x2/R;
+  const D = 1 + Math.pow(p.beta, 1/p.sigma) * Math.pow(R, 1/p.sigma - 1);
+  let c1 = W/D, a = x1 - c1;
+  const binds = a < -p.b;
+  if (binds){ a = -p.b; c1 = x1 + p.b; }
+  const c2 = x2 + R*a;
+  return {c1, c2, a, W, D, R, x1, x2, binds, ratio: c2/c1,
+          pv: p.tau1 + (p.tau2 + p.taus*a)/(1+p.r), U: u(c1,p.sigma) + p.beta*u(c2,p.sigma)};
+}
+function swap(p){ return [solve(p), solve({...p, tau1: p.tau1-1, tau2: p.tau2+(1+p.r)})]; }
+function taxCompare(p){
+  const S = solve({...p, tau2: 0});
+  const rev = p.taus * S.a;
+  const L = solve({...p, tau2: rev, taus: 0});
+  const N = solve({...p, tau2: 0, taus: 0});
+  const UL = T => solve({...p, tau2: T, taus: 0}).U;
+  let lo = rev, hi = rev + 1;                 // deadweight loss: lump sum T* with U = U(savings tax)
+  for (let i = 0; i < 60 && UL(hi) > S.U; i++) hi = rev + 2*(hi - rev);
+  for (let i = 0; i < 100; i++){ const m = (lo+hi)/2; if (UL(m) > S.U) lo = m; else hi = m; }
+  return {S, L, N, rev, dU: L.U - S.U, dwl: (lo+hi)/2 - rev};
+}
+// dc1/dr with y2 = tau1 = tau2 = 0: c1 = (a0+y1)/D, only D moves with r
+function dc1dr(p){
+  const s = p.sigma, R = 1 + p.r, D = 1 + Math.pow(p.beta,1/s)*Math.pow(R,1/s-1);
+  return -(p.a0 + p.y1) * Math.pow(p.beta,1/s) * (1/s - 1) * Math.pow(R,1/s-2) / (D*D);
+}
+// MODEL-END
+
+const $ = id => document.getElementById(id);
+const ids = ["y1","y2","a0","r","beta","sigma","mode","tau1","tau2","taus","b"];
+const f = (x,d=2) => (x>=0?"":"−") + Math.abs(x).toFixed(d);
+const sg = (x,d=2) => (x>=0?"+":"−") + Math.abs(x).toFixed(d);
+let showSwap = false;
+
+function read(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  const p = {...v, b: v.b > 60 ? Infinity : v.b, tau2: v.mode ? 0 : v.tau2, taus: v.mode ? v.taus : 0};
+  return {v, p};
+}
+
+function draw(v, p, s, sw, cmp){
+  const W=600,H=420,L=54,Rm=20,T=16,B=44;
+  const pts = [s.x1, s.x2, s.c1, s.c2, sw[1].x1];
+  const hi = Math.max(...pts.filter(isFinite))*1.3;
+  const X = c => L + (W-L-Rm)*c/hi, Y = c => T + (H-T-B)*(1-c/hi);
+  const seg = (a,b,c,d,col,w,dash) => `<line x1="${X(a).toFixed(1)}" y1="${Y(b).toFixed(1)}" x2="${X(c).toFixed(1)}" y2="${Y(d).toFixed(1)}" stroke="${col}" stroke-width="${w}" ${dash?`stroke-dasharray="${dash}"`:""}/>`;
+  const budget = (x1, x2, R, lim, col, w, dash) => {   // c2 = x2 + R(x1 - c1), c1 <= x1 + lim
+    const Wt = x1 + x2/R, c1s = Math.max(0, x1 - (hi - x2)/R), c1e = Math.min(Wt, x1 + lim, hi);
+    let o = seg(c1s, x2 + R*(x1-c1s), c1e, x2 + R*(x1-c1e), col, w, dash);
+    if (x1 + lim < Wt) o += seg(c1e, x2 + R*(x1-c1e), c1e, 0, col, w, dash || "3 3");
+    return o;
+  };
+  let out = "";
+  for (let i=0;i<=4;i++){ const t = hi*i/4;
+    out += seg(0,t,hi,t,"var(--grid)",1) + seg(t,0,t,hi,"var(--grid)",1); }
+  if (v.mode) out += budget(0, cmp.L.W*(1+p.r), 1+p.r, Infinity, "var(--nat)", 1.6, "6 4");
+  out += budget(s.x1, s.x2, s.R, p.b, "var(--ad)", 2.4);
+  if (showSwap && !v.mode){
+    out += budget(sw[1].x1, sw[1].x2, s.R, p.b, "var(--it)", 1.4, "5 4");
+    out += seg(s.x1, s.x2, sw[1].x1, sw[1].x2, "var(--it)", 2);
+    out += `<circle cx="${X(sw[1].x1).toFixed(1)}" cy="${Y(sw[1].x2).toFixed(1)}" r="5" fill="none" stroke="var(--it)" stroke-width="2"/>`;
+    out += `<circle cx="${X(sw[1].c1).toFixed(1)}" cy="${Y(sw[1].c2).toFixed(1)}" r="5" fill="none" stroke="var(--it)" stroke-width="2"/>`;
+  }
+  // indifference curve through the optimum
+  const sig = p.sigma, Ubar = s.U; let d = "";
+  for (let i=1;i<=260;i++){
+    const c1 = hi*i/260, rhs = (Ubar - u(c1,sig))/p.beta;
+    let c2;
+    if (Math.abs(sig-1) < 1e-9) c2 = Math.exp(rhs);
+    else { const inner = rhs*(1-sig)+1; if (inner <= 0) continue; c2 = Math.pow(inner, 1/(1-sig)); }
+    if (!isFinite(c2) || c2 > hi*1.4) continue;
+    d += (d?"L":"M") + X(c1).toFixed(1) + "," + Y(c2).toFixed(1);
+  }
+  out += `<path d="${d}" fill="none" stroke="var(--as)" stroke-width="2"/>`;
+  out += `<circle cx="${X(s.x1).toFixed(1)}" cy="${Y(s.x2).toFixed(1)}" r="5.5" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+  out += `<text x="${(X(s.x1)+9).toFixed(1)}" y="${(Y(s.x2)-8).toFixed(1)}" font-size="11" fill="var(--ink-soft)">endowment (a = 0)</text>`;
+  if (v.mode) out += `<circle cx="${X(cmp.L.c1).toFixed(1)}" cy="${Y(cmp.L.c2).toFixed(1)}" r="4.5" fill="var(--nat)"/>`;
+  out += `<circle cx="${X(s.c1).toFixed(1)}" cy="${Y(s.c2).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<text x="${(X(s.c1)+9).toFixed(1)}" y="${(Y(s.c2)+15).toFixed(1)}" font-size="11" fill="var(--it)">${s.binds?"corner":"optimum"}</text>`;
+  out += seg(0,0,hi,0,"var(--rule)",1) + seg(0,0,0,hi,"var(--rule)",1);
+  out += `<text x="${((L+W-Rm)/2).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">consumption now, c₁</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">consumption later, c₂</text>`;
+  $("plot").innerHTML = out;
+}
+
+function drawR(p){
+  const W=600,H=190,L=54,Rm=20,T=12,B=30, r0=-0.02, r1=0.6;
+  const q = {...p, y2:0, tau1:0, tau2:0, taus:0, b:Infinity};
+  const c = r => solve({...q, r}).c1, c1log = (q.a0+q.y1)/(1+q.beta);
+  const ys = []; for (let i=0;i<=80;i++) ys.push(c(r0+(r1-r0)*i/80));
+  const lo = Math.min(...ys, c1log)*0.95, hi = Math.max(...ys, c1log)*1.05;
+  const X = r => L + (W-L-Rm)*(r-r0)/(r1-r0), Y = y => T + (H-T-B)*(1-(y-lo)/(hi-lo));
+  let out = `<line x1="${L}" y1="${Y(c1log).toFixed(1)}" x2="${W-Rm}" y2="${Y(c1log).toFixed(1)}" stroke="var(--nat)" stroke-width="1.4" stroke-dasharray="5 4"/>`;
+  out += `<path d="${ys.map((y,i)=>`${i?"L":"M"}${X(r0+(r1-r0)*i/80).toFixed(1)},${Y(y).toFixed(1)}`).join("")}" fill="none" stroke="var(--ad)" stroke-width="2.4"/>`;
+  out += `<circle cx="${X(p.r).toFixed(1)}" cy="${Y(c(p.r)).toFixed(1)}" r="5" fill="var(--it)"/>`;
+  out += `<line x1="${L}" y1="${H-B}" x2="${W-Rm}" y2="${H-B}" stroke="var(--rule)"/>`;
+  out += `<text x="${((L+W-Rm)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">interest rate r (y₂ = τ₁ = τ₂ = 0) · dashed: σ = 1</text>`;
+  out += `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">c₁</text>`;
+  $("rplot").innerHTML = out;
+}
+
+function row(lab, a, b, d=2){ return `<tr><td>${lab}</td><td class="num">${f(a,d)}</td><td class="num">${f(b,d)}</td><td class="num">${sg(b-a,d)}</td></tr>`; }
+
+function render(){
+  const {v, p} = read();
+  $("y1o").textContent = v.y1.toFixed(0); $("y2o").textContent = v.y2.toFixed(0); $("a0o").textContent = v.a0.toFixed(0);
+  $("ro").textContent = (v.r*100).toFixed(0) + "%";
+  $("betao").textContent = v.beta.toFixed(3);
+  $("sigmao").textContent = v.sigma.toFixed(2) + " (EIS " + (1/v.sigma).toFixed(2) + ")";
+  $("modeo").textContent = v.mode ? "tax on saving τₛ" : "lump-sum τ₂";
+  $("tau1o").textContent = f(v.tau1,0); $("tau2o").textContent = f(v.tau2,0) + (v.mode ? " (off)" : "");
+  $("tauso").textContent = v.taus.toFixed(2) + (v.mode ? "" : " (off)");
+  $("bo").textContent = p.b === Infinity ? "none (b = ∞)" : v.b.toFixed(0);
+  $("swapBtn").disabled = !!v.mode;
+  $("swapBtn").textContent = (showSwap ? "Hide" : "Show") + " the Ricardian swap on the chart: τ₁ − 1, τ₂ + (1+r)";
+
+  const s = solve(p), sw = swap(p), cmp = taxCompare({...p, taus: v.taus, tau2: 0});
+  if (!(s.c1 > 0 && s.c2 > 0)){
+    $("c1Out").textContent = $("c2Out").textContent = "—";
+    $("c1W").textContent = "infeasible: wealth or c₂ is not positive at these values";
+    $("c2W").textContent = ""; $("stats").innerHTML = ""; $("plot").innerHTML = "";
+  } else {
+    draw(v, p, s, sw, cmp);
+    $("c1Out").textContent = s.c1.toFixed(2); $("c2Out").textContent = s.c2.toFixed(2);
+    $("c1W").textContent = s.binds ? "limit binds: c₁ = a₀ + y₁ − τ₁ + b" : "c₁ = W ⁄ D, Euler holds";
+    $("c2W").textContent = "c₂ = y₂ − τ₂ + R·a";
+    const st = [["Saving a", f(s.a), s.a >= 0 ? "a lender" : "a borrower"],
+      ["PV of taxes", f(s.pv), v.mode ? "τ₁ + τₛa⁄(1+r)" : "τ₁ + τ₂⁄(1+r)"],
+      ["Limit a ≥ −b", s.binds ? "binds" : "slack", s.binds ? "u′(c₁) > βR u′(c₂)" : (p.b === Infinity ? "no limit" : "unconstrained a ≥ −b")],
+      ["c₂ ⁄ c₁", s.ratio.toFixed(4), "[βR]^(1/σ) = " + Math.pow(p.beta*s.R, 1/p.sigma).toFixed(4)],
+      ["Wealth W", f(s.W), "at gross return R = " + s.R.toFixed(2)]];
+    $("stats").innerHTML = st.map(([k,val,n]) => `<div><div class="k">${k}</div><div class="v">${val}</div><div class="n">${n}</div></div>`).join("");
+  }
+  $("eqline").innerHTML = `W = a₀ + y₁ − τ₁ + (y₂ − τ₂)⁄R = <b>${f(s.W)}</b>, &nbsp;D = 1 + β<sup>1/σ</sup>R<sup>1/σ−1</sup> = <b>${s.D.toFixed(4)}</b>, &nbsp;`
+    + (s.binds ? `unconstrained a = <b>${f(s.x1 - s.W/s.D)}</b> &lt; −b, so a = −b` : `c₁ = W⁄D, &nbsp;c₂ = [βR]<sup>1/σ</sup>c₁`)
+    + ` &nbsp;·&nbsp; R = 1 + r${v.mode ? " − τₛ" : ""}`;
+
+  // Ricardian swap
+  const [b0, b1] = sw;
+  $("swapTab").innerHTML = `<tr><th></th><th>before</th><th>after</th><th>change</th></tr>`
+    + row("c₁", b0.c1, b1.c1) + row("c₂", b0.c2, b1.c2) + row("saving a", b0.a, b1.a) + row("PV of taxes", b0.pv, b1.pv);
+  $("swapV").innerHTML = v.mode
+    ? `<span class="flag mid">lump-sum mode only</span> &nbsp; The swap moves τ₂; switch the period-2 tax back to lump sum.`
+    : (b1.binds
+      ? `<span class="flag bad">equivalence fails</span> &nbsp; The limit binds, so c₁ = a₀ + y₁ − τ₁ + b rises by <b>${sg(b1.c1-b0.c1)}</b>.
+         The household wanted to borrow against the future bill and could not; the government now borrows for it.`
+      : `<span class="flag ok">timing is irrelevant</span> &nbsp; c₁ and c₂ are unchanged and saving rises by exactly <b>${sg(b1.a-b0.a)}</b>:
+         the cut is saved to pay the later tax. Taxes enter only through their PV, τ₁ + τ₂⁄(1+r), and the swap leaves it at <b>${f(b1.pv)}</b>.`);
+
+  // savings tax against equal-revenue lump sum
+  const {S, L, N, rev, dU, dwl} = cmp;
+  const ok = S.c2 > 0 && L.c2 > 0 && N.c2 > 0;
+  const tr = (lab, z) => `<tr><td>${lab}</td><td class="num">${f(z.c1)}</td><td class="num">${f(z.c2)}</td><td class="num">${f(z.a)}</td><td class="num">${z.ratio.toFixed(4)}</td></tr>`;
+  $("cmpTab").innerHTML = `<tr><th>regime</th><th>c₁</th><th>c₂</th><th>a</th><th>c₂⁄c₁</th></tr>`
+    + tr("no period-2 tax", N) + tr(`savings tax τₛ = ${v.taus.toFixed(2)}`, S) + tr(`lump sum τ₂ = R = ${f(rev)}`, L);
+  $("cmpV").innerHTML = !ok ? `<span class="flag mid">infeasible</span> &nbsp; c₂ is not positive in one of the regimes.`
+    : v.taus === 0 ? `<span class="flag mid">τₛ = 0</span> &nbsp; Raise τₛ to open the wedge.`
+    : `<span class="flag ${S.a >= 0 ? "ok" : "bad"}">${S.a >= 0 ? "a tax on a saver" : "a subsidy to a borrower"}</span> &nbsp;
+       Under the savings tax (c₂⁄c₁)<sup>σ</sup> = β(1+r−τₛ), so the ratio moves from ${N.ratio.toFixed(4)} to <b>${S.ratio.toFixed(4)}</b>;
+       the lump sum leaves it at <b>${L.ratio.toFixed(4)}</b>. The savings tax distorts the <b>intertemporal margin</b> — the private
+       return 1+r−τₛ differs from the market's 1+r — while the lump sum only moves wealth. The savings-tax plan was affordable under the lump sum
+       and not chosen, so U<sub>lump</sub> − U<sub>saving</sub> = <b>${dU.toExponential(3)}</b> ${dU > 1e-12 ? "&gt; 0" : "= 0 (the limit binds at a = −b, so no margin is left to distort)"}; the deadweight loss is a lump sum of
+       <b>${dwl.toFixed(3)}</b>.` + (S.a < 0 ? ` Here a &lt; 0, so the “tax” pays the borrower τₛ|a| and R = ${f(rev)} is a transfer: the wedge
+       now lowers the private cost of borrowing, tilting consumption toward today — the same distortion with the sign reversed.` : "");
+
+  // sigma panel
+  drawR(p);
+  const d = dc1dr(p), sgn = Math.abs(v.sigma-1) < 1e-9 ? 0 : Math.sign(d);
+  $("sigV").innerHTML = `<span class="flag ${sgn>0?"ok":sgn<0?"bad":"mid"}">∂c₁⁄∂r = ${sgn===0 ? "0" : sg(d,2)}</span> &nbsp; With y₂ = τ₁ = τ₂ = 0,
+    c₁ = (a₀ + y₁)⁄D and W does not depend on r. ` + (sgn < 0
+    ? `σ &lt; 1: the EIS 1⁄σ is above one, the substitution effect dominates and <b>c₁ falls</b> as r rises.`
+    : sgn > 0 ? `σ &gt; 1: the EIS is below one, the income effect of a saver dominates and <b>c₁ rises</b> as r rises.`
+    : `σ = 1 (log): the two effects cancel and c₁ = (a₀ + y₁)⁄(1+β) whatever r is.`)
+    + ` σ is the curvature; 1⁄σ is the elasticity of intertemporal substitution.`;
+}
+
+const presets = {
+  q1:     {y1:100, y2:69,  a0:10, r:0.5, beta:0.96, sigma:2, mode:0, tau1:6, tau2:9, taus:0.2, b:61},
+  young:  {y1:20,  y2:132, a0:0,  r:0.5, beta:0.96, sigma:2, mode:0, tau1:0, tau2:0, taus:0.2, b:10},
+  stax:   {y1:100, y2:66,  a0:0,  r:0.5, beta:0.96, sigma:2, mode:1, tau1:0, tau2:0, taus:0.2, b:61},
+  borrow: {y1:20,  y2:132, a0:0,  r:0.5, beta:0.96, sigma:2, mode:1, tau1:0, tau2:0, taus:0.2, b:61},
+};
+document.querySelectorAll("button[data-p]").forEach(btn =>
+  btn.addEventListener("click", () => {
+    for (const [k,val] of Object.entries(presets[btn.dataset.p])) $(k).value = val;
+    render();
+  }));
+$("swapBtn").addEventListener("click", () => { showSwap = !showSwap; render(); });
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

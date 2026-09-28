@@ -79,6 +79,14 @@ Derive:
 
 $$\frac{\partial \Pi^{I}}{\partial I} \;=\; \frac{r^{K}_{2}}{1+r} \;-\; 1$$
 
+*Step by step (added in English).* Factor the common bracket out of the two terms of (9.1.2):
+
+$$\Pi^I=\frac{r^K_2}{1+r}\big[(1-\delta)K_1+I\big]-1\cdot\big[(1-\delta)K_1+I\big]=\left(\frac{r^K_2}{1+r}-1\right)\big[(1-\delta)K_1+I\big]$$
+
+The first factor contains only prices, which the firm takes as given; the second is linear in
+$I$ with coefficient 1. Differentiate with respect to $I$: the derivative of the bracket is 1,
+so what remains is the price factor.
+
 A derivada é uma **constante**: não depende de $I$. Uma função linear não tem máximo
 interior. Três casos, e só um sobrevive:
 
@@ -90,6 +98,14 @@ interior. Três casos, e só um sobrevive:
 
 Daí a equação (9.1.11), $1+r = r^K_2$, e daí também $\Pi^I = 0$ — que é o que permite
 sumir com $\Pi$ da restrição orçamentária do domicílio.
+
+*Step (added):* $\dfrac{r^K_2}{1+r}=1$; multiply both sides by $1+r$ to get $r^K_2=1+r$. Put the
+factor back into $\Pi^I$: $\Pi^I=(1-1)\cdot[(1-\delta)K_1+I]=0$ for every $I$.
+
+![Investment-firm profit against I for three price ratios](aula-06-equilibrio-geral/fig/fig_ge_invest_linear.svg)
+*Read the slopes: each line is the profit of (9.1.2) at a given $r^K_2/(1+r)$. Above 1 the line
+rises forever, below 1 it falls forever, and only at exactly 1 is it flat at zero — every $I$
+is then optimal, so the first-order condition fixes the price and leaves $I$ to the goods market.*
 
 > ### A sutileza que quase todo mundo erra
 > A condição de primeira ordem desta firma **não determina a quantidade investida**.
@@ -215,6 +231,22 @@ do bem})$, a de $l_t$ dá $v'(l_t)=\lambda w_t\cdot(\ldots)$; dividindo uma pela
 multiplicador $\lambda$ **cancela**, e sobra a taxa marginal de substituição igual ao preço
 relativo. É idêntica à (7.4.2) da Aula 5.
 
+*The Lagrangian in full (added).* With multiplier $\lambda$ on the single lifetime budget of
+(9.1.1):
+
+$$\mathcal L=u(c_1)+v(l_1)+\beta\big[u(c_2)+v(l_2)\big]+\lambda\Big[w_1(1-l_1)+\frac{w_2(1-l_2)}{1+r}+K_1(1+r^K_1-\delta)+\Pi-c_1-\frac{c_2}{1+r}\Big]$$
+
+Differentiate with respect to each choice and set to zero:
+
+$$\frac{\partial\mathcal L}{\partial c_1}=u'(c_1)-\lambda=0 \qquad\qquad \frac{\partial\mathcal L}{\partial l_1}=v'(l_1)-\lambda w_1=0$$
+
+$$\frac{\partial\mathcal L}{\partial c_2}=\beta u'(c_2)-\frac{\lambda}{1+r}=0 \qquad\qquad \frac{\partial\mathcal L}{\partial l_2}=\beta v'(l_2)-\frac{\lambda w_2}{1+r}=0$$
+
+For $t=1$: move $\lambda w_1$ across, $v'(l_1)=\lambda w_1$, and divide by the $c_1$ condition
+$u'(c_1)=\lambda$; $\lambda$ cancels and $v'(l_1)/u'(c_1)=w_1$. For $t=2$: divide the $l_2$
+condition by the $c_2$ condition; $\beta$ and $\lambda/(1+r)$ both cancel and
+$v'(l_2)/u'(c_2)=w_2$.
+
 **Armadilha.** Este é o mesmo objeto do formulário da Aula 5 — lá com $\widetilde w$, aqui
 sem imposto. Ver [[formulario-aula-05]].
 
@@ -224,6 +256,10 @@ $$u'(c_1)=\beta(1+r)\,u'(c_2)$$
 
 **De onde sai.** Mesmo lagrangiano, agora dividindo a CPO de $c_1$ pela de $c_2$. É a
 (6.3.9) da Aula 4, sem alteração nenhuma.
+
+*Step (added).* From the $c_2$ condition, multiply both sides by $1+r$:
+$\lambda=\beta(1+r)u'(c_2)$. From the $c_1$ condition, $\lambda=u'(c_1)$. Set the two
+expressions for $\lambda$ equal: $u'(c_1)=\beta(1+r)u'(c_2)$.
 
 **História.** O nome vem de **Leonhard Euler** e da equação de Euler–Lagrange do cálculo das
 variações (século XVIII) — a condição que qualquer trajetória ótima tem de satisfazer entre
@@ -235,6 +271,11 @@ forma moderna com utilidade marginal esperada, de **Robert Hall** (1978).
 $$F_K(K_t,L_t)=r^K_t \qquad\qquad F_L(K_t,L_t)=w_t$$
 
 **De onde saem.** Derivadas do lucro em $K$ e em $L$. São (4.4.1) e (4.4.2).
+
+*Steps (added).* $\partial\Pi^F_t/\partial K_t=F_K(K_t,L_t)-r^K_t=0$ and
+$\partial\Pi^F_t/\partial L_t=F_L(K_t,L_t)-w_t=0$; move the price to the right-hand side. With
+$F=A K^{\alpha}L^{1-\alpha}$: $F_K=\alpha A K^{\alpha-1}L^{1-\alpha}=\alpha F/K$ and
+$F_L=(1-\alpha)AK^{\alpha}L^{-\alpha}=(1-\alpha)F/L$.
 
 **O que elas fazem no capítulo.** São a ponte pela qual a **tecnologia entra nos preços**.
 Sem elas, o passo seguinte é impossível.
@@ -254,6 +295,11 @@ $$\underbrace{\frac{v'(l_t)}{u'(c_t)}}_{\text{TMS}}=\underbrace{F_L(K_t,L_t)}_{\
 - (9.1.12): substitua (9.1.10) em (9.1.7). Uma linha.
 - (9.1.13): substitua (9.1.11) e (9.1.9) em (9.1.8). $u'(c_1)=\beta(1+r)u'(c_2)$ com
   $1+r=r^K_2=F_K(K_2,L_2)$ dá o resultado direto.
+
+*Each operation (added).* (9.1.12): (9.1.7) says $v'(l_t)/u'(c_t)=w_t$ and (9.1.10) says
+$w_t=F_L(K_t,L_t)$; replace $w_t$ in the first by the second. (9.1.13): divide both sides of
+(9.1.8) by $\beta u'(c_2)$ to get $\dfrac{u'(c_1)}{\beta u'(c_2)}=1+r$; replace $1+r$ by $r^K_2$
+(9.1.11); replace $r^K_2$ by $F_K(K_2,L_2)$ (9.1.9 at $t=2$).
 
 **Por que isso importa.** Do lado esquerdo, **preferências**: quanto o domicílio *está
 disposto* a trocar. Do lado direito, **tecnologia**: quanto a economia *consegue* trocar.
@@ -284,6 +330,19 @@ problema irrestrito em $L_1$, $L_2$ e $K_2$:
 $$u\big((1-\delta)K_1+F(K_1,L_1)-K_2\big)+v(1-L_1)+\beta\big[u(F(K_2,L_2))+v(1-L_2)\big]$$
 
 As três CPOs, depois de rearranjadas, **voltam a ser (9.1.12) e (9.1.13)**.
+
+*The three FOCs written out (added).* Call the objective $W$, with
+$c_1=(1-\delta)K_1+F(K_1,L_1)-K_2$, $c_2=F(K_2,L_2)$, $l_t=1-L_t$. Chain rule on each argument:
+
+- $L_1$ enters $c_1$ (through $F$) and $l_1$ (with sign $-1$):
+  $$\frac{\partial W}{\partial L_1}=u'(c_1)F_L(K_1,L_1)-v'(l_1)=0 \;\Longrightarrow\; \frac{v'(l_1)}{u'(c_1)}=F_L(K_1,L_1)$$
+- $L_2$ enters $c_2$ and $l_2$, both inside $\beta[\cdot]$:
+  $$\frac{\partial W}{\partial L_2}=\beta\big[u'(c_2)F_L(K_2,L_2)-v'(l_2)\big]=0 \;\Longrightarrow\; \frac{v'(l_2)}{u'(c_2)}=F_L(K_2,L_2)$$
+- $K_2$ lowers $c_1$ one for one and raises $c_2$ through $F_K$:
+  $$\frac{\partial W}{\partial K_2}=-u'(c_1)+\beta u'(c_2)F_K(K_2,L_2)=0 \;\Longrightarrow\; \frac{u'(c_1)}{\beta u'(c_2)}=F_K(K_2,L_2)$$
+
+(Last step of each: move the negative term across, then divide.) These are (9.1.12) for
+$t=1,2$ and (9.1.13), and no price was ever written down.
 
 **História.** A figura do planejador benevolente vem do **debate do cálculo socialista** dos
 anos 1920-40 — **Ludwig von Mises** (1920) e **Friedrich Hayek** argumentando que o cálculo
@@ -326,6 +385,33 @@ $$\hat c_1+\hat K_2+\frac{\hat c_2}{1+r}\;>\;F(K_1,\hat L_1)+(1-\delta)K_1+\frac
 
 o que obriga pelo menos uma das restrições do planejador a ser violada. Contradição: a
 alocação com chapéu nunca foi factível.
+
+*The substitution, one operation per line (added).* Start from the right-hand side of (9.2.2),
+call it $R$.
+
+1. Hat labour is feasible, $\hat L_t\le1-\hat l_t$, and $w_t>0$, so
+   $w_t(1-\hat l_t)\ge w_t\hat L_t$:
+   $$R\;\ge\;w_1\hat L_1+\frac{w_2\hat L_2}{1+r}+K_1(1+r^K_1-\delta)+\Pi$$
+2. Replace $\Pi$ by its lower bound (9.2.3), and write $(1-\delta)K_1+\hat I=\hat K_2$ (9.1.5):
+   $$R\;\ge\;w_1\hat L_1+\frac{w_2\hat L_2}{1+r}+K_1(1+r^K_1-\delta)
+   +F(K_1,\hat L_1)-w_1\hat L_1-r^K_1K_1+\frac{F(\hat K_2,\hat L_2)-w_2\hat L_2-r^K_2\hat K_2}{1+r}
+   +\left(\frac{r^K_2}{1+r}-1\right)\hat K_2$$
+3. Cancel the wage bills: $+w_1\hat L_1$ against $-w_1\hat L_1$, and
+   $+\frac{w_2\hat L_2}{1+r}$ against $-\frac{w_2\hat L_2}{1+r}$.
+4. Cancel the period-1 rent: $K_1(1+r^K_1-\delta)-r^K_1K_1=(1-\delta)K_1$.
+5. Cancel the period-2 rent: $-\frac{r^K_2\hat K_2}{1+r}+\frac{r^K_2}{1+r}\hat K_2-\hat K_2=-\hat K_2$.
+6. What is left contains no price but $1+r$ as a discount factor:
+   $$R\;\ge\;(1-\delta)K_1+F(K_1,\hat L_1)-\hat K_2+\frac{F(\hat K_2,\hat L_2)}{1+r}$$
+7. Chain with (9.2.2), $\hat c_1+\frac{\hat c_2}{1+r}>R$, and add $\hat K_2$ to both sides: the
+   inequality displayed just above (the one Kurlat closes the proof with).
+8. Suppose the hat allocation met both planner constraints, $\hat c_1\le(1-\delta)K_1+F(K_1,\hat L_1)-\hat K_2$
+   and $\hat c_2\le F(\hat K_2,\hat L_2)$. Divide the second by $1+r>0$ and add it to the first:
+   the left side of step 7 would be $\le$ its right side. That contradicts the strict $>$. ∎
+
+![Tangency of indifference curve, budget line and technology](aula-06-equilibrio-geral/fig/fig_ge_tangency.svg)
+*Read the pink point $\hat{\mathbf x}$: preferred to the equilibrium (above the indifference
+curve), hence above the budget line (9.2.2), hence above the technology frontier (steps 1–8).
+The market price line separates what the household wants from what the economy can make.*
 
 **História.** A versão informal é a **mão invisível** de **Adam Smith** (1776). A prova
 formal em economias gerais é de **Kenneth Arrow** (1951) e **Gérard Debreu** (1951),
@@ -386,14 +472,24 @@ $$r_{t+1}=r^K_{t+1}-\delta$$
 
 **De onde sai.** Da linearidade de (9.3.3), pelo mesmo argumento da Parte I: o coeficiente
 de $I$ tem de ser zero, logo $\frac{r^K_{t+1}+1-\delta}{1+r_{t+1}}=1$, que rearranjado dá o
-resultado. É a (4.4.12) do cap. 4 e é o **custo de uso do capital** de Jorgenson na sua
+resultado.
+
+*Rearranging (added):* multiply both sides by $1+r_{t+1}$, giving
+$r^K_{t+1}+1-\delta=1+r_{t+1}$; subtract 1 from both sides, giving
+$r_{t+1}=r^K_{t+1}-\delta$. É a (4.4.12) do cap. 4 e é o **custo de uso do capital** de Jorgenson na sua
 forma reconhecível: **o aluguel cobre juro mais depreciação**.
 
 ### (9.3.12) e (9.3.13) — o colapso, de novo
 
 $$\frac{v'(l_t)}{u'(c_t)}=F_L(K_t,L_t) \qquad\qquad \frac{u'(c_t)}{\beta u'(c_{t+1})}=1+F_K(K_{t+1},L_{t+1})-\delta$$
 
-Mesma receita: (9.3.10) em (9.3.7); (9.3.11) e (9.3.9) em (9.3.8). Note a diferença de
+Mesma receita: (9.3.10) em (9.3.7); (9.3.11) e (9.3.9) em (9.3.8).
+
+*Each operation for (9.3.13) (added):* divide both sides of (9.3.8) by $\beta u'(c_{t+1})$,
+giving $\dfrac{u'(c_t)}{\beta u'(c_{t+1})}=1+r_{t+1}$; replace $r_{t+1}$ by $r^K_{t+1}-\delta$
+(9.3.11); replace $r^K_{t+1}$ by $F_K(K_{t+1},L_{t+1})$ (9.3.9 at $t+1$).
+
+Note a diferença de
 forma em relação à (9.1.13): agora o lado direito é $1+F_K-\delta$, e não $F_K$ puro,
 porque o capital **sobrevive**. Com $\delta=1$ as duas coincidem.
 
@@ -408,6 +504,17 @@ $$\frac{c_{t+1}}{c_t}=\big[\beta\big(1+F_K(K_{t+1},1)-\delta\big)\big]^{1/\sigma
 Substituindo em (9.3.13): $\dfrac{c_t^{-\sigma}}{\beta c_{t+1}^{-\sigma}}=1+F_K-\delta$, ou
 $\left(\dfrac{c_{t+1}}{c_t}\right)^{\sigma}=\beta(1+F_K-\delta)$. Elevando a $1/\sigma$ vem
 o resultado.
+
+*The middle step (added).* Dividing by a negative power is multiplying by the positive one:
+$\dfrac{c_t^{-\sigma}}{c_{t+1}^{-\sigma}}=\dfrac{c_{t+1}^{\sigma}}{c_t^{\sigma}}=\left(\dfrac{c_{t+1}}{c_t}\right)^{\sigma}$.
+So the left side is $\dfrac{1}{\beta}\left(\dfrac{c_{t+1}}{c_t}\right)^{\sigma}$; multiply both
+sides by $\beta$ to reach the second form, then raise both sides to $1/\sigma$.
+
+![Consumption growth against next-period capital for three sigmas](aula-06-equilibrio-geral/fig/fig_ge_euler_growth.svg)
+*Read where the curves cross 1: at $K_{ss}=8.08$ for every $\sigma$ (here $\alpha=0.35$,
+$\delta=0.06$, $\beta=1/1.03$). $\sigma$ only tilts the curve — a low $\sigma$ (high
+$1/\sigma$) makes consumption react more to the same capital gap. At $K_{gr}=15.08$ growth is
+already negative, which is (9.3.17) against the Golden Rule in one picture.*
 
 **A cadeia econômica**, que Kurlat percorre explicitamente: capital baixo → produto marginal
 alto (rendimentos decrescentes) → aluguel alto por (9.1.9) → juro alto por (9.1.11) →
@@ -426,6 +533,9 @@ $$K_{t+1}=(1-\delta)K_t+F(K_t,1)-c_t$$
 
 **De onde sai.** Substitua (9.3.4) em (9.3.5) e imponha $L_t=1$. Só isso.
 
+*Written out (added):* (9.3.4) solved for investment is $I_t=F(K_t,L_t)-c_t$; put it into
+(9.3.5), $K_{t+1}=K_t(1-\delta)+F(K_t,L_t)-c_t$; set $L_t=1$.
+
 **O que ela é.** Junto com (9.3.14), o par de **equações de diferenças** em $K_t$ e $c_t$
 que gera o diagrama de fase. Duas equações, duas variáveis, e daí para a frente tudo é
 geometria.
@@ -437,12 +547,25 @@ $$\frac{c_{t+1}}{c_t}=1 \;\Longrightarrow\; \big[\beta(1+F_K(K_{t+1},1)-\delta)\
 **De onde sai.** Iguale (9.3.14) a um. O expoente $1/\sigma$ some — elevar 1 a qualquer
 potência dá 1 — e sobra uma condição **só em $K$**.
 
+*Each operation (added):* raise both sides of $[\beta(1+F_K-\delta)]^{1/\sigma}=1$ to the power
+$\sigma$: $\beta(1+F_K-\delta)=1$. Divide by $\beta$: $1+F_K-\delta=1/\beta$. Subtract 1:
+$F_K-\delta=1/\beta-1$. Writing $\beta=1/(1+\rho)$, $1/\beta-1=\rho$, so this is
+$F_K(K_{ss},1)=\delta+\rho$ — the $f'(k^*)=\delta+\rho$ of
+[[aula-06-equilibrio-geral/02-dynamics-and-saddle-path|02-dynamics-and-saddle-path]] §2.2.
+With $F=K^{\alpha}$: $\alpha K_{ss}^{\alpha-1}=1/\beta-1+\delta$, so
+$K_{ss}=\big[\alpha/(1/\beta-1+\delta)\big]^{1/(1-\alpha)}$.
+
 **Por que a reta é vertical.** Porque $c$ não aparece na condição final. Todo nível de
 consumo é compatível com ela, logo o lugar geométrico é uma vertical. Essa é a resposta
 certa; "porque $c$ é variável de salto" é verdade mas não é o motivo.
 
 **A outra curva**, que Kurlat deriva sem numerar: imponha $K_{t+1}=K_t$ em (9.3.15) e vem
 $c=F(K,1)-\delta K$ — côncava, com pico onde $F_K=\delta$.
+
+*Steps (added):* with $K_{t+1}=K_t=K$, (9.3.15) reads $K=(1-\delta)K+F(K,1)-c$; subtract
+$(1-\delta)K$ from both sides and add $c$: $c=F(K,1)-\delta K$. Its derivative in $K$ is
+$F_K(K,1)-\delta$ and its second derivative $F_{KK}<0$, so it is concave and peaks where
+$F_K=\delta$.
 
 **História.** O diagrama de fase com *saddle path* neste modelo é de **David Cass** (1965) e
 **Tjalling Koopmans** (1965), que trouxeram o problema de Ramsey para dentro do arcabouço de
@@ -458,6 +581,14 @@ $$F_K(K_{gr},1)=\delta \qquad\text{contra}\qquad F_K(K_{ss},1)=\frac{1}{\beta}-1
 **De onde sai.** (4.3.4) do cap. 4 dá a Regra de Ouro com $n=0$; (9.3.17) rearranjada dá o
 estado estacionário. A desigualdade vale **enquanto o domicílio for impaciente**,
 $\beta<1$. Como $F_K$ é decrescente, produto marginal maior significa capital menor.
+
+*The inequality, step by step (added):* $\beta<1\Rightarrow1/\beta>1\Rightarrow1/\beta-1>0$;
+add $\delta$ to both sides: $F_K(K_{ss},1)=1/\beta-1+\delta>\delta=F_K(K_{gr},1)$. Since
+$F_{KK}<0$, $F_K$ is strictly decreasing, and a strictly decreasing function is larger only at a
+smaller argument: $K_{ss}<K_{gr}$. With $F=K^\alpha$, dividing the two closed forms,
+$K_{ss}/K_{gr}=\big[\delta/(1/\beta-1+\delta)\big]^{1/(1-\alpha)}$, which tends to 1 as
+$\beta\to1$ — the limit stated next. The gap is drawn in
+[[aula-06-equilibrio-geral/02-dynamics-and-saddle-path|02-dynamics-and-saddle-path]] §2.2.
 
 **O limite que fecha o argumento:** $K_{ss}\to K_{gr}$ quando $\beta\to 1$. A distância
 entre os dois **é** a impaciência, medida.

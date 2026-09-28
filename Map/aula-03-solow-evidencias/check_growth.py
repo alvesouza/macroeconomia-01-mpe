@@ -14,8 +14,10 @@ Covered:
                              Mexico number; the alpha implied by a 2% convergence rate
   05-growth-accounting       the accounting identity; development accounting in K/L and K/Y
                              form; the Mincer human-capital contribution
+  companion-hidden-wedge     Lista 2 Q2 (Gotham): every read-out at three vectors; landmarks;
+                             residual independent of g_K, g_L; firm FOC r = alpha Y/K
 
-Stdlib + numpy only. Run: python Map/aula-03-solow-evidencias/check_growth.py
+Stdlib + numpy + sympy (expanded derivation steps of each note). Run: python Map/aula-03-solow-evidencias/check_growth.py
 """
 from __future__ import annotations
 
@@ -273,6 +275,164 @@ check("K/Y form: capital + human capital share of the log gap",
       math.log(joint_KY) / math.log(y_rel), 0.3996, tol=1e-4)
 check_true("in the preferred K/Y form TFP takes about 60 per cent -- the Hall-Jones number",
            math.log(joint_KY) / math.log(y_rel) < 0.45)
+
+# ---------------------------------------------------------------------------
+print("\ncompanion-hidden-wedge (Lista 2 Q2, Gotham)")
+
+
+def wedge(alpha, th, th2, T, gK, gL):
+    """Mirror of model() in companion-hidden-wedge.html; same keys, same formulas."""
+    ratio = lambda t: (1 + t) ** -alpha
+    dlnA = -alpha * (math.log(1 + th2) - math.log(1 + th))
+    resLog = dlnA / T
+    gY = alpha * gK + (1 - alpha) * gL + resLog
+    return dict(share=th / (1 + th), share2=th2 / (1 + th2), loss=1 - ratio(th),
+                sK=alpha, sL=1 - alpha, ahat=ratio(th), ahat2=ratio(th2), dlnA=dlnA,
+                resLog=resLog, resComp=((1 + th) / (1 + th2)) ** (alpha / T) - 1, gY=gY,
+                capC=alpha * gK, labC=(1 - alpha) * gL,
+                residual=gY - alpha * gK - (1 - alpha) * gL)
+
+
+WEDGE_VECTORS = {
+    "lista":  (1 / 3, 0.5, 0.125, 10, 0.03, 0.01),   # Lista 2 (d): theta' = theta/4
+    "mild":   (1 / 3, 0.5, 0.25, 10, 0.05, 0.02),    # the brief's landmark
+    "worse":  (0.30, 0.8, 2.0, 15, 0.00, -0.005),    # crime worsens, other alpha and T
+}
+for name, vec in WEDGE_VECTORS.items():
+    print(f"  [{name}] " + ", ".join(f"{k}={v:.10f}" for k, v in wedge(*vec).items()))
+
+w = wedge(*WEDGE_VECTORS["lista"])
+check("security share theta/(1+theta) == 1/3", w["share"], 1 / 3)
+check("A-hat/A == 1.5^(-1/3)", w["ahat"], 0.8736, tol=1e-4)
+check("output lost == 12.64%", w["loss"], 0.1264, tol=1e-4)
+check("measured shares undistorted: sK == alpha", w["sK"], 1 / 3)
+check("Lista (d): log residual (1/3)ln(4/3)/10 == 0.959%/yr", w["resLog"], 0.009589, tol=1e-6)
+check("Lista (d): compounded (4/3)^(1/30)-1 == 0.964%/yr", w["resComp"], 0.00964, tol=1e-5)
+w = wedge(*WEDGE_VECTORS["mild"])
+check("theta'=0.25: log residual (1/3)ln(1.2)/10 == 0.6077%/yr", w["resLog"], 0.006077, tol=1e-6)
+# Lista's crime-worsens case, theta'' = 4 theta = 2: -2.28%/yr compounded.
+check("crime worsens theta''=2: compounded == -2.28%/yr",
+      wedge(1 / 3, 0.5, 2.0, 10, 0, 0)["resComp"], -0.0228, tol=1e-4)
+check_true("crime worsening gives a NEGATIVE residual", wedge(*WEDGE_VECTORS["worse"])["resLog"] < 0)
+
+# The residual does not depend on g_K, g_L: build Y from its true law, then do the accounting.
+a, th, th2, T = 1 / 3, 0.5, 0.125, 10
+for gK, gL in [(0.0, 0.0), (0.10, 0.03), (-0.02, 0.01)]:
+    lnY = lambda t: (-a * math.log(1 + (th if t == 0 else th2)) + a * gK * t + (1 - a) * gL * t)
+    res = (lnY(T) - lnY(0)) / T - a * gK - (1 - a) * gL
+    check(f"residual from simulated Y, g_K={gK:+.2f} g_L={gL:+.2f}", res, wedge(a, th, th2, T, gK, gL)["resLog"], tol=1e-12)
+
+# Firm FOC: alpha A K_P^(a-1) L^(1-a) = r (1+theta)  =>  r = alpha Y / K.
+A_, KP, Lg = 1.7, 2.4, 1.3
+Yg = A_ * KP ** a * Lg ** (1 - a)
+r = a * A_ * KP ** (a - 1) * Lg ** (1 - a) / (1 + th)
+check("firm FOC: r == alpha Y / K with K = (1+theta) K_P", r, a * Yg / ((1 + th) * KP), tol=1e-12)
+check("development accounting: Y/(K^a L^(1-a)) == A (1+theta)^(-a)",
+      Yg / (((1 + th) * KP) ** a * Lg ** (1 - a)), A_ * (1 + th) ** -a, tol=1e-12)
+
+# ---------------------------------------------------------------------------
+print("\nexpanded derivation steps (sympy)")
+import sympy as sp  # noqa: E402
+
+a, s_, dn, gg, nn, dd = sp.symbols("alpha s delta_n g n delta", positive=True)
+kk_, KK, LL, AA, psi, gam = sp.symbols("k K L A psi gamma", positive=True)
+
+
+def zero(name, expr):
+    """Pass when sympy simplifies `expr` to 0; else fall back to 12 random positive points."""
+    ok = sp.simplify(expr) == 0
+    if not ok:
+        syms = sorted(expr.free_symbols, key=str)
+        rng = np.random.default_rng(0)
+        ok = all(abs(complex(expr.subs({v: rng.uniform(0.1, 0.9) for v in syms}))) < 1e-9
+                 for _ in range(12))
+    check_true(name, ok)
+
+
+fk = kk_ ** a
+kgold = (a / dn) ** (1 / (1 - a))
+zero("01 c_ss = (1-s)f - with sf=(d+n)k gives f-(d+n)k",
+     ((1 - s_) * fk - (fk - dn * kk_)).subs(s_, dn * kk_ / fk))
+zero("01 k_gold^(a-1) = (d+n)/a", kgold ** (a - 1) - dn / a)
+zero("01 k_gold^(1-a) = a/(d+n)", kgold ** (1 - a) - a / dn)
+zero("01 equal k's give s = alpha", ((s_ / dn) ** (1 / (1 - a)) - kgold).subs(s_, a))
+zero("01 f'(k)k/f(k) = alpha", sp.diff(fk, kk_) * kk_ / fk - a)
+zero("01 r(s) = a(d+n)/s - d equals f'(k_ss)-d",
+     (sp.diff(fk, kk_).subs(kk_, (s_ / dn) ** (1 / (1 - a))) - dd) - (a * dn / s_ - dd))
+check_true("01 r(s) = n exactly at s = alpha (d+n = 0.05, n = 0.01)",
+           abs(ALPHA * 0.05 / ALPHA - 0.04 - 0.01) < 1e-12)
+# every date after a cut from above: c_t along the transition stays above old c_ss.
+k_hi, k_lo = k_tilde_ss(0.60), k_tilde_ss(0.45)
+kp, c_min = k_hi, np.inf
+for _ in range(3000):
+    c_min = min(c_min, (1 - 0.45) * f(kp))
+    kp = kp + 0.45 * f(kp) - BREAK * kp
+check_true("01 cut 0.60->0.45: c_t > old c_ss at every date",
+           c_min > f(k_hi) - BREAK * k_hi)
+
+Fpw = LL * (KK / LL) ** a
+zero("02 F_K = f'(k)", sp.diff(Fpw, KK) - sp.diff(fk, kk_).subs(kk_, KK / LL))
+zero("02 F_L = f(k) - k f'(k)",
+     sp.diff(Fpw, LL) - (fk - kk_ * sp.diff(fk, kk_)).subs(kk_, KK / LL))
+Fces = (gam * KK ** psi + (1 - gam) * (AA * LL) ** psi) ** (1 / psi)
+zero("02 CES: F_K = gamma K^(psi-1) F^(1-psi)",
+     sp.diff(Fces, KK) - gam * KK ** (psi - 1) * Fces ** (1 - psi))
+zero("02 CES: capital share = gamma (K/Y)^psi",
+     sp.diff(Fces, KK) * KK / Fces - gam * (KK / Fces) ** psi)
+kt_ss = (s_ / (dd + nn + gg)) ** (1 / (1 - a))
+zero("02 r^K = a k~^(a-1) = a (d+n+g)/s at steady state",
+     a * kt_ss ** (a - 1) - a * (dd + nn + gg) / s_)
+check("02 r^K arithmetic 0.35*0.325", 0.35 * 0.325, 0.11375, tol=1e-12)
+
+kt = sp.symbols("kt", positive=True)
+zero("03 common denominator of the efficiency-unit law",
+     ((1 - dd) * kt + s_ * kt ** a) / ((1 + gg) * (1 + nn)) - kt
+     - (s_ * kt ** a - ((1 + gg) * (1 + nn) - (1 - dd)) * kt) / ((1 + gg) * (1 + nn)))
+zero("03 bracket = d+n+g+ng", sp.expand((1 + gg) * (1 + nn) - (1 - dd)) - (dd + nn + gg + nn * gg))
+zero("03 y~_ss = k~_ss^a = (s/(d+n+g))^(a/(1-a))",
+     kt_ss ** a - (s_ / (dd + nn + gg)) ** (a / (1 - a)))
+Fhar = AA * LL * (KK / (AA * LL)) ** a
+wage = sp.diff(Fhar, LL)
+fkt = (KK / (AA * LL))
+zero("03 w = A[f(k~) - k~ f'(k~)]", wage - AA * (fkt ** a - fkt * a * fkt ** (a - 1)))
+zero("03 labour share wL/Y = 1-alpha", wage * LL / Fhar - (1 - a))
+zero("03 CD: (A^(1/(1-a)) L)^(1-a) = A L^(1-a)", (AA ** (1 / (1 - a)) * LL) ** (1 - a) - AA * LL ** (1 - a))
+zero("03 CD: (A^(1/a) K)^a = A K^a", (AA ** (1 / a) * KK) ** a - AA * KK ** a)
+# Uzawa construction with a non-Cobb-Douglas CRS F~ (CES, psi = 0.5).
+tt, gam_, n_ = 7.3, 0.04, 0.01
+K0, L0 = 2.2, 1.4
+Ft = lambda K_, L_: (0.4 * K_ ** 0.5 + 0.6 * L_ ** 0.5) ** 2
+lhs = Ft(K0 * math.exp(gam_ * tt), math.exp((gam_ - n_) * tt) * L0 * math.exp(n_ * tt))
+check("03 Uzawa: F~(K_t, A(t)L_t) == e^(gamma t) Y_0", lhs, math.exp(gam_ * tt) * Ft(K0, L0), tol=1e-9)
+check("03 level gap (a/(1-a)) ln(0.30/0.20)", ALPHA / (1 - ALPHA) * math.log(1.5), 0.2183, tol=1e-4)
+
+x_ = sp.symbols("x")
+xdot = (dd + nn + gg) * (sp.exp((a - 1) * x_) - 1)
+zero("04 s k~^(a-1) - (d+n+g) with k~ = k~_ss e^x equals (d+n+g)(e^((a-1)x)-1)",
+     s_ * (kt_ss * sp.exp(x_)) ** (a - 1) - (dd + nn + gg) - xdot)
+zero("04 d xdot/dx at 0 = -(1-a)(d+n+g)", sp.diff(xdot, x_).subs(x_, 0) + (1 - a) * (dd + nn + gg))
+t_, lam_, x0_ = sp.symbols("t lambda x0", positive=True)
+xt = x0_ * sp.exp(-lam_ * t_)
+zero("04 x_t = x0 e^(-lambda t) solves xdot = -lambda x", sp.diff(xt, t_) + lam_ * xt)
+check("04 half-life ln2/lambda", math.log(2) / ((1 - ALPHA) * BREAK), 16.406, tol=1e-3)
+check("04 data half-life ln2/0.02", math.log(2) / 0.02, 34.657, tol=1e-3)
+xr = sp.symbols("xr", positive=True)
+zero("04 (5.3.4): (x^(1/a))^(a-1) = x^((a-1)/a)", (xr ** (1 / a)) ** (a - 1) - xr ** ((a - 1) / a))
+check("04 0.3^(-1.857) = 9.36", 0.3 ** ((ALPHA - 1) / ALPHA), 9.36, tol=0.01)
+check("04 note's corrected broad-capital ratio 1.68", 0.3 ** (-0.3 / 0.7), 1.68, tol=0.005)
+
+Ycd = AA * KK ** a * LL ** (1 - a)
+zero("05 F_A A / Y = 1 for Hicks-neutral CD", sp.diff(Ycd, AA) * AA / Ycd - 1)
+zero("05 F_K K / Y = alpha", sp.diff(Ycd, KK) * KK / Ycd - a)
+gA_, gK_, gL_ = sp.symbols("g_A g_K g_L")
+zero("05 g_Y - g_L = g_A + alpha (g_K - g_L)",
+     (gA_ + a * gK_ + (1 - a) * gL_ - gL_) - (gA_ + a * (gK_ - gL_)))
+check("05 worked residual 0.031-0.0126-0.00715", 0.031 - 0.0126 - 0.00715, 0.01125, tol=1e-12)
+yv, hh, KYr = sp.symbols("y h KY", positive=True)
+zero("05 K/Y form with h: y^(1-a) = A (K/Y)^a h^(1-a) => y = A^(1/(1-a)) (K/Y)^(a/(1-a)) h",
+     (AA * KYr ** a * hh ** (1 - a)) ** (1 / (1 - a)) - AA ** (1 / (1 - a)) * KYr ** (a / (1 - a)) * hh)
+check("05 K/Y capital term 0.5385 ln 0.8 / ln 0.1", ALPHA / (1 - ALPHA) * math.log(0.8) / math.log(0.1), 0.0522, tol=1e-4)
+check("05 human capital K/L share 0.65*0.8/ln10", 0.65 * 0.8 / math.log(10), 0.2258, tol=1e-4)
 
 # ---------------------------------------------------------------------------
 print()

@@ -1,0 +1,261 @@
+% =============================================================================
+% MOCK FINAL EXAM 3 (Simulado 3) --- Macroeconomics I, MPE Insper, 2026/T3
+% Conceptual mock: every item asks to explain, draw, sign or say what an observer gets wrong.
+% Exam only. The solution is a set of linked notes in Map/simulado-03/ (start at 00-index.md).
+% Build from Simulados/:
+%   pdflatex -jobname=simulado-03-exam simulado-03.tex     (run twice)
+% Check fonts: pdffonts simulado-03-exam.pdf  (all Type 1).
+% Every number in the solution notes: python simulado_codigo/check_simulado_03.py
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}   % Type 1 vector fonts (replaces PK bitmaps)
+\usepackage{cmap}      % ToUnicode CMap -> copyable text and accents
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{needspace}
+
+\newcommand{\disciplina}{Macroeconomics I --- MPE Insper}
+\newcommand{\listatema}{Mock Final Exam 3 (conceptual)}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{\footnotesize\disciplina}
+\rhead{\footnotesize \listatema}
+\cfoot{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{14pt}
+\setlist{topsep=2pt,itemsep=2pt}
+
+\newcounter{questao}
+\newcommand{\bloco}[3]{\Needspace{10\baselineskip}\bigskip\noindent
+  {\large\bfseries\color{blue!55!black}Block #1 --- #2}\hfill\textit{(#3)}\par
+  \noindent\rule{\linewidth}{0.3pt}\smallskip}
+\newcommand{\questao}[1]{\Needspace{16\baselineskip}\refstepcounter{questao}\medskip\noindent
+  \textbf{Question \thequestao.}~#1\par}
+% objects the answer must contain
+\newcommand{\objetos}[1]{\par\smallskip\noindent{\small\color{black!65}\textit{Answer every object:} #1}\par}
+\newcommand{\espaco}[1]{\par\textit{Answer:}\vspace{#1}\par}
+\newcommand{\vf}[2]{\Needspace{9\baselineskip}\par\medskip\noindent\textbf{#1)} (5 points) #2
+  \quad\textbf{T} $\square$\ \ \textbf{F} $\square$\par\noindent\textit{Justification:}\vspace{4.6cm}\par}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries \disciplina}\\[2pt]
+  {\large \listatema\ --- Simulado 3 --- 2026, 3rd term}
+\end{center}
+\vspace{2pt}
+
+{\footnotesize\noindent\textbf{Instructions.} Four blocks of 25 points (100 in total). Duration: 3 hours,
+closed book, non-programmable calculator allowed. Each block has one True/False question (two items,
+5 points each) and one discursive question (items a, b, c, 5 points each).
+
+\smallskip\noindent\emph{True/False with justification.} Mark T or F and justify. The verdict is worth
+\textbf{1 point} and the justification \textbf{4 points}. A verdict with no justification earns at most 1
+point; a justification whose words contradict its own verdict or its own algebra earns 0. A good
+justification names the mechanism in one causal chain and, when the statement is false, says what is true
+instead.
+
+\smallskip\noindent\emph{Discursive items} ask you to \emph{explain}, \emph{draw and interpret},
+\emph{sign and say which effect dominates}, or say \emph{what an observer with ordinary data would wrongly
+conclude}. Each item ends with the list of objects your answer must contain: tick them off before moving
+on. Computation is asked for only where a short derivation is the explanation. Sign every derivative before
+interpreting it; box final answers; label axes, curves and the direction of every shift.
+Notation: Kurlat (2020) in Blocks I--III, Benigno (2015) in Block IV. All numbers are illustrative.
+
+\smallskip\noindent\emph{Solution.} There is no answer key in this PDF. The worked solution, with every step,
+the figures and the grading rubric, is the set of linked notes in \texttt{Map/simulado-03/}, starting at
+\texttt{00-index.md}. Sit the exam timed first, then read.\par}
+
+% =============================================================================
+\bloco{I}{Measurement and national accounts}{Lecture 1 \,\textbullet\, 25 points}
+
+\questao{(10 points) True or False? Justify.}
+
+\vf{a}{A small economy produces only streaming subscriptions and cinema tickets (prices in reais,
+quantities in millions):
+\begin{center}\small
+\begin{tabular}{lcccc}\toprule
+ & $p_{\text{stream}}$ & $q_{\text{stream}}$ & $p_{\text{cinema}}$ & $q_{\text{cinema}}$\\\midrule
+Year 1 & 40 & 10 & 20 & 30\\
+Year 2 & 20 & 30 & 25 & 25\\\bottomrule
+\end{tabular}
+\end{center}
+\emph{Statement:} ``A statistician who values both years' quantities at year-2 prices will report faster
+real growth than one who uses year-1 prices, because year-2 prices are more up to date.''}
+
+\vf{b}{\emph{Statement:} ``In a year in which the only price that changes is the price of imported
+televisions, which rises by 30\%, the GDP deflator rises by more than the consumer price index (IPCA).''}
+
+\questao{(15 points) Brazil and Paraguay: which number answers which question?
+Over the last decade (illustrative figures), Paraguay's real GDP grew 3.5\% a year and Brazil's 2.5\%
+a year; Paraguay's population grew 2.0\% a year and Brazil's 0.5\%. Today GDP per capita converted at market
+exchange rates is USD 9{,}000 in Brazil and USD 6{,}000 in Paraguay. The price level relative to the United
+States (the ratio of the PPP exchange rate to the market rate) is 0.55 in Brazil and 0.40 in Paraguay.
+Employment is 45\% of the population in Brazil and 50\% in Paraguay.}
+
+\medskip\noindent\textbf{a)} (5 points) A newspaper headline reads: ``Paraguay grows 40\% faster than Brazil,
+so Paraguayans' living standards are catching up with Brazilians'.'' Compute the growth rate of GDP per
+capita in each country (exactly and by the log approximation). Does the headline's conclusion follow?
+Explain why aggregate growth and per capita growth answer different questions.
+\objetos{$g_y$ for Paraguay; $g_y$ for Brazil; verdict on the headline; the question each growth rate answers.}
+\espaco{6.5cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{b)} (5 points) Compute GDP per capita at PPP in both countries, and the Brazil/Paraguay
+ratio at market rates and at PPP. Explain, naming the mechanism, why the ratio shrinks, and say what an
+observer who uses market exchange rates would wrongly conclude about the gap in living standards.
+\objetos{two PPP values; two ratios; the mechanism (which goods, which prices, why); the wrong conclusion
+and its direction.}
+\espaco{6.5cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{c)} (5 points) A consultant ranks the two countries' \emph{labour productivity} by GDP per
+capita at PPP. Compute GDP per worker at PPP. Say which of three measures (aggregate GDP at market rates;
+GDP per capita at PPP; GDP per worker at PPP) answers each of: (i) the size of the market an exporter
+selling in dollars faces; (ii) average material living standards; (iii) labour productivity. Explain why per
+capita and per worker give different ratios here.
+\objetos{two per-worker values and their ratio; one measure for each of (i), (ii), (iii); the reason the two
+ratios differ.}
+\espaco{6.5cm}
+
+% =============================================================================
+\bloco{II}{Long-run growth and the Solow model}{Lectures 2--3 \,\textbullet\, 25 points}
+
+\questao{(10 points) True or False? Justify. Solow model, variables per worker, no technological progress.}
+
+\vf{a}{\emph{Statement:} ``The Solow model predicts that poorer countries grow faster than richer
+ones. So a poor country that has grown more slowly than a rich one for decades is evidence against the
+model.''}
+
+\vf{b}{Take $\alpha=1/3$, $s=0.2$, $\delta=0.05$. \emph{Statement:} ``A permanent fall in the population
+growth rate from 2\% to 1\% a year lowers, in the long run, both the growth rate of aggregate GDP and the
+growth rate of GDP per capita.''}
+
+\questao{(15 points) Tax paperwork read as productivity.
+Brazilian firms spend an unusually large number of hours complying with tax rules. Model it as follows.
+Output is $Y=AK^{\alpha}L_P^{1-\alpha}$, where $L_P$ is production labour. For each production worker, a
+firm must also employ $\varphi$ compliance workers, who produce nothing and are paid the same wage $w$.
+Official statistics record total employment $L=(1+\varphi)L_P$. Factor markets are competitive and the
+price of output is 1. Take $\alpha=1/3$ and $\varphi=0.25$.}
+
+\medskip\noindent\textbf{a)} (5 points) Write $Y$ as a function of $A$, $K$, $L$ and $\varphi$. An observer
+has accurate data on $Y$, $K$, $L$ and on factor incomes, but cannot tell compliance workers from
+production workers. Which labour share and which productivity $\hat A$ does he measure? Is the labour share
+distorted? Where does the distortion show up?
+\objetos{$Y(A,K,L,\varphi)$; measured labour share, with the firm's first-order condition; $\hat A/A$
+(number); share of the workforce in compliance; where the wedge sits.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{b)} (5 points) A tax simplification lowers $\varphi$ from 0.25 to 0.10 over five years.
+True $A$ does not change. Write the growth-accounting decomposition of $g_Y$, solve for the Solow residual
+and compute its annual value. What does the statistical agency report, and why is this consistent with the
+reading of the residual as a measure that also captures policies that change how well resources are
+allocated? What would it report if compliance rules got \emph{heavier}?
+\objetos{decomposition; residual in terms of $\varphi$; its annual value; what is reported and why; the
+opposite case.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{c)} (5 points) Now let the economy follow the Solow model with $s$, $n$ and $\delta$
+constant, per worker of \emph{measured} employment. Draw the effect of the reform in two panels: the
+mechanism (Solow diagram) and the time path of $y$. By how much does steady-state $y^*$ rise? Sign the growth
+rate of $y$ on impact, during the transition and in the long run, and explain why the total rise in $y$
+exceeds the jump in measured TFP.
+\objetos{two-panel diagram; $y^{*\prime}/y^*$; growth of $y$ in three horizons; the source of the extra gain.}
+\espaco{7cm}
+
+% =============================================================================
+\bloco{III}{Microfoundations: consumption, labour and general equilibrium}{Lectures 4--6 \,\textbullet\, 25 points}
+
+\questao{(10 points) True or False? Justify.}
+
+\vf{a}{A household has one unit of time, utility $\ln c+b\ln l$ over consumption and leisure, earns the
+after-tax wage $(1-\tau)w$ per hour worked and receives a lump-sum transfer $T\geq0$.
+\emph{Statement:} ``If the government returns nothing to households ($T=0$), a rise in the labour-income tax
+$\tau$ reduces hours worked, because it makes leisure cheaper.''}
+
+\vf{b}{Matches are $m=\mu\,v^{\alpha}u^{1-\alpha}$ (in rates) and a fraction $s$ of employed workers loses
+their job each period. \emph{Statement:} ``A fall in the unemployment rate together with a rise in the
+vacancy rate, with matching efficiency $\mu$ and the separation rate $s$ unchanged, is an outward shift of
+the Beveridge curve: the market now has more vacancies per unemployed worker.''}
+
+\questao{(15 points) Interest rates, a tax rebate and a tax on interest income.
+Households live two periods, have utility $u(c_1)+\beta u(c_2)$ with CRRA $u$ (coefficient $\sigma$; log
+when $\sigma=1$), and borrow and lend at $r$ unless a limit is stated.}
+
+\medskip\noindent\textbf{a)} (5 points) A saver has $y_1=100$, $y_2=0$, $\beta=0.96$, $\sigma=2$. The Copom
+raises the real rate from 4\% to 6\%. Sign $\partial c_1/\partial r$, say which effect dominates and why,
+and compute $c_1$ at both rates. Then suppose \emph{all} households are identical and capital and labour are
+fixed, so output is given in each period (frozen factors). Explain why aggregate saving must be zero, what
+then determines $r$, and compute $r$ when $y_2=y_1$ and when $y_2/y_1=1.03$.
+\objetos{sign; dominant effect in words that agree with the sign; $c_1$ at 4\% and 6\%; why aggregate saving
+is zero; what sets $r$; the two values of $r$.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{b)} (5 points) A young household has $y_1=40$, $y_2=84$, taxes $\tau_1=10$,
+$\tau_2=10.5$, log utility, $\beta=1/1.05$ and $r=5\%$. The government cuts $\tau_1$ to 0 and raises $\tau_2$
+to 21. (i) With free borrowing, compute $c_1$, $c_2$ and $a$ before and after. (ii) Now impose $a\ge -15$.
+Compute $c_1$, $c_2$ and $a$ before and after. Does the timing of taxes matter in each case? Give two
+kinds of household for which (ii) is the relevant case.
+\objetos{$c_1,c_2,a$ in all four cases; verdict on timing in (i) and in (ii), each with its reason; two
+examples.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{c)} (5 points) A saver has $y_1=100$, $y_2=0$, log utility, $\beta=0.96$, $r=5\%$. The
+government taxes the return to saving: $c_2=(1+r-\tau_a)a$ with $\tau_a=0.02$. Compare with a lump-sum tax
+in period 2 that raises the same revenue. Compute $c_2/c_1$ under each tax and the revenue. Which margin
+does each tax distort? Show that the household could afford the savings-tax plan under the lump-sum tax,
+and conclude which tax is better for the household.
+\objetos{revenue; both ratios $c_2/c_1$; the margin each tax distorts; the affordability argument; the
+welfare ranking.}
+\espaco{7cm}
+
+% =============================================================================
+\bloco{IV}{Money, inflation and the New-Keynesian AS--AD model}{Lectures 7--9 \,\textbullet\, 25 points}
+
+\questao{(10 points) True or False? Justify.}
+
+\vf{a}{\emph{Statement:} ``Last year M2 grew 10\%, inflation was 6\% and real GDP grew 3\%. Since money grew
+faster than nominal GDP, these data refute the quantity equation $MV=PY$.''}
+
+\vf{b}{Money demand follows Baumol--Tobin, the real interest rate is 2\% and real output does not grow.
+\emph{Statement:} ``Because money is neutral, a permanent rise in money growth from 4\% to 10\% a year has
+no effect on any real variable in the new steady state.''}
+
+\questao{(15 points) The Copom, a drought and a payroll tax.
+Use Benigno (2015): AS is $p-p^e=\kappa(y-y_n)$ and AD is $y=\bar y_n-\sigma\left[i-(\bar p-p)-\rho\right]$,
+with $\bar p=p^e$. Take $\sigma=0.5$, $\kappa=1.133$, $\eta=0.2$ and $\theta=8$. Output and prices are in
+percent deviations from the initial natural level and from $p^e$.}
+
+\medskip\noindent\textbf{a)} (5 points) Money-market equilibrium is $M^S=p\,m^D(Y,i)$. Explain what this
+condition determines (i) when the central bank sets $M$ and (ii) when it sets $i$. For an exogenous rise in
+$M$, say what adjusts with prices fixed and with prices flexible. Draw the two regimes. Why does Benigno's
+AS--AD model have no LM curve?
+\objetos{what is endogenous in (i) and in (ii); fixed-price and flexible-price answers; the two-panel diagram;
+the reason for no LM curve.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{b)} (5 points) A drought temporarily lowers agricultural productivity so that $y_n$ falls
+by 2\% ($\bar y_n$ unchanged). The Copom keeps $i$ unchanged. Which curve shifts, in which direction, and
+which curve does the economy move along? Compute $dy$, $dp$, $y-y_n$ and $y-y_e$. What change in $i$ closes
+both gaps at once, and why can it?
+\objetos{the curve that shifts and its direction; the movement along the other; $dy$, $dp$; both gaps with
+signs; the required $di$; why one instrument suffices.}
+\espaco{7cm}
+
+\Needspace{12\baselineskip}\noindent\textbf{c)} (5 points) Instead, a temporary payroll-tax rise raises the mark-up by $d\mu=4.4\%$,
+so that $y_n$ falls by 2\% while $y_e$ does not move. The Copom minimises
+$L=(y-y_e)^2+\frac{\theta}{\kappa}(p-p^e)^2$. Explain why the AS curve, and not the AD curve, is the
+constraint of this problem. Derive the optimal point and the change in $i$ that delivers it, and explain why
+there is a trade-off here but not in (b).
+\objetos{why AS is the constraint; the targeting rule; $y-y_e$ and $p-p^e$ at the optimum; $di$; the
+trade-off argument.}
+\espaco{7cm}
+
+\vfill
+\begin{center}\footnotesize\textit{End of exam. Solution: \texttt{Map/simulado-03/00-index.md}.}\end{center}
+\end{document}

@@ -21,8 +21,10 @@ output *is* the natural level, and the long-run Phillips curve is **vertical**. 
 
 $$\bar y_n=\frac{1+\eta}{\sigma^{-1}+\eta}\,\bar a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,\bar g-\frac{1}{\sigma^{-1}+\eta}\,\bar\mu$$
 
-Long-run consumption follows from $\bar y_n=s_c\bar c_n+\bar g$. Substituting and
-collecting the $\bar g$ terms:
+Long-run consumption follows from $\bar y_n=s_c\bar c_n+\bar g$: subtract $\bar g$ and
+divide by $s_c$. Substitute $\bar y_n$ from the line above and write the lone $\bar g$ over
+the common denominator, $\bar g=\bar g(\sigma^{-1}+\eta)/(\sigma^{-1}+\eta)$, so that the
+two $\bar g$ coefficients can be subtracted inside one bracket:
 
 $$\bar c_n=\frac{\bar y_n-\bar g}{s_c}
 =\frac{1}{s_c(\sigma^{-1}+\eta)}\Big[(1+\eta)\bar a+\underbrace{\left(\sigma^{-1}-\sigma^{-1}-\eta\right)}_{=\,-\eta}\bar g-\bar\mu\Big]$$
@@ -81,25 +83,46 @@ Substitute both constraints to make this a one-variable problem in $Y$:
 
 $$\max_{Y}\;u(Y-G)-v\!\left(\frac{Y}{A}\right)$$
 
-First-order condition:
+First-order condition. Differentiate with the chain rule: the inner derivative of
+$Y-G$ with respect to $Y$ is $1$, and that of $Y/A$ is $1/A$:
 
-$$u_c(Y_e-G)-\frac{1}{A}v_l\!\left(\frac{Y_e}{A}\right)=0
-\qquad\Longleftrightarrow\qquad
-\frac{v_l(Y_e/A)}{u_c(Y_e-G)}=A$$
+$$u_c(Y_e-G)\cdot 1-v_l\!\left(\frac{Y_e}{A}\right)\cdot\frac{1}{A}=0$$
+
+Move the second term to the right, multiply both sides by $A$ and divide by
+$u_c(Y_e-G)$:
+
+$$\frac{v_l(Y_e/A)}{u_c(Y_e-G)}=A$$
 
 The marginal rate of substitution between labour and consumption is set equal to the
 **marginal rate of transformation**, which is productivity $A$. Compare this with the
 natural-rate condition (14), which reads $v_l/u_c=A/(1+\mu)$: they are the same equation
 except that the decentralised economy carries the wedge $1+\mu$. Log-linearising exactly
-as in §2.4 but with $\mu=0$:
+as in §2.4 but with $\mu=0$. With the isoelastic forms, the condition is
+$(Y_e/A)^{\eta}(Y_e-G)^{\tilde\sigma^{-1}}=A$; take logs, subtract the steady state, and
+use $\tilde\sigma^{-1}c_e=\sigma^{-1}(y_e-g)$ as in §2.4:
+
+$$\eta\,(y_e-a)+\sigma^{-1}(y_e-g)=a$$
+
+Collect $y_e$ on the left, $(\sigma^{-1}+\eta)y_e=(1+\eta)a+\sigma^{-1}g$, and divide by
+$\sigma^{-1}+\eta$:
 
 $$\boxed{\;y_e=\frac{1+\eta}{\sigma^{-1}+\eta}\,a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,g\;} \tag{19}$$
+
+![Natural vs efficient output as two FOCs](fig/fig_b03_wedge.svg)
+*The household's MRS line is the same in both problems. The planner sets it equal to a; the market sets it equal to a − μ, μ lower, so with μ = 10% output stops 4.55% short. The shaded triangle is the surplus lost between yₙ and yₑ.*
 
 ## 3.4 The subtraction that organises Aula 9
 
 Subtract (19) from (15). The $a$ and $g$ terms are **identical** and cancel:
 
+$$y_n-y_e=\underbrace{\frac{(1+\eta)(a-a)}{\sigma^{-1}+\eta}}_{=\,0}
++\underbrace{\frac{\sigma^{-1}(g-g)}{\sigma^{-1}+\eta}}_{=\,0}
+-\frac{\mu}{\sigma^{-1}+\eta}$$
+
 $$\boxed{\;y_n-y_e=-\frac{\mu}{\sigma^{-1}+\eta}\;}$$
+
+![What moves yₙ and yₑ](fig/fig_b03_targets.svg)
+*Read each pair of bars: a and g move both targets by the same amount (0.55 and 0.91), so their difference is zero; only μ separates them, moving yₙ by −0.45 and yₑ not at all.*
 
 Everything in §6–§11 follows from the two properties of that line:
 

@@ -1,0 +1,329 @@
+<title>Who Moves When Money Moves</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- one of these two resolves: ../companion.css locally in Map/, companion.css when published -->
+<link rel="stylesheet" href="../companion.css">
+<link rel="stylesheet" href="companion.css">
+<style>
+  .panels{display:flex; flex-direction:column; gap:22px; min-width:0}
+  .sw{display:flex; gap:6px; margin:10px 0 4px}
+  .sw label{flex:1; text-align:center; font-size:.84rem; padding:7px 8px; border:1px solid var(--rule);
+      background:var(--paper); border-radius:2px; cursor:pointer}
+  .sw input{position:absolute; opacity:0}
+  .sw input:checked+span{color:var(--focus); font-weight:600}
+  .sw label:has(input:checked){border-color:var(--focus)}
+  .sw label:has(input:focus-visible){outline:2px solid var(--focus); outline-offset:2px}
+  .ctl.off{opacity:.4}
+  .stats>div.endo{box-shadow:inset 3px 0 0 var(--it)}
+  .stats>div.endo .k{color:var(--it)}
+  .lost{padding:12px 16px; font-size:.85rem; color:var(--ink-soft)}
+  .lost h2{font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; color:var(--neg); margin:0 0 6px; font-weight:600}
+  .lost ul{margin:0; padding-left:18px} .lost li{margin:4px 0}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · §10.4 and §11.1–11.2 · printed pages 199–215 · Benigno (2015) · Problem Set 6, Q1</p>
+  <h1>Who Moves When Money Moves</h1>
+  <p class="lede"><em>MV = PY</em> cannot fail — velocity is whatever number makes it hold — so it
+  says nothing about who moves. The money market <em>M = p·m<sup>D</sup>(Y, i)</em> is one equation,
+  and it can determine exactly one unknown. Which one is a choice made by two switches: what the
+  central bank holds fixed, and whether prices can move.</p>
+</header>
+
+<div class="cols">
+  <div class="panels">
+    <div class="answer">
+      <div><div class="k">Endogenous in this regime</div><div class="v" id="endoOut"></div><div class="w" id="endoWord"></div></div>
+      <div><div class="k">Real balances m<sup>D</sup></div><div class="v" id="mOut"></div><div class="w" id="mWord"></div></div>
+    </div>
+
+    <div class="card">
+      <figure><svg id="mm" viewBox="0 0 600 320" role="img"
+        aria-label="Money market: real balances against the nominal interest rate, before and after"></svg></figure>
+      <div class="legend">
+        <span style="color:var(--ad)"><i class="swatch dash"></i>m<sup>D</sup>(Y₀, i), before</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>m<sup>D</sup>(Y₁, i), after</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>supply, before</span>
+        <span style="color:var(--as)"><i class="swatch"></i>supply, after</span>
+        <span style="color:var(--it)"><i class="swatch"></i>equilibrium move</span>
+      </div>
+      <p class="eq" id="eq1"></p>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="card">
+      <figure><svg id="iso" viewBox="0 0 600 240" role="img"
+        aria-label="Iso-money-demand rays in income and interest-rate space"></svg></figure>
+      <div class="legend">
+        <span style="color:var(--nat)"><i class="swatch dash"></i>m<sup>D</sup>(Y, i) = m₀</span>
+        <span style="color:var(--eff)"><i class="swatch"></i>m<sup>D</sup>(Y, i) = m₁</span>
+      </div>
+      <p class="eq" id="eq2"></p>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="card lost">
+      <h2>Where marks were lost</h2>
+      <ul>
+        <li><b>1(a), half credit.</b> The identity was stated, but not that V ≡ PY/M is a residual —
+        so the equation cannot fail, and causation needs an added behavioural assumption (stable V,
+        real-side Y, exogenous M).</li>
+        <li><b>1(b), half credit.</b> V = √(2iY/F) was derived and left there. The mark is the
+        reading: velocity rises with i and with Y, so it is not a constant.</li>
+        <li><b>1(c).</b> “No clear mechanism” — true, but the item then needs the split (Y↑ and/or
+        i↓, one equation in two unknowns) and the flexible-price answer, which was never given:
+        p rises one-for-one, money is neutral.</li>
+        <li><b>1(d).</b> Missing: under an interest-rate target the money market determines
+        <b>M</b>, not i. Supply is horizontal and money is endogenous.</li>
+        <li><b>2(c).</b> π = μ − ½(g+f) was derived but read as “cheaper money raises inflation”.
+        The reading is: a falling F lowers money demand, so the same μ chases smaller desired real
+        balances and prices must rise faster — velocity rises.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>The two switches</legend>
+      <div class="sw" role="radiogroup" aria-label="Instrument">
+        <label><input type="radio" name="inst" value="M" checked><span>Bank sets M</span></label>
+        <label><input type="radio" name="inst" value="i"><span>Bank sets ī</span></label>
+      </div>
+      <div class="sw" role="radiogroup" aria-label="Prices">
+        <label><input type="radio" name="flex" value="0" checked><span>p = p̄ fixed</span></label>
+        <label><input type="radio" name="flex" value="1"><span>p flexible</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The experiment</legend>
+      <div class="ctl" id="cdM">
+        <span class="hint">A permanent change in the level of the money stock (the base, with the
+        multiplier held fixed).</span>
+        <label for="dM">Change in money <span class="sym">M₁/M₀ − 1</span></label>
+        <output id="dMo"></output><input type="range" id="dM" min="-50" max="100" step="1" value="20">
+      </div>
+      <div class="ctl" id="cs">
+        <span class="hint">Fixed prices only. The money market says real balances must rise; it cannot
+        say whether Y or i does it. That needs a second relation (IS, the Euler equation). 0 = all
+        through i, 1 = all through Y, in logs.</span>
+        <label for="s">Share absorbed by Y <span class="sym">s</span></label>
+        <output id="so"></output><input type="range" id="s" min="0" max="1" step="0.05" value="0">
+      </div>
+      <div class="ctl" id="ci1">
+        <span class="hint">The rate the bank announces and defends by buying or selling bonds without
+        limit.</span>
+        <label for="i1">New rate target <span class="sym">ī₁</span></label>
+        <output id="i1o"></output><input type="range" id="i1" min="0.005" max="0.15" step="0.005" value="0.04">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Starting point</legend>
+      <div class="ctl">
+        <label for="Y">Real income <span class="sym">Y₀</span></label>
+        <output id="Yo"></output><input type="range" id="Y" min="200" max="3000" step="50" value="1000">
+      </div>
+      <div class="ctl">
+        <span class="hint">With flexible prices this is set by the real side, i = r + π<sup>e</sup>.</span>
+        <label for="i">Nominal rate <span class="sym">i₀</span></label>
+        <output id="io"></output><input type="range" id="i" min="0.005" max="0.15" step="0.005" value="0.05">
+      </div>
+      <div class="ctl">
+        <label for="F">Cost per trip <span class="sym">F</span></label>
+        <output id="Fo"></output><input type="range" id="F" min="0.2" max="10" step="0.1" value="2">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="neutral">Neutrality</button>
+      <button data-p="alli">Fixed p: all through i</button>
+      <button data-p="half">Fixed p: half and half</button>
+      <button data-p="ally">Fixed p: all through Y</button>
+      <button data-p="cut">Rate cut 5% → 4%</button>
+      <button data-p="cutflex">Rate cut, flexible p</button>
+    </div>
+
+    <details>
+      <summary>Why Benigno has no LM curve</summary>
+      <p>Under a rate target the supply of money is horizontal at ī. The money market no longer
+      determines i — the bank announced it — it determines M, which the bank then supplies passively.
+      A relation that only ever tells you a quantity nobody uses is dropped, and the model runs on
+      the Euler equation (AD) and price setting (AS) alone. See <b>Map/aula-08-adas-micro/00-index.md</b>.</p>
+      <p>Log-differentiate m<sup>D</sup> = √(FY/2i): d ln m = ½ d ln Y − ½ d ln i. Every result on
+      this page is that line solved for a different unknown.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 10–11; Benigno (2015) · companion to <b>Map/aula-07-moeda-inflacao/03-equilibrium-and-neutrality.md</b>
+and <b>Resolucao/lista6_resolucao.pdf</b> Q1 · check: <b>check_money.py</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["dM", "s", "i1", "Y", "i", "F"];
+
+// ---- model (mirrored in check_money.py, section companion-money-regimes) ----
+const mD = (Y, i, F) => Math.sqrt(F * Y / (2 * i));        // Baumol–Tobin real balances
+const vel = (Y, i, F) => Math.sqrt(2 * i * Y / F);         // V = Y/m
+// v: {inst: "M"|"i", flex: bool, Y, i, F, p, dM (%), s (share to Y), i1}
+function solve(v) {
+  const b = {p: v.p, Y: v.Y, i: v.i};
+  b.M = b.p * mD(b.Y, b.i, v.F);
+  let a;
+  if (v.inst === "M") {
+    const k = 1 + v.dM / 100;
+    a = v.flex ? {p: v.p * k, Y: v.Y, i: v.i}                               // neutrality
+               : {p: v.p, Y: v.Y * k ** (2 * v.s), i: v.i * k ** (-2 * (1 - v.s))};
+    a.M = b.M * k;
+  } else {
+    a = {p: v.p, Y: v.Y, i: v.i1};             // flexible p: level not pinned; today's p held
+    a.M = a.p * mD(a.Y, a.i, v.F);
+  }
+  for (const x of [b, a]) { x.m = mD(x.Y, x.i, v.F); x.V = x.p * x.Y / x.M; }
+  return {b, a};
+}
+// ---- end model ----
+
+const fmt = (x, d = 2) => (x < 0 ? "−" : "") + Math.abs(x).toFixed(d);
+const pct = (x, d = 2) => fmt(100 * x, d) + "%";
+const chg = (a, b) => { const r = a / b - 1; return Math.abs(r) < 5e-6 ? "unchanged" : (r > 0 ? "+" : "−") + Math.abs(100 * r).toFixed(1) + "%"; };
+
+function axes(W, H, L, R, T, B, x0, x1, y0, y1, xlab, ylab, yf) {
+  const X = x => L + (W - L - R) * (x - x0) / (x1 - x0), Y = y => T + (H - T - B) * (1 - (y - y0) / (y1 - y0));
+  let o = "";
+  for (let k = 0; k <= 4; k++) {
+    const y = y0 + (y1 - y0) * k / 4;
+    o += `<line x1="${L}" y1="${Y(y).toFixed(1)}" x2="${W - R}" y2="${Y(y).toFixed(1)}" stroke="var(--grid)"/>`
+       + `<text x="${L - 8}" y="${(Y(y) + 3.5).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-faint)">${yf(y)}</text>`;
+  }
+  o += `<line x1="${L}" y1="${H - B}" x2="${W - R}" y2="${H - B}" stroke="var(--rule)"/><line x1="${L}" y1="${T}" x2="${L}" y2="${H - B}" stroke="var(--rule)"/>`
+     + `<text x="${(L + W - R) / 2}" y="${H - 8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${xlab}</text>`
+     + `<text transform="translate(14,${(T + H - B) / 2}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${ylab}</text>`;
+  const clip = y => Math.min(Math.max(y, y0), y1);
+  const ln = (xa, ya, xb, yb, c, dash = "", w = 1.8) => `<line x1="${X(xa).toFixed(1)}" y1="${Y(clip(ya)).toFixed(1)}" x2="${X(xb).toFixed(1)}" y2="${Y(clip(yb)).toFixed(1)}" stroke="${c}" stroke-width="${w}" stroke-dasharray="${dash}"/>`;
+  const curve = (fn, c, dash = "", w = 2.2) => {
+    let d = "";
+    for (let k = 1; k <= 240; k++) { const x = x0 + (x1 - x0) * k / 240, y = fn(x); if (y > y1 * 1.02) continue; d += (d ? "L" : "M") + X(x).toFixed(1) + "," + Y(clip(y)).toFixed(1); }
+    return `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-dasharray="${dash}"/>`;
+  };
+  const dot = (x, y, c, lab) => `<circle cx="${X(x).toFixed(1)}" cy="${Y(clip(y)).toFixed(1)}" r="5" fill="${c}"/>`
+     + (lab ? `<text x="${(X(x) + 8).toFixed(1)}" y="${(Y(clip(y)) - 8).toFixed(1)}" font-size="10.5" fill="${c}">${lab}</text>` : "");
+  const arrow = (xa, ya, xb, yb) => {
+    const ax = X(xa), ay = Y(clip(ya)), bx = X(xb), by = Y(clip(yb)), len = Math.hypot(bx - ax, by - ay);
+    if (len < 8) return "";
+    const ux = (bx - ax) / len, uy = (by - ay) / len, ex = bx - 7 * ux, ey = by - 7 * uy;
+    return `<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}" stroke="var(--it)" stroke-width="2.4"/>`
+      + `<path d="M${bx.toFixed(1)},${by.toFixed(1)}L${(ex - 5 * uy).toFixed(1)},${(ey + 5 * ux).toFixed(1)}L${(ex + 5 * uy).toFixed(1)},${(ey - 5 * ux).toFixed(1)}Z" fill="var(--it)"/>`;
+  };
+  return {o, ln, curve, dot, arrow};
+}
+
+function render() {
+  const v = {p: 1};
+  ids.forEach(k => v[k] = parseFloat($(k).value));
+  v.inst = document.querySelector("input[name=inst]:checked").value;
+  v.flex = document.querySelector("input[name=flex]:checked").value === "1";
+  const {b, a} = solve(v), M = v.inst === "M";
+
+  $("dMo").textContent = (v.dM > 0 ? "+" : "") + fmt(v.dM, 0) + "%";
+  $("so").textContent = fmt(v.s, 2); $("i1o").textContent = pct(v.i1, 1);
+  $("Yo").textContent = v.Y.toFixed(0); $("io").textContent = pct(v.i, 1); $("Fo").textContent = v.F.toFixed(1);
+  $("cdM").classList.toggle("off", !M); $("dM").disabled = !M;
+  $("cs").classList.toggle("off", !M || v.flex); $("s").disabled = !M || v.flex;
+  $("ci1").classList.toggle("off", M); $("i1").disabled = M;
+
+  // ---------- which symbol is the unknown ----------
+  const endo = M ? (v.flex ? ["p"] : ["i", "Y"]) : ["M"];
+  $("endoOut").textContent = M ? (v.flex ? "p" : "i and/or Y") : "M";
+  $("endoWord").innerHTML = M
+    ? (v.flex ? "Y and i are pinned by the real side, so the price level absorbs everything."
+              : "One equation, two unknowns: the split is set by the slider, i.e. by a relation outside this market.")
+    : "The bank named i. The money market now tells you how much money it must supply." + (v.flex ? " p is not pinned here at all." : "");
+  $("mOut").textContent = fmt(b.m, 1) + " → " + fmt(a.m, 1);
+  $("mWord").innerHTML = Math.abs(a.m / b.m - 1) < 1e-9 ? "Real balances do not move." : `Real balances ${chg(a.m, b.m)}.`;
+
+  // ---------- read-outs ----------
+  const rows = [
+    ["M", "Money stock M", 1, "nominal"],
+    ["p", "Price level p", 3, "p̄ = 1 at the start"],
+    ["Y", "Income Y", 0, "d ln m/d ln Y = +½"],
+    ["i", "Nominal rate i", null, "d ln m/d ln i = −½"],
+    ["m", "Real balances m", 1, "√(FY/2i) = M/p"],
+    ["V", "Velocity V", 3, "PY/M = √(2iY/F)"]];
+  $("stats").innerHTML = rows.map(([k, lab, d, n]) => {
+    const f = x => d === null ? pct(x, 2) : fmt(x, d);
+    return `<div class="${endo.includes(k) ? "endo" : ""}"><div class="k">${lab}</div><div class="v">${f(b[k])} → ${f(a[k])}</div><div class="n">${chg(a[k], b[k])} · ${n}</div></div>`;
+  }).join("");
+
+  // ---------- money market: m on x, i on y ----------
+  const xm = Math.max(b.m, a.m) * 1.7, ym = Math.max(b.i, a.i) * 2.2;
+  const g = axes(600, 320, 62, 18, 16, 46, 0, xm, 0, ym, "real balances M/p", "nominal rate i", y => pct(y, 1));
+  let o = g.o;
+  o += g.curve(m => v.F * b.Y / (2 * m * m), "var(--ad)", "6 4");
+  if (a.Y !== b.Y) o += g.curve(m => v.F * a.Y / (2 * m * m), "var(--ad)");
+  if (M) {
+    o += g.ln(b.M / b.p, 0, b.M / b.p, ym, "var(--nat)", "5 4");
+    if (v.flex && a.p !== b.p) {                 // impact: M₁/p₀ before p adjusts
+      o += g.ln(a.M / b.p, 0, a.M / b.p, ym, "var(--as)", "2 4", 1.4);
+      o += g.arrow(a.M / b.p, b.i * 0.35, a.m, b.i * 0.35);
+    }
+    o += g.ln(a.M / a.p, 0, a.M / a.p, ym, "var(--as)");
+  } else {
+    o += g.ln(0, b.i, xm, b.i, "var(--nat)", "5 4") + g.ln(0, a.i, xm, a.i, "var(--as)");
+  }
+  o += g.arrow(b.m, b.i, a.m, a.i) + g.dot(b.m, b.i, "var(--nat)", "before") + g.dot(a.m, a.i, "var(--it)", "after");
+  $("mm").innerHTML = o;
+  $("eq1").innerHTML = `M = p·√(FY/2i): &nbsp;${fmt(b.M, 1)} = ${fmt(b.p, 3)}×${fmt(b.m, 1)} &nbsp;→&nbsp; `
+    + `<b>${fmt(a.M, 1)} = ${fmt(a.p, 3)}×${fmt(a.m, 1)}</b> &nbsp;·&nbsp; supply ${M ? "vertical at M/p" : "horizontal at ī"}`;
+
+  // ---------- iso-m rays: i = F·Y/(2m²) in (Y, i) ----------
+  const xy = Math.max(b.Y, a.Y) * 1.5, yi = Math.max(b.i, a.i) * 1.8;
+  const h = axes(600, 240, 62, 18, 14, 42, 0, xy, 0, yi, "real income Y", "i", y => pct(y, 1));
+  o = h.o + h.curve(Y => v.F * Y / (2 * b.m * b.m), "var(--nat)", "5 4") + h.curve(Y => v.F * Y / (2 * a.m * a.m), "var(--eff)");
+  o += h.arrow(b.Y, b.i, a.Y, a.i) + h.dot(b.Y, b.i, "var(--nat)") + h.dot(a.Y, a.i, "var(--it)", `(${a.Y.toFixed(0)}, ${pct(a.i, 2)})`);
+  $("iso").innerHTML = o;
+  $("eq2").innerHTML = `iso-m: i = F·Y/(2m²) — every (Y, i) on a ray holds the same real balances. `
+    + `Along the new ray, a 1% rise in Y needs a 1% rise in i: the LM locus, slope −m<sub>Y</sub>/m<sub>i</sub> > 0.`;
+
+  // ---------- verdict ----------
+  const k = 1 + v.dM / 100;
+  let t;
+  if (M && v.flex) t = `<span class="flag ok">neutral</span> M rises by ${chg(a.M, b.M)} and p rises by exactly the same.
+    Y and i are set by the real side, so m<sup>D</sup> cannot move and M/p returns to ${fmt(b.m, 1)}. The dotted
+    line is M₁/p₀, the excess supply at old prices that bids p up.`;
+  else if (M) t = `<span class="flag mid">underdetermined</span> Real balances must rise by the factor ${fmt(k, 3)}.
+    All through i (s = 0): i₁ = i₀·(M₀/M₁)² = <b>${pct(v.i / k / k, 2)}</b>, since m ∝ i<sup>−½</sup>.
+    All through Y (s = 1): Y₁ = Y₀·(M₁/M₀)² = <b>${fmt(v.Y * k * k, 0)}</b>, since m ∝ Y<sup>½</sup>.
+    The money market cannot choose between them; ch. 11 has no mechanism, which is why Aula 8 builds one.`;
+  else t = `<span class="flag ok">M is endogenous</span> Moving ī from ${pct(v.i, 1)} to ${pct(v.i1, 1)} changes money demand, and the
+    bank supplies it: M₁/M₀ = (i₀/ī₁)<sup>½</sup> = <b>${fmt(Math.sqrt(v.i / v.i1), 4)}</b>.`
+    + (v.flex ? ` With flexible prices and an unchanged real rate r, i = r + π<sup>e</sup> says a ${v.i1 < v.i ? "lower" : "higher"} ī is a
+    ${v.i1 < v.i ? "lower" : "higher"} expected inflation, by ${fmt(100 * Math.abs(v.i - v.i1), 2)} points. The money market sets M/p; it does
+    not set p, which is why a rate peg needs a nominal anchor. The read-outs hold today's p.`
+    : ` p and Y are given, so only M can move.`);
+  $("verdict").innerHTML = t;
+}
+
+const presets = {
+  neutral: {inst: "M", flex: "1", dM: 20},
+  alli:    {inst: "M", flex: "0", dM: 20, s: 0},
+  half:    {inst: "M", flex: "0", dM: 20, s: 0.5},
+  ally:    {inst: "M", flex: "0", dM: 20, s: 1},
+  cut:     {inst: "i", flex: "0", i1: 0.04, i: 0.05},
+  cutflex: {inst: "i", flex: "1", i1: 0.04, i: 0.05}
+};
+document.querySelectorAll("button[data-p]").forEach(btn => btn.addEventListener("click", () => {
+  const p = presets[btn.dataset.p];
+  for (const [k, val] of Object.entries(p)) {
+    if (k === "inst" || k === "flex") document.querySelector(`input[name=${k}][value="${val}"]`).checked = true;
+    else $(k).value = val;
+  }
+  render();
+}));
+ids.forEach(k => $(k).addEventListener("input", render));
+document.querySelectorAll("input[type=radio]").forEach(r => r.addEventListener("change", render));
+render();
+</script>

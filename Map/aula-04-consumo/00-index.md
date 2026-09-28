@@ -44,6 +44,7 @@ constrained Euler holds as an inequality.
 |---|---|---|
 | [Two Periods, One Line](companion-euler.html) | the budget line rotating about the endowment as $r$ moves, with indifference curves, the Euler condition and the saver/borrower switch | [[02-two-period-problem]] · [[03-income-and-substitution]] |
 | [Wealth, Not Income](companion-pih.html) | transitory against permanent shocks, the MPC out of each, the horizon effect, and a borrowing limit that switches the household back to hand-to-mouth | [[04-permanent-income]] · [[05-ricardian-and-constraints]] |
+| [Taxes, Timing and the Limit](companion-taxes-and-limits.html) | Lista 3 on one page: the Ricardian swap (neutral, then broken by a binding $a\ge-b$), a tax on the return to saving against an equal-revenue lump sum, and the sign of $\partial c_1/\partial r$ against $\sigma$ | [[05-ricardian-and-constraints]] · [[03-income-and-substitution]] |
 
 ---
 

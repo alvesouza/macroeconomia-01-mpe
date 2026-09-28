@@ -8,6 +8,12 @@ date: 2026-09-19
 **Kurlat §11.1–§11.2, printed pages 205–215.** Up: [[00-index]] ·
 Prev: [[02-money-demand]] · Next: [[04-seigniorage-and-costs]]
 
+> **Companion:** [Who Moves When Money Moves](companion-money-regimes.html) — the same equilibrium
+> condition solved for $p$, for $Y$ and $i$, or for $M$, depending on the instrument and on price flexibility.
+
+![Lista 6 1(c)-(d): under a money target the equation determines i. Under a rate target it determines M.](../fig/fig_gap_l6_regimes.svg)
+*Lista 6 1(c)-(d): under a money target the equation determines i. Under a rate target it determines M. Diagnosis: [[avaliacao-listas-2-3-6]].*
+
 One equilibrium condition, read four ways. This note derives the inflation decomposition that
 the whole session exists for, and then prices the cost of getting one parameter wrong.
 
@@ -38,6 +44,9 @@ that, $P$ is the only free variable and must absorb the whole change.
 
 $$P = \frac{M^s}{L(Y_n, r+\pi^e)}$$
 
+(Divide both sides of $M^s=P\cdot L$ by $L$, then substitute the two closed channels,
+$Y=Y_n$ and $i=r+\pi^e$.)
+
 ## 3.2 Measuring inflation, and the two indices
 
 $$\pi_t = \frac{P_t-P_{t-1}}{P_{t-1}}$$
@@ -65,15 +74,37 @@ $(1+i)P_t/P_{t+1}$ units of goods. So the **exact** Fisher equation is
 
 $$\boxed{\;1+r = \frac{1+i}{1+\pi}\;}$$
 
+The steps: lend $P_t$ in money (the price of one unit of goods); receive $(1+i)P_t$ next period;
+divide by next period's price to convert to goods, $(1+i)P_t/P_{t+1}$; and use
+$P_{t+1}/P_t=1+\pi$, so $P_t/P_{t+1}=1/(1+\pi)$. The gross real return on one unit of goods is
+$1+r$ by definition, which gives the box.
+
 and the familiar approximation follows from taking logs and using $\ln(1+x)\simeq x$:
 
-$$r \simeq i-\pi$$
+$$\ln(1+r)=\ln(1+i)-\ln(1+\pi)\quad\Longrightarrow\quad r\simeq i-\pi$$
+
+(log of a quotient is the difference of logs; then replace each $\ln(1+x)$ by $x$, which drops
+terms of order $x^2$.)
 
 with error $\simeq r\pi$, second order — the same expansion as
 [[03-growth-arithmetic]] §3.1. At $i=5\%$, $\pi=2\%$ the approximation gives $3\%$ and the exact
 answer is $2.94\%$; at $i=60\%$, $\pi=50\%$ it gives $10\%$ and the exact answer is $6.67\%$.
 **Use the exact form whenever inflation is large**, which is the whole of
 [[04-seigniorage-and-costs]].
+
+The error term is in fact exact, not only approximate. Multiply the box out by $(1+\pi)$:
+
+$$(1+r)(1+\pi)=1+i\;\Longrightarrow\;1+r+\pi+r\pi=1+i\;\Longrightarrow\;i-\pi=r+r\pi$$
+
+so the approximation $i-\pi$ overstates $r$ by exactly $r\pi$. Solving the last equation for $r$
+(factor $r$ out of $r+r\pi$, divide by $1+\pi$) gives the exact real rate in one line,
+
+$$r=\frac{i-\pi}{1+\pi}$$
+
+which reproduces both numbers above: $0.03/1.02=2.94\%$ and $0.10/1.50=6.67\%$.
+
+![Exact against approximate real rate](fig/fig_07_fisher_exact.svg)
+*Read off: holding $i-\pi$ at 10 points, the exact real rate is 9.80% at $\pi=2\%$ but only 6.67% at $\pi=50\%$; the vertical gap is $r\pi$.*
 
 **Kurlat's worked example** (p. 209), reproduced in the check script: an 11% nominal rate, 2%
 expected inflation, a price index going 100 to 102. Lend \$100, buying one basket today; get back
@@ -111,9 +142,22 @@ $$\ln M^s = \ln P + \ln L(Y,i)$$
 
 $$\mu_M = \pi + \varepsilon_Y\,g_Y + \varepsilon_i\,\frac{di/dt}{i}$$
 
+Term by term. The log of a product is the sum of logs, which gives the first line. Differentiate
+each term with respect to $t$:
+
+- $\dfrac{d\ln M^s}{dt}=\dfrac{\dot M^s}{M^s}=\mu_M$ and $\dfrac{d\ln P}{dt}=\dfrac{\dot P}{P}=\pi$
+  (the derivative of $\ln x(t)$ is $\dot x/x$);
+- $\ln L$ depends on $t$ through $\ln Y$ and $\ln i$, so by the chain rule
+$$\frac{d\ln L}{dt}=\frac{\partial\ln L}{\partial\ln Y}\cdot\frac{d\ln Y}{dt}
++\frac{\partial\ln L}{\partial\ln i}\cdot\frac{d\ln i}{dt}
+=\varepsilon_Y\,g_Y+\varepsilon_i\,\frac{di/dt}{i}$$
+  using the definitions of the two elasticities and $g_Y\equiv\dot Y/Y$.
+
 In a steady state $\pi$ is constant, so $i=r+\pi$ is constant and the last term vanishes:
 
 $$\boxed{\;\pi = \mu_M - \varepsilon_Y\,g_Y\;}$$
+
+(Set $di/dt=0$ in the second line and subtract $\varepsilon_Y g_Y$ from both sides.)
 
 **Inflation is money growth net of what real growth absorbs.** A growing economy carries out more
 transactions and wants more real balances; that appetite soaks up newly created money instead of
@@ -123,6 +167,9 @@ inflation if they grow at different rates — and the faster-growing one has *le
 With Baumol–Tobin, $\varepsilon_Y=1/2$:
 
 $$\pi = \mu_M - \tfrac12 g_Y$$
+
+![Log price level in the three steady states](fig/fig_07_steady_states.svg)
+*Read off: with the same 5% money growth, prices rise 5% a year when $g_Y=0$ but 3% a year when $g_Y=4\%$ and $\varepsilon_Y=\tfrac12$; after 20 years that is $P\times2.72$ against $P\times1.82$.*
 
 ## 3.5 The cost of getting the elasticity wrong
 
@@ -136,6 +183,11 @@ $$\mu_M = \pi^{\text{target}} + \hat\varepsilon\,g_Y$$
 If the true elasticity is $\varepsilon$, realised inflation is
 $\pi = \mu_M - \varepsilon g_Y$, so
 
+$$\pi=\big(\pi^{\text{target}}+\hat\varepsilon\,g_Y\big)-\varepsilon\,g_Y
+\quad\Longrightarrow\quad \pi-\pi^{\text{target}}=\hat\varepsilon\,g_Y-\varepsilon\,g_Y$$
+
+(substitute the rule for $\mu_M$, subtract $\pi^{\text{target}}$ from both sides, factor out $g_Y$):
+
 $$\boxed{\;\pi-\pi^{\text{target}} = \left(\hat\varepsilon-\varepsilon\right)g_Y\;}$$
 
 **The inflation error equals the error in the elasticity times the growth rate.** Its sign is set
@@ -145,7 +197,8 @@ stagnant economy and expensive in a fast-growing one.
 **Kurlat's numbers.** Target 2%, growth 3%, believed elasticity 1/2, so $\mu_M=3.5\%$. If money
 demand is really proportional to income ($\varepsilon=1$), realised inflation is
 $3.5-3=0.5\%$ — one and a half points below target, from a single parameter. Computed in
-`check_money.py`.
+`check_money.py`. In the formula: $\mu_M=2+\tfrac12\cdot3=3.5\%$, and
+$(\hat\varepsilon-\varepsilon)g_Y=(0.5-1)\times3=-1.5$ points, so $\pi=2-1.5=0.5\%$.
 
 **Two conclusions, and the honest answer is that both are defensible:** either measure money
 demand better, or stop targeting monetary aggregates. The profession chose the second.
@@ -176,6 +229,20 @@ desired real balances $M/P$ — but the nominal stock $M$ has not yet changed at
 announcement. So $P$ must **jump up discretely** to bring $M/P$ down to its new desired level, and
 only then grow at the new faster rate. That jump is the part students miss: the price level does
 not merely change slope, it changes level at the instant of the announcement.
+
+The size of the jump. Just before and just after the announcement $M$ is the same, so dividing
+$P=M/L(Y,i)$ after by before cancels $M$ (and $Y$, which is unchanged):
+
+$$\frac{P_{\text{after}}}{P_{\text{before}}}=\frac{L(i_0)}{L(i_1)}
+=\frac{\sqrt{FY/2i_0}}{\sqrt{FY/2i_1}}=\sqrt{\frac{i_1}{i_0}},
+\qquad \ln P_{\text{after}}-\ln P_{\text{before}}=\tfrac12\ln\frac{i_1}{i_0}$$
+
+(the common factor $FY/2$ cancels inside the root; the log halves because of the square root).
+With $r=2\%$ and money growth rising from 2% to 10%, $i$ goes from 4% to 12%, so $P$ jumps by
+$\sqrt{3}\approx1.732$.
+
+![Price-level jump after an announced rise in money growth](fig/fig_07_price_jump.svg)
+*Read off: left, $\ln M$ only kinks at $t=0$ while $\ln P$ jumps by $\tfrac12\ln3=0.549$ and then rises at 10% a year (dashed: the old 2% path); right, desired real balances drop at once from 158.1 to 91.3 ($Y=1000$, $F=2$).*
 
 ## 3.7 What to be able to do, cold
 

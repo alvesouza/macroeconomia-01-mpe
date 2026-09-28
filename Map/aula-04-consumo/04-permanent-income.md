@@ -28,12 +28,16 @@ $$\Delta W = \Delta
 \Delta c_1 = \frac{\Delta}{1+\beta}, \qquad
 \Delta s_1 = \Delta-\Delta c_1 = \frac{\beta}{1+\beta}\Delta$$
 
+(The last step puts $\Delta$ over the common denominator:
+$\Delta-\frac{\Delta}{1+\beta}=\frac{(1+\beta)\Delta-\Delta}{1+\beta}=\frac{\beta\Delta}{1+\beta}$.
+With $\beta=0.96$: $1/1.96=0.5102$ and $0.96/1.96=0.4898$.)
+
 With $\beta=0.96$: consumption rises by **0.51** of the windfall and saving by **0.49**. Roughly
 half the windfall is saved.
 
 **Permanent shock: $y_1$ and $y_2$ both rise by $\Delta$.**
 
-$$\Delta W = \Delta+\frac{\Delta}{1+r} = \Delta\,\frac{2+r}{1+r}
+$$\Delta W = \Delta+\frac{\Delta}{1+r} = \Delta\,\frac{(1+r)+1}{1+r} = \Delta\,\frac{2+r}{1+r}
 \qquad\Longrightarrow\qquad
 \Delta c_1 = \frac{\Delta}{1+\beta}\cdot\frac{2+r}{1+r}$$
 
@@ -43,13 +47,19 @@ saving is essentially unchanged.
 $$\boxed{\;\mathrm{MPC}_{\text{transitory}} \simeq 0.51,
 \qquad \mathrm{MPC}_{\text{permanent}} \simeq 1.00\;}$$
 
+![Response of c1 and s1 to a transitory and a permanent unit rise in income](fig/fig_c04_mpc_split.svg)
+*Read each bar as the unit of extra period-1 income split between consumption and saving: 0.510 /
+0.490 for the transitory rise, 1.001 / −0.001 for the permanent one.*
+
 **The same household, the same preferences, two MPCs differing by a factor of two.** No
 Keynesian consumption function can produce that, because it has one MPC by construction. This
 is the resolution of the Kuznets puzzle promised in [[01-keynesian-and-the-problem]] §1.2.
 
 A neat check: the permanent MPC is exactly 1 when $\beta(1+r)=1$, i.e. $r=\rho$. Then the
 household already wants a flat path, and a permanent income rise shifts the whole path up
-one-for-one with no change in saving. With $\beta=0.96$, $\rho=0.0417$ against $r=0.04$, so the
+one-for-one with no change in saving. The algebra: $\beta=1/(1+r)$ gives
+$1+\beta=\frac{(1+r)+1}{1+r}=\frac{2+r}{1+r}$, so
+$\frac{1}{1+\beta}\cdot\frac{2+r}{1+r}=\frac{1+r}{2+r}\cdot\frac{2+r}{1+r}=1$. With $\beta=0.96$, $\rho=0.0417$ against $r=0.04$, so the
 MPC is a hair below one. Verified in `check_consumption.py`.
 
 ## 4.2 Why the MPC out of transitory income is not tiny in a two-period model
@@ -65,10 +75,24 @@ $$\mathrm{MPC}_{\text{transitory}} \simeq \frac{1}{T}\qquad\text{(for }r\text{ n
 
 so a 40-year horizon gives an MPC near 0.025 **when $r$ is close to zero**. Be careful with that
 qualifier: the exact MPC is the annuity factor of §4.3,
-$\frac{r}{1+r}\big/\left[1-(1+r)^{-T}\right]$, which at $r=0.04$ and $T=40$ is **0.049** —
+$\frac{r}{1+r}\big/\left[1-(1+r)^{-T}\right]$, which at $r=0.04$ and $T=40$ is **0.049**
+($0.04/1.04=0.03846$; $1.04^{-40}=0.2083$; $0.03846/0.7917=0.0486$) —
 nearly twice $1/T$, because discounting concentrates the windfall's value in the near years.
 The $1/T$ rule is the $r\to0$ limit, not the general answer. Both are checked in
-`check_consumption.py`. Either way the order of magnitude is the point: that is the sense in
+`check_consumption.py`.
+
+Why $1/T$ is the $r\to0$ limit. Multiply out the denominator: the MPC is
+$\frac{r}{(1+r)\left[1-(1+r)^{-T}\right]}=\frac{r}{g(r)}$ with $g(r)\equiv(1+r)-(1+r)^{1-T}$.
+At $r=0$, $g=1-1=0$, and its derivative $g'(r)=1-(1-T)(1+r)^{-T}$ equals $1-(1-T)=T$; so to
+first order $g(r)\simeq Tr$ and the MPC is $\frac{r}{Tr}=\frac1T$. For $r>0$ the MPC exceeds
+$1/T$: $g''(r)=-T(T-1)(1+r)^{-T-1}\le0$, so $g$ is concave and lies below its tangent $Tr$.
+
+![The windfall MPC against the horizon: exact annuity factor and the 1/T rule](fig/fig_c04_horizon.svg)
+*Read the gap between the blue and the dotted line: they agree at $T=2$ (0.510 against 0.500), but by
+$T=40$ the exact MPC is 0.049 against 0.025, and as $T$ grows it levels off at $r/(1+r)=0.038$
+instead of going to zero.*
+
+Either way the order of magnitude is the point: that is the sense in
 which the permanent income
 hypothesis predicts a **very small** response to windfalls — and it is the prediction that the
 empirical literature has had the most trouble with, since estimated MPCs out of tax rebates
@@ -82,12 +106,17 @@ initial assets $a_0$:
 
 $$\sum_{t=0}^{T-1}\frac{c}{(1+r)^t} = (1+r)a_0 + \sum_{t=0}^{T-1}\frac{y_t}{(1+r)^t} \equiv W$$
 
-The left side is a finite geometric series with ratio $1/(1+r)$:
+The left side is $c$ times a finite geometric series with ratio $q\equiv1/(1+r)$. Its sum,
+from first principles: call it $S=1+q+\dots+q^{T-1}$; multiply by $q$,
+$qS=q+q^2+\dots+q^{T}$; subtract, and every term but the first and last cancels,
+$S-qS=1-q^{T}$; divide by $1-q$, $S=\dfrac{1-q^T}{1-q}$. Now substitute $q$:
 
 $$\sum_{t=0}^{T-1}\frac{1}{(1+r)^t} = \frac{1-(1+r)^{-T}}{1-(1+r)^{-1}}
 = \frac{1+r}{r}\left[1-(1+r)^{-T}\right]$$
 
-so
+(the last step uses $1-\frac{1}{1+r}=\frac{r}{1+r}$, whose reciprocal is $\frac{1+r}{r}$). The
+budget constraint is therefore $c\cdot\frac{1+r}{r}\left[1-(1+r)^{-T}\right]=W$; divide both sides
+by the bracketed series, so
 
 $$\boxed{\;c = \frac{r}{1+r}\cdot\frac{W}{1-(1+r)^{-T}}\;}$$
 
@@ -106,9 +135,11 @@ Two immediate corollaries:
   $\frac{r}{1+r}$. At $r=0.04$ that is **0.038** — essentially the $1/T$ intuition of §4.2, made
   exact.
 - **MPC out of a permanent income rise** $\Delta$ per period forever raises $W$ by
-  $\Delta\frac{1+r}{r}$, so consumption rises by exactly $\Delta$: **MPC = 1**.
+  $\Delta\frac{1+r}{r}$, so consumption rises by exactly $\Delta$: **MPC = 1**. (The rise in $W$
+  is $\Delta$ times the infinite series $\sum_{t\ge0}(1+r)^{-t}=\frac{1}{1-q}=\frac{1+r}{r}$, the
+  $T\to\infty$ limit of $S$; multiply by $\frac{r}{1+r}$ and the two fractions cancel to 1.)
 
-A factor of **26** between the two MPCs at this calibration. That is the permanent income
+A factor of **26** between the two MPCs at this calibration: $1\big/\frac{r}{1+r}=\frac{1+r}{r}=\frac{1.04}{0.04}=26$. That is the permanent income
 hypothesis in one number.
 
 ## 4.4 Consumption smoothing, quantified
@@ -126,6 +157,11 @@ that the degree of smoothing depends entirely on the **persistence** of the shoc
 sharp, testable and largely confirmed prediction — and the reason empirical work on consumption
 spends most of its effort on decomposing income into permanent and transitory components.
 
+![Income with transitory noise and a permanent step, and the PIH consumption path](fig/fig_c04_smoothing.svg)
+*Read the blue line against the orange: each transitory unit moves consumption by only 0.038,
+so it is nearly flat through the noise, and the permanent +10 at $t=30$ moves it by the full 10
+(simulated with $r=\rho=4\%$ and transitory shocks of s.d. 5).*
+
 ## 4.5 The random walk, stated
 
 Under uncertainty, quadratic utility and $\beta(1+r)=1$, the Euler equation becomes
@@ -134,7 +170,12 @@ $$u'(c_t) = \mathbb{E}_t\left[u'(c_{t+1})\right]
 \quad\Longrightarrow\quad
 c_t = \mathbb{E}_t\left[c_{t+1}\right]$$
 
-because with quadratic $u$, marginal utility is linear, so the expectation passes through.
+because with quadratic $u$, marginal utility is linear, so the expectation passes through. Step
+by step: $\beta(1+r)=1$ removes the factor in front of the expectation in
+$u'(c_t)=\beta(1+r)\mathbb{E}_t[u'(c_{t+1})]$. Take $u(c)=c-\frac{b}{2}c^2$, so $u'(c)=1-bc$. The
+expectation of a linear function is the function of the expectation,
+$\mathbb{E}_t[1-bc_{t+1}]=1-b\,\mathbb{E}_t[c_{t+1}]$, so the Euler equation reads
+$1-bc_t=1-b\,\mathbb{E}_t[c_{t+1}]$; subtract 1 and divide by $-b$.
 Therefore
 
 $$\boxed{\;c_{t+1}=c_t+\epsilon_{t+1},\qquad \mathbb{E}_t[\epsilon_{t+1}]=0\;}$$

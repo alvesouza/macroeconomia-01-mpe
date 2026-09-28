@@ -6,7 +6,7 @@ date: 2026-09-15
 # 10. Optimal monetary policy: the third line on the diagram
 
 **Article: §11 and §12, equations (33)–(35), Figure 14, printed pages 521–523.** Up:
-[[00-index]] · Prev: [[09-deleveraging]] · Rules: [[09_adas_politica]]
+[[00-index]] · Prev: [[09-deleveraging]] · Next: [[11-three-schools-and-market-clearing]] · Rules: [[09_adas_politica]]
 
 Up to here the model said what happens. This note says what *should* happen, and the
 answer is a third straight line — the IT curve — drawn on the same axes as AS and AD.
@@ -35,6 +35,12 @@ preferences rather than being posited. Three readings:
 $$\frac{\partial}{\partial\theta}\left(\frac{\theta}{\kappa}\right)>0,\qquad
 \frac{\partial}{\partial\alpha}\left(\frac{\theta}{\kappa}\right)>0$$
 
+Both signs in one line each. Substitute $\kappa$ from (17):
+$\theta/\kappa=\theta\alpha/[(1-\alpha)(\sigma^{-1}+\eta)]$. Its derivative in $\theta$ is
+$1/\kappa>0$. In $\alpha$, the quotient rule gives
+$\frac{d}{d\alpha}\frac{\alpha}{1-\alpha}=\frac{(1-\alpha)+\alpha}{(1-\alpha)^2}=\frac{1}{(1-\alpha)^2}$,
+so $\partial(\theta/\kappa)/\partial\alpha=\theta/[(\sigma^{-1}+\eta)(1-\alpha)^2]>0$.
+
 More rigidity (higher $\alpha$, lower $\kappa$) means **more** weight on price stability.
 The article's phrasing (p. 522): "The smaller the fraction [of firms that adjust], the
 greater the weight to give to price stability." The logic is that with few adjusters, a
@@ -62,16 +68,19 @@ every shock process and the rule is no longer a rule.
 The alternative, following Giannoni and Woodford (2002), is a **targeting rule**:
 a relationship between the target variables that the instrument must be moved to satisfy,
 whatever the shock. Derive it by substituting the AS curve (17) into (33) to eliminate
-prices, since $p-p^e=\kappa(y-y_n)$:
+prices, since $p-p^e=\kappa(y-y_n)$, so $(p-p^e)^2=\kappa^2(y-y_n)^2$; then cancel one
+$\kappa$, $\kappa^2/\kappa=\kappa$:
 
 $$L=\frac{1}{2}\left(y-y_e\right)^2+\frac{\theta}{2\kappa}\kappa^2\left(y-y_n\right)^2
 =\frac{1}{2}\left(y-y_e\right)^2+\frac{\theta\kappa}{2}\left(y-y_n\right)^2$$
 
-Minimise over $y$ — the central bank can pick any $y$ it likes by sliding AD:
+Minimise over $y$ — the central bank can pick any $y$ it likes by sliding AD. By the
+chain rule $\frac{d}{dy}\frac12(y-x)^2=(y-x)$ for either target $x$:
 
 $$\frac{dL}{dy}=\left(y-y_e\right)+\theta\kappa\left(y-y_n\right)=0$$
 
-Substitute $\kappa(y-y_n)=p-p^e$ back in:
+The second derivative is $1+\theta\kappa>0$, so this is a minimum. Write
+$\theta\kappa(y-y_n)=\theta\cdot\kappa(y-y_n)$ and substitute $\kappa(y-y_n)=p-p^e$ back in:
 
 $$\boxed{\;\left(y-y_e\right)+\theta\left(p-p^e\right)=0\;} \tag{34}$$
 
@@ -83,7 +92,8 @@ spending, and whether it is temporary, permanent or merely expected.
 
 ## 10.3 The IT line as geometry
 
-Rewrite (34) as a line in the $(y,p)$ plane:
+Rewrite (34) as a line in the $(y,p)$ plane: subtract $(y-y_e)$ from both sides and
+divide by $\theta$:
 
 $$p-p^e=-\frac{1}{\theta}\left(y-y_e\right)$$
 
@@ -111,11 +121,19 @@ The procedure, which is all of Aula 9 in four steps:
 
 Solve steps 3 and 4 for the case where the trade-off is real. Take
 $d\mu>0$, so $y_n$ falls by $d\mu/(\sigma^{-1}+\eta)$ while $y_e$ stays put. Solve AS and
-IT together:
+IT together. Insert AS, $p-p^e=\kappa(y-y_n)$, into (34):
 
 $$y-y_e=-\theta\kappa\left(y-y_n\right)\;\Longrightarrow\;y=\frac{y_e+\theta\kappa\,y_n}{1+\theta\kappa}$$
 
-so that
+(expand the right side to $-\theta\kappa y+\theta\kappa y_n$, add $\theta\kappa y+y_e$ to
+both sides to get $(1+\theta\kappa)y=y_e+\theta\kappa y_n$, and divide.) Subtract $y_e$,
+writing it as $(1+\theta\kappa)y_e/(1+\theta\kappa)$:
+
+$$y-y_e=\frac{\theta\kappa\,(y_n-y_e)}{1+\theta\kappa},\qquad
+p-p^e=\kappa(y-y_n)=\frac{\kappa\,(y_e-y_n)}{1+\theta\kappa},$$
+
+the second by the same step with $y_n$ written as $(1+\theta\kappa)y_n/(1+\theta\kappa)$.
+Finally insert $y_n-y_e=-d\mu/(\sigma^{-1}+\eta)$ (§3.4, starting from $y_n=y_e$), so that
 
 $$\boxed{\;y-y_e=-\frac{\theta\kappa}{1+\theta\kappa}\cdot\frac{d\mu}{\sigma^{-1}+\eta},
 \qquad
@@ -131,11 +149,22 @@ which are the two extreme points of [[06-markup-shocks]] §6.3:
 | Pure output targeting | $\to0$ | $y=y_e$, prices take the whole hit | $E'''$ |
 
 With the article's own numbers ($\theta=8$, $\alpha=0.66$, $\sigma=0.5$, $\eta=0.2$, so
-$\kappa\simeq1.13$), $\theta\kappa\simeq9.1$ and only about **10%** of the shock is
-allowed into prices. A welfare-based central bank in this model is close to, but not
+$\kappa\simeq1.13$), $\theta\kappa=8\times1.133\simeq9.07$, so $1/(1+\theta\kappa)=1/10.07\simeq0.099$,
+and only about **10%** of the shock is allowed into prices. A welfare-based central bank in this model is close to, but not
 identical with, a strict inflation targeter — and Fig. 14 draws it that way, with a
 relatively flat IT and the optimum $E''$ requiring the nominal rate to be **raised**
 relative to the no-policy outcome $E'$.
+
+Why raised, in two lines. At $E'$ the price rise is $-\kappa\,dy_n/(1+\sigma\kappa)$
+([[06-markup-shocks]] §6.2); at the optimum it is $-\kappa\,dy_n/(1+\theta\kappa)$. With
+$\theta>\sigma$ the optimum has the smaller price rise, so it lies lower on AS′, and AD
+must move down, which means a higher $i$. How much: along AD with $\bar p$ fixed,
+$dy=-\sigma\,di-\sigma\,dp$, so $di=-(dy+\sigma\,dp)/\sigma$. With $dy_n=-1$ the optimum is
+$(dy,dp)=(-0.90,+0.11)$, so $di=-(-0.90+0.06)/0.5\simeq1.69$ points. That is less than the
+2 points that full price stability ($E''$) would need.
+
+![Optimal policy after a mark-up shock](fig/fig_b10_it.svg)
+*The optimum is where AS′ crosses the flat IT line, at (−0.90, +0.11), not at E′ where AS′ meets the unchanged AD. The solid AD through the optimum shows the 1.69-point rise that gets there.*
 
 One line in the article deserves emphasis (p. 522): a bank *less* concerned with price
 stability — IT steeper than AD — should **lower** the nominal rate after the same shock.
@@ -153,6 +182,14 @@ with targeting rule $\left(y-y_e\right)+\phi\left(p-p^e\right)=0$ and IT slope $
 
 - $\phi$ large ⇒ flat IT ⇒ a hawk, tolerating output losses to hold the price level;
 - $\phi$ small ⇒ steep IT ⇒ a dove, tolerating price movements to hold output.
+
+Repeating §10.4 with $\phi$ in place of $\theta$, the share of a mark-up shock let into
+prices is $1/(1+\phi\kappa)$. The no-policy point $E'$ lets in $1/(1+\sigma\kappa)$. So
+the bank raises $i$ iff $1/(1+\phi\kappa)<1/(1+\sigma\kappa)$, i.e. iff $\phi>\sigma$, and
+cuts iff $\phi<\sigma$. This is the sign result of §10.4 stated as an inequality.
+
+![Share of the shock into prices against the mandate](fig/fig_b10_share.svg)
+*Follow a curve from left to right: the share into prices falls as φ grows. It equals the no-policy 0.64 at φ = σ = 0.5, the point where the sign of the optimal rate move flips, and it is 0.099 (α = 0.66) or 0.146 (α = 0.75) at the welfare weight φ = θ = 8.*
 
 The welfare-based benchmark is $\phi=\theta$, and the article is careful to note why one
 might not use it (p. 522): a committee has heterogeneous preferences, and a general

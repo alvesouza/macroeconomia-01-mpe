@@ -50,7 +50,14 @@ written per worker:
 
 $$= \frac{(1-\delta)K_t+sY_t}{L_t}\cdot\frac{L_t}{L_{t+1}}-k_t \qquad\text{(rearranging)}$$
 
-and use Assumption 4.5, $L_{t+1}=(1+n)L_t$, so $L_t/L_{t+1}=1/(1+n)$:
+Split the first fraction term by term and use the per-worker definitions:
+
+$$= \left[(1-\delta)\frac{K_t}{L_t}+s\frac{Y_t}{L_t}\right]\frac{L_t}{L_{t+1}}-k_t
+= \big[(1-\delta)k_t+s\,y_t\big]\frac{L_t}{L_{t+1}}-k_t
+= \big[(1-\delta)k_t+s f(k_t)\big]\frac{L_t}{L_{t+1}}-k_t$$
+
+(the last step uses $y_t=f(k_t)$ from 4.2.1), and use Assumption 4.5, $L_{t+1}=(1+n)L_t$, so
+$L_t/L_{t+1}=L_t/\big((1+n)L_t\big)=1/(1+n)$:
 
 $$\boxed{\;\Delta k_{t+1} = \frac{(1-\delta)k_t+s f(k_t)}{1+n}-k_t\;} \tag{4.2.2, exact}$$
 
@@ -65,6 +72,10 @@ Expand the exact form over the common denominator:
 
 $$\Delta k_{t+1} = \frac{(1-\delta)k_t+sf(k_t)-(1+n)k_t}{1+n}
 = \frac{sf(k_t)-(\delta+n)k_t}{1+n}$$
+
+The two operations: first write $k_t=\dfrac{(1+n)k_t}{1+n}$ so both terms share the
+denominator; then collect the $k_t$ terms in the numerator,
+$(1-\delta)k_t-(1+n)k_t=(1-\delta-1-n)k_t=-(\delta+n)k_t$.
 
 so the exact change is the familiar expression **divided by $1+n$**:
 
@@ -86,6 +97,8 @@ $$\Delta k^{\text{approx}} - \Delta k^{\text{exact}}
 = \left(sf-(\delta+n)k\right)\left(1-\frac{1}{1+n}\right)
 = \frac{n}{1+n}\left(sf-(\delta+n)k\right)$$
 
+(first equality: factor out the common bracket; second: $1-\frac{1}{1+n}=\frac{1+n-1}{1+n}=\frac{n}{1+n}$.)
+
 with $n=0.01$ the approximation overstates each period's movement by about **1%** of that
 movement. Negligible for one period; it accumulates into a visibly faster transition over
 decades, which the companion overlays. Quantified in `check_solow.py`.
@@ -101,6 +114,9 @@ Kurlat's interpretation of (4.2.2), which is the sentence to be able to say:
 - $sf(k_t)$ is **actual investment per worker**: output per worker times the saving rate.
 - $(\delta+n)k_t$ is **break-even investment**: what must be invested just to hold $k$ still. Of
   it, $\delta k$ replaces machines that wore out and $nk$ equips the new workers who arrived.
+
+![Solow diagram: s f(k), the break-even line (δ+n)k and the trap line δk](fig/fig_03_diagram.svg)
+*The vertical gap between the curve and the solid line is (up to the factor $1/(1+n)$) $\Delta k$; the green sliver $nk$ is the part of break-even that equips new workers. Drop it and the crossing moves from 6.09 to 8.00.*
 
 That is why $\delta$ and $n$ appear **together and additively** — they are two reasons the same
 stock has to be topped up, and the model cannot tell them apart. A rise in $n$ and a rise in
@@ -118,8 +134,15 @@ Start from $k=K/L$ and differentiate with respect to time using the quotient rul
 $$\dot k = \frac{\dot K L - K\dot L}{L^2} = \frac{\dot K}{L}-\frac{K}{L}\frac{\dot L}{L}
 = \frac{\dot K}{L}-nk$$
 
-with $n\equiv\dot L/L$. The continuous-time accumulation identity is
-$\dot K = I-\delta K = sY-\delta K$, so $\dot K/L = sf(k)-\delta k$ and
+with $n\equiv\dot L/L$. Operation by operation: the quotient rule gives
+$\frac{d}{dt}\frac{K}{L}=\frac{\dot KL-K\dot L}{L^2}$; split the fraction into
+$\frac{\dot KL}{L^2}-\frac{K\dot L}{L^2}$; cancel one $L$ in the first term and write the second
+as $\frac{K}{L}\cdot\frac{\dot L}{L}$; substitute $K/L=k$ and $\dot L/L=n$.
+
+The continuous-time accumulation identity is
+$\dot K = I-\delta K = sY-\delta K$, so $\dot K/L = sf(k)-\delta k$ (divide by $L$:
+$sY/L=sy=sf(k)$ and $\delta K/L=\delta k$) and, substituting into the line above,
+$\dot k = sf(k)-\delta k-nk$:
 
 $$\boxed{\;\dot k = s f(k)-(\delta+n)k\;}$$
 
@@ -141,6 +164,12 @@ Divide the continuous-time equation by $k$:
 
 $$\frac{\dot k}{k} = \frac{s f(k)}{k}-(\delta+n)$$
 
+(the second term: $(\delta+n)k/k=\delta+n$.) For Cobb–Douglas the first term is
+$s\,k^{\alpha}/k=s\,k^{\alpha-1}$.
+
+![s f(k)/k falling against the flat line δ+n; the gap is the growth rate of k](fig/fig_03_growth_rate.svg)
+*Read the vertical gap: 14.0% a year at $k=1$, 3.6% at $k=3$, zero at $k_{ss}=6.09$ — growth slows as capital accumulates.*
+
 This is the more useful form for three reasons.
 
 1. **It plots as a decreasing curve against a horizontal line.** $sf(k)/k = sk^{\alpha-1}$ is
@@ -151,6 +180,8 @@ This is the more useful form for three reasons.
 3. **The Cobb–Douglas case gives the growth rate of output free.** Since $y=k^{\alpha}$,
    $\dot y/y = \alpha\,\dot k/k$, so output per worker grows at $\alpha$ times the rate of capital
    per worker — always slower, and the gap is exactly the capital share.
+   The steps: take logs, $\ln y=\alpha\ln k$; differentiate both sides with respect to time,
+   using $\frac{d}{dt}\ln x=\dot x/x$ (chain rule), to get $\dot y/y=\alpha\,\dot k/k$.
 
 ## 3.6 What to be able to do, cold
 

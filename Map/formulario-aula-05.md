@@ -98,7 +98,7 @@ $$\boxed{\ \varepsilon^{F}
 ## C. Oferta de trabalho dinâmica — §7.4
 
 $$\frac{u_\ell(c_1,\ell_1)}{u_\ell(c_2,\ell_2)}
-= \frac{w_1}{w_2}\cdot\frac{1}{\beta(1+r)}$$
+= \beta(1+r)\,\frac{w_1}{w_2}$$
 
 Choque **transitório** de salário → horas respondem muito (Frisch).
 Choque **permanente** → horas quase não respondem (efeito renda cancela).
@@ -160,6 +160,14 @@ $$\frac{\partial m}{\partial V} = \alpha\,\frac{m}{V} = \underbrace{\alpha q}_{\
 | $T$, plano $(\ell,c)$ | intercepto | **translada** a reta |
 | $\theta$, plano $(u,v)$ | variável endógena | **move ao longo** da Beveridge |
 | $\mu$ ou $s$, plano $(u,v)$ | parâmetro de fluxo | **desloca** a Beveridge |
+
+![Slutsky decomposition with log-log preferences](aula-05-trabalho/fig/fig_slutsky_loglog.svg)
+*$\ln c+1.5\ln\ell$ with no non-wage income ($T=\pi=0$): the wage doubles, substitution (A→B)
+cuts leisure to 0.455, income (B→C) restores 0.60. Vertical supply.*
+
+![Beveridge curve: movement along versus shift](aula-05-trabalho/fig/fig_beveridge_along_vs_shift.svg)
+*Drawn in the notes' notation: $A_m=\mu$, $\lambda=s$, $1-\xi=\alpha$. Along the curve $\theta=v/u$
+changes (rays from the origin). A lower $A_m$ moves the whole curve out.*
 
 ## F. Calibrações de referência
 

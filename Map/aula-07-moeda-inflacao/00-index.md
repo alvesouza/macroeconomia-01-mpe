@@ -43,6 +43,7 @@ and locates the Laffer peak at $1/a$ for Cagan demand both analytically and nume
 |---|---|---|
 | [The Trip to the Bank](companion-baumol-tobin.html) | the two costs trading off, the square-root optimum, and both elasticities read off the same curve | [[02-money-demand]] |
 | [The Inflation Tax](companion-seigniorage.html) | revenue as rate times base, the base eroding faster than the rate rises, and the Laffer peak at $1/a$ | [[04-seigniorage-and-costs]] |
+| [Who Moves When Money Moves](companion-money-regimes.html) | the one money-market equation solved for $p$, for $(Y,i)$ or for $M$, as the instrument and price flexibility switch; neutrality, the $i\cdot(M_0/M_1)^2$ and $(i_0/i_1)^{1/2}$ results, and the horizontal LM | [[03-equilibrium-and-neutrality]] |
 
 ---
 

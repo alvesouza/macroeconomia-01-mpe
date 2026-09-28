@@ -12,7 +12,7 @@ Benigno solves the model with a picture. This note also solves it with algebra, 
 the closed form turns every later figure into a signed and sized statement. Everything
 in notes 5 to 8 is one substitution into the two boxed results below.
 
-> **Companion:** [The Three Lines](companion-as-ad.html) — move $i$, $ar p$, $a$, $\mu$ and
+> **Companion:** [The Three Lines](companion-as-ad.html) — move $i$, $\bar p$, $a$, $\mu$ and
 > $g$ and watch the two curves, the IT line and both gaps respond. The read-outs are the closed
 > forms of §4.2 evaluated live.
 
@@ -41,24 +41,43 @@ nominal and real interest rate at the natural level." Whenever a figure shows bo
 curves crossing at $y_n$ with $p=p^e$, monetary policy has already been assumed to be
 doing exactly the right thing.
 
+![AS and AD at the initial equilibrium](fig/fig_b04_equilibrium.svg)
+*At the article's calibration AS rises with slope κ = 1.13 and AD falls with slope −1/σ = −2; both pass through E only because policy has set i = rₙ and p̄ = pᵉ.*
+
 ## 4.2 Solving it
 
-Substitute (20) into (21), writing $p=p^e+\kappa(y-y_n)$:
+Substitute (20) into (21), writing $p=p^e+\kappa(y-y_n)$. Inside the bracket,
+$-(\bar p-p)=-\bar p+p=-\bar p+p^e+\kappa(y-y_n)$:
 
 $$y=\bar y_n+(g-\bar g)-\sigma\left[i-\bar p+p^e+\kappa(y-y_n)-(\bar\tau_c-\tau_c)-\rho\right]$$
 
-Collect the $y$ terms on the left:
+Pull the $\kappa(y-y_n)$ term out of the bracket; multiplied by $-\sigma$ it becomes
+$-\sigma\kappa y+\sigma\kappa y_n$:
+
+$$y=\bar y_n+(g-\bar g)-\sigma\kappa\,y+\sigma\kappa\,y_n-\sigma\left[i-\rho-(\bar\tau_c-\tau_c)-\bar p+p^e\right]$$
+
+Add $\sigma\kappa y$ to both sides, so the $y$ terms are collected on the left:
 
 $$y\left(1+\sigma\kappa\right)=\bar y_n+(g-\bar g)+\sigma\kappa\,y_n-\sigma\left[i-\rho-(\bar\tau_c-\tau_c)-\bar p+p^e\right]$$
 
 $$\boxed{\;y=\frac{\bar y_n+(g-\bar g)+\sigma\kappa\,y_n-\sigma\left[i-\rho-(\bar\tau_c-\tau_c)-(\bar p-p^e)\right]}{1+\sigma\kappa}\;}$$
 
 Now subtract $y_n$ from both sides. Multiply $y_n$ by $(1+\sigma\kappa)/(1+\sigma\kappa)$
-so the $\sigma\kappa y_n$ terms cancel:
+so it sits over the same denominator; the numerator loses $y_n+\sigma\kappa y_n$, and
+the $\sigma\kappa y_n$ terms cancel:
+
+$$y-y_n=\frac{\bar y_n+(g-\bar g)+\sigma\kappa\,y_n-y_n-\sigma\kappa\,y_n-\sigma\left[\cdots\right]}{1+\sigma\kappa}$$
 
 $$y-y_n=\frac{\bar y_n-y_n+(g-\bar g)-\sigma\left[i-\rho-(\bar\tau_c-\tau_c)-(\bar p-p^e)\right]}{1+\sigma\kappa}$$
 
-Factor out $\sigma$ from the numerator and give the bracket a name:
+Factor out $\sigma$ from the numerator: the first two terms become
+$\sigma\cdot\sigma^{-1}(\bar y_n-y_n)$ and $\sigma\cdot\sigma^{-1}(g-\bar g)$, and opening
+the bracket gives $\sigma[-i+\rho+(\bar\tau_c-\tau_c)+(\bar p-p^e)]$:
+
+$$y-y_n=\frac{\sigma}{1+\sigma\kappa}\Big[\underbrace{\rho+\sigma^{-1}(\bar y_n-y_n)+\sigma^{-1}(g-\bar g)+(\bar\tau_c-\tau_c)}_{\equiv\,r_n}-i+(\bar p-p^e)\Big]$$
+
+Give the underbraced sum a name, and multiply the gap by $\kappa$ to get prices through
+(20), $p-p^e=\kappa(y-y_n)$:
 
 $$\boxed{\;y-y_n=\frac{\sigma}{1+\sigma\kappa}\Big[\,r_n-i+(\bar p-p^e)\,\Big],
 \qquad p-p^e=\frac{\sigma\kappa}{1+\sigma\kappa}\Big[\,r_n-i+(\bar p-p^e)\,\Big]\;}$$
@@ -85,13 +104,25 @@ $\bar p=p^e$ in the boxed results and both gaps are zero. Read its four terms:
 - $(\bar\tau_c-\tau_c)$ — an expected consumption-tax rise acts exactly like expected
   inflation.
 
+![The natural rate, term by term](fig/fig_b04_rn.svg)
+*Illustrative numbers with σ = 0.5: expected output 2% below current output contributes σ⁻¹·(−2) = −4 points, enough to outweigh ρ = 1, temporary spending and a rising consumption-tax path, so rₙ = −1.75%.*
+
 The whole of §6 and §7 can now be stated in one sentence: *a shock moves $y_n$ and
 $r_n$; policy is right when $i$ moves to match the new $r_n$; the residual gap is
 $\sigma(r_n-i)/(1+\sigma\kappa)$.*
 
 ## 4.4 The comparative-statics machine
 
-Differentiate the two boxed lines. This is the only computation needed in notes 5 to 8:
+Differentiate the two boxed lines. This is the only computation needed in notes 5 to 8.
+Start from the gap line, holding taxes fixed. Differentiating $r_n$ gives
+$dr_n=\sigma^{-1}(d\bar y_n-dy_n)+\sigma^{-1}(dg-d\bar g)$, so
+
+$$d(y-y_n)=\frac{\sigma}{1+\sigma\kappa}\left[\sigma^{-1}(d\bar y_n-dy_n)+\sigma^{-1}(dg-d\bar g)-di+d\bar p\right]$$
+
+and multiplying the $\sigma$ into the bracket cancels each $\sigma^{-1}$ (second line
+below). For output, add $dy_n=(1+\sigma\kappa)dy_n/(1+\sigma\kappa)$ to the gap: the
+$-dy_n$ in the numerator and the $+dy_n$ from $1\cdot dy_n$ cancel, leaving
+$\sigma\kappa\,dy_n$ (first line):
 
 $$dy=\frac{d\bar y_n+\sigma\kappa\,dy_n+(dg-d\bar g)-\sigma\,di+\sigma\,d\bar p}{1+\sigma\kappa}$$
 
@@ -114,6 +145,9 @@ Four facts fall straight out, and they are worth stating before any shock is nam
    long-run price level by one point do the *same thing* to demand. With $i$ stuck at
    zero, only the second survives — that is the entire content of the Krugman exit in
    [[08-liquidity-trap]].
+
+![How a supply shock splits](fig/fig_b04_split.svg)
+*Fact 1 as a function of rigidity: at α = 0.66, σκ = 0.567, so output follows 0.567/1.567 = 36% of a move in yₙ and the gap absorbs the other 64%. The curves cross at σκ = 1.*
 
 ## 4.5 Slopes, redrawn as economics
 
@@ -147,11 +181,18 @@ raises the long-run mark-up, cutting $\bar c_n$ and hence $\bar y_n$; and it mak
 current consumption cheap relative to future, raising demand. Both are in §4.4 already,
 so the net sign is a two-line calculation rather than a judgement call. From (13),
 $\bar\mu$ contains $\bar\tau_c$, so $d\bar y_n=-d\bar\tau_c/(\sigma^{-1}+\eta)$; and
-$(\bar\tau_c-\tau_c)$ sits inside $r_n$ with coefficient one, worth $+\sigma\,d\bar\tau_c$:
+$(\bar\tau_c-\tau_c)$ sits inside $r_n$ with coefficient one, worth $+\sigma\,d\bar\tau_c$.
+In the $dy$ line of §4.4, $d\bar y_n$ enters with coefficient $1/(1+\sigma\kappa)$ and the
+tax term with $\sigma/(1+\sigma\kappa)$; $y_n$ does not move, because $\bar\tau_c$ is a
+future tax. Add the two, then multiply numerator and denominator by $\sigma^{-1}+\eta$,
+and use $\sigma(\sigma^{-1}+\eta)-1=1+\sigma\eta-1=\sigma\eta$:
 
 $$\frac{dy}{d\bar\tau_c}=\frac{-\dfrac{1}{\sigma^{-1}+\eta}+\sigma}{1+\sigma\kappa}
 =\frac{\sigma(\sigma^{-1}+\eta)-1}{(\sigma^{-1}+\eta)(1+\sigma\kappa)}
 =\frac{\sigma\eta}{(\sigma^{-1}+\eta)(1+\sigma\kappa)}\;\ge 0$$
+
+![The two channels of a future consumption tax](fig/fig_b04_taucbar.svg)
+*For each η, the orange bar (lower ȳₙ) and the blue bar (cheaper consumption today) nearly cancel. The net green bar is zero at η = 0 and 0.03 at the calibration.*
 
 So the intertemporal channel does dominate, as the article says — but only strictly, and
 it is exactly zero when $\eta=0$, which is Benigno's own remark on p. 515 that "with

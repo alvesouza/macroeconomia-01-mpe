@@ -31,7 +31,11 @@ about it".
 Runnable check: `check_solow.py`. It verifies the closed-form steady state against a
 simulated path, checks that the exact and approximate laws of motion agree to first order
 and quantifies where they part, confirms global stability from a grid of initial conditions,
-and reproduces the US Kaldor magnitudes from the model's own restrictions.
+and reproduces the US Kaldor magnitudes from the model's own restrictions. It also checks every
+intermediate algebra step written out in the notes (sympy, with a numeric fallback).
+
+Figures: `make_figures.py` draws every `fig/fig_0*.svg` embedded in notes 01–05 and asserts each
+number it labels before drawing.
 
 ## Interactive companions
 
@@ -39,6 +43,7 @@ and reproduces the US Kaldor magnitudes from the model's own restrictions.
 |---|---|---|
 | [The Solow Diagram](companion-solow.html) | $sf(k)$ against $(n+\delta)k$, the steady state moving as the parameters move, with the exact discrete path overlaid | [[03-fundamental-equation]] · [[04-steady-state-and-stability]] |
 | [Level, Not Rate](companion-transition.html) | a permanent rise in $s$: growth spikes, then dies; the level is permanently higher and the long-run growth rate is unchanged | [[05-comparative-statics]] |
+| [Two Economies, One Border](companion-unification.html) | Lista 2 Q1: North and South converge to their own steady states, then unify on the South's technology; per-worker winners and losers, the aggregate gain and its sources, and why $y^*_U<y^*_S$ | [[05-comparative-statics]] |
 
 ---
 

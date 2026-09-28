@@ -3,7 +3,7 @@
   fig_k7_1_oferta.pdf     -- 7.1(b): hours against the wage, three utility functions
   fig_k7_5_prescott.pdf   -- 7.5: leisure against the tax rate, and the hours gap
   fig_k7_6_equilibrio.pdf -- 7.6: vertical labour supply and the fall in the wage
-  fig_k7_7_beveridge.pdf  -- 7.7: the two experiments in (hat-U, V) space
+  fig_k7_7_beveridge.pdf  -- 7.7: the two experiments in (U', V) space
 
 pgf backend: the figure text is typeset by pdflatex with lmodern + cmap, so the
 final PDF stays fully copyable (no Type 3 fonts).
@@ -39,7 +39,7 @@ def fig_oferta():
 
     fig, ax = plt.subplots(figsize=(TEXTWIDTH_IN * 0.64, TEXTWIDTH_IN * 0.38))
     ax.plot(w, 1 - phi / w, color=AZUL, lw=1.6,
-            label=r"$u=c+\phi\log l$ (this exercise): $1-l=1-\phi/w$")
+            label=r"$u=c+\theta\log l$ (this exercise): $1-l=1-\theta/w$")
     ax.plot(w, np.full_like(w, 1 / (1 + alpha)), color=VERDE, lw=1.6,
             label=r"$u=\log c+\alpha\log l$: $1-l=1/(1+\alpha)$, flat")
     # a case where the income effect dominates: sigma > 1 in Kurlat's (7.2.4),
@@ -115,6 +115,8 @@ def fig_prescott():
 
 
 # ================================================= 7.6  labour market equilibrium
+# Labels use Kurlat's 7.6 notation (theta = leisure weight, alpha = capital share);
+# the variables below keep the code's names (alpha = leisure weight, theta = share).
 def fig_equilibrio():
     theta = 0.35
     L = np.linspace(0.05, 0.95, 400)
@@ -122,10 +124,10 @@ def fig_equilibrio():
 
     fig, ax = plt.subplots(figsize=(TEXTWIDTH_IN * 0.64, TEXTWIDTH_IN * 0.44))
     ax.plot(L, demanda, color=CINZA, lw=1.6,
-            label=r"labour demand $w=F_L=(1-\theta)L^{-\theta}$")
+            label=r"labour demand $w=F_L=(1-\alpha)L^{-\alpha}$")
 
-    for alpha, cor, rot in ((2.5, AZUL, r"$\alpha=2.5$ (leisure-loving)"),
-                            (0.5, VERM, r"$\alpha=0.5$ (work ethic)")):
+    for alpha, cor, rot in ((2.5, AZUL, r"$\theta=2.5$ (leisure-loving)"),
+                            (0.5, VERM, r"$\theta=0.5$ (work ethic)")):
         Ls = 1 / (1 + alpha)
         w = (1 - theta) * Ls ** (-theta)
         ax.axvline(Ls, color=cor, lw=1.5)
@@ -148,7 +150,7 @@ def fig_equilibrio():
     ax.legend(frameon=False, loc="lower left", fontsize=7.5)
     ax.spines[["top", "right"]].set_visible(False)
     ax.set_title(r"7.6 --- log-log preferences give \emph{vertical} labour supply "
-                 r"at $1/(1+\alpha)$", fontsize=8.5)
+                 r"at $1/(1+\theta)$", fontsize=8.5)
     fig.tight_layout()
     salvar(fig, "fig_k7_6_equilibrio.pdf")
 
@@ -162,9 +164,9 @@ def fig_beveridge():
     Ua = [x[2] for x in linhas_a]
     Va = [x[1] for x in linhas_a]
     ax.plot(Ua, Va, "-o", color=AZUL, lw=1.5, ms=4.5,
-            label=r"(a) better matching, $A\uparrow$ (U fixed)")
+            label=r"(a) better matching, $A\uparrow$ ($U$ fixed)")
     for (mult, V, Uh, f) in linhas_a[1:]:
-        ax.annotate(r"$A/A_0=%.1f$" % mult, xy=(Uh, V), fontsize=6.5,
+        ax.annotate(r"$A=%.1f$" % mult, xy=(Uh, V), fontsize=6.5,
                     xytext=(4, -8), textcoords="offset points", color=AZUL)
 
     Ub = [x[2] for x in linhas_b]
@@ -175,7 +177,7 @@ def fig_beveridge():
         ax.annotate(r"$U=%.2f$" % U, xy=(Uh, V), fontsize=6.5,
                     xytext=(-30, 3), textcoords="offset points", color=VERM)
 
-    ax.set_xlabel(r"after-hiring unemployment $\hat U$")
+    ax.set_xlabel(r"after-hiring unemployment $U'$")
     ax.set_ylabel(r"vacancies $V$")
     ax.legend(frameon=False, loc="lower right", fontsize=7.5)
     ax.spines[["top", "right"]].set_visible(False)

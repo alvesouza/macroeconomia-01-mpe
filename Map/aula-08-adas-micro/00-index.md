@@ -19,6 +19,7 @@ notes belong to this class, in what order, and what each one settles.
 
 | # | Note | Article | What it settles |
 |---|---|---|---|
+| 0 | [[benigno/11-three-schools-and-market-clearing]] | §1–§4, fn. 7 | **Start here for the big picture:** what market clearing means, and why original Keynesian, New Classical and New Keynesian disagree about it (Lista 7 Q1) |
 | 1 | [[benigno/01-household-and-ad]] | §3, eqs. (1)–(8) | The Euler equation becomes the AD curve. Why it slopes down for a reason that is **not** the IS-LM reason |
 | 2 | [[benigno/02-firms-and-as]] | §4, §4.1, eqs. (9)–(17) | Dixit–Stiglitz demand, mark-up pricing, the natural rate, and $p-p^e=\kappa(y-y_n)$ with $\kappa$ derived |
 | 3 | [[benigno/03-natural-and-efficient]] | §4.2–§4.4, eqs. (18)–(19) | The planner's problem and the subtraction $y_n-y_e=-\mu/(\sigma^{-1}+\eta)$ that organises all of Aula 9 |
@@ -28,6 +29,20 @@ Companions: [The Three Lines](benigno/companion-as-ad.html) drives notes 3 and 4
 
 Runnable check: `benigno/check_multipliers.py` (it covers the whole article, including the
 Aula 9 material).
+
+### The four pictures of this class
+
+![Two AD mechanisms](../benigno/fig/fig_b01_two_ads.svg)
+*Note 1: the New-Keynesian AD runs through the real rate, and money never appears. The IS-LM chain below it is a different model.*
+
+![AS slope and rigidity](../benigno/fig/fig_b02_kappa.svg)
+*Note 2: κ falls as α rises, so more rigidity gives a flatter AS through the same anchor (yₙ, pᵉ).*
+
+![What moves yₙ and yₑ](../benigno/fig/fig_b03_targets.svg)
+*Note 3: a and g move both targets by the same amount, while μ moves only yₙ. This is the subtraction that organises Aula 9.*
+
+![AS and AD at the initial equilibrium](../benigno/fig/fig_b04_equilibrium.svg)
+*Note 4: the two lines cross at (yₙ, pᵉ) only because policy has set i = rₙ and p̄ = pᵉ.*
 
 Rules file: [[08_adas_microfundamentos]]. Narration:
 [[Leituras/benigno-2015-adas-narrated.txt|the Benigno narration]], parts one to five.

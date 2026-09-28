@@ -80,11 +80,29 @@ $$B = C+R, \qquad M_1 = C+D$$
 
 Divide both by $D$ and substitute the ratios:
 
-$$\frac{B}{D}=c+\theta, \qquad \frac{M_1}{D}=c+1$$
+$$\frac{B}{D}=\frac{C}{D}+\frac{R}{D}=c+\theta, \qquad \frac{M_1}{D}=\frac{C}{D}+\frac{D}{D}=c+1$$
 
 Take the ratio, and $D$ cancels:
 
+$$\frac{M_1}{B}=\frac{M_1/D}{B/D}=\frac{c+1}{c+\theta}$$
+
 $$\boxed{\;\frac{M_1}{B} = \frac{c+1}{c+\theta} \;\equiv\; m\;}$$
+
+**The two derivatives, by the quotient rule.** For $\theta$ only the denominator moves:
+
+$$\frac{\partial m}{\partial \theta}=(c+1)\cdot\frac{\partial}{\partial\theta}(c+\theta)^{-1}
+=-\frac{c+1}{(c+\theta)^2}<0$$
+
+For $c$ both numerator and denominator move, each with derivative 1:
+
+$$\frac{\partial m}{\partial c}=\frac{1\cdot(c+\theta)-(c+1)\cdot 1}{(c+\theta)^2}
+=\frac{\theta-1}{(c+\theta)^2}$$
+
+which is negative exactly when $\theta<1$. And $m>1 \iff c+1>c+\theta \iff \theta<1$ (both
+denominators are positive, so cross-multiplying keeps the inequality).
+
+![Multiplier against the reserve ratio](fig/fig_07_multiplier_theta.svg)
+*Read off: $m$ falls from 4.00 at $\theta=0.10$ to 1.04 at $\theta=0.95$ and reaches exactly 1 at $\theta=1$; the higher-$c$ curve lies below for every $\theta<1$.*
 
 **Signs, each with its reason:**
 
@@ -99,6 +117,27 @@ deposit of 1 keeps $\theta$ and lends $1-\theta$; the borrower spends it, the re
 (keeping a fraction $c/(1+c)$ as currency), and so on. Summing the geometric series gives exactly
 $m$. Verified in `check_money.py` by simulating the chain term by term and comparing with the
 closed form.
+
+The sum, step by step. Write $s\equiv c/(1+c)$ for the currency share of every receipt, so
+$1-s=1/(1+c)$, and inject one unit of base.
+
+1. Round 0: the public keeps $s$ as currency and deposits $d_0=1-s$.
+2. Each round, a bank keeps $\theta d_k$ and lends $(1-\theta)d_k$; of that loan a share $s$ comes
+   back as currency and $1-s$ as a new deposit, so $d_{k+1}=(1-\theta)(1-s)\,d_k$.
+3. Deposits form a geometric series with ratio $q=(1-\theta)(1-s)<1$:
+$$D=\sum_{k\ge0}d_k=\frac{1-s}{1-(1-\theta)(1-s)}$$
+4. Substitute $1-s=1/(1+c)$ and put the denominator over $1+c$:
+$$1-\frac{1-\theta}{1+c}=\frac{(1+c)-(1-\theta)}{1+c}=\frac{c+\theta}{1+c}
+\quad\Longrightarrow\quad D=\frac{1/(1+c)}{(c+\theta)/(1+c)}=\frac{1}{c+\theta}$$
+5. Currency is the round-0 share plus $s$ times every loan:
+$$C=s+s(1-\theta)D=\frac{c}{1+c}\cdot\frac{(c+\theta)+(1-\theta)}{c+\theta}
+=\frac{c}{1+c}\cdot\frac{1+c}{c+\theta}=\frac{c}{c+\theta}$$
+6. Check the ratios: $C/D=c$ as assumed, reserves $R=\theta D=\theta/(c+\theta)$, and
+   $C+R=(c+\theta)/(c+\theta)=1=B$. Add currency and deposits:
+$$M_1=C+D=\frac{c+1}{c+\theta}=m$$
+
+![Deposit-expansion chain](fig/fig_07_deposit_chain.svg)
+*Read off: with $c=0.2$, $\theta=0.1$ the cumulative M1 climbs round by round to $m=4$, deposits to $1/(c+\theta)=3.33$ and currency to $c/(c+\theta)=0.67$.*
 
 **The honest caveat, and it matters after 2008.** The multiplier is an *identity given $c$ and
 $\theta$*, not a causal mechanism. When banks hold large excess reserves — as they have since

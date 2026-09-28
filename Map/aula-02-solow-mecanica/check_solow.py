@@ -14,8 +14,12 @@ Covered:
                              global stability; |G'(k_ss)| < 1; lambda = (1-alpha)(delta+n)
   05-comparative-statics     elasticities; the transition integral identity; the consumption
                              criterion f'(k_ss) vs delta+n
+  symbolic                   every intermediate step written out in notes 01-05 (sympy,
+                             numeric fallback at random points)
+  companion-unification      Lista 2 Q1 read-outs at three control vectors (landmarks at the
+                             list's values); unify() mirrors the page's JS model()
 
-Stdlib + numpy only. Run: python Map/aula-02-solow-mecanica/check_solow.py
+Stdlib + numpy + sympy (the symbolic step checks). Run: python Map/aula-02-solow-mecanica/check_solow.py
 """
 from __future__ import annotations
 
@@ -259,6 +263,199 @@ check_true("dc_ss/ds > 0 when f'(k_ss) > delta+n", c_ss(0.20 + 1e-5) > c_ss(0.20
 check_true("dc_ss/ds < 0 when f'(k_ss) < delta+n", c_ss(0.50 + 1e-5) < c_ss(0.50))
 check_true("c_ss is maximised at s = alpha",
            all(c_ss(s_gold) >= c_ss(x) - 1e-12 for x in np.linspace(0.05, 0.95, 400)))
+
+# ---------------------------------------------------------------------------
+print("\ncompanion-unification -- Lista 2 Q1")
+FIXED = dict(LN=10, LS=20, KS0=8000, aN=0.25, AN=4, aS=0.5, AS=5)
+UNIFY_DEFAULTS = dict(sN=0.16, sS=0.30, nN=0.03, nS=0.01, delta=0.05, KN0=100)
+
+
+def unify(sN, sS, nN, nS, delta, KN0, T=100):
+    """Every read-out of companion-unification.html, same names as its JS model().
+
+    sN, sS, nN, nS: saving and labour-growth rates; delta: common depreciation; KN0: North's
+    initial capital. Other parameters are the list's fixed values (FIXED). T: path length.
+    """
+    P = FIXED
+    fy = lambda A, a, k: A * k ** a
+    kss_ = lambda s, A, a, n: (s * A / (n + delta)) ** (1 / (1 - a))
+    L = P["LN"] + P["LS"]
+    r = dict(kN0=KN0 / P["LN"], kS0=P["KS0"] / P["LS"], kU=(KN0 + P["KS0"]) / L)
+    r["yN0"] = fy(P["AN"], P["aN"], r["kN0"])
+    r["yS0"] = fy(P["AS"], P["aS"], r["kS0"])
+    r["yU"] = fy(P["AS"], P["aS"], r["kU"])
+    r["kssN"] = kss_(sN, P["AN"], P["aN"], nN)
+    r["yssN"] = fy(P["AN"], P["aN"], r["kssN"])
+    r["kssS"] = kss_(sS, P["AS"], P["aS"], nS)
+    r["yssS"] = fy(P["AS"], P["aS"], r["kssS"])
+    r["Ysep"] = P["LN"] * r["yN0"] + P["LS"] * r["yS0"]
+    r["YU"] = L * r["yU"]
+    r["gainN"] = P["LN"] * (r["yU"] - r["yN0"])
+    r["gainS"] = P["LS"] * (r["yU"] - r["yS0"])
+    r["nU"] = (P["LN"] * nN + P["LS"] * nS) / L
+    r["kssU"] = kss_(sS, P["AS"], P["aS"], r["nU"])
+    r["yssU"] = fy(P["AS"], P["aS"], r["kssU"])
+    r["mpkNonS"] = P["aS"] * P["AS"] * r["kN0"] ** (P["aS"] - 1)
+    r["mpkS0"] = P["aS"] * P["AS"] * r["kS0"] ** (P["aS"] - 1)
+    # Exact difference equation, T periods, same as the page's chart.
+    step = lambda k, s, A, a, n: ((1 - delta) * k + s * fy(A, a, k)) / (1 + n)
+    kN, kS, kU = r["kN0"], r["kS0"], r["kU"]
+    for _ in range(T):
+        kN = step(kN, sN, P["AN"], P["aN"], nN)
+        kS = step(kS, sS, P["AS"], P["aS"], nS)
+        kU = step(kU, sS, P["AS"], P["aS"], r["nU"])
+    r["yN_T"], r["yS_T"], r["yU_T"] = (fy(P["AN"], P["aN"], kN), fy(P["AS"], P["aS"], kS),
+                                       fy(P["AS"], P["aS"], kU))
+    return r
+
+
+UNIFY_VECTORS = [UNIFY_DEFAULTS,
+                 dict(sN=0.25, sS=0.20, nN=0.01, nS=0.02, delta=0.08, KN0=500),
+                 dict(sN=0.10, sS=0.40, nN=0.05, nS=0.00, delta=0.03, KN0=5000)]
+
+u = unify(**UNIFY_DEFAULTS)
+for key, want, tol in [("kN0", 10, 1e-12), ("yN0", 7.113, 5e-4), ("kS0", 400, 1e-12),
+                       ("yS0", 100, 1e-9), ("kssN", 16, 1e-9), ("yssN", 8, 1e-9),
+                       ("kssS", 625, 1e-9), ("yssS", 125, 1e-9), ("kU", 270, 1e-9),
+                       ("yU", 82.16, 5e-3), ("YU", 2464.75, 5e-3), ("Ysep", 2071.13, 5e-3),
+                       ("nU", 1 / 60, 1e-12), ("kssU", 506.25, 1e-8), ("yssU", 112.5, 1e-9)]:
+    check(f"defaults: {key}", u[key], want, tol=tol)
+check_true("defaults: both start below their own SS (conditional convergence, both grow)",
+           u["kN0"] < u["kssN"] and u["kS0"] < u["kssS"])
+check_true("defaults: North gains, South loses per worker", u["yU"] > u["yN0"] and u["yU"] < u["yS0"])
+check_true("defaults: aggregate Y rises", u["YU"] > u["Ysep"])
+check_true("defaults: moved capital is more productive North (MPK)", u["mpkNonS"] > u["mpkS0"])
+check_true("defaults: unified economy starts below k*_U", u["kU"] < u["kssU"])
+check_true("defaults: y*_U < y*_S because n_U > n_S", u["yssU"] < u["yssS"] and u["nU"] > 0.01)
+
+for i, vec in enumerate(UNIFY_VECTORS):
+    u = unify(**vec)
+    tag = f"v{i}"
+    for side, s_, A_, a_, n_ in [("N", vec["sN"], 4, 0.25, vec["nN"]),
+                                 ("S", vec["sS"], 5, 0.5, vec["nS"]),
+                                 ("U", vec["sS"], 5, 0.5, u["nU"])]:
+        k_ = u["kss" + side]
+        check(f"{tag}: SS condition (n+delta)k* = sAk*^a, {side}",
+              (n_ + vec["delta"]) * k_, s_ * A_ * k_ ** a_, tol=1e-9 * max(1, k_))
+    check(f"{tag}: Y_U - (Y_N+Y_S) = North part + South part",
+          u["YU"] - u["Ysep"], u["gainN"] + u["gainS"], tol=1e-9)
+    u_long = unify(**vec, T=5000)
+    for side in "NSU":
+        check(f"{tag}: exact path converges to y*_{side}", u_long[f"y{side}_T"], u[f"yss{side}"], tol=1e-6)
+    print("    " + ", ".join(f"{k}={u[k]:.6f}" for k in
+                            ("kN0", "yN0", "kssN", "yssN", "kS0", "yS0", "kssS", "yssS", "kU", "yU",
+                             "Ysep", "YU", "gainN", "gainS", "nU", "kssU", "yssU", "mpkNonS",
+                             "mpkS0", "yN_T", "yS_T", "yU_T")))
+
+# ---------------------------------------------------------------------------
+print("\nsymbolic -- every intermediate step inserted in the notes (sympy)")
+import sympy as sp
+
+a_, s_, n_, d_, K_, L_, k_, lam_ = sp.symbols("alpha s n delta K L k lambda", positive=True)
+Ks, Ls = sp.symbols("K_t L_t", positive=True)
+
+
+def same(name, lhs, rhs):
+    """Pass if lhs - rhs simplifies to 0, else if it vanishes at 20 random points.
+
+    sympy cannot always simplify symbolic exponents like (s/(d+n))**(1/(1-a)); the numeric
+    fallback draws every free symbol from (0.05, 0.9), so alpha stays inside (0, 1).
+    """
+    diff = lhs - rhs
+    if sp.simplify(sp.expand_power_base(sp.expand(diff), force=True)) == 0:
+        check_true(name, True)
+        return
+    rng = np.random.default_rng(0)
+    syms = sorted(diff.free_symbols, key=str)
+    fn = sp.lambdify(syms, diff, "math")
+    ok = all(abs(fn(*rng.uniform(0.05, 0.9, len(syms)))) < 1e-9 for _ in range(20))
+    check_true(name + " (numeric, 20 random points)", ok)
+
+
+# 01: (1+g)^216 = 27 solved line by line; g vs its log approximation.
+g27 = math.exp(math.log(27) / 216) - 1
+check("01: g = e^(ln27/216) - 1", g27, 0.01538, tol=1e-5)
+check_true("01: (1+g)^216 == 27", abs((1 + g27) ** 216 - 27) < 1e-9)
+check("01: 0.35/3.2", 0.35 / 3.2, 0.109375)
+
+# 02: Cobb-Douglas partials, second partials, Inada rewrite, Euler via d/dlambda.
+Fs = K_ ** a_ * L_ ** (1 - a_)
+same("02: F_K = alpha Y/K", sp.diff(Fs, K_), a_ * Fs / K_)
+same("02: F_L = (1-alpha) Y/L", sp.diff(Fs, L_), (1 - a_) * Fs / L_)
+same("02: F_LL = -alpha(1-alpha) K^a L^(-a-1)", sp.diff(Fs, L_, 2),
+     -a_ * (1 - a_) * K_ ** a_ * L_ ** (-a_ - 1))
+same("02: K^(a-1) L^(1-a) = (K/L)^(a-1)", K_ ** (a_ - 1) * L_ ** (1 - a_), (K_ / L_) ** (a_ - 1))
+lmb = sp.symbols("lambda_", positive=True)
+Kx, Lx = sp.symbols("Kx Lx", positive=True)
+Fgen = sp.Function("F")
+dlhs = sp.diff(Fgen(lmb * Kx, lmb * Lx), lmb).subs(lmb, 1).doit()
+check_true("02: d/dlambda F(lam K, lam L) at lam=1 is F_K K + F_L L (chain rule)",
+           sp.simplify(dlhs - (Kx * sp.Subs(sp.diff(Fgen(K_, Lx), K_), K_, Kx).doit()
+                               + Lx * sp.Subs(sp.diff(Fgen(Kx, L_), L_), L_, Lx).doit())) == 0)
+same("02: Euler for Cobb-Douglas", sp.diff(Fs, K_) * K_ + sp.diff(Fs, L_) * L_, Fs)
+fk = k_ ** a_
+w_pw = fk - sp.diff(fk, k_) * k_
+same("02: per-worker wage f - f'k = (1-alpha) y", w_pw, (1 - a_) * fk)
+same("02: F_K(K,L) = f'(K/L) (degree-zero)", sp.diff(Fs, K_), sp.diff(fk, k_).subs(k_, K_ / L_))
+
+# 03: exact law step by step; common denominator; error factor; quotient rule.
+ff = sp.Function("f")
+kt = Ks / Ls
+chain_start = ((1 - d_) * Ks + s_ * Ls * ff(kt)) / ((1 + n_) * Ls) - kt
+same("03: [(1-d)K + sY]/L_{t+1} - k == [(1-d)k + s f(k)]/(1+n) - k",
+     chain_start, ((1 - d_) * kt + s_ * ff(kt)) / (1 + n_) - kt)
+same("03: common denominator gives [s f - (d+n) k]/(1+n)",
+     ((1 - d_) * k_ + s_ * ff(k_)) / (1 + n_) - k_, (s_ * ff(k_) - (d_ + n_) * k_) / (1 + n_))
+same("03: 1 - 1/(1+n) = n/(1+n)", 1 - 1 / (1 + n_), n_ / (1 + n_))
+t_ = sp.symbols("t")
+Kf, Lf = sp.Function("K")(t_), sp.Function("L")(t_)
+kdot_sym = sp.diff(Kf / Lf, t_)
+same("03: quotient rule: d(K/L)/dt = Kdot/L - (K/L)(Ldot/L)",
+     kdot_sym, sp.diff(Kf, t_) / Lf - (Kf / Lf) * sp.diff(Lf, t_) / Lf)
+kf = sp.Function("k")(t_)
+same("03: d ln(k^a)/dt = alpha kdot/k", sp.diff(sp.log(kf ** a_), t_).simplify(),
+     a_ * sp.diff(kf, t_) / kf)
+
+# 04: closed form, elasticity, phi'(k_ss), G'(k_ss), f'(k)k - f(k) for CD.
+kss_s = (s_ / (d_ + n_)) ** (1 / (1 - a_))
+same("04: s k_ss^a == (d+n) k_ss", s_ * kss_s ** a_, (d_ + n_) * kss_s)
+same("04: y_ss exponent a/(1-a)", kss_s ** a_, (s_ / (d_ + n_)) ** (a_ / (1 - a_)))
+same("04: d ln y_ss / d ln s = a/(1-a)",
+     sp.diff(sp.log((sp.exp(sp.Symbol("x")) / (d_ + n_)) ** (a_ / (1 - a_))),
+             sp.Symbol("x")), a_ / (1 - a_))
+same("04: f'(k)k - f(k) = -(1-a) k^a", sp.diff(fk, k_) * k_ - fk, -(1 - a_) * fk)
+phi_p = (s_ * sp.diff(fk, k_) - (d_ + n_)).subs(k_, kss_s)
+same("04: phi'(k_ss) = -(1-a)(d+n)", phi_p, -(1 - a_) * (d_ + n_))
+same("04: s f'(k_ss) = a (d+n)", (s_ * sp.diff(fk, k_)).subs(k_, kss_s), a_ * (d_ + n_))
+k0s, tt_ = sp.symbols("k0 tt", positive=True)
+ksol = kss_s + (k0s - kss_s) * sp.exp(-lam_ * tt_)
+same("04: k_t - k_ss = (k0 - k_ss) e^(-lam t) solves kdot = -lam (k - k_ss)",
+     sp.diff(ksol, tt_), -lam_ * (ksol - kss_s))
+check("04: half-life ln2/0.04", math.log(2) / 0.04, 17.33, tol=5e-3)
+
+# 05: implicit derivative, elasticity cross-check, peak growth, dc/ds for general f.
+dk_ds = sp.diff(kss_s, s_)
+same("05: dk_ss/ds = f/((1-a)(d+n))", dk_ds, kss_s ** a_ / ((1 - a_) * (d_ + n_)))
+same("05: elasticity (dk/ds)(s/k) = 1/(1-a)", dk_ds * s_ / kss_s, 1 / (1 - a_))
+s0_, s1_ = sp.symbols("s0 s1", positive=True)
+k_old = (s0_ / (d_ + n_)) ** (1 / (1 - a_))
+peak = a_ * (s1_ * k_old ** a_ / k_old - (d_ + n_))
+same("05: peak growth = a(d+n)(s1-s0)/s0", peak, a_ * (d_ + n_) * (s1_ - s0_) / s0_)
+check("05: peak at the baseline", ALPHA * 0.06 * 0.05 / 0.20, 0.005)
+check("05: linearised peak a*lam*(1.25^1.5-1)", ALPHA * 0.04 * (1.25 ** 1.5 - 1), 0.0053, tol=1e-4)
+check("05: two half-lives", 2 * math.log(2) / 0.04, 34.66, tol=5e-3)
+Fv, Fp = sp.symbols("f fp", positive=True)
+dcds = -Fv + (1 - s_) * Fp * Fv / ((d_ + n_) - s_ * Fp)
+same("05: dc_ss/ds = f[f' - (d+n)]/((d+n) - s f')", dcds,
+     Fv * (Fp - (d_ + n_)) / ((d_ + n_) - s_ * Fp))
+c_s = (1 - s_) * kss_s ** a_
+same("05: dc_ss/ds matches the general formula for Cobb-Douglas", sp.diff(c_s, s_),
+     dcds.subs({Fv: kss_s ** a_, Fp: a_ * kss_s ** (a_ - 1)}))
+same("05: log level gain: ln(s1/(d+n)) - ln(s0/(d+n)) = ln(s1/s0)",
+     sp.expand_log(sp.log(s1_ / (d_ + n_)) - sp.log(s0_ / (d_ + n_)), force=True),
+     sp.expand_log(sp.log(s1_ / s0_), force=True))
+check("05: regression coefficient (1-e^(-lam T))/T at T=50",
+      (1 - math.exp(-0.04 * 50)) / 50, 0.0173, tol=1e-4)
 
 # ---------------------------------------------------------------------------
 print()

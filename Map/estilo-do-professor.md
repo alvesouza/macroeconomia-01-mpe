@@ -142,6 +142,22 @@ data would *wrongly conclude*. Expect this structure on the final.
 
 ---
 
+## 6b. PSET 6 (Lista 6, money and inflation), read 2026-09-25
+
+Four handwritten pages for 10 points, and the habits of §1 hold. Two additions:
+
+- **Total differentiation in levels, then divide.** For $\pi=\mu-\eta g$ he differentiates
+  $M^S=P\,m^D(Y,i)$ with respect to $t$, strikes $\partial m/\partial i\cdot di/dt$ as zero
+  (constant $i$), divides by $M^S$, and *names* $\frac{\partial m^D}{\partial Y}\frac{Y}{m^D}$ as
+  $\eta$ with an overbrace. He takes no logs. For Q2(c) he just adds a
+  $\frac{\partial m}{\partial F}\frac{dF}{dt}$ term, boxes it, and writes "was constant before".
+- **Arithmetic in gross rates, loosely.** He writes "$1{,}02=\mu-0{,}5\cdot1{,}03\Rightarrow\mu=1{,}035\approx3{,}5\%$".
+  The answer is right; the gross-rate notation is not. Use net rates in our own work.
+- **Short verbal items.** 1(a) and 1(d) are two lines each, with no diagram.
+
+The Lista 7 short version (`Resolucao/lista7_resolucao_curta.pdf`) applies §1 and this
+section to Benigno content.
+
 ## 7. Checklist to apply to every future solution
 
 Use this on `kurlat_solutions_ch07`, the Lista 5 resolution, and the final.

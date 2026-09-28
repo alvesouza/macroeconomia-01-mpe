@@ -56,3 +56,10 @@ The client caches per beat against a SHA-256 of `(text, voice, model, format)`, 
 `options.loudness_normalization: true` normalises to −14 LUFS, which keeps levels equal across
 separately synthesised beats — without it you get a volume step at every beat boundary.
 Default voice `george` (en-US, warm, e-learning + audiobook tagged).
+
+## Credit status
+
+- **2026-09-27: out of credits.** Auth and the voice/model listings still return 200, but
+  `POST /v1/audio/speech` returns **HTTP 402 `payment_required`, "Insufficient Credits"**
+  (request_id `2ebf430ea73f4208e84fcf2f`). So a working key with listings OK does not mean
+  synthesis works: only the synthesis step of `--check` tests credits. A 402 costs nothing.

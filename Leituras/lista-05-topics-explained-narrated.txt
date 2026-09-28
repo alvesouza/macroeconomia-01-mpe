@@ -1,0 +1,1053 @@
+THE TOPICS BEHIND PROBLEM SET 5. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Session 6, general equilibrium. Kurlat, A Course in Modern Macroeconomics, 2020, chapter 9, printed pages 165 to 179.
+
+
+HOW TO LISTEN
+
+This recording explains the ideas that Problem Set 5 tests. It does not solve the problem set. There is already a separate reading, the general equilibrium narration for Problem Set 5, which walks through chapter 9 in page order and then works both questions of the list in full. If you want the answers, that is the file. This one is for the step before the answers: understanding each concept well enough that the answers become obvious when you sit down to write them.
+
+So the organisation is by concept, not by question. There are ten concept parts, followed by three support parts. Each concept part follows the same seven beats, and it helps to know them in advance so you can hear the gear changes.
+
+First, the question the concept answers. Second, the mechanism in plain words, with no algebra. Third, the model statement, spoken. Fourth, a worked mini-example with small clean numbers. These numbers are deliberately not the ones from the problem set; they are chosen so that the arithmetic can be done in your head. Fifth, the contrast with earlier lectures: what Solow assumed, what the Aula 4 household took as given, what the Aula 5 labour supply took as given, and what changes once prices are determined inside the model. Sixth, the classic confusion, and how to tell the right idea apart from the wrong one. Seventh, a two-question self-check, with a pause cue and then the answers.
+
+Mathematics is dictated, never displayed. When you hear "the marginal product of labour equals the wage", that is an equation. Greek letters are said by name: alpha, beta, delta, sigma, psi, rho. A superscript K on the letter r is said as "r capital", and it always means the rental rate of capital, the price a firm pays to use one unit of capital for one period. The letter r on its own is always the interest rate on borrowing and lending. Keeping those two apart is half of Problem Set 5, so I will say them carefully every time.
+
+One more piece of notation. Kurlat writes impatience with the discount factor beta. It is often easier to speak in terms of the rate of time preference, rho, defined as one over beta, minus one. So beta equal to one over 1.05 means rho equal to 5 per cent. Whenever I say rho, I mean exactly that: one over beta minus one. It is not a new parameter, just a friendlier name for the same one.
+
+Scope rules, said once here and repeated where they bite. Everything stays at the level of Kurlat chapter 9. Chapter 8, on investment with adjustment costs and Tobin's q, is outside the syllabus. Bellman equations, dynamic programming and anything stochastic are outside the syllabus. Where the material brushes against them I will say so and step around them. Historical names are context, never examinable.
+
+And one personal note, drawn from the graded work so far. Across the lists that have come back, marks were almost never lost on setting up a model. They were lost at the sentence after the formula: the derivative was correct, and the words that followed said the opposite. So in the part about sigma, I will rehearse the exact words that go with each sign, and I want you to say them out loud with me.
+
+Paragraphs are short and carry one idea each, because paragraph breaks are the only navigation your app gives you. If you lose the thread, go back one paragraph, not one minute.
+
+
+PART ONE. WHAT AN EQUILIBRIUM IS. KURLAT SECTION 9.1, PRINTED PAGES 165 TO 167.
+
+
+One point one. The question this concept answers.
+
+Up to now, every model in the course has had one agent responding to prices that came from nowhere. The Aula 4 household chose consumption and saving, taking the interest rate as given. The Aula 5 household chose hours of work, taking the wage as given. The firm of the Solow lectures hired labour and capital, taking factor prices as given.
+
+The question general equilibrium answers is this: where do those prices come from? And the answer is not "someone sets them". The answer is: they are whatever numbers make everybody's plans consistent with everybody else's.
+
+Kurlat opens the chapter, on printed page 165, with the microeconomic version of the idea. In a single competitive market, there is an equilibrium when supply equals demand, so that everyone buys or sells as much as they want and total sales equal total purchases. General equilibrium is the same idea applied to many goods at once: goods today, goods tomorrow, hours of work, the use of capital.
+
+
+One point two. The mechanism, in plain words.
+
+Think of an equilibrium as three layers of a cake.
+
+The first layer is a list of agents, each with a problem. In chapter 9 there is a representative household, a representative productive firm, and, in the full model, a representative investment firm. Each one solves its own optimisation problem, and each one treats every price as a fixed number it cannot influence.
+
+The second layer is a list of prices. In the two-period model these are the wage in each period, the rental rate of capital, and the interest rate.
+
+The third layer is a list of market clearing conditions. For every market, the quantity somebody wants to buy equals the quantity somebody wants to sell.
+
+An equilibrium is a set of quantities and a set of prices such that all three layers hold at once. Every agent is doing the best it can at those prices, and the choices add up.
+
+Kurlat puts it in two bullet points on printed page 167, and they are worth saying as he says them. First, everyone is, individually, making the best choices they can. Second, things add up: everyone's choices are consistent with everyone else's choices.
+
+Notice what the definition does not say. It does not say how the prices are found. There is no auctioneer, no adjustment process, no story about a price rising when there is excess demand. The definition is about consistency, not about causation. It picks out the prices at which nobody has a reason to change their plan.
+
+
+One point three. The model statement, spoken.
+
+Kurlat's Definition 9.1, on printed pages 166 and 167, for the two-period economy with investment. A competitive equilibrium consists of an allocation and a price vector.
+
+The allocation lists consumption in each period, leisure in each period, investment, the period-2 capital stock, and labour hired in each period.
+
+The prices are the wage in period 1 and in period 2, the rental rate of capital in period 1 and in period 2, and the interest rate r.
+
+Such that four things hold. One, the household's choices solve its problem, taking prices as given. Two, the productive firm's choices solve its problem, in each period, taking prices as given. Three, the investment firm's choice of investment solves its problem, taking prices as given. Four, markets clear. Goods: output in period 1 equals consumption plus investment, and output in period 2 equals consumption. Capital: period-2 capital equals one minus delta times period-1 capital, plus investment. Labour: hours worked plus leisure equals one, in each period.
+
+Here is the shape to memorise for any exam answer: objects first, then conditions. The objects are an allocation and prices. The conditions are optimisation by every agent at given prices, and market clearing in every market. An answer that lists only the equations, without first saying which variables are the allocation and which are the prices, is missing half of the definition, and graders treat it that way.
+
+
+One point four. Why profits are zero, and why that matters.
+
+The productive firm, in each period, maximises output minus the wage bill minus the rental bill. That is: F of K and L, minus w times L, minus r capital times K. Its first-order conditions are that the marginal product of capital equals r capital, and the marginal product of labour equals the wage. These are Kurlat's equations 9.1.9 and 9.1.10, on printed page 168.
+
+Now suppose F has constant returns to scale, meaning that if you double both inputs, you exactly double output. Then a theorem about such functions, Euler's theorem on homogeneous functions, says that output equals capital times the marginal product of capital, plus labour times the marginal product of labour. In words: if you pay every factor its marginal product, the payments exactly exhaust the output. Nothing is left over.
+
+Put the two facts together. The firm pays each factor its marginal product, because that is what profit maximisation at competitive prices implies. And with constant returns, those payments add up to exactly the whole of output. So revenue equals cost, and profit is zero.
+
+Why does this matter? Two reasons.
+
+First, it closes the household's budget. The household owns the firms, so profits are part of its income. Kurlat writes a symbol, capital Pi, for the present value of profits, and then remarks on printed page 166 that in equilibrium it will be zero, so we can ignore it. You should still write it, and then say why it vanishes. The reason is constant returns plus competitive factor pricing.
+
+Second, it means all of output is income to the household, through wages and rents. So household income equals output, and household spending equals the use of output. The budget constraint and the goods market clearing condition are two views of the same accounting. That consistency is the thread you will pull again in Part Two.
+
+
+One point five. A mini-example.
+
+Take the production function F of K and L equal to the square root of K times the square root of L. That is Cobb-Douglas with alpha equal to one half, and it has constant returns.
+
+Suppose the firm uses 4 units of capital and 1 unit of labour. Output is the square root of 4 times the square root of 1, which is 2.
+
+The marginal product of capital is one half times the square root of L over K, which is one half times the square root of one quarter, which is one half times one half, which is 0.25. So r capital equals 0.25.
+
+The marginal product of labour is one half times the square root of K over L, which is one half times 2, which is 1. So the wage equals 1.
+
+Now pay the factors. Rent: 0.25 per unit times 4 units, which is 1. Wages: 1 per unit times 1 unit, which is 1. Total payments: 2. Output: 2. Profit: zero. Euler's theorem, verified with your fingers.
+
+Now break the constant returns, to see what the assumption is buying. Suppose instead output is just the square root of L, with no capital, which has decreasing returns. With L equal to 1, output is 1, the marginal product of labour is one half, so the wage bill is one half, and profit is the other half. With decreasing returns, the firm earns a pure profit, and then you must track where it goes, which is exactly why Kurlat keeps the Pi symbol in the budget constraint.
+
+
+One point six. The contrast with earlier lectures.
+
+The firm is the one you met in the Solow lectures, with the same zero-profit result and the same factor shares. What is new is that nothing is taken as given by the model as a whole. In Solow, the saving rate s was a number handed down from outside. In Aula 4, the interest rate was handed down. In Aula 5, the wage was handed down. In chapter 9, the only things handed down are preferences, technology, and the initial capital stock. Every price is an output of the model, not an input.
+
+That is the one-sentence difference, and you can use it in any discursive question. Partial equilibrium asks how an agent responds to a price. General equilibrium asks which price makes all the responses fit together.
+
+
+One point seven. The classic confusion.
+
+The confusion is to think that because profits are zero, firms do not matter, or that zero profit means the firm is doing something wrong. Neither is true. Zero economic profit means the firm earns exactly enough to pay every factor its opportunity cost. The firm matters enormously: its first-order conditions are what tie the prices to technology. Without the firm, the wage would have no link to the marginal product of labour, and the whole collapse of the equilibrium into technology and preferences, which you will meet in Part Three, would fail.
+
+How to tell them apart: ask whether the statement is about the level of profit or about the conditions that make it zero. The level is zero. The conditions, marginal product equals price, carry all the economics.
+
+
+One point eight. Self-check.
+
+Question one. Why is the representative firm's profit zero in equilibrium, and which two assumptions does the argument need?
+
+Question two. In a definition of competitive equilibrium, what are the two lists of objects, and what are the two families of conditions?
+
+Pause here and answer out loud.
+
+Answer one. Because factors are paid their marginal products, which requires competitive price-taking firms, and because with constant returns to scale those payments exhaust output, by Euler's theorem. The two assumptions are price-taking and constant returns.
+
+Answer two. The objects are an allocation, meaning the quantities, and a price vector. The conditions are that every agent optimises taking prices as given, and that every market clears.
+
+
+PART TWO. WALRAS'S LAW, AND COUNTING EQUATIONS AGAINST UNKNOWNS.
+
+This part is not a separate section of Kurlat's text. Kurlat uses the idea silently, when he lists the markets that must clear and leaves one out. The statement below comes from the session 6 notes, and you should know it because it is how you check that a definition of equilibrium is complete and not overdetermined.
+
+
+Two point one. The question this concept answers.
+
+When you write down an equilibrium, you get a pile of equations and a pile of unknowns. How do you know you have the right number? And why does it so often look as if there is one equation too many?
+
+
+Two point two. The mechanism, in plain words.
+
+Every agent is on its budget constraint. The household spends exactly what it earns. The firm's costs plus its profit equal its revenue. Now add up all the budget constraints in the economy. On one side you get the value of everything everyone wants to buy. On the other side you get the value of everything everyone wants to sell. They are equal, because each individual budget balances.
+
+So the total value of excess demand across all markets is zero. And that is true at any prices whatsoever, not only at the equilibrium prices, because it follows from budget constraints alone. This identity is Walras's law.
+
+Here is the consequence. If you have n markets and n minus 1 of them clear, the value of excess demand in those n minus 1 markets is zero. Walras's law says the total is zero. So the value of excess demand in the last market must also be zero. And if its price is positive, the excess demand itself is zero. The last market clears automatically.
+
+
+Two point three. The statement, spoken.
+
+The sum over all markets of the price in market j times the excess demand in market j is identically equal to zero, for every price vector.
+
+First consequence: with n markets, only n minus 1 market clearing conditions are independent. One is redundant.
+
+Second consequence: only relative prices are determined. If you multiply every price by the same positive number, no agent's problem changes, because every budget constraint just gets multiplied through by that number. So the model pins down the real wage and the gross interest rate, but never a price level. In chapter 9 Kurlat sidesteps this by measuring everything in units of the consumption good. That choice is called a numeraire, and it is why there is no letter p in chapter 9. The absence of a price level here is exactly the gap that the money lectures fill in session 7.
+
+
+Two point four. A mini-example of counting.
+
+Take the simplest economy with a fixed capital stock and fixed hours, so that output in each period is simply a given number: 100 units in period 1 and 110 units in period 2. One representative household, which can borrow or lend at r.
+
+Unknowns: consumption in period 1, consumption in period 2, the amount the household lends, call it b, and the interest rate r. Four unknowns.
+
+Equations. The period-1 budget: consumption in period 1 plus b equals 100. The period-2 budget: consumption in period 2 equals 110 plus one plus r times b. The Euler equation linking the two consumptions to r. And market clearing. Now, which markets? There are three: goods in period 1, goods in period 2, and credit. Goods in period 1: consumption equals 100. Goods in period 2: consumption equals 110. Credit: b equals zero, because with one representative household there is nobody to lend to.
+
+If you write all three clearing conditions, you have six equations for four unknowns. Too many. Walras's law says one of the three market clearing conditions is redundant. And indeed: impose credit clearing, b equal to zero, and the two budget constraints immediately give consumption 100 and 110. The goods markets clear automatically. So the honest count is three optimisation-and-budget equations plus one independent clearing condition, four equations, four unknowns. The system is exactly determined.
+
+The Euler equation then does only one job: it tells you which r makes the household content to eat 100 and then 110 without borrowing or lending. Part Six shows you the number.
+
+
+Two point five. The contrast with earlier lectures.
+
+In Aula 4, the household had a budget and an Euler equation and faced a given r. You counted two unknowns, consumption today and tomorrow, and two equations. No market clearing, because the model was not about a market, it was about one agent.
+
+In general equilibrium the interest rate becomes an unknown, so you need one more equation. That extra equation is market clearing. Every time a price moves from the list of parameters to the list of unknowns, a market clearing condition moves from the list of things you ignore to the list of things you must impose. That one-for-one swap is the bookkeeping of general equilibrium.
+
+
+Two point six. The classic confusion.
+
+The confusion is to believe that when you have written n market clearing conditions and the system looks overdetermined, something is wrong with the model. Nothing is wrong. One condition is implied by the others through the budget constraints.
+
+The other version of the confusion is subtler. Students sometimes drop the wrong equation, for instance they drop a budget constraint instead of a market clearing condition. You may drop one market clearing condition, because Walras's law makes it redundant. You may not drop a budget constraint, because Walras's law is built out of the budget constraints. Drop one, and the law no longer holds.
+
+How to tell them apart: ask whether the equation describes what an individual agent can afford, or whether it describes an aggregate adding-up across agents. The first kind must all stay. From the second kind, one may go.
+
+
+Two point seven. Self-check.
+
+Question one. Why does Walras's law hold at every price vector, and not only at the equilibrium?
+
+Question two. In a representative-household economy where credit can be traded, why must equilibrium borrowing be zero, and what does that tell you about the job left for the interest rate?
+
+Pause and answer.
+
+Answer one. Because it is the sum of individual budget constraints, and every agent's budget constraint holds at whatever prices it faces. No optimisation and no clearing is needed for it.
+
+Answer two. Because there is only one type of household, and it cannot borrow from itself; bonds are in zero net supply. So the interest rate's job is not to move resources between people; it is to make the household willing to accept the consumption path the economy's technology delivers.
+
+
+PART THREE. THE PLANNER AND THE FIRST WELFARE THEOREM. KURLAT SECTION 9.2, PRINTED PAGES 168 TO 172.
+
+
+Three point one. The question this concept answers.
+
+A competitive economy allocates resources in one specific way. Could a benevolent authority, choosing everything directly, do better? Kurlat asks exactly that on printed page 168, and under the chapter's assumptions the answer is no.
+
+
+Three point two. The mechanism, in plain words.
+
+Imagine a social planner. Kurlat describes it on printed page 169. It is benevolent: its objective is the representative household's utility. It is powerful: it can tell everyone how much to work, consume and invest, and they obey. But it is not all-powerful: it is constrained by technology. It cannot produce output without labour, and it cannot build capital without giving up consumption.
+
+The planner never sees a price. It trades leisure against consumption at the rate technology allows, which is the marginal product of labour. It trades consumption today against consumption tomorrow at the rate technology allows, which is the marginal product of capital, net of depreciation.
+
+The household in the market economy, meanwhile, trades leisure against consumption at the wage, and today against tomorrow at the interest rate. But the firm has already set the wage equal to the marginal product of labour, and no-arbitrage has set the interest rate equal to the net marginal product of capital. So the household, while looking only at prices, is in fact looking at technology through them. Kurlat says it in one line on printed page 171: the household is also, indirectly, maximizing utility subject to technological possibilities.
+
+That is why the two solutions coincide. The prices carry the technological information to the household, and then drop out.
+
+
+Three point three. The model statement, spoken.
+
+The planner's problem, Kurlat's equation 9.2.1: maximise the household's lifetime utility, choosing consumption, leisure, labour and period-2 capital, subject to the same four resource constraints that appear in market clearing: goods in each period, capital accumulation, and time.
+
+The planner's first-order conditions simplify to two equations, 9.1.12 and 9.1.13, on printed page 168.
+
+Equation 9.1.12: the marginal utility of leisure over the marginal utility of consumption equals the marginal product of labour. On the left, the marginal rate of substitution between leisure and consumption. On the right, the marginal rate of transformation: how much extra output one extra hour of work produces.
+
+Equation 9.1.13: the marginal utility of consumption in period 1 over beta times the marginal utility of consumption in period 2 equals the marginal product of capital in period 2. Again, on the left, how the household is willing to trade present for future consumption. On the right, how technology is able to convert present output into future output, by building a marginal unit of capital. In the infinite-horizon version, the right-hand side becomes one plus the marginal product of capital minus delta, because capital survives.
+
+Proposition 9.1, the First Welfare Theorem, printed page 170: if an allocation is part of a competitive equilibrium, then it solves the social planner's problem.
+
+The proof is by contradiction, and its shape is worth knowing even if you never reproduce the algebra. Suppose some feasible allocation gave strictly higher utility. Then the household must not have been able to afford it at equilibrium prices, otherwise it would have chosen it. That is the first inequality, 9.2.2. But firms were maximising profit at those same prices, so no feasible production plan could have been worth more at those prices than the equilibrium one. That is the second inequality, 9.2.3. Put them together and the better allocation turns out to need more output than the technology can produce. It is not feasible after all. Contradiction.
+
+So: preferred means unaffordable, by household optimisation. Unaffordable means infeasible, by firm optimisation and market clearing. Each step uses one piece of the equilibrium definition.
+
+
+Three point four. A mini-example.
+
+A one-period economy with no capital. Output is A times L, with A equal to 2. The household has one unit of time and utility equal to the log of consumption plus the log of leisure.
+
+The planner's problem: choose L to maximise log of 2 L plus log of one minus L. Differentiate: one over L minus one over one minus L equals zero, so L equals one half. Output is 1, consumption is 1, leisure is one half.
+
+The market: the firm's first-order condition says the wage equals the marginal product of labour, which is 2. Profit is zero, because the technology is linear, which is constant returns. The household maximises log c plus log of one minus L, subject to c equal to 2 L. Its condition says the marginal utility of leisure over the marginal utility of consumption equals the wage: that is, c over one minus L equals 2. Substitute c equals 2 L: 2 L over one minus L equals 2, so L over one minus L equals 1, so L equals one half again.
+
+Same allocation. The planner used the marginal product of labour, 2. The household used the wage, 2. They are the same number because the firm made them the same number.
+
+
+Three point five. The assumptions that carry the theorem.
+
+The theorem is conditional, and the conditions are where the economics lives. Kurlat lists the main failures on printed pages 171 and 172, and the session notes group them into four.
+
+Price-taking. If a firm has market power, it produces less than the competitive amount in order to raise its price, so the marginal product no longer equals the factor price. The key step that leads to 9.1.12 and 9.1.13 fails. This is the failure that returns in the Benigno lectures, where firms charge a mark-up.
+
+No externalities. If one agent's action enters another's payoff directly, the private value and the social value differ. Kurlat's example is hiring an orchestra for your garden: your neighbours enjoy it, you ignore their enjoyment, so you hire orchestras less often than a planner would.
+
+Complete markets, including no borrowing constraints. The proof's first inequality says "not chosen means not affordable". If the household cannot borrow, it may not choose something because it cannot finance it now, not because it is too expensive in present value. The inequality then fails. This is exactly the borrowing limit you met in Aula 4, in Problem Set 3.
+
+No distorting taxes. A tax drives a wedge between the price one side pays and the price the other side receives, so the household's marginal rate of substitution no longer equals the firm's marginal rate of transformation.
+
+Kurlat's footnote adds asymmetric information to the list.
+
+And three things the theorem does not say. It does not say the allocation is fair; Pareto efficiency is silent on distribution. It does not say markets reach equilibrium; adjustment is not modelled. And it does not say policy is always harmful; it says that when the assumptions hold, the only economic case for a policy is redistribution, and when one fails, the case rests on which failure the policy addresses. Kurlat makes that point on printed page 171.
+
+
+Three point six. The contrast with earlier lectures.
+
+In Solow, there was no planner and no optimiser, so the question of efficiency could be asked only crudely. You could say that an economy with more capital than the Golden Rule was inefficient, because it could consume more forever by saving less. But you could not rank an economy with less capital than the Golden Rule, because there were no preferences to weigh today against tomorrow.
+
+In Aula 4 and Aula 5, the household was optimal given prices, but you could not say whether the prices themselves were right. The First Welfare Theorem is the statement that, under the four assumptions, the prices the market generates are the right ones. That is new, and it is what makes the competitive equilibrium a benchmark for every distortion in the rest of the course.
+
+A practical corollary you will use in Part Eight: because the equilibrium equals the planner's solution, you may solve either problem and get the same allocation. The planner's problem is often shorter, because it has no prices in it.
+
+
+Three point seven. The classic confusion.
+
+The confusion is to read "the prices cancel" as a property of the equations, when it is a property of the equilibrium. Five first-order conditions, each containing a price, collapse to two conditions with no price. But the collapse happens only once you impose market clearing and the firm's conditions. Away from equilibrium, prices do not cancel; that is what being out of equilibrium means.
+
+
+Three point eight. Self-check.
+
+Question one. In one sentence, why does the household, which never looks at technology, end up choosing what the planner, who never looks at prices, would choose?
+
+Question two. Name the step in the proof that fails when the household faces a borrowing limit, and say why.
+
+Pause.
+
+Answer one. Because the prices the household faces were set by firms equal to marginal products, so the wage is the marginal product of labour and the interest rate is the net marginal product of capital, and the household is therefore optimising against technology indirectly.
+
+Answer two. The first inequality, which says that a preferred allocation must have been unaffordable. With a borrowing limit, the household may fail to choose a better plan because it cannot finance it now, even though it could afford it in present value.
+
+
+PART FOUR. WHAT FREEZING CAPITAL, OR FREEZING LABOUR, DELETES FROM THE MODEL.
+
+Problem Set 5 never hands you the full chapter 9 model. Its two questions each take the full model and switch off one margin. The first freezes capital. The second freezes labour. This part is about what each amputation removes, because you can only be clean about the margin that is left if you know exactly what went away.
+
+
+Four point one. The question this concept answers.
+
+When a textbook says "capital is fixed" or "labour supply is fixed at one", which equations disappear, which prices lose their link to anything, and what kind of model is left?
+
+
+Four point two. The mechanism, in plain words.
+
+A variable is endogenous only if some agent has a margin that can move it. Take away the margin, and the variable becomes a parameter.
+
+For capital to be endogenous, you need two things. You need a technology that turns the consumption good into the capital good; in chapter 9 that is the investment firm and the accumulation equation. And you need a decision with an intertemporal trade-off: give up consumption today to get a marginal product tomorrow. Freeze capital, by saying there is no investment technology and no depreciation, and both are gone. Capital in period 2 equals capital in period 1 because nothing can change it, not because anyone chose it.
+
+For labour to be endogenous, you need leisure in the utility function. If the household does not value leisure, it works all its available time, whatever the wage. Freeze labour at one, and the consumption-leisure margin is gone.
+
+
+Four point three. What freezing capital deletes. The statement, spoken.
+
+Four things vanish when capital is frozen at a level K-bar.
+
+One. The investment term in goods market clearing. Output in each period equals consumption in that period. The economy has no way to move a unit of goods from period 1 to period 2: no storage, no investment, no one to trade with. Output is eaten, period by period.
+
+Two. The no-arbitrage condition between the interest rate and the rental rate. In the full model, one unit of goods can become one unit of capital, so the return on a bond and the return on capital must be equal. With no investment technology, that conversion is impossible, so the equation does not exist. The rental rate and the interest rate are determined by separate, unconnected conditions. The rental rate equals the marginal product of capital at K-bar, and it is a residual: supply of capital is a vertical line at K-bar, so r capital is simply whatever makes the firm willing to use exactly K-bar. The interest rate comes from the household's Euler equation and from nowhere else.
+
+Three. The value of capital as wealth. In Kurlat's full two-period model, the household's wealth includes the capital stock times the bracket one plus r capital minus delta: rent plus the undepreciated principal. That principal is there because in the full model capital can be converted back into goods. With no investment technology, capital cannot be sold, eaten or turned into goods, so only the rents are income. The budget constraint has the rental income, r capital times K-bar, in each period, and nothing for the principal. A quick check shows why: with constant returns, wages plus rents equal output, which equals consumption. Add the principal on top, and the household could afford more than the economy produces.
+
+Four. Simultaneity. With capital frozen, the model becomes recursive. Hours in each period are pinned down by a condition involving only that period's variables. Then consumption follows from output. Then, last, the interest rate follows from the Euler equation, with no feedback into anything. Kurlat's full model has hours, capital and the interest rate determined jointly; the frozen model lets you solve them one at a time, in order.
+
+
+Four point four. What freezing labour deletes.
+
+Freeze labour at one and a mirror image happens.
+
+The intratemporal condition, equation 9.1.12 in the two-period model and 9.3.12 in the infinite one, simply disappears. There is no leisure to trade against consumption.
+
+The wage becomes a residual price. It still equals the marginal product of labour, but that marginal product is evaluated at L equal to one, so the wage is just a function of the capital stock. It no longer affects any choice.
+
+What survives is the saving and investment margin, with its Euler equation, the firm's rental condition, and the no-arbitrage condition. And that model has a name: it is the neoclassical growth model, sometimes called the Ramsey, Cass and Koopmans model, which Kurlat's figure 9.3.1 labels the dynamics of the neoclassical growth model. It is, quite precisely, the Solow model with the saving rate chosen by a household instead of handed down. Kurlat makes the same simplification on printed page 174, when he says that to focus on the consumption and investment problem, he will go back to assuming labour supply is fixed.
+
+
+Four point five. A mini-example.
+
+Take the production function square root of K times square root of L.
+
+Frozen capital first. Let K-bar equal 4 and suppose, for the moment, that hours are 1. Output is 2. The rental rate is 0.25 and the wage is 1, as in Part One. Household income is rents, 0.25 times 4, which is 1, plus wages, 1. Total 2. Consumption is 2. The capital stock of 4 is not part of the income; it is a machine the household can rent out but never eat.
+
+Now raise K-bar to 9, still with one hour. Output rises to 3. The wage rises to one half times the square root of 9, which is 1.5. The rental rate falls to one half times the square root of one ninth, which is one sixth, about 0.167. More capital, with the supply curve still vertical, drives its own price down and raises the price of the factor it works with. Notice that capital here moved exactly like a productivity shock would: both raise output and the wage. With Cobb-Douglas, K-bar and A only ever appear together, as A times K-bar to the alpha. That is why a bigger fixed capital stock acts exactly like higher productivity.
+
+Frozen labour next. Let L equal 1 and suppose capital is 16. Output is 4. The rental rate is one half times one over the square root of 16, which is 0.125. The wage is one half times the square root of 16, which is 2. Rents are 0.125 times 16, which is 2; wages are 2; total 4. The wage here is a number, 2, that no one reacts to, because nobody chooses hours. Hold on to K equal to 16: it will turn out to be the steady state in Part Eight.
+
+
+Four point six. The contrast with earlier lectures.
+
+The frozen-capital model is the Aula 5 household placed in general equilibrium: the wage is no longer given but equals a marginal product that depends on the very hours being chosen. Part Five develops that. The frozen-labour model is the Aula 4 household placed in general equilibrium with an investment technology: the interest rate is no longer given but equals the net marginal product of a capital stock that depends on past saving. Parts Six to Nine develop that.
+
+Both frozen models are also contrasts with Solow. Solow froze labour too, and froze the saving rate. The frozen-labour model unfreezes saving. That is the whole difference, and it is enough to change the long-run answer, as Part Eight will show.
+
+
+Four point seven. The classic confusion.
+
+Three confusions, all expensive.
+
+First. Treating K-bar in period 2 as a result, as in "the household chooses to keep capital at K-bar". There is no choice. It is an assumption, an identity. No first-order condition sits behind it.
+
+Second. Looking for a no-arbitrage condition between r and r capital in the frozen-capital model, or importing the principal term from Kurlat's full budget constraint. Both belong to a world where capital and goods are interchangeable, and in the frozen world they are not.
+
+Third. Confusing exogenous with irrelevant. K-bar is a parameter, but it moves the wage, the rental rate and consumption. Exogenous means nobody inside the model chooses it. It does not mean it has no effects.
+
+How to tell them apart: for every variable, ask "which agent's first-order condition moves this?" If the answer is none, it is exogenous and there is no condition to write for it.
+
+
+Four point eight. Self-check.
+
+Question one. In the frozen-capital economy, where does the interest rate come from, and where does the rental rate come from?
+
+Question two. When labour is frozen at one, which of the two collapsed equilibrium conditions disappears, and what does the wage become?
+
+Pause.
+
+Answer one. The interest rate comes only from the household's Euler equation, evaluated at the consumption path that output dictates. The rental rate comes only from the firm's condition, the marginal product of capital at K-bar. There is no condition linking them.
+
+Answer two. The intratemporal condition, marginal rate of substitution between leisure and consumption equals the marginal product of labour, disappears. The wage becomes a residual price, the marginal product of labour at L equal to one, which no one reacts to.
+
+
+PART FIVE. LABOUR AND LEISURE IN EQUILIBRIUM. WHY SIGMA DECIDES THE SIGN. KURLAT EQUATIONS 9.1.7, 9.1.10 AND 9.1.12, PRINTED PAGES 167 AND 168.
+
+
+Five point one. The question this concept answers.
+
+When productivity rises, the wage rises. Does the household work more, or less? And what, in the preferences, decides it?
+
+
+Five point two. The mechanism, in plain words.
+
+A higher wage does two things to the household at once, and they pull in opposite directions.
+
+The substitution effect. An hour of leisure now costs more consumption than before, because each hour worked buys more goods. Leisure has become more expensive, so the household substitutes away from it and works more.
+
+The income effect. At any given number of hours, the household is richer. If leisure is a normal good, a richer household wants more of it, and works less.
+
+Which effect wins depends on how fast the extra consumption loses its value. Here is the cleanest way to see it. The payoff to one more hour of work, measured in utility, is the wage times the marginal utility of consumption. The wage goes up. But because consumption goes up too, the marginal utility of consumption goes down. If marginal utility falls slowly, the wage increase dominates, the payoff to an hour of work rises in utility terms, and the household works more. If marginal utility falls fast, the fall in marginal utility dominates, the payoff to an hour of work actually falls in utility terms, and the household works less.
+
+The speed at which marginal utility falls is sigma, the curvature of u. With u of c equal to c to the one minus sigma over one minus sigma, marginal utility is c to the minus sigma. When consumption is proportional to the wage, the utility value of an hour of work is proportional to the wage raised to the power one minus sigma. That exponent, one minus sigma, is the whole story.
+
+If sigma is less than one, one minus sigma is positive, the utility value of work rises with the wage, the substitution effect dominates, and hours rise.
+
+If sigma is greater than one, one minus sigma is negative, the utility value of work falls with the wage, the income effect dominates, and hours fall.
+
+If sigma equals one, which is log utility, one minus sigma is zero. The two effects cancel exactly, and hours do not move. That is the knife edge.
+
+
+Five point three. The model statement, spoken.
+
+The household's intratemporal condition, Kurlat equation 9.1.7: the marginal utility of leisure divided by the marginal utility of consumption equals the wage.
+
+The firm's condition, equation 9.1.10: the marginal product of labour equals the wage.
+
+Put them together, equation 9.1.12: the marginal utility of leisure over the marginal utility of consumption equals the marginal product of labour. Marginal rate of substitution equals marginal rate of transformation. Kurlat labels the two sides exactly that way on printed page 168.
+
+In general equilibrium, you also substitute goods market clearing for consumption. That is the step that makes this general rather than partial equilibrium. Consumption is no longer a free choice given a wage; it is tied to output, which depends on the very hours you are solving for.
+
+
+Five point four. A mini-example.
+
+To see sigma at work without the problem set's algebra, strip the economy down. No capital at all. Output is A times L, so the firm's condition sets the wage equal to A, and profit is zero. The household has one unit of time, utility from consumption c to the one minus sigma over one minus sigma, and utility from leisure psi times log of leisure, with psi equal to 1. Consumption equals the wage times hours.
+
+The equilibrium condition, after substituting consumption, reads: psi times L to the power sigma, divided by one minus L, equals the wage raised to the power one minus sigma. There is that exponent again.
+
+Start with A equal to 2, so the wage is 2. Check that L equal to one half solves it for every sigma: the left side is one half to the sigma over one half, which is 2 to the one minus sigma, and the right side is 2 to the one minus sigma. So all three households start in the same place: half their time working.
+
+Now double productivity. A goes to 4, and the wage goes to 4.
+
+With sigma equal to 0.5: hours rise from 0.5 to about 0.61. Consumption goes from 1 to about 2.44, more than doubling, because the household works more and earns more per hour.
+
+With sigma equal to 1: hours stay at exactly 0.5. Consumption doubles, from 1 to 2.
+
+With sigma equal to 2: hours fall from 0.5 to about 0.39. Consumption rises from 1 to about 1.56, less than doubling, because the household takes part of the gain as leisure.
+
+Three households, same starting point, same shock, three different signs. The only difference is sigma.
+
+In the richer model with a fixed capital stock and Cobb-Douglas technology, two things change and one does not. The wage always rises when productivity rises. The marginal product of labour now falls as hours rise, so the hours response is dampened; there is a term with alpha in the denominator of the elasticity, and it shrinks the response. And rental income is a fixed share of output, so it moves in proportion to the wage bill. But the sign is still the sign of one minus sigma. Diminishing returns can shrink the response. They cannot flip it.
+
+
+Five point five. The words that go with each sign. Say them out loud.
+
+This is where marks were lost on earlier lists: a correct derivative followed by a sentence with the opposite sign. So here is the routine. After you have the formula, set sigma to a knife-edge value, read the sign, and only then write the sentence. Now rehearse the three sentences.
+
+Sigma less than one. Say it: "one minus sigma is positive, so the elasticity of hours with respect to productivity is positive. Higher productivity raises the wage, the substitution effect dominates the income effect, and the household works more."
+
+Sigma equal to one. Say it: "one minus sigma is zero, so the elasticity is zero. With log utility the income and substitution effects cancel exactly, and hours do not change; all of the productivity gain goes into consumption."
+
+Sigma greater than one. Say it: "one minus sigma is negative, so the elasticity is negative. Higher productivity still raises the wage, but the income effect dominates the substitution effect, and the household works less, taking part of the gain as leisure."
+
+Notice what stays the same across all three: the wage rises. The mistake to avoid is writing "the wage falls" when hours fall. Hours falling makes labour scarcer, which pushes the marginal product of labour up, not down. And notice the other trap: "sigma greater than one" and "the substitution effect dominates" never go in the same sentence. If you ever see yourself writing that pair, stop.
+
+One more habit. Before writing the sentence, plug in sigma equal to 2 and ask: is one minus sigma positive or negative? Minus one, negative. So hours fall. Then write the words. It takes five seconds and it would have saved marks on three items so far.
+
+
+Five point six. The contrast with earlier lectures.
+
+In Aula 5, the household faced a given wage, and in the log case with no non-labour income, hours did not respond to the wage at all. That is the same knife edge you have just heard. But in Aula 5, when the household had non-labour income that stayed fixed while the wage changed, even the log household worked more at a higher wage, because the income effect of the wage was diluted by the fixed income.
+
+In general equilibrium, the household's non-labour income is capital rent, and rent is not fixed: with Cobb-Douglas it is a constant share of output, so it rises with productivity in proportion to the wage bill. That is why the log knife edge survives in the equilibrium with fixed capital. A productivity shock raises all of the household's income in the same proportion, which is exactly the situation in which log preferences give a zero hours response.
+
+
+Five point seven. The classic confusion.
+
+Confusion one: thinking sigma is a labour supply parameter. It is not. Sigma is the curvature of the utility of consumption. It governs hours only indirectly, through how fast the value of the extra consumption fades. The labour-side parameter, psi, changes the level of hours but not the sign of the response.
+
+Confusion two: thinking the result depends on the wage change being temporary or permanent. In the two-period frozen-capital model, the hours condition in each period is static; it involves only that period's variables. So a productivity change in period 1 affects hours in period 1 through exactly the mechanism above, regardless of what happens in period 2. The intertemporal channel shows up in the interest rate, not in hours. That is special to the frozen-capital model and is worth saying.
+
+How to tell the right statement from the wrong one: every correct sentence about sigma and hours passes through the words "marginal utility of consumption falls faster or slower than the wage rises".
+
+
+Five point eight. Self-check.
+
+Question one. With log utility in consumption, productivity doubles. What happens to hours, to the wage, and to consumption in the stripped-down example?
+
+Question two. A classmate writes: "since sigma is greater than one, the substitution effect dominates and hours rise". Which part is wrong?
+
+Pause.
+
+Answer one. Hours do not change. The wage doubles, and consumption doubles, from 1 to 2. All the gain is consumed.
+
+Answer two. Both halves. With sigma greater than one, one minus sigma is negative, so the income effect dominates and hours fall. The correct sentence is: "since sigma is greater than one, the income effect dominates and hours fall; the wage still rises".
+
+
+PART SIX. THE INTEREST RATE AS A PRICE. THE EULER EQUATION IN EQUILIBRIUM. KURLAT EQUATIONS 9.1.8, 9.3.8 AND 9.3.14, PRINTED PAGES 167, 173 AND 174.
+
+
+Six point one. The question this concept answers.
+
+In Aula 4 the interest rate was a number you were given, and the household chose how much to save. Now there is no one outside to set it. What determines the interest rate?
+
+
+Six point two. The mechanism, in plain words.
+
+With a representative household, the economy as a whole cannot borrow from anyone. So the household's consumption path is not something it can freely choose. In the frozen-capital economy, it is exactly the path of output. In the economy with investment, it is whatever is left after the investment the economy undertakes.
+
+The interest rate is the price that makes the household content with that path. Think of the household as wanting to smooth consumption. If output is going to grow, the household would like to borrow against the future to consume more now. But nobody can lend to it. So the interest rate has to rise until borrowing is so expensive that the household no longer wants to. At that interest rate, it happily eats the growing path.
+
+Two forces set the level. Impatience: a household that discounts the future needs a positive return even to keep consumption flat. And growth: the faster consumption must grow, the higher the interest rate must be to persuade the household to accept a path that is low now and high later. Sigma sets the exchange rate between the two: the more the household dislikes uneven consumption, the higher the interest rate that a given amount of growth requires.
+
+
+Six point three. The model statement, spoken.
+
+The Euler equation, Kurlat 9.1.8 and 9.3.8: the marginal utility of consumption today equals beta times one plus r times the marginal utility of consumption tomorrow.
+
+With u of c equal to c to the one minus sigma over one minus sigma, marginal utility is c to the minus sigma, and the equation rearranges to: one plus r equals one over beta, times the ratio of tomorrow's consumption to today's, raised to the power sigma.
+
+Read it as a pricing formula. The left is the gross interest rate. The right has two factors. One over beta is impatience, and it equals one plus rho. The growth factor of consumption raised to the power sigma is the premium for accepting growth.
+
+Read it the other way round, Kurlat's 9.3.14 form: the ratio of tomorrow's consumption to today's equals the quantity beta times one plus r, raised to the power one over sigma. This is how consumption growth responds to the interest rate. The exponent one over sigma is the elasticity of intertemporal substitution: how strongly consumption growth reacts to the gap between the interest rate and impatience.
+
+Both readings are the same equation. In partial equilibrium, you use the second: r is given, consumption growth is the answer. In a frozen-capital general equilibrium, you use the first: consumption growth is given by output, r is the answer. In the full model with investment, both are unknown and they are determined together with capital.
+
+In the full model there is one more link. No-arbitrage and the firm's condition say one plus r equals one plus the marginal product of capital minus delta. So the Euler equation becomes Kurlat's 9.3.13: marginal utility today over beta times marginal utility tomorrow equals one plus the marginal product of capital minus delta. The interest rate is now tied to technology, through the capital stock.
+
+
+Six point four. A mini-example.
+
+Two periods, frozen capital, output fixed at 100 in period 1 and 110 in period 2, so consumption must grow by 10 per cent. Let beta equal one over 1.05, so rho is 5 per cent.
+
+If output were flat, 100 and 100, the growth factor would be 1, and one plus r would be one over beta, which is 1.05. The interest rate would be 5 per cent, pure impatience.
+
+With 10 per cent growth and sigma equal to 1: one plus r equals 1.05 times 1.1, which is 1.155. The interest rate is 15.5 per cent.
+
+With sigma equal to 2: one plus r equals 1.05 times 1.1 squared, which is 1.05 times 1.21, which is 1.2705. The interest rate is about 27 per cent.
+
+With sigma equal to 0.5: one plus r equals 1.05 times the square root of 1.1, which is about 1.101. The interest rate is about 10.1 per cent.
+
+Same growth, same impatience, three very different interest rates. The household that hates uneven consumption, sigma equal to 2, needs a very high interest rate before it stops wanting to borrow against its rising income.
+
+Now the infinite horizon, reading the equation the other way. Suppose the interest rate is 7.5 per cent and rho is 2.5 per cent, so beta times one plus r is 1.075 over 1.025, about 1.049. With sigma equal to 1, consumption grows by about 4.9 per cent per period. With sigma equal to 2, it grows by the square root of that, about 2.4 per cent. A higher sigma means a lower elasticity of intertemporal substitution, so a given return gap produces less consumption growth.
+
+
+Six point five. The contrast with earlier lectures.
+
+In Aula 4, r was a parameter and the answer was the consumption path. In general equilibrium with frozen capital, the consumption path is a parameter and the answer is r. The same equation, read in the opposite direction.
+
+And in the full model, the interest rate becomes the net marginal product of capital. That is the link that lets saving respond to scarcity: when capital is scarce, its marginal product is high, the interest rate is high, current consumption is expensive, so the household saves and consumption grows. Kurlat walks that chain explicitly on printed pages 174 and 175. It is worth memorising in his order: low capital, high marginal product, high rental rate, high interest rate, current consumption expensive, consumption grows.
+
+
+Six point six. The classic confusion.
+
+Confusion one: swapping sigma and one over sigma. In the formula for r, the growth factor is raised to sigma. In the formula for consumption growth, beta times one plus r is raised to one over sigma. If you are unsure, test with sigma going to infinity: a household that absolutely refuses uneven consumption should have flat consumption whatever r is, so growth must be raised to one over sigma, which goes to zero. It is.
+
+Confusion two: saying "the interest rate is high because the household saves a lot". In the frozen-capital economy the household saves nothing in equilibrium. The interest rate is high because output grows and the household would like to borrow and cannot. A high interest rate here signals a desire to dissave, not an abundance of saving.
+
+Confusion three: thinking a higher sigma always raises r. It raises r when consumption growth is positive. If consumption falls, growth factor below one, a higher sigma makes the growth factor raised to sigma smaller, and the interest rate falls further below rho. The effect of sigma on r has the sign of consumption growth.
+
+
+Six point seven. Self-check.
+
+Question one. Output is flat across the two periods and beta is one over 1.04. What is the equilibrium interest rate, and does sigma matter?
+
+Question two. Output falls from 100 to 90. Is the interest rate above or below rho, and does a higher sigma push it further from rho?
+
+Pause.
+
+Answer one. The interest rate is 4 per cent, exactly rho, and sigma does not matter, because the growth factor is one and one raised to any power is one.
+
+Answer two. Below rho, because the household would like to save for the lean period, cannot, and the interest rate must fall until it stops wanting to. A higher sigma pushes it further below, because the growth factor of 0.9 raised to a larger power is smaller.
+
+
+PART SEVEN. WHO OWNS THE CAPITAL. NO-ARBITRAGE. KURLAT EQUATIONS 9.1.2, 9.1.11, 9.3.3 AND 9.3.11, PRINTED PAGES 166, 168, 172 AND 173.
+
+
+Seven point one. The question this concept answers.
+
+Somebody has to own the capital stock. It could be the household, renting machines to firms. It could be a separate investment firm, as in Kurlat. It could be the productive firm itself. Does the answer change the equilibrium?
+
+
+Seven point two. The mechanism, in plain words.
+
+In the full model, one unit of the consumption good can be turned into one unit of capital, with no adjustment cost. So the household has two ways to carry a unit of goods from today to tomorrow. It can lend it, and receive one plus r. Or it can turn it into capital, rent it out, and receive the rental rate plus the one minus delta of the machine that survives.
+
+If one of these paid more than the other, everyone would pile into it without limit, financed by the other. That cannot be an equilibrium. So the two gross returns must be equal. That is the no-arbitrage condition: one plus r tomorrow equals r capital tomorrow plus one minus delta. Equivalently, r equals r capital minus delta: the rental rate has to cover the interest cost plus depreciation.
+
+Now the ownership question. Whoever owns the capital faces this same comparison, because they all face the same prices. The household that owns capital directly compares the same two returns. The investment firm, which borrows at r to buy capital and rents it out, earns zero profit only when the same condition holds. And since the household owns the investment firm too, any profit it made would come back to the household anyway. In every arrangement, the household's budget set is the same, so its choices are the same, so the allocation is the same. Who holds the title to the machines is an accounting arrangement, not an economic one.
+
+
+Seven point three. The model statement, spoken.
+
+Kurlat's investment firm in the infinite-horizon model, equation 9.3.3 on printed page 173. Its profit is: r capital next period plus one minus delta, divided by one plus r next period, times the capital it ends up with, minus the cost of that same capital. Both terms multiply the same bracket, K today times one minus delta plus investment.
+
+The key structural fact: this profit is linear in investment. The investment firm's profit per unit of investment is a constant: the discounted gross return minus one. If that constant were positive, the firm would want infinite investment. If negative, it would want minus infinity. Neither is consistent with capital market clearing. So in equilibrium, the constant must be exactly zero. Kurlat says this on printed page 168 for the two-period model and again on page 173 for the infinite one.
+
+Setting the constant to zero gives equation 9.3.11: r next period equals r capital next period minus delta. In the two-period model, where capital depreciates fully in period 2, it is equation 9.1.11: one plus r equals r capital in period 2.
+
+Kurlat notes that this is his equation 4.4.12 from the Solow chapter, the relation between the rental rate and the interest rate, now derived from an optimising agent rather than assumed.
+
+
+Seven point four. A mini-example.
+
+Let delta equal 0.1 and suppose the rental rate next period is 0.15.
+
+Option A: lend one unit at r. Next period you receive one plus r.
+
+Option B: turn one unit of goods into one machine. Next period you receive 0.15 in rent and still own 0.9 of a machine, which you can turn back into 0.9 units of goods. Total 1.05.
+
+So no-arbitrage requires one plus r equal to 1.05: an interest rate of 5 per cent.
+
+What if the bond market offered 6 per cent? Then everyone would sell machines and lend, and nobody would hold capital, so the rental rate would shoot up. What if it offered 4 per cent? Then everyone would borrow to buy machines, without limit. Only at 5 per cent is everyone content to hold both.
+
+And the ownership experiment. Suppose instead the productive firm owns its machines and pays no rent. Its accounting profit now includes the 0.15 per machine that would have been rent, and it pays that out as dividends to the household. The household receives exactly what it would have received as rent. Nothing real changes.
+
+
+Seven point five. The contrast with earlier lectures.
+
+In Aula 4, the household had only one asset, a bond. Here it has two ways of saving, and no-arbitrage is the condition that makes it indifferent between them. That indifference is why the Euler equation, which was written in terms of r, can be rewritten in terms of the marginal product of capital: the two returns are the same number.
+
+And the contrast with the frozen-capital model from Part Four: there, the second option does not exist, because goods cannot be turned into machines. So there is no no-arbitrage condition, and r and r capital are unrelated. The whole link between the interest rate and technology depends on the investment technology being there.
+
+Scope note: the linearity of the investment firm's problem rests on Kurlat's explicit assumption, on printed page 166, that there are no adjustment costs like those of section 8.1. With adjustment costs, investment would have an interior optimum and Tobin's q would appear. That is chapter 8, and it is outside the syllabus. We do not go there.
+
+
+Seven point six. The classic confusion.
+
+Confusion one: writing r equals r capital. That forgets depreciation. The rental rate must cover depreciation as well as interest, so r equals r capital minus delta. The two coincide only if delta is zero.
+
+Confusion two: writing one plus r equals r capital in the infinite-horizon model. That is the two-period formula, valid only because capital fully depreciates in the last period. With partial depreciation, the surviving machine is part of the return: one plus r equals r capital plus one minus delta.
+
+How to tell them apart: write the gross return on each way of carrying goods forward, and set them equal. If your equation does not have a one minus delta somewhere in it, and capital survives, it is wrong.
+
+
+Seven point seven. Self-check.
+
+Question one. Why must the investment firm's profit per unit of investment be exactly zero in equilibrium?
+
+Question two. Delta is 0.05 and the interest rate is 3 per cent. What rental rate does no-arbitrage require?
+
+Pause.
+
+Answer one. Because its profit is linear in investment. Any positive coefficient means infinite investment, any negative coefficient means infinitely negative investment, and neither is consistent with the capital market clearing.
+
+Answer two. r capital equals r plus delta, which is 0.03 plus 0.05, which is 0.08.
+
+
+PART EIGHT. THE INFINITE-HORIZON STEADY STATE, AND THE GOLDEN RULE. KURLAT EQUATIONS 9.3.16 AND 9.3.17, PRINTED PAGES 175 TO 178.
+
+
+Eight point one. The question this concept answers.
+
+If the economy runs forever, where does it end up? And is the place it ends up the one that gives the most consumption in the long run? Kurlat asks exactly this on printed page 177: now that we have a theory of the saving rate, will the economy accumulate more or less capital than the Golden Rule prescribes?
+
+
+Eight point two. The mechanism, in plain words.
+
+In a steady state, consumption is constant. The Euler equation says consumption is constant only when the interest rate exactly compensates impatience: beta times one plus r equals one. So in a steady state, the interest rate equals rho, the rate of time preference. Nothing else.
+
+No-arbitrage and the firm say the interest rate equals the marginal product of capital minus delta. So in the steady state, the marginal product of capital minus delta equals rho. That one equation pins down the steady-state capital stock. If capital were lower, its marginal product would be higher, the interest rate would exceed rho, the household would want rising consumption, and it would keep accumulating. If capital were higher, the reverse. Only at the capital stock where the net return equals impatience does the household choose to stop.
+
+Now compare the Golden Rule, from the Solow lectures. The Golden Rule is the capital stock that maximises steady-state consumption. Steady-state consumption is output minus the investment needed to replace depreciation: F of K minus delta K. Maximise that, and you get: the marginal product of capital equals delta. The net return on capital is zero.
+
+The two conditions differ by exactly rho. The equilibrium requires a net return of rho. The Golden Rule requires a net return of zero. Because the marginal product falls as capital rises, a higher required return means a lower capital stock. So the equilibrium capital stock is strictly below the Golden Rule, whenever the household is impatient.
+
+Why would an optimising economy deliberately stop short of the consumption-maximising capital stock? Because getting there costs consumption now, and the reward comes later. Think about one extra unit of capital, held forever. It costs one unit of consumption today. It pays, each period, its marginal product minus depreciation. At the equilibrium steady state that net payment is exactly rho per period, and the present value of rho forever, discounted at rho, is exactly one. So the last unit of capital is exactly worth its cost: break-even. Any further unit pays less than rho, so its present value is less than one: a loss. At the Golden Rule, the last unit pays zero net forever: its present value is zero, but it still costs a full unit of consumption to build. The impatient household is right not to build it.
+
+Kurlat's summary on printed page 177: the Golden Rule maximises consumption in the long run; an impatient household cares about the short run as well as the long run, and would rather consume a little more in the present even if it means a lower level of consumption later.
+
+
+Eight point three. The model statement, spoken.
+
+Equation 9.3.16: consumption tomorrow over consumption today equals one, which requires beta times the quantity one plus the marginal product of capital minus delta, raised to one over sigma, to equal one.
+
+Equation 9.3.17: the marginal product of capital at the steady-state capital stock, with labour equal to one, minus delta, equals one over beta minus one. That is: F K of K steady state minus delta equals rho.
+
+Steady-state consumption comes from the resource constraint with capital constant: consumption equals F of K steady state minus delta times K steady state.
+
+The steady-state interest rate: r equals one over beta minus one, which is rho.
+
+The Golden Rule, Kurlat's equation 4.3.4 with no population growth: the marginal product of capital at the Golden Rule capital stock equals delta.
+
+The comparison, printed page 177: the marginal product at the steady state equals rho plus delta, which is greater than delta, which is the marginal product at the Golden Rule. Since the marginal product decreases in capital, K steady state is less than K Golden Rule.
+
+The limit: as beta goes to one, rho goes to zero, and K steady state converges to K Golden Rule. A perfectly patient household would go all the way.
+
+
+Eight point four. A mini-example.
+
+Output is the square root of K, with labour fixed at one; that is our Cobb-Douglas with alpha equal to one half and A equal to one. Delta is 0.1. Beta is one over 1.025, so rho is 2.5 per cent. Sigma can be anything; you will see why in a moment.
+
+Steady state. The marginal product of capital is one half over the square root of K. Set the marginal product equal to rho plus delta, which is 0.125. So one half over the square root of K equals 0.125, the square root of K equals 4, and K steady state equals 16. Output is 4. Depreciation is 0.1 times 16, which is 1.6. Consumption is 4 minus 1.6, which is 2.4. The implied saving rate, investment over output, is 1.6 over 4: 40 per cent.
+
+Golden Rule. Set the marginal product equal to delta, 0.1. One half over the square root of K equals 0.1, so the square root of K equals 5, and K Golden Rule equals 25. Output is 5. Depreciation is 2.5. Consumption is 2.5. The saving rate would be 2.5 over 5: 50 per cent.
+
+So the Golden Rule gives more steady-state consumption, 2.5 against 2.4. And the equilibrium stops at 16 anyway. The steady-state interest rate is 2.5 per cent, which is rho.
+
+The marginal argument, with these numbers. At K equal to 16, one more unit of capital pays net 0.125 minus 0.1, which is 0.025 per period, and 0.025 forever at 2.5 per cent is worth 1. Break-even. At K equal to 20, the marginal product is about 0.112, so the net payment is about 0.012, worth about 0.47 of a unit today. The unit costs 1. A loss. At K equal to 25, the net payment is zero.
+
+The patience limit. With beta equal to 0.99, and the same delta, the steady state capital is about 20.6 and consumption about 2.48. With beta equal to 0.999, capital is about 24.5 and consumption about 2.4998. As beta approaches one, the economy creeps up to the Golden Rule values of 25 and 2.5.
+
+Notice what did not appear: sigma. The steady state does not depend on sigma at all, because in a steady state consumption growth is zero, and one raised to any power is one. Sigma affects how fast the economy gets there, which is Part Nine, but not where it ends up.
+
+And with Cobb-Douglas you can always invert the marginal product in closed form: set alpha times A times K to the alpha minus one equal to rho plus delta, and solve for K. Do that yourself once, with letters, and check that it gives 16 with these numbers.
+
+
+Eight point five. Why the steady-state interest rate depends only on beta.
+
+This is worth a paragraph of its own, because it surprises people. In the steady state, the interest rate is rho whatever the technology, whatever delta, whatever alpha or A, whatever sigma.
+
+The reason is that in the steady state consumption is flat, and the only interest rate at which a household with this utility wants flat consumption is the one that exactly offsets its impatience. Technology does not decide the interest rate. Technology decides how much capital it takes to make the marginal product produce that interest rate. A more productive economy reaches the same interest rate with more capital. A higher delta requires a higher gross marginal product, so less capital. But the net return always lands on rho.
+
+Put differently: in the long run, the capital stock adjusts to the interest rate, not the interest rate to the capital stock. Preferences set the price. Technology sets the quantity.
+
+
+Eight point six. The contrast with earlier lectures.
+
+In Solow, the saving rate was a parameter, and the steady state depended on it. A Solow economy could save too much, ending above the Golden Rule, and then everyone could consume more forever by saving less. That was dynamic inefficiency, and Solow could detect it. But Solow could not say whether saving too little was a mistake, because it had no preferences to weigh the present against the future.
+
+Here, the saving rate is an outcome, 40 per cent in the example, and it is chosen by a household that weighs the present against the future. The answer is: stop below the Golden Rule. And because the steady state always has a marginal product above delta, this economy can never be dynamically inefficient. Over-accumulation can arise from a mechanical saving rule, as in Solow, but not from an infinitely lived household choosing its own saving.
+
+Kurlat adds a subtle point on printed page 177: the argument does not depend on starting with low capital. If the economy somehow started at the Golden Rule, the household would choose to run capital down toward 16, consuming more than the Golden Rule amount in the short run at the cost of less later. Practice for this contrast is Kurlat exercise 9.12, Optimal vs Fixed Savings Rates, on printed page 185.
+
+
+Eight point seven. The classic confusion.
+
+Confusion one: the First Welfare Theorem says the equilibrium is optimal, the Golden Rule gives more consumption, so the equilibrium must be at the Golden Rule. The flaw is that the Golden Rule maximises steady-state consumption, which is not the household's utility. Utility counts every period, with discounting. The theorem says the equilibrium maximises utility, and utility says: do not pay for a long-run gain with a short-run sacrifice that impatience values more.
+
+Confusion two: writing the steady state as marginal product equals rho, forgetting delta. The rental rate must cover depreciation too, so the gross marginal product equals rho plus delta.
+
+How to tell them apart: ask whether a statement is about the long-run level of consumption, which the Golden Rule maximises, or about lifetime utility, which the equilibrium maximises. They are different objectives, and only the second is what the household cares about.
+
+
+Eight point eight. Self-check.
+
+Question one. In the example, what happens to K steady state if delta rises from 0.1 to 0.225, with rho still 2.5 per cent?
+
+Question two. Why is the steady-state interest rate the same in a rich economy and a poor one with the same beta?
+
+Pause.
+
+Answer one. Rho plus delta becomes 0.25. One half over the square root of K equals 0.25, so the square root of K equals 2, and K equals 4. Capital falls from 16 to 4.
+
+Answer two. Because in the steady state consumption is constant, and the only interest rate at which the household wants constant consumption is rho. Technology changes how much capital it takes to reach that return, not the return itself.
+
+
+PART NINE. THE PHASE DIAGRAM, THE SADDLE PATH, AND WHAT IS RULED OUT. KURLAT EQUATIONS 9.3.14 AND 9.3.15, FIGURES 9.3.1 AND 9.3.2, PRINTED PAGES 174 TO 177.
+
+
+Nine point one. The question this concept answers.
+
+Part Eight told you where the economy ends up. How does it get there, starting from a capital stock that is not the steady state? And since the household chooses consumption freely at the start, how is that first consumption level determined?
+
+
+Nine point two. The mechanism, in plain words.
+
+There are two variables, capital and consumption, and two equations that move them.
+
+The first says how capital evolves: next period's capital equals what survives depreciation plus output minus consumption. Consume more, invest less, and capital grows less. This is just accounting.
+
+The second says how consumption evolves: the Euler equation. When capital is low, the marginal product is high, the interest rate exceeds rho, and consumption grows. When capital is high, the interest rate is below rho, and consumption falls.
+
+Capital is a state variable. It is inherited from the past and cannot jump. Consumption is a choice. The household can set it at any level today. So the whole future is decided by one number: the level of consumption the household picks in the first period. Pick it, and the two equations take over and trace out everything that follows.
+
+Most choices lead to disaster. Pick consumption too high, and the economy eats into its capital, the marginal product rises, the Euler equation says consumption should keep rising, capital falls further, and eventually capital runs out altogether. That is infeasible. Pick consumption too low, and the economy piles up capital, the marginal product falls below the required return, consumption starts to fall, and eventually nearly all output is being invested while consumption dwindles toward zero. That is feasible, but absurd: the household is sitting on a mountain of capital it never eats.
+
+Between the two, there is exactly one level of initial consumption that sends the economy to the steady state. That path is the saddle path. It is the equilibrium.
+
+
+Nine point three. The model statement, spoken.
+
+Equation 9.3.14: consumption next period over consumption this period equals beta times the quantity one plus the marginal product of capital next period minus delta, all raised to one over sigma.
+
+Equation 9.3.15: capital next period equals one minus delta times capital this period, plus output this period, minus consumption this period.
+
+Two difference equations in two variables. Kurlat draws them in a phase diagram, figure 9.3.1, with capital on the horizontal axis and consumption on the vertical.
+
+The constant-consumption line. Set consumption growth to one. The condition, 9.3.17, involves only capital, so it is a vertical line at the steady-state capital stock. To its left, capital is scarce, the interest rate exceeds rho, and consumption is rising: arrows point up. To its right, arrows point down.
+
+The constant-capital curve. Set next period's capital equal to this period's. You get consumption equal to output minus delta times capital: a hump, rising while the marginal product exceeds delta, peaking at the Golden Rule, falling after. Above the hump, consumption is too high to replace depreciation, so capital shrinks: arrows point left. Below it, capital grows: arrows point right.
+
+The two lines cross at the steady state. Because the vertical line sits where the marginal product is rho plus delta, which is above delta, it crosses the hump on its rising side, to the left of the peak. That is the picture of the Golden Rule result from Part Eight.
+
+The four regions. Left of the line and below the hump: capital and consumption both rising, up and to the right. Left of the line and above the hump: consumption rising but capital falling, up and to the left, toward the vertical axis. Right of the line and above the hump: both falling, down and to the left. Right of the line and below the hump: capital rising, consumption falling, down and to the right.
+
+Only two regions, lower left and upper right, contain paths that lead into the steady state, and only along one particular curve through each of them. That curve is the saddle path. Kurlat, on printed page 177: starting from any initial capital, there is a unique level of initial consumption such that the dynamics lead toward the steady state, and once on the saddle path the economy stays on it.
+
+
+Nine point four. What rules out the other paths.
+
+Paths above the saddle path are ruled out by feasibility. Capital hits zero in finite time while consumption is still positive, and you cannot produce or consume from a capital stock that does not exist.
+
+Paths below the saddle path are ruled out by optimality. Kurlat argues this informally on printed page 176: eventually all output is being invested and consumption falls to zero, and that is not consistent with optimality. The formal name for the condition that rules them out is the transversality condition. In words: the present value, in utility terms, of the capital left over at the end of time must be zero. If the household is heading into the far future with a large stock of capital that has positive value, it could have eaten some of it earlier and been strictly better off. So such a path is not optimal.
+
+The transversality condition is the partner of the no-Ponzi condition from the consumption lectures. No-Ponzi says the household cannot end up with debt of positive present value: it may not borrow forever without repaying. Transversality says the household will not want to end up with wealth of positive present value: it would be wasting it. One rules out dying in debt; the other rules out dying rich.
+
+Scope note. In more advanced courses these conditions come out of a dynamic programming or Bellman formulation. That is outside the syllabus. At the level of Kurlat chapter 9, it is enough to state the condition in words and use it to discard the lower paths, which is exactly what Kurlat does.
+
+
+Nine point five. A mini-example.
+
+Same economy as Part Eight: output the square root of K, delta 0.1, rho 2.5 per cent. Now fix sigma equal to 2, and start from capital equal to 9, below the steady state of 16.
+
+At capital 9, the marginal product is one half over 3, about 0.167. The interest rate, net of depreciation, is about 6.7 per cent, well above rho. So along the equilibrium path consumption must be rising.
+
+The constant-capital curve at capital 9 is output 3 minus depreciation 0.9, so 2.1. Consuming 2.1 would keep capital exactly constant this period.
+
+Try initial consumption 2.1. Capital stays at 9 for one period, but consumption is rising because the interest rate exceeds rho, so next period consumption exceeds 2.1 and capital starts to fall. As it falls, the marginal product rises and consumption rises faster. In the simulation, capital hits zero in the fifteenth period. That is a path above the saddle path. Infeasible.
+
+Try initial consumption 1.6. Capital rises, and at first consumption rises too. But capital overshoots the steady state, the interest rate drops below rho, and consumption starts falling. After 60 periods, capital is about 60, nearly four times the steady state, and consumption has fallen to about 0.74. That is a path below the saddle path. Feasible, but it violates transversality.
+
+The saddle-path choice, found by trying values until the path neither crashes nor overshoots, is initial consumption of about 1.77. From there capital rises smoothly: about 11.7 after 10 periods, about 13.5 after 20, about 15.7 after 60, and consumption rises with it toward 2.4.
+
+Now sigma. The steady state is the same for any sigma, as Part Eight said. But the initial consumption on the saddle path is not. From capital 9, with sigma equal to 0.5, the saddle path starts at about 1.41; with sigma equal to 1, about 1.61; with sigma equal to 2, about 1.77. A household with a higher sigma dislikes uneven consumption more, so it starts higher and saves less at the beginning, and the economy approaches the steady state more slowly. A household with a low sigma is happy to eat little now and a lot later, so it saves hard and gets there faster.
+
+
+Nine point six. The contrast with earlier lectures.
+
+In Solow, the dynamics were one-dimensional. Capital was the only variable, saving was a fixed fraction of output, and every starting capital stock converged to the steady state on its own. Stability was a property of the system: you could not avoid it.
+
+Here the dynamics are two-dimensional and the steady state is a saddle, not a sink. Almost every path diverges. Convergence happens only because the household chooses the one initial consumption that puts the economy on the stable path. Stability is a consequence of optimisation, not a property of the equations.
+
+And the saving rate is no longer constant along the way. In the example, the household starts with consumption 1.77 out of output 3, a saving rate of about 41 per cent, and ends at 40 per cent. The path of saving is chosen, not imposed.
+
+
+Nine point seven. The classic confusion.
+
+Confusion one: thinking the vertical line is vertical because consumption is a jump variable. It is vertical because the condition for constant consumption involves only capital; consumption drops out. That is the right reason.
+
+Confusion two: drawing the steady state to the right of the peak of the hump. The steady state is always to the left of the Golden Rule peak, because the marginal product there is rho plus delta, which exceeds delta.
+
+Confusion three: saying that paths below the saddle path are infeasible. They are feasible; they are not optimal. Feasibility rules out the paths above. Transversality, optimality, rules out the paths below. Keep the two reasons attached to the right side.
+
+
+Nine point eight. Self-check.
+
+Question one. Which condition rules out a path along which capital grows without limit and consumption falls toward zero, and what does that condition say in words?
+
+Question two. Starting below the steady state, is consumption on the saddle path rising or falling, and why?
+
+Pause.
+
+Answer one. The transversality condition. It says the present value of the capital left at the end of time must be zero; otherwise the household could have consumed some of it earlier and been better off.
+
+Answer two. Rising. Below the steady state, capital is scarce, its marginal product is high, the interest rate exceeds rho, and the Euler equation says consumption grows.
+
+
+PART TEN. ANTICIPATED AND UNANTICIPATED SHOCKS. KURLAT SECTION 9.3, ANTICIPATION EFFECTS, FIGURE 9.3.4, PRINTED PAGES 178 AND 179.
+
+This part is inside the scope of the course: it is in the text of Kurlat chapter 9. Problem Set 5 does not ask about it, but the phase diagram is not really understood until you can use it for a shock, so it is worth fifteen minutes.
+
+
+Ten point one. The question this concept answers.
+
+What happens today when something changes, or when everyone learns that something will change in the future? Kurlat puts it on printed page 174: the infinite-horizon model lets us ask how the economy reacts today to news about things that will happen in the distant future.
+
+
+Ten point two. The mechanism, in plain words.
+
+Two rules govern every shock in the phase diagram.
+
+Rule one. Capital cannot jump. It is a stock built over time. At the moment of the news, capital is what it is.
+
+Rule two. Consumption can jump, but only at the moment new information arrives. After that, there are no surprises, so the household would never plan a jump: a planned jump would violate the Euler equation, which says consumption moves smoothly with the interest rate. So consumption jumps once, at the news, and then moves continuously.
+
+An unanticipated permanent shock is simple. At the moment it happens, the loci move, there is a new steady state and a new saddle path. Capital is where it was. Consumption jumps to the new saddle path directly above or below the current capital stock, and then the economy slides along the new saddle path to the new steady state.
+
+An anticipated shock is more interesting. The news arrives today; the change happens at a future date T. Between now and T, the old technology still governs the dynamics. From T onwards, the economy must be on the new saddle path. So consumption jumps today, at the news, to exactly the level from which the old dynamics will deliver the economy onto the new saddle path precisely at date T.
+
+
+Ten point three. Kurlat's anticipated productivity improvement, spoken.
+
+The economy is in its steady state. Everyone learns that from year T onwards, output will be A times F of K instead of F of K, with A greater than one.
+
+Once it happens, both loci move. The constant-consumption line moves right, because a higher A means it takes a higher capital stock to bring A times the marginal product down to rho plus delta. The constant-capital hump moves up, because higher productivity makes it possible to consume more and still maintain the capital stock.
+
+Before T, what happens? Kurlat's account, printed pages 178 and 179: anticipation of the improvement raises consumption now, through a wealth effect; the household knows it will be richer. But technology has not improved yet, so higher consumption means the economy is investing less than is needed to maintain the old capital stock, and capital starts to shrink. A lower capital stock means a higher marginal product and an interest rate above rho, so consumption rises from there on. When T arrives, capital has fallen a little, consumption has risen, and the economy is exactly on the new saddle path. From then on, capital and consumption both rise toward the new steady state.
+
+The striking part: good news about the future makes the economy run down its capital today. The household borrows, in effect, against the future, and the only way a closed economy can do that is by investing less.
+
+
+Ten point four. A mini-example of an unanticipated shock.
+
+Same economy: output the square root of K, delta 0.1, rho 2.5 per cent, sitting at the steady state with capital 16, output 4, consumption 2.4.
+
+Surprise: A rises permanently from 1 to 1.2, effective immediately. The new steady state: 1.2 times one half over the square root of K equals 0.125, so the square root of K equals 4.8 and K equals 23.04. New steady-state output is 1.2 times 4.8, which is 5.76; depreciation is 2.304; consumption is about 3.46.
+
+On impact, capital is still 16, but output jumps immediately to 1.2 times 4, which is 4.8. Consumption jumps onto the new saddle path. With sigma equal to 2, it jumps from 2.4 to about 2.85. With sigma equal to 0.5, it jumps only to about 2.46. In this example consumption rises on impact for every sigma, because output itself jumps. What sigma decides is the split of the extra output between consumption now and investment now. The low-sigma household, which is happy to substitute over time, invests almost all of the extra output and builds capital fast. The high-sigma household, which wants smooth consumption, eats more of the gain immediately and builds capital slowly.
+
+That split is the same income-versus-substitution tension as in Part Five, now on the time margin instead of the leisure margin. The higher return to saving pulls toward investing; the higher wealth pulls toward consuming. In other shocks, where output does not jump on impact, the sign of the consumption jump itself can depend on which force wins, and on the exam you should name which one you are assuming dominates.
+
+A second shock worth rehearsing without numbers: the household becomes more patient, rho falls. Only the vertical line moves, to the right; the hump contains no preference parameter and stays put. Capital cannot jump, and the new saddle path at the old capital stock lies below the old steady-state consumption. So consumption jumps down, investment jumps up, and then both capital and consumption rise to a higher steady state. Patience is paid for immediately and rewarded later.
+
+A general rule falls out. Preference parameters, rho and sigma, can move only the vertical line; sigma not even that, as it moves nothing in the steady state. Technology and depreciation, A and delta, move both.
+
+
+Ten point five. The contrast with earlier lectures.
+
+In Solow, news about the future has no effect today. Saving is a fixed fraction of current output, so until output changes, nothing changes. There is no forward-looking agent.
+
+In Aula 4, you saw that a household that expects higher future income consumes more today, the permanent income logic. Chapter 9 puts that logic into general equilibrium. There, the household could borrow at a given r. Here, it can only "borrow" by investing less, and the interest rate then moves, which feeds back into its choices.
+
+
+Ten point six. The classic confusion.
+
+Confusion one: making consumption jump at date T, when the anticipated change actually happens. Nothing new is learned at T, so there can be no jump then. The jump happens at the news.
+
+Confusion two: making capital jump. Capital never jumps. Every shock is absorbed on impact by consumption, and therefore by investment.
+
+Confusion three: thinking good news must raise investment. In Kurlat's anticipated improvement, investment falls before T. It is the wealth effect of the news, and the fact that the higher productivity has not arrived yet, that make the household run capital down in the meantime.
+
+How to tell them apart: for any shock, ask three questions in order. When is the information revealed? That is when consumption jumps. Which locus moves, and when? That tells you the new steady state and the saddle path. Which dynamics govern the economy between the news and the change? The old ones.
+
+
+Ten point seven. Self-check.
+
+Question one. In Kurlat's anticipated productivity improvement, what happens to capital between the announcement and date T, and why?
+
+Question two. The household becomes unexpectedly more patient. Which way does consumption jump, and which locus moves?
+
+Pause.
+
+Answer one. Capital falls. Consumption jumps up on the news through a wealth effect, but technology has not improved yet, so investment falls below what is needed to replace depreciation.
+
+Answer two. Consumption jumps down, investment rises, and only the vertical constant-consumption line moves, to the right, because patience changes the required return but not technology.
+
+
+PART ELEVEN. THE SPOKEN FORMULA SHEET.
+
+This is for active recall. Each item gives a name first. Pause after the name, say the formula yourself, then listen to the answer.
+
+
+Formula one. Zero profit under constant returns.
+Pause.
+Output equals capital times the marginal product of capital plus labour times the marginal product of labour. With factors paid their marginal products, revenue equals cost, so profit is zero.
+
+Formula two. Walras's law.
+Pause.
+The sum over all markets of price times excess demand is identically zero, at every price vector. With n markets, only n minus 1 clearing conditions are independent, and only relative prices are determined.
+
+Formula three. The household's intratemporal condition, Kurlat 9.1.7.
+Pause.
+The marginal utility of leisure over the marginal utility of consumption equals the wage.
+
+Formula four. The household's Euler equation, Kurlat 9.1.8.
+Pause.
+The marginal utility of consumption today equals beta times one plus r times the marginal utility of consumption tomorrow.
+
+Formula five. The firm's conditions, Kurlat 9.1.9 and 9.1.10.
+Pause.
+The marginal product of capital equals the rental rate, r capital. The marginal product of labour equals the wage.
+
+Formula six. No-arbitrage, two periods, Kurlat 9.1.11.
+Pause.
+One plus r equals r capital in period 2, because capital depreciates fully at the end of the world.
+
+Formula seven. No-arbitrage, infinite horizon, Kurlat 9.3.11.
+Pause.
+One plus r next period equals r capital next period plus one minus delta. Equivalently, r equals r capital minus delta.
+
+Formula eight. Marginal rate of substitution equals marginal rate of transformation, labour, Kurlat 9.1.12.
+Pause.
+The marginal utility of leisure over the marginal utility of consumption equals the marginal product of labour.
+
+Formula nine. Marginal rate of substitution equals marginal rate of transformation, time, Kurlat 9.3.13.
+Pause.
+The marginal utility of consumption today over beta times the marginal utility of consumption tomorrow equals one plus the marginal product of capital tomorrow minus delta.
+
+Formula ten. The interest rate from the Euler equation with CRRA utility.
+Pause.
+One plus r equals one over beta times the ratio of tomorrow's consumption to today's, raised to the power sigma.
+
+Formula eleven. Consumption growth, Kurlat 9.3.14.
+Pause.
+Consumption tomorrow over consumption today equals beta times one plus the marginal product of capital tomorrow minus delta, all raised to one over sigma. One over sigma is the elasticity of intertemporal substitution.
+
+Formula twelve. The resource constraint, Kurlat 9.3.15.
+Pause.
+Capital tomorrow equals one minus delta times capital today, plus output today, minus consumption today.
+
+Formula thirteen. The hours response in the stripped-down linear economy.
+Pause.
+Psi times L to the sigma, over one minus L, equals the wage raised to the power one minus sigma. The sign of the hours response to the wage is the sign of one minus sigma.
+
+Formula fourteen. The steady state, Kurlat 9.3.17.
+Pause.
+The marginal product of capital at the steady state, minus delta, equals one over beta minus one, which is rho. The steady-state interest rate equals rho.
+
+Formula fifteen. Steady-state consumption.
+Pause.
+Consumption equals output at the steady-state capital stock minus delta times that capital stock.
+
+Formula sixteen. The Golden Rule, Kurlat 4.3.4 with no population growth.
+Pause.
+The marginal product of capital at the Golden Rule equals delta. Therefore, with beta less than one, K steady state is less than K Golden Rule, and the two converge as beta goes to one.
+
+Formula seventeen. The constant-capital curve in the phase diagram.
+Pause.
+Consumption equals output minus delta times capital, a hump that peaks at the Golden Rule.
+
+Formula eighteen. The transversality condition, in words.
+Pause.
+The present value, in utility terms, of the capital left at the end of time must be zero.
+
+
+PART TWELVE. GLOSSARY.
+
+Competitive equilibrium. An allocation and a set of prices such that every agent optimises taking prices as given, and every market clears.
+
+Constant returns to scale. Doubling every input exactly doubles output; with competitive factor prices, it implies zero profit.
+
+Dynamic inefficiency. Having more capital than the Golden Rule, so that everyone could consume more forever by saving less; impossible in the chapter 9 equilibrium.
+
+Elasticity of intertemporal substitution. One over sigma; how strongly consumption growth responds to the gap between the interest rate and impatience.
+
+Euler equation. The condition that the household cannot gain by shifting a unit of consumption between two adjacent periods.
+
+First Welfare Theorem. Under price-taking, complete markets, no externalities and no distortions, every competitive equilibrium allocation is Pareto efficient; in chapter 9, it solves the planner's problem.
+
+Frozen capital. A model in which there is no investment technology, so capital is a fixed parameter, the rental rate is a residual price, and the interest rate comes only from the Euler equation.
+
+Frozen labour. A model in which the household does not value leisure and works all its time, so the intratemporal condition disappears and the wage is a residual price.
+
+Golden Rule. The capital stock that maximises steady-state consumption, where the marginal product of capital equals depreciation.
+
+Income effect. The part of the response to a higher wage that comes from being richer; it lowers hours when leisure is normal.
+
+Investment firm. Kurlat's agent that buys used capital, adds investment and rents the capital out; its profit is linear in investment, which forces the no-arbitrage condition.
+
+Marginal rate of substitution. The rate at which the household is willing to trade one good for another, for example leisure for consumption.
+
+Marginal rate of transformation. The rate at which technology can turn one good into another, for example an hour of work into output.
+
+Modified Golden Rule. The equilibrium steady-state condition, marginal product of capital equals rho plus delta; it lies below the Golden Rule because of impatience.
+
+No-arbitrage. The requirement that two ways of carrying goods into the future, lending and holding capital, pay the same gross return.
+
+No-Ponzi condition. The household cannot end with debt of positive present value.
+
+Phase diagram. A picture, with capital and consumption on the axes, showing where each variable is constant and which way the economy moves elsewhere.
+
+Rental rate of capital, r capital. The price a firm pays for using one unit of capital for one period; equal to the marginal product of capital.
+
+Rate of time preference, rho. One over beta minus one; the interest rate at which the household wants a flat consumption path.
+
+Saddle path. The unique path that leads from any initial capital stock to the steady state; the equilibrium path.
+
+Substitution effect. The part of the response to a higher wage that comes from leisure becoming more expensive; it raises hours.
+
+Transversality condition. The present value of capital left at the end of time must be zero; it rules out paths that accumulate capital forever.
+
+Walras's law. The value of aggregate excess demand is zero at any prices, so one market clearing condition is always redundant.
+
+
+WHERE TO PRACTISE. ADDRESSES ONLY.
+
+Read Kurlat section 9.1, printed pages 165 to 168; section 9.2, printed pages 168 to 172; and section 9.3, printed pages 172 to 179.
+
+Kurlat exercise 9.1, on the First Welfare Theorem and policy, printed page 179. Exercise 9.2, Storage, printed page 179, for the definition of equilibrium with a different technology. Exercise 9.8, A New Technology, printed page 183, for shocks on the phase diagram. Exercise 9.9, An Oil-Producing Economy, printed page 184, which asks for two phase diagrams on one graph. Exercise 9.12, Optimal vs Fixed Savings Rates, printed page 185, for the Golden Rule contrast.
+
+For the answers to Problem Set 5 itself, the companion file is the general equilibrium narration for Problem Set 5, parts five and six.
+
+
+PART THIRTEEN. THE WHOLE TOPIC IN FIVE LINES.
+
+One. A competitive equilibrium is a list of quantities and prices at which every agent optimises taking prices as given and every market clears; with constant returns, profits are zero and one market is redundant.
+
+Two. Because firms set prices equal to marginal products, the household optimising against prices is optimising against technology, so the equilibrium is what a planner would choose: marginal rate of substitution equals marginal rate of transformation, on both the leisure margin and the time margin.
+
+Three. On the leisure margin, a productivity gain always raises the wage, and hours move with the sign of one minus sigma: substitution wins below one, income wins above one, and log utility is the knife edge where hours do not move.
+
+Four. On the time margin, the interest rate is the price that makes the household accept the consumption path the economy can deliver; it equals impatience times consumption growth raised to sigma, and with investment it is tied to the marginal product of capital by no-arbitrage, whoever owns the capital.
+
+Five. In the infinite horizon, the steady state sets the net marginal product of capital equal to rho, which leaves capital below the Golden Rule because impatience makes the last units not worth their cost, and the economy reaches it along the unique saddle path, with feasibility ruling out paths above and transversality ruling out paths below.

@@ -71,14 +71,24 @@ inflation between the two periods. Nothing has been assumed about functional for
 Assume isoelastic utility, $u(C)=\left(C^{1-\tilde\sigma^{-1}}-1\right)/(1-\tilde\sigma^{-1})$,
 so that $u_c(C)=C^{-\tilde\sigma^{-1}}$ with $\tilde\sigma>0$. Substitute into (3):
 
+$$\frac{C^{-\tilde\sigma^{-1}}}{\beta\,\bar C^{-\tilde\sigma^{-1}}}=1+r$$
+
+Multiply both sides by $\beta$ and collect the two powers into one ratio:
+
 $$\left(\frac{C}{\bar C}\right)^{-\tilde\sigma^{-1}}=\beta(1+r)$$
 
-Take logs of both sides, with lower-case letters as log-deviations ([[00-index]]):
+Take logs of both sides. The left side becomes $-\tilde\sigma^{-1}(\ln C-\ln\bar C)$; with
+lower-case letters as log-deviations from a common steady state ([[00-index]]), the
+steady-state logs cancel in the difference, so $\ln C-\ln\bar C=c-\bar c$:
 
 $$-\tilde\sigma^{-1}\left(c-\bar c\right)=\ln\beta+\ln(1+r)$$
 
 Now two approximations, both first-order and both standard: $\ln(1+r)\simeq r$, and
-$\rho\equiv-\ln\beta$. Multiply through by $-\tilde\sigma$:
+$\rho\equiv-\ln\beta$ (a definition, so $\ln\beta=-\rho$ exactly):
+
+$$-\tilde\sigma^{-1}\left(c-\bar c\right)=r-\rho$$
+
+Multiply through by $-\tilde\sigma$, which turns $-(c-\bar c)$ into $\bar c-c$:
 
 $$\boxed{\;\bar c - c = \tilde\sigma\,(r-\rho)\;} \tag{4}$$
 
@@ -88,7 +98,17 @@ discourages saving and pulls consumption forward. $\tilde\sigma$ is the strength
 willingness to reallocate — the elasticity of intertemporal substitution.
 
 Substituting $r=i-(\bar p-p)$, which is the same first-order approximation applied to
-$1+r=(1+i)P/\bar P$:
+$1+r=(1+i)P/\bar P$. Step by step: take logs of that definition,
+
+$$\ln(1+r)=\ln(1+i)+\ln P-\ln\bar P,$$
+
+use $\ln(1+x)\simeq x$ on both rates, and note that $\ln P-\ln\bar P=p-\bar p$ once the
+common steady-state log price cancels:
+
+$$r\simeq i+p-\bar p=i-(\bar p-p).$$
+
+Solve (4) for $c$ (subtract $\bar c$ from both sides and multiply by $-1$),
+$c=\bar c-\tilde\sigma(r-\rho)$, and insert this $r$:
 
 $$c = \bar c - \tilde\sigma\left[i-(\bar p - p)-\rho\right] \tag{5}$$
 
@@ -113,11 +133,16 @@ $Y-\tilde Y=(C-\tilde C)+(G-\tilde G)$ and divide by $\tilde Y$:
 $$\frac{Y-\tilde Y}{\tilde Y}=\frac{\tilde C}{\tilde Y}\cdot\frac{C-\tilde C}{\tilde C}+\frac{G-\tilde G}{\tilde Y}
 \;\Longrightarrow\; y=s_c c+g$$
 
-Invert $(\star)$ for $c$ and $\bar c$ and substitute into (5):
+Invert $(\star)$ for $c$ and $\bar c$: subtract $g$ and divide by $s_c$, so
+$c=(y-g)/s_c$ and $\bar c=(\bar y-\bar g)/s_c$. Substitute both into (5):
 
 $$\frac{y-g}{s_c}=\frac{\bar y-\bar g}{s_c}-\tilde\sigma\left[i-(\bar p-p)-\rho\right]$$
 
-Multiply by $s_c$ and define $\sigma\equiv\tilde\sigma s_c$:
+Multiply both sides by $s_c$:
+
+$$y-g=\bar y-\bar g-\tilde\sigma s_c\left[i-(\bar p-p)-\rho\right]$$
+
+Add $g$ to both sides, group $g-\bar g$, and define $\sigma\equiv\tilde\sigma s_c$:
 
 $$\boxed{\;y=\bar y+(g-\bar g)-\sigma\left[i-(\bar p-p)-\rho\right]\;} \tag{6}$$
 
@@ -138,17 +163,34 @@ Now put taxes on consumption and on wage income into the constraint:
 
 $$(1+\tau_c)PC+\frac{(1+\bar\tau_c)\bar P\bar C}{1+i}=(1-\tau_l)WL+\frac{(1-\bar\tau_l)\bar W\bar L}{1+i}+T$$
 
-Redo §1.2 with this constraint. The intratemporal condition picks up a tax wedge —
-eq. (7), and it will matter for the AS curve:
+Redo §1.2 with this constraint. Each price in the constraint is now tax-inclusive, so
+the four first-order conditions become
+
+$$u_c(C)=\lambda(1+\tau_c)P,\quad
+\beta u_c(\bar C)=\lambda\frac{(1+\bar\tau_c)\bar P}{1+i},\quad
+v_l(L)=\lambda(1-\tau_l)W,\quad
+\beta v_l(\bar L)=\lambda\frac{(1-\bar\tau_l)\bar W}{1+i}$$
+
+Divide the third by the first; $\lambda$ cancels. The intratemporal condition picks up a
+tax wedge — eq. (7), and it will matter for the AS curve:
 
 $$\frac{v_l(L)}{u_c(C)}=\frac{(1-\tau_l)}{(1+\tau_c)}\frac{W}{P} \tag{7}$$
 
-The intertemporal condition becomes
+Divide the first by the second; $\lambda$ cancels again and the intertemporal condition
+becomes
 
 $$\frac{u_c(C)}{\beta u_c(\bar C)}=(1+i)\frac{(1+\tau_c)P}{(1+\bar\tau_c)\bar P}$$
 
-Taking logs with $\ln(1+\tau)\simeq\tau$ adds one term to (5), and repeating §1.4 gives
-the AD curve with fiscal instruments, eq. (8):
+Take logs exactly as in §1.3. The left side gives $\tilde\sigma^{-1}(\bar c-c)+\rho$; the
+right side gives $\ln(1+i)+\ln(1+\tau_c)-\ln(1+\bar\tau_c)+p-\bar p$, and
+$\ln(1+x)\simeq x$ turns it into $i+\tau_c-\bar\tau_c-(\bar p-p)$. Subtract $\rho$ and
+multiply by $\tilde\sigma$:
+
+$$\bar c-c=\tilde\sigma\left[i-(\bar p-p)-(\bar\tau_c-\tau_c)-\rho\right]$$
+
+This is (4) with one extra term inside the bracket. Solving for $c$ and repeating §1.4
+line by line (invert $(\star)$, multiply by $s_c$, add $g$) gives the AD curve with
+fiscal instruments, eq. (8):
 
 $$\boxed{\;y=\bar y+(g-\bar g)-\sigma\left[i-(\bar p-p)-(\bar\tau_c-\tau_c)-\rho\right]\;} \tag{8}$$
 
@@ -178,10 +220,24 @@ The last row is the model's signature. Expectations about the long run shift dem
 today, because the household is solving one intertemporal problem, not two static ones.
 In the textbook IS-LM AD curve there is no such row.
 
-**Slope.** Solve (8) for $p$:
+**Slope.** Solve (8) for $p$. Open the bracket, so that $p$ appears once, as $-\sigma p$:
 
-$$p=\bar p-\frac{1}{\sigma}\left[\bar y_n+(g-\bar g)-y\right]-\left[i-(\bar\tau_c-\tau_c)-\rho\right]
+$$y=\bar y_n+(g-\bar g)-\sigma\left[i-\bar p-(\bar\tau_c-\tau_c)-\rho\right]-\sigma p$$
+
+Add $\sigma p$ to both sides and subtract $y$:
+
+$$\sigma p=\bar y_n+(g-\bar g)-y-\sigma\left[i-\bar p-(\bar\tau_c-\tau_c)-\rho\right]$$
+
+Divide by $\sigma$ and move $\bar p$ out of the bracket:
+
+$$p=\bar p+\frac{1}{\sigma}\left[\bar y_n+(g-\bar g)-y\right]-\left[i-(\bar\tau_c-\tau_c)-\rho\right]
 \qquad\Longrightarrow\qquad \left.\frac{dp}{dy}\right|_{AD}=-\frac{1}{\sigma}$$
+
+(An earlier version of this line had $-\frac{1}{\sigma}[\dots]$, which would give slope
+$+1/\sigma$; the sign is $+$, as `check_multipliers.py` now verifies.)
+
+![AD slope and shift](fig/fig_b01_ad_slope.svg)
+*Left: the AD line pivots flatter as σ rises. Right: a one-point cut in i moves every point of AD right by σ = 0.5 at the same p.*
 
 so AD is **flatter the larger $\sigma$ is**: when households substitute readily across
 time, a small price change is enough to move output a lot. Compare the AS slope $+\kappa$
@@ -190,6 +246,9 @@ in [[02-firms-and-as]]; their ratio is what every comparative static in §6–§
 ## 1.7 The trap this section exists to prevent
 
 Two curves slope down in the $(y,p)$ plane and they are not the same curve.
+
+![Two AD mechanisms](fig/fig_b01_two_ads.svg)
+*Read each row left to right: the top chain never touches money; the bottom chain needs a fixed M and an LM curve, neither of which exists here.*
 
 - **IS-LM AD.** $p\uparrow$ raises nominal money demand; with $M$ fixed the interest
   rate must rise to clear the money market; investment and output fall. The mechanism

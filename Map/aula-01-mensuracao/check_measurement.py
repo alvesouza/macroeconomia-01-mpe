@@ -18,7 +18,7 @@ Covered:
   05-beyond-gdp              the four-term lambda decomposition against a brute-force
                              expected-utility solve
 
-Stdlib + numpy only. Run: python Map/aula-01-mensuracao/check_measurement.py
+Stdlib + numpy + sympy (the audit block). Run: python Map/aula-01-mensuracao/check_measurement.py
 """
 from __future__ import annotations
 
@@ -304,6 +304,133 @@ check_true("geometric mean below arithmetic mean for unequal components",
 Phi = lambda x: 0.5 * (1 + math.erf(x / math.sqrt(2)))
 check("Gini at s=0.5", 2 * Phi(0.5 / math.sqrt(2)) - 1, 0.276, tol=1e-3)
 check("Gini at s=1.0", 2 * Phi(1.0 / math.sqrt(2)) - 1, 0.521, tol=1e-3)
+
+# ----------------------------------------------------------------------------
+# Intermediate steps inserted in the notes on audit (2026-09-28). Symbolic where
+# sympy can do it, numeric otherwise.
+# ----------------------------------------------------------------------------
+import sympy as sp  # noqa: E402
+
+print("\naudit -- intermediate steps")
+zero = lambda e: sp.simplify(e) == 0  # noqa: E731
+
+# 01: VA = R - M from (1.1); GNP bridge
+M_, W_, I_, D_, T_, Pi_ = sp.symbols("M W I D T Pi")
+R_ = M_ + W_ + I_ + D_ + T_ + Pi_
+check_true("01 (1.2): R - M equals the factor payments", zero(R_ - M_ - (W_ + I_ + D_ + T_ + Pi_)))
+
+# 02: share forms of Q^L, Q^P, P^L, P^P and the covariance differences
+p0s, q0s, ph_s, qh_s = (sp.symbols(f"{n}1:4", positive=True) for n in ("p", "q", "ph", "qh"))
+V0 = sum(a * b for a, b in zip(p0s, q0s))
+sh = [a * b / V0 for a, b in zip(p0s, q0s)]
+E = lambda xs: sum(w * x for w, x in zip(sh, xs))  # noqa: E731
+p1s = [a * b for a, b in zip(p0s, ph_s)]
+q1s = [a * b for a, b in zip(q0s, qh_s)]
+dot = lambda a, b: sum(x * y for x, y in zip(a, b))  # noqa: E731
+QLs, QPs = dot(p0s, q1s) / V0, dot(p1s, q1s) / dot(p1s, q0s)
+PLs, PPs = dot(p1s, q0s) / V0, dot(p1s, q1s) / dot(p0s, q1s)
+pq = [a * b for a, b in zip(ph_s, qh_s)]
+check_true("02 Q^L = E_s[q-hat]", zero(QLs - E(qh_s)))
+check_true("02 Q^P = E_s[p q]/E_s[p]", zero(QPs - E(pq) / E(ph_s)))
+check_true("02 (2.1) Q^P - Q^L = Cov/E[p]", zero(QPs - QLs - (E(pq) - E(ph_s) * E(qh_s)) / E(ph_s)))
+check_true("02 P^L = E_s[p-hat]", zero(PLs - E(ph_s)))
+check_true("02 P^P - P^L = Cov/E[q]", zero(PPs - PLs - (E(pq) - E(ph_s) * E(qh_s)) / E(qh_s)))
+# time reversal: swap years
+QL_back = dot(p1s, q0s) / dot(p1s, q1s)
+QP_back = dot(p0s, q0s) / dot(p0s, q1s)
+check_true("02 time reversal: Q^L(1->0) Q^P(1->0) = 1/(Q^L Q^P)",
+           zero(QL_back * QP_back * QLs * QPs - 1))
+check("02 Expandia sqrt(1.70*1.55)", math.sqrt(1.70 * 1.55), 1.6233, tol=1e-4)
+check("02 Expandia E[p q] = 1.32/3 + 2*1.2/3", 1.32 / 3 + 2 * 1.2 / 3, 1.24)
+
+# 02: CES second-order bias, two goods, general eps; series in a scale t
+t, eps_, w, x1, x2 = sp.symbols("t epsilon w x1 x2", real=True)
+wts, xs = [w, 1 - w], [t * x1, t * x2]
+Ew = lambda f: sum(a * f(x) for a, x in zip(wts, xs))  # noqa: E731
+lnPL = sp.log(Ew(sp.exp))
+lnPP = sp.log(Ew(lambda x: sp.exp((1 - eps_) * x))) - sp.log(Ew(lambda x: sp.exp(-eps_ * x)))
+bias = lnPL - (lnPL + lnPP) / 2
+m_ = w * t * x1 + (1 - w) * t * x2
+v_ = w * (t * x1) ** 2 + (1 - w) * (t * x2) ** 2 - m_ ** 2
+ser = sp.series(bias, t, 0, 3).removeO()
+check_true("02 ln P^L - ln P^F = eps*Var/2 + O(t^3)", zero(sp.expand(ser - eps_ * v_ / 2)))
+lemma = sp.series(sp.log(Ew(lambda x: sp.exp(eps_ * x))), t, 0, 3).removeO()
+check_true("02 lemma ln E[e^{a pi}] = a m + a^2 v/2 + O(3)",
+           zero(sp.expand(lemma - (eps_ * m_ + eps_ ** 2 * v_ / 2))))
+
+# 03: log series, cross term, growth accounting, rule-of-70 refinement
+g_ = sp.symbols("g")
+check_true("03 ln(1+g) = g - g^2/2 + g^3/3 + O(g^4)",
+           zero(sp.series(sp.log(1 + g_), g_, 0, 4).removeO() - (g_ - g_**2 / 2 + g_**3 / 3)))
+gYL = (1.03 / 1.01) - 1
+check("03 per-capita g = (gY-gL)/(1+gL)", gYL, 0.02 / 1.01)
+check("03 cross term is -g_{Y/L} g_L = -0.000198", gYL - 0.02, -gYL * 0.01, tol=1e-12)
+check("03 cross term rounds to -0.0002 (not -0.0003)", round(gYL - 0.02, 4), -0.0002)
+A_, K_, L_, al = sp.symbols("A K L alpha", positive=True)
+tt = sp.symbols("tt")
+Af, Kf, Lf = (sp.Function(n)(tt) for n in "AKL")
+Yf = Af * Kf ** al * Lf ** (1 - al)
+gY_expr = sp.diff(sp.expand_log(sp.log(Yf), force=True), tt)
+rhs_ga = sp.diff(Af, tt) / Af + al * sp.diff(Kf, tt) / Kf + (1 - al) * sp.diff(Lf, tt) / Lf
+check_true("03 growth accounting g_Y = g_A + a g_K + (1-a) g_L", zero(gY_expr - rhs_ga))
+check("03 CAGR of +50/-50", 0.75 ** 0.5 - 1, -0.134, tol=5e-4)
+for gg in (0.01, 0.02, 0.07):
+    check(f"03 doubling time ~ ln2/g + ln2/2 at g={gg}",
+          math.log(2) / math.log1p(gg), math.log(2) / gg + math.log(2) / 2, tol=0.01)
+
+# 04: PPP price level, log split, CD cost function, BS division
+us_pc, mx_pc = 20.5e12 / 327e6, 23.5e12 / 127e6
+e_mkt, e_ppp = 1 / 19, 18000 / 185000
+check("04 P = e_market / e_PPP", e_mkt / e_ppp, 0.54, tol=0.005)
+check("04 e_PPP / e_market is the uplift 1.85", e_ppp / e_mkt, 1.85, tol=0.005)
+lg_m, lg_p = math.log(us_pc / (mx_pc / 19)), math.log(us_pc / 18000)
+check("04 log gap at market rates", lg_m, 1.862, tol=2e-3)
+check("04 price-level share of log gap ~ one third", (lg_m - lg_p) / lg_m, 0.33, tol=0.01)
+PT_, PN_, gm, Ex = sp.symbols("P_T P_N gamma E", positive=True)
+cost = PT_ ** (1 - gm) * PN_ ** gm / ((1 - gm) ** (1 - gm) * gm ** gm)
+vals = {PT_: 1.3, PN_: 0.7, gm: 0.35}
+bundle = ((1 - gm) * cost / PT_) ** (1 - gm) * (gm * cost / PN_) ** gm
+check("04 CD unit cost buys exactly one unit", float(bundle.subs(vals)), 1.0, tol=1e-12)
+AT_, AN_ = sp.symbols("A_T A_N", positive=True)
+check_true("04 (4.1) from P_T A_T = P_N A_N", zero(sp.solve(sp.Eq(PT_ * AT_, PN_ * AN_), PN_)[0] / PT_ - AT_ / AN_))
+
+# 05: HDI increments and cross-partial, CRRA limit, lognormal MGF, lambda identity, CE
+check("05 ln 750", math.log(750), 6.620, tol=1e-3)
+check("05 +$1000 at $2000", math.log(1.5) / math.log(750), 0.061, tol=5e-4)
+check("05 +$1000 at $60000", math.log(61 / 60) / math.log(750), 0.0025, tol=5e-5)
+Il, Ie, Ii = sp.symbols("I_l I_e I_i", positive=True)
+H = (Il * Ie * Ii) ** sp.Rational(1, 3)
+check_true("05 HDI cross-partial = H/(9 I_l I_i)",
+           zero(sp.diff(H, Il, Ii) - H / (9 * Il * Ii)))
+c_, sg = sp.symbols("c sigma", positive=True)
+check_true("05 u'' = -sigma c^(-sigma-1)",
+           zero(sp.diff(c_ ** (1 - sg) / (1 - sg), c_, 2) + sg * c_ ** (-sg - 1)))
+check_true("05 lim sigma->1 (c^(1-s)-1)/(1-s) = ln c",
+           zero(sp.limit((c_ ** (1 - sg) - 1) / (1 - sg), sg, 1) - sp.log(c_)))
+xx, mu, s_ = sp.symbols("x mu s", real=True)
+check_true("05 completing the square",
+           zero(sp.expand(xx - (xx - mu) ** 2 / (2 * s_ ** 2)
+                          - (-(xx - mu - s_ ** 2) ** 2 / (2 * s_ ** 2) + mu + s_ ** 2 / 2))))
+s_pos = sp.symbols("s_pos", positive=True)
+zg = np.linspace(-10, 10, 40001)
+phi = np.exp(-zg ** 2 / 2) / math.sqrt(2 * math.pi)
+for mu_v, s_v in ((0.3, 0.5), (-1.0, 1.2)):
+    check(f"05 E[e^x] = exp(mu + s^2/2) at mu={mu_v}, s={s_v}",
+          np.trapezoid(np.exp(mu_v + s_v * zg) * phi, zg), math.exp(mu_v + s_v ** 2 / 2), tol=1e-8)
+eU, eJ, BU, BJ = sp.symbols("e_US e_j B_US B_j", positive=True)
+lam_exact = sp.solve(sp.Eq(eU * (sp.Symbol("L") + BU), eJ * BJ), sp.Symbol("L"))[0]
+check_true("05 ln lambda = (B_j - B_US) + (e_j - e_US)/e_US * B_j exactly",
+           zero(lam_exact - ((BJ - BU) + (eJ - eU) / eU * BJ)))
+for sig in (2.0, 5.0):
+    mu_n, s_n = math.log(30000.0) - 0.5 * 0.9 ** 2, 0.9
+    ce = math.exp(mu_n + 0.5 * (1 - sig) * s_n ** 2)           # closed form of E[c^(1-s)]^(1/(1-s))
+    check(f"05 CE = cbar*exp(-sigma s^2/2) at sigma={sig:.0f}",
+          math.log(ce), math.log(30000.0) - sig * s_n ** 2 / 2)
+    zq = np.linspace(-8, 8, 20001)                              # numeric E[c^(1-s)] by quadrature
+    dens = np.exp(-zq ** 2 / 2) / math.sqrt(2 * math.pi)
+    Ec = np.trapezoid(np.exp((1 - sig) * (mu_n + s_n * zq)) * dens, zq)
+    check(f"05 CE by quadrature at sigma={sig:.0f}", math.log(Ec) / (1 - sig), math.log(ce), tol=1e-5)
+check("05 Jensen fig: CE of 10k/50k gamble", math.exp(0.5 * (math.log(1e4) + math.log(5e4))), 22360.68, tol=0.01)
 
 # ----------------------------------------------------------------------------
 print()

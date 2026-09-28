@@ -29,7 +29,7 @@ and numbers in `Resolucao/lista7_codigo/l7_figuras.py`). Up: [[00_indice]] ·
 
 | Q | Pts | Asks | Benigno (printed pp.) | Derivation note | Companion |
 |---|---|---|---|---|---|
-| 1 | 3 | NK vs New Classical vs original Keynesian, on 4 dimensions, with evidence and implications | §1–§3 pp. 503–506; §4 p. 507–508 (menu costs, sticky info, NC Phillips curve); §11 pp. 521–522 | [[benigno/00-index]], [[benigno/01-household-and-ad]], [[benigno/02-firms-and-as]] §2.1, §2.8, [[benigno/10-optimal-policy]] §10.1 | — |
+| 1 | 3 | NK vs New Classical vs original Keynesian, on 4 dimensions, with evidence and implications | §1–§3 pp. 503–506; §4 p. 507–508 (menu costs, sticky info, NC Phillips curve); §11 pp. 521–522 | **[[benigno/11-three-schools-and-market-clearing]]** (dedicated note, with market clearing), [[benigno/00-index]], [[benigno/01-household-and-ad]], [[benigno/02-firms-and-as]] §2.1, §2.8, [[benigno/10-optimal-policy]] §10.1 | — |
 | 2a | 1.5 | temporary rise in desired mark-up | §7, Fig. 9, pp. 513–514 | [[benigno/06-markup-shocks]] §6.2 | [Two Shocks](benigno/companion-two-shocks.html) |
 | 2b | 1.5 | cut in the nominal rate | §5, Figs. 3–5, pp. 509–511 | [[benigno/04-equilibrium-geometry]] §4.4 | [Two Shocks](benigno/companion-two-shocks.html) |
 | 3 | 2 | $y_n$ vs $y_e$; why the mark-up moves only $y_n$ | §4.1–§4.4, eqs. (14), (15), (19), pp. 507–509 | [[benigno/03-natural-and-efficient]] §3.3–§3.5 | [The Wedge](benigno/companion-wedge.html) |
@@ -63,6 +63,11 @@ and Carlin & Soskice (2024). Use them for contrast, never to raise the level.
 ## What the project did for this list
 
 - Solution PDF, 14 pages, three figures, every number printed by the figure script.
+- **Short version in the instructor's style**, `Resolucao/lista7_resolucao_curta.pdf`, 7 pages.
+  Same answers and numbers, with every derivation step and every arithmetic line kept, written
+  in the format of his PSET keys
+  ([[estilo-do-professor]]): result highlighted, arrow chains, `#` margin traps,
+  substitution instead of a Lagrangian in Q4, and each AS–AD diagram paired with its SR/LR path.
 - Published (private) copies: [Two Shocks](https://claude.ai/artifact/Hf8KsQYWvTwd6BnyFXP7MZ) ·
   [The Wedge](https://claude.ai/artifact/KUhe4SoMSCrZb5z7afiJ9U) ·
   [The Loss Bowl](https://claude.ai/artifact/5LYyfukdcNiBd3cHXvWH63).

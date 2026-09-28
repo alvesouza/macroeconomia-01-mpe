@@ -32,13 +32,26 @@ Lagrangian with multiplier $\mu$ on the lifetime constraint:
 $$\mathcal L = u(c_1)-v(h_1)+\beta\left[u(c_2)-v(h_2)\right]
 +\mu\left[w_1h_1+\frac{w_2h_2}{1+r}+\pi-c_1-\frac{c_2}{1+r}\right]$$
 
-Four first-order conditions:
+Differentiate $\mathcal L$ with respect to each of the four choices and set the result to zero.
+Consumption enters the bracket with coefficients $-1$ and $-1/(1+r)$; hours enter with $w_1$ and
+$w_2/(1+r)$:
+
+$$\frac{\partial\mathcal L}{\partial c_1}=u'(c_1)-\mu,\quad
+\frac{\partial\mathcal L}{\partial c_2}=\beta u'(c_2)-\frac{\mu}{1+r},\quad
+\frac{\partial\mathcal L}{\partial h_1}=-v'(h_1)+\mu w_1,\quad
+\frac{\partial\mathcal L}{\partial h_2}=-\beta v'(h_2)+\frac{\mu w_2}{1+r}$$
+
+Setting each to zero and moving the negative term across gives the four first-order conditions:
 
 $$u'(c_1)=\mu, \qquad \beta u'(c_2)=\frac{\mu}{1+r}$$
 $$v'(h_1)=\mu w_1, \qquad \beta v'(h_2)=\frac{\mu w_2}{1+r}$$
 
 The first pair is the Euler equation of [[02-two-period-problem]] §2.3, unchanged. The second
-pair is new, and the ratio of the two labour conditions is the object of this note:
+pair is new, and the ratio of the two labour conditions is the object of this note. Divide the
+$h_1$ condition by the $h_2$ condition. The multiplier cancels, and dividing by $1/(1+r)$ is
+multiplying by $1+r$:
+$\dfrac{v'(h_1)}{\beta v'(h_2)}=\dfrac{\mu w_1}{\mu w_2/(1+r)}=\dfrac{w_1}{w_2}(1+r)$. Multiplying
+both sides by $\beta$ gives the second form:
 
 $$\boxed{\;\frac{v'(h_1)}{\beta\,v'(h_2)} = \frac{w_1}{w_2}\,(1+r)
 \qquad\Longleftrightarrow\qquad
@@ -54,7 +67,9 @@ Holding it fixed is exactly the definition of the Frisch elasticity in
 
 ## 4.2 The closed form, and the elasticity
 
-With $v(h)=\chi h^{1+\eta}/(1+\eta)$, so $v'(h)=\chi h^{\eta}$:
+With $v(h)=\chi h^{1+\eta}/(1+\eta)$, so $v'(h)=\chi h^{\eta}$. Then
+$v'(h_1)/v'(h_2)=\chi h_1^{\eta}/(\chi h_2^{\eta})=(h_1/h_2)^{\eta}$ ($\chi$ cancels). Raising both
+sides to the power $1/\eta$ gives the closed form:
 
 $$\left(\frac{h_1}{h_2}\right)^{\eta}=\beta(1+r)\frac{w_1}{w_2}
 \qquad\Longrightarrow\qquad
@@ -65,12 +80,19 @@ In logs:
 $$\ln h_1-\ln h_2 = \frac{1}{\eta}\left[\ln\beta+\ln(1+r)+\ln w_1-\ln w_2\right]
 \simeq \frac{1}{\eta}\left[(r-\rho)+\ln\frac{w_1}{w_2}\right]$$
 
+(The equality takes logs of the closed form: the log of a power is the exponent times the log,
+and the log of a product is the sum of logs. The approximation writes $\beta=1/(1+\rho)$, so
+$\ln\beta=-\ln(1+\rho)$, and uses the first-order Taylor step $\ln(1+x)\simeq x$ for small $x$
+twice: $\ln(1+r)\simeq r$ and $\ln(1+\rho)\simeq\rho$.)
+
 **Three comparative statics, each worth stating.**
 
 1. $\dfrac{\partial\ln(h_1/h_2)}{\partial\ln(w_1/w_2)}=\dfrac{1}{\eta}=\varepsilon^{F}$. The
    relative wage moves relative hours with the **Frisch** elasticity. Exactly the parameter of
    [[03-elasticities-and-evidence]] §3.2.
-2. $\dfrac{\partial\ln(h_1/h_2)}{\partial r}=\dfrac{1}{\eta}>0$. **A higher interest rate raises
+2. $\dfrac{\partial\ln(h_1/h_2)}{\partial r}=\dfrac{1}{\eta}\cdot\dfrac{1}{1+r}\simeq\dfrac{1}{\eta}>0$
+   (exactly, the derivative of $\ln(1+r)$ is $1/(1+r)$; the approximate form gives $1/\eta$).
+   **A higher interest rate raises
    current hours.** This is the mechanism that is easy to miss and it is genuinely surprising:
    working today and saving the proceeds is more attractive when the return on saving is high,
    so a rise in $r$ shifts work toward the present. It is the labour-market counterpart of the
@@ -85,6 +107,11 @@ $$\ln h_1-\ln h_2 = \frac{1}{\eta}\left[\ln\beta+\ln(1+r)+\ln w_1-\ln w_2\right]
    $\beta(1+r)$, so raising $r$ and raising $\beta$ do the same thing, and $\beta(1+r)=1$ is the
    knife-edge at which hours are equalised across periods — the labour-market twin of the
    perfect-smoothing benchmark in [[02-two-period-problem]] §2.3.
+
+![Relative hours against the relative wage for three values of eta](fig/fig_relative_hours.svg)
+*With $\beta(1+r)=1$, relative hours are $(w_1/w_2)^{1/\eta}$. A 10% transitory premium raises
+$h_1/h_2$ by 21.0%, 10.0% or 3.2% for $\eta=0.5$, 1 or 3. That is roughly $\varepsilon^F\times10\%$,
+exactly so when $\eta=1$.*
 
 ## 4.3 Temporary against permanent wage changes
 
@@ -107,6 +134,25 @@ This is the section's payoff, and it mirrors [[04-permanent-income]] §4.1 exact
 
 $$\boxed{\;\text{transitory wage change} \to \varepsilon^{F} \text{ (large)};
 \qquad \text{permanent wage change} \to \varepsilon^{M} \text{ (small or zero)}\;}$$
+
+**Why the permanent case gives exactly zero with $u=\ln c$ and $\pi=0$.** With log utility the
+consumption conditions give $c_1=1/\mu$ and $c_2=\beta(1+r)/\mu$. The labour conditions give
+$h_1=(\mu w_1/\chi)^{1/\eta}$ and $h_2=\big(\mu w_2/[\beta(1+r)\chi]\big)^{1/\eta}$. Now multiply both
+wages by $k$ and try $\mu\to\mu/k$:
+
+- hours: $\mu w_t$ becomes $(\mu/k)(kw_t)=\mu w_t$, so $h_1$ and $h_2$ are unchanged;
+- consumption: $1/\mu$ becomes $k/\mu$, so $c_1$ and $c_2$ are multiplied by $k$;
+- budget: the left side ($c_1+c_2/(1+r)$) and the right side ($w_1h_1+w_2h_2/(1+r)$) are both
+  multiplied by $k$, so it still holds.
+
+So the old hours with consumption scaled by $k$ solve the new problem: hours do not move. With
+$\pi>0$ the right side gains a term that does not scale, and the cancellation fails, as in the
+static model.
+
+![Change in hours in each period after a transitory and a permanent wage rise](fig/fig_temp_vs_perm.svg)
+*The full two-period model with $\eta=1$, $\ln c$, $\beta(1+r)=1$ and $\pi=0$. A 10% rise in $w_1$
+alone moves hours into period 1 (+4.55%) and out of period 2 (−4.96%). A 10% rise in both wages
+leaves both at their baseline.*
 
 **The consistency check with session 3.** A permanent wage rise is what happens along a balanced
 growth path as $A$ grows — and the balanced-growth restriction of [[02-static-model]] §2.5

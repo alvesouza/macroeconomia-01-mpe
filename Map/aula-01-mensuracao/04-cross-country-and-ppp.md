@@ -26,8 +26,12 @@ Kurlat's Example 1.14 (p. 25): US GDP is \$20.5tn with 327m people; Mexican GDP 
 with 127m people. Per capita: \$62,700 and 185,000 pesos. The numbers are not comparable
 because the units differ.
 
+(Per capita means total divided by population: $20.5\times10^{12}/327\times10^{6}=\$62{,}691$
+and $23.5\times10^{12}/127\times10^{6}=185{,}039$ pesos.)
+
 **Market-rate conversion.** At 19 pesos to the dollar, Mexican GDP per capita is
-$185{,}000/19 \simeq \$9{,}700$, so measured US income is 6.5 times Mexican income.
+$185{,}000/19 \simeq \$9{,}700$, so measured US income is 6.5 times Mexican income
+($62{,}700/9{,}737=6.44$, which the text rounds to 6.5).
 
 **The objection.** A dollar converted into pesos buys more in Mexico than it buys in the US.
 Low measured GDP at market rates may mean low output, or it may mean low prices. The
@@ -50,6 +54,18 @@ At PPP, Mexican GDP per capita is about \$18,000, roughly twice the market-rate 
 true income ratio is about 3.5, not 6.5. **Nearly half of the measured income gap between the
 US and Mexico at market rates is a price-level difference, not an output difference.**
 
+> **Precision (added on audit).** "Nearly half" is right about the *ratio* — the PPP correction
+> divides it by $6.44/3.48=1.85$ — but not about the *gap* measured in logs, which is the
+> additive way to split it. Taking logs of each ratio:
+>
+> $$\ln\frac{62{,}691}{9{,}739}=1.862,\qquad \ln\frac{62{,}691}{18{,}000}=1.248,\qquad
+> \frac{1.862-1.248}{1.862}=\frac{0.614}{1.862}=0.33$$
+>
+> so about **one third** of the log income gap is price level and two thirds is output.
+
+![US and Mexican GDP per head at market rates and at PPP](fig/fig_04_mexico_ppp.svg)
+*Read the arrow on the third bar: dividing the market-rate figure by Mexico's price level (0.54) takes it from \$9.7k to \$18.0k, and the US/Mexico ratio falls from 6.4 to 3.5.*
+
 ### The PPP exchange rate, defined
 
 Kurlat defines it as the rate that would reconcile the two conversions:
@@ -64,6 +80,18 @@ $$\mathcal{P} \;\equiv\; \frac{e^{\text{PPP}}}{e^{\text{market}}}$$
 $\mathcal{P}<1$ means goods are cheaper there than in the US. For Mexico,
 $e^{\text{market}} = 1/19 = 0.0526$ dollars per peso and $e^{\text{PPP}} = 18{,}000/185{,}000
 = 0.0973$, so $\mathcal{P} = 0.54$: the Mexican price level is a little over half the US level.
+
+> **Correction (added on audit).** The formula above is upside down; the words ("the ratio of
+> the market rate to the PPP rate") and the number 0.54 are right. With both rates in dollars
+> per unit of local currency, the dollar value of Mexico's GDP is $e^{\text{market}}Y_{\text{local}}$
+> at market rates and $e^{\text{PPP}}Y_{\text{local}}$ at US prices. The price level is how much
+> more the same output costs in dollars when valued at Mexican prices than at US prices:
+>
+> $$\mathcal{P}=\frac{e^{\text{market}}\,Y_{\text{local}}}{e^{\text{PPP}}\,Y_{\text{local}}}
+> =\frac{e^{\text{market}}}{e^{\text{PPP}}}=\frac{0.0526}{0.0973}=0.54$$
+>
+> whereas $e^{\text{PPP}}/e^{\text{market}}=1.85$ is its reciprocal, the PPP uplift factor.
+> Read $\mathcal{P}\equiv e^{\text{market}}/e^{\text{PPP}}$ everywhere below.
 
 **The Big Mac index** is the same construction with $N=1$:
 
@@ -95,7 +123,12 @@ marginal product, and workers move until wages are equalised:
 
 $$W = P_T A_T = P_N A_N$$
 
-**Step 1 — the relative price of non-tradables.** Divide:
+**Step 1 — the relative price of non-tradables.** Take the equality $P_TA_T=P_NA_N$ and
+divide both sides by $P_TA_N$:
+
+$$\frac{P_TA_T}{P_TA_N}=\frac{P_NA_N}{P_TA_N}\;\Longrightarrow\;\frac{A_T}{A_N}=\frac{P_N}{P_T}$$
+
+Read right to left:
 
 $$\boxed{\;\frac{P_N}{P_T} = \frac{A_T}{A_N}\;} \tag{4.1}$$
 
@@ -111,7 +144,28 @@ $\gamma$ on non-tradables. The consumer price index is the geometric average
 $$P = P_T^{1-\gamma}P_N^{\gamma} = \left(\frac{P_N}{P_T}\right)^{\gamma}
 = \left(\frac{A_T}{A_N}\right)^{\gamma} \tag{4.2}$$
 
-using $P_T=1$. Taking logs, the price level of country $j$ relative to the US:
+using $P_T=1$.
+
+*Where the geometric average comes from.* The price index is the minimum cost of one unit of
+the consumption bundle $C=C_T^{1-\gamma}C_N^{\gamma}$. Cobb–Douglas cost minimisation spends
+fixed shares of outlay $E$ on each good, $P_TC_T=(1-\gamma)E$ and $P_NC_N=\gamma E$. Solve each
+for the quantity and substitute into $C=1$:
+
+$$1=\left(\frac{(1-\gamma)E}{P_T}\right)^{1-\gamma}\left(\frac{\gamma E}{P_N}\right)^{\gamma}
+=\frac{(1-\gamma)^{1-\gamma}\gamma^{\gamma}\,E}{P_T^{1-\gamma}P_N^{\gamma}}
+\;\Longrightarrow\;
+E=\frac{P_T^{1-\gamma}P_N^{\gamma}}{(1-\gamma)^{1-\gamma}\gamma^{\gamma}}$$
+
+The constant in the denominator is the same in every country with the same $\gamma$, so it
+cancels from every cross-country ratio and is dropped. Then factor out $P_T$:
+$P_T^{1-\gamma}P_N^{\gamma}=P_T\left(P_N/P_T\right)^{\gamma}$, which is $(P_N/P_T)^\gamma$ at
+$P_T=1$, and substitute (4.1).
+
+Taking logs, the price level of country $j$ relative to the US. Tradables cost the same
+everywhere at the market rate, so the ratio of the two CPIs *is* $\mathcal P_j$. Take logs of
+(4.2) in each country and subtract,
+$\ln\mathcal P_j=\gamma\ln\frac{A_{T,j}}{A_{N,j}}-\gamma\ln\frac{A_{T,\text{US}}}{A_{N,\text{US}}}$;
+expand each log of a ratio into a difference and regroup by sector:
 
 $$\ln \mathcal{P}_j = \gamma\left[\left(\ln A_{T,j}-\ln A_{T,\text{US}}\right)
 -\left(\ln A_{N,j}-\ln A_{N,\text{US}}\right)\right] \tag{4.3}$$
@@ -128,12 +182,27 @@ $$\boxed{\;\text{poorer country} \;\Longrightarrow\; \text{lower price level}
 and the understatement is *larger* the poorer the country. That is why the PPP correction
 raised Mexico by a factor of about 1.9 and would raise India by more.
 
+![Balassa–Samuelson in log points](fig/fig_04_bs_chain.svg)
+*The numbers from `check_measurement.py`: the rich country is 4× as productive in tradables and 1.25× in non-tradables. Read the bars left to right: −1.386 minus −0.223 gives a bracket of −1.163, and γ = 0.5 halves it to −0.582, a price level of 0.56. Equal gaps in both sectors would make the third bar zero.*
+
 **Step 4 — the sign of the bias in growth comparisons.** Differentiating (4.3) along a growth
 path, a country whose tradable productivity is catching up fast experiences **real exchange
 rate appreciation** — its price level rises toward the US level. So a fast-growing economy's
 GDP measured at market rates grows faster than its GDP at constant PPP, because part of the
 market-rate growth is the price level catching up, not output. This is a standard source of
 overstated growth figures for China in the 2000s.
+
+The two lines behind that paragraph. Differentiate (4.3) with respect to time, writing
+$g_x=\dot x/x$ (the time derivative of a log is a growth rate):
+
+$$\frac{d\ln\mathcal P_j}{dt}=\gamma\left[\left(g_{A_T,j}-g_{A_T,\text{US}}\right)-\left(g_{A_N,j}-g_{A_N,\text{US}}\right)\right]$$
+
+which is positive when $j$'s tradable productivity catches up faster than its non-tradable
+productivity. And GDP in dollars at market rates equals PPP GDP times the price level
+($e^{\text{market}}Y_{\text{local}}=\mathcal P\cdot e^{\text{PPP}}Y_{\text{local}}$); take logs and
+differentiate:
+
+$$g_{\text{GDP, market \$}}=g_{\text{GDP, PPP}}+g_{\mathcal P}$$
 
 ### Two things the derivation shows that the slogan does not
 
@@ -157,6 +226,10 @@ They are linked by an identity worth memorising, because session 5 takes it apar
 $$\frac{Y}{\text{Pop}} = \underbrace{\frac{Y}{H}}_{\text{output per hour}}
 \times \underbrace{\frac{H}{E}}_{\text{hours per worker}}
 \times \underbrace{\frac{E}{\text{Pop}}}_{\text{employment rate}}$$
+
+(Multiply out the right side: $H$ cancels between the first two factors and $E$ between the
+last two, leaving $Y/\text{Pop}$. In logs the three factors add, so a log gap in output per
+person splits into three additive gaps.)
 
 The classic application: France's output **per hour** is close to the US level, while its output
 **per person** is roughly 25–30% lower. The whole gap is in the last two factors — shorter hours

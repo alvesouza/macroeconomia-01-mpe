@@ -56,6 +56,19 @@ $1.015^{216} = e^{216\ln 1.015} = e^{216\times0.014889} = e^{3.216} \simeq 24.9$
 27 implies $\ln 27/216 = 0.01526$, so 1.53% — the two statements agree to the rounding. Verified
 in `check_solow.py`.
 
+The inversion, one operation per line (solve $(1+g)^{216}=27$ for $g$):
+
+$$(1+g)^{216} = 27 \qquad\text{(the claim)}$$
+$$216\,\ln(1+g) = \ln 27 = 3.2958 \qquad\text{(take logs; } \ln x^{a}=a\ln x)$$
+$$\ln(1+g) = \frac{3.2958}{216} = 0.015258 \qquad\text{(divide both sides by 216)}$$
+$$g = e^{0.015258}-1 = 0.01538 \qquad\text{(exponentiate, subtract 1)}$$
+
+So the exact rate is 1.54%; the 1.53% above is the log approximation $g\simeq\ln(1+g)$, whose
+error is second order ($\ln(1+g) = g - g^2/2 + \dots$, and $g^2/2\approx0.0001$).
+
+![Two panels: the 1.5% and 1.54% paths on a linear and on a log scale](fig/fig_01_log_scale.svg)
+*Same two paths, two scales: on the log scale constant growth is a straight line, and 1.5% vs 1.54% ends at 24.9× vs 27×.*
+
 **Fact 2. The capital–output ratio is constant.**
 $K/Y$ has stayed near **3.2** in the US. Kurlat notes the measurement problem: the capital
 stock is hard to observe and is usually built by cumulating investment net of depreciation —
@@ -89,12 +102,19 @@ by Fact 3. The denominator is $K/Y$, constant by Fact 2. A ratio of two constant
 
 $$\boxed{\;r = \frac{1-\text{labour share}}{K/Y}\;}$$
 
-Put the US numbers in: $(1-0.65)/3.2 = 0.109$, so a **gross** return near 11%. Kurlat's
+The step between the two displays, written out: labour and capital income together are all of
+GDP, so $\text{capital income}/\text{GDP} = 1-\text{labour share}$; and
+$\text{Capital stock}/\text{GDP}$ is $K/Y$ by definition.
+
+Put the US numbers in: $(1-0.65)/3.2 = 0.35/3.2 = 0.109$, so a **gross** return near 11%. Kurlat's
 footnote 3 is the necessary caveat: this is gross of depreciation, because the capital income
 measure includes depreciation. Net of a depreciation rate $\delta$, the return is
 $r_{\text{net}} = r - \delta$, so with $\delta\simeq0.05$ the net return is about **6%** — which
 is the number that should appear in any calibration, and the one that reappears as the real
 interest rate in [[06_equilibrio_geral]].
+
+![Stacked bar: 10.9% gross return split into 5.0% depreciation and 5.9% net return](fig/fig_01_return.svg)
+*Read the bar left to right: of the 10.9% gross return, 5.0 points only replace worn-out capital; 5.9% is the net return.*
 
 Kurlat states Fact 4 separately anyway, because the time path of the return on capital is what
 many growth theories are really about, so it is useful to keep in view even though it carries

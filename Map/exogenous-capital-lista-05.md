@@ -75,14 +75,34 @@ are determined by **separate, unconnected** conditions:
   rental rate is whatever makes the firm willing to absorb exactly $\bar K$.
 - $r$ — comes from the household's Euler equation, and from nowhere else.
 
+![Capital rental market with a vertical supply at K-bar](aula-06-equilibrio-geral/fig/fig_ge_frozen_rental.svg)
+*Read the vertical black line: whatever the demand curve does, the quantity of capital stays at
+$\bar K=2$ and only the price moves. With $\sigma=0.5$, $\psi=1.8$, $\alpha=0.35$, raising $A$ from
+1 to 1.3 raises equilibrium hours from 0.193 to 0.222 and shifts the demand $F_K$ up, so $r^K$ goes
+from 0.076 to 0.109 — a residual, and with no link to $r$.*
+
 ### 2.3 The model becomes block-recursive: $L_t \to c_t \to r$
 
 Substituting $u'(c)=c^{-\sigma}$, $v(l)=\psi\ln l$, $l_t = 1-L_t$, $c_t = A_t\bar K^\alpha
 L_t^{1-\alpha}$ and $w_t = (1-\alpha)A_t\bar K^\alpha L_t^{-\alpha}$ into the intratemporal
 condition $v'(l_t)/u'(c_t) = w_t$ gives
 
-$$\psi\,\frac{L_t^{\alpha+(1-\alpha)\sigma}}{1-L_t} = (1-\alpha)\left(A_t\bar
-K^{\alpha}\right)^{1-\sigma}$$
+$$\boxed{\;\psi\,\frac{L_t^{\alpha+(1-\alpha)\sigma}}{1-L_t} = (1-\alpha)\left(A_t\bar
+K^{\alpha}\right)^{1-\sigma}\;}$$
+
+*One operation per line.* Write $\tilde A_t\equiv A_t\bar K^{\alpha}$ to shorten.
+
+1. Marginal utilities: $v(l)=\psi\ln l$ gives $v'(l_t)=\psi/l_t=\psi/(1-L_t)$; $u'(c_t)=c_t^{-\sigma}$.
+   So the left side of $v'(l_t)/u'(c_t)=w_t$ is
+   $$\frac{\psi/(1-L_t)}{c_t^{-\sigma}}=\frac{\psi\,c_t^{\sigma}}{1-L_t}$$
+2. Substitute goods-market clearing $c_t=\tilde A_tL_t^{1-\alpha}$, so
+   $c_t^{\sigma}=\tilde A_t^{\sigma}L_t^{(1-\alpha)\sigma}$, and the wage
+   $w_t=(1-\alpha)\tilde A_tL_t^{-\alpha}$:
+   $$\frac{\psi\,\tilde A_t^{\sigma}L_t^{(1-\alpha)\sigma}}{1-L_t}=(1-\alpha)\tilde A_tL_t^{-\alpha}$$
+3. Multiply both sides by $L_t^{\alpha}$ (add exponents on the left, cancel on the right):
+   $$\frac{\psi\,\tilde A_t^{\sigma}L_t^{\alpha+(1-\alpha)\sigma}}{1-L_t}=(1-\alpha)\tilde A_t$$
+4. Divide both sides by $\tilde A_t^{\sigma}$: $\tilde A_t/\tilde A_t^{\sigma}=\tilde A_t^{1-\sigma}$,
+   which is the boxed equation.
 
 Look at what is **not** in that equation: no $r$, no $\beta$, no date-$s\neq t$ variable.
 So $L_1$ and $L_2$ are pinned down **one at a time**, each by a static condition; then
@@ -90,7 +110,19 @@ $c_t$ follows from market clearing; and only then
 
 $$1+r = \frac{1}{\beta}\left(\frac{c_2}{c_1}\right)^{\sigma}$$
 
-determines $r$ **last**, with no feedback into anything. That recursion is exactly the
+determines $r$ **last**, with no feedback into anything.
+
+*Where that line comes from.* The Euler equation is $c_1^{-\sigma}=\beta(1+r)c_2^{-\sigma}$.
+Divide both sides by $\beta c_2^{-\sigma}$: $1+r=\dfrac{c_1^{-\sigma}}{\beta c_2^{-\sigma}}$. Dividing by a
+negative power is multiplying by the positive one, $c_1^{-\sigma}/c_2^{-\sigma}=(c_2/c_1)^{\sigma}$,
+which gives the display.
+
+![Equilibrium interest rate against productivity growth for three sigmas](aula-06-equilibrio-geral/fig/fig_ge_frozen_r.svg)
+*Read the crossing point: with flat productivity ($A_2=A_1$) hours and output are the same in
+both periods, so $c_2/c_1=1$ and $r=1/\beta-1=4.17\%$ whatever $\sigma$ is. Expected growth
+raises $r$ for every $\sigma$ — the household would like to borrow against the better future,
+cannot in aggregate, and the price rises until it is content to eat today's output — and
+more steeply the larger $\sigma$ is.* That recursion is exactly the
 order item (d) asks for — and it exists only because capital is fixed. With endogenous
 capital, $r$ and $L_t$ would be jointly determined.
 
@@ -117,6 +149,10 @@ $$c_1 + \frac{c_2}{1+r} \;=\; w_1L_1 + \frac{w_2L_2}{1+r} \;+\; r^K_1\bar K +
 
 $$F(\bar K, L_t) = F_K\bar K + F_L L_t = r^K_t \bar K + w_t L_t$$
 
+*With Cobb–Douglas, explicitly:* $F_K\bar K=\alpha A_t\bar K^{\alpha-1}L_t^{1-\alpha}\cdot\bar K=\alpha F$
+and $F_LL_t=(1-\alpha)A_t\bar K^{\alpha}L_t^{-\alpha}\cdot L_t=(1-\alpha)F$; add them:
+$\alpha F+(1-\alpha)F=F$. Then $\Pi_t=F-w_tL_t-r^K_t\bar K=0$.
+
 which says two things at once: profits are zero ($\Pi = 0$, item a), and household income
 in each period equals $F(\bar K,L_t) = c_t$ exactly. The budget constraint and the goods
 market clearing conditions agree. Add the principal $\bar K$ to wealth and they no longer
@@ -132,6 +168,22 @@ appear as $\tilde A_t \equiv A_t\bar K^{\alpha}$ — see the boxed equation in �
 
 $$\frac{d\ln L_t}{d\ln \bar K} = \alpha\,\frac{d\ln L_t}{d\ln A_t} =
 \frac{\alpha(1-\sigma)}{\alpha+(1-\alpha)\sigma+\frac{L_t}{1-L_t}}$$
+
+*Deriving it.* Take logs of the boxed equation (log of a product is a sum, log of a power is
+exponent times log):
+
+$$\ln\psi+\big[\alpha+(1-\alpha)\sigma\big]\ln L_t-\ln(1-L_t)=\ln(1-\alpha)+(1-\sigma)\big(\ln A_t+\alpha\ln\bar K\big)$$
+
+Differentiate both sides with respect to $\ln A_t$, treating $L_t$ as a function of it. On the
+left, the chain rule gives
+$\dfrac{d\ln(1-L_t)}{d\ln A_t}=\dfrac{-L_t}{1-L_t}\dfrac{d\ln L_t}{d\ln A_t}$ (because
+$d\ln(1-L)/dL=-1/(1-L)$ and $dL=L\,d\ln L$):
+
+$$\Big[\alpha+(1-\alpha)\sigma+\frac{L_t}{1-L_t}\Big]\frac{d\ln L_t}{d\ln A_t}=1-\sigma$$
+
+Divide by the bracket (which is positive) to get $d\ln L_t/d\ln A_t$. Differentiating with
+respect to $\ln\bar K$ instead changes only the right side, to $(1-\sigma)\alpha$ — hence the
+factor $\alpha$ in the display.
 
 A bigger fixed capital stock acts exactly like higher productivity, scaled by $\alpha$.
 That is why $\bar K$ never shows up in item (e)'s elasticity: it cannot, the two are the

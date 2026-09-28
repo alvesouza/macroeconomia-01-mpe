@@ -9,7 +9,8 @@ Covered:
                              wage-independent at pi=0 and not otherwise; the balanced-growth
                              restriction rules out additive CRRA unless sigma = 1; reservation wage
   03-elasticities-and-ev.    the three elasticities and their ordering; Slutsky; eps_F = 1/eta;
-                             Prescott's implied elasticity
+                             Prescott's implied elasticity (Kurlat Ex. 7.5)
+  all notes                  the intermediate steps the notes spell out
   04-dynamic-labour-supply   the relative-hours condition; transitory vs permanent wage changes
   05-search-and-equilibrium  u* = lambda/(lambda+f) against simulation; stability and half-life;
                              the matching function, tightness and the Beveridge curve
@@ -67,6 +68,14 @@ check("du/dU == E/(E+U)^2", (urate(E, U + dU) - urate(E, U)) / dU, E / (E + U) *
 # Two-margin identity.
 H_per_E, Emp = 1750.0, 150.0
 check("H = (H/E) * E", H_per_E * Emp, 262500.0)
+
+
+# Expanded steps (note 01): the quotient rule, and the log form of the two-margin identity.
+check("quotient rule: [(E+U) - U]/(E+U)^2 == E/(E+U)^2",
+      ((E + U) - U) / (E + U) ** 2, E / (E + U) ** 2, tol=1e-15)
+H0, E0, H1, E1 = 262500.0, 150.0, 255000.0, 146.0
+check("ln-change of H == ln-change of H/E + ln-change of E",
+      math.log(H1 / H0), math.log((H1 / E1) / (H0 / E0)) + math.log(E1 / E0), tol=1e-12)
 
 # ---------------------------------------------------------------------------
 print("\n02-static-model")
@@ -140,6 +149,27 @@ check_true("above it the household works", hours_loglog(wr * 1.1, 0.3) > 0)
 check_true("higher non-wage income raises the reservation wage",
            w_reservation(0.6) > w_reservation(0.3))
 
+
+# Expanded steps (note 02).
+w, pi = 2.0, 0.3
+l = THETA / (1 + THETA) * (w * HBAR + pi) / w
+c = w * l / THETA                                  # MRS = w: theta c / l = w
+check("c = w l/theta satisfies c + w l = w hbar + pi", c + w * l, w * HBAR + pi, tol=1e-12)
+check("h = hbar/(1+theta) - theta/(1+theta) * pi/w",
+      hours_loglog(w, pi), HBAR / (1 + THETA) - THETA / (1 + THETA) * pi / w, tol=1e-12)
+d = 1e-6
+check("dh/dw = theta pi / ((1+theta) w^2)",
+      (hours_loglog(w + d, pi) - hours_loglog(w - d, pi)) / (2 * d),
+      THETA * pi / ((1 + THETA) * w ** 2), tol=1e-7)
+check("additive CRRA: MRS(mu c, l) / MRS(c, l) == mu^sigma",
+      mrs_additive(3.0 * c0, l0, 2.0, gam) / mrs_additive(c0, l0, 2.0, gam), 3.0 ** 2.0, tol=1e-9)
+for wt in (0.3, 0.9):                              # w^r = 0.45 at pi = 0.3
+    util = lambda h, wt=wt: math.log(wt * h + 0.3) + THETA * math.log(HBAR - h)
+    slope0 = (util(1e-8) - util(0.0)) / 1e-8
+    check("dU/dh at the corner == w/pi - theta/hbar (w=%g)" % wt, slope0,
+          wt / 0.3 - THETA / HBAR, tol=1e-5)
+    check_true(f"...positive iff w > w^r (w={wt})", (slope0 > 0) == (wt > w_reservation(0.3)))
+
 # ---------------------------------------------------------------------------
 print("\n03-elasticities-and-evidence")
 # Marshallian elasticity from the log-log closed form.
@@ -189,15 +219,83 @@ def frisch(eta, mu=1.0, w=1.0, chi=1.0):
 for eta in (0.5, 1.0, 2.0, 5.0):
     check(f"Frisch elasticity == 1/eta (eta={eta})", frisch(eta), 1 / eta, tol=1e-5)
 
-# Prescott: the elasticity implied by the Europe-US hours gap and tax wedges.
-tau_us, tau_eu, hours_ratio = 0.40, 0.60, 1 / 1.5
-implied_eis = math.log(hours_ratio) / math.log((1 - tau_eu) / (1 - tau_us))
-check("Prescott's implied Frisch elasticity", implied_eis, 1.0, tol=0.01)
-check_true("...far above the 0.1-0.3 found for prime-age men on the intensive margin",
-           implied_eis > 3 * 0.3)
-# Sensitivity: a smaller assumed tax gap requires a LARGER elasticity.
-implied_small_gap = math.log(hours_ratio) / math.log((1 - 0.50) / (1 - 0.40))
-check_true("a smaller tax gap demands a larger elasticity", implied_small_gap > implied_eis)
+# Expanded steps (note 03): Slutsky for labour, eps_M = eps_H + w dh/dpi.
+for pi in (0.0, 0.3):
+    dh_dpi = (hours_loglog(2.0, pi + 1e-6) - hours_loglog(2.0, pi)) / 1e-6
+    check(f"dh/dpi == -theta/((1+theta) w) (pi={pi})", dh_dpi, -THETA / ((1 + THETA) * 2.0), tol=1e-6)
+    check(f"Slutsky: eps_M == eps_H + w dh/dpi (pi={pi})",
+          eps_marshall(2.0, pi), eps_hicks(2.0, pi) + 2.0 * dh_dpi, tol=2e-3)
+h = hours_loglog(2.0, 0.3)
+eps_pi = (math.log(hours_loglog(2.0, 0.3 * (1 + 1e-6))) - math.log(h)) / math.log(1 + 1e-6)
+check("income term: w dh/dpi == (w h / pi) eps_pi", 2.0 * dh_dpi, 2.0 * h / 0.3 * eps_pi, tol=1e-5)
+check_true("...and NOT (w h / c) eps_pi", abs(2.0 * dh_dpi - 2.0 * h / (2.0 * h + 0.3) * eps_pi) > 0.1)
+# Frisch in the log-log model: mu fixed, theta/l = mu w, so l = theta/(mu w) and eps_F = l/h.
+for pi in (0.0, 0.3):
+    h = hours_loglog(2.0, pi)
+    mu = 1 / (2.0 * h + pi)
+    hF = lambda ww, mu=mu: HBAR - THETA / (mu * ww)
+    eF = (math.log(hF(2.0 * (1 + 1e-6))) - math.log(hF(2.0 * (1 - 1e-6)))) / (2e-6)
+    check(f"log-log Frisch elasticity == l/h (pi={pi})", eF, (HBAR - h) / h, tol=1e-6)
+    check_true(f"ordering eps_F >= eps_H >= eps_M (pi={pi})",
+               eF >= eps_hicks(2.0, pi) >= eps_marshall(2.0, pi) - 1e-9)
+check("at pi=0 the Frisch elasticity is theta", (HBAR - hours_loglog(2.0, 0)) / hours_loglog(2.0, 0),
+      THETA, tol=1e-12)
+# eps_F = 1/eta: ln h = (ln mu + ln w - ln chi)/eta, differentiate in ln w.
+check("ln h = (ln mu + ln w - ln chi)/eta", math.log((2.0 * 1.3 / 0.7) ** (1 / 2.0)),
+      (math.log(2.0) + math.log(1.3) - math.log(0.7)) / 2.0, tol=1e-12)
+
+# Prescott, Kurlat Ex. 7.5: u = ln c + alpha ln l, c = w(1-tau)(1-l) + T, hbar = 1.
+ALPHA_P = 1.54
+
+
+def leisure_prescott(tau, T, alpha=ALPHA_P, w=1.0):
+    """l = alpha/(1+alpha) * [1 + T/(w(1-tau))], from alpha c = w(1-tau) l and the budget."""
+    return alpha / (1 + alpha) * (1 + T / (w * (1 - tau)))
+
+
+def leisure_balanced(tau, alpha=ALPHA_P):
+    """Balanced budget T = tau w (1-l): l = alpha / (1 + alpha - tau)."""
+    return alpha / (1 + alpha - tau)
+
+
+for tau in (0.34, 0.53):
+    lfix = 0.5
+    for _ in range(2000):                     # the fixed point l = l(tau, T(l))
+        lfix = leisure_prescott(tau, tau * (1 - lfix))
+    check(f"balanced-budget leisure alpha/(1+alpha-tau) (tau={tau})", lfix, leisure_balanced(tau),
+          tol=1e-10)
+    check(f"(1+alpha)(1-tau) + alpha tau == 1 + alpha - tau (tau={tau})",
+          (1 + ALPHA_P) * (1 - tau) + ALPHA_P * tau, 1 + ALPHA_P - tau, tol=1e-12)
+check("US hours 1 - l = 0.66/2.20 = 0.300", 1 - leisure_balanced(0.34), 0.3, tol=1e-12)
+check("Europe hours 1 - l = 0.47/2.01", 1 - leisure_balanced(0.53), 0.47 / 2.01, tol=1e-12)
+check("with Kurlat's rounded T: US leisure", leisure_prescott(0.34, 0.102), 0.700000, tol=1e-6)
+check("with Kurlat's rounded T: Europe leisure", leisure_prescott(0.53, 0.124), 0.766259, tol=1e-6)
+check("T = 0: leisure alpha/(1+alpha) whatever tau", leisure_prescott(0.53, 0.0),
+      leisure_prescott(0.34, 0.0), tol=1e-15)
+l_us = leisure_balanced(0.34)
+c_us = 0.66 * (1 - l_us) + 0.34 * (1 - l_us)
+check("FOC alpha c = w(1-tau) l holds at the US allocation", ALPHA_P * c_us, 0.66 * l_us, tol=1e-12)
+h_c = lambda om: 1 - ALPHA_P * c_us / om                # c held fixed
+implied_eis = (math.log(h_c(0.66 * (1 + 1e-6))) - math.log(h_c(0.66 * (1 - 1e-6)))) / 2e-6
+check("Prescott's Frisch elasticity (c fixed) == l/(1-l) = 7/3", implied_eis, 7 / 3, tol=1e-6)
+check_true("...above the 0.4-1 range Kurlat quotes and far above 0.1-0.3", implied_eis > 2 * 1.0)
+# The eta form with full rebate (c = w h): chi h^eta = (1-tau) w / c  =>  chi h^(1+eta) = 1 - tau.
+for eta in (0.5, 1.0, 3.0):
+    def h_eta(tau, eta=eta, w=1.0, chi=1.0):
+        lo, hi = 1e-9, 10.0
+        for _ in range(200):                  # bisection on the first-order condition
+            m = 0.5 * (lo + hi)
+            c_m = (1 - tau) * w * m + tau * w * m
+            if chi * m ** eta - (1 - tau) * w / c_m < 0:
+                lo = m
+            else:
+                hi = m
+        return 0.5 * (lo + hi)
+    el = (math.log(h_eta(0.4 + 1e-5)) - math.log(h_eta(0.4 - 1e-5))) / \
+         (math.log(0.6 - 1e-5) - math.log(0.6 + 1e-5))
+    check(f"rebated tax: d ln h / d ln(1-tau) == 1/(1+eta) (eta={eta})", el, 1 / (1 + eta), tol=1e-5)
+check_true("...so 0.40 vs 0.60 taxes cannot give a 1.5 hours ratio at any finite eta",
+           all((0.4 / 0.6) ** (1 / (1 + e)) > 1 / 1.5 for e in (0.01, 0.1, 1.0)))
 
 # ---------------------------------------------------------------------------
 print("\n04-dynamic-labour-supply")
@@ -226,6 +324,37 @@ check_true("a transitory wage rise raises relative hours a lot",
            rel_hours(1.10, 1.00) > rel_hours(1.00, 1.00) * 1.09)
 check("a permanent wage rise leaves relative hours unchanged",
       rel_hours(1.10, 1.10), rel_hours(1.00, 1.00), tol=1e-12)
+
+
+# Expanded steps (note 04).
+check("exact d ln(h1/h2)/dr == 1/(eta(1+r))",
+      (math.log(rel_hours(1, 1, r=R + 1e-6)) - math.log(rel_hours(1, 1, r=R - 1e-6))) / 2e-6,
+      1 / (ETA * (1 + R)), tol=1e-6)
+rho = 1 / BETA - 1
+check("ln beta + ln(1+r) ~= r - rho to first order", math.log(BETA) + math.log(1 + R), R - rho,
+      tol=1e-4)
+
+
+def two_period(w1, w2, eta=ETA, chi=1.0, r=R, beta=BETA, pi=0.0):
+    """Hours (h1, h2) of ln c - chi h^(1+eta)/(1+eta) over two periods, bisection on mu."""
+    def excess(mu):
+        c1, c2 = 1 / mu, beta * (1 + r) / mu
+        h1 = (mu * w1 / chi) ** (1 / eta)
+        h2 = (mu * w2 / (beta * (1 + r) * chi)) ** (1 / eta)
+        return w1 * h1 + w2 * h2 / (1 + r) + pi - c1 - c2 / (1 + r), h1, h2
+    lo, hi = 1e-6, 1e6
+    for _ in range(300):
+        m = math.sqrt(lo * hi)
+        lo, hi = (lo, m) if excess(m)[0] > 0 else (m, hi)
+    return excess(math.sqrt(lo * hi))[1:]
+
+
+for eta in (0.5, 1.0, 3.0):
+    b0, t1, p1 = two_period(1, 1, eta=eta), two_period(1.1, 1, eta=eta), two_period(1.1, 1.1, eta=eta)
+    check(f"permanent +10%: h1 unchanged with ln c and pi=0 (eta={eta})", p1[0], b0[0], tol=1e-9)
+    check(f"transitory +10%: h1/h2 moves by 1.1^(1/eta) (eta={eta})",
+          (t1[0] / t1[1]) / (b0[0] / b0[1]), 1.1 ** (1 / eta), tol=1e-9)
+    check_true(f"transitory: h1 up and h2 down (eta={eta})", t1[0] > b0[0] and t1[1] < b0[1])
 
 # ---------------------------------------------------------------------------
 print("\n05-search-and-equilibrium")
@@ -318,6 +447,77 @@ check_true("a higher reservation wage lowers the job-finding rate", f_high < f_l
 check_true("...and therefore raises steady-state unemployment",
            u_star(LAM, f_high) > u_star(LAM, f_low))
 check_true("...and lengthens spells", 1 / f_high > 1 / f_low)
+
+
+# Expanded steps (note 05).
+x0 = 0.05
+check("deviation after one period == (1-lambda-f) x0",
+      simulate_u(LAM, F, u_star(LAM, F) + x0, 1) - u_star(LAM, F), (1 - LAM - F) * x0, tol=1e-15)
+exact_half = math.log(2) / -math.log(1 - (LAM + F))
+check("exact discrete half-life, months", exact_half, 1.1115, tol=1e-4)
+check("(1-lambda-f)^n == 1/2 at the exact half-life", (1 - LAM - F) ** exact_half, 0.5, tol=1e-12)
+check_true("ln2/(lambda+f) overstates it because lambda+f is not small",
+           math.log(2) / (LAM + F) > exact_half)
+check("mean spell sum_k k (1-f)^(k-1) f == 1/f",
+      sum(k * (1 - F) ** (k - 1) * F for k in range(1, 5000)), 1 / F, tol=1e-9)
+U_, V_ = 0.07, 0.035
+M_ = AM * U_ ** XI * V_ ** (1 - XI)
+check("M/U == A_m theta^(1-xi)", M_ / U_, finding(V_ / U_), tol=1e-15)
+check("M/V == A_m theta^(-xi)", M_ / V_, filling(V_ / U_), tol=1e-15)
+
+
+def v_closed(u, lam=LAM, Am=AM, xi=XI):
+    return (lam * (1 - u) / (Am * u ** xi)) ** (1 / (1 - xi))
+
+
+for v in vs:
+    check(f"closed-form Beveridge v(u) at v={v}", v_closed(u_given_v(v)), v, tol=1e-9)
+u0_, h_ = 0.06, 1e-7
+th0 = v_closed(u0_) / u0_
+check("Beveridge slope dv/du == -(lambda + xi f)/((1-xi) q)",
+      (v_closed(u0_ + h_) - v_closed(u0_ - h_)) / (2 * h_),
+      -(LAM + XI * finding(th0)) / ((1 - XI) * filling(th0)), tol=1e-5)
+
+
+check("log-form slope: (1/v) dv/du == [-1/(1-u) - xi/u]/(1-xi)",
+      (math.log(v_closed(u0_ + h_)) - math.log(v_closed(u0_ - h_))) / (2 * h_),
+      (-1 / (1 - u0_) - XI / u0_) / (1 - XI), tol=1e-5)
+check("d ln v / d ln A_m == -1/(1-xi) at given u",
+      (math.log(v_closed(u0_, Am=AM * 1.001)) - math.log(v_closed(u0_))) / math.log(1.001),
+      -1 / (1 - XI), tol=1e-9)
+check("d ln v / d ln lambda == +1/(1-xi) at given u",
+      (math.log(v_closed(u0_, lam=LAM * 1.001)) - math.log(v_closed(u0_))) / math.log(1.001),
+      1 / (1 - XI), tol=1e-9)
+check("u* = (lambda/f)/(1 + lambda/f)", u_star(LAM, F), (LAM / F) / (1 + LAM / F), tol=1e-15)
+
+def wr_equation(b, beta, offers):
+    """Solve w - b = beta/(1-beta) E[(w'-w)^+] by bisection."""
+    lo, hi = b, float(offers.max())
+    for _ in range(100):
+        m = 0.5 * (lo + hi)
+        if m - b < beta / (1 - beta) * np.maximum(offers - m, 0).mean():
+            lo = m
+        else:
+            hi = m
+    return 0.5 * (lo + hi)
+
+
+def wr_value_iteration(b, beta, offers):
+    """Iterate V^U = b + beta E[max(w'/(1-beta), V^U)] and return w^r = (1-beta) V^U."""
+    VU = b / (1 - beta)
+    for _ in range(400):
+        VU = b + beta * np.maximum(offers / (1 - beta), VU).mean()
+    return (1 - beta) * VU
+
+
+z = np.random.default_rng(3).standard_normal(200_000)
+offers = 1.0 + 0.3 * z
+wr0 = wr_equation(0.4, 0.8, offers)
+check("reservation-wage equation == value iteration", wr0, wr_value_iteration(0.4, 0.8, offers),
+      tol=1e-6)
+check_true("b up raises w^r", wr_equation(0.6, 0.8, offers) > wr0)
+check_true("beta up raises w^r", wr_equation(0.4, 0.9, offers) > wr0)
+check_true("a mean-preserving spread raises w^r", wr_equation(0.4, 0.8, 1.0 + 0.45 * z) > wr0)
 
 # ---------------------------------------------------------------------------
 print()

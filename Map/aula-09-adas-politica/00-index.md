@@ -20,7 +20,7 @@ principles that make the six sections one argument rather than six.
 |---|---|---|---|
 | 5 | [[benigno/05-productivity-shocks]] | §6, Figs. 6–8 | Three productivity shocks, three *different* policy responses; the divine coincidence and its two conditions |
 | 6 | [[benigno/06-markup-shocks]] | §7, Fig. 9 | Stagflation; the two gaps with opposite signs; the first genuine trade-off, with all three reachable points priced |
-| 7 | [[benigno/07-fiscal-multipliers]] | §8, eqs. (22)–(23), Tables 1–2 | Table 1 derived line by line, Table 2 reproduced; why the multiplier on the **gap** is an eighth of the multiplier on **output** |
+| 7 | [[benigno/07-fiscal-multipliers]] | §8, eqs. (22)–(23), Tables 1–2 | Table 1 derived line by line, Table 2 reproduced; why the multiplier on the **gap** is a small fraction (1/17 to 1/8) of the multiplier on **output** |
 | 8 | [[benigno/08-liquidity-trap]] | §9, Figs. 11–12 | The $\mathrm{AD}_0$ ceiling; a trap is $r_n<0$, not $i=0$; the $\bar p$ exit; which fiscal instrument to avoid |
 | 9 | [[benigno/09-deleveraging]] | §10, eqs. (24)–(32), Fig. 13 | Borrowers at a limit; an AD curve that can slope **up**; the three paradoxes; multipliers above one |
 | 10 | [[benigno/10-optimal-policy]] | §11–§12, eqs. (33)–(35), Fig. 14 | The welfare loss derived rather than assumed; the targeting rule; the optimal split of a mark-up shock |
@@ -32,6 +32,26 @@ Companions, all in `benigno/`: [The Three Lines](benigno/companion-as-ad.html),
 
 Runnable check: `benigno/check_multipliers.py` — reproduces all eight rows of Table 2 and the
 three deleveraging multipliers from the Table 1 formulas.
+
+### The six pictures of this class
+
+![The three productivity cases](../benigno/fig/fig_b05_three_cases.svg)
+*Note 5: the same shock variable calls for a cut, for nothing, or for a rise. The rule is to move i to the new rₙ.*
+
+![The three reachable points](../benigno/fig/fig_b06_three_points.svg)
+*Note 6: after a mark-up shock, price stability (E″) and efficient output (E‴) need rate moves of opposite sign.*
+
+![Output, gap and efficient gap for each instrument](../benigno/fig/fig_b07_output_vs_gap.svg)
+*Note 7: g lifts output 0.97 but the gap only 0.06. For τ and τc, output and the natural gap move in opposite directions.*
+
+![The AD₀ ceiling after pessimism](../benigno/fig/fig_b08_trap.svg)
+*Note 8: with rₙ = −5%, i = 0 stops at E′; a long-run price commitment of 5 points lifts AD back through E.*
+
+![Paradox of toil](../benigno/fig/fig_b09_toil.svg)
+*Note 9: the same favourable AS shift raises output when AD slopes down and lowers it when AD slopes up.*
+
+![Optimal policy after a mark-up shock](../benigno/fig/fig_b10_it.svg)
+*Note 10: the optimum is AS′ ∩ IT, and about 10% of the shock reaches prices.*
 
 Rules file: [[09_adas_politica]]. Narration:
 [[Leituras/benigno-2015-adas-narrated.txt|the Benigno narration]], parts six to twelve.
@@ -68,8 +88,8 @@ already gone wrong. This is the single highest-value habit in the whole course.
    → raise. Any answer of the form "a positive supply shock calls for easing" is wrong two times
    out of three. The invariant rule is *move $i$ to the new $r_n$*.
 2. **The fiscal multiplier is the wrong number.** Short-run spending raises output by about 0.96
-   and narrows the gap by about 0.06 — an eighth as much — because spending raises capacity as
-   well as demand. And a consumption-tax cut raises output while *widening* the gap.
+   and narrows the gap by about 0.06 — about a sixteenth as much (between 1/17 and 1/8 across the
+   η = 0.2 rows of Table 2) — because spending raises capacity as well as demand. And a consumption-tax cut raises output while *widening* the gap.
 3. **A liquidity trap is $r_n<0$.** Restating it that way makes the exit obvious: $-\sigma\,di$
    and $+\sigma\,d\bar p$ occupy the same slot in the AD curve, so when $i$ is stuck the long-run
    price level is still an instrument. Monetary policy has changed instrument, not run out.

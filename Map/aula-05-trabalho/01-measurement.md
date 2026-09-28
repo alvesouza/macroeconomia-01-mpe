@@ -48,12 +48,33 @@ Formally, differentiating $u=U/(E+U)$ with respect to a transfer $dU=-dN$:
 
 $$du = \frac{(E+U)\,dU - U\,dU}{(E+U)^2} = \frac{E}{(E+U)^2}\,dU < 0 \quad\text{for } dU<0$$
 
+Step by step. $E$ is held fixed, so the numerator $U$ changes by $dU$ and the denominator $E+U$
+also changes by $dU$. The quotient rule, $d(a/b)=(b\,da-a\,db)/b^2$, with $a=U$, $b=E+U$ and
+$da=db=dU$, gives the first fraction:
+
+$$du=\frac{(E+U)\,dU-U\,dU}{(E+U)^2}
+\qquad\text{(quotient rule)}$$
+
+Factor $dU$ out of the numerator and cancel $U-U$:
+
+$$du=\frac{(E+U-U)\,dU}{(E+U)^2}=\frac{E}{(E+U)^2}\,dU
+\qquad\text{(factor, cancel)}$$
+
+The coefficient $E/(E+U)^2$ is positive, so $du$ takes the sign of $dU$: negative when a searcher
+leaves. For the employment–population ratio, the numerator $E$ does not move and the denominator
+changes by $dU+dN=dU-dU=0$, so $d\big[E/(E+U+N)\big]=0$ exactly.
+
 Meanwhile the employment–population ratio $E/(E+U+N)$ is **unchanged** by discouragement — the
 person moved between two categories that are both outside its numerator, and the denominator is
 unaffected. And if employment is also falling, that ratio falls.
 
 $$\boxed{\;\text{unemployment rate}\downarrow \text{ and employment–population ratio}\downarrow
 \;\Longrightarrow\; \text{discouragement, not recovery}\;}$$
+
+![Unemployment rate and employment-population ratio under discouragement and a recession](fig/fig_discouragement.svg)
+*Start from $E=150$, $U=10$, $N=40$. Two searchers giving up cut the rate from 6.25% to 5.06% and
+leave E/pop at 75%. A recession that also pushes 8 people out of the labour force cuts the rate
+to 3.29%. Only the fall in E/pop, to 73.5%, shows that fewer people are working.*
 
 **The practical rule:** never read the unemployment rate alone. The employment–population ratio
 has no escape hatch — nobody can leave it by giving up — so the two together are diagnostic in
@@ -100,6 +121,13 @@ after 2020, which is the empirical hook for the matching function of
 So the Beveridge curve is a diagnostic: *along* it is a demand story, *shifting* it is a
 structural story.
 
+![Beveridge curve: movement along the curve versus an outward shift](fig/fig_beveridge_along_vs_shift.svg)
+*Each point sits on a ray from the origin whose slope is tightness $\theta=v/u$. Going from boom
+to slump along the dashed curve, $\theta$ falls from 1.85 to 0.33. When matching efficiency
+$A_m$ falls from 0.6 to 0.45, the whole curve moves out: the same $\theta=1.85$ now comes with
+5.3% unemployment and 9.7% vacancies. The curve is derived in
+[[05-search-and-equilibrium]] §5.3.*
+
 ## 1.5 Which margin carries the cycle
 
 **Intensive margin:** hours per worker, $H/E$.
@@ -110,6 +138,12 @@ Total hours decompose exactly:
 $$H = \underbrace{\frac{H}{E}}_{\text{intensive}}\times\underbrace{E}_{\text{extensive}}
 \qquad\Longrightarrow\qquad
 g_H = g_{H/E}+g_E$$
+
+The arrow takes two steps. Take logs of the identity, which turns the product into a sum:
+$\ln H=\ln(H/E)+\ln E$. Then differentiate both sides with respect to time. The time derivative
+of a log is a growth rate, $d\ln X/dt=\dot X/X\equiv g_X$, so the sum of logs becomes the sum of
+growth rates. The identity is exact, so the split of $g_H$ between the two margins involves no
+approximation.
 
 **The empirical fact, and it decides the modelling.** Most of the cyclical variation in
 aggregate hours comes from the **extensive** margin — people moving into and out of employment —

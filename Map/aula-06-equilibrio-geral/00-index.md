@@ -34,12 +34,17 @@ Runnable check: `check_ge.py`. It verifies that the five first-order conditions 
 two the planner would have written, solves the planner's problem numerically and confirms the
 allocations coincide, checks Walras' law on a perturbed price vector, reproduces the
 steady-state conditions, and confirms that the saddle path is the only non-explosive trajectory.
+Its last block checks, with sympy, every derivation step the notes write out line by line.
+
+Figures: `make_figures.py` writes the SVGs in `fig/` (used by both notes, by
+[[derivacoes-cap-09]] and by [[exogenous-capital-lista-05]]) and asserts every number it draws.
 
 ## Interactive companion
 
 | Companion | Drives |
 |---|---|
 | [The Saddle Path](companion-phase-diagram.html) | the $\dot k=0$ and $\dot c=0$ loci, the two unstable arms, and the knife-edge trajectory that the transversality condition selects — with the Golden Rule marked for comparison |
+| [When Capital Is Frozen, σ Decides](companion-frozen-capital.html) | Lista 5 Q1: hours solving MRS = MRT period by period with $\bar K$ fixed, the elasticity $d\ln L/d\ln A=(1-\sigma)/[\alpha+(1-\alpha)\sigma+L/(1-L)]$ whose sign is the sign of $1-\sigma$, and $r$ read off the Euler equation last |
 
 ---
 

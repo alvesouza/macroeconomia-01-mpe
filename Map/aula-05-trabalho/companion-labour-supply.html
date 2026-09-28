@@ -44,7 +44,7 @@
       <div><div class="k">Marshallian ε<sup>M</sup></div><div class="v" id="emOut"></div><div class="n">π fixed — can be negative</div></div>
       <div><div class="k">Hicksian ε<sup>H</sup></div><div class="v" id="ehOut"></div><div class="n">utility fixed — always positive</div></div>
       <div><div class="k">Frisch ε<sup>F</sup> = 1⁄η</div><div class="v" id="efOut"></div><div class="n">marginal utility of wealth fixed</div></div>
-      <div><div class="k">Prescott needs</div><div class="v" id="preOut"></div><div class="n">to explain the EU–US hours gap</div></div>
+      <div><div class="k">EU ⁄ US hours, taxes only</div><div class="v" id="preOut"></div><div class="n">revenue rebated, ε<sup>F</sup> = 1⁄η; data ≈ 0.67</div></div>
     </div>
   </div>
 
@@ -74,15 +74,15 @@
       <div class="ctl">
         <span class="hint">η is the inverse Frisch elasticity — the same η that sets the slope of
         the AS curve in session 8. Micro studies of prime-age men suggest η between 3 and 10;
-        Prescott's calculation needs η near 1.</span>
+        Kurlat's log-log calibration of Prescott implies ε<sup>F</sup> ≈ 2.3, i.e. η ≈ 0.43.</span>
         <label for="eta">Inverse Frisch <span class="sym">η</span></label>
         <output id="etao"></output><input type="range" id="eta" min="0.2" max="10" step="0.1" value="1">
       </div>
       <div class="ctl">
-        <span class="hint">Effective marginal tax wedge in Europe against the US. Prescott's
-        numbers are 0.60 and 0.40.</span>
+        <span class="hint">Effective marginal tax wedge in Europe; the US is held at 0.34. Kurlat's
+        Ex. 7.5 numbers are 0.53 and 0.34.</span>
         <label for="tauEU">European tax wedge</label>
-        <output id="tauEUo"></output><input type="range" id="tauEU" min="0.40" max="0.75" step="0.01" value="0.60">
+        <output id="tauEUo"></output><input type="range" id="tauEU" min="0.34" max="0.75" step="0.01" value="0.53">
       </div>
     </fieldset>
 
@@ -96,8 +96,8 @@
     <details>
       <summary>Why ε<sup>F</sup> ≥ ε<sup>H</sup> ≥ ε<sup>M</sup></summary>
       <p>Each holds something looser fixed than the last, so each allows more adjustment. The
-      Slutsky decomposition is ε<sup>M</sup> = ε<sup>H</sup> + (wh⁄c)·ε<sub>π</sub>, and since
-      leisure is a normal good ε<sub>π</sub> &lt; 0, so the Marshallian is the smallest. Most
+      Slutsky decomposition is ε<sup>M</sup> = ε<sup>H</sup> + w·∂h⁄∂π, and since
+      leisure is a normal good ∂h⁄∂π &lt; 0, so the Marshallian is the smallest. Most
       micro–macro disagreements about "the" labour supply elasticity are about which of the
       three is being quoted. Derivation in <b>03-elasticities-and-evidence.md</b> §3.1.</p>
     </details>
@@ -188,7 +188,7 @@ function render(){
   $("pio").textContent = v.pi.toFixed(2);
   $("wo").textContent = v.w.toFixed(2);
   $("etao").textContent = v.eta.toFixed(1);
-  $("tauEUo").textContent = (v.tauEU*100).toFixed(0) + "% vs 40% US";
+  $("tauEUo").textContent = (v.tauEU*100).toFixed(0) + "% vs 34% US";
 
   drawSupply(v); drawBudget(v);
 
@@ -203,10 +203,14 @@ function render(){
     ? (Math.log(hours(v.w*(1+d), v.pi, v.theta)) - Math.log(hours(v.w*(1-d), v.pi, v.theta)))/(2*d)
     : 0;
   $("emOut").textContent = em.toFixed(3);
-  $("ehOut").textContent = (v.theta/(1+v.theta)).toFixed(3);
+  // Slutsky: eps_H = eps_M - w*dh/dpi, and dh/dpi = -theta/((1+theta)w) at an interior optimum
+  $("ehOut").textContent = h0 > 1e-9 ? (em + v.theta/(1+v.theta)).toFixed(3) : "—";
   $("efOut").textContent = (1/v.eta).toFixed(3);
 
-  const req = Math.log(1/1.5)/Math.log((1-v.tauEU)/(1-0.40));
+  // all revenue rebated: chi*h^(1+eta) = 1 - tau, so h_EU/h_US = [(1-tau_EU)/(1-tau_US)]^(1/(1+eta))
+  const TAU_US = 0.34;
+  const netRatio = (1-v.tauEU)/(1-TAU_US);
+  const req = Math.pow(netRatio, 1/(1+v.eta));
   $("preOut").textContent = req.toFixed(2);
 
   $("eqline").innerHTML = `u<sub>ℓ</sub>⁄u<sub>c</sub> = θc⁄ℓ = w &nbsp;⟹&nbsp; `
@@ -224,16 +228,18 @@ function render(){
          stable hours. The compensated elasticity is still ${(v.theta/(1+v.theta)).toFixed(2)}, so labour supply
          does respond; two responses simply cancel.`
       : `<span class="flag mid">ε<sup>M</sup> = ${em.toFixed(2)}</span> &nbsp; With π = ${v.pi.toFixed(2)} the
-         cancellation breaks. Prescott's calculation needs a Frisch elasticity of about
-         <b>${req.toFixed(2)}</b> to explain the Europe–US hours gap from tax wedges alone; micro studies of
-         prime-age men find 0.1–0.3 on the intensive margin. That gap is the open question of §3.3.`);
+         cancellation breaks. On Prescott's question: with the revenue rebated and ε<sup>F</sup> =
+         ${(1/v.eta).toFixed(2)}, taxes alone put European hours at <b>${req.toFixed(2)}</b> of American
+         hours, against about 0.67 in the data. Even ε<sup>F</sup> → ∞ only reaches the net-of-tax ratio
+         ${netRatio.toFixed(2)}, and micro studies of prime-age men find 0.1–0.3 on the intensive margin.
+         That gap is the open question of §3.3.`);
 }
 
 const presets = {
-  balanced:  {theta:1.5, pi:0,    w:2,    eta:1, tauEU:0.60},
-  bend:      {theta:1.5, pi:0.8,  w:0.6,  eta:1, tauEU:0.60},
-  corner:    {theta:1.5, pi:0.8,  w:0.9,  eta:1, tauEU:0.60},
-  prescott:  {theta:1.5, pi:0.30, w:2,    eta:1, tauEU:0.60},
+  balanced:  {theta:1.5, pi:0,    w:2,    eta:1, tauEU:0.53},
+  bend:      {theta:1.5, pi:0.8,  w:0.6,  eta:1, tauEU:0.53},
+  corner:    {theta:1.5, pi:0.8,  w:0.9,  eta:1, tauEU:0.53},
+  prescott:  {theta:1.5, pi:0.30, w:2,    eta:0.43, tauEU:0.53},
 };
 document.querySelectorAll("button[data-p]").forEach(b =>
   b.addEventListener("click", () => {

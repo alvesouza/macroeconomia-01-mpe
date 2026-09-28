@@ -17,7 +17,7 @@ policy by its multiplier on output is misleading, because the object that matter
 welfare is the gap, and the two have different signs for some instruments.**
 
 > **Companion:** [The Multiplier Bench](companion-multipliers.html) — all six multipliers
-> recomputed as $lpha$, $\sigma$ and $\eta$ move, with the output multiplier and the gap
+> recomputed as $\alpha$, $\sigma$ and $\eta$ move, with the output multiplier and the gap
 > multiplier shown together so the sign disagreement of §7.4 is visible.
 
 ---
@@ -29,9 +29,13 @@ aside as unaffected by fiscal policy (p. 514):
 
 $$y=g+\bar y_n-\bar g-\sigma\left[p-(\bar\tau_c-\tau_c)\right]$$
 
-Substitute the AS curve (20), $p=\kappa(y-y_n)$ with $p^e$ normalised to zero:
+Substitute the AS curve (20), $p=\kappa(y-y_n)$ with $p^e$ normalised to zero, and open
+the bracket, $-\sigma[p-(\bar\tau_c-\tau_c)]=-\sigma p+\sigma(\bar\tau_c-\tau_c)$:
 
 $$y=g+\bar y_n-\bar g-\sigma\kappa(y-y_n)+\sigma(\bar\tau_c-\tau_c)$$
+
+Expand $-\sigma\kappa(y-y_n)=-\sigma\kappa y+\sigma\kappa y_n$ and add $\sigma\kappa y$ to
+both sides:
 
 $$y\,(1+\sigma\kappa)=g+\bar y_n-\bar g+\sigma\kappa\,y_n+\sigma(\bar\tau_c-\tau_c)$$
 
@@ -39,12 +43,18 @@ $$y=\frac{g+\bar y_n-\bar g+\sigma\kappa\,y_n+\sigma(\bar\tau_c-\tau_c)}{1+\sigm
 \tag{$\dagger$}$$
 
 Now the fiscal content of the natural rates. The aggregate mark-up (13) is, to first
-order, the sum of its components:
+order, the sum of its components. Take logs of (13), which turns the products and
+quotients into sums and differences,
+
+$$\ln(1+\mu)=\ln(1+\mu_\theta)+\ln(1+\tau_w)+\ln(1+\tau_c)-\ln(1-\tau_y)-\ln(1-\tau_l),$$
+
+and apply $\ln(1+x)\simeq x$ to every term, so that $-\ln(1-\tau)\simeq-(-\tau)=+\tau$:
 
 $$\mu\simeq\mu_\theta+\tau_l+\tau_w+\tau_y+\tau_c\;\equiv\;\mu_\theta+\tau+\tau_c,
 \qquad \tau\equiv\tau_l+\tau_w+\tau_y$$
 
-(the same for $\bar\mu$). So from (15), keeping only fiscal terms:
+(the same for $\bar\mu$). So from (15), keeping only fiscal terms — set $a=0$ and
+$\mu_\theta=0$, and replace $\mu$ by $\tau+\tau_c$:
 
 $$y_n\big|_{\text{fiscal}}=\frac{\sigma^{-1}g-\tau-\tau_c}{\sigma^{-1}+\eta},
 \qquad
@@ -60,18 +70,22 @@ Put both natural rates into $(\dagger)$ and read off coefficients. Write
 $D\equiv(\sigma^{-1}+\eta)(1+\sigma\kappa)$, which will be the shared denominator.
 
 **Coefficient on $g$.** Two routes: directly ($+1$) and through $y_n$
-($\sigma\kappa\cdot\sigma^{-1}/(\sigma^{-1}+\eta)=\kappa/(\sigma^{-1}+\eta)$). Dividing by
-$1+\sigma\kappa$:
+($\sigma\kappa\cdot\sigma^{-1}/(\sigma^{-1}+\eta)=\kappa/(\sigma^{-1}+\eta)$, since
+$\sigma\sigma^{-1}=1$). Dividing by $1+\sigma\kappa$:
 
-$$m_g=\frac{1}{1+\sigma\kappa}+\frac{\kappa}{D}$$
+$$m_g=\frac{1+\dfrac{\kappa}{\sigma^{-1}+\eta}}{1+\sigma\kappa}
+=\frac{1}{1+\sigma\kappa}+\frac{\kappa}{(\sigma^{-1}+\eta)(1+\sigma\kappa)}
+=\frac{1}{1+\sigma\kappa}+\frac{\kappa}{D}$$
 
 **Coefficient on $\bar g$.** Through $\bar y_n$ ($+\sigma^{-1}/(\sigma^{-1}+\eta)$) and
-directly ($-1$):
+directly ($-1$). Write $1=(\sigma^{-1}+\eta)/(\sigma^{-1}+\eta)$ and subtract:
 
 $$\frac{\sigma^{-1}}{\sigma^{-1}+\eta}-1=\frac{\sigma^{-1}-\sigma^{-1}-\eta}{\sigma^{-1}+\eta}
-=-\frac{\eta}{\sigma^{-1}+\eta}
-\qquad\Longrightarrow\qquad
-m_{\bar g}=\frac{\eta}{D}$$
+=-\frac{\eta}{\sigma^{-1}+\eta}$$
+
+and dividing by $1+\sigma\kappa$ gives $-\eta/D$, so with the sign carried by (22):
+
+$$m_{\bar g}=\frac{\eta}{D}$$
 
 > **The third confirmation of eq. (15).** This cancellation is the evidence promised in
 > [[02-firms-and-as]] §2.4. Benigno's own Table 1 gives
@@ -80,16 +94,24 @@ m_{\bar g}=\frac{\eta}{D}$$
 > coefficient $(\sigma^{-1}-1)$ the same step would give $(1+\eta)/(\sigma^{-1}+\eta)$,
 > and Table 2 would not reproduce in any row.
 
-**Coefficient on $\tau$.** Only through $y_n$: $\sigma\kappa\cdot(-1)/(\sigma^{-1}+\eta)$,
-so $m_\tau=\kappa\sigma/D$.
+**Coefficient on $\tau$.** Only through $y_n$: $\sigma\kappa\cdot(-1)/(\sigma^{-1}+\eta)$;
+divided by $1+\sigma\kappa$ this is $-\kappa\sigma/D$, so $m_\tau=\kappa\sigma/D$.
 
-**Coefficient on $\bar\tau$.** Only through $\bar y_n$: $-1/(\sigma^{-1}+\eta)$, so
-$m_{\bar\tau}=1/D$.
+**Coefficient on $\bar\tau$.** Only through $\bar y_n$: $-1/(\sigma^{-1}+\eta)$; divided by
+$1+\sigma\kappa$ this is $-1/D$, so $m_{\bar\tau}=1/D$.
 
-**Coefficient on $\tau_c$.** Through $y_n$ *and* directly through AD:
-$-\left[\sigma\kappa/(\sigma^{-1}+\eta)+\sigma\right]/(1+\sigma\kappa)=-\sigma m_g$.
+**Coefficient on $\tau_c$.** Through $y_n$ ($\sigma\kappa\cdot(-1)/(\sigma^{-1}+\eta)$)
+*and* directly through AD ($-\sigma$, from $+\sigma(\bar\tau_c-\tau_c)$). Add them, divide
+by $1+\sigma\kappa$, and factor out $-\sigma$:
 
-**Coefficient on $\bar\tau_c$.** Through $\bar y_n$ and through AD:
+$$\frac{-\dfrac{\sigma\kappa}{\sigma^{-1}+\eta}-\sigma}{1+\sigma\kappa}
+=-\sigma\,\frac{1+\dfrac{\kappa}{\sigma^{-1}+\eta}}{1+\sigma\kappa}=-\sigma\,m_g,$$
+
+where the last step is the first form of $m_g$ above.
+
+**Coefficient on $\bar\tau_c$.** Through $\bar y_n$ ($-1/(\sigma^{-1}+\eta)$) and through
+AD ($+\sigma$). Add, divide by $1+\sigma\kappa$, multiply numerator and denominator by
+$\sigma^{-1}+\eta$, and use $\sigma(\sigma^{-1}+\eta)-1=\sigma\eta$:
 
 $$\frac{\sigma-\dfrac{1}{\sigma^{-1}+\eta}}{1+\sigma\kappa}
 =\frac{\sigma(\sigma^{-1}+\eta)-1}{D}=\frac{\sigma\eta}{D}=\sigma m_{\bar g}$$
@@ -113,6 +135,10 @@ always, and it equals one only in the knife-edge $\eta=0$:
 
 $$\eta=0:\quad \kappa=\frac{(1-\alpha)\sigma^{-1}}{\alpha},\quad
 m_g=\frac{1}{1+\sigma\kappa}+\frac{\kappa\sigma}{1+\sigma\kappa}=1$$
+
+(With $\eta=0$ the second term of $m_g$ is $\kappa/[\sigma^{-1}(1+\sigma\kappa)]$, and
+dividing by $\sigma^{-1}$ is multiplying by $\sigma$; the two fractions then share the
+denominator $1+\sigma\kappa$ and their numerators sum to it.)
 
 With $\eta>0$ there is genuine crowding out: $g\uparrow$ raises prices, the real rate
 rises, and private consumption falls.
@@ -145,10 +171,19 @@ $\sigma$ — around 0.43–0.49 at $\sigma=0.5$, but 0.75–0.95 at $\sigma=1$ �
 literally $\sigma\,m_g$: it works through intertemporal substitution, so it inherits the
 household's willingness to substitute.
 
+![Spending multipliers against η](fig/fig_b07_mg_eta.svg)
+*Follow the two curves as η rises: m_g falls from exactly 1 at η = 0 (0.97 at η = 0.2, 0.85 at η = 1), while m_ḡ, which is also the gap multiplier, rises from 0 (0.06, then 0.19). At every η their difference is the share of spending that raises capacity.*
+
 ## 7.4 The multipliers on the output gap
 
 Subtract (15) from (22). Coefficient by coefficient, and each cancellation is worth
-watching:
+watching. Two rewrites are used throughout: $1/(1+\sigma\kappa)=(\sigma^{-1}+\eta)/D$ and
+$1/(\sigma^{-1}+\eta)=(1+\sigma\kappa)/D$ (multiply top and bottom by the missing factor).
+So $m_g=[(\sigma^{-1}+\eta)+\kappa]/D$, and
+$\sigma^{-1}/(\sigma^{-1}+\eta)=\sigma^{-1}(1+\sigma\kappa)/D=(\sigma^{-1}+\kappa)/D$. The
+fiscal part of $y_n$ is $(\sigma^{-1}g-\tau-\tau_c)/(\sigma^{-1}+\eta)$, so subtracting it
+lowers the $g$ coefficient by $\sigma^{-1}/(\sigma^{-1}+\eta)$ and *raises* the $\tau$ and
+$\tau_c$ coefficients by $1/(\sigma^{-1}+\eta)$. Using $m_{\tau_c}=\sigma m_g=(1+\sigma\eta+\sigma\kappa)/D$:
 
 $$m_g-\frac{\sigma^{-1}}{\sigma^{-1}+\eta}
 =\frac{(\sigma^{-1}+\eta)+\kappa}{D}-\frac{\sigma^{-1}(1+\sigma\kappa)}{D}
@@ -159,7 +194,11 @@ $$-m_\tau+\frac{1}{\sigma^{-1}+\eta}=\frac{-\kappa\sigma+(1+\sigma\kappa)}{D}=\f
 $$-m_{\tau_c}+\frac{1}{\sigma^{-1}+\eta}=\frac{-(1+\sigma\eta+\sigma\kappa)+(1+\sigma\kappa)}{D}
 =-\frac{\sigma\eta}{D}=-m_{\bar\tau_c}$$
 
-so that
+The long-run instruments $\bar g,\bar\tau,\bar\tau_c$ do not appear in $y_n$, so their
+coefficients carry over from (22) unchanged: $-m_{\bar g}$, $-m_{\bar\tau}$,
+$+m_{\bar\tau_c}$. Each short-run coefficient now equals minus its long-run partner, so
+the terms pair up as $m_{\bar g}(g-\bar g)$, $m_{\bar\tau}(\tau-\bar\tau)$ and
+$-m_{\bar\tau_c}(\tau_c-\bar\tau_c)$, so that
 
 $$\boxed{\;y-y_n=m_{\bar g}\,(g-\bar g)+m_{\bar\tau}\,(\tau-\bar\tau)-m_{\bar\tau_c}\,(\tau_c-\bar\tau_c)\;} \tag{23}$$
 
@@ -172,11 +211,18 @@ Three results, and all three are examinable:
    $m_{\bar\tau}$, $m_{\bar\tau_c}$ — small numbers. A one-point rise in the
    spending-to-GDP ratio narrows the gap by between 0.06 and 0.30, and at the more
    realistic $\eta=0.2$ by no more than 0.12. Compare $m_g\simeq0.96$ on output: **the
-   multiplier on the gap is roughly one eighth of the multiplier on output.**
+   multiplier on the gap is between about one seventeenth and one eighth of the
+   multiplier on output** across the four $\eta=0.2$ rows — $0.058/0.967\simeq1/17$ at the
+   baseline row, $0.119/0.952\simeq1/8$ at $\alpha=0.75,\sigma=1$. (This line used to say
+   "roughly one eighth" without qualification; at the baseline calibration it is closer
+   to a sixteenth.)
 3. **A consumption-tax cut has the wrong sign.** $\tau_c\downarrow$ raises output
    ($-m_{\tau_c}$ in (22)) but *widens* the gap ($-m_{\bar\tau_c}$ in (23)). Conversely a
    rise in $\tau$ cuts output yet narrows the gap, because it cuts the natural rate by
    more than it cuts output.
+
+![Output, gap and efficient gap for each instrument](fig/fig_b07_output_vs_gap.svg)
+*Compare the three bars per instrument. For g the output bar is 0.97 and both gap bars are 0.06. For τ and τc the output bar and the natural-gap bar have opposite signs. The efficient-gap bars copy the output bars for taxes and the gap bars for spending (§7.5).*
 
 ## 7.5 The gap against the efficient level
 
@@ -186,7 +232,13 @@ $$y-y_e=(y-y_n)-\frac{\tau+\tau_c}{\sigma^{-1}+\eta}$$
 
 Take the $\tau$ terms: $m_{\bar\tau}\tau-\tau/(\sigma^{-1}+\eta)
 =\tau\left[1-(1+\kappa\sigma)\right]/D=-\kappa\sigma\tau/D=-m_\tau\tau$. The same
-manipulation on $\tau_c$ returns $-m_{\tau_c}$, and $\mu$ contains no $g$, so:
+manipulation on $\tau_c$ returns $-m_{\tau_c}$:
+
+$$-m_{\bar\tau_c}\tau_c-\frac{\tau_c}{\sigma^{-1}+\eta}
+=-\frac{\sigma\eta+(1+\sigma\kappa)}{D}\,\tau_c=-m_{\tau_c}\tau_c,$$
+
+and $\mu$ contains no $g$ and no long-run instrument, so those coefficients stay as in
+(23):
 
 $$\boxed{\;y-y_e=m_{\bar g}\,(g-\bar g)-m_\tau\,\tau-m_{\bar\tau}\,\bar\tau-m_{\tau_c}\,\tau_c+m_{\bar\tau_c}\,\bar\tau_c\;}$$
 
@@ -219,6 +271,9 @@ is worth quoting because it is the whole ambiguity of fiscal stimulus in one lin
 hand, private consumption is crowded out."*
 
 To stabilise, raise $i$ and walk AD back to $E''$, where $p=p^e$ and the gap is zero.
+
+![A temporary spending rise](fig/fig_b07_fig10.svg)
+*Drawn with η = 1 so that the gap is visible. AD moves right by dg = 1 and AS by dyₙ = 0.67; E′ sits at y = m_g = 0.85, which is m_ḡ = 0.19 beyond the new yₙ. Raising i moves AD back to E″ on p = pᵉ.*
 
 **The $\eta=0$ knife-edge** (footnote 10, p. 516): with linear disutility of labour, AS
 and AD shift *proportionally*, the new equilibrium lands exactly on $y_n'$, and prices

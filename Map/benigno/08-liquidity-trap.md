@@ -43,13 +43,17 @@ Same slope $-1/\sigma$, the highest position the AD curve can occupy for given
 $\bar p$, $g$ and taxes. Every expansionary interest-rate move shifts AD up *towards*
 $\mathrm{AD}_0$ and can never go past it (Fig. 11, p. 518).
 
-Using the closed form of [[04-equilibrium-geometry]] with $i=0$:
+Using the closed form of [[04-equilibrium-geometry]] with $i=0$ (substitute $i=0$ into
+$y-y_n=\frac{\sigma}{1+\sigma\kappa}[r_n-i+(\bar p-p^e)]$; the $-i$ term drops):
 
 $$\left.y-y_n\right|_{i=0}=\frac{\sigma}{1+\sigma\kappa}\Big[r_n+(\bar p-p^e)\Big]$$
 
 **Read that as the diagnostic.** With long-run prices anchored at $p^e$ — the standard
 assumption of a credible, non-committal central bank — the best attainable gap is
-$\sigma r_n/(1+\sigma\kappa)$. Hence:
+$\sigma r_n/(1+\sigma\kappa)$. The reasoning in two steps: the gap
+$\frac{\sigma}{1+\sigma\kappa}(r_n-i)$ falls as $i$ rises, so over the allowed set $i\ge0$
+it is largest at $i=0$; and if $r_n\ge0$ the choice $i=r_n$ is allowed and gives a gap of
+exactly zero. Hence:
 
 $$r_n\ge0\;\Longrightarrow\;\text{the gap can be closed};\qquad
 \boxed{r_n<0\;\Longrightarrow\;\text{the economy is stuck below potential}}$$
@@ -57,6 +61,9 @@ $$r_n\ge0\;\Longrightarrow\;\text{the gap can be closed};\qquad
 The trap is not fundamentally about the interest rate. It is about the **natural real
 rate being negative**, and the nominal floor then preventing the actual real rate from
 reaching it.
+
+![Best gap and the needed commitment against rₙ](fig/fig_b08_gap_rn.svg)
+*Left: with p̄ = pᵉ the best reachable gap is zero for rₙ ≥ 0 and σrₙ/(1+σκ) below it, a kink at zero (−1.60 at rₙ = −5%). Right: the long-run price commitment that closes the gap is the mirror image, one point of p̄ per point of −rₙ.*
 
 ## 8.3 Where a negative $r_n$ comes from
 
@@ -77,11 +84,15 @@ contain $\bar y_n$. Cutting $i$ to zero reaches $E'$ at best, where — in the a
 words — "the real interest rate is too high, household consumption too low and the
 economy still in a slump with output far below potential".
 
+![The AD₀ ceiling after pessimism](fig/fig_b08_trap.svg)
+*ȳₙ falls 3% with ρ = 1%, so rₙ = 1 + (−3)/0.5 = −5%. AD falls to the orange line; cutting i from 1% to 0 only lifts it to the AD₀ ceiling (yellow), which meets AS at E′ with a gap of −1.60. Promising p̄ − pᵉ = 5 lifts AD₀ back onto the initial AD through E (green).*
+
 ## 8.4 The exit: the instrument that is left
 
 From [[04-equilibrium-geometry]] §4.4, $-\sigma\,di$ and $+\sigma\,d\bar p$ occupy the
 **same slot**. So when $di$ is unavailable, use $d\bar p$. Solving for the commitment
-that closes the gap at $i=0$:
+that closes the gap at $i=0$: set the $i=0$ gap of §8.2 to zero, multiply by
+$(1+\sigma\kappa)/\sigma$ to get $r_n+(\bar p-p^e)=0$, and subtract $r_n$:
 
 $$\boxed{\;\bar p-p^e=-r_n\;}$$
 

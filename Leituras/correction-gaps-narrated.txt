@@ -1,0 +1,657 @@
+WHERE THE MARKS WENT. THE GAPS IN FIVE GRADED LISTS, AND THE ANSWERS THAT CLOSE THEM. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Professor Pedro G. Duarte. Textbook: Kurlat, 2020. Companion to the narrated reading of the instructor's own solutions for Problem Sets 1 to 4.
+
+
+HOW TO LISTEN
+
+This is a narration of the two diagnoses written about your graded lists: the one on Lists 1 and 4, and the one on Lists 2, 3 and 6. It adds the teaching those diagnoses point to but do not contain. Every mark, every number and every quoted margin note comes from those two notes, the list statements, and the note on the professor's grading style.
+
+One rule about certainty. The ticks and crosses on your papers are certain. The reason for a cross is sometimes written and sometimes not; where the diagnosis says the reason is inferred, I will say so out loud.
+
+Why this track exists. The final examination is 65 per cent of the grade, and it is marked by the same person who marked these five lists. The pattern in them is clear, narrow and fixable.
+
+Mathematics is dictated, never displayed. Greek letters are said by name: alpha, beta, gamma, delta, theta, sigma, mu, tau, eta. When I say "c one" I mean consumption in period one; "y two" is income in period two; "tau one" is the tax in period one. "k star" is steady-state capital per worker.
+
+There are nine parts. Part one is the pattern across the five lists. Parts two to five are the four real knowledge gaps, the concepts no NotebookLM audio prompt in this repository teaches, taught here from intuition upward at Kurlat's level: labour supply and search, purchasing power parity, conditional convergence, and aggregate versus per capita. Parts six and seven are consumption and money, where the audio largely covered the knowledge and marks were still lost, so those parts teach the written answer that earns the mark. Part eight is the nine rules, spoken as a checklist to run before you hand anything in. Part nine is where to practise, and five closing lines.
+
+Every chapter has the same four movements. First, what you wrote and the mark it got, briefly and without blame. Second, the concept, taught. Third, the sentences that earn the mark, spoken as a model answer. You can pause and repeat them aloud. Fourth, a thirty-second self-test, with a pause cue before each answer.
+
+A scope reminder. Everything here sits inside Kurlat chapters 1 to 7 and 9 to 11. Chapter 8, on investment, is outside the syllabus, and nothing here touches it.
+
+
+PART ONE. THE PATTERN ACROSS FIVE GRADED LISTS.
+
+Five lists have come back graded: Lists 1, 2, 3, 4 and 6. Between them there are 27 items that were either rejected or given half credit.
+
+Here is the fact to hold on to. Not one of those 27 items was lost because a model was set up wrongly. The Solow set-ups were right. The Lagrangian and the substitution routes were right. The Beveridge curve algebra was right. The Baumol-Tobin velocity was right.
+
+The diagnosis compresses it into one line. The algebra is right. Marks are lost at three points: the last object the question names, the sentence after the formula, and the step where the words have to agree with the sign.
+
+Five categories, with their counts.
+
+First category, nine items. An object the question named was never answered. The question asked for two things, or three, and the answer delivered one or two. This happened in List 1 item 4 a, where GDP and GDP per capita were both asked for and only per capita was answered. In List 2, items 1 c and 1 d. In List 3, item 1 a, where the savings variable a was never solved; item 1 d, the same again; item 2 b, where two examples were asked for and one was given; and item 2 d. And in List 6, items 1 c and 1 d.
+
+Second category, eleven items, the largest. The explanation is missing, or it names the wrong mechanism. List 1 items 1 c, 1 e and 2 b. List 2 item 1 b. List 3 item 1 b. List 4 items 2 b, 2 d and 2 e. List 6 items 1 a, 1 b and 2 c.
+
+Third category, three items, and the most expensive one. The words contradict the student's own mathematics. List 3 item 1 c, List 3 item 1 e, and List 4 item 1 b. In each of the three, the correct conclusion was already on the page in symbols, and the sentence beneath it said the opposite. The grader treats this as a conceptual error, not a slip.
+
+Fourth category, two items. Arithmetic slips, both in List 1, items 1 b and 1 c. A number changed between the line where it was computed and the line where it was used.
+
+Fifth category, two items. Left blank. List 1 item 4 b, a Solow comparative static worth one and a half points, and List 2 item 2 d, the Gotham growth-accounting item.
+
+Nine, eleven, three, two and two. Twenty-seven.
+
+The algebra is strong; the words cost the marks. The marginal hour is worth far more spent on the two sentences after the algebra than on more algebra.
+
+One more finding changes how you should use audio. The repository holds 23 NotebookLM audio prompts, and where one of them teaches a concept, the concept was there when you wrote the list. List 6 item 2 c is explained almost word for word in the Aula 7 audio called "eta is the policy number". List 3 item 1 e is taught in the Aula 4 audio on the timing of the tax. Marks were still lost in both, because the understanding did not reach the written sentence. Listening more will not fix that. Practice will: writing the two sentences after the algebra, under time.
+
+So use this track in two ways. For parts two to five, listen to learn. For parts six and seven, listen with a pen. Every time a model answer is spoken, pause, write it from memory, and compare.
+
+One item I will not reconstruct. List 1 item 2 b, where your answer described migration from a rich, violent country to a poor, safe one, got a cross with no reason written, and the diagnosis marks the reason as inferred without supplying one.
+
+
+PART TWO. LABOUR SUPPLY AND SEARCH. KURLAT CHAPTER 7. LIST 4.
+
+The first and largest knowledge gap: there is no Aula 5 audio in the repository at all. Two halves: the household's choice of hours, which is List 4 question 1, and the search and matching model of unemployment, which is List 4 question 2.
+
+
+Two point one. What you wrote on the labour question, and the mark.
+
+Item 1 a got three ticks: the Lagrangian route, the implicit labour supply and the rotation of the budget line. Item 1 b, the mathematics, got a tick. The derivative of leisure with respect to the tax rate was correct, positive, and had the transfer T sitting in its numerator.
+
+Then the intuition. You wrote, in Portuguese, that the lower the net wage, the cheaper leisure becomes, and consumption falls. The grader put a large red question mark on that sentence. The diagnosis calls it the most interesting mark on either paper: a tick on the mathematics and a question mark on the words.
+
+
+Two point two. The concept: income and substitution effects on hours.
+
+Start from the household. It values consumption c and leisure l. In List 4, utility is the natural log of c, plus b times l to the power one minus gamma, all over one minus gamma. It has one unit of time, so hours worked, which I will call n, equal one minus l. It earns the wage w on every hour, pays a fraction tau of wages in tax, and receives a lump-sum transfer T from the government. So consumption equals one minus tau, times w, times n, plus T.
+
+Now think about what a change in the net wage does. The net wage is one minus tau, times w. Call it w tilde.
+
+A higher net wage does two things at once. First, it makes leisure more expensive: every hour you do not work now costs you more consumption. That pushes you to work more. This is the substitution effect. Second, it makes you richer: at the same hours, you now have more to spend, and a richer household wants more of everything, including leisure. That pushes you to work less. This is the income effect.
+
+The two effects point in opposite directions, and which one wins depends on the utility function. So the formula decides, and the intuition has to agree with it.
+
+The special fact about log utility: with no non-labour income, the two effects cancel exactly. Two steps show why.
+
+Step one. The first-order condition says the marginal utility of leisure equals the net wage times the marginal utility of consumption. With log utility, the marginal utility of consumption is one over c. So b times l to the power minus gamma equals w tilde over c.
+
+Step two. If T is zero, consumption is just w tilde times n. Substitute: b times l to the power minus gamma equals w tilde over the quantity w tilde times n, which is one over n. The net wage has cancelled; hours are pinned down by b and gamma alone. In words: a higher wage makes leisure dearer in exactly the proportion that it makes you richer.
+
+Now bring the transfer back. The instructor's boxed equation is this: one minus n, raised to the power gamma, minus b times n, equals b times T, divided by the quantity one minus tau times w.
+
+The knife-edge test: set T to zero, the right-hand side vanishes, and neither tau nor w appears. Labour supply is independent of the wage and the tax.
+
+So when T is positive, the whole effect of the tax works through T. And T is unearned income. It raises the household's wealth without changing the price of leisure. That is a pure income effect on hours. Raising tau lowers the net wage, which makes the same transfer larger relative to the household's earning capacity. The pure income effect strengthens. The household takes more leisure, and hours worked fall.
+
+Check it against the equation. The left-hand side, one minus n to the gamma, minus b n, falls as n rises. A higher tau raises the right-hand side when T is positive. To restore equality, the left-hand side must rise, so n must fall. Hours fall. Leisure rises. The derivative you wrote, positive for leisure and with T in the numerator, says exactly this. It is zero when T is zero.
+
+Now you can hear what the question mark was asking. Your sentence told a substitution-effect story: leisure is cheaper, so take more of it. With log utility that effect is cancelled, and the formula on your own page says the tax matters only because of T. The formula was right, and the sentence beneath it contradicted it.
+
+One more point. The professor's margin note reads: income and substitution effects, plus the connection between l and n. The question asks about labour supply, so if your algebra is in leisure, say that hours are one minus leisure and state the result in hours.
+
+
+Two point three. The sentences that earn the mark on labour.
+
+Model answer to List 4 item 1 b, after the derivative. Pause after each sentence and say it back.
+
+"With log utility in consumption, the income and substitution effects of the net wage cancel exactly: if T equals zero, neither tau nor w appears in the labour supply condition, and hours do not respond to the tax."
+
+"The tax matters only because of the transfer T. T is non-labour income, so it has a pure income effect. A higher tau lowers the net wage and makes the same T larger relative to earnings, which strengthens that income effect."
+
+"So a higher tau raises leisure and lowers hours worked, and the derivative is zero when T is zero."
+
+
+Two point four. The search and matching model: the objects.
+
+Now the second half of chapter 7: unemployment exists because workers and firms take time to find each other.
+
+List 4 question 2 sets up the Diamond, Mortensen and Pissarides model, abbreviated DMP. There are U unemployed workers, V vacancies posted by firms, and E employed workers. The labour force L equals U plus E and is constant.
+
+The number of new matches each period is given by the matching function: m equals mu times V to the power alpha, times U to the power one minus alpha. Alpha is between zero and one, and mu is positive.
+
+Read it as a production function for matches, with searchers on both sides as inputs and constant returns to scale.
+
+Mu is matching efficiency. The professor's margin note defines it by the flow it governs: it increases the inflow from unemployment to employment. Better information, or skills that fit the jobs on offer, mean a higher mu.
+
+The unemployment rate u is U over L, the vacancy rate v is V over L, and market tightness theta is V over U, vacancies per unemployed worker. Two rates follow, and they are the heart of the model.
+
+The job-finding rate, f, is matches per unemployed worker: m over U. Divide the matching function by U and you get f equals mu times theta to the power alpha. Because alpha is positive, f rises with theta. When vacancies are plentiful relative to searchers, each worker finds a job faster.
+
+The vacancy-filling rate, q, is matches per vacancy: m over V. Divide by V and you get q equals mu times theta to the power alpha minus one. Because alpha is less than one, that exponent is negative, and q falls with theta. When there are many vacancies relative to searchers, each vacancy takes longer to fill.
+
+And f equals theta times q. Your answer to item 2 c got all of this right, with five ticks.
+
+Tightness is good news for workers and bad news for firms. That is the whole of item 2 d.
+
+
+Two point five. The Beveridge curve: what you wrote, and the concept.
+
+List 4 item 2 b asked for the job-creation-equals-job-destruction equation, the Beveridge curve, its graph, and why it slopes the way it does.
+
+The diagnosis verified your algebra independently: the curve matches the key and the sign of the slope is right. The item still got a cross.
+
+The reason is inferred; the grader wrote none. The page jumped straight to algebra. It never wrote the steady-state condition as the job-creation-equals-job-destruction condition, and it gave the sign of the derivative in place of an economic explanation. The professor's key writes the words explicitly: the Beveridge curve means job creation equals job destruction. The graph on your page also carried an annotation, "mu falls", that belongs to item e, not item b.
+
+So here is the concept, built in words first.
+
+The law of motion of employment. Employment next period equals employment this period, minus the jobs destroyed, plus the jobs created. Destruction is s times E: each period a fraction s of the employed lose their jobs, for reasons outside the model. Creation is the number of matches, mu times V to the alpha times U to the one minus alpha. The professor underbraces the two terms and names them: destruction and creation. Naming them is part of the answer.
+
+Steady state means employment does not change. So destruction equals creation. Divide by L, and write E over L as one minus u. The condition is: s times one minus u, equals mu times v to the power alpha, times u to the power one minus alpha.
+
+Say it in words before solving it: the flow out of employment equals the flow into employment.
+
+Solve for v. The Beveridge curve is: v equals the quantity s times one minus u, over mu, raised to the power one over alpha, all times u raised to the power minus the quantity one minus alpha, over alpha.
+
+Why it slopes down, in flow terms. Raise unemployment at a point on the curve. Two things happen.
+
+First, on the creation side: more unemployed workers means more searchers, and more searchers means each vacancy produces more matches. So fewer vacancies are needed to produce any given number of matches.
+
+Second, on the destruction side: higher unemployment means fewer people employed, so fewer jobs are destroyed each period. The outflow that creation has to replace is smaller.
+
+Both mean fewer vacancies are needed to keep the flows in balance. So along the curve, higher unemployment goes with lower vacancies. The curve slopes down.
+
+
+Two point six. The congestion externality: what you wrote, and the concept.
+
+List 4 item 2 d: one firm posts one extra vacancy. What happens to f and q, who gains and who loses, and does the firm take this into account?
+
+You wrote, in Portuguese, that the firm takes the lower q, but its loss is infinitesimal, so it does not consider that small loss. The item got a cross, and here the diagnosis is certain about why: wrong agent.
+
+A loss to the firm itself would be internalised by definition: the decision-maker bears it and weighs it. The content of the word externality is that the cost lands on somebody else.
+
+The concept. One extra vacancy raises tightness theta. So the job-finding rate f equals mu theta to the alpha rises, and the vacancy-filling rate q equals mu theta to the alpha minus one falls. Now read off who gains and who loses. The question asked for a list, so give a list.
+
+Workers gain: every unemployed worker now finds a job faster.
+
+Other firms lose: every other firm's vacancies are now harder to fill. This is the congestion externality. The posting firm crowds the market for the others.
+
+The posting firm gains, privately. It posts because its own expected profit from the vacancy is positive.
+
+And one more thing, from the professor's margin: matches increase by less than one. The marginal match from one extra vacancy is the derivative of m with respect to V, which is alpha times q, and alpha times q is less than q. The extra vacancy does not produce one extra match. The shortfall is the friction: vacancies to employment is not one to one.
+
+Does the firm take these effects into account? No. It weighs only its own expected profit. It internalises neither the congestion it imposes on rival firms nor the benefit it confers on workers.
+
+The professor's key, in his words: congestion externality; the firm posting the vacancy is better off, but others are harmed; workers also benefit from a higher chance to find a job.
+
+
+Two point seven. Shift of the curve versus movement along it.
+
+List 4 item 2 e: a fall in mu. Parts one and two got ticks. You derived the elasticity correctly: the derivative of the log of v with respect to the log of mu is minus one over alpha, which is negative. Part three got a cross. You wrote that it raises the number of vacancies and shifts the curve, and that the movement along the curve comes from the variation of v given the relation of vacancies to unemployment. The direction is right. The distinction that was asked for is not made.
+
+The concept. A movement along the curve changes tightness at a given matching technology: over the cycle the economy slides between points on the same curve, and mu has not changed.
+
+A shift changes the matching technology itself. When mu falls, every pair of u and v now yields fewer matches. To keep creation equal to destruction at the same unemployment rate, more vacancies are needed. So at every u, v is higher: the whole curve moves out, away from the origin. By the elasticity, a one per cent fall in mu raises v at a given u by one over alpha per cent.
+
+The professor's words: a fall in mu is a shift in all v and u values and possible states, rather than just changing how theta is split between u and v.
+
+Empirically, an outward shift of the Beveridge curve is the standard diagnostic of deteriorating matching efficiency; a movement along it is the business cycle.
+
+
+Two point eight. The sentences that earn the marks on search.
+
+Model answer, item 2 b, after the algebra: "In steady state, job destruction, s times one minus u, equals job creation, mu v to the alpha u to the one minus alpha. This is the Beveridge curve. It slopes down because higher unemployment means more searchers per vacancy, so each vacancy yields more matches, and fewer employed, so fewer separations; both mean fewer vacancies are needed to keep inflows equal to outflows."
+
+Model answer, item 2 d: "One more vacancy raises theta, so f rises and q falls. Workers gain; other firms lose, because their vacancies fill more slowly; the posting firm gains privately. The extra vacancy adds alpha q, less than q, matches. The firm ignores both the congestion it imposes on other firms and the benefit to workers: that is the congestion externality."
+
+Model answer, item 2 e, part three: "A fall in mu shifts the whole curve out: at every unemployment rate more vacancies are needed to generate the matches that offset separations. A movement along the curve changes only how tightness is split between u and v, at a given matching technology."
+
+
+Two point nine. Self-test. Thirty seconds.
+
+Question one. With log utility in consumption and T equal to zero, what does a wage tax do to hours? Pause.
+
+Nothing. The income and substitution effects of the net wage cancel, and neither tau nor w appears in the labour supply condition.
+
+Question two. With T positive, which effect carries the tax, and which way do hours move? Pause.
+
+The pure income effect of the transfer. A higher tau makes T larger relative to earnings, so leisure rises and hours fall.
+
+Question three. One extra vacancy is posted. Name the loser. Pause.
+
+Other firms. Their vacancies fill more slowly. Never the posting firm.
+
+Question four. Mu falls. Shift or movement? Pause.
+
+Shift. The whole Beveridge curve moves out, because matching technology itself changed.
+
+
+PART THREE. PURCHASING POWER PARITY AND BALASSA-SAMUELSON, WITH THE INDEX-NUMBER BIAS. KURLAT CHAPTERS 1 AND 2. LIST 1 QUESTION 1.
+
+The second knowledge gap: no audio prompt mentions non-traded goods. The index-number half is covered by the Aula 1 audio, but it sits in the same question and cost a mark, so it comes along.
+
+
+Three point one. What you wrote, and the marks.
+
+List 1 question 1 is the two-good economy. Brazil, two years. In 2024, good one has price 8 and quantity 5; good two has price 4 and quantity 4. In 2025, good one has price 2 and quantity 12; good two has price 6 and quantity 3.
+
+Every value asked for was right and ticked: 56 and 42, 108, 34, 2.24 and 16.
+
+Four things were lost. Two were arithmetic. Two were explanations.
+
+The arithmetic first, because it is quick. In item 1 b you wrote 108 over 56 minus one, equals 52 over 56, equals 13 over 19, which is 0.6842. But 52 over 56 cancels by 4 to 13 over 14, which is 0.9286. Growth is 92.8 per cent. The fix: when you cancel, multiply back. 13 times 4 is 52; 14 times 4 is 56.
+
+In item 1 c you wrote 42 over 32, minus one. The value you had computed two lines above was 34, not 32. Correct: 42 over 34 minus one, which is 8 over 34, which is 0.235, or 23.5 per cent. Both slips are the same species: a number changed between the line that computed it and the line that used it. Circle each intermediate result and copy from the circle.
+
+Item 1 c asked why the two growth rates differ so much. You wrote, in Portuguese, that the choice of the year whose prices are fixed is merely a convention that makes it possible to compare production across years. Cross. The diagnosis: true, and worth nothing, because it does not say which direction each convention biases the answer, or why.
+
+Item 1 e asked why Colombian GDP at the market exchange rate differs so much from Colombian GDP at purchasing power parity. You wrote, in Portuguese, that it is the cost of importing and exporting, which makes prices not one to one. Cross. The diagnosis: wrong mechanism.
+
+
+Three point two. The index-number concept: substitution bias.
+
+Look at the prices. Good one went from 8 to 2: it became much cheaper. Good two went from 4 to 6: it became dearer. Now look at the quantities. Good one went from 5 to 12. Good two went from 4 to 3. Households substituted toward the good whose price fell. That is the normal response to a change in relative prices.
+
+Valuing the new quantities at the old prices, the Laspeyres approach, prices the large new quantity of good one, 12 units, at its old high price of 8. The expansion of the good that got cheap is weighted as if it were still expensive. So it overstates growth: 92.8 per cent.
+
+Valuing at the new prices, the Paasche approach, compares 2025 output of 42 with 2024 quantities valued at 2025 prices, which is 34. Now the expansion of good one is weighted at its new low price of 2. So it understates growth: 23.5 per cent.
+
+The general statement: when relative prices move and quantities substitute toward the goods whose prices fell, the base year is not neutral. Old-price weights bias measured growth upward; new-price weights bias it downward. That is substitution bias, and it is why statistical agencies chain their indices, updating the weights every year. That is Kurlat's point in chapter 1.
+
+
+Three point three. The purchasing power parity concept, built from the ground.
+
+Now Colombia. Colombian prices in pesos: good one costs 40, and Colombia produces 1 unit; good two costs 8, and Colombia produces 2 units. The exchange rate is 25 pesos per real.
+
+At the market exchange rate, divide each peso price by 25 and value Colombia's own quantities: 1.6 times 1, plus 0.32 times 2, which is 2.24 reais.
+
+At purchasing power parity, throw the exchange rate away and value Colombia's quantities at one common set of prices, here Brazil's 2024 prices of 8 and 4: 8 times 1, plus 4 times 2, which is 16.
+
+Two correct measurements of the same output, differing by a factor of more than 7. Why?
+
+The market exchange rate is set in the currency market by trade and capital flows. Arbitrage acts through traded goods: if a tradable were far cheaper in Colombia once converted, someone would buy it there and sell it in Brazil. So the exchange rate roughly lines up the prices of traded goods.
+
+But most of what an economy produces is not traded: housing, haircuts, local transport, restaurant meals, government services. No arbitrage can ship a haircut from Bogota to Sao Paulo, so nothing equalises its price.
+
+And there is a systematic pattern in which way non-traded prices differ. Non-traded goods, and above all labour, are cheaper in poorer countries. The reason has a name: the Balassa-Samuelson effect. It runs in four steps.
+
+Step one. Rich and poor countries differ in productivity much more in traded goods, manufactures and modern industry, than in non-traded services. A barber in a rich country is not many times more productive than a barber in a poor country. A factory worker often is.
+
+Step two. Traded-goods prices are roughly equalised by arbitrage. So wages in the traded sector reflect productivity there: high in the rich country, low in the poor one.
+
+Step three. Within a country, workers can move between sectors, so wages tend to equalise across sectors. The barber in the rich country earns something close to the factory wage there, and so does the barber in the poor country.
+
+Step four. So services, whose productivity is similar everywhere, are expensive where wages are high and cheap where wages are low. The general price level, converted at the market rate, is lower in poor countries.
+
+So converting a poor country's output at the market rate values its large non-traded output at prices that are low by international standards, and understates real production. PPP values every country's quantities at the same prices, which is why cross-country comparisons, and the development accounting of chapter 5, use PPP data.
+
+Why trade costs are the wrong answer. Import and export costs are a friction in traded goods. But traded goods are exactly the goods where the market exchange rate works best, because they are the goods that arbitrage connects. A transport cost opens a band within which traded prices can differ; it does not explain why the whole price level is systematically lower in poor countries, and it does not produce a sevenfold gap. The mechanism runs through the goods that are not traded at all.
+
+
+Three point four. The sentences that earn the marks.
+
+Model answer, List 1 item 1 c: "Relative prices moved in opposite directions: good one fell from 8 to 2 and good two rose from 4 to 6, and quantities substituted toward good one, from 5 to 12. Valuing new quantities at old prices weights that expansion at the old high price and overstates growth, 92.8 per cent; valuing at new prices weights it at the new low price and understates growth, 23.5 per cent. This is substitution bias, which is why agencies use chained indices."
+
+Model answer, List 1 item 1 e: "The market exchange rate is set by traded goods. Most output is non-traded, and non-traded goods and labour are much cheaper in poorer countries, because wages are lower and no arbitrage equalises their prices: the Balassa-Samuelson effect. Converting at the market rate therefore values Colombia's non-traded output at low local prices and understates its real output: 2.24 against 16 at PPP."
+
+
+Three point five. Self-test. Thirty seconds.
+
+Question one. Quantities shift toward the good whose price fell. Does the old-price measure overstate or understate growth? Pause.
+
+It overstates. It weights the expanding good at its old high price.
+
+Question two. In one clause, why is a haircut cheaper in a poor country? Pause.
+
+Because the barber's wage follows the country's wage level, which is set by productivity in the traded sector, and no arbitrage equalises the price of a haircut.
+
+
+PART FOUR. CONDITIONAL CONVERGENCE AND SOLOW COMPARATIVE STATICS. KURLAT CHAPTERS 4 AND 5. LIST 1 ITEM 4 B, AND LIST 2 QUESTION 1.
+
+The third knowledge gap. The Aula 2 audio on level versus rate explicitly skips convergence. So this part teaches it.
+
+
+Four point one. What you wrote, and the marks.
+
+List 1 item 4 b, worth one and a half points, was left blank. After the earthquake has destroyed half the capital, the population growth rate is also halved, because people emigrate. What happens?
+
+List 2 question 1 is the Korea problem. The numbers you computed were all right. North Korea starts with capital per worker of 10 and output per worker of 7.113. South Korea starts with capital per worker of 400 and output per worker of 100. The steady states you derived: North, k star of 16 and y star of 8; South, k star of 625 and y star of 125. Three ticks on item a and four ticks on the numbers in item b.
+
+Then the prediction. Item b asked what the model therefore predicts about growth in each country, and you wrote: a divergence of output levels. Cross. The diagnosis: wrong conclusion.
+
+And item 1 d, the bonus, got a cross even though every number was right: a unified population growth rate of one sixtieth, k star of 506.25, y star of 112.5, the statement that the unified economy is below its steady state, and the ratios 0.90 and 0.81. The reason is inferred: the question asked you to compare the unified y star with the South's and explain the difference, and the explanation was not written.
+
+
+Four point two. The concept: each economy goes to its own steady state.
+
+Recall the Solow engine. Saving adds capital per worker; depreciation removes it; population growth spreads it over more workers.
+
+The steady state is where these balance: saving per worker equals n plus delta, times k. Solve, and k star equals s times A over n plus delta, all raised to the power one over one minus alpha.
+
+The crucial property: this steady state is stable. Below k star, saving exceeds what holds k constant, so k rises; above, it falls. And the further below its steady state, the faster an economy grows.
+
+Now the word convergence. There are two meanings, and the exam tests whether you keep them apart.
+
+Absolute convergence would say poor countries grow faster than rich ones, full stop, so everyone ends at the same level. The model does not predict it, and the data reject it.
+
+Conditional convergence says that each country converges to its own steady state, fixed by its own saving rate, population growth, technology and capital share. A country grows fast when it is far below its own steady state, not when it is poor in some absolute sense.
+
+Apply it to Korea. Both economies start below their own steady states: the North at 7.11 against 8, the South at 100 against 125. So the model predicts that both grow during the transition, each toward its own y star. The gap in levels persists, 8 against 125 in the long run, because s, n, A and alpha differ. It does not widen because of any divergent dynamics. In the long run, per capita growth is zero in both, because there is no technical progress.
+
+"Divergence" is the wrong word for a model whose defining result is that k goes to a stable fixed point. Divergence would mean the gap keeps widening, and in Solow without technical progress nothing keeps widening.
+
+A second distinction lives here: level versus growth rate. A permanent change in s or n changes the level of the steady state, not the long-run growth of output per worker, which is zero without technical progress. The parameters decide how rich a country is, and how fast it grows only during the transition.
+
+
+Four point three. Solow comparative statics: the fall in n.
+
+n falls to n prime, less than n. The new steady state is k star prime equals s over the quantity n prime plus delta, raised to one over one minus alpha. It is greater than the old k star, because the denominator is smaller.
+
+In words: with slower population growth, fewer new workers arrive each period who must be equipped with capital, so the same saving raises capital per worker further.
+
+The diagram. The standard Solow picture with two straight lines from the origin: the original n plus delta times k, and a flatter n prime plus delta times k. Both cut the same concave saving curve, the flatter one further to the right. The economy starts at the post-earthquake capital, half the old steady state, and moves rightward, past the old steady state, to the new and higher one. Beneath it, the time path: capital per worker rising from the post-earthquake level to a level above where it started.
+
+His margin note, three lines: higher levels, lower steady-state growth, higher growth during convergence.
+
+Unpack each. Higher levels: k and y are permanently higher. Lower steady-state growth: aggregate output grows in the long run at the population growth rate, which has fallen. Higher growth during convergence: the economy has further to travel, and in Solow growth rises with the distance from the steady state.
+
+One and a half points for four lines and one diagram. The diagram alone carries most of the credit. Never leave a Solow comparative static blank.
+
+
+Four point four. The unified steady state is lower because n is higher.
+
+List 2 item 1 d. The unified Korea saves at the South's rate of 0.30 and uses the South's technology, A of 5 and alpha of one half. Its labour force grows at the labour-weighted average of the two rates: the North had 10 workers growing at 0.03, the South 20 workers growing at 0.01, so the average is one sixtieth.
+
+The unified steady state: k star of 506.25 and y star of 112.5, against the South's own 625 and 125. The ratios are 0.81 for capital and 0.90 for output.
+
+The missing sentence isolates the one parameter that differs, n, and gives its mechanism; it is spoken in full in the model answer below.
+
+
+Four point five. The sentences that earn the marks.
+
+Model answer, List 1 item 4 b: "A lower n raises the steady state: k star prime equals s over n prime plus delta, to the one over one minus alpha, which is greater than k star. After the earthquake, k rises past the old steady state to the new, higher one. Higher levels of k and y; lower steady-state growth of aggregate output, which grows at n prime; faster growth during the transition." Then draw the two panels.
+
+Model answer, List 2 item 1 b: "Both economies start below their own steady states, 7.11 against 8 and 100 against 125, so both grow during the transition, each toward its own steady state. This is conditional convergence: the level gap persists because s, n, A and alpha differ, but there are no divergent dynamics. In the long run per capita growth is zero in both."
+
+Model answer, List 2 item 1 d: "The unified y star, 112.5, is below the South's, 125, because the unified labour force grows faster, one sixtieth against 0.01: more new workers must be equipped each period, so the n plus delta line is steeper and k star is lower. Saving and technology are the same, so n is the whole difference."
+
+
+Four point six. Self-test. Thirty seconds.
+
+Question one. An economy is below its own steady state. What does Solow predict for its growth? Pause.
+
+It grows, toward its own steady state. That is conditional convergence.
+
+Question two. Population growth falls permanently. What happens to the level of y star, and to long-run growth of y? Pause.
+
+The level rises. Long-run growth of y stays at zero without technical progress; aggregate output grows more slowly, at the new n.
+
+Question three. Unified Korea saves like the South and uses its technology. Why is its y star lower? Pause.
+
+Because its n is higher, so the n plus delta line is steeper.
+
+
+PART FIVE. AGGREGATE VERSUS PER CAPITA, CAPITAL DILUTION, AND A DISTORTION READ AS PRODUCTIVITY. KURLAT CHAPTERS 4 AND 5. LIST 1 ITEM 4 A, LIST 2 ITEMS 1 C AND 2 D.
+
+The fourth knowledge gap: no audio prompt makes aggregate versus per capita its thesis, and none covers capital dilution. The growth-accounting half is covered by the Aula 3 audio on the residual, and is here because List 2 item 2 d was left blank.
+
+
+Five point one. What you wrote, and the marks.
+
+List 1 item 4 a. The earthquake destroys half the capital of a Solow economy in steady state. The question asked about GDP and GDP per capita, in the short run and the long run. Your work was correct: output per worker falls on impact to 2 to the power minus alpha times its old level; the steady state is unchanged; and capital per worker then grows at the rate n plus delta, times the quantity 2 to the power one minus alpha, minus one, which is positive. The diagnosis verified that independently. Cross, for incompleteness: the answer covered per capita only. Two objects, two horizons, and one object was never answered.
+
+List 2 item 1 c. The unification. Your numbers were right: unified output per worker of 82.16, the South loses per capita, and aggregate output rises from 2071 to 2465. Cross, with a partial tick. The reason is inferred: the question also asked where the gain comes from in each case, and that part was never answered.
+
+List 2 item 2 d. Blank.
+
+
+Five point two. The concept: when n is positive, there are always two answers.
+
+Take the earthquake. In the short run capital falls, so capital per worker falls, so output per worker and total output both fall, because the labour force has not changed at the instant of the shock.
+
+In the long run, capital per worker returns to its unchanged steady state, and output per worker returns to where it was. But total output ends up higher than just before the earthquake. The professor's key writes one line for it: Y at the later date is greater than Y just before the earthquake, because L at the later date is greater than L at the date of the shock. Population kept growing at n throughout the transition. Per capita income merely returns; aggregate income, carried by more workers, ends higher.
+
+The rule: whenever n is positive, write two lines, one for y and one for Y. The diagnosis calls this the single most repeated warning in the instructor's key.
+
+
+Five point three. The merger: capital deepening in the North, dilution in the South.
+
+List 2 item 1 c. Unification means production in all of Korea uses the South's technology, A of 5 and alpha of one half, with the pooled stocks. Pooled capital is 8100 and pooled labour is 30, so capital per worker is 270 and output per worker is 82.16.
+
+The North goes from 7.11 to 82.16 and gains twice. First, it adopts the South's technology. Second, it gets capital deepening: its capital per worker jumps from 10 to 270.
+
+The South goes from 100 to 82.16. It loses per capita. Its capital is diluted: capital per worker falls from 400 to 270, because the same capital is now spread over a larger workforce. The professor's margin note: capital gets diluted.
+
+The aggregate goes from 2071 to 2465. Total output rises, because capital moves to where its marginal product is far higher, to North workers who had 10 units each, and the North's labour now uses the better technology. The margin note: not per capita, for the South, but still a gain.
+
+One event, three answers, three mechanisms.
+
+
+Five point four. A distortion read as productivity: Gotham.
+
+List 2 question 2. In Gotham, output is A times productive capital to the alpha, times L to the one minus alpha. Crime forces firms to hold theta units of security capital for every unit of productive capital, and security capital is counted in the national accounts as capital. Alpha is one third and theta is one half.
+
+Items a, b and c got ticks. Output as a function of total capital K is A times the quantity one plus theta, to the power minus alpha, times K to the alpha, times L to the one minus alpha. Output lost is 12.64 per cent, measured factor shares are not distorted, and an observer who pools the two kinds of capital estimates A hat over A equals 0.8736. The professor underbraces that factor and calls it the wedge.
+
+Item d. A new security technology cuts theta to theta prime equals theta over 4, which is 0.125, over ten years. True A does not change at all.
+
+Growth accounting. Take logs of the output equation and differentiate with respect to time. Output growth equals alpha times capital growth, plus one minus alpha times labour growth, plus a residual. The residual collects everything else: growth of A, which is zero, plus minus alpha times the change in the log of one plus theta. Averaged over the decade, the residual is minus alpha, times the log of one plus theta prime minus the log of one plus theta, divided by 10.
+
+The numbers. Alpha is one third. One plus theta is 1.5; one plus theta prime is 1.125. So the residual is one third, times the log of 1.5 over 1.125, divided by 10. That is 0.959 per cent a year, or 0.964 per cent a year compounded.
+
+Capital and labour growth drop out of the residual. The whole reallocation from security to productive capital is reported as TFP growth, although technology did not move.
+
+This is Kurlat's statement that the residual captures changes in policies that lead to better, or worse, allocation of resources. The residual measures anything that raises output from given measured inputs, and a smaller wedge does exactly that. If crime had worsened, the accounting would report negative productivity growth with technology unchanged.
+
+
+Five point five. The sentences that earn the marks.
+
+Model answer, List 1 item 4 a, the missing line: "Per capita: y falls on impact and returns to its unchanged steady state. Aggregate: Y also falls on impact, but in the long run Y ends above its pre-earthquake level, because L kept growing at n throughout."
+
+Model answer, List 2 item 1 c: "The North gains twice: it adopts the South's technology and its capital per worker rises from 10 to 270. The South loses per capita, 100 to 82.16, because its capital is diluted from 400 to 270 per worker. Aggregate output rises from 2071 to 2465, because capital moves to where its marginal product is higher and the North's labour uses the better technology."
+
+Model answer, List 2 item 2 d, after the decomposition: "The Solow residual is minus alpha times the change in the log of one plus theta over ten years, which is 0.959 per cent a year. Capital and labour growth drop out; A is unchanged; the whole improvement in allocation is reported as TFP growth. Worse crime would show up as negative TFP growth."
+
+
+Five point six. Self-test. Thirty seconds.
+
+Question one. A shock leaves y's steady state unchanged, and n is positive. Where does Y end up relative to before the shock? Pause.
+
+Higher, because the labour force kept growing.
+
+Question two. After the merger, why does the South lose per capita? Pause.
+
+Capital dilution: the same capital spread over more workers, 400 per worker down to 270.
+
+Question three. Theta falls and A is constant. What does growth accounting report? Pause.
+
+Positive TFP growth, 0.959 per cent a year in Gotham.
+
+
+PART SIX. CONSUMPTION: THE WRITTEN ANSWER THAT EARNS THE MARK. KURLAT CHAPTER 6. LIST 3.
+
+From here on the knowledge was covered, by the Aula 4 audio on the timing of the tax. List 3 still lost seven items, two of them to words that contradict the mathematics. This part is about writing, not learning.
+
+A household lives two periods. In period one it has initial wealth a zero, income y one and tax tau one, and it splits the rest between consumption c one and savings a. In period two it consumes income y two, minus tax tau two, plus one plus r times a. Utility is u of c one plus beta times u of c two, with u of c equal to c to the one minus sigma over one minus sigma, and the log when sigma is one.
+
+
+Six point one. Item 1 a: solve for a too.
+
+What you wrote: c one and c two by substitution, and a correct Euler equation. The diagnosis checked your c one independently: it is correct, the canonical form multiplied top and bottom by one plus r. Cross, with the letter a and a question mark written beside it. The savings variable a was never solved.
+
+The question said: solve for c one, c two and a. Three objects. Two were delivered.
+
+The answer that earns the mark is one more line: a equals a zero plus y one minus tau one minus c one. And write the canonical form, because it is what the grader reads fastest. Let D equal one plus beta to the one over sigma, times one plus r raised to the quantity one over sigma, minus one. Then c one equals lifetime wealth over D, where lifetime wealth is a zero plus y one minus tau one, plus y two minus tau two over one plus r. Numerator: what you have, in present value. Denominator: how you split it across the two periods. And c two equals beta times one plus r, to the power one over sigma, times c one.
+
+Item 1 d was lost for the same reason, again marked with a and a question mark. Your derivatives of consumption with respect to the taxes were correct. The derivatives of a were missing. They follow in one line from a equals a zero plus y one minus tau one minus c one: the derivative of a with respect to tau one is minus one plus one over D, and the derivative of a with respect to tau two is one over the quantity one plus r times D, which is positive. The professor's margin note on the second: not zero, due to savings. A future tax changes saving today, because the household saves to pay it.
+
+
+Six point two. Item 1 b: say the permanent income story.
+
+What you wrote: c one over y one expressed through y two over y one, and the sentence that consumption rises with income. Cross; the reason is inferred: no permanent-income story. The question asked how this relates to households suddenly becoming more optimistic about the future.
+
+The answer that earns the mark: "c one depends on lifetime wealth, so it rises with y two, not only with y one. A household that becomes more optimistic about future income raises consumption today and saves less, or borrows, before the income arrives."
+
+
+Six point three. Item 1 c: the sign was right, and the sentence was wrong.
+
+Set y two, tau one and tau two to zero. Then the household saves everything it will consume in period two, and c one equals a zero plus y one, over D. The only place r enters is D. And D rises with r if and only if one over sigma minus one is positive, which means sigma less than one.
+
+Three cases, each with its words.
+
+Sigma less than one: c one falls when r rises. The substitution effect dominates: saving is now more rewarding, so consume less today.
+
+Sigma equal to one, log utility: c one does not move; the effects cancel.
+
+Sigma greater than one: c one rises when r rises. The income effect dominates. A saver is richer when r rises, and with high curvature the household spends part of that gain today.
+
+What your page said: one minus one over sigma positive, if and only if sigma greater than one. The grader ticked that condition. Then: consumption in period one falls. Cross. The derivative was positive and the sentence said negative.
+
+The rule, same as for List 4 item 1 b: set the deciding parameter to its knife-edge value and read the formula before writing the sentence. Here, set sigma to one: nothing moves. Then ask which side of one you are on. Model answer: "With sigma greater than one, the derivative of c one with respect to r is positive: the income effect dominates, because a saver is richer when r rises."
+
+And one defensive sentence to write whenever sigma appears, because the professor's margin once called sigma the intertemporal elasticity of substitution, while in Kurlat's text sigma is the curvature and one over sigma is the elasticity: "sigma is the curvature of u; one over sigma is the elasticity of intertemporal substitution." Then no reader can mark you wrong under either convention.
+
+
+Six point four. Item 1 e: Ricardian equivalence proved, then denied.
+
+What your page showed: that the tax change leaves the present value of taxes unchanged, and the note that this change has no effect. Two lines later it said, yes, the timing affects consumption, as seen in item d. Cross.
+
+Item d is about the level of taxes; item e is about their timing at a constant present value. Different experiments.
+
+The correct conclusion. Cut tau one by one unit and raise tau two by one plus r. The present value, tau one plus tau two over one plus r, is unchanged. Taxes enter c one and c two only through that present value, so c one and c two do not change. And a rises by exactly one: the tax cut is saved, to pay the future tax. The professor's margin, five words: saving extra to pay future taxes. So the timing does not matter, as long as the household can borrow and lend freely at r.
+
+Model answer: "Taxes enter only through their present value, which is unchanged, so c one and c two do not change and a rises by exactly one: the tax cut is saved to pay the future tax. Timing does not matter, provided the household can borrow and lend freely at r." A proof is followed by a conclusion that agrees with it.
+
+
+Six point five. Items 2 b and 2 d: two examples, and name the margin.
+
+Question 2 adds the constraint that a is at least minus b: the household cannot borrow more than b. Item 2 a got half credit for "the borrowing limit"; the full answer also says what b is, the maximum the household can borrow, and the professor notes that a natural debt limit exists implicitly even with no explicit rule. Item 2 c, both cases, binding and slack, got two ticks.
+
+Item 2 b asked for two examples of when the limit is likely to bind. One was given, very high future income. Cross. Examples: one, a young household whose income is low now and high later, a steep income profile, such as a medical resident; two, a household hit by a temporary income loss, such as unemployment, so that y one is low relative to y two; three, a low b, because there is no collateral or no credit history. Give two. 
+
+Item 2 d: the savings tax. Your Euler equation was right: c two over c one, to the power sigma, equals beta times one plus r minus tau two. Part four was blank: no comparison with the lump sum, no margin named. Cross.
+
+The answer that earns the mark. The savings tax lowers the return on saving, so it changes the ratio c two over c one: it distorts the intertemporal margin. A lump-sum tax raising the same revenue leaves the Euler equation at beta times one plus r and only moves wealth. Both allocations are affordable with the same revenue, so the lump sum is welfare-superior. The margin note compresses the whole argument: same revenue, both affordable, lump sum welfare improving, Euler equation.
+
+
+Six point six. Self-test. Thirty seconds.
+
+Question one. Sigma is 2 and the household is a pure saver. Does c one rise or fall with r? Pause.
+
+It rises. The income effect dominates.
+
+Question two. Tau one is cut by one, tau two raised by one plus r, free borrowing. What happens to c one, c two and a? Pause.
+
+c one and c two unchanged; a rises by exactly one.
+
+Question three. Which margin does a savings tax distort? Pause.
+
+The intertemporal margin: the ratio of c two to c one. The lump sum does not.
+
+
+PART SEVEN. MONEY: THE WRITTEN ANSWER THAT EARNS THE MARK. KURLAT CHAPTERS 10 AND 11. LIST 6.
+
+Every item here is covered by an Aula 7 or Aula 8 audio, and five items were still lost or halved. This is about the sentence.
+
+
+Seven point one. Item 1 a: say that V is a residual.
+
+What you wrote: the equation M V equals P Y is true by construction, and says nothing about how one variable affects the others. Half credit: a tick and a cross.
+
+What was missing is the reason it is true by construction. V has no independent measurement. It is defined as P Y over M. That is why the equation cannot fail: whatever M, P and Y turn out to be, V is whatever number makes the equation hold.
+
+It becomes a theory only with an added assumption, such as constant V; the direction of causation comes from that assumption, not from the identity.
+
+Model answer: "M V equals P Y is an identity because V is not measured independently: it is defined as P Y over M, a residual. It becomes a theory of money only with extra assumptions, such as constant V and Y fixed by the real side; only then does a change in M cause a change in P."
+
+
+Seven point two. Item 1 b: interpret the velocity you derived.
+
+What you wrote: V equals the square root of 2 i Y over F, derived correctly from Baumol-Tobin. Half credit: not interpreted.
+
+The interpretation. In Baumol-Tobin, real money demand is the square root of F Y over 2 i, where F is the fixed cost of a trip to the bank. Velocity is Y over real money demand, which gives the square root of 2 i Y over F. Now read it. Velocity rises with i, because holding cash is more expensive, so people make more trips. It rises with Y, because of economies of scale in cash management. So velocity is not a constant.
+
+Model answer: "Velocity is the square root of 2 i Y over F. It rises with i, because cash is costlier to hold, and with Y, because money demand grows only as the square root of Y. So V is not constant, and the quantity theory's assumption fails."
+
+
+Seven point three. Item 1 c: fixed prices, then flexible prices.
+
+What you wrote: no obvious mechanism, and that the change in log M is minus one half the change in log i, holding Y. Cross: no flexible-price case, and no mechanism named.
+
+The concept. The money market clears when money supply equals p times real money demand, m D of Y and i. With p fixed at p bar, a higher M requires real money demand to rise: i falls, or Y rises, or both. That is the liquidity effect. How the adjustment splits needs a second relation, the IS or Euler equation.
+
+With flexible prices, p rises in proportion to M, and Y and i do not change. That is neutrality. This half of the question was not answered at all.
+
+Model answer: "With p fixed, a higher M must be matched by higher real money demand, so i falls and, or, Y rises; the money market alone cannot say how the adjustment splits, which needs the IS relation. With flexible prices, p rises in proportion to M and Y and i are unchanged: money is neutral."
+
+
+Seven point four. Item 1 d: name the endogenous variable.
+
+What you wrote: the central bank fixes i, and it must supply the money demanded. Cross. You did not say that M becomes endogenous.
+
+The concept. If the central bank controls M, the equation determines i, given Y and p. If it controls i, the same equation determines M: the bank supplies whatever quantity is demanded at its rate. Money is endogenous, and the LM curve is horizontal at the target rate. That is why Benigno's model has no LM curve.
+
+Model answer: "Under an M target, the money-market equation determines i. Under an i target, the same equation determines M: the central bank supplies whatever is demanded at its rate, so money becomes endogenous and the LM curve is horizontal."
+
+
+Seven point five. Item 2 c: falling F lowers money demand.
+
+Items 2 a and 2 b got ticks: inflation equals mu minus eta g, eta equals one half under Baumol-Tobin, a money growth rate of 3.5 per cent for a 2 per cent target with 3 per cent growth, and actual inflation of 0.5 per cent if eta is really one. Item 2 c, the mathematics, got a tick: inflation equals mu minus one half of g plus f.
+
+The words got a cross. You wrote that money becomes cheaper to get, so there is more inflation. Wrong mechanism: it names the cost of obtaining money and never mentions demand.
+
+The concept. A falling F lowers money demand, because real balances are proportional to the square root of F; equivalently, velocity rises. In the formula, f is negative, so minus one half of f is positive.
+
+In the professor's arrow style: F falls, so money demand falls, so at a given mu real balances are too high, so inflation rises.
+
+Model answer: "A falling F lowers money demand, since m is proportional to the square root of F. With mu unchanged, money supply outgrows money demand, so prices must rise faster to lower real balances. Since f is negative, minus one half f is positive, and inflation rises."
+
+
+Seven point six. Self-test. Thirty seconds.
+
+Question one. Why can M V equals P Y never fail? Pause.
+
+Because V is defined as P Y over M. It is a residual.
+
+Question two. The central bank targets i. Which variable does the money-market equation determine? Pause.
+
+M. Money is endogenous.
+
+Question three. Prices are flexible and M doubles. What happens to Y and i? Pause.
+
+Nothing. p doubles. Neutrality.
+
+
+PART EIGHT. THE NINE RULES. A CHECKLIST TO RUN BEFORE HANDING IN ANY ANSWER.
+
+The first four come from the diagnosis of Lists 1 and 4. The last five come from the diagnosis of Lists 2, 3 and 6. Listen to them as a routine: run them on every answer, in this order, before you move to the next item.
+
+Rule one. Answer every object the question names. "GDP and GDP per capita" is two answers. "Which agents gain and which lose" is a list, not a sentence. This alone accounted for 4 of the 11 items rejected on Lists 1 and 4.
+
+Rule two. Never let the words contradict the formula. Before writing the intuition, set every other parameter to its knife-edge value and ask what the formula then says. On List 4, set T to zero and the effect vanishes, so the story must be about T.
+
+Rule three. An externality is always about somebody else. If your sentence about an externality has the acting agent as the one harmed, it is wrong.
+
+Rule four. Circle intermediate results and copy from the circle. Both arithmetic losses on List 1 were values that changed between the line computing them and the line using them.
+
+Rule five. List the objects before writing. Underline every noun the question asks for: c one, c two and a; each country and the aggregate; two examples. Tick each one off at the end. This alone would have saved 9 of the 27 items.
+
+Rule six. After every derivative, set the deciding parameter to a knife-edge value and read the sign aloud before writing the sentence. Three of the lost items are sentences that contradicted a correct formula.
+
+Rule seven. A proof is followed by a conclusion that agrees with it. If you have shown that X enters only through Y, the next line says X does not matter, never that X matters.
+
+Rule eight. Explain means name the mechanism in one causal chain, in the professor's arrow style. F falls, so money demand falls, so at a given mu real balances are too high, so inflation rises.
+
+Rule nine. Every comparative-static item in money has two answers: fixed prices and flexible prices. Every item about an instrument has two: which variable is set, and which becomes endogenous.
+
+
+PART NINE. WHERE TO PRACTISE, AND FIVE LINES.
+
+Listening will not close the gaps in parts six and seven. Writing will. Two mock exams are built for that practice, in the Simulados folder: simulado 01 and simulado 02, each with an exam file and a solutions file. Each question names the gap it retests, and both test the four knowledge gaps of parts two to five. Sit them under time, then mark your own sentences against the nine rules before you open the solutions.
+
+Five interactive companions go with the notes, in the Map folder. For the Korea unification and conditional convergence, "Two Economies, One Border", in the Aula 2 folder. For Gotham and the residual, "Security Capital Looks Like Bad Luck", in the Aula 3 folder. For List 3, "Taxes, Timing and the Limit", in the Aula 4 folder. For List 6, "Who Moves When Money Moves", in the Aula 7 folder. And the frozen-capital companion in the Aula 6 folder, on general equilibrium.
+
+For the professor's own keys, read aloud, go to the narrated reading of Problem Sets 1 to 4.
+
+Now the five lines. This is the part worth replaying.
+
+One. Not one of 27 lost items came from a wrong model; they came from the last object, the sentence after the formula, and words that disagreed with the sign.
+
+Two. With log consumption utility the wage's income and substitution effects cancel, so a wage tax moves hours only through the transfer; and an externality always lands on somebody else.
+
+Three. Market exchange rates understate poor countries' output because non-traded goods and labour are cheap there; that is Balassa-Samuelson, not trade costs.
+
+Four. Each Solow economy converges to its own steady state; when n is positive answer y and Y separately; and a shrinking distortion shows up as TFP growth.
+
+Five. List the objects, read the sign at the knife edge, and let the conclusion agree with the proof.

@@ -23,6 +23,9 @@ one criterion that matters: whether they require the inflation to be a *surprise
 
 $$S = \frac{\dot M}{P} = \frac{\dot M}{M}\cdot\frac{M}{P} = \mu_M\cdot\frac{M}{P}$$
 
+(New money $\dot M$ is in currency units; dividing by $P$ turns it into goods. The middle step
+multiplies and divides by $M$; the last uses $\mu_M\equiv\dot M/M$.)
+
 In a steady state with constant real balances and $\pi=\mu_M$ (from
 [[03-equilibrium-and-neutrality]] §3.4, with $g_Y=0$):
 
@@ -50,6 +53,8 @@ proposed the semi-log form, which is the standard tool for high inflation:
 $$\frac{M}{P} = L\,e^{-a\pi}, \qquad a>0$$
 
 $a$ is the **semi-elasticity**: a one-point rise in inflation cuts real balances by $a$ per cent.
+Take logs, $\ln(M/P)=\ln L-a\pi$, and differentiate with respect to $\pi$:
+$d\ln(M/P)/d\pi=-a$. A one-point rise is $d\pi=0.01$, so $d\ln(M/P)=-0.01a$, a fall of $a$ per cent.
 Note this is a semi-elasticity, not an elasticity — the log of balances is linear in the *level*
 of inflation, which is what makes it tractable at rates where ordinary elasticities break down.
 
@@ -63,15 +68,46 @@ $$\frac{dS}{d\pi} = L\,e^{-a\pi}\left(1-a\pi\right) = 0
 \qquad\Longrightarrow\qquad
 \boxed{\;\pi^{\max} = \frac{1}{a}\;}$$
 
-Second-order condition: $S''(\pi^{\max}) = -aLe^{-1}<0$, a maximum. And the revenue at the peak is
+The derivative, by the product rule on $\pi\cdot Le^{-a\pi}$: the derivative of $\pi$ is 1 and
+the derivative of $Le^{-a\pi}$ is $-aLe^{-a\pi}$ (chain rule), so
+
+$$S'(\pi)=1\cdot Le^{-a\pi}+\pi\cdot\big(-aLe^{-a\pi}\big)=Le^{-a\pi}(1-a\pi)$$
+
+$Le^{-a\pi}>0$ for every $\pi$, so $S'=0$ only when $1-a\pi=0$, that is $\pi=1/a$.
+
+Second-order condition: $S''(\pi^{\max}) = -aLe^{-1}<0$, a maximum. Product rule again on
+$Le^{-a\pi}\cdot(1-a\pi)$:
+
+$$S''(\pi)=-aLe^{-a\pi}(1-a\pi)+Le^{-a\pi}(-a)=-aLe^{-a\pi}(2-a\pi)$$
+
+and at $\pi=1/a$, $a\pi=1$, so $S''=-aLe^{-1}(2-1)=-aLe^{-1}$. And the revenue at the peak is
 
 $$S(\pi^{\max}) = \frac{L}{a}e^{-1} \simeq \frac{0.368\,L}{a}$$
+
+(substitute $\pi=1/a$ into $\pi Le^{-a\pi}$: the exponent becomes $-a\cdot\tfrac1a=-1$.)
+
+![Laffer curve before and after a rises](fig/fig_07_laffer_a_shift.svg)
+*Read off: with $L=1$, the peak is at 33.3% with revenue 0.1226 when $a=3$, and at 20.0% with revenue 0.0736 when $a=5$ — the peak moves left and down together.*
 
 Both verified analytically and by numerical maximisation in `check_money.py`.
 
 **Reading the condition.** At the peak, the elasticity of the base with respect to the rate is
 exactly $-1$: $\dfrac{d\ln(M/P)}{d\ln\pi} = -a\pi = -1$. That is the general Laffer condition and
 it is worth stating in that form, because it is the same condition for any tax.
+
+Why both statements hold. The elasticity with respect to $\ln\pi$ is the semi-elasticity times
+$\pi$, since $d\ln\pi=d\pi/\pi$: $\dfrac{d\ln(M/P)}{d\ln\pi}=\pi\cdot\dfrac{d\ln(M/P)}{d\pi}=-a\pi$.
+For any tax with rate $\tau$ and base $B(\tau)$, revenue $\tau B$ has
+$\dfrac{d(\tau B)}{d\tau}=B+\tau B'=B\big(1+\tfrac{\tau B'}{B}\big)=B(1+\varepsilon_B)$, which is zero
+exactly when the base elasticity $\varepsilon_B=-1$. In log form,
+$\ln S=\ln\pi+\ln L-a\pi$, so
+
+$$\frac{d\ln S}{d\pi}=\frac1\pi-a$$
+
+— the rate effect $1/\pi$ against the base effect $a$.
+
+![Rate effect against base effect](fig/fig_07_laffer_decomposition.svg)
+*Read off: for $a=3$, the rate effect $1/\pi$ exceeds the base effect below $\pi=33.3\%$ (revenue rising) and falls short of it above (revenue falling); they cross where $-a\pi=-1$.*
 
 **Below the peak**, raising inflation raises revenue: the rate effect dominates. **Above it**,
 raising inflation *lowers* revenue, because people flee money faster than the rate rises. This is
@@ -101,6 +137,13 @@ The useful sort is by whether the inflation is **anticipated**.
 the number of trips to the bank — $n^*$ from [[02-money-demand]] §2.2. Those trips consume real
 resources, $Fn^*$. This is exactly the failure of superneutrality derived in
 [[03-equilibrium-and-neutrality]] §3.6, now given its name and its welfare interpretation.
+
+In the model, $Fn^*=F\sqrt{iY/2F}=\sqrt{FiY/2}$ ([[02-money-demand]] §2.2), and with exact Fisher
+$i=(1+r)(1+\pi)-1$. So the resource cost rises with $\pi$ like a square root and is zero only
+where $i=0$.
+
+![Shoe-leather cost against inflation](fig/fig_07_shoe_leather.svg)
+*Read off: with $r=2\%$, $Y=1000$, $F=2$, the trip cost is 0 at the Friedman rule ($\pi=-1.96\%$), 6.36 (0.64% of $Y$) at a 2% target, and 11.05 (1.10% of $Y$) at 10%.*
 
 **Menu costs.** Changing posted prices is costly, and higher inflation means changing them more
 often.
@@ -147,6 +190,10 @@ Three arguments for a small positive target, all standard and all worth naming:
 The opportunity cost of holding money is $i$, but the social cost of producing money is zero. So
 the efficient policy sets $i=0$, which by Fisher means $\pi=-r$ — **steady deflation at the real
 interest rate**. That eliminates shoe-leather costs entirely.
+
+(With the approximation $i\simeq r+\pi$, setting $i=0$ gives $\pi=-r$. With the exact form,
+$1+0=(1+r)(1+\pi)$, so $1+\pi=1/(1+r)$ and $\pi=-r/(1+r)$: $-1.96\%$ rather than $-2\%$ at
+$r=2\%$.)
 
 Kurlat notes the tension plainly, and it is a good closing observation: the Friedman rule says
 target deflation, and every actual central bank targets 2% inflation. The three arguments above

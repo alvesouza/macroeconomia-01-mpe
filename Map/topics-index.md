@@ -132,7 +132,7 @@ progresso técnico. Toda questão de "o que acontece no curto e no longo prazo" 
 3. 📝 [[03_solow_evidencias]]
 4. ✏️ Avançado — Kurlat **5.8** *National Accounts and The Golden Rule* (p. 97)
 5. 📚 Livro resolvido — [[Resolucao/kurlat_solutions_ch05|cap. 5]], **5.8**: deriva
-   $s_{GR}=lpha$ — *a taxa de poupança da Regra de Ouro é a participação do capital*, o
+   $s_{GR}=\alpha$ — *a taxa de poupança da Regra de Ouro é a participação do capital*, o
    teste de eficiência dinâmica em uma linha
 
 **Síntese cross-tópico (Hard):** a Regra de Ouro maximiza o **consumo de estado

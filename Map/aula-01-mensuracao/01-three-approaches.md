@@ -25,7 +25,13 @@ payments and residual profit:
 
 $$R_j \;=\; M_j + W_j L_j + I^{\text{nt}}_j + D_j + T_j + \Pi_j \tag{1.1}$$
 
-Define **value added** as revenue net of purchased intermediates:
+Define **value added** as revenue net of purchased intermediates. Subtract $M_j$ from both
+sides of (1.1):
+
+$$R_j - M_j \;=\; \left(M_j + W_j L_j + I^{\text{nt}}_j + D_j + T_j + \Pi_j\right) - M_j
+\;=\; W_j L_j + I^{\text{nt}}_j + D_j + T_j + \Pi_j$$
+
+and name the left side:
 
 $$\mathrm{VA}_j \;\equiv\; R_j - M_j \;=\; \underbrace{W_j L_j + I^{\text{nt}}_j + D_j + T_j + \Pi_j}_{\text{payments to factors and government}} \tag{1.2}$$
 
@@ -49,7 +55,18 @@ lettuce for \$1. Summing revenues gives \$1.80, and the \$0.80 of fertiliser is 
 twice — once as itself, once inside the lettuce. Value added is \$0.80 and \$0.20, summing
 to \$1, the value of the only good that left the production system.
 
-Formally, in a chain of $n$ stages with $M_{j} = R_{j-1}$ the sum telescopes:
+![Revenues against value added in Kurlat's Example 1.2](fig/fig_01_double_counting.svg)
+*Read the two bar heights: \$1.80 of revenue against \$1.00 of value added. The \$0.80 difference is the fertiliser counted a second time inside the lettuce.*
+
+Formally, take a chain of $n$ stages in which stage $j$ buys the whole output of stage
+$j-1$, so $M_j = R_{j-1}$, and stage 1 buys nothing, so $R_0 = 0$. Substitute
+$M_j = R_{j-1}$ into the definition of value added and write the sum out term by term:
+
+$$\sum_{j=1}^{n}\mathrm{VA}_j = \sum_{j=1}^{n}\left(R_j - R_{j-1}\right)
+= (R_1 - R_0) + (R_2 - R_1) + \cdots + (R_n - R_{n-1})$$
+
+Every intermediate revenue $R_1,\dots,R_{n-1}$ appears once with a plus sign and once with a
+minus sign, so each pair cancels and only the two ends survive:
 
 $$\sum_{j=1}^{n}\left(R_j - R_{j-1}\right) = R_n - R_0 = R_n \qquad (R_0 = 0)$$
 
@@ -75,6 +92,15 @@ stores the rest; a gardener exports \$2 of lettuce. Then:
 $$\underbrace{(20-5)}_{\text{car VA}} + \underbrace{2}_{\text{lettuce}} = 17,
 \qquad
 \underbrace{20}_{C} + \underbrace{5}_{I\,(\text{inventories})} + \underbrace{2}_{X} - \underbrace{10}_{M} = 17$$
+
+Line by line: the car sells for 20 and used 5 of the 10 imported components, so its value
+added is $20-5=15$; the lettuce used no purchased inputs, so its value added is its price, 2.
+On the expenditure side, the car bought by a household is $C=20$, the 5 components still in
+the warehouse are $I=5$, the lettuce sold abroad is $X=2$, and all 10 components were
+imported, $M=10$.
+
+![Kurlat Example 1.6 as a waterfall](fig/fig_01_example16_columns.svg)
+*Follow the bars left to right: C, I and X stack to 27, and −M takes the 10 of imported content back out, landing on the same 17 as production.*
 
 The unused \$5 of components is an **inventory investment**. Without that entry the
 expenditure side would read $20+2-10=12 \ne 17$. Inventories exist in the accounts precisely
@@ -120,9 +146,11 @@ what the leisure term in the Jones–Klenow measure of [[05-beyond-gdp]] is buil
 
 GDP is defined by **territory**, GNP (now GNI) by **ownership of factors**. Let $F^{\text{in}}$
 be factor income earned domestically by non-residents and $F^{\text{out}}$ factor income
-earned abroad by residents. Then
+earned abroad by residents. Start from what is produced on the territory (GDP), remove the
+part of it paid to non-residents, and add what residents earn abroad:
 
-$$\mathrm{GNP} = \mathrm{GDP} + F^{\text{out}} - F^{\text{in}}$$
+$$\mathrm{GNP} = \underbrace{\mathrm{GDP} - F^{\text{in}}}_{\text{domestic income of residents}} + F^{\text{out}}
+= \mathrm{GDP} + F^{\text{out}} - F^{\text{in}}$$
 
 The gap is large exactly where foreign ownership is large. Ireland is the standard case:
 profits of foreign-owned firms are produced in Ireland (in GDP) and accrue abroad (out of

@@ -251,6 +251,30 @@ do not repeat `aula-09-audio-1`, which already spends one segment on natural vs 
 > `/speechify`. The written solution is `Resolucao/lista7_resolucao.pdf`; the map is
 > [`Map/lista-07.md`](../Map/lista-07.md).
 
+### Gaps from the graded lists (2026-09-27)
+
+**5 audio prompts, no slides or video**: one per gap that no earlier audio covers, taken from
+[`Map/avaliacao-listas-1-4.md`](../Map/avaliacao-listas-1-4.md) and §5 of
+[`Map/avaliacao-listas-2-3-6.md`](../Map/avaliacao-listas-2-3-6.md). Each one closes by
+rehearsing, in the hosts' words, the answer that earns the mark on the item that was lost.
+None of them reads a list solution aloud.
+
+> ⚠️ **Output language.** These prompts carry **no** language line. Before generating, confirm
+> NotebookLM's **Settings → Output language = English**. If that setting is wrong, the whole
+> batch comes back in the wrong language, and no prompt can override it.
+
+| File | Type | Thesis | Items | Chars |
+|---|---|---|---|---|
+| [audio/gaps-audio-1-hours-not-leisure.md](audio/gaps-audio-1-hours-not-leisure.md) | Audio | With log utility the wage's two effects cancel, so a tax moves hours only through the transfer; answer in hours | L4 1(b) | 4,977 |
+| [audio/gaps-audio-2-the-cost-lands-on-others.md](audio/gaps-audio-2-the-cost-lands-on-others.md) | Audio | Beveridge curve = creation equals destruction; a vacancy helps workers and hurts *other* firms; shift vs movement | L4 2(b,d,e) | 4,629 |
+| [audio/gaps-audio-3-the-haircut-nobody-exports.md](audio/gaps-audio-3-the-haircut-nobody-exports.md) | Audio | Market rates price traded goods; cheap non-traded goods make poor countries look poorer; trade costs are the wrong answer; fixed-base bias direction | L1 1(c,e) | 4,610 |
+| [audio/gaps-audio-4-each-to-its-own-steady-state.md](audio/gaps-audio-4-each-to-its-own-steady-state.md) | Audio | Conditional convergence, not divergence; total and per head when $n>0$; capital dilution in a merger | L1 4(a,b), L2 1(b-d) | 4,826 |
+| [audio/gaps-audio-5-the-sentence-after-the-formula.md](audio/gaps-audio-5-the-sentence-after-the-formula.md) | Audio | Count the objects, words carry the sign, a proof ends in its conclusion, explain = one causal chain | L3 1(a,c,e), L6 2(c) | 4,902 |
+
+> Overlap is deliberate and capped at one sentence each: `lista-05-audio-1` (the sign habit for
+> labour), `aula-04-audio-2` (where Ricardian equivalence breaks) and `aula-07-audio-2` (the
+> trip-cost mechanism). These prompts drill the written answer, not the model.
+
 ---
 
 ## Anatomia

@@ -41,6 +41,7 @@ cross-country panel into capital and TFP contributions.
 |---|---|---|
 | [The Golden Rule](companion-golden-rule.html) | $c_{ss}(s)$ as a hump; the dynamically inefficient region shaded; the consumption path of a move to $s_{gold}$ from either side | [[01-golden-rule]] |
 | [Whose Fault Is the Gap?](companion-development.html) | a country's income ratio split into capital and TFP, with the implied rental rate and the Lucas-paradox magnitude | [[04-quantifying-and-convergence]] · [[05-growth-accounting-and-tfp]] |
+| [Security Capital Looks Like Bad Luck](companion-hidden-wedge.html) | Lista 2 Q2 (Gotham): $\hat A/A=(1+\theta)^{-\alpha}$ against $\theta$; a fall in $\theta$ reported as TFP growth $\alpha\ln[(1+\theta)/(1+\theta')]/T$ while $g_K$, $g_L$ drop out | [[05-growth-accounting-and-tfp]] |
 
 ---
 

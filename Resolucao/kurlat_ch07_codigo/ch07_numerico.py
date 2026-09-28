@@ -169,6 +169,66 @@ def problema_7_3(w=2.0, tau=0.3, sigma=2.0, eta=1.5, verbose=True):
     return tau_c, R1, R2
 
 
+# =========================================================== Problem 7.4
+def problema_7_4(alpha=1.54, w=1.0, s=0.5, verbose=True):
+    """Means-tested benefit B phased out at rate s on earnings (footnote 3 of ch. 7).
+
+    Budget: c = max(B + (1-s) w (1-l), w (1-l)), a NON-convex set with a kink at
+    earnings B/s. On the benefit segment it is the (tau, T) = (s, B) budget of
+    Section 7.2, so l = alpha (w(1-s)+B) / [(1+alpha) w(1-s)], capped at 1; the
+    household stops working once B >= w(1-s)/alpha. Checked against a brute-force
+    grid search over l on the true kinked budget.
+    """
+    def U(l, B):
+        E = w * (1 - l)
+        c = max(B + (1 - s) * E, E)
+        return np.log(c) + alpha * np.log(l)
+
+    def analitico(B):
+        # candidate 1: benefit segment (interior or the l = 1 corner)
+        l1 = min(alpha * (w * (1 - s) + B) / ((1 + alpha) * w * (1 - s)), 1.0)
+        # candidate 2: no-benefit segment, interior l = alpha/(1+alpha) if its
+        # earnings clear the kink, otherwise the kink itself
+        L_kink = min(B / (s * w), 1.0)
+        l2 = min(alpha / (1 + alpha), 1 - L_kink)
+        # candidate 1 counts only if it lies on the benefit segment (empty if B = 0)
+        cands = [l2] + ([l1] if w * (1 - l1) <= B / s else [])
+        return max(cands, key=lambda l: U(l, B))
+
+    grade = np.linspace(1e-6, 1.0, 2_000_001)
+    linhas = []
+    for B in (0.0, 0.15, 0.25, 0.35):
+        l_cf = analitico(B)
+        E = w * (1 - grade)
+        c = np.maximum(B + (1 - s) * E, E)
+        with np.errstate(divide="ignore"):
+            u = np.log(c) + alpha * np.log(grade)
+        l_num = grade[np.argmax(u)]
+        assert abs(l_num - l_cf) < 1e-5, "7.4: grid search must match closed form"
+        linhas.append((B, l_cf, 1 - l_cf, U(l_cf, B)))
+
+    limiar = w * (1 - s) / alpha
+    assert linhas[0][1] == alpha / (1 + alpha), "no programme: l = alpha/(1+alpha)"
+    assert linhas[-1][1] == 1.0 and 0.35 > limiar, "above the threshold: zero hours"
+    assert all(b[2] <= a[2] for a, b in zip(linhas, linhas[1:])), \
+        "hours never rise with the benefit"
+    # a small benefit is ignored (the household works past the phase-out range),
+    # a larger one moves it onto the benefit segment and hours collapse
+    assert linhas[1][2] == linhas[0][2] and linhas[2][2] < linhas[1][2]
+
+    if verbose:
+        print()
+        print("=" * 74)
+        print("Problem 7.4  Puerto Rico: a phased-out benefit   (alpha=%.2f, w=%.1f, "
+              "s=%.2f)" % (alpha, w, s))
+        print("=" * 74)
+        print("  non-participation threshold B* = w(1-s)/alpha = %.6f" % limiar)
+        print("      B        l        hours 1-l     utility")
+        for B, l, L, u in linhas:
+            print("   %5.2f   %8.6f   %8.6f    %9.6f" % (B, l, L, u))
+    return linhas, limiar
+
+
 # =========================================================== Problem 7.5
 ALPHA_P, W_P = 1.54, 1.0
 US = dict(nome="US", tau=0.34, T=0.102)
@@ -299,6 +359,15 @@ def problema_7_6(theta=0.35, verbose=True):
             l = resolve_numerico(np.log, lambda l: alpha * np.log(l), w)
             assert abs(l - alpha / (1 + alpha)) < 1e-7, "vertical labour supply"
 
+    # variant: the household also receives the capital income theta*Y as a transfer.
+    # Closed form L = (1-theta)/(1+alpha-theta), checked as a fixed point of the
+    # household's problem at the implied wage and transfer.
+    for alpha in (0.5, 1.54, 2.5):
+        L = (1 - theta) / (1 + alpha - theta)
+        w, Pi = (1 - theta) * L ** (-theta), theta * L ** (1 - theta)
+        l = resolve_numerico(np.log, lambda l: alpha * np.log(l), w, T=Pi)
+        assert abs((1 - l) - L) < 1e-7, "variant with capital income"
+
     if verbose:
         print()
         print("=" * 74)
@@ -387,6 +456,7 @@ if __name__ == "__main__":
     problema_7_1()
     problema_7_2()
     problema_7_3()
+    problema_7_4()
     problema_7_5()
     problema_7_6()
     problema_7_7()

@@ -55,7 +55,16 @@ substitute into the second:
 
 $$c_2 = y_2 + (1+r)(y_1-c_1)$$
 
-Rearrange into the **intertemporal budget constraint**:
+Rearrange into the **intertemporal budget constraint**, one operation per line. Multiply out
+the bracket:
+
+$$c_2 = y_2 + (1+r)y_1-(1+r)c_1$$
+
+Add $(1+r)c_1$ to both sides:
+
+$$(1+r)c_1 + c_2 = (1+r)y_1 + y_2$$
+
+Divide both sides by $1+r$:
 
 $$\boxed{\;c_1 + \frac{c_2}{1+r} \;=\; y_1 + \frac{y_2}{1+r} \;\equiv\; W\;}$$
 
@@ -84,6 +93,14 @@ alone:
 
 $$\max_{c_1}\; u(c_1)+\beta\,u\!\left((1+r)(W-c_1)\right)$$
 
+Differentiate term by term. The first term gives $u'(c_1)$. For the second apply the chain
+rule: the inner function $(1+r)(W-c_1)$ has derivative $-(1+r)$ with respect to $c_1$, so
+
+$$\frac{d}{dc_1}\,\beta u\!\left((1+r)(W-c_1)\right)=\beta\,u'\!\left((1+r)(W-c_1)\right)\cdot\left[-(1+r)\right]
+=-\beta(1+r)u'(c_2)$$
+
+Set the total derivative to zero:
+
 $$\frac{d}{dc_1}: \quad u'(c_1)-\beta(1+r)u'(c_2) = 0$$
 
 **Route 2 — Lagrangian.** With multiplier $\lambda$ on the intertemporal constraint:
@@ -94,7 +111,12 @@ $$\frac{\partial\mathcal L}{\partial c_1}=0:\ u'(c_1)=\lambda,
 \qquad
 \frac{\partial\mathcal L}{\partial c_2}=0:\ \beta u'(c_2)=\frac{\lambda}{1+r}$$
 
-Divide the first by the second. $\lambda$ cancels and the same condition appears. Note in
+Divide the first by the second. $\lambda$ cancels and the same condition appears:
+
+$$\frac{u'(c_1)}{\beta u'(c_2)}=\frac{\lambda}{\lambda/(1+r)}=1+r
+\quad\Longrightarrow\quad\text{multiply by }\beta u'(c_2):\quad u'(c_1)=\beta(1+r)u'(c_2)$$
+
+Note in
 passing that $\lambda=u'(c_1)$ is the marginal utility of wealth, which is the object that
 becomes the AD curve's multiplier in Benigno §3.
 
@@ -105,6 +127,12 @@ tomorrow's utility, discounted by $\beta$: the benefit is $\beta(1+r)u'(c_2)$. A
 such perturbation can help, so cost equals benefit.
 
 $$\boxed{\;u'(c_1)=\beta(1+r)\,u'(c_2)\;}$$
+
+![Route 1 and Route 3 on one example: the objective peaks where the two marginal curves cross](fig/fig_c02_perturbation.svg)
+*Read the right panel as the perturbation argument: left of $c_1^*=73.5$ the cost of saving one
+more unit, $u'(c_1)$, exceeds its benefit $\beta(1+r)u'(c_2)$, so the household should consume
+more; right of it the reverse. The crossing is the peak of the left panel (log utility,
+$\beta=0.96$, $r=0.5$, $W=144$).*
 
 **The key reading.** Rearranged as $\dfrac{u'(c_1)}{u'(c_2)}=\beta(1+r)$: the ratio of marginal
 utilities equals the ratio of prices, which is the standard tangency condition of consumer
@@ -121,11 +149,17 @@ toward the present.
 
 ### Logarithmic utility, $u(c)=\ln c$
 
-Euler: $1/c_1 = \beta(1+r)/c_2$, so $c_2 = \beta(1+r)c_1$. Substitute into the budget
-constraint:
+Euler: $1/c_1 = \beta(1+r)/c_2$, so $c_2 = \beta(1+r)c_1$ (multiply both sides by
+$c_1c_2$). Substitute into the budget constraint:
 
-$$c_1 + \frac{\beta(1+r)c_1}{1+r} = W
-\;\Longrightarrow\; c_1(1+\beta)=W$$
+$$c_1 + \frac{\beta(1+r)c_1}{1+r} = W$$
+
+The $1+r$ in the numerator cancels the one in the denominator, leaving $c_1+\beta c_1=W$;
+factor out $c_1$:
+
+$$c_1(1+\beta)=W$$
+
+Divide by $1+\beta$ to get $c_1$, and put that $c_1$ back into $c_2=\beta(1+r)c_1$ to get $c_2$:
 
 $$\boxed{\;c_1 = \frac{W}{1+\beta},\qquad c_2 = \frac{\beta(1+r)W}{1+\beta}\;}$$
 
@@ -136,16 +170,29 @@ impatience. With $\beta=0.96$, it is 0.51.
 
 ### CRRA utility, $u(c)=\dfrac{c^{1-\sigma}-1}{1-\sigma}$
 
-$u'(c)=c^{-\sigma}$, so the Euler equation reads $c_1^{-\sigma}=\beta(1+r)c_2^{-\sigma}$, hence
+Differentiate: the constant $-1$ drops out and
+$\frac{d}{dc}\frac{c^{1-\sigma}}{1-\sigma}=\frac{(1-\sigma)c^{-\sigma}}{1-\sigma}$, so
+$u'(c)=c^{-\sigma}$. The Euler equation reads $c_1^{-\sigma}=\beta(1+r)c_2^{-\sigma}$. Divide both
+sides by $c_2^{-\sigma}$ and use $c_1^{-\sigma}/c_2^{-\sigma}=(c_2/c_1)^{\sigma}$:
+
+$$\left(\frac{c_2}{c_1}\right)^{\sigma}=\beta(1+r)$$
+
+Raise both sides to the power $1/\sigma$, hence
 
 $$\boxed{\;\frac{c_2}{c_1}=\left[\beta(1+r)\right]^{1/\sigma}\;}$$
 
 Take logs: $\ln c_2-\ln c_1 = \frac{1}{\sigma}\left[\ln\beta+\ln(1+r)\right]
-\simeq \frac{1}{\sigma}(r-\rho)$ to first order — which is **exactly equation (4) of Benigno
+\simeq \frac{1}{\sigma}(r-\rho)$ to first order. The approximation, step by step: since
+$\beta=1/(1+\rho)$, $\ln\beta=-\ln(1+\rho)$; the first-order Taylor expansion $\ln(1+x)\simeq x$
+for small $x$ gives $\ln(1+r)\simeq r$ and $\ln(1+\rho)\simeq\rho$; so
+$\ln\beta+\ln(1+r)\simeq r-\rho$, and dividing by $\sigma$ gives the result. This is **exactly equation (4) of Benigno
 (2015)**, the Euler equation that becomes the New-Keynesian AD curve in
 [[01-household-and-ad]] §1.3. The same object, met twice in one course.
 
-**Why $1/\sigma$ is the elasticity of intertemporal substitution.** From the boxed ratio,
+**Why $1/\sigma$ is the elasticity of intertemporal substitution.** From the boxed ratio, take
+logs, $\ln(c_2/c_1)=\frac{1}{\sigma}\ln\beta+\frac{1}{\sigma}\ln(1+r)$; the first term does not
+depend on $r$, so differentiating with respect to $\ln(1+r)$ leaves only the coefficient of the
+second:
 
 $$\frac{d\ln(c_2/c_1)}{d\ln(1+r)}=\frac{1}{\sigma}$$
 
@@ -155,12 +202,22 @@ reciprocals of one another and it is a modelling artefact of CRRA that a single 
 both jobs** — Epstein–Zin preferences exist precisely to separate them. Trap 4 in
 [[04_consumo_poupanca]].
 
+![Consumption growth against r for three values of sigma](fig/fig_c02_tilt.svg)
+*Read the slope of each line as $1/\sigma$: all three cross zero at $r=\rho=4.17\%$ (a flat path),
+and the dotted first-order lines $(r-\rho)/\sigma$ stay close to the exact ones over this range.*
+
 Solving for the level, substitute $c_2=\left[\beta(1+r)\right]^{1/\sigma}c_1$ into the budget
 constraint:
 
-$$c_1\left[1+\frac{\left[\beta(1+r)\right]^{1/\sigma}}{1+r}\right]=W
-\;\Longrightarrow\;
-\boxed{\;c_1=\frac{W}{1+\beta^{1/\sigma}(1+r)^{\frac{1}{\sigma}-1}}\;}$$
+$$c_1+\frac{\left[\beta(1+r)\right]^{1/\sigma}c_1}{1+r}=W
+\quad\text{(factor out }c_1\text{)}\quad
+c_1\left[1+\frac{\left[\beta(1+r)\right]^{1/\sigma}}{1+r}\right]=W$$
+
+Simplify the fraction: $\left[\beta(1+r)\right]^{1/\sigma}=\beta^{1/\sigma}(1+r)^{1/\sigma}$, and
+dividing by $(1+r)=(1+r)^{1}$ subtracts one from the exponent, giving
+$\beta^{1/\sigma}(1+r)^{\frac{1}{\sigma}-1}$. Divide both sides by the bracket:
+
+$$\boxed{\;c_1=\frac{W}{1+\beta^{1/\sigma}(1+r)^{\frac{1}{\sigma}-1}}\;}$$
 
 Check the log case: $\sigma=1$ gives $(1+r)^{0}=1$ and the denominator collapses to $1+\beta$. ✓
 Verified in `check_consumption.py`.
@@ -175,6 +232,17 @@ decomposition is done.
 
 In the $(c_1,c_2)$ plane:
 
+![Budget line, endowment, optimum and saving for a log household](fig/fig_c02_budget.svg)
+*Read the gap between the optimum (73.5) and the endowment (100) on the horizontal axis as saving,
+26.5; the line's intercepts are $W=144$ and $(1+r)W=216$, and the indifference curve touches it
+exactly once.*
+
+The slope of the indifference curve comes from totally differentiating
+$u(c_1)+\beta u(c_2)=\bar U$: along the curve $d\bar U=0$, so $u'(c_1)\,dc_1+\beta u'(c_2)\,dc_2=0$;
+solve for the ratio of changes:
+
+$$\left.\frac{dc_2}{dc_1}\right|_{\bar U}=-\frac{u'(c_1)}{\beta u'(c_2)}$$
+
 | Object | Expression | Feature |
 |---|---|---|
 | Budget line | $c_2=(1+r)(W-c_1)$ | slope $-(1+r)$; passes through $(y_1,y_2)$ always |
@@ -185,7 +253,8 @@ In the $(c_1,c_2)$ plane:
 
 **The sign test.** The household lends if $c_1<y_1$, which happens if the indifference curve
 through the endowment is flatter than the budget line there — that is, if
-$u'(y_1)<\beta(1+r)u'(y_2)$. With $y_1$ large relative to $y_2$ this holds and the household
+$u'(y_1)<\beta(1+r)u'(y_2)$. (Flatter means a smaller absolute slope,
+$u'(y_1)/[\beta u'(y_2)]<1+r$; multiply both sides by $\beta u'(y_2)>0$.) With $y_1$ large relative to $y_2$ this holds and the household
 saves; with income back-loaded it borrows. This is the fact that makes the interest-rate effect
 sign-dependent in the next note.
 

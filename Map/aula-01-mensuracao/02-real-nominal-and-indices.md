@@ -41,6 +41,12 @@ Kurlat's equation (1.2.1): real GDP in year $t$ at base-year prices is
 
 $$Y_t^{(0)} \;=\; \sum_i p_{i0}\,q_{it} \tag{1.2.1}$$
 
+First the two nominal totals, each year's quantities at that year's prices:
+
+$$Y_{2017}^{\text{nom}} = 10\times 50 + 1\times 1000 = 500 + 1000 = 1500,
+\qquad
+Y_{2018}^{\text{nom}} = 11\times 60 + 2\times 600 = 660 + 1200 = 1860$$
+
 **At 2017 prices.** $11\times 50 + 2\times 1000 = 550 + 2000 = 2550$, against a 2017 nominal
 of 1500, so growth is
 
@@ -53,6 +59,9 @@ $$g^{F} = \frac{1860}{1200}-1 = 0.55$$
 
 Seventy per cent against fifty-five. Same data, same arithmetic, different answer, and the
 gap is not small.
+
+![Expandia growth at the two bases and chained](fig/fig_02_expandia_growth.svg)
+*Read the three bar heights (70.0%, 62.3%, 55.0%) and the arrow: the 15-point gap between the two bases is exactly $\operatorname{Cov}_s/\mathbb{E}_s[\hat p]$ from (2.1) below.*
 
 ### Why the early base gives the larger number — the general result
 
@@ -67,16 +76,35 @@ $$1+g^{I} = \underbrace{\frac{\sum_i p_{i0}q_{i1}}{\sum_i p_{i0}q_{i0}}}_{\text{
 1+g^{F} = \underbrace{\frac{\sum_i p_{i1}q_{i1}}{\sum_i p_{i1}q_{i0}}}_{\text{Paasche quantity index } Q^{P}}$$
 
 Let $s_{i0} = p_{i0}q_{i0}/\sum_j p_{j0}q_{j0}$ be base-period value shares, and define gross
-growth factors $\hat q_i = q_{i1}/q_{i0}$ and $\hat p_i = p_{i1}/p_{i0}$. Then
+growth factors $\hat q_i = q_{i1}/q_{i0}$ and $\hat p_i = p_{i1}/p_{i0}$, so that
+$q_{i1} = q_{i0}\hat q_i$ and $p_{i1} = p_{i0}\hat p_i$.
+
+*Laspeyres.* Substitute $q_{i1}=q_{i0}\hat q_i$ in the numerator, then split the ratio good by
+good:
+
+$$Q^{L} = \frac{\sum_i p_{i0}q_{i0}\,\hat q_i}{\sum_j p_{j0}q_{j0}}
+= \sum_i \frac{p_{i0}q_{i0}}{\sum_j p_{j0}q_{j0}}\,\hat q_i = \sum_i s_{i0}\hat q_i$$
+
+*Paasche.* Substitute $p_{i1}=p_{i0}\hat p_i$ and $q_{i1}=q_{i0}\hat q_i$ in the numerator and
+$p_{i1}=p_{i0}\hat p_i$ in the denominator, then divide numerator and denominator by the same
+number $\sum_j p_{j0}q_{j0}$, which leaves the ratio unchanged:
+
+$$Q^{P} = \frac{\sum_i p_{i0}q_{i0}\,\hat p_i\hat q_i}{\sum_i p_{i0}q_{i0}\,\hat p_i}
+= \frac{\sum_i s_{i0}\,\hat p_i\hat q_i}{\sum_i s_{i0}\,\hat p_i}$$
+
+So
 
 $$Q^{L} = \sum_i s_{i0}\hat q_i , \qquad
 Q^{P} = \frac{\sum_i s_{i0}\,\hat p_i\hat q_i}{\sum_i s_{i0}\,\hat p_i}$$
 
 $Q^{L}$ is the plain share-weighted mean of quantity growth; $Q^{P}$ is the same mean
 *reweighted* by price growth. Their difference is therefore a covariance. Writing
-$\mathbb{E}_s[\cdot]$ for the $s_{i0}$-weighted mean,
+$\mathbb{E}_s[\cdot]$ for the $s_{i0}$-weighted mean, $Q^L=\mathbb{E}_s[\hat q]$ and
+$Q^P=\mathbb{E}_s[\hat p\hat q]/\mathbb{E}_s[\hat p]$. Put both over the common denominator
+$\mathbb{E}_s[\hat p]$, then recognise the numerator as the definition of a covariance:
 
 $$Q^{P}-Q^{L}
+= \frac{\mathbb{E}_s[\hat p\hat q]}{\mathbb{E}_s[\hat p]} - \frac{\mathbb{E}_s[\hat q]\,\mathbb{E}_s[\hat p]}{\mathbb{E}_s[\hat p]}
 = \frac{\mathbb{E}_s[\hat p\hat q]-\mathbb{E}_s[\hat p]\,\mathbb{E}_s[\hat q]}{\mathbb{E}_s[\hat p]}
 = \frac{\operatorname{Cov}_s(\hat p,\hat q)}{\mathbb{E}_s[\hat p]} \tag{2.1}$$
 
@@ -94,6 +122,26 @@ $\mathbb{E}_s[\hat p]=0.8$, $\mathbb{E}_s[\hat q]=1.70$, $\mathbb{E}_s[\hat p\ha
 so $\operatorname{Cov}_s=1.24-1.36=-0.12$ and $Q^P-Q^L = -0.12/0.8 = -0.15$ — exactly the
 $0.55-0.70$ gap. Reproduced in `check_measurement.py`.
 
+Each of those numbers, one operation at a time:
+
+$$s_{\text{wheat}} = \frac{10\times50}{1500}=\frac{500}{1500}=\frac13,\qquad
+s_{\text{comp}} = \frac{1\times1000}{1500}=\frac23$$
+
+$$\hat p = \left(\tfrac{60}{50},\,\tfrac{600}{1000}\right)=(1.2,\,0.6),\qquad
+\hat q = \left(\tfrac{11}{10},\,\tfrac{2}{1}\right)=(1.1,\,2.0)$$
+
+$$\mathbb{E}_s[\hat p] = \tfrac13(1.2)+\tfrac23(0.6) = 0.4+0.4 = 0.8$$
+
+$$\mathbb{E}_s[\hat q] = \tfrac13(1.1)+\tfrac23(2.0) = 0.3\overline{6}+1.3\overline{3} = 1.70$$
+
+$$\mathbb{E}_s[\hat p\hat q] = \tfrac13(1.2\times1.1)+\tfrac23(0.6\times2.0) = \tfrac13(1.32)+\tfrac23(1.2) = 0.44+0.80 = 1.24$$
+
+$$\operatorname{Cov}_s = 1.24 - 0.8\times1.70 = 1.24-1.36 = -0.12,\qquad
+\frac{\operatorname{Cov}_s}{\mathbb{E}_s[\hat p]} = \frac{-0.12}{0.8} = -0.15 = 0.55-0.70$$
+
+![Expandia's two goods in price-growth / quantity-growth space](fig/fig_02_covariance.svg)
+*Read the direction of the dashed segment: the good whose price fell (computers, p̂ = 0.6) is the one whose quantity doubled, so the points lie on a downward slope and the covariance is negative. Bubble area is the base-year share.*
+
 ## 2.3 The Fisher ideal index and chain weighting
 
 Neither base is defensible, so Kurlat's Alternative 3 (p. 24) takes the geometric mean of
@@ -107,10 +155,16 @@ right average here, and none of them holds for the arithmetic mean:
 
 1. **It is bracketed.** $\min(Q^L,Q^P)\le \sqrt{Q^LQ^P}\le\max(Q^L,Q^P)$, so the chained
    growth rate always sits between the two base-year answers. Expandia:
-   $\sqrt{1.70\times1.55}-1 = 0.6233$, between $0.55$ and $0.70$.
+   $\sqrt{1.70\times1.55}-1 = \sqrt{2.635}-1 = 1.6233-1 = 0.6233$, between $0.55$ and $0.70$.
 2. **Time reversal.** Running the index backwards inverts it exactly: the Fisher index from
    $0$ to $1$ is the reciprocal of the Fisher index from $1$ to $0$. Laspeyres and Paasche
-   each fail this; reversing them swaps one for the other.
+   each fail this; reversing them swaps one for the other. Proof: the backward Laspeyres
+   uses year-1 prices as its base, so
+   $Q^{L}_{1\to0}=\frac{\sum p_{i1}q_{i0}}{\sum p_{i1}q_{i1}} = 1/Q^{P}_{0\to1}$, and the
+   backward Paasche uses year-0 prices, so
+   $Q^{P}_{1\to0}=\frac{\sum p_{i0}q_{i0}}{\sum p_{i0}q_{i1}} = 1/Q^{L}_{0\to1}$. Multiply
+   and take the square root:
+   $Q^{F}_{1\to0}=\sqrt{\frac{1}{Q^{P}_{0\to1}}\cdot\frac{1}{Q^{L}_{0\to1}}}=\frac{1}{Q^{F}_{0\to1}}$.
 3. **The factor-reversal test.** The Fisher *price* index times the Fisher *quantity* index
    equals the nominal value ratio exactly:
 
@@ -122,6 +176,12 @@ $P^F=\sqrt{P^LP^P}$ and $Q^F=\sqrt{Q^LQ^P}$, and writing $V=\sum p_{i1}q_{i1}/\s
 $$P^{L}Q^{P}=\frac{\sum p_{i1}q_{i0}}{\sum p_{i0}q_{i0}}\cdot\frac{\sum p_{i1}q_{i1}}{\sum p_{i1}q_{i0}}=V,
 \qquad
 P^{P}Q^{L}=\frac{\sum p_{i1}q_{i1}}{\sum p_{i0}q_{i1}}\cdot\frac{\sum p_{i0}q_{i1}}{\sum p_{i0}q_{i0}}=V$$
+
+In each product the mismatched sum ($\sum p_{i1}q_{i0}$ in the first, $\sum p_{i0}q_{i1}$ in the
+second) appears once in a numerator and once in a denominator and cancels. Now multiply the two
+square roots, regroup the four factors into those two pairs, and substitute:
+
+$$P^FQ^F=\sqrt{P^LP^P}\,\sqrt{Q^LQ^P}=\sqrt{\left(P^LQ^P\right)\left(P^PQ^L\right)}=\sqrt{V\cdot V}=V$$
 
 so $P^FQ^F=\sqrt{P^LQ^P\cdot P^PQ^L}=\sqrt{V^2}=V$. Each cross-product telescopes because the
 mismatched sum cancels. That identity is the reason the deflator implied by a Fisher quantity
@@ -153,10 +213,35 @@ prices rise, because imports enter GDP with a minus sign. Kurlat notes the oil-e
 case at p. 24. The examinable version: in an oil-importing country a spike in crude raises the
 CPI and lowers the deflator.
 
+> **Correction (added on audit).** The "falls" above is too strong as a general statement.
+> Nominal GDP is $C+I+G+X-M$. If the dearer oil is passed one-for-one into the prices of the
+> $C$ and $I$ that contain it, those components rise by exactly the extra import bill, $M$
+> rises by the same amount, and the two cancel: nominal GDP, real GDP and hence the deflator
+> are **unchanged**. The deflator *falls* only when domestic purchaser prices absorb less than
+> the full rise (margins squeezed), because then $M$ rises by more than $C+I$. The safe exam
+> answer: the CPI rises; the deflator does not rise, and falls if pass-through is incomplete.
+
 **(ii) The CPI overstates inflation, by the covariance of (2.1).** A Laspeyres price index is
 $P^L=\sum_i s_{i0}\hat p_i$: it holds the basket at its base composition and therefore never
 lets the consumer substitute away from what became expensive. Running the argument of §2.2 on
-prices rather than quantities,
+prices rather than quantities. The Laspeyres price index, with $p_{i1}=p_{i0}\hat p_i$ and the
+ratio split good by good:
+
+$$P^{L}=\frac{\sum_i p_{i1}q_{i0}}{\sum_j p_{j0}q_{j0}}=\sum_i s_{i0}\hat p_i=\mathbb{E}_s[\hat p]$$
+
+The Paasche price index, substituting $p_{i1}=p_{i0}\hat p_i$, $q_{i1}=q_{i0}\hat q_i$ and
+dividing top and bottom by $\sum_j p_{j0}q_{j0}$:
+
+$$P^{P}=\frac{\sum_i p_{i1}q_{i1}}{\sum_i p_{i0}q_{i1}}
+=\frac{\sum_i p_{i0}q_{i0}\hat p_i\hat q_i}{\sum_i p_{i0}q_{i0}\hat q_i}
+=\frac{\mathbb{E}_s[\hat p\hat q]}{\mathbb{E}_s[\hat q]}$$
+
+Subtract over the common denominator $\mathbb{E}_s[\hat q]$:
+
+$$P^{P}-P^{L}=\frac{\mathbb{E}_s[\hat p\hat q]-\mathbb{E}_s[\hat p]\,\mathbb{E}_s[\hat q]}{\mathbb{E}_s[\hat q]}$$
+
+and since $P^F=\sqrt{P^LP^P}$ is a geometric mean it lies strictly between the two whenever they
+differ, which gives the chain on the right:
 
 $$P^{P}-P^{L} = \frac{\operatorname{Cov}_s(\hat q,\hat p)}{\mathbb{E}_s[\hat q]} < 0
 \qquad\Longrightarrow\qquad P^{L} > P^{F} > P^{P}$$
@@ -178,6 +263,46 @@ With Cobb–Douglas ($\varepsilon=1$) and log price changes $\pi_i$ of variance 
 a second-order expansion gives the bias
 
 $$\ln P^{L}-\ln P^{F} \;\simeq\; \tfrac{1}{2}\,\varepsilon\,\operatorname{Var}_s(\pi)$$
+
+**The expansion, step by step** (it holds for any $\varepsilon$, not only Cobb–Douglas). Write
+$\pi_i=\ln\hat p_i$, so $\hat p_i=e^{\pi_i}$, and CES demand as $\hat q_i=k\,e^{-\varepsilon\pi_i}$
+with $k$ the same for every good. Let $m=\mathbb{E}_s[\pi]$ and $v=\operatorname{Var}_s(\pi)$.
+
+*Step 1 — a lemma.* For any constant $a$, expand $e^{a\pi}$ to second order,
+$e^{a\pi}\simeq 1+a\pi+\tfrac12a^2\pi^2$, and take the $s$-weighted mean, using
+$\mathbb{E}_s[\pi^2]=v+m^2$:
+
+$$\mathbb{E}_s[e^{a\pi}]\simeq 1+am+\tfrac12a^2(v+m^2)$$
+
+Take logs with $\ln(1+x)\simeq x-\tfrac12x^2$, where $x=am+\tfrac12a^2(v+m^2)$; to second order
+$x^2\simeq a^2m^2$, so
+
+$$\ln\mathbb{E}_s[e^{a\pi}]\simeq am+\tfrac12a^2(v+m^2)-\tfrac12a^2m^2=am+\tfrac12a^2v$$
+
+*Step 2 — Laspeyres.* $P^L=\mathbb{E}_s[e^{\pi}]$, so apply the lemma with $a=1$:
+$\ln P^L\simeq m+\tfrac12v$.
+
+*Step 3 — Paasche.* Substitute the demand into $P^P=\mathbb{E}_s[\hat p\hat q]/\mathbb{E}_s[\hat q]$;
+$k$ cancels between numerator and denominator:
+
+$$P^P=\frac{\mathbb{E}_s[e^{(1-\varepsilon)\pi}]}{\mathbb{E}_s[e^{-\varepsilon\pi}]}
+\;\Longrightarrow\;
+\ln P^P\simeq\left[(1-\varepsilon)m+\tfrac12(1-\varepsilon)^2v\right]-\left[-\varepsilon m+\tfrac12\varepsilon^2v\right]$$
+
+Expand $(1-\varepsilon)^2=1-2\varepsilon+\varepsilon^2$ and collect terms; the $\varepsilon m$
+and $\varepsilon^2v$ terms cancel:
+
+$$\ln P^P\simeq m+\tfrac12v-\varepsilon v$$
+
+*Step 4 — Fisher and the gap.* $\ln P^F=\tfrac12(\ln P^L+\ln P^P)\simeq m+\tfrac12v-\tfrac12\varepsilon v$.
+Subtract from Step 2:
+
+$$\boxed{\;\ln P^L-\ln P^F\simeq\left(m+\tfrac12v\right)-\left(m+\tfrac12v-\tfrac12\varepsilon v\right)=\tfrac12\,\varepsilon\,v\;}$$
+
+The mean $m$ has dropped out entirely, which is the formal content of the next sentence.
+
+![Exact CES bias against its second-order approximation](fig/fig_02_ces_bias.svg)
+*For each ε read the solid (exact) curve against the dashed ½ε·Var: they agree for dispersions up to about 0.3 and the bias rises with the square of the dispersion and in proportion to ε.*
 
 so the bias grows with both the willingness to substitute and the **dispersion** of price
 changes — not with the average inflation rate. A period of high but uniform inflation carries

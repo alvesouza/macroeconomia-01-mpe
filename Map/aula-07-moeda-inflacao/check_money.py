@@ -12,8 +12,10 @@ Covered:
                              formula; superneutrality failing through trip costs
   04-seigniorage-and-costs   the Laffer peak at 1/a analytically and numerically; the unit-
                              elasticity condition; revenue at the peak
+  companion-money-regimes    Lista 6 Q1: the money market solved for p, (Y, i) or M by regime;
+                             neutrality, i0 (M0/M1)^2, (i0/i1)^(1/2), V = sqrt(2iY/F) = Y/m
 
-Stdlib + numpy only. Run: python Map/aula-07-moeda-inflacao/check_money.py
+Stdlib + numpy; sympy for the expanded derivation steps. Run: python Map/aula-07-moeda-inflacao/check_money.py
 """
 from __future__ import annotations
 
@@ -265,6 +267,130 @@ check_true("...and maximum revenue falls too",
 # The Friedman rule: i = 0 means pi = -r.
 check("Friedman rule inflation", -r_real, -0.02)
 check("...sets the nominal rate to zero", r_real + (-r_real), 0.0, tol=1e-15)
+
+# ---------------------------------------------------------------------------
+print("\ncompanion-money-regimes -- Lista 6 Q1, the four regimes")
+# Mirror of solve() in companion-money-regimes.html. Log-split for fixed p under M control:
+# d ln m = 1/2 d ln Y - 1/2 d ln i, with share s of ln(M1/M0) carried by Y.
+def regimes(inst, flex, Y, i, F, p=1.0, dM=0.0, s=0.0, i1=None):
+    b = {"p": p, "Y": Y, "i": i}
+    b["M"] = p * md_closed(F, Y, i)
+    if inst == "M":
+        k = 1 + dM / 100
+        a = ({"p": p * k, "Y": Y, "i": i} if flex
+             else {"p": p, "Y": Y * k ** (2 * s), "i": i * k ** (-2 * (1 - s))})
+        a["M"] = b["M"] * k
+    else:
+        a = {"p": p, "Y": Y, "i": i1}              # flexible p: level not pinned; today's p held
+        a["M"] = p * md_closed(F, Y, i1)
+    for x in (b, a):
+        x["m"] = md_closed(F, x["Y"], x["i"])
+        x["V"] = x["p"] * x["Y"] / x["M"]
+    return b, a
+
+
+REGIME_VECTORS = {
+    "flex, M control, +20%": dict(inst="M", flex=True, Y=1000.0, i=0.05, F=2.0, dM=20.0),
+    "fixed, M control, +20%, s=0": dict(inst="M", flex=False, Y=1000.0, i=0.05, F=2.0, dM=20.0, s=0.0),
+    "fixed, M control, +20%, s=0.5": dict(inst="M", flex=False, Y=1000.0, i=0.05, F=2.0, dM=20.0, s=0.5),
+    "fixed, i control, 5% -> 4%": dict(inst="i", flex=False, Y=1000.0, i=0.05, F=2.0, i1=0.04),
+}
+for name, vec in REGIME_VECTORS.items():
+    b, a = regimes(**vec)
+    print(f"  [{name}]  " + "  ".join(f"{k}: {b[k]:.6f} -> {a[k]:.6f}" for k in "MpYimV"))
+    for tag, x in (("before", b), ("after", a)):
+        check(f"{name}: M = p*mD(Y,i) {tag}", x["M"], x["p"] * md_closed(F, x["Y"], x["i"]), tol=1e-9)
+        check(f"{name}: V = sqrt(2iY/F) {tag}", x["V"], math.sqrt(2 * x["i"] * x["Y"] / F), tol=1e-9)
+        check(f"{name}: V = Y/m {tag}", x["V"], x["Y"] / x["m"], tol=1e-9)
+
+b, a = regimes(**REGIME_VECTORS["flex, M control, +20%"])
+check("neutrality: p rises one-for-one with M", a["p"] / b["p"], a["M"] / b["M"], tol=1e-12)
+check("...Y unchanged", a["Y"], b["Y"]); check("...i unchanged", a["i"], b["i"])
+check("...real balances unchanged", a["m"], b["m"], tol=1e-9)
+
+b, a = regimes(**REGIME_VECTORS["fixed, M control, +20%, s=0"])
+check("fixed p, s=0: i1 = i0 (M0/M1)^2", a["i"], b["i"] * (b["M"] / a["M"]) ** 2, tol=1e-12)
+check("...Y unchanged", a["Y"], b["Y"])
+check("...real balances rise one-for-one with M", a["m"] / b["m"], 1.2, tol=1e-9)
+b1, a1 = regimes(inst="M", flex=False, Y=1000.0, i=0.05, F=2.0, dM=20.0, s=1.0)
+check("fixed p, s=1: Y1 = Y0 (M1/M0)^2", a1["Y"], b1["Y"] * 1.2 ** 2, tol=1e-9)
+check("...i unchanged", a1["i"], b1["i"])
+b, a = regimes(**REGIME_VECTORS["fixed, M control, +20%, s=0.5"])
+check("fixed p, s=0.5: half of ln(M1/M0) through Y", 0.5 * math.log(a["Y"] / b["Y"]), 0.5 * math.log(1.2), tol=1e-12)
+check("...and half through i", -0.5 * math.log(a["i"] / b["i"]), 0.5 * math.log(1.2), tol=1e-12)
+
+b, a = regimes(**REGIME_VECTORS["fixed, i control, 5% -> 4%"])
+check("i control: M1/M0 = (i0/i1)^(1/2)", a["M"] / b["M"], math.sqrt(0.05 / 0.04), tol=1e-12)
+check_true("...and the bank's rate is what it announced", a["i"] == 0.04)
+
+# ---------------------------------------------------------------------------
+print("\nexpanded derivation steps (sympy)")
+import sympy as sp  # noqa: E402
+
+cs, ths, Fs, Ys, is_, ns, ts, rs, ps, As, Ls = sp.symbols(
+    "c theta F Y i n t r pi a L", positive=True)
+zero = lambda e: sp.simplify(e) == 0  # noqa: E731
+
+m_s = (cs + 1) / (cs + ths)
+check_true("01: dm/dtheta = -(c+1)/(c+theta)^2", zero(sp.diff(m_s, ths) + (cs + 1) / (cs + ths) ** 2))
+check_true("01: dm/dc = (theta-1)/(c+theta)^2", zero(sp.diff(m_s, cs) - (ths - 1) / (cs + ths) ** 2))
+s_s = cs / (1 + cs)
+D_s = (1 - s_s) / (1 - (1 - ths) * (1 - s_s))
+C_s = s_s + s_s * (1 - ths) * D_s
+check_true("01: chain deposits D = 1/(c+theta)", zero(D_s - 1 / (cs + ths)))
+check_true("01: chain currency C = c/(c+theta)", zero(C_s - cs / (cs + ths)))
+check_true("01: C + theta*D = 1 (the base) and C + D = m",
+           zero(C_s + ths * D_s - 1) and zero(C_s + D_s - m_s))
+
+avg = ns * sp.integrate(Ys / ns - Ys * ts, (ts, 0, 1 / ns))
+check_true("02: sawtooth average = Y/(2n)", zero(avg - Ys / (2 * ns)))
+cost = Fs * ns + is_ * Ys / (2 * ns)
+nst = sp.sqrt(is_ * Ys / (2 * Fs))
+check_true("02: FOC F - iY/(2n^2)", zero(sp.diff(cost, ns) - (Fs - is_ * Ys / (2 * ns ** 2))))
+check_true("02: n* solves the FOC", zero(sp.diff(cost, ns).subs(ns, nst)))
+check_true("02: C''(n) = iY/n^3", zero(sp.diff(cost, ns, 2) - is_ * Ys / ns ** 3))
+check_true("02: F n* = sqrt(FiY/2) = iY/(2n*)",
+           zero(Fs * nst - sp.sqrt(Fs * is_ * Ys / 2)) and zero(is_ * Ys / (2 * nst) - sp.sqrt(Fs * is_ * Ys / 2)))
+md_s = sp.sqrt(Fs * Ys / (2 * is_))
+check_true("02: Y/(2n*) = sqrt(FY/2i)", zero(Ys / (2 * nst) - md_s))
+check_true("02: log expansion of M/P",
+           zero(sp.expand_log(sp.log(md_s), force=True)
+                - (sp.log(Fs) + sp.log(Ys) - sp.log(is_) - sp.log(2)) / 2))
+for var, want in ((Ys, sp.Rational(1, 2)), (is_, -sp.Rational(1, 2)), (Fs, sp.Rational(1, 2))):
+    check_true(f"02: elasticity wrt {var} = {want}", zero(sp.diff(sp.log(md_s), var) * var - want))
+check_true("02: V = Y/(M/P) = sqrt(2iY/F)", zero(Ys / md_s - sp.sqrt(2 * is_ * Ys / Fs)))
+
+ii_s = sp.symbols("i_nom", positive=True)
+r_exact = (1 + ii_s) / (1 + ps) - 1
+check_true("03: exact r = (i - pi)/(1+pi)", zero(r_exact - (ii_s - ps) / (1 + ps)))
+check_true("03: (i - pi) - r = r*pi exactly", zero((ii_s - ps) - r_exact - r_exact * ps))
+g_s, eh, et, pt = sp.symbols("g eps_hat eps pi_T")
+check_true("03: pi - pi_T = (eps_hat - eps) g",
+           zero((pt + eh * g_s - et * g_s) - pt - (eh - et) * g_s))
+i0s, i1s = sp.symbols("i0 i1", positive=True)
+jump_s = md_s.subs(is_, i0s) / md_s.subs(is_, i1s)
+check_true("03: P jump = sqrt(i1/i0)", zero(jump_s - sp.sqrt(i1s / i0s)))
+# chain rule for d ln L/dt with Y = Y0 e^{g t}, i = i(t) arbitrary, L Baumol-Tobin
+it = sp.Function("i")(ts)
+Yt = sp.Symbol("Y0", positive=True) * sp.exp(g_s * ts)
+lnL = sp.log(sp.sqrt(Fs * Yt / (2 * it)))
+check_true("03: d ln L/dt = eps_Y g + eps_i (di/dt)/i",
+           zero(sp.diff(lnL, ts) - (g_s / 2 - sp.diff(it, ts) / (2 * it))))
+
+S_s = ps * Ls * sp.exp(-As * ps)
+check_true("04: S' = L e^{-a pi}(1 - a pi)", zero(sp.diff(S_s, ps) - Ls * sp.exp(-As * ps) * (1 - As * ps)))
+check_true("04: S'' = -a L e^{-a pi}(2 - a pi)",
+           zero(sp.diff(S_s, ps, 2) + As * Ls * sp.exp(-As * ps) * (2 - As * ps)))
+check_true("04: S''(1/a) = -a L/e", zero(sp.diff(S_s, ps, 2).subs(ps, 1 / As) + As * Ls * sp.exp(-1)))
+check_true("04: S(1/a) = L/(a e)", zero(S_s.subs(ps, 1 / As) - Ls / (As * sp.E)))
+base = Ls * sp.exp(-As * ps)
+check_true("04: semi-elasticity d ln(M/P)/d pi = -a", zero(sp.diff(sp.log(base), ps) + As))
+check_true("04: d ln S/d pi = 1/pi - a", zero(sp.diff(sp.log(S_s), ps) - (1 / ps - As)))
+check_true("04: Friedman rule exact: i = 0 at pi = -r/(1+r)",
+           zero((1 + rs) * (1 - rs / (1 + rs)) - 1))
+check("04: ...which is -1.96% at r = 2%", -0.02 / 1.02, -0.019608, tol=1e-6)
+check("04: shoe-leather cost at 2% target, sqrt(F i Y/2)",
+      math.sqrt(F * ((1.02 * 1.02) - 1) * Y / 2), 6.3561, tol=1e-4)
 
 # ---------------------------------------------------------------------------
 print()

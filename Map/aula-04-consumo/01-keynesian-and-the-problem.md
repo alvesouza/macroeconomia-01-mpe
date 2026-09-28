@@ -28,8 +28,22 @@ with two properties Keynes called "psychological law":
 - the **average** propensity to consume, $C/Y = \bar C/Y + \mathrm{mpc}$, **falls** as income
   rises, because the constant $\bar C$ is spread over a larger base.
 
+Both properties, one operation at a time. Differentiate $C$ with respect to $Y$:
+$dC/dY=\mathrm{mpc}\in(0,1)$. For the average, divide both sides of the function by $Y$:
+
+$$\frac{C}{Y}=\frac{\bar C}{Y}+\mathrm{mpc}$$
+
+and differentiate with respect to $Y$, holding $\bar C$ and $\mathrm{mpc}$ fixed:
+
+$$\frac{d(C/Y)}{dY}=-\frac{\bar C}{Y^{2}}<0 \qquad\text{because } \bar C>0$$
+
 This is the consumption function behind the Keynesian cross and the textbook multiplier
-$1/(1-\mathrm{mpc})$, and the reason the multiplier exceeds one. It is also, note, a *rule*
+$1/(1-\mathrm{mpc})$, and the reason the multiplier exceeds one. The steps: in the cross,
+output equals spending, $Y=C+I$ with $I$ exogenous. Substitute the function for $C$:
+$Y=\bar C+\mathrm{mpc}\,Y+I$. Subtract $\mathrm{mpc}\,Y$ from both sides:
+$(1-\mathrm{mpc})Y=\bar C+I$. Divide by $1-\mathrm{mpc}$: $Y=\dfrac{\bar C+I}{1-\mathrm{mpc}}$.
+Differentiate with respect to $I$: $\dfrac{dY}{dI}=\dfrac{1}{1-\mathrm{mpc}}$, which exceeds one
+because $0<1-\mathrm{mpc}<1$. It is also, note, a *rule*
 rather than a decision — the same methodological status as Assumption 4.7 in
 [[02-ingredients]].
 
@@ -53,6 +67,28 @@ they save more — the cross-sectional pattern is a composition effect, not a pr
 long run, when everybody's permanent income rises together, the ratio is unchanged. Both facts,
 one model. That is Friedman's (1957) permanent income hypothesis and it is derived in
 [[04-permanent-income]].
+
+**The composition effect, in algebra.** Let each household consume a fixed share $k$ of its
+*permanent* income, $C=kY^P$, while measured income is $Y=Y^P+e$ with a transitory part $e$
+uncorrelated with $Y^P$. Let $\lambda\equiv\operatorname{var}(Y^P)/\operatorname{var}(Y)$ be the
+share of the cross-sectional variance of income that is permanent. The least-squares line of
+$C$ on $Y$ within one year has
+
+- slope $=\dfrac{\operatorname{cov}(C,Y)}{\operatorname{var}(Y)}$; substitute $C=kY^P$ and
+  $Y=Y^P+e$: $\operatorname{cov}(kY^P,Y^P+e)=k\operatorname{var}(Y^P)$ because
+  $\operatorname{cov}(Y^P,e)=0$; divide by $\operatorname{var}(Y)$: slope $=k\lambda<k$;
+- intercept $=\bar C-\text{slope}\cdot\bar Y$; with $\bar e=0$, $\bar Y=\bar Y^P$ and
+  $\bar C=k\bar Y^P$, so intercept $=k\bar Y^P-k\lambda\bar Y^P=k(1-\lambda)\bar Y^P>0$.
+
+A positive intercept and a slope below $k$: the year's cross-section *looks* exactly like
+$C=\bar C+\mathrm{mpc}\cdot Y$. But evaluate the line at the year's mean,
+$k(1-\lambda)\bar Y^P+k\lambda\bar Y^P=k\bar Y^P$: every year's line passes through the long-run
+ray $C=kY$, and as $\bar Y^P$ grows the intercept grows with it.
+
+![Kuznets puzzle: three flat cross-sections crossing one long-run ray](fig/fig_c01_kuznets.svg)
+*Read the three coloured lines as three years' cross-sections ($k=0.9$, $\lambda=0.6$): each has
+slope 0.54 and a positive intercept, so the APC falls along it, yet all three era means sit on the
+grey ray where the APC is 0.9.*
 
 ## 1.3 Fact 2 — consumption is smoother than income
 
@@ -79,6 +115,11 @@ than one believed permanent. Neither is possible in a function of current income
 the whole income path, so anything that changes expectations changes consumption today. This is
 also the property that makes the AD curve of [[08_adas_microfundamentos]] shift on news about
 the long run — the row in the shift table that IS-LM has no counterpart for.
+
+![A rebate announced at t=2 and paid at t=5: two consumption responses](fig/fig_c01_announcement.svg)
+*Read the blue bars against the orange one: a household on a flat path ($r=\rho=4\%$, horizon
+ending at $t=9$) raises consumption by 0.127 per period from the announcement, while the Keynesian
+function ($\mathrm{mpc}=0.8$) moves only in the period the cash arrives.*
 
 ## 1.5 What a microfoundation has to deliver
 

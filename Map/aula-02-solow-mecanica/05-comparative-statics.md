@@ -24,6 +24,11 @@ Differentiate the steady state $sf(k_{ss})=(\delta+n)k_{ss}$ implicitly. Write $
 
 $$\frac{\partial k_{ss}}{\partial s} = -\frac{\phi_s}{\phi_k} = -\frac{f(k_{ss})}{sf'(k_{ss})-(\delta+n)}$$
 
+Where the first equality comes from: $\phi(k_{ss}(s),s)=0$ holds for every $s$, so its total
+derivative in $s$ is zero, $\phi_k\,\frac{\partial k_{ss}}{\partial s}+\phi_s=0$ (chain rule);
+solve for $\frac{\partial k_{ss}}{\partial s}$. The partials of $\phi=sf(k)-(\delta+n)k$ are
+$\phi_s=f(k)$ and $\phi_k=sf'(k)-(\delta+n)$.
+
 The denominator is $\phi'(k_{ss})=-(1-\alpha)(\delta+n)<0$ from
 [[04-steady-state-and-stability]] §4.3, and the numerator is positive, so
 
@@ -41,6 +46,19 @@ In elasticity form, which is how to remember them, straight from the closed form
 $$\frac{d\ln k_{ss}}{d\ln s} = \frac{1}{1-\alpha},\qquad
 \frac{d\ln y_{ss}}{d\ln s} = \frac{\alpha}{1-\alpha},\qquad
 \frac{d\ln y_{ss}}{d\ln(\delta+n)} = -\frac{\alpha}{1-\alpha}$$
+
+Take logs of the closed forms of [[04-steady-state-and-stability]] §4.1:
+
+$$\ln k_{ss}=\frac{1}{1-\alpha}\big[\ln s-\ln(\delta+n)\big],\qquad
+\ln y_{ss}=\alpha\ln k_{ss}=\frac{\alpha}{1-\alpha}\big[\ln s-\ln(\delta+n)\big]$$
+
+Each is linear in $\ln s$ and in $\ln(\delta+n)$, so each elasticity is the coefficient in front.
+Cross-check with the implicit derivative above: multiply $\frac{\partial k_{ss}}{\partial s}$ by
+$\frac{s}{k_{ss}}$ and use $sf(k_{ss})=(\delta+n)k_{ss}$,
+$\frac{s\,f(k_{ss})}{(1-\alpha)(\delta+n)k_{ss}}=\frac{(\delta+n)k_{ss}}{(1-\alpha)(\delta+n)k_{ss}}=\frac{1}{1-\alpha}$.
+
+![Solow diagram before and after a rise in s from 0.20 to 0.25](fig/fig_05_shift.svg)
+*The dashed curve is $s_0f(k)$, the solid one $s_1f(k)$: on impact $k$ stays at 6.09 and investment jumps by 0.091 above break-even; the new crossing is at 8.51.*
 
 | Shock | $k_{ss}$ | $y_{ss}$ | $c_{ss}$ | long-run growth of $y$ |
 |---|---|---|---|---|
@@ -78,6 +96,12 @@ $f(k)/k$ is strictly decreasing ([[04-steady-state-and-stability]] §4.2). So th
 $$\frac{\dot y_t}{y_t} \;\simeq\; \alpha\lambda\,\frac{k_{ss}(s_1)-k_t}{k_t}
 \;\propto\; e^{-\lambda(t-T)}$$
 
+The steps: $\dot y/y=\alpha\,\dot k/k$ (log-differentiate $y=k^{\alpha}$); the linearisation of
+[[04-steady-state-and-stability]] §4.3 gives $\dot k\simeq-\lambda\big(k-k_{ss}(s_1)\big)$;
+divide by $k$ and multiply by $\alpha$. The gap itself decays as
+$k_{ss}(s_1)-k_t=\big(k_{ss}(s_1)-k_T\big)e^{-\lambda(t-T)}$, hence the proportionality (the
+$1/k_t$ factor varies much less than the gap, which is why it is "$\propto$" only approximately).
+
 **In the new steady state.** Growth is back to zero. The level is permanently higher by
 
 $$\ln y_{ss}(s_1)-\ln y_{ss}(s_0) = \frac{\alpha}{1-\alpha}\,\ln\frac{s_1}{s_0}$$
@@ -87,6 +111,12 @@ $$\ln y_{ss}(s_1)-\ln y_{ss}(s_0) = \frac{\alpha}{1-\alpha}\,\ln\frac{s_1}{s_0}$
 $$\int_T^{\infty}\frac{\dot y_t}{y_t}\,dt = \ln y_{ss}(s_1)-\ln y_{ss}(s_0)
 = \frac{\alpha}{1-\alpha}\ln\frac{s_1}{s_0}$$
 
+The steps: $\dot y_t/y_t=\frac{d}{dt}\ln y_t$, so the integral is
+$\int_T^\infty\frac{d}{dt}\ln y_t\,dt=\lim_{t\to\infty}\ln y_t-\ln y_T$ (fundamental theorem of
+calculus); $y_t\to y_{ss}(s_1)$ and $y_T=y_{ss}(s_0)$ because $y$ does not jump. The last
+equality subtracts the two logged closed forms: the $\ln(\delta+n)$ terms cancel, leaving
+$\frac{\alpha}{1-\alpha}(\ln s_1-\ln s_0)$.
+
 That is the precise sense in which a level effect and a rate effect are different objects: a
 permanent rate change would make that integral diverge. Verified in `check_solow.py`.
 
@@ -95,6 +125,24 @@ $0.5\times\ln1.25 = 0.1116$, about **11.8%** more output per worker. The half-li
 so about 35 years to get 75% of the way. The peak growth rate is
 $\alpha(s_1-s_0)f(k)/k = \alpha\lambda\cdot\frac{\Delta k_{ss}}{k_{ss}}\cdot$(something near 1),
 roughly **0.5% a year** — noticeable but modest, and gone within a generation.
+
+Each number in steps. Level: $0.5\times\ln1.25=0.5\times0.2231=0.1116$ log points, and
+$e^{0.1116}-1=0.118$. Seventy-five per cent: the remaining gap is $e^{-\lambda t}=0.25$ when
+$t=\ln4/\lambda=2\ln2/\lambda$, two half-lives, $2\times17.3=34.7$ years. Peak growth, exactly
+rather than with "something near 1": the peak is at $t=T$, where $k_T=k_{ss}(s_0)$ and so
+$f(k_T)/k_T=(\delta+n)/s_0$ by the old steady-state condition. Then
+
+$$\left.\frac{\dot y}{y}\right|_{T}=\alpha\left[\frac{s_1f(k_T)}{k_T}-(\delta+n)\right]
+=\alpha\left[\frac{s_1(\delta+n)}{s_0}-(\delta+n)\right]
+=\alpha(\delta+n)\,\frac{s_1-s_0}{s_0}
+=\tfrac13\times0.06\times\tfrac{0.05}{0.20}=0.005.$$
+
+The linearised expression gives
+$\alpha\lambda\cdot\frac{\Delta k_{ss}}{k_{ss}}=\frac13\times0.04\times(1.25^{1.5}-1)=\frac13\times0.04\times0.3975=0.0053$;
+it overstates the exact 0.0050 because the jump is not small.
+
+![Three stacked panels: log output, output growth and consumption over 100 years after s rises](fig/fig_05_transition.svg)
+*Top: the level climbs to +11.8% and stays. Middle: the growth rate jumps to 0.5% and decays to zero; the area under it is the 0.1116 level gain. Bottom: consumption drops from 1.461 to 1.369 on impact and only later overtakes its old level, ending at 1.531.*
 
 That calculation is the answer to "should a country save more?" in this model: yes, it is
 permanently richer, by about a tenth, after decades of slightly faster growth and an immediate
@@ -129,6 +177,22 @@ criterion
 
 $$\frac{dc_{ss}}{ds} > 0 \iff f'(k_{ss}) > \delta+n$$
 
+Every line, for any $f$ (write $f,f'$ for $f(k_{ss}),f'(k_{ss})$). From §5.1,
+$\frac{dk_{ss}}{ds}=\frac{f}{(\delta+n)-sf'}$ (the same fraction with the sign moved into the
+denominator), and $(\delta+n)-sf'=-\phi'(k_{ss})>0$ by §4.3. Substitute:
+
+$$\frac{dc_{ss}}{ds}=-f+(1-s)f'\,\frac{f}{(\delta+n)-sf'} \qquad\text{(substitute)}$$
+$$=f\cdot\frac{-\big[(\delta+n)-sf'\big]+(1-s)f'}{(\delta+n)-sf'} \qquad\text{(common denominator, factor out } f)$$
+$$=f\cdot\frac{-(\delta+n)+sf'+f'-sf'}{(\delta+n)-sf'}
+=\frac{f\,\big[f'-(\delta+n)\big]}{(\delta+n)-sf'} \qquad\text{(expand; the } sf'\text{ terms cancel)}$$
+
+$f>0$ and the denominator is positive, so the sign of $dc_{ss}/ds$ is the sign of
+$f'(k_{ss})-(\delta+n)$. For Cobb–Douglas, $f'(k_{ss})=\alpha(\delta+n)/s$ (from
+$sf'(k_{ss})=\alpha(\delta+n)$, §4.3), so the criterion reads $\alpha/s>1$, i.e. $s<\alpha$.
+
+![Left: c_ss against s, peaking at s = 1/3. Right: f'(k_ss) against s, crossing δ+n at s = 1/3](fig/fig_05_golden.svg)
+*Left: steady-state consumption rises until $s=\alpha=1/3$ (1.571) and falls after. Right: the peak is exactly where $f'(k_{ss})$ crosses $\delta+n=0.06$.*
+
 so more saving raises long-run consumption if and only if the marginal product of capital exceeds
 the break-even rate. That inequality **is** the Golden Rule condition, and it is where session 3
 starts — [[03_solow_evidencias]]. Note what has quietly happened: the model, which has no
@@ -136,6 +200,13 @@ optimising agent in it, has produced a welfare criterion anyway, because $c_{ss}
 well-defined function of a parameter.
 
 ## 5.5 Convergence: absolute against conditional
+
+> **Companion:** [Two Economies, One Border](companion-unification.html) — Lista 2 Q1: two
+> economies converging to different steady states (conditional convergence, not divergence), then
+> unified; see who gains per worker, who loses, and where the aggregate gain comes from.
+
+![Lista 2 Q1 answered: each economy converges to its own steady state, so the level gap persists. This is conditional convergence, not divergence.](../fig/fig_gap_l2_korea.svg)
+*Lista 2 Q1 answered: each economy converges to its own steady state, so the level gap persists. This is conditional convergence, not divergence. Diagnosis: [[avaliacao-listas-2-3-6]].*
 
 The transition result *is* the convergence result, read across countries instead of across time.
 
@@ -146,6 +217,17 @@ $$\frac{\dot y}{y} \simeq \lambda\left(\ln y_{ss}-\ln y\right), \qquad \lambda=(
 
 — a regression of growth on the gap to one's **own** steady state, with a predicted coefficient
 of about 0.04.
+
+From §5.2 to this line: $\frac{k_{ss}-k}{k}\simeq\ln k_{ss}-\ln k$ for small gaps (first-order
+Taylor, $\ln(1+x)\simeq x$ with $x=\frac{k_{ss}-k}{k}$), so
+$\frac{\dot y}{y}\simeq\alpha\lambda(\ln k_{ss}-\ln k)=\lambda(\alpha\ln k_{ss}-\alpha\ln k)=\lambda(\ln y_{ss}-\ln y)$,
+using $\ln y=\alpha\ln k$. Over a window of $T$ years the average growth rate is
+$\frac{1}{T}(\ln y_T-\ln y_0)=\frac{1-e^{-\lambda T}}{T}(\ln y_{ss}-\ln y_0)$, since the log gap
+decays as $e^{-\lambda t}$; that is the coefficient a cross-section regression over $T$ years
+should find ($0.0173$ for $T=50$).
+
+![Model-simulated countries: growth against initial income (cloud) and against the gap to own steady state (line)](fig/fig_05_convergence.svg)
+*Sixty model economies that differ only in $s$: plotted against initial income they form a cloud (absolute convergence fails); plotted against their own gap they line up, slope 1.81 against the predicted 1.73 %/yr per log point.*
 
 **Absolute convergence** is the same statement with $y_{ss}$ assumed common to all countries.
 It therefore predicts a downward-sloping scatter of growth against *initial income*, and

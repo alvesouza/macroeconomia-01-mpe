@@ -13,12 +13,20 @@ Covered:
   05-ricardian-and-constr.   Ricardian equivalence numerically, then broken by a borrowing
                              limit; the Euler INEQUALITY at a binding constraint;
                              precautionary saving and the quadratic counterexample
+  derivation steps           every intermediate line the notes write out (sympy)
+  companion-taxes-and-limits every read-out at three Lista 3 vectors, and the page's own JS
+                             model run under node against the Python mirror (skipped if no node)
 
-Stdlib + numpy only (scipy not required). Run: python Map/aula-04-consumo/check_consumption.py
+Stdlib + numpy, plus sympy for the derivation-step block (scipy not required). Run: python Map/aula-04-consumo/check_consumption.py
 """
 from __future__ import annotations
 
+import json
 import math
+import pathlib
+import re
+import shutil
+import subprocess
 
 import numpy as np
 
@@ -295,6 +303,301 @@ gap_quad = 0.5 * (uq_p(70) + uq_p(130)) - uq_p(100)
 check("quadratic utility has zero precautionary gap", gap_quad, 0.0, tol=1e-15)
 check_true("...which is exactly why the random walk needs quadratic utility",
            abs(gap_quad) < 1e-15)
+
+# ---------------------------------------------------------------------------
+print("\ncompanion-taxes-and-limits (Lista 3)")
+# Mirror of the MODEL block in companion-taxes-and-limits.html; the two are compared below.
+def tl_solve(y1, y2, a0, r, beta, sigma, tau1, tau2, taus, b):
+    """Lista 3 household: c1 + a = a0 + y1 - tau1, c2 = y2 - tau2 + (1+r-taus)a, a >= -b.
+
+    b = math.inf means no limit. Returns the page's read-outs as a dict.
+    """
+    R = 1 + r - taus
+    x1, x2 = a0 + y1 - tau1, y2 - tau2
+    W = x1 + x2 / R
+    D = 1 + beta ** (1 / sigma) * R ** (1 / sigma - 1)
+    c1 = W / D
+    a = x1 - c1
+    binds = a < -b
+    if binds:
+        a, c1 = -b, x1 + b
+    c2 = x2 + R * a
+    return dict(c1=c1, c2=c2, a=a, W=W, R=R, binds=binds, ratio=c2 / c1,
+                pv=tau1 + (tau2 + taus * a) / (1 + r), U=u(c1, sigma) + beta * u(c2, sigma))
+
+
+def tl_compare(p):
+    """Savings tax against a period-2 lump sum raising the same revenue; T* by bisection."""
+    S = tl_solve(**{**p, "tau2": 0.0})
+    rev = p["taus"] * S["a"]
+    L = tl_solve(**{**p, "tau2": rev, "taus": 0.0})
+    UL = lambda T: tl_solve(**{**p, "tau2": T, "taus": 0.0})["U"]
+    lo, hi = rev, rev + 1
+    while UL(hi) > S["U"]:
+        hi = rev + 2 * (hi - rev)
+    for _ in range(100):
+        m = 0.5 * (lo + hi)
+        lo, hi = (m, hi) if UL(m) > S["U"] else (lo, m)
+    return S, L, rev, 0.5 * (lo + hi) - rev
+
+
+def tl_dc1dr(p):
+    s, R = p["sigma"], 1 + p["r"]
+    D = 1 + p["beta"] ** (1 / s) * R ** (1 / s - 1)
+    return -(p["a0"] + p["y1"]) * p["beta"] ** (1 / s) * (1 / s - 1) * R ** (1 / s - 2) / D ** 2
+
+
+base3 = dict(r=0.5, beta=0.96, sigma=2.0, taus=0.0, b=math.inf)
+V = {
+    "unconstrained": {**base3, "y1": 100, "y2": 69, "a0": 10, "tau1": 6, "tau2": 9},
+    "binding":       {**base3, "y1": 20, "y2": 132, "a0": 0, "tau1": 0, "tau2": 0, "b": 10},
+    "savings tax":   {**base3, "y1": 100, "y2": 66, "a0": 0, "tau1": 0, "tau2": 0, "taus": 0.2},
+}
+tl = {}
+for name, p in V.items():
+    s = tl_solve(**p)
+    swp = tl_solve(**{**p, "tau1": p["tau1"] - 1, "tau2": p["tau2"] + 1 + p["r"]})
+    tl[name] = dict(s=s, swap=swp)
+    check(f"[{name}] period-1 budget c1 + a = a0 + y1 - tau1",
+          s["c1"] + s["a"], p["a0"] + p["y1"] - p["tau1"], tol=1e-10)
+    check(f"[{name}] period-2 budget", s["c2"], p["y2"] - p["tau2"] + s["R"] * s["a"], tol=1e-10)
+    if s["binds"]:
+        check_true(f"[{name}] Euler is a strict inequality at the corner",
+                   up(s["c1"], p["sigma"]) > p["beta"] * s["R"] * up(s["c2"], p["sigma"]))
+        check(f"[{name}] swap raises c1 by exactly 1", swp["c1"] - s["c1"], 1.0, tol=1e-10)
+    else:
+        check(f"[{name}] Euler holds", up(s["c1"], p["sigma"]) - p["beta"] * s["R"] * up(s["c2"], p["sigma"]),
+              0.0, tol=1e-12)
+        if p["taus"] == 0:
+            check(f"[{name}] swap leaves c1 unchanged", swp["c1"], s["c1"], tol=1e-10)
+            check(f"[{name}] swap leaves c2 unchanged", swp["c2"], s["c2"], tol=1e-10)
+            check(f"[{name}] swap raises a by exactly 1", swp["a"] - s["a"], 1.0, tol=1e-10)
+    check(f"[{name}] swap leaves the PV of lump-sum taxes unchanged", swp["pv"] - s["pv"],
+          (p["taus"] * (swp["a"] - s["a"])) / (1 + p["r"]), tol=1e-10)
+
+# Lista 3 reference numbers (Resolucao/lista3_resolucao.tex).
+check("1(a): c1 = 80", tl["unconstrained"]["s"]["c1"], 80.0, tol=1e-9)
+check("1(a): c2 = 96", tl["unconstrained"]["s"]["c2"], 96.0, tol=1e-9)
+check("1(a): a = 24", tl["unconstrained"]["s"]["a"], 24.0, tol=1e-9)
+check_true("2(c): the young household's limit binds", tl["binding"]["s"]["binds"])
+check("2(c): c1 = y1 + b = 30", tl["binding"]["s"]["c1"], 30.0, tol=1e-12)
+check("2(c): c2/c1 = 3.90", tl["binding"]["s"]["ratio"], 3.9, tol=1e-12)
+
+pS = V["savings tax"]
+S, L, rev, dwl = tl_compare(pS)
+tl["savings tax"].update(L=L, rev=rev, dwl=dwl)
+check("2(d): savings-tax c1 = 81.09", S["c1"], 81.09, tol=5e-3)
+check("2(d): equal-revenue lump sum T = 3.78", rev, 3.78, tol=5e-3)
+check("2(d): lump-sum c1 = 78.60", L["c1"], 78.60, tol=5e-3)
+check("2(d): deadweight loss 0.27", dwl, 0.27, tol=5e-3)
+check("savings tax: (c2/c1)^sigma = beta(1+r-taus)", S["ratio"] ** 2, 0.96 * 1.3, tol=1e-12)
+check("lump sum: c2/c1 unchanged at [beta(1+r)]^(1/sigma)", L["ratio"], math.sqrt(0.96 * 1.5), tol=1e-12)
+check("lump-sum plan costs the same revenue: savings plan lies on its budget line",
+      S["c1"] + S["c2"] / 1.5, L["c1"] + L["c2"] / 1.5, tol=1e-10)
+check_true("lump sum is welfare-superior: U_L > U_S", L["U"] > S["U"])
+Sb, Lb, revb, dwlb = tl_compare({**V["binding"], "b": math.inf, "taus": 0.2})
+check_true("borrower (a<0): the 'tax' is a subsidy, revenue negative", revb < 0 and Sb["a"] < 0)
+check_true("...and the lump-sum transfer still beats it", Lb["U"] > Sb["U"] and dwlb > 0)
+
+for sig in (0.5, 1.0, 2.0, 4.0):
+    p = {**V["unconstrained"], "y2": 0, "tau1": 0, "tau2": 0, "sigma": sig}
+    h = 1e-6
+    fd = (tl_solve(**{**p, "r": p["r"] + h})["c1"] - tl_solve(**{**p, "r": p["r"] - h})["c1"]) / (2 * h)
+    check(f"dc1/dr formula vs finite difference, sigma={sig}", tl_dc1dr(p), fd, tol=1e-6)
+    check_true(f"sign(dc1/dr) = sign(sigma - 1) at sigma={sig}",
+               (fd > 1e-9) == (sig > 1) and (fd < -1e-9) == (sig < 1))
+    tl.setdefault("dc1dr", {})[sig] = tl_dc1dr(p)
+
+# The page's JS model, run under node on the same vectors.
+node = shutil.which("node")
+if node is None:
+    print("  SKIP  node not found: JS model not cross-checked")
+else:
+    html = (pathlib.Path(__file__).with_name("companion-taxes-and-limits.html")).read_text(encoding="utf-8")
+    model = re.search(r"// MODEL-BEGIN.*?// MODEL-END", html, re.S).group(0)
+    js_vec = {k: {**p, "b": 1e300 if p["b"] == math.inf else p["b"]} for k, p in V.items()}
+    js = model + f"""
+const V = {json.dumps(js_vec)}, out = {{}};
+for (const [k, p] of Object.entries(V)) {{
+  const [s, w] = swap(p); out[k] = {{s, swap: w}};
+}}
+const c = taxCompare(V["savings tax"]); Object.assign(out["savings tax"], {{L: c.L, rev: c.rev, dwl: c.dwl}});
+out.dc1dr = {{}};
+for (const sg of [0.5, 1.0, 2.0, 4.0]) out.dc1dr[sg] = dc1dr({{...V.unconstrained, y2: 0, tau1: 0, tau2: 0, sigma: sg}});
+console.log(JSON.stringify(out));"""
+    J = json.loads(subprocess.run([node, "-e", js], capture_output=True, text=True, check=True).stdout)
+    for name in V:
+        for part in ("s", "swap"):
+            for key in ("c1", "c2", "a", "pv", "ratio", "U"):
+                check(f"JS == Python [{name}] {part}.{key}", J[name][part][key], tl[name][part][key], tol=1e-6)
+            check_true(f"JS == Python [{name}] {part}.binds", J[name][part]["binds"] == tl[name][part]["binds"])
+    for key in ("c1", "c2", "a", "U"):
+        check(f"JS == Python [savings tax] lump-sum {key}", J["savings tax"]["L"][key], L[key], tol=1e-6)
+    check("JS == Python revenue", J["savings tax"]["rev"], rev, tol=1e-6)
+    check("JS == Python deadweight loss", J["savings tax"]["dwl"], dwl, tol=1e-6)
+    for sig in (0.5, 1.0, 2.0, 4.0):
+        key = str(int(sig)) if sig == int(sig) else str(sig)
+        check(f"JS == Python dc1/dr sigma={sig}", J["dc1dr"][key], tl["dc1dr"][sig], tol=1e-6)
+
+# ---------------------------------------------------------------------------
+print("\nderivation steps written out in the notes (sympy)")
+import sympy as sp  # noqa: E402  (only this block needs it)
+
+zero = lambda e: sp.simplify(e) == 0  # noqa: E731
+c1_, c2_, y1_, y2_, W_, lam_ = sp.symbols("c1 c2 y1 y2 W lambda", positive=True)
+r_, b_, s_, x_, Y_, Cb_, m_, I_, h_ = sp.symbols("r beta sigma x Y Cbar mpc I h", positive=True)
+uf = sp.Function("u")
+
+# 01: APC falls; the multiplier; the cross-section regression.
+check_true("01 d(C/Y)/dY = -Cbar/Y^2", zero(sp.diff((Cb_ + m_ * Y_) / Y_, Y_) + Cb_ / Y_**2))
+Ysol = sp.solve(sp.Eq(Y_, Cb_ + m_ * Y_ + I_), Y_)[0]
+check_true("01 Y = (Cbar+I)/(1-mpc) and dY/dI = 1/(1-mpc)",
+           zero(Ysol - (Cb_ + I_) / (1 - m_)) and zero(sp.diff(Ysol, I_) - 1 / (1 - m_)))
+rng = np.random.default_rng(0)
+yp = 80 + rng.normal(0, np.sqrt(0.6), 400_000) * 20
+e = rng.normal(0, np.sqrt(0.4), 400_000) * 20
+slope, icpt = np.polyfit(yp + e, 0.9 * yp, 1)
+check("01 cross-section slope = k*lambda (k=0.9, lambda=0.6)", slope, 0.54, tol=5e-3)
+check("01 cross-section intercept = k(1-lambda)*mean Yp", icpt, 0.9 * 0.4 * 80, tol=0.5)
+pv_reb = 1.04 ** -3
+check("01 announced rebate: flat-path rise over t=2..9", ((0.04 / 1.04) / (1 - 1.04 ** -8)) * pv_reb, 0.127,
+      tol=5e-4)
+
+# 02: budget constraint, the three Euler routes, closed forms, slopes.
+ibc = sp.expand(((1 + r_) * c1_ + c2_ - (1 + r_) * y1_ - y2_) / (1 + r_))
+check_true("02 c2 = y2+(1+r)(y1-c1) rearranges to the IBC",
+           zero(ibc.subs(c2_, y2_ + (1 + r_) * (y1_ - c1_))) and
+           zero(ibc - (c1_ + c2_ / (1 + r_) - y1_ - y2_ / (1 + r_))))
+obj = uf(c1_) + b_ * uf((1 + r_) * (W_ - c1_))
+d_obj = sp.diff(obj, c1_).doit()
+up_c2 = sp.Subs(sp.Derivative(uf(x_), x_), x_, (1 + r_) * (W_ - c1_)).doit()
+check_true("02 chain rule: d/dc1 = u'(c1) - beta(1+r)u'(c2)",
+           zero(d_obj - (sp.diff(uf(c1_), c1_) - b_ * (1 + r_) * up_c2)))
+check_true("02 Lagrange: lambda / (lambda/(1+r)) = 1+r", zero(lam_ / (lam_ / (1 + r_)) - (1 + r_)))
+c1log = sp.solve(sp.Eq(c1_ + b_ * (1 + r_) * c1_ / (1 + r_), W_), c1_)[0]
+check_true("02 log: c1 = W/(1+beta)", zero(c1log - W_ / (1 + b_)))
+crra = (c1_ ** (1 - s_) - 1) / (1 - s_)
+check_true("02 CRRA: u'(c) = c^(-sigma)", zero(sp.diff(crra, c1_) - c1_ ** (-s_)))
+check_true("02 c1^-s / c2^-s = (c2/c1)^s", zero(sp.powsimp(c1_ ** (-s_) / c2_ ** (-s_) - (c2_ / c1_) ** s_,
+                                                         force=True)))
+rho_ = sp.symbols("rho", positive=True)
+lin = sp.series(sp.log(1 / (1 + rho_)) + sp.log(1 + r_), r_, 0, 2).removeO()
+lin = sp.series(lin, rho_, 0, 2).removeO()
+check_true("02 ln beta + ln(1+r) = r - rho to first order", zero(lin - (r_ - rho_)))
+lnratio = (sp.log(b_) + x_) / s_               # x = ln(1+r)
+check_true("02 d ln(c2/c1) / d ln(1+r) = 1/sigma", zero(sp.diff(lnratio, x_) - 1 / s_))
+check_true("02 [beta(1+r)]^(1/s)/(1+r) = beta^(1/s)(1+r)^(1/s-1)",
+           zero(sp.powsimp(sp.expand_power_base((b_ * (1 + r_)) ** (1 / s_), force=True) / (1 + r_)
+                           - b_ ** (1 / s_) * (1 + r_) ** (1 / s_ - 1), force=True)))
+for sig, rr_, bb in ((0.5, 0.3, 0.9), (2.0, 0.1, 0.97), (3.7, 0.5, 0.8)):
+    Dn = 1 + bb ** (1 / sig) * (1 + rr_) ** (1 / sig - 1)
+    c1n = 100 / Dn
+    c2n = (bb * (1 + rr_)) ** (1 / sig) * c1n
+    check(f"02 level formula satisfies the IBC (sigma={sig})", c1n + c2n / (1 + rr_), 100, tol=1e-10)
+c2_of_c1 = sp.Function("c2")(c1_)
+ic = sp.diff(uf(c1_) + b_ * uf(c2_of_c1), c1_)
+slope_ic = sp.solve(ic, sp.diff(c2_of_c1, c1_))[0]
+check_true("02 IC slope = -u'(c1)/(beta u'(c2))",
+           zero(slope_ic + sp.diff(uf(c1_), c1_) / (b_ * sp.Subs(sp.Derivative(uf(x_), x_), x_, c2_of_c1).doit())))
+
+# 03: the elasticity, term by term; the y1 = 0 case; Slutsky in endowment form.
+Wr = y1_ + y2_ / (1 + r_)
+check_true("03 dW/dr = -y2/(1+r)^2", zero(sp.diff(Wr, r_) + y2_ / (1 + r_) ** 2))
+Wx = y1_ + y2_ * sp.exp(-x_)
+check_true("03 d ln W / d ln(1+r) = -(y2/(1+r))/W",
+           zero(sp.diff(sp.log(Wx), x_) + (y2_ * sp.exp(-x_)) / Wx))
+Dx = 1 + b_ ** (1 / s_) * sp.exp((1 / s_ - 1) * x_)
+check_true("03 d ln D / d ln(1+r) = (1 - 1/D)(1/sigma - 1)",
+           zero(sp.diff(sp.log(Dx), x_) - (1 - 1 / Dx) * (1 / s_ - 1)))
+check_true("03 theta = (W - c1)/W = 1 - 1/D", zero((W_ - W_ / Dx) / W_ - (1 - 1 / Dx)))
+th_ = sp.symbols("theta", positive=True)
+check_true("03 omega=1: -1 - theta(1/s-1) = -(1-theta) - theta/s",
+           zero(-1 - th_ * (1 / s_ - 1) + (1 - th_) + th_ / s_))
+# Slutsky: c1(p, W) = W / (1 + beta^(1/s) p^(1-1/s)), W = y1 + p y2, p = 1/(1+r).
+sig, bb, Y1, Y2, p0, hh = 3.0, 0.96, 150.0, 50.0, 1 / 1.04, 1e-6
+c1m = lambda p, W: W / (1 + bb ** (1 / sig) * p ** (1 - 1 / sig))  # noqa: E731
+Wp = lambda p: Y1 + p * Y2  # noqa: E731
+
+
+def hicks_c1(p, U):
+    """Compensated c1: on the optimal ray c2 = (beta/p)^(1/s) c1, find c1 giving utility U."""
+    kr = (bb / p) ** (1 / sig)
+    uu = lambda c: (c ** (1 - sig) - 1) / (1 - sig)  # noqa: E731
+    lo_, hi_ = 1e-6, 1e6
+    for _ in range(200):
+        mid = 0.5 * (lo_ + hi_)
+        lo_, hi_ = (mid, hi_) if uu(mid) + bb * uu(kr * mid) < U else (lo_, mid)
+    return 0.5 * (lo_ + hi_)
+
+
+c10 = c1m(p0, Wp(p0))
+c20 = (Wp(p0) - c10) / p0
+U0 = (c10 ** (1 - sig) - 1) / (1 - sig) + bb * (c20 ** (1 - sig) - 1) / (1 - sig)
+total_fd = (c1m(p0 + hh, Wp(p0 + hh)) - c1m(p0 - hh, Wp(p0 - hh))) / (2 * hh)
+comp_fd = (hicks_c1(p0 + hh, U0) - hicks_c1(p0 - hh, U0)) / (2 * hh)
+dW_fd = (c1m(p0, Wp(p0) + hh) - c1m(p0, Wp(p0) - hh)) / (2 * hh)
+check("03 Slutsky: dc1/dp = comp + (y2 - c2) dc1/dW", total_fd, comp_fd + (Y2 - c20) * dW_fd, tol=1e-3)
+check_true("03 compensated effect of p on c1 is positive", comp_fd > 0)
+om = (50 / 1.04) / (150 + 50 / 1.04)
+tot = lambda s: -om - (1 - 1 / (1 + 0.96 ** (1 / s) * 1.04 ** (1 / s - 1))) * (1 / s - 1)  # noqa: E731
+lo_, hi_ = 1.0, 6.0
+for _ in range(80):
+    mid = 0.5 * (lo_ + hi_)
+    lo_, hi_ = (lo_, mid) if tot(mid) > 0 else (mid, hi_)
+check("03 omega for the (150, 50) lender", om, 0.243, tol=5e-4)
+check("03 sigma* where the elasticity is zero", 0.5 * (lo_ + hi_), 1.98, tol=5e-3)
+A3 = solve_closed(150, 20, r=0.10, sigma=3.0)
+Wc3 = A3[0] + A3[1] / 2.0
+B3 = Wc3 / (1 + 0.96 ** (1 / 3) * 2.0 ** (1 / 3 - 1))
+C3 = solve_closed(150, 20, r=1.0, sigma=3.0)[0]
+check("03 Hicks figure: substitution A->B", B3 - A3[0], -6.0, tol=0.05)
+check("03 Hicks figure: income B->C", C3 - B3, 17.4, tol=0.05)
+
+# 04: MPC arithmetic, the 1/T limit, the geometric series, the random walk.
+check_true("04 Delta - Delta/(1+beta) = beta Delta/(1+beta)", zero(1 - 1 / (1 + b_) - b_ / (1 + b_)))
+check_true("04 permanent MPC = 1 when beta = 1/(1+r)",
+           zero((1 / (1 + b_) * (2 + r_) / (1 + r_)).subs(b_, 1 / (1 + r_)) - 1))
+T_ = sp.symbols("T", positive=True)
+g = (1 + r_) - (1 + r_) ** (1 - T_)
+check_true("04 MPC = r / g(r)", zero((r_ / (1 + r_)) / (1 - (1 + r_) ** (-T_)) - r_ / g))
+check_true("04 g(0) = 0 and g'(0) = T", zero(g.subs(r_, 0)) and zero(sp.diff(g, r_).subs(r_, 0) - T_))
+check_true("04 g'' = -T(T-1)(1+r)^(-T-1)", zero(sp.diff(g, r_, 2) + T_ * (T_ - 1) * (1 + r_) ** (-T_ - 1)))
+check("04 T=40 pieces: 1.04^-40", 1.04 ** -40, 0.2083, tol=5e-5)
+check("04 T=40 MPC", (0.04 / 1.04) / (1 - 1.04 ** -40), 0.0486, tol=5e-5)
+q_ = sp.symbols("q", positive=True)
+for T in (3, 7, 12):
+    check_true(f"04 S - qS = 1 - q^T, T={T}",
+               zero(sum(q_ ** t for t in range(T)) * (1 - q_) - (1 - q_ ** T)))
+check_true("04 1/(1 - 1/(1+r)) = (1+r)/r", zero(1 / (1 - 1 / (1 + r_)) - (1 + r_) / r_))
+check("04 ratio of MPCs (1+r)/r", 1.04 / 0.04, 26.0, tol=1e-9)
+cb_ = sp.symbols("b", positive=True)
+up_q = sp.diff(x_ - cb_ / 2 * x_ ** 2, x_)
+check_true("04 quadratic u: u'(c) = 1 - bc (linear)", zero(up_q - (1 - cb_ * x_)))
+
+# 05: KKT, aggregate MPC, Jensen by Taylor, CRRA third derivative.
+a_, mu_ = sp.symbols("a mu")
+Lk = uf(y1_ - a_) + b_ * uf(y2_ + (1 + r_) * a_) + mu_ * a_
+foc = sp.diff(Lk, a_).doit()
+up1 = sp.Subs(sp.Derivative(uf(x_), x_), x_, y1_ - a_).doit()
+up2 = sp.Subs(sp.Derivative(uf(x_), x_), x_, y2_ + (1 + r_) * a_).doit()
+check_true("05 KKT FOC: -u'(c1) + beta(1+r)u'(c2) + mu = 0", zero(foc - (-up1 + b_ * (1 + r_) * up2 + mu_)))
+kk = 0.04 / 1.04
+check("05 aggregate MPC arithmetic", 0.7 * kk + 0.3, 0.327, tol=5e-4)
+check("05 constrained share giving MPC 0.2", (0.2 - kk) / (1 - kk), 0.168, tol=5e-4)
+check("05 constrained share giving MPC 0.4", (0.4 - kk) / (1 - kk), 0.376, tol=5e-4)
+cbar = sp.symbols("cbar", positive=True)
+upf = cbar ** (-3)                                   # any smooth u' works; use a concrete one
+avg = (sp.Rational(1, 2) * ((cbar + h_) ** (-3) + (cbar - h_) ** (-3)))
+taylor = sp.series(avg, h_, 0, 3).removeO()
+check_true("05 average of u'(c+-h) = u'(c) + u'''(c) h^2/2 + O(h^4)",
+           zero(taylor - (upf + sp.Rational(1, 2) * sp.diff(upf, cbar, 2) * h_ ** 2)))
+check_true("05 CRRA u''' = sigma(sigma+1)c^(-sigma-2)",
+           zero(sp.diff(x_ ** (-s_), x_, 2) - s_ * (s_ + 1) * x_ ** (-s_ - 2)))
+check("05 Jensen figure: E[u'] x 1e4 at 70/130, sigma=2", 0.5 * (70.0 ** -2 + 130.0 ** -2) * 1e4, 1.316,
+      tol=5e-4)
+cu = solve_closed(40, 120)
+check("05 constraint figure: wanted c1", cu[0], 79.3, tol=0.05)
+check("05 constraint figure: IC slope at (40,120)", (1 / 40) / (0.96 / 120), 3.125, tol=1e-9)
 
 # ---------------------------------------------------------------------------
 print()

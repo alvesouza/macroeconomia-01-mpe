@@ -1,0 +1,299 @@
+<title>When Capital Is Frozen, σ Decides</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../companion.css">
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Kurlat (2020) · ch. 9 · Lista 5, Question 1 · eqs. (1.8)–(1.10) of the resolution</p>
+  <h1>When Capital Is Frozen, σ Decides</h1>
+  <p class="lede">Capital is fixed at K̄ and nothing can be stored, so each period's output is
+  eaten on the spot. Hours become a static choice, one period at a time, and a rise in
+  productivity pulls them two ways at once. <em>Which way wins is decided by a single
+  parameter.</em></p>
+</header>
+
+<div class="cols">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div class="card">
+      <figure>
+        <svg id="plot" viewBox="0 0 600 320" role="img"
+             aria-label="Equilibrium hours against productivity for three values of sigma"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--it)"><i class="swatch"></i>L(A) at your σ</span>
+        <span style="color:var(--nat)"><i class="swatch dash"></i>σ = 1 (flat)</span>
+        <span style="color:var(--eff)"><i class="swatch dash"></i>σ on the other side</span>
+        <span style="color:var(--ink)">● period 1 &nbsp; ○ period 2</span>
+      </div>
+      <p class="eq" id="eqline"></p>
+    </div>
+
+    <div class="answer">
+      <div>
+        <div class="k">d ln L ⁄ d ln A (period 1)</div>
+        <div class="v" id="elOut"></div>
+        <div class="w" id="elW"></div>
+      </div>
+      <div>
+        <div class="k">Interest rate r (Euler)</div>
+        <div class="v" id="rOut"></div>
+        <div class="w" id="rW"></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div><div class="k">Hours L₁ · L₂</div><div class="v" id="Ls"></div><div class="n">solve (1.8) by bisection</div></div>
+      <div><div class="k">Wage w₁ · w₂</div><div class="v" id="ws"></div><div class="n">(1−α)A K̄<sup>α</sup>L<sup>−α</sup></div></div>
+      <div><div class="k">Rental r<sup>K</sup>₁ · r<sup>K</sup>₂</div><div class="v" id="rks"></div><div class="n">αA K̄<sup>α−1</sup>L<sup>1−α</sup> = αc ⁄ K̄</div></div>
+      <div><div class="k">Consumption c₁ · c₂</div><div class="v" id="cs"></div><div class="n">= output: nothing to invest</div></div>
+      <div><div class="k">d ln L₂ ⁄ d ln A₂</div><div class="v" id="el2"></div><div class="n">same formula, at L₂</div></div>
+      <div><div class="k">Profit Π</div><div class="v" id="pis"></div><div class="n">zero by CRS (Euler's theorem)</div></div>
+    </div>
+
+    <div class="card">
+      <figure>
+        <svg id="lab" viewBox="0 0 600 260" role="img"
+             aria-label="Marginal rate of substitution and marginal product of labour against hours, both periods"></svg>
+      </figure>
+      <div class="legend">
+        <span style="color:var(--as)"><i class="swatch"></i>MRS ψc<sup>σ</sup>⁄(1−L), t = 1</span>
+        <span style="color:var(--ad)"><i class="swatch"></i>MRT = w, t = 1</span>
+        <span style="color:var(--as)"><i class="swatch dash"></i>MRS, t = 2</span>
+        <span style="color:var(--ad)"><i class="swatch dash"></i>MRT, t = 2</span>
+      </div>
+      <p class="eq" id="mrsline"></p>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="card">
+      <p class="note"><span class="flag mid">why this matters</span> &nbsp; Lista 5 has not been
+      graded yet, but its shape is the one that cost marks on <b>Lista 3 1(c)</b> and
+      <b>Lista 4 1(b)</b>: the formula was right and the story was wrong. Here the sign of one
+      expression is decided by one parameter, 1 − σ. Say which effect dominates <i>for that sign</i>,
+      and check that the sentence flips when σ crosses 1. The verdict above does exactly that.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Productivity, one value per period</legend>
+      <div class="ctl">
+        <label for="A1">Period-1 TFP <span class="sym">A<sub>1</sub></span></label>
+        <output id="A1o"></output><input type="range" id="A1" min="0.3" max="3" step="0.05" value="1">
+      </div>
+      <div class="ctl">
+        <span class="hint">Set A₂ = A₁ and the two periods are identical, so c₂ = c₁ and
+        r = 1⁄β − 1: with nothing to trade, the interest rate is pure impatience.</span>
+        <label for="A2">Period-2 TFP <span class="sym">A<sub>2</sub></span></label>
+        <output id="A2o"></output><input type="range" id="A2" min="0.3" max="3" step="0.05" value="1.2">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+      <div class="ctl">
+        <span class="hint">How fast u′(c) falls. The sign of every hours response is the sign of
+        1 − σ.</span>
+        <label for="sigma">Curvature <span class="sym">σ</span></label>
+        <output id="sigmao"></output><input type="range" id="sigma" min="0.2" max="4" step="0.05" value="2">
+      </div>
+      <div class="ctl">
+        <span class="hint">v(l) = ψ ln l. Shifts the level of hours, never the sign of the response.</span>
+        <label for="psi">Leisure weight <span class="sym">ψ</span></label>
+        <output id="psio"></output><input type="range" id="psi" min="0.2" max="5" step="0.05" value="1.8">
+      </div>
+      <div class="ctl">
+        <span class="hint">Enters only r. Hours, wages and consumption do not contain it.</span>
+        <label for="beta">Discount factor <span class="sym">β</span></label>
+        <output id="betao"></output><input type="range" id="beta" min="0.8" max="0.999" step="0.001" value="0.96">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Technology</legend>
+      <div class="ctl">
+        <label for="alpha">Capital share <span class="sym">α</span></label>
+        <output id="alphao"></output><input type="range" id="alpha" min="0.1" max="0.7" step="0.01" value="0.35">
+      </div>
+      <div class="ctl">
+        <span class="hint">K̄ appears only inside AK̄<sup>α</sup>: a bigger stock acts like higher
+        productivity, scaled by α.</span>
+        <label for="K">Fixed capital <span class="sym">K̄</span></label>
+        <output id="Ko"></output><input type="range" id="K" min="0.5" max="5" step="0.05" value="2">
+      </div>
+    </fieldset>
+
+    <div class="btns">
+      <button data-p="log">Log utility (σ = 1)</button>
+      <button data-p="sub">Substitution wins (σ = 0.5)</button>
+      <button data-p="inc">Income wins (σ = 2)</button>
+      <button data-p="flat">No growth (A₂ = A₁)</button>
+    </div>
+
+    <details>
+      <summary>Three landmark cases</summary>
+      <p><b>σ = 1.</b> The right side of (1.8) becomes (1−α)⁄ψ with no A in it, so
+      L = (1−α)⁄(1−α+ψ) exactly — 0.26531 at α = 0.35, ψ = 1.8 — whatever A₁, A₂ or K̄ are. Then
+      w, r<sup>K</sup> and c all scale one-for-one with A.</p>
+      <p><b>σ = 0.5 vs σ = 2</b> at A = 1, K̄ = 2: L = 0.19273 with elasticity +0.547, against
+      L = 0.35647 with elasticity −0.454 (the resolution's table). Opposite signs, same formula.</p>
+      <p><b>A₂ = A₁.</b> L₂ = L₁, c₂ = c₁, and 1 + r = 1⁄β: r = 4.17% at β = 0.96.
+      Derivations in <b>Resolucao/lista5_resolucao.tex</b>, Q1(d)–(e), and
+      <b>Map/exogenous-capital-lista-05.md</b>.</p>
+    </details>
+  </div>
+</div>
+
+<footer>Kurlat (2020), ch. 9 · Lista 5 Q1 · companion to <b>Map/aula-06-equilibrio-geral/01-equilibrium-as-benchmark.md</b> and <b>Map/exogenous-capital-lista-05.md</b></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const ids = ["A1","A2","sigma","psi","beta","alpha","K"];
+
+// model:start
+// Hours solving (1.8): L^(α+(1−α)σ)/(1−L) = ((1−α)/ψ)(A K̄^α)^(1−σ), in logs; LHS rises from −∞ to +∞.
+function solveL(A, v){
+  const e = v.alpha + (1-v.alpha)*v.sigma;
+  const rhs = Math.log((1-v.alpha)/v.psi) + (1-v.sigma)*Math.log(A*Math.pow(v.K, v.alpha));
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 200; i++){
+    const mid = 0.5*(lo+hi);
+    if (e*Math.log(mid) - Math.log(1-mid) > rhs) hi = mid; else lo = mid;
+  }
+  return 0.5*(lo+hi);
+}
+// Every period-t read-out at productivity A.
+function period(A, v){
+  const L = solveL(A, v), Ka = Math.pow(v.K, v.alpha);
+  const c = A*Ka*Math.pow(L, 1-v.alpha);
+  const w = (1-v.alpha)*A*Ka*Math.pow(L, -v.alpha);
+  const rK = v.alpha*A*Math.pow(v.K, v.alpha-1)*Math.pow(L, 1-v.alpha);
+  const mrs = v.psi*Math.pow(c, v.sigma)/(1-L);
+  const el = (1-v.sigma)/(v.alpha + (1-v.alpha)*v.sigma + L/(1-L));
+  return {L, c, w, rK, mrs, el, profit: c - w*L - rK*v.K};
+}
+function model(v){
+  const p1 = period(v.A1, v), p2 = period(v.A2, v);
+  return {p1, p2, r: Math.pow(p2.c/p1.c, v.sigma)/v.beta - 1};
+}
+// model:end
+
+function axes(W, H, L, R, T, B, xl, yl){
+  return `<line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`
+    + `<line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="var(--rule)" stroke-width="1"/>`
+    + `<text x="${((L+W-R)/2).toFixed(1)}" y="${H-8}" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${xl}</text>`
+    + `<text transform="translate(15,${((T+H-B)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="12" fill="var(--ink-soft)">${yl}</text>`;
+}
+function grid(W, L, R, Y, top, n){
+  let out = "";
+  for (let i = 0; i <= n; i++){
+    const val = top*i/n, yy = Y(val);
+    out += `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" stroke="var(--grid)" stroke-width="1"/>`
+      + `<text x="${L-8}" y="${(yy+4).toFixed(1)}" text-anchor="end" font-size="10.5" fill="var(--ink-faint)">${val.toFixed(2)}</text>`;
+  }
+  return out;
+}
+const path = pts => pts.map((p,i)=>`${i?'L':'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join('');
+
+function drawHours(v, m){
+  const W=600,H=320,L=56,R=20,T=16,B=42, amin=0.3, amax=3;
+  const other = v.sigma < 1 ? 2 : 0.5;
+  const curves = [[v.sigma,"var(--it)",""], [1,"var(--nat)","5 4"], [other,"var(--eff)","5 4"]];
+  const data = curves.map(([s]) => {
+    const vv = {...v, sigma:s}, pts = [];
+    for (let i = 0; i <= 120; i++){ const a = amin + (amax-amin)*i/120; pts.push([a, solveL(a, vv)]); }
+    return pts;
+  });
+  const top = Math.min(1, Math.ceil(Math.max(...data.flat().map(p=>p[1]))*1.1*10)/10);
+  const X = a => L + (W-L-R)*(a-amin)/(amax-amin);
+  const Y = l => T + (H-T-B)*(1-l/top);
+  let out = grid(W, L, R, Y, top, 4);
+  curves.forEach(([s,col,dash], k) => {
+    out += `<path d="${path(data[k].map(p=>[X(p[0]),Y(p[1])]))}" fill="none" stroke="${col}" stroke-width="${k?1.6:2.6}" stroke-dasharray="${dash}"/>`;
+    if (k) out += `<text x="${W-R-4}" y="${(Y(data[k][120][1])-6).toFixed(1)}" text-anchor="end" font-size="10.5" fill="${col}">σ = ${s}</text>`;
+  });
+  out += `<circle cx="${X(v.A1).toFixed(1)}" cy="${Y(m.p1.L).toFixed(1)}" r="6" fill="var(--it)"/>`;
+  out += `<circle cx="${X(v.A2).toFixed(1)}" cy="${Y(m.p2.L).toFixed(1)}" r="6" fill="var(--panel)" stroke="var(--it)" stroke-width="2.2"/>`;
+  $("plot").innerHTML = out + axes(W, H, L, R, T, B, "productivity A", "hours L");
+}
+
+function drawLabour(v, m){
+  const W=600,H=260,L=56,R=20,T=14,B=40;
+  const top = Math.max(m.p1.w, m.p2.w)*2.2;
+  const X = l => L + (W-L-R)*l;
+  const Y = y => T + (H-T-B)*(1-Math.min(y, top)/top);
+  let out = grid(W, L, R, Y, top, 3);
+  [[v.A1, m.p1, ""], [v.A2, m.p2, "5 4"]].forEach(([A, p, dash]) => {
+    const Ka = Math.pow(v.K, v.alpha), mrs = [], mpl = [];
+    for (let i = 1; i < 200; i++){
+      const l = i/200;
+      mrs.push([X(l), Y(v.psi*Math.pow(A*Ka*Math.pow(l,1-v.alpha), v.sigma)/(1-l))]);
+      mpl.push([X(l), Y((1-v.alpha)*A*Ka*Math.pow(l,-v.alpha))]);
+    }
+    out += `<path d="${path(mrs)}" fill="none" stroke="var(--as)" stroke-width="2" stroke-dasharray="${dash}"/>`;
+    out += `<path d="${path(mpl)}" fill="none" stroke="var(--ad)" stroke-width="2" stroke-dasharray="${dash}"/>`;
+    out += `<circle cx="${X(p.L).toFixed(1)}" cy="${Y(p.w).toFixed(1)}" r="5" fill="${dash?'var(--panel)':'var(--it)'}" stroke="var(--it)" stroke-width="2"/>`;
+  });
+  $("lab").innerHTML = out + axes(W, H, L, R, T, B, "hours L  ·  each period's crossing is (1.8)", "MRS, MRT");
+}
+
+const f = (x, d=4) => x.toFixed(d);
+function render(){
+  const v = {}; ids.forEach(k => v[k] = parseFloat($(k).value));
+  $("A1o").textContent = f(v.A1,2); $("A2o").textContent = f(v.A2,2);
+  $("sigmao").textContent = f(v.sigma,2); $("psio").textContent = f(v.psi,2);
+  $("betao").textContent = f(v.beta,3); $("alphao").textContent = f(v.alpha,2); $("Ko").textContent = f(v.K,2);
+
+  const m = model(v), {p1, p2} = m;
+  drawHours(v, m); drawLabour(v, m);
+
+  const sgn = Math.abs(1-v.sigma) < 1e-9 ? 0 : Math.sign(1-v.sigma);
+  $("elOut").textContent = (p1.el >= 0 ? "+" : "") + f(p1.el);
+  $("elOut").className = "v " + (sgn > 0 ? "pos" : sgn < 0 ? "neg" : "");
+  $("elW").textContent = sgn > 0 ? "hours rise with A" : sgn < 0 ? "hours fall with A" : "hours do not move";
+  $("rOut").textContent = f(100*m.r, 2) + "%";
+  $("rW").textContent = `ρ = 1⁄β − 1 = ${f(100*(1/v.beta-1),2)}%; c₂⁄c₁ = ${f(p2.c/p1.c,3)}`;
+  $("Ls").textContent = f(p1.L) + " · " + f(p2.L);
+  $("ws").textContent = f(p1.w,3) + " · " + f(p2.w,3);
+  $("rks").textContent = f(p1.rK,3) + " · " + f(p2.rK,3);
+  $("cs").textContent = f(p1.c,3) + " · " + f(p2.c,3);
+  $("el2").textContent = (p2.el >= 0 ? "+" : "") + f(p2.el);
+  $("pis").textContent = f(Math.abs(p1.profit) + Math.abs(p2.profit), 6);
+
+  $("eqline").innerHTML = `L<sup>α+(1−α)σ</sup>⁄(1−L) = [(1−α)⁄ψ](AK̄<sup>α</sup>)<sup>1−σ</sup> &nbsp;⟹&nbsp; `
+    + `d ln L⁄d ln A = (1−σ)⁄[α + (1−α)σ + L⁄(1−L)] &nbsp;·&nbsp; `
+    + `1+r = (1⁄β)(c₂⁄c₁)<sup>σ</sup> = <b>${f(1+m.r)}</b>`;
+  $("mrsline").innerHTML = [p1, p2].map((p,i) =>
+    `t = ${i+1}: MRS = ψc<sup>σ</sup>⁄(1−L) = <b>${f(p.mrs)}</b> = MRT = w = <b>${f(p.w)}</b>`).join("<br>");
+
+  $("verdict").innerHTML = sgn > 0
+    ? `<span class="flag ok">substitution effect dominates</span> &nbsp; σ = ${f(v.sigma,2)} &lt; 1, so
+       1 − σ &gt; 0 and the elasticity is positive. Higher A raises the wage, leisure becomes dearer,
+       and u′(c) falls slowly enough that the extra consumption is still worth working for:
+       <b>hours rise</b>.`
+    : sgn < 0
+    ? `<span class="flag bad">income effect dominates</span> &nbsp; σ = ${f(v.sigma,2)} &gt; 1, so
+       1 − σ &lt; 0 and the elasticity is negative. Higher A raises the wage, but u′(c) collapses fast,
+       so the household takes the gain as leisure: <b>hours fall</b>. The wage still rises —
+       d ln w⁄d ln A = 1 − αε = ${f(1 - v.alpha*p1.el,3)} &gt; 0.`
+    : `<span class="flag mid">exact cancellation</span> &nbsp; σ = 1: log utility. A drops out of (1.8),
+       so L = (1−α)⁄(1−α+ψ) = <b>${f((1-v.alpha)/(1-v.alpha+v.psi))}</b> in both periods. Income and
+       substitution effects offset exactly — the balanced-growth restriction.`;
+}
+
+const presets = {
+  log:  {A1:1, A2:1.2, sigma:1,   psi:1.8, beta:0.96, alpha:0.35, K:2},
+  sub:  {A1:1, A2:1.2, sigma:0.5, psi:1.8, beta:0.96, alpha:0.35, K:2},
+  inc:  {A1:1, A2:1.2, sigma:2,   psi:1.8, beta:0.96, alpha:0.35, K:2},
+  flat: {A1:1, A2:1,   sigma:2,   psi:1.8, beta:0.96, alpha:0.35, K:2},
+};
+document.querySelectorAll("button[data-p]").forEach(b =>
+  b.addEventListener("click", () => {
+    const p = presets[b.dataset.p];
+    for (const [k,val] of Object.entries(p)) $(k).value = val;
+    render();
+  }));
+ids.forEach(k => $(k).addEventListener("input", render));
+render();
+</script>

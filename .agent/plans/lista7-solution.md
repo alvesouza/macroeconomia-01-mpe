@@ -40,3 +40,12 @@ Lista 6, companions local + published as Artifacts.
 
 - Python numbers printed; companions checked against them at 3 control vectors each (node).
 - `pdflatex` ×2; `pdffonts` all Type 1, uni=yes.
+
+## Addendum (2026-09-25): short version in the instructor's style
+
+User asked for a second Lista 7 solution "based on" `Listas/soluções do instrutor/PSET 6.pdf`.
+That PDF is the instructor's Lista 6 solution (money), so it supplies the **format only**:
+answer-first, arrow chains, one or two lines per step, key result highlighted/boxed, derivation
+only where the answer depends on it. Content = the long solution, unchanged numbers.
+Output: `Resolucao/lista7_resolucao_curta.tex/.pdf`, reusing `fig/fig_l7q2_shocks.pdf` (Q2 asks
+for diagrams). Target 3-4 pages. Verify: pdflatex x2, pdffonts Type 1 + uni.
