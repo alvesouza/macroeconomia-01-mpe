@@ -1,0 +1,86 @@
+% Romer (2012), Problem 1.15 --- solution fragment, \input by ../hardest-solutions.tex.
+% Statement not reproduced (project rule). Every result is re-derived by check-1-12-1-15.py.
+\problema{Romer 1.15}{Resources and land: deriving equation (1.50)}{p.~48}{Romer \S1.8, pp.~39--41}
+\noindent\textbf{Setting.} Production is (1.41),
+$Y=K^{\alpha}R^{\beta}T^{\gamma}(AL)^{1-\alpha-\beta-\gamma}$ with $\alpha,\beta,\gamma>0$ and
+$\alpha+\beta+\gamma<1$; $\dot K=sY-\delta K$, $\dot L=nL$ and $\dot A=gA$, with $n+\delta>0$ and
+$g\ge0$. Equation (1.50) describes the hypothetical economy of \S1.8 in which (1.42)--(1.43) are
+replaced by $\dot T=nT$ and $\dot R=nR$: land and resources grow with population. A tilde marks
+this economy's balanced-growth values, and $g_X\equiv\dot X/X$.
+
+\passo{A balanced growth path requires $g_Y=g_K$}{Dividing $\dot K=sY-\delta K$ by $K$ gives (1.44),
+$g_K=s\,(Y/K)-\delta$. With $s$ and $\delta$ constant, $g_K$ is constant if and only if $Y/K$ is
+constant, that is, if and only if $g_Y=g_K$.}
+\passo{Log-differentiate the production function}{Taking logs of (1.41),
+\[ \ln Y(t)=\alpha\ln K(t)+\beta\ln R(t)+\gamma\ln T(t)+(1-\alpha-\beta-\gamma)[\ln A(t)+\ln L(t)], \]
+and differentiating with respect to time (the time derivative of a log is a growth rate) gives
+(1.46):
+\[ g_Y(t)=\alpha g_K(t)+\beta g_R(t)+\gamma g_T(t)+(1-\alpha-\beta-\gamma)[g_A(t)+g_L(t)]. \]}
+\passo{Insert this economy's growth rates (analog of 1.47)}{Here $g_R=g_T=g_L=n$ and $g_A=g$, so
+\[ g_Y(t)=\alpha g_K(t)+(\beta+\gamma)n+(1-\alpha-\beta-\gamma)(n+g). \]
+The $n$ terms add up to $(\beta+\gamma)n+(1-\alpha-\beta-\gamma)n=(1-\alpha)n$, hence
+\[ g_Y(t)=\alpha g_K(t)+(1-\alpha)n+(1-\alpha-\beta-\gamma)g. \tag{1.47$'$} \]}
+\passo{Impose $g_K=g_Y$ (analog of 1.48)}{On the balanced growth path
+$g_K=g_Y=\tilde g_Y^{\mathrm{bgp}}$. Substituting into (1.47$'$) and moving
+$\alpha\tilde g_Y^{\mathrm{bgp}}$ to the left gives
+$(1-\alpha)\tilde g_Y^{\mathrm{bgp}}=(1-\alpha)n+(1-\alpha-\beta-\gamma)g$, so
+\[ \tilde g_Y^{\mathrm{bgp}}=\frac{(1-\alpha)n+(1-\alpha-\beta-\gamma)g}{1-\alpha}
+=n+\frac{1-\alpha-\beta-\gamma}{1-\alpha}\,g. \tag{1.48$'$} \]}
+\passo{Output per worker: equation (1.50)}{Since $g_L=n$,
+$\tilde g_{Y/L}^{\mathrm{bgp}}=\tilde g_Y^{\mathrm{bgp}}-n$, and (1.48$'$) gives
+\[ \tilde g_{Y/L}^{\mathrm{bgp}}=\frac{1}{1-\alpha}\,(1-\alpha-\beta-\gamma)\,g. \tag{1.50} \]}
+\passo{Convergence (the text's argument, made explicit)}{Differentiating (1.44) and using
+$\frac{d}{dt}(Y/K)=(Y/K)(g_Y-g_K)$ gives $\dot g_K=s\,(Y/K)(g_Y-g_K)=(g_K+\delta)(g_Y-g_K)$.
+By (1.47$'$) and (1.48$'$), $g_Y-g_K=(1-\alpha)(\tilde g_Y^{\mathrm{bgp}}-g_K)$, so
+\[ \dot g_K=(1-\alpha)\,(g_K+\delta)\,(\tilde g_Y^{\mathrm{bgp}}-g_K). \]
+Since $g_K+\delta=sY/K>0$, $\dot g_K$ has the sign of $\tilde g_Y^{\mathrm{bgp}}-g_K$: $g_K$ falls
+when it is above its balanced-growth value, rises when below, and converges to it monotonically.
+The subtlety of footnote 23 cannot arise, because the balanced-growth value of $Y/K$ is positive:
+\[ \frac{Y}{K}\Big|_{\mathrm{bgp}}=\frac{\tilde g_Y^{\mathrm{bgp}}+\delta}{s},\qquad
+(1-\alpha)(\tilde g_Y^{\mathrm{bgp}}+\delta)=(1-\alpha)(n+\delta)+(1-\alpha-\beta-\gamma)g>0. \]
+Linearizing at the rest point,
+$\partial\dot g_K/\partial g_K=-(1-\alpha)(\tilde g_Y^{\mathrm{bgp}}+\delta)$, so the speed of
+convergence is
+\[ \tilde\lambda=(1-\alpha)(n+\delta)+(1-\alpha-\beta-\gamma)\,g. \]
+The rate is exact, not only local, for the capital-output ratio, whose law of motion is linear:
+\[ \frac{d}{dt}\frac{K}{Y}=\frac{K}{Y}\,(g_K-g_Y)
+=(1-\alpha)\Big[s-(\tilde g_Y^{\mathrm{bgp}}+\delta)\frac{K}{Y}\Big]. \]}
+\passo{Cross-check: a Solow economy in disguise}{With $R$, $T$ and $L$ all growing at $n$, the ratios
+$R/L$ and $T/L$ are constant. Write $R^{\beta}T^{\gamma}=(R/L)^{\beta}(T/L)^{\gamma}L^{\beta+\gamma}$
+and add the exponents of $L$, $(\beta+\gamma)+(1-\alpha-\beta-\gamma)=1-\alpha$:
+\[ \begin{aligned}
+R^{\beta}T^{\gamma}(AL)^{1-\alpha-\beta-\gamma}
+&=\Big(\frac{R}{L}\Big)^{\beta}\Big(\frac{T}{L}\Big)^{\gamma}A^{1-\alpha-\beta-\gamma}L^{1-\alpha}
+\equiv(\tilde AL)^{1-\alpha},\\
+\tilde A&\equiv\Big[\Big(\frac{R}{L}\Big)^{\beta}\Big(\frac{T}{L}\Big)^{\gamma}\Big]^{1/(1-\alpha)}
+A^{(1-\alpha-\beta-\gamma)/(1-\alpha)}.
+\end{aligned} \]
+So $Y=K^{\alpha}(\tilde AL)^{1-\alpha}$: the basic Cobb--Douglas Solow model with labor-augmenting
+progress at rate $\tilde g\equiv g_{\tilde A}=(1-\alpha-\beta-\gamma)g/(1-\alpha)$. On its
+balanced growth path output per worker grows at $\tilde g$, which is (1.50) again, and (1.31) gives
+the speed $(1-\alpha)(n+\tilde g+\delta)=\tilde\lambda$.}
+\passo{The growth drag (1.51) follows}{Subtracting (1.49) from (1.50),
+\[ \frac{(1-\alpha-\beta-\gamma)g-[(1-\alpha-\beta-\gamma)g-\beta b-(\beta+\gamma)n]}{1-\alpha}
+=\frac{\beta b+(\beta+\gamma)n}{1-\alpha}, \]
+which is (1.51).}
+\intuicao{Because the exponents in (1.41) sum to one, (1.46) can be written per worker:
+\[ g_{Y/L}=\alpha g_{K/L}+\beta g_{R/L}+\gamma g_{T/L}+(1-\alpha-\beta-\gamma)g. \]
+Technology multiplies labor only, so with every input per worker held fixed it raises output per
+worker at the TFP rate $(1-\alpha-\beta-\gamma)g$. Capital is the only reproducible input: on a
+balanced growth path $g_{K/L}=g_{Y/L}$, which multiplies the TFP rate by $1/(1-\alpha)$. Here
+$g_{R/L}=g_{T/L}=0$, so land and resources neither drag nor amplify, and (1.50) isolates technology
+plus capital deepening. In the actual economy $g_{R/L}=-(b+n)$ and $g_{T/L}=-n$, so the drag (1.51)
+is the share-weighted decline $\beta(b+n)+\gamma n$ times the same multiplier $1/(1-\alpha)$.}
+\armadilha{Three slips recur. Using $g_R=-b$ and $g_T=0$ (the actual economy) reproduces
+(1.48)--(1.49), not (1.50). Dropping the growth of $R$ and $T$ from $g_Y$ gives
+\[ \frac{(1-\alpha-\beta-\gamma)g-(\beta+\gamma)n}{1-\alpha}, \]
+which is (1.49) with $b=0$, the case of fixed $R$ and $T$. And the answer is not $g$, as in the basic model: $A$ augments only labor, whose
+exponent here is $1-\alpha-\beta-\gamma$, not $1-\alpha$.}
+\refbib{Romer (2012), \S1.8, pp.~39--41: eqs.~(1.41)--(1.51) and footnote~23; \S1.5, eq.~(1.31);
+Nordhaus (1992).}
+\checado{\texttt{check-1-12-1-15.py} re-derives (1.47$'$), (1.48$'$) and (1.50) with sympy,
+recovers the text's (1.48), (1.49) and (1.51) from the same growth-rate equation with $g_R=-b$ and
+$g_T=0$, and verifies the law of motion of $g_K$, its eigenvalue $-\tilde\lambda$, the linear
+equation for $K/Y$ and the $\tilde A$ rewriting; it then integrates both economies numerically and
+recovers (1.50), (1.49), the drag and the speed $\tilde\lambda$. The solution manual derives (1.50)
+by the same steps and agrees; it does not discuss convergence.}

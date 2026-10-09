@@ -189,6 +189,9 @@ Ask the user for:
   the slides and the books are in another language). Ask only to confirm; a different
   language is set here only if the user explicitly asks for one, and existing files already
   written in another language are never translated as part of the setup.
+- **Grading style**: the default exam style, or a named one from
+  `~/.claude/commands/templates/styles/` (list the files, e.g. `macro-1` — the Macroeconomia I
+  MPE style). Default: the generic template.
 - **Code language**: R, Python, or both (default: R). ⚠️ The notebook commands (`/lab`,
   `/lab-init`, `/lab-data`) are **Python/Jupyter only** — if the course is R-based, record
   that in `CLAUDE.md` and tell the user those three do not apply.
@@ -296,6 +299,11 @@ One file per topic (e.g., `rules/01_topicname.md`), each with:
 2. Set up the **exam/list tooling** (used by `/exam-gen` and `/exam-grade`):
    - Copy `~/.claude/commands/templates/lista-exam.tex` into the project (e.g., `<lists-dir>/lista-exam.tex`) — the LaTeX template for lists/simulados (single source, `\ifsolucoes` toggle for blank list vs. gabarito+rubrica; preamble already follows the global lmodern+cmap copyable-PDF rule).
    - Copy `~/.claude/commands/templates/estilo-avaliacao.md` into `rules/00_estilo_avaliacao.md` — the exam-style rules (taxonomy, contextualization, solution/rubric format, bibliography usage). Adapt the institution/bibliography names to this course.
+     If Step 1 chose a **named grading style**, copy `~/.claude/commands/templates/styles/<name>.md`
+     instead. Keep its grading rules (question anatomy, scoring, distractors, solution and
+     rubric format, graduate mode); rewrite its course bindings for this course (bibliography,
+     block-to-lecture table, scope exclusions, institutional context, template path, and
+     subject-specific examples when the subject differs). Record the style's name in `CLAUDE.md`.
 
 ### Step 6: Generate quiz.html
 

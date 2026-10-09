@@ -1,0 +1,55 @@
+% Shared preamble of the practice lists (practice-L*.tex), adapted from lista-exam.tex.
+% Each list sets \solucoesfalse / \solucoestrue and \listatema right after \input{practice-preamble}.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}   % Type 1 vector fonts (replaces PK bitmaps)
+\usepackage{cmap}      % ToUnicode CMap -> copyable text and accents
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tikz}
+
+\newif\ifsolucoes
+\newcommand{\disciplina}{Macroeconomics I --- MPE Insper}
+\newcommand{\espacoresol}{4.5cm}   % height of the answer space in the blank list
+% The sol environment must be decided after the list sets its toggle.
+\AtBeginDocument{\ifsolucoes\includecomment{sol}\else\excludecomment{sol}\fi}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{\footnotesize\disciplina}
+\rhead{\footnotesize Practice list\ifsolucoes{} --- Solutions and rubric\fi}
+\cfoot{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{14pt}
+\setlist{topsep=2pt,itemsep=2pt}
+\newcounter{questao}
+
+\newcommand{\bloco}[3]{\bigskip\noindent
+  {\large\bfseries\color{blue!55!black}Block #1 --- #2}\hfill\textit{(#3)}\par
+  \rule{\linewidth}{0.3pt}\smallskip}
+\newcommand{\questao}[1]{\refstepcounter{questao}\medskip\noindent
+  \textbf{Question \thequestao.}~#1\par}
+\newenvironment{alternativas}{\begin{enumerate}[label=\Alph*.,leftmargin=2.2em,topsep=1pt]}{\end{enumerate}}
+\newcommand{\gabarito}[1]{\ifsolucoes\par\noindent\textbf{Answer:}~#1\fi}
+\newcommand{\resolespaco}{\ifsolucoes\else\par\textit{Solution:}\vspace{\espacoresol}\par\fi}
+\newcommand{\passo}[2]{\par\smallskip\noindent\textbf{Step --- #1.}~#2}
+\newcommand{\intuicao}[1]{\par\smallskip\noindent\textit{Economic intuition.}~#1}
+\newcommand{\refbib}[1]{\par\smallskip\noindent{\footnotesize\color{black!60}\textbf{Ref:} #1}}
+\newcommand{\rubrica}[1]{\par\smallskip\noindent\textbf{Grading rubric.}\begin{itemize}[leftmargin=1.4em,topsep=1pt]#1\end{itemize}}
+
+\newcommand{\cabecalho}{%
+\begin{center}
+  {\Large\bfseries \disciplina}\\[2pt]
+  {\large Practice list: \listatema}\ifsolucoes\\[2pt]\textit{Solutions and grading rubric}\fi
+\end{center}
+\vspace{2pt}
+{\footnotesize\noindent\textbf{Instructions.} Multiple choice: mark the single correct option (no
+penalty for wrong answers). \emph{True/False}: every 2 wrong items cancel 1 right one
+(score $=\max\{0,\text{right}-\text{wrong}/2\}\times$ item value); blank items do not count.
+Discursive questions: show every step. Numbers are illustrative and chosen to give clean answers.\par}}

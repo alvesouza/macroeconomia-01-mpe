@@ -59,7 +59,7 @@ Restrito a **Kurlat caps. 1-7, 9-11** e **Benigno (2015)**. Fora: Kurlat cap. 8 
 DSGE estocástico, Bellman e programação dinâmica, RBC estocástico, econometria de séries
 temporais, NKPC de Calvo log-linearizada. Ljungqvist & Sargent está em `Livros/` e **não** é do
 curso. A demanda de Cagan **está** no escopo (exercício 11.6). Complementar serve para intuição
-e contraste, nunca para elevar o nível. **Nunca reproduzir enunciado de exercício**: número + página.
+e contraste; raises the level only in graduate mode (`00_estilo_avaliacao.md` §8). **Nunca reproduzir enunciado de exercício**: número + página.
 
 ## Formato
 

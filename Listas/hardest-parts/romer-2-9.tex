@@ -1,0 +1,134 @@
+% Romer 2.9 --- solution fragment for hardest-solutions.tex (statement not reproduced).
+% Identities, the closed-form path and the numerical integration are re-checked by check-10-16-2-9.py.
+\problema{Romer 2.9}{A closed-form solution of the Ramsey model}{p.~95}{Romer \S2.2--2.6}
+
+\passo{Model and maintained assumptions}{Romer's Ramsey model in units of effective labor: no
+depreciation, $f(k)=k^\alpha$ with $0<\alpha<1$, household utility weighted by $L(t)/H$, and
+$\beta\equiv\rho-n-(1-\theta)g>0$ (eq.~(2.2)); take $n+g>0$. The equations of motion are
+\[
+\frac{\dot c}{c}=\frac{f'(k)-\rho-\theta g}{\theta}\quad(2.24),\qquad
+\dot k=f(k)-c-(n+g)k\quad(2.25).
+\]
+With $\theta=\alpha$ and $f'(k)=\alpha k^{\alpha-1}$, (2.24) becomes
+\[
+\frac{\dot c}{c}=\frac{\alpha k^{\alpha-1}-\rho-\alpha g}{\alpha}
+=k^{\alpha-1}-\frac{\rho+\alpha g}{\alpha}. \qquad(\star)
+\]}
+
+\parte{a}
+\passo{$\dot c=0$}{With $c>0$, $(\star)$ vanishes iff $\alpha k^{*\,\alpha-1}=\rho+\alpha g$, i.e.\
+$k^{*\,1-\alpha}=\alpha/(\rho+\alpha g)$. Raising both sides to the power $1/(1-\alpha)$:
+\[
+k^*=\Bigl(\frac{\alpha}{\rho+\alpha g}\Bigr)^{1/(1-\alpha)} .
+\]}
+
+\parte{b}
+\passo{$\dot k=0$}{(2.25) at $k^*$ gives $c^*=k^{*\alpha}-(n+g)k^*=k^*\bigl[k^{*\,\alpha-1}-(n+g)\bigr]$.
+Substitute $k^{*\,\alpha-1}=(\rho+\alpha g)/\alpha$ from (a):
+\[
+c^*=k^*\Bigl[\frac{\rho+\alpha g}{\alpha}-n-g\Bigr]=\frac{\rho-\alpha n}{\alpha}\,k^*
+=\frac{\rho-\alpha n}{\alpha}\Bigl(\frac{\alpha}{\rho+\alpha g}\Bigr)^{1/(1-\alpha)} .
+\]
+It is positive: expanding, $\beta+(1-\alpha)(n+g)=\rho-n-(1-\alpha)g+(1-\alpha)n+(1-\alpha)g=\rho-\alpha n$,
+so $\rho-\alpha n>0$. Define $x^*\equiv c^*/k^*=(\rho-\alpha n)/\alpha$.}
+
+\parte{c}
+\passo{$\dot z$}{Since $y=k^\alpha$, $z=k/y=k^{1-\alpha}$ and $k^{\alpha-1}=1/z$. By the chain rule and (2.25),
+\[
+\begin{aligned}
+\dot z&=(1-\alpha)k^{-\alpha}\dot k=(1-\alpha)k^{-\alpha}\bigl[k^\alpha-c-(n+g)k\bigr]
+=(1-\alpha)\Bigl[1-\frac{c}{k}\,k^{1-\alpha}-(n+g)\,k^{1-\alpha}\Bigr]\\
+&=(1-\alpha)\bigl[1-(x+n+g)\,z\bigr].
+\end{aligned}
+\]}
+\passo{$\dot x/x$}{$\ln x=\ln c-\ln k$, so $\dot x/x=\dot c/c-\dot k/k$. From $(\star)$,
+$\dot c/c=1/z-(\rho+\alpha g)/\alpha$; from (2.25), $\dot k/k=k^{\alpha-1}-c/k-(n+g)=1/z-x-n-g$. Hence
+\[
+\frac{\dot x}{x}=\frac1z-\frac{\rho}{\alpha}-g-\frac1z+x+n+g=x-\frac{\rho-\alpha n}{\alpha}=x-x^* .
+\]
+The $1/z$ terms cancel only because $\theta=\alpha$: the marginal product raises consumption growth by
+$f'(k)/\theta=(\alpha/\theta)k^{\alpha-1}$, the average product raises capital growth by $k^{\alpha-1}$.}
+
+\parte{d}
+\passo{The conjecture is the saddle path}{If $x$ is constant, $\dot x=x(x-x^*)=0$ with $x>0$ forces
+$x(t)=x^*$ for all $t$: the saddle path is the ray $c=x^*k$. No other path is admissible. Let $u\equiv1/x$;
+then $\dot u=-\dot x/x^2=-(x-x^*)/x=x^*u-1$, so $u(t)=1/x^*+[u(0)-1/x^*]\,e^{x^*t}$. If $x(0)>x^*$, $u$
+reaches $0$ at $T=\ln[x(0)/(x(0)-x^*)]/x^*$: $c/k\to\infty$ in finite time, so $k$ is driven to zero
+while $c>0$ --- the paths above the saddle path that Romer rules out in \S2.3 (at $k=0$, $c$ would have
+to jump to zero, violating (2.24)). If $x(0)<x^*$, $u\to\infty$ and $x\to0$; by (c), $z\to1/(n+g)$, so
+$f'(k)=\alpha/z\to\alpha(n+g)<n+g$ and $e^{-R(s)}e^{(n+g)s}k(s)\to\infty$: households would not exhaust
+lifetime wealth, the paths below the saddle path ruled out in \S2.3 using (2.15).}
+\passo{(i) Path of $z$}{With $x=x^*$, use $x^*+n+g=(\rho-\alpha n+\alpha n+\alpha g)/\alpha
+=(\rho+\alpha g)/\alpha=1/z^*$, where $z^*\equiv k^{*\,1-\alpha}=\alpha/(\rho+\alpha g)$. Then
+\[
+\dot z=(1-\alpha)\Bigl[1-\frac{z}{z^*}\Bigr]=-\lambda\,(z-z^*),\qquad
+\lambda\equiv\frac{1-\alpha}{z^*}=\frac{(1-\alpha)(\rho+\alpha g)}{\alpha}.
+\]
+Since $\tfrac{d}{dt}\bigl[e^{\lambda t}(z-z^*)\bigr]=e^{\lambda t}\bigl[\dot z+\lambda(z-z^*)\bigr]=0$, we have
+$e^{\lambda t}[z(t)-z^*]=z(0)-z^*$, that is,
+\[
+z(t)=z^*+\bigl[z(0)-z^*\bigr]e^{-\lambda t}.
+\]}
+\passo{(ii) Path of $y$}{$y=k^\alpha=(k^{1-\alpha})^{\alpha/(1-\alpha)}=z^{\alpha/(1-\alpha)}$ and
+$z(0)=k(0)^{1-\alpha}$, so
+\[
+y(t)=\Bigl\{k^{*\,1-\alpha}+\bigl[k(0)^{1-\alpha}-k^{*\,1-\alpha}\bigr]e^{-\lambda t}\Bigr\}^{\alpha/(1-\alpha)},
+\qquad k^{*\,1-\alpha}=\frac{\alpha}{\rho+\alpha g},
+\]
+with $k(t)=z(t)^{1/(1-\alpha)}$, $c(t)=x^*k(t)$ and $y^*=z^{*\,\alpha/(1-\alpha)}=k^{*\alpha}$.}
+\passo{Speed of convergence}{Let $a\equiv\alpha/(1-\alpha)$, so $y=z^a$, and use $|y-y^*|$ so the log
+is defined on either side of $y^*$. With $\dot y=a z^{a-1}\dot z=-\lambda a z^{a-1}(z-z^*)$,
+\[
+\frac{d\ln|y-y^*|}{dt}=\frac{\dot y}{y-y^*}=-\lambda\,\psi(z),\qquad
+\psi(z)\equiv\frac{a z^{a-1}(z-z^*)}{z^a-z^{*a}} .
+\]
+As $z\to z^*$, $(z^a-z^{*a})/(z-z^*)\to a z^{*\,a-1}$, so $\psi\to1$: the asymptotic speed is $\lambda$.
+But $\psi$ is constant only if $a=1$, i.e.\ $\alpha=\theta=\tfrac12$ (then $y=z$ and the speed is exactly
+$\lambda$). For $\alpha<\tfrac12$, $z^a$ is concave: below the balanced growth path ($z<z^*$) the slope
+$a z^{a-1}$ exceeds the chord slope $(z^{*a}-z^a)/(z^*-z)$, so $\psi>1$; above it, $\psi<1$. With
+$\alpha=\tfrac13$, $a=\tfrac12$ and $\psi=\tfrac12 z^{-1/2}(z^{1/2}+z^{*1/2})=\tfrac12(1+y^*/y)$: an economy
+starting at $y=y^*/2$ converges at $1.5\lambda$ and slows to $\lambda$. So the answer is \textbf{no}: the
+rate is constant for $z$, not for $y$.}
+\passo{Link to the linearization of \S2.6}{With $\theta=\alpha$, $f''(k^*)c^*/\theta
+=(\alpha-1)k^{*\,\alpha-1}x^*=-\lambda x^*$ (using $k^{*\,\alpha-1}=1/z^*$ and $(1-\alpha)/z^*=\lambda$).
+Then (2.36) at $\mu=-\lambda$ reads $\lambda^2+\beta\lambda-\lambda x^*=\lambda(\lambda+\beta-x^*)$, and
+\[
+\alpha(\lambda+\beta-x^*)=(1-\alpha)(\rho+\alpha g)+\alpha\rho-\alpha n-\alpha(1-\alpha)g-\rho+\alpha n=0 .
+\]
+So Romer's negative root $\mu_1$ in (2.39) equals $-\lambda$ exactly, and the linearized saddle path
+($\dot{\tilde k}=\beta\tilde k-\tilde c=\mu_1\tilde k$, i.e.\ $\tilde c=(\beta+\lambda)\tilde k=x^*\tilde k$)
+is the exact ray $c=x^*k$. The linearization is exact for $z$; its error for $y$ comes only from the
+curvature of $y=z^a$.}
+
+\parte{e}
+\passo{Equation (2.25)}{On the conjectured path $k=z^{1/(1-\alpha)}$, so
+$\dot k=\frac{1}{1-\alpha}z^{\alpha/(1-\alpha)}\dot z=z^{\alpha/(1-\alpha)}\bigl(1-z/z^*\bigr)
+=z^{\alpha/(1-\alpha)}-z^{1/(1-\alpha)}/z^*$. The right side of (2.25), using $c=x^*k$ and
+$x^*+n+g=1/z^*$, is $k^\alpha-(x^*+n+g)k=z^{\alpha/(1-\alpha)}-z^{1/(1-\alpha)}/z^*$. They coincide.}
+\passo{Equation (2.24)}{With $x^*$ constant, $\dot c/c=\dot k/k=z^{\alpha/(1-\alpha)-1/(1-\alpha)}-1/z^*
+=1/z-1/z^*=k^{\alpha-1}-(\rho+\alpha g)/\alpha$, which is $(\star)$, i.e.\ (2.24) with $\theta=\alpha$.}
+\passo{Conclusion}{Both equations of motion hold at every $t$, the path starts at the given $k(0)$, and
+$(k,c)\to(k^*,c^*)$, so $f'(k)\to\rho+\theta g$ and $e^{-R(s)}e^{(n+g)s}k(s)$ eventually falls at rate
+$\beta>0$: (2.15) holds with equality. \textbf{Yes} --- the conjecture is the equilibrium path, and by
+the argument in (d) it is the only one.}
+
+\intuicao{Consumption growth loads on the average product $y/k$ with weight $\alpha/\theta$ (because
+$f'(k)=\alpha y/k$); capital growth loads on it with weight $1$. With $\theta=\alpha$ the weights coincide,
+so $c$ and $k$ grow at the same rate whenever $c/k=x^*$: households consume a fixed fraction $x^*$ of
+their capital. The capital-output ratio then obeys a linear equation and converges at the constant rate
+$\lambda$; output inherits a varying rate because $y=z^{\alpha/(1-\alpha)}$ is curved.}
+
+\armadilha{Adding depreciation (Romer's chapter~2 has none); writing $\rho+g$ instead of $\rho+\theta g$
+in the Euler equation; and reading the constant rate of $z$ as a constant rate for $y$.}
+
+\refbib{Romer (2012), eqs.~(2.2), (2.15), (2.24)--(2.25), (2.36)--(2.39); \S2.3 (saddle path) and
+\S2.6 (speed of adjustment); Smith (2006).}
+
+\checado{\texttt{check-10-16-2-9.py} re-derives $\dot z$ and $\dot x/x$ from (2.24)--(2.25) with sympy;
+checks $k^*$, $c^*$, the $u=1/x$ solution and blow-up time, that the closed-form path satisfies
+(2.24)--(2.25) identically, and that (2.39) with $\theta=\alpha$ gives $\mu_1=-\lambda$ and saddle slope
+$x^*$; integrates (2.24)--(2.25) numerically from $c(0)=x^*k(0)$ ($\alpha=\theta=\tfrac13$, $\rho=0.04$,
+$n=0.01$, $g=0.02$, $k(0)=k^*/2$) and matches $z(t)$ to the closed form; and confirms
+$\psi=\tfrac12(1+y^*/y)>1$ for $\alpha=\tfrac13$ and $\psi\equiv1$ for $\alpha=\tfrac12$. The solution
+manual agrees on (a)--(e); it calls the speed ``clearly not constant'' without the $\alpha=\tfrac12$
+exception, and leaves $x=x^*$ a conjecture checked only through (e).}

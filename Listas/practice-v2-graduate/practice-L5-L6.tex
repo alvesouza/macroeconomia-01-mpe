@@ -1,0 +1,341 @@
+% Practice list C --- topics of Listas 5-6 (Kurlat chs. 9-11), GRADUATE LEVEL (style guide §8).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-L5-L6-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{General Equilibrium, Money and Inflation --- graduate level (Listas 5--6)}
+\renewcommand{\espacoresol}{6cm}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{General equilibrium and the neoclassical growth model}{Kurlat ch.~9; Romer ch.~2 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) A two-period economy has a fixed capital stock $K$ and no investment. Households
+have $u(c)+\psi\ln l$ each period, $u=c^{1-\sigma}/(1-\sigma)$, one unit of time ($l+L=1$); firms produce
+$Y=AK^{\alpha}L^{1-\alpha}$ in competitive markets. In equilibrium, with $L=1/3$, $\sigma=2$ and $\alpha=1/3$,
+the elasticity $d\ln L/d\ln A$ is:
+\begin{alternativas}
+\item $-0.46$
+\item $0$
+\item $+0.46$
+\item $-1.00$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{equilibrium conditions}{Goods clearing without investment: $c=Y$. Firm: $w=(1-\alpha)Y/L$. Household:
+$\psi/(1-L)=w\,u'(c)$. Combining: $\dfrac{\psi}{1-L}=\dfrac{(1-\alpha)Y^{1-\sigma}}{L}$.}
+\passo{log-differentiation}{$\frac{L}{1-L}d\ln L=(1-\sigma)d\ln Y-d\ln L$ and $d\ln Y=d\ln A+(1-\alpha)d\ln L$:
+\[\frac{d\ln L}{d\ln A}=\frac{1-\sigma}{L/(1-L)+\alpha+(1-\alpha)\sigma}=\frac{-1}{0.5+1/3+4/3}=-0.46.\]
+With $\sigma>1$ the income effect dominates; B is the log case.}
+\refbib{Kurlat (2020), \S9.1, pp.~165--168; Lista 5, Q1(e).}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) In the continuous-time Ramsey model with $f(\tilde k)=\tilde k^{1/3}$, $\rho=0.03$, $\sigma=2$,
+$g=0.02$, $n=0.01$, $\delta=0.05$, the steady-state gross saving rate $(n+g+\delta)\tilde k^*/f(\tilde k^*)$ is:
+\begin{alternativas}
+\item $33.3\%$
+\item $22.2\%$
+\item $26.7\%$
+\item $16.7\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{modified golden rule}{On the balanced path $\dot{\hat c}=0$: $f'(\tilde k^*)=\rho+\delta+\sigma g=0.12$.}
+\passo{saving rate}{$s=\dfrac{(n+g+\delta)\tilde k}{f(\tilde k)}=\dfrac{(n+g+\delta)\alpha}{f'(\tilde k)}=\dfrac{0.08/3}{0.12}=22.2\%$, below the
+Golden Rule $\alpha=33.3\%$ (A). C uses $\sigma=1$.}
+\refbib{Romer (2012), \S2.5, and problem 2.6; Kurlat (2020), \S9.3, p.~177.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In the Ramsey model, a permanent, unanticipated rise in government
+purchases financed by lump-sum taxes lowers consumption one for one on impact and leaves the
+capital stock unchanged forever.
+\gabarito{T}
+\begin{sol}
+\passo{why}{$\dot{\tilde k}=f(\tilde k)-\hat c-\hat G-(n+g+\delta)\tilde k$; the Euler equation does not involve $\hat G$. The new
+steady state has the same $\tilde k^*$ and $\hat c^*$ lower by $\Delta\hat G$; the new saddle path is the old
+one shifted down by $\Delta\hat G$, so $\hat c$ jumps by $-\Delta\hat G$ and there is no transition.}
+\refbib{Romer (2012), \S2.7, pp.~71--76.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) A permanent tax on capital income whose revenue is rebated lump-sum
+leaves the steady-state capital stock unchanged, because the rebate gives the revenue back.
+\gabarito{F}
+\begin{sol}
+\passo{wedge}{The rebate removes the income effect, not the wedge: the Euler equation uses the
+after-tax return, $(1-\tau)(f'-\delta)=\rho+\sigma g$, so $f'(\tilde k^*)$ rises and $\tilde k^*$ falls (Question 2(d)).}
+\refbib{Romer (2012), problem 2.10; Kurlat (2020), Exercise 9.6.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. The Ramsey--Cass--Koopmans model. Households (population growing at
+$n$) maximize $\int_0^\infty e^{-\rho t}u(c)\,dt$, $u=c^{1-\sigma}/(1-\sigma)$, own the capital and rent it to firms; firms
+produce $Y=F(K,AL)$ with constant returns, $A$ grows at $g$; capital depreciates at $\delta$. Assume
+$\rho>n+(1-\sigma)g$. Notation: $\tilde k=K/(AL)$, $\hat c=c/A$, $f(\tilde k)=F(\tilde k,1)$. Numbers: $f=\tilde k^{1/3}$, $\rho=0.03$,
+$\sigma=2$, $g=0.02$, $n=0.01$, $\delta=0.05$.}
+
+\textbf{a)} (3 points) Derive the Euler equation from the discrete-time condition
+$u'(c_t)=e^{-\rho\Delta}(1+r_{t+\Delta}\Delta)u'(c_{t+\Delta})$ (periods of length $\Delta$) by letting $\Delta\to0$. Use the
+firms' problem and no-arbitrage to get $r=f'(\tilde k)-\delta$, and write the system in $(\tilde k,\hat c)$.
+\resolespaco
+\begin{sol}
+\passo{limit}{With CRRA, $c_t^{-\sigma}=e^{-\rho\Delta}(1+r\Delta)c_{t+\Delta}^{-\sigma}$. Taking logs:
+$\sigma[\ln c_{t+\Delta}-\ln c_t]=\ln(1+r\Delta)-\rho\Delta$. Divide by $\Delta$ and let $\Delta\to0$:
+\[\sigma\frac{\dot c}{c}=r-\rho\quad\Longrightarrow\quad\frac{\dot c}{c}=\frac{r-\rho}{\sigma}.\]}
+\passo{firms and no-arbitrage}{Profit maximization: $r^K=f'(\tilde k)$, $w=A[f(\tilde k)-\tilde kf'(\tilde k)]$.
+Holding capital pays $r^K-\delta$, holding bonds pays $r$; both are held only if $r=f'(\tilde k)-\delta$.}
+\passo{system}{With $\hat c=c/A$, $\dot{\hat c}/\hat c=\dot c/c-g$. Goods clearing, $\dot K=Y-C-\delta K$, in effective units:
+\[\dot{\tilde k}=f(\tilde k)-\hat c-(n+g+\delta)\tilde k,\qquad\frac{\dot{\hat c}}{\hat c}=\frac{f'(\tilde k)-\delta-\rho-\sigma g}{\sigma}.\]
+A planner maximizing the same utility subject to the same resource constraint gets the same two
+equations: the equilibrium is efficient (First Welfare Theorem).}
+\refbib{Romer (2012), \S2.2--2.4; Kurlat (2020), \S9.3, eqs.\ (9.3.14)--(9.3.15).}
+\rubrica{
+\item Limit of the discrete Euler equation, with the log step: 1 pt. Quoting $\dot c/c=(r-\rho)/\sigma$: max.\ 0.5 pt here.
+\item Firms and no-arbitrage: 1 pt.
+\item System in effective units: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (4 points) Prove that the interior steady state is unique and that $\tilde k^*$ lies below the
+Golden Rule. Compute $\tilde k^*$, $\hat c^*$, $r^*$, the saving rate and $\tilde k_{gold}$.
+\resolespaco
+\begin{sol}
+\passo{uniqueness}{$\dot{\hat c}=0$ with $\hat c>0$ requires $f'(\tilde k^*)=\rho+\delta+\sigma g$. Since $f'$ is continuous and
+strictly decreasing from $\infty$ to $0$ (Inada), there is exactly one such $\tilde k^*$; then
+$\hat c^*=f(\tilde k^*)-(n+g+\delta)\tilde k^*$.}
+\passo{below the Golden Rule}{The Golden Rule has $f'(\tilde k_{gold})=n+g+\delta$. The assumption $\rho>n+(1-\sigma)g$
+is $\rho+\sigma g>n+g$, so $f'(\tilde k^*)>f'(\tilde k_{gold})$ and, $f'$ being decreasing, $\tilde k^*<\tilde k_{gold}$.}
+\passo{numbers}{$f'(\tilde k^*)=0.12$: $\tilde k^*=(\tfrac{1/3}{0.12})^{3/2}=4.630$, $f=1.667$,
+$\hat c^*=1.667-0.08\cdot4.630=1.296$, $r^*=0.07$, $s=0.370/1.667=22.2\%$; $\tilde k_{gold}=(\tfrac{1/3}{0.08})^{3/2}=8.505$.}
+\intuicao{Impatience has value: building capital up to the Golden Rule would sacrifice consumption
+now for more later, and households discount the later gain at $\rho+\sigma g$.}
+\refbib{Romer (2012), \S2.5; Kurlat (2020), \S9.3, p.~177.}
+\rubrica{
+\item Uniqueness argument: 1 pt.
+\item Proof that $\tilde k^*<\tilde k_{gold}$ using the assumption: 1.5 pts. Comparison by numbers only: 0.5 pt.
+\item Numbers: 1.5 pts.
+}
+\end{sol}
+
+\textbf{c)} (4 points) Linearize the system around the steady state. Show that it is a saddle, give the
+eigenvalues, the slope of the stable arm and the half-life of the gap. Compare with a Solow
+economy saving the same rate. Then set $g=0$ and prove that the speed of convergence falls with
+$\sigma$, with limits as $\sigma\to0$ and $\sigma\to\infty$.
+\resolespaco
+\begin{sol}
+\passo{Jacobian}{At the steady state, with $b\equiv f'(\tilde k^*)-(n+g+\delta)=\rho+\sigma g-n-g>0$:
+\[J=\begin{pmatrix}b&-1\\ \hat c^*f''(\tilde k^*)/\sigma&0\end{pmatrix},\qquad\lambda^2-b\lambda+\hat c^*f''(\tilde k^*)/\sigma=0.\]}
+\passo{saddle}{$\lambda_1\lambda_2=\hat c^*f''/\sigma<0$: real roots of opposite sign. One predetermined variable
+($\tilde k$) and one jump variable ($\hat c$) give a unique convergent path.}
+\passo{numbers}{$b=0.04$, $f''=\alpha(\alpha-1)\tilde k^{*\alpha-2}=-0.01728$, $\hat c^*f''/\sigma=-0.0112$:
+$\lambda_\pm=\tfrac12[0.04\pm\sqrt{0.0016+0.0448}]$, so $\lambda_-=-0.0877$, $\lambda_+=0.1277$.}
+\passo{stable arm}{From the first row, $\lambda_-(\tilde k-\tilde k^*)=b(\tilde k-\tilde k^*)-(\hat c-\hat c^*)$, so
+$\hat c-\hat c^*=(b-\lambda_-)(\tilde k-\tilde k^*)$, slope $b-\lambda_-=\lambda_+=0.128$. Half-life $\ln2/0.0877=7.9$ years.
+A Solow economy with $s=22.2\%$ converges at $(1-\alpha)(n+g+\delta)=5.3\%$: Ramsey households save more when
+$\tilde k$ is low ($r$ high), which speeds convergence.}
+\passo{$g=0$}{Then $\tilde k^*$ ($f'=\rho+\delta$), $\hat c^*$ and $b=\rho-n$ do not depend on $\sigma$, and
+$|\lambda_-|=\tfrac12\big[\sqrt{b^2+4\hat c^*|f''|/\sigma}-b\big]$ is strictly decreasing in $\sigma$, with
+$|\lambda_-|\to\infty$ as $\sigma\to0$ and $|\lambda_-|\to0$ as $\sigma\to\infty$: a household unwilling to tilt
+consumption never accumulates.}
+\refbib{Romer (2012), \S2.6, eqs.\ (2.26)--(2.39), pp.~67--71, and problem 2.8.}
+\rubrica{
+\item Jacobian and characteristic polynomial: 1 pt.
+\item Saddle argument (sign of the determinant, jump variable): 1 pt. ``It is a saddle'' with no argument: 0 for this line.
+\item Eigenvalues, slope and half-life: 1 pt.
+\item $g=0$ monotonicity and limits: 1 pt.
+}
+\end{sol}
+
+\textbf{d)} (4 points) At $t=0$ the government unexpectedly and permanently taxes the net return to
+capital at $\tau=0.25$, rebating the revenue lump-sum. Find the new $\tilde k^*$ and $\hat c^*$. Use the linearized
+stable arm at the new steady state to approximate the jump in $\hat c(0)$; the exact value (numerical
+saddle path) is $\hat c(0)=1.391$. Describe the transition, and say what changes if the tax is
+announced at $t=0$ to start at $T>0$.
+\resolespaco
+\begin{sol}
+\passo{new steady state}{Households earn $(1-\tau)(f'-\delta)$: $f'(\tilde k^*)=\delta+\frac{\rho+\sigma g}{1-\tau}=0.1433$,
+$\tilde k^*=3.546$ ($-23.4\%$), $\hat c^*=1.241$ ($-4.2\%$). The rebate keeps the resource constraint unchanged.}
+\passo{linear jump}{At the new steady state $b'=0.1433-0.08=0.0633$; the Euler row now carries
+$(1-\tau)$: $\lambda^2-b'\lambda+(1-\tau)\hat c^*f''/\sigma=0$, $\lambda_-=-0.0847$, slope $b'-\lambda_-=0.148$.
+$\hat c(0)\approx1.241+0.148(4.630-3.546)=1.402$, i.e.\ $+8.1\%$ above the old $\hat c^*$.}
+\passo{exact vs linear}{The exact jump is to $1.391$ ($+7.3\%$). The 0.8\% error comes from the size of
+the gap ($\tilde k$ starts 31\% above the new steady state), where curvature matters.}
+\passo{transition}{$\hat c$ jumps up (the return to saving falls), then $\tilde k$ and $\hat c$ fall together
+along the stable arm to a lower steady state: consumption is front-loaded.}
+\passo{announced tax}{Consumption can jump only when news arrives. At $t=0$ $\hat c$ jumps; on $[0,T)$ the
+economy follows the \emph{old} dynamics on an unstable path chosen to reach the new stable arm
+exactly at $T$; no jump occurs at $T$.}
+\refbib{Romer (2012), problems 2.10--2.12, pp.~95--96; Kurlat (2020), Exercise 9.6.}
+\rubrica{
+\item New steady state: 1 pt. Using $f'=\rho+\delta+\sigma g$ (no tax): 0 for this line.
+\item Linearized jump with the $(1-\tau)$ factor: 1.5 pts.
+\item Transition: 0.5 pt.
+\item Announcement: 1 pt. A jump at $T$: 0 for this line.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Money, inflation and seigniorage}{Kurlat chs.~10--11; Romer ch.~11 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) Baumol--Tobin: income $Y=1200$ a year, cost $F=2$ per trip to the bank, nominal
+rate $i=6\%$. The welfare cost of $i>0$, measured as the Bailey area under the money-demand curve
+($\int_0^im(x)\,dx-i\,m(i)$), is:
+\begin{alternativas}
+\item $8.49$
+\item $16.97$
+\item $4.24$
+\item $0$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{demand}{Minimize $FN+iY/(2N)$: $N^*=\sqrt{iY/(2F)}=4.243$, $m=Y/(2N^*)=\sqrt{FY/(2i)}=141.4$.}
+\passo{Bailey area}{$\int_0^i\sqrt{FY/2}\,x^{-1/2}dx-i\,m(i)=2\sqrt{FYi/2}-\sqrt{FYi/2}=\sqrt{FYi/2}=8.49=FN^*$:
+exactly the resources spent on trips. The forgone interest $i\,m=8.49$ is a transfer to the issuer,
+not a loss; B adds it.}
+\refbib{Kurlat (2020), \S10.4, eqs.\ (10.4.1)--(10.4.4), pp.~199--201; \S11.4, pp.~217--218.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Cagan with perfect foresight, in logs: $m_t-p_t=-a(p_{t+1}-p_t)$, $a=4$ (monthly, as in
+Kurlat's Exercise 11.6). At $t=0$ the central bank credibly announces a permanent 10\% rise in the
+money supply at $t=4$. On impact, $p_0$ rises by:
+\begin{alternativas}
+\item $0\%$
+\item $4.1\%$
+\item $10\%$
+\item $8.0\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{forward solution}{$p_t=\frac{m_t}{1+a}+\frac a{1+a}p_{t+1}$; iterating forward with no bubbles
+($\lim(\tfrac a{1+a})^jp_{t+j}=0$): $p_t=\frac1{1+a}\sum_{j\ge0}(\tfrac a{1+a})^jm_{t+j}$.}
+\passo{impact}{$\Delta p_0=\frac1{1+a}\sum_{j\ge4}(\tfrac a{1+a})^j\cdot10\%=(\tfrac a{1+a})^4\cdot10\%=0.8^4\cdot10\%=4.1\%$.}
+\refbib{Kurlat (2020), Exercise 11.6, pp.~219--221; Romer (2012), problem 11.1, p.~576.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In the Cagan model with perfect foresight, a credible announcement that
+money growth will fall permanently in the future leaves inflation unchanged until money growth
+actually falls.
+\gabarito{F}
+\begin{sol}
+\passo{forward-looking}{By the forward solution, a lower future money path lowers $p_t$ today; expected
+inflation falls, real money demand rises and inflation falls on announcement.}
+\refbib{Romer (2012), problem 11.1; Kurlat (2020), Exercise 11.6 (stabilization).}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) If nominal interest income is taxed at 30\%, keeping the after-tax real
+return constant requires the nominal rate to rise by more than one point per point of expected
+inflation.
+\gabarito{T}
+\begin{sol}
+\passo{Darby effect}{$(1-t)i-\pi^e=\text{const}\Rightarrow di/d\pi^e=1/(1-t)=1.43$.}
+\refbib{Kurlat (2020), \S11.4, pp.~217--218.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Seigniorage and hyperinflation, Brazil in the 1980s (illustrative).
+Real money demand relative to GDP is $m=\kappa e^{-a\pi^e}$ ($\kappa$ absorbs the real rate); output is
+constant; a deficit $d$ (share of GDP) is financed by printing money, $\mu m=d$ with $\mu=\dot M/M$; money
+market clearing gives $\dot m/m=\mu-\pi$. Numbers: $\kappa=0.3$, $a=2.5$, $d=0.03$.}
+
+\textbf{a)} (3 points) Characterize the steady states. Find the revenue-maximizing inflation and the
+maximum deficit $d_{max}$, prove that there are exactly two steady states when $0<d<d_{max}$, and
+compute them.
+\resolespaco
+\begin{sol}
+\passo{steady state}{$\dot m=0$ gives $\pi=\mu$ and $\pi^e=\pi$, so $d=S(\pi)\equiv\pi\kappa e^{-a\pi}$.}
+\passo{Laffer curve}{$S'(\pi)=\kappa e^{-a\pi}(1-a\pi)$: $S$ rises on $[0,1/a]$, falls after, $S(0)=0$, $S\to0$ as $\pi\to\infty$.
+Maximum at $\pi=1/a=40\%$: $d_{max}=\kappa/(ae)=4.41\%$ of GDP.}
+\passo{two roots}{For $0<d<d_{max}$, continuity and strict monotonicity on each branch give exactly one
+root on each side of $1/a$ (intermediate value theorem): $\pi_L=14.3\%$, $\pi_H=86.1\%$.}
+\refbib{Romer (2012), \S11.9, eq.\ (11.68), pp.~567--572; Kurlat (2020), \S11.3, eq.\ (11.3.1), p.~216.}
+\rubrica{
+\item Steady-state condition: 0.5 pt.
+\item Laffer maximum and $d_{max}$: 1 pt.
+\item Exactly two roots, with the monotonicity argument: 1 pt. Roots found numerically without the argument: 0.5 pt.
+\item Values: 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (4 points) Expectations adapt: $\dot\pi^e=\gamma(\pi-\pi^e)$. Derive
+$\dot\pi^e=\frac{\gamma}{1-a\gamma}h(\pi^e)$ with $h(\pi)\equiv\frac d\kappa e^{a\pi}-\pi$. Prove that if $a\gamma<1$ the low-inflation
+steady state is stable and the high one unstable, and that this reverses if $a\gamma>1$. What happens
+under perfect foresight? Evaluate with $\gamma=0.3$.
+\resolespaco
+\begin{sol}
+\passo{derivation}{$m=\kappa e^{-a\pi^e}\Rightarrow\dot m/m=-a\dot\pi^e$. Money market: $\dot m/m=d/m-\pi$. Adaptive
+expectations: $\pi=\pi^e+\dot\pi^e/\gamma$. Hence $-a\dot\pi^e=d/m-\pi^e-\dot\pi^e/\gamma$, i.e.\
+$\dot\pi^e(\tfrac1\gamma-a)=\frac d\kappa e^{a\pi^e}-\pi^e$.}
+\passo{stability}{At a steady state $\frac d\kappa e^{a\pi_s}=\pi_s$, so $h'(\pi_s)=a\frac d\kappa e^{a\pi_s}-1=a\pi_s-1$: negative at
+$\pi_L$ ($a\pi_L<1$), positive at $\pi_H$. The local eigenvalue is $\frac{\gamma}{1-a\gamma}h'(\pi_s)$: with $a\gamma<1$,
+$\pi_L$ is stable and $\pi_H$ unstable; with $a\gamma>1$ the signs flip.}
+\passo{numbers}{$a\gamma=0.75$, $\frac{\gamma}{1-a\gamma}=1.2$; $h'(\pi_L)=-0.643$, $h'(\pi_H)=1.153$: eigenvalues $-0.771$ and $+1.384$.}
+\passo{perfect foresight}{$\pi=\pi^e$ gives $\dot\pi=-h(\pi)/a$: $\pi_L$ unstable, $\pi_H$ stable. Since the price level
+can jump, every path starting with $\pi>\pi_L$ converges to $\pi_H$ (between the roots $h<0$, above
+$\pi_H$ $h>0$): a continuum of equilibria, and the low-inflation steady state is reached only by
+starting exactly there.}
+\refbib{Romer (2012), \S11.9, eq.\ (11.75) and footnote 34, and problem 11.22, p.~583.}
+\rubrica{
+\item Derivation of the law of motion: 1.5 pts.
+\item Stability with $h'(\pi_s)=a\pi_s-1$: 1.5 pts.
+\item Perfect foresight and indeterminacy: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (4 points) Let $d>d_{max}$. Prove that $h(\pi)>0$ for every $\pi$, that $\pi^e$ then rises without bound
+when $a\gamma<1$, and that it reaches infinity in finite time. What goes wrong at $a\gamma=1$?
+\resolespaco
+\begin{sol}
+\passo{minimum of $h$}{$h'(\pi)=a\frac d\kappa e^{a\pi}-1=0$ at $\pi_m=\frac1a\ln\frac{\kappa}{ad}$, a minimum ($h''>0$):
+$h(\pi_m)=\frac1a\big[1-\ln\frac{\kappa}{ad}\big]$, positive iff $\ln\frac{\kappa}{ad}<1\iff d>\frac{\kappa}{ae}=d_{max}$.}
+\passo{no bound}{With $a\gamma<1$, $\dot\pi^e=\frac{\gamma}{1-a\gamma}h(\pi^e)\ge\frac{\gamma}{1-a\gamma}h(\pi_m)>0$: $\pi^e$ rises at least linearly.}
+\passo{finite time}{The time to go from $\pi_0$ to infinity is $T=\frac{1-a\gamma}{\gamma}\int_{\pi_0}^{\infty}\frac{d\pi}{h(\pi)}$. For large
+$\pi$, $h(\pi)\ge\frac{d}{2\kappa}e^{a\pi}$, so the integrand is bounded by $\frac{2\kappa}{d}e^{-a\pi}$, which is
+integrable: $T<\infty$.}
+\passo{$a\gamma=1$}{The coefficient $\gamma/(1-a\gamma)$ is undefined: expectations adjust so fast that the
+money-market equation no longer determines $\dot\pi^e$; the model has no well-defined dynamics at that knife edge.}
+\refbib{Romer (2012), \S11.9, pp.~572--576, and problem 11.22.}
+\rubrica{
+\item Minimum of $h$ and the equivalence with $d>d_{max}$: 1.5 pts.
+\item Unbounded growth: 1 pt.
+\item Finite-time argument (an integrable bound): 1 pt. ``It explodes'' without an argument: 0 for this line.
+\item Knife edge: 0.5 pt.
+}
+\end{sol}
+
+\textbf{d)} (4 points) The deficit rises from 3\% to 5\% of GDP while the economy sits at $\pi_L$, with $\gamma=0.3$.
+The time for expected inflation to reach 100\% a year is $6.58$ years and to diverge, $6.82$ years
+(numerical integration of (c)). Explain where the time goes, using the minimum of $h$. What does
+indexation that raises $\gamma$ above $1/a$ do, and which policies end the process?
+\resolespaco
+\begin{sol}
+\passo{bottleneck}{$\pi_m=\frac1{2.5}\ln\frac{0.3}{2.5\cdot0.05}=35.0\%$ and $h(\pi_m)=0.0498$: $\dot\pi^e$ is smallest near 35\%,
+where the two steady states used to be. Most of the 6.8 years is spent crawling past that point;
+the final rise from 100\% to infinity takes only $0.24$ years.}
+\passo{indexation}{$\gamma>1/a=0.4$ a year flips stability: even with $d<d_{max}$ the low-inflation steady state
+becomes unstable, so inflation drifts to the high steady state or beyond (inertial inflation).}
+\passo{policy}{Only bringing $d$ below $d_{max}$ restores steady states; a credible stabilization must
+cut the deficit and reset expectations (de-indexation), as the 1994 Real Plan combined fiscal
+adjustment with the URV. A higher money growth rate cannot raise revenue past $d_{max}$.}
+\intuicao{Money printing is a tax with a shrinking base. Past the Laffer peak, no inflation rate pays
+the bill, and expectations turn a fiscal gap into an explosion.}
+\refbib{Romer (2012), \S11.9; Kurlat (2020), \S11.3 and Exercise 11.6.}
+\rubrica{
+\item Bottleneck from the minimum of $h$: 1.5 pts.
+\item Indexation and the stability flip: 1.5 pts.
+\item Policy: 1 pt. ``Print more money'' as a remedy: 0 for this line.
+}
+\end{sol}
+
+\end{document}

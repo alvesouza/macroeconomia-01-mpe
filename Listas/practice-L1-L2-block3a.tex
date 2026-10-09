@@ -1,0 +1,111 @@
+% =============================================================================
+\bloco{3}{Integrative: growth, welfare, national accounts and prices}{Kurlat chs.~1--2, 4--5; Romer ch.~1 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{PPP $\times$ growth (Hsieh--Klenow).} Brazil ($B$) and the US ($U$) produce a final good
+with $Y=K^{\alpha}(AL)^{1-\alpha}$, $\alpha\in(0,1)$, with the same $A$ and the same $n+g+\delta>0$; both are on their
+Solow balanced paths. The final good is consumed one for one or turned into new capital at a cost of $p_j$ units
+of the good per unit of capital, so $p_j$ is the price of investment relative to consumption; $p_B=\pi p_U$ with
+$\pi>1$, and US prices are the international prices. At domestic prices, investment absorbs the shares
+$s_B,s_U\in(0,1)$ of output. Output per effective worker, in units of the final good, in Brazil relative to the US is:
+\begin{alternativas}
+\item $\big(s_B/(\pi s_U)\big)^{1/(1-\alpha)}$
+\item $\big(s_B/(\pi s_U)\big)^{\alpha/(1-\alpha)}$
+\item $\big(s_B/s_U\big)^{\alpha}$
+\item $\big(s_B/(\pi s_U)\big)^{\alpha}$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{accumulation in physical units}{Spending $s_jY_j$ at the price $p_j$ buys $I_j=s_jY_j/p_j$ units of capital, so
+$\dot{\tilde k}=(s_j/p_j)\tilde k^{\alpha}-(n+g+\delta)\tilde k$, $\tilde k_j^*=\big[s_j/(p_j(n+g+\delta))\big]^{1/(1-\alpha)}$ and
+$\tilde y_j^*=(\tilde k_j^*)^{\alpha}=\big[s_j/(p_j(n+g+\delta))\big]^{\alpha/(1-\alpha)}$.}
+\passo{ratio}{With $p_B=\pi p_U$, $\tilde y_B^*/\tilde y_U^*=\big[(s_B/p_B)/(s_U/p_U)\big]^{\alpha/(1-\alpha)}=\big(s_B/(\pi s_U)\big)^{\alpha/(1-\alpha)}$,
+where $s_B/\pi=p_UI_B/Y_B$ is Brazil's investment rate at international prices. Even with $s_B=s_U$ the gap is
+$\pi^{-\alpha/(1-\alpha)}<1$.}
+\passo{distractors}{A is the ratio $\tilde k_B^*/\tilde k_U^*$ of capital, not of output. D treats $\tilde k^*$ as proportional to the
+real investment rate and misses the feedback from capital to the output that is reinvested (the multiplier
+$1/(1-\alpha)$). C makes two mistakes: it misses the multiplier, as D does, and measures investment at domestic
+prices, as if a unit of investment spending bought as much capital in Brazil as in the US.}
+\intuicao{Poor countries do not spend a smaller share of output on investment; investment goods are dear there
+relative to consumption, so the same share buys fewer machines and sustains less capital.}
+\refbib{Kurlat (2020), ch.~1, \S1.2 (Making Comparisons); ch.~5, \S5.3 (The Capital Accumulation Hypothesis).
+Hsieh and Klenow (2007), \emph{American Economic Review} 97(3).}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{National accounts $\times$ Golden Rule.} An economy with $Y=F(K,AL)$ (constant returns,
+$\tilde y=f(\tilde k)$, $f'>0>f''$, Inada conditions) and competitive factor markets is on a balanced path on which
+output grows at rate $n+g>0$. Its national accounts report a gross capital income share $\alpha_K\in(0,1)$ of GDP and
+a capital--output ratio $v=K/Y>0$; capital depreciates at rate $\delta>0$, and households discount utility at rate
+$\rho>0$. Capital per effective worker is strictly below its Golden Rule level, so the path is dynamically
+efficient, if and only if:
+\begin{alternativas}
+\item $\alpha_K/v>n+g$
+\item $\alpha_K/v-\delta>n+g$
+\item $\alpha_K/v>\rho+n+g$
+\item $\alpha_K/v-\delta>\rho+n+g$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{gross return from the accounts}{Competitive firms pay capital its marginal product, so gross capital income
+is $f'(\tilde k)K$ and $\alpha_K=f'(\tilde k)\,v$: the accounts reveal $f'(\tilde k)=\alpha_K/v$ for any neoclassical $f$,
+Cobb--Douglas or not.}
+\passo{Golden Rule}{On a balanced path $\hat c=f(\tilde k)-(n+g+\delta)\tilde k$, strictly concave, with its peak at
+$f'(\tilde k_{GR})=n+g+\delta$. As $f'$ is decreasing, $\tilde k<\tilde k_{GR}\iff f'(\tilde k)>n+g+\delta\iff
+\alpha_K/v-\delta>n+g$. Multiplying by $v$: $\alpha_K>(n+g+\delta)v=I/Y$, so gross capital income exceeds the gross
+investment the balanced path needs; since $I/Y=s$ on that path, the test reads $\alpha_K>s$.}
+\passo{distractors}{A forgets depreciation and passes economies above the Golden Rule, with
+$n+g<\alpha_K/v<n+g+\delta$. D tests capital against the modified golden rule $f'-\delta=\rho+n+g$ of a planner who
+discounts at $\rho$ (Question 6(d)) and fails efficient economies, with $n+g+\delta<\alpha_K/v<n+g+\delta+\rho$: an
+optimality condition given preferences, while efficiency is a property of the feasible set, which $\rho$ does not
+enter. C makes both mistakes: it passes inefficient economies if $\rho<\delta$ and fails efficient ones if $\rho>\delta$.}
+\intuicao{Capital that pays out more than it absorbs to keep $\tilde k$ constant is a net source of consumption; if it
+absorbs more, saving less raises consumption at every date (Abel et al., 1989).}
+\refbib{Kurlat (2020), ch.~4, \S4.3 (The Golden Rule) and \S4.4 (Markets); Romer (2012), ch.~2, \S2.11 (The
+Possibility of Dynamic Inefficiency).}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{Growth $\times$ welfare $\times$ discounting.} A Solow economy with
+$Y=K^{\alpha}(AL)^{1-\alpha}$, $\alpha\in(0,1)$, $\dot A/A=g$, $\dot L/L=n$ and $n+g+\delta>0$ is on its balanced path with a
+saving rate $s_0$ below the Golden Rule rate $s_{GR}$. Current households value the path of consumption per worker
+by $W=\int_0^\infty e^{-\rho t}\ln c(t)\,dt$. A permanent rise in the saving rate at $t=0$, to any $s_1\in(s_0,s_{GR}]$,
+raises $W$ for every discount rate $\rho>0$.
+\gabarito{F}
+\begin{sol}
+\passo{integration by parts}{$A(t)$ is common to both paths, so $\Delta W=\int_0^\infty e^{-\rho t}D(t)\,dt$, where
+$D(t)=\ln\hat c_1(t)-\ln\hat c_0^*$ is the bounded log change in consumption. Integrating by parts,
+\[\rho\,\Delta W=D(0)+\int_0^\infty e^{-\rho t}D'(t)\,dt.\]}
+\passo{impact and transition}{$\tilde k$ is predetermined, so $D(0)=\ln[(1-s_1)/(1-s_0)]<0$. Afterwards
+$D'(t)=\alpha\dot{\tilde k}/\tilde k=\alpha[s_1\tilde k^{\alpha-1}-(n+g+\delta)]$ is positive and falls as $\tilde k$ rises,
+so $0<D'(t)\le D'(0)=\alpha(n+g+\delta)(s_1-s_0)/s_0$.}
+\passo{the sign depends on $\rho$}{Hence $D(0)<\rho\,\Delta W<D(0)+D'(0)/\rho$, and $\rho\,\Delta W\to D(0)<0$ as
+$\rho\to\infty$; explicitly, $\Delta W<0$ for every $\rho\ge\bar\rho\equiv D'(0)/|D(0)|$, that is,
+\[\bar\rho=\frac{\alpha(n+g+\delta)(s_1-s_0)}{s_0\ln[(1-s_0)/(1-s_1)]}.\]
+As $\rho\to0$, instead, monotone convergence gives $\rho\,\Delta W\to D(\infty)=\ln\frac{1-s_1}{1-s_0}+\frac{\alpha}{1-\alpha}
+\ln\frac{s_1}{s_0}>0$, because $\frac{d}{ds}\ln\hat c^*(s)=\frac{\alpha-s}{(1-\alpha)s(1-s)}>0$ below $s_{GR}=\alpha$. The sign of
+$\Delta W$ depends on $\rho$; Question 6 develops the threshold.}
+\intuicao{Saving more trades an immediate consumption cut for a gain that builds up with capital; being below the
+Golden Rule guarantees the gain, not that it is worth the wait.}
+\refbib{Kurlat (2020), ch.~2, \S2.2 (Beyond GDP); ch.~4, \S4.3 (The Golden Rule); Romer (2012), ch.~1, \S1.4 (The
+Impact of a Change in the Saving Rate).}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Measurement $\times$ growth.} In the economy of item c), let the saving rate
+rise permanently at $t=0$ from $s_0$ to any $s_1\in(s_0,1)$. Output per worker does not jump but consumption per
+worker falls; afterwards both grow faster than $g$, at the same rate, until the new balanced path.
+\gabarito{T}
+\begin{sol}
+\passo{impact}{$K$, $L$ and $A$ are predetermined, so $y=A\tilde k^{\alpha}$ does not jump, while $c=(1-s)y$ falls by
+the factor $(1-s_1)/(1-s_0)<1$.}
+\passo{transition}{With $s_1$ fixed, $c/y=1-s_1$, so $\dot c/c=\dot y/y=g+\alpha\dot{\tilde k}/\tilde k$, where
+$\dot{\tilde k}/\tilde k=s_1\tilde k^{\alpha-1}-(n+g+\delta)>0$ for $\tilde k\in[\tilde k_0^*,\tilde k_1^*)$. The excess over $g$ falls
+monotonically to zero as $\tilde k\to\tilde k_1^*$, which is reached only asymptotically.}
+\passo{what the accounts show}{Growth accounting with $k=K/L$ gives $\dot y/y=\alpha\dot k/k+(1-\alpha)g$: the residual
+stays at $(1-\alpha)g$, so the whole acceleration is capital deepening, and the consumption share of GDP drops once,
+from $1-s_0$ to $1-s_1$.}
+\refbib{Kurlat (2020), ch.~4, \S4.5 (Technological Progress); ch.~5, \S5.4 (Growth Accounting); Romer (2012),
+ch.~1, \S1.4 and \S1.7.}
+\end{sol}

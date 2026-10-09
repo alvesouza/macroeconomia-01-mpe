@@ -1,0 +1,358 @@
+% Practice list B --- topics of Listas 3-4 (Kurlat chs. 6-7), GRADUATE LEVEL (style guide §8).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-L3-L4-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Consumption, Saving and Labor Markets --- graduate level (Listas 3--4)}
+\renewcommand{\espacoresol}{6cm}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{Consumption and saving}{Kurlat ch.~6; Romer ch.~8 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) A household lives two periods with $u(c_1)+\beta u(c_2)$, $u=c^{1-\sigma}/(1-\sigma)$,
+$\sigma=2$, $\beta=0.95$, and income $(y_1,y_2)$. It earns $r_s=2\%$ (real) on deposits but pays
+$r_b=30\%$ (real) on consumer credit. For which values of $y_2/y_1$ does it neither borrow nor lend?
+\begin{alternativas}
+\item $[0.984,\ 1.111]$
+\item $[0.969,\ 1.235]$
+\item $[1.020,\ 1.300]$
+\item $[0.950,\ 1.000]$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{kinked budget}{The budget line has slope $-(1+r_s)$ to the right of the endowment (saving) and
+$-(1+r_b)$ to its left (borrowing). At the kink $c_t=y_t$.}
+\passo{optimality at the kink}{The household stays at the kink iff its MRS lies between the two gross
+rates: $1+r_s\le\dfrac{u'(y_1)}{\beta u'(y_2)}=\dfrac{(y_2/y_1)^{\sigma}}{\beta}\le1+r_b$, i.e.\
+$y_2/y_1\in[(\beta(1+r_s))^{1/\sigma},(\beta(1+r_b))^{1/\sigma}]=[0.984,1.111]$. Option B is the
+log-utility ($\sigma=1$) answer.}
+\refbib{Kurlat (2020), \S6.2, pp.~105--117, and Exercise 6.6 (kinked budget sets).}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Three periods, $r=0$, wealth $W=100$, log utility. The self at date $t$ maximizes
+$\ln c_t+\beta\sum_{s>t}\ln c_s$ with $\beta=1/2$ (present bias, no long-run discounting). Self 0
+anticipates how self 1 will behave. What share of consumption \emph{in every period} would self 0
+give up to commit future selves to its own preferred plan?
+\begin{alternativas}
+\item $0\%$
+\item $2.9\%$
+\item $5.9\%$
+\item $1.5\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{self 1}{$\max\ln c_1+\beta\ln c_2$ s.t.\ $c_1+c_2=W_1$: $c_1=W_1/(1+\beta)$, $c_2=\beta W_1/(1+\beta)$.}
+\passo{self 0}{$\max\ln c_0+\beta[\ln c_1+\ln c_2]=\ln c_0+2\beta\ln W_1+\text{const}$: $c_0=W/(1+2\beta)=50$,
+so $W_1=50$, $c_1=33.3$, $c_2=16.7$. Self 0 would prefer $c_1=c_2=25$.}
+\passo{value of commitment}{Gain $\beta[2\ln25-\ln33.3-\ln16.7]=0.0589$ utils. Cutting all three
+consumptions by a share $x$ costs $(1+2\beta)\ln\frac1{1-x}$, so $x=1-e^{-0.0589/2}=2.9\%$.
+Option A confuses ``naive = sophisticated under log'' (item c) with ``no gain from commitment''.}
+\refbib{Romer (2012), \S8.6 and problem 8.15, pp.~397--404; Kurlat (2020), \S6.4, pp.~120--121.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In (b), a sophisticated self 0 consumes less at date 0 than a naive self 0,
+who believes future selves will follow its plan, because it anticipates their overconsumption.
+\gabarito{F}
+\begin{sol}
+\passo{naive}{Believing $c_1=c_2=W_1/2$, the naive self solves $\max\ln c_0+2\beta\ln(W_1/2)$: $c_0=W/(1+2\beta)$, the same.}
+\passo{why}{Under log utility, future consumption is proportional to $W_1$ whatever the rule, so the
+misbehavior changes continuation utility by a constant that does not depend on $W_1$ and leaves the
+margin untouched. With $\sigma\ne1$ the two differ (the check script verifies that the sophisticate
+consumes less at $\sigma=2$ and more at $\sigma=1/2$); log is the knife edge.}
+\refbib{Romer (2012), problem 8.15.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) A household with $y_1=0$ and $y_2>0$ that can borrow at $r$ lowers $c_1$ when
+$r$ rises, whatever $\sigma>0$.
+\gabarito{T}
+\begin{sol}
+\passo{closed form}{From the Euler equation $c_2=[\beta(1+r)]^{1/\sigma}c_1$ and the budget
+$c_1+c_2/(1+r)=y_2/(1+r)$: $c_1=\dfrac{y_2}{(1+r)+\beta^{1/\sigma}(1+r)^{1/\sigma}}$; the denominator rises with
+$r$ for every $\sigma>0$. Substitution, income (a borrower is poorer) and human-wealth effects all
+lower $c_1$.}
+\refbib{Kurlat (2020), \S6.2; Romer (2012), \S8.4, pp.~380--384.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Permanent income over an infinite horizon. A household maximizes
+$\sum_{t\ge0}\beta^tu(c_t)$, $u=c^{1-\sigma}/(1-\sigma)$, subject to $c_t+a_{t+1}=y_t+(1+r)a_t$, $a_0$ given,
+and the no-Ponzi condition $\lim_{T\to\infty}a_{T+1}/(1+r)^T\ge0$. Let $R\equiv1+r$ and $H_t\equiv\sum_{j\ge0}y_{t+j}R^{-j}$.}
+
+\textbf{a)} (3 points) Derive the intertemporal budget constraint and the consumption function
+$c_0=(1-\gamma)(Ra_0+H_0)$, $\gamma\equiv\beta^{1/\sigma}R^{1/\sigma-1}$. State the condition for a solution and show that
+with log utility the propensity to consume out of wealth does not depend on $r$.
+\resolespaco
+\begin{sol}
+\passo{budget}{Multiply the flow constraint by $R^{-t}$: $R^{-t}c_t+R^{-t}a_{t+1}=R^{-t}y_t+R^{-(t-1)}a_t$. Summing
+from $0$ to $T$ telescopes the assets:
+\[\sum_{t=0}^TR^{-t}c_t+R^{-T}a_{T+1}=\sum_{t=0}^TR^{-t}y_t+Ra_0.\]
+At an optimum the no-Ponzi condition binds ($\lim R^{-T}a_{T+1}=0$; a positive limit would be
+unspent wealth). Letting $T\to\infty$: $\sum_tR^{-t}c_t=Ra_0+H_0$.}
+\passo{Euler}{Lagrangian with multiplier $\Lambda$ on the budget: $\beta^tu'(c_t)=\Lambda R^{-t}$, so
+$u'(c_t)=\beta Ru'(c_{t+1})$ and $c_t=c_0(\beta R)^{t/\sigma}$.}
+\passo{consumption function}{Substituting: $c_0\sum_t(\beta R)^{t/\sigma}R^{-t}=c_0\sum_t\gamma^t=c_0/(1-\gamma)$, which needs
+$\gamma<1$ (otherwise lifetime utility is unbounded and no optimum exists). Hence
+$c_0=(1-\gamma)(Ra_0+H_0)$.}
+\passo{log case}{$\sigma=1$: $\gamma=\beta$, so the propensity to consume out of total wealth is $1-\beta$,
+independent of $r$ (income and substitution effects of $r$ cancel; $r$ still changes $H_0$).}
+\refbib{Kurlat (2020), \S6.3, eqs.\ (6.3.6)--(6.3.9), pp.~117--120; Romer (2012), \S8.1.}
+\rubrica{
+\item Telescoping to the intertemporal constraint, with the role of no-Ponzi: 1 pt.
+\item Euler equation: 1 pt.
+\item Consumption function and $\gamma<1$: 0.5 pt.
+\item Log case: 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (4 points) Let $\beta R=1$. Show that $c_t=\frac rR(Ra_t+H_t)$ and prove Campbell's
+``saving for a rainy day'' equation, $s_t\equiv ra_t+y_t-c_t=-\sum_{j\ge1}R^{-j}\Delta y_{t+j}$.
+\resolespaco
+\begin{sol}
+\passo{flat consumption}{$\beta R=1$ gives $\gamma=R^{-1}$, $1-\gamma=r/R$, and $c$ constant; applying (a) from
+date $t$: $c_t=\frac rR(Ra_t+H_t)=ra_t+\frac rRH_t$.}
+\passo{saving}{$s_t=ra_t+y_t-c_t=y_t-\frac rRH_t$.}
+\passo{summation by parts}{Expand the right-hand side of Campbell's equation:
+\[-\sum_{j\ge1}R^{-j}(y_{t+j}-y_{t+j-1})=-\sum_{j\ge1}R^{-j}y_{t+j}+R^{-1}\sum_{k\ge0}R^{-k}y_{t+k}
+=-(H_t-y_t)+\frac{H_t}{R}=y_t-\frac rRH_t,\]
+which is $s_t$ (assuming $R^{-j}y_{t+j}\to0$).}
+\intuicao{Households save when they expect income to fall and dissave when they expect it to rise:
+saving is a forecast of income declines, and consumption reacts to news, not to current income.}
+\refbib{Romer (2012), \S8.2--8.3 (deterministic version).}
+\rubrica{
+\item Flat consumption and the annuity formula: 1 pt.
+\item $s_t=y_t-\frac rRH_t$: 1 pt.
+\item Summation by parts, every line shown: 2 pts. Verifying on an example only: max.\ 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (4 points) Brazil's 2019 pension reform, stylized. $r=4\%$, $\beta R=1$, $a_0=0$; earnings are
+$100$ for $t=0,\dots,29$ and the pension is $60$ forever from $t=30$. At $t=0$ a reform is announced that
+cuts the pension to $45$. Compute $\Delta c_0$ with the consumption function and $\Delta s_0$ with
+Campbell's equation. Compare with the response to a one-off transfer and to a permanent raise of
+the same size, and give the limit of $\Delta c_0$ as $r\to0$ (keeping $\beta R=1$).
+\resolespaco
+\begin{sol}
+\passo{wealth effect}{$\Delta H_0=-15\sum_{t\ge30}R^{-t}=-15R^{-30}\frac{R}{r}$, so
+$\Delta c_0=\frac rR\Delta H_0=-15R^{-30}=-15\cdot0.3083=-4.62$.}
+\passo{Campbell}{Only $\Delta y_{30}$ changes, by $-15$: $\Delta s_0=-R^{-30}(-15)=+4.62=-\Delta c_0$. Consistent.}
+\passo{benchmarks}{A one-off transfer $X$ at $t=0$: $\Delta c_0=\frac rRX=0.038X$. A permanent raise $X$:
+$\Delta H_0=XR/r$, $\Delta c_0=X$.}
+\passo{limit}{$-15R^{-30}\to-15$ as $r\to0$: a fully patient household cuts consumption today by the
+whole future cut, because the infinite future weighs as much as the present.}
+\intuicao{News about income 30 years ahead moves consumption today by 4.6\% of current earnings;
+the pension reform raised private saving before any pension was paid.}
+\refbib{Kurlat (2020), \S6.3; Romer (2012), \S8.2.}
+\rubrica{
+\item $\Delta H_0$ and $\Delta c_0$: 1.5 pts.
+\item Campbell check: 1 pt.
+\item Benchmarks: 1 pt. Treating the cut as transitory: max.\ 2 pts in the item.
+\item Limit: 0.5 pt.
+}
+\end{sol}
+
+\textbf{d)} (4 points) Now $a_{t+1}\ge0$ for all $t$ (no borrowing), log utility, $r=4\%$, $\beta R=1$, $a_0=0$;
+earnings are $50$ for $t\le9$ and $100$ from $t=10$. Show the unconstrained plan is infeasible. Prove,
+with the Kuhn--Tucker conditions, that $c_t=y_t$ is optimal and find which multipliers are positive.
+Compute the welfare cost of the constraint (the share of the unconstrained consumption path the
+household would accept to give up) and the propensity to consume a small transfer received at
+$t=0$ and at $t=9$.
+\resolespaco
+\begin{sol}
+\passo{infeasible}{Unconstrained $c=\frac rRH_0=50+50R^{-10}=83.78>50=y_0$, so $a_1<0$.}
+\passo{Lagrangian}{$\mathcal L=\sum_t\beta^t\ln c_t+\sum_t\Lambda_t[y_t+Ra_t-c_t-a_{t+1}]+\sum_t\mu_{t+1}a_{t+1}$,
+$\mu\ge0$, $\mu_{t+1}a_{t+1}=0$. FOCs: $\beta^t/c_t=\Lambda_t$ and $-\Lambda_t+R\Lambda_{t+1}+\mu_{t+1}=0$, so
+$\mu_{t+1}=\beta^t\big(\frac1{c_t}-\frac1{c_{t+1}}\big)$ using $\beta R=1$.}
+\passo{verification}{At $c_t=y_t$, $a_t=0$: $\mu_{t+1}=0$ for $t\le8$ and $t\ge10$ (consumption flat);
+$\mu_{10}=\beta^9(\frac1{50}-\frac1{100})>0$. All multipliers are non-negative and complementary
+slackness holds; the objective is concave and the constraints linear, so the KKT point is optimal.}
+\passo{welfare}{$U^c=\sum_{t<10}\beta^t\ln50+\frac{\beta^{10}}{1-\beta}\ln100$, $U^u=\frac{\ln83.78}{1-\beta}$. The cost
+$x$ solves $\frac{\ln(1-x)}{1-\beta}=U^c-U^u$: $x=4.68\%$ of consumption forever.}
+\passo{propensities}{At $t=9$ the household wants to borrow against $t=10$ ($\mu_{10}>0$): a small
+transfer is consumed at once, MPC $=1$. At $t=0$ the Euler equation holds with equality between
+dates $0,\dots,9$, so the transfer is spread over those ten dates:
+$\Delta c_0=X\frac{r/R}{1-R^{-10}}=0.119X$.}
+\intuicao{A household at zero wealth is not automatically hand-to-mouth at the margin: what matters
+is whether the constraint binds \emph{next} period.}
+\refbib{Kurlat (2020), \S6.2 (borrowing constraints) and Exercise 6.5; Romer (2012), \S8.6, pp.~393--395.}
+\rubrica{
+\item Infeasibility: 0.5 pt.
+\item KKT conditions with signed multipliers: 1.5 pts. Asserting $c=y$ without the multipliers: max.\ 0.5 pt here.
+\item Welfare cost: 1 pt.
+\item Both propensities, with the timing argument: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Labor supply and search}{Kurlat ch.~7; Romer ch.~10 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) Let $u=\ln c-\psi\frac{h^{1+1/\varepsilon}}{1+1/\varepsilon}$ with $c=wh+\pi$, evaluated at $\pi=0$, $\varepsilon=1/2$. The
+Marshallian, Hicksian (compensated) and Frisch elasticities of hours with respect to $w$ are:
+\begin{alternativas}
+\item $(0,\ 1/3,\ 1/2)$
+\item $(1/2,\ 1/2,\ 1/2)$
+\item $(0,\ 1/2,\ 1/3)$
+\item $(-1/3,\ 0,\ 1/2)$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{FOC}{$\psi h^{1/\varepsilon}=w/c$. Marshallian: at $\pi=0$, $c=wh$ gives $\psi h^{1+1/\varepsilon}=1$: hours do not depend on $w$.}
+\passo{Frisch}{Holding the marginal utility of wealth $1/c$ fixed, $h\propto w^{\varepsilon}$: elasticity $1/2$.}
+\passo{Hicksian}{Implicit differentiation of $\psi h^{\phi}(wh+\pi)=w$ ($\phi=1/\varepsilon$) gives
+$\partial h/\partial\pi=-1/[w(1+\phi)]$ at $\pi=0$. Slutsky: $\partial h^c/\partial w=\partial h/\partial w-h\,\partial h/\partial\pi$, so the
+compensated elasticity is $1/(1+\phi)=\varepsilon/(1+\varepsilon)=1/3$. Frisch $\ge$ Hicksian $\ge$ Marshallian.}
+\refbib{Kurlat (2020), \S7.2, eq.\ (7.2.4), pp.~134--135, and footnote 8, p.~149.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Prescott's calculation with $u=\ln c+\alpha\ln(1-h)$, $Y=K^{\vartheta}(hN)^{1-\vartheta}$, $\vartheta=1/3$, a
+labor tax wedge $\tau$ rebated lump-sum. Calibrate $\alpha$ on the US ($h=0.40$, $\tau=0.40$, $c/y=0.75$)
+and predict Brazil's hours ($\tau=0.50$, $c/y=0.80$):
+\begin{alternativas}
+\item $0.400$
+\item $0.357$
+\item $0.342$
+\item $0.333$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{FOC}{$\alpha c/(1-h)=(1-\tau)w$ and $w=(1-\vartheta)y/h$ give $\dfrac h{1-h}=\dfrac{(1-\tau)(1-\vartheta)}{\alpha\,c/y}$.}
+\passo{calibration}{US: $\frac{0.4}{0.6}=\frac{0.6\cdot2/3}{0.75\alpha}\Rightarrow\alpha=0.8$. Brazil:
+$\frac h{1-h}=\frac{0.5\cdot2/3}{0.8\cdot0.8}=0.521$, $h=0.342$. Option B keeps $c/y=0.75$.}
+\refbib{Kurlat (2020), \S7.3 and Exercise 7.5, pp.~137--140 and 148--149.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) With matching function $m=\mu U^{1-\alpha}V^{\alpha}$, the search equilibrium with
+bargained wages is efficient if and only if the workers' bargaining power equals $\alpha$.
+\gabarito{F}
+\begin{sol}
+\passo{Hosios}{Efficiency requires the workers' power to equal the elasticity of matches with
+respect to \emph{unemployment}, $1-\alpha$ (Question 4(c)).}
+\refbib{Romer (2012), \S10.7, pp.~497--498, and problem 10.17.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) In the steady-state search model with $w=(1-\phi)z+\phi(y+\kappa\theta)$, if
+unemployment income $z$ and the vacancy cost $\kappa$ are proportional to productivity $y$, a permanent
+rise in $y$ leaves unemployment unchanged.
+\gabarito{T}
+\begin{sol}
+\passo{homogeneity}{The job-creation condition $(1-\phi)(y-z)q(\theta)=\kappa(r+s+\phi f(\theta))$ is homogeneous of
+degree one in $(y,z,\kappa)$; with $z=\zeta y$, $\kappa=ky$, $y$ cancels and $\theta$, hence $u$, is unchanged.}
+\refbib{Kurlat (2020), \S7.5, p.~146 (Shimer's critique).}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. The search-and-matching model in steady state (monthly). Labor
+force $1$; unemployment $u$, vacancies $v$, tightness $\theta=v/u$; matches $m=\mu u^{1-\alpha}v^{\alpha}$;
+job-finding rate $f(\theta)=m/u=\mu\theta^{\alpha}$; vacancy-filling rate $q(\theta)=m/v=\mu\theta^{\alpha-1}$;
+separations at rate $s$. A filled job produces $y$ and pays $w$; a vacancy costs $\kappa$ per month;
+entry is free. Take the wage rule $w=(1-\phi)z+\phi(y+\kappa\theta)$ as given (it comes from Nash
+bargaining, $\phi$ = workers' power). Use one fact: a flow $x$ that lasts until a Poisson event with
+rate $\varrho$ is worth $x/(r+\varrho)$. Numbers: $r=0.004$, $s=0.03$, $\mu=0.3$, $\alpha=0.5$, $\phi=0.5$, $y=1$, $z=0.7$.}
+
+\textbf{a)} (3 points) Derive the Beveridge curve from flow balance and prove that, in the $(u,v)$
+plane, it is downward sloping and convex.
+\resolespaco
+\begin{sol}
+\passo{flows}{$\dot u=s(1-u)-f(\theta)u$. Steady state: $u=\dfrac s{s+f(\theta)}$.}
+\passo{in $(u,v)$}{$s(1-u)=\mu u^{1-\alpha}v^{\alpha}\Rightarrow v=C(1-u)^{1/\alpha}u^{-(1-\alpha)/\alpha}$, $C=(s/\mu)^{1/\alpha}$.}
+\passo{shape}{Both factors are positive, decreasing and convex in $u$ ($1/\alpha\ge1$). For a product
+$fg$ of such functions $(fg)'=f'g+fg'<0$ and $(fg)''=f''g+2f'g'+fg''>0$, since $f'g'>0$.}
+\refbib{Kurlat (2020), \S7.1 and \S7.5, eq.\ (7.5.2); Romer (2012), \S10.6.}
+\rubrica{
+\item Steady-state flow balance: 1 pt.
+\item Curve in $(u,v)$: 1 pt.
+\item Slope and convexity proved: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (4 points) Derive the job-creation condition from free entry, combine it with the wage
+rule, and prove that tightness $\theta^*$ exists and is unique. Calibrate $\kappa$ so that $\theta^*=1$ and compute
+$u^*$ and $v^*$. Sign $d\theta^*/dy$, $d\theta^*/dz$, $d\theta^*/d\phi$ and $d\theta^*/d\mu$.
+\resolespaco
+\begin{sol}
+\passo{filled job}{A flow $y-w$ until separation: $J=\dfrac{y-w}{r+s}$.}
+\passo{vacancy}{A flow $-\kappa$ until filled (rate $q$), then worth $J$: its value is $\dfrac{-\kappa+qJ}{r+q}$. Free entry
+sets it to zero: $\kappa/q(\theta)=J$ (expected recruiting cost $=$ value of a filled job).}
+\passo{job creation}{With the wage rule, $y-w=(1-\phi)(y-z)-\phi\kappa\theta$, so
+\[(1-\phi)(y-z)=\kappa\Big[\frac{r+s}{q(\theta)}+\phi\theta\Big]\iff(1-\phi)(y-z)q(\theta)=\kappa\big(r+s+\phi f(\theta)\big).\]}
+\passo{existence and uniqueness}{The bracket is continuous and strictly increasing in $\theta$
+($1/q=\theta^{1-\alpha}/\mu$), equals $0$ at $\theta=0$ and tends to $\infty$: if $y>z$ there is exactly one $\theta^*>0$.}
+\passo{calibration}{At $\theta=1$: $\kappa=\dfrac{(1-\phi)(y-z)\mu}{r+s+\phi\mu}=\dfrac{0.045}{0.184}=0.2446$;
+$f=0.3$, $u^*=0.03/0.33=9.09\%$, $v^*=\theta^*u^*=9.09\%$.}
+\passo{comparative statics}{Write $G(\theta)\equiv\kappa[(r+s)\theta^{1-\alpha}/\mu+\phi\theta]-(1-\phi)(y-z)=0$, $G_\theta>0$.
+$G_y<0\Rightarrow d\theta^*/dy>0$; $G_z>0\Rightarrow d\theta^*/dz<0$; $G_\phi=\kappa\theta+y-z>0\Rightarrow d\theta^*/d\phi<0$;
+$G_\mu<0\Rightarrow d\theta^*/d\mu>0$ (implicit function theorem: $d\theta/dx=-G_x/G_\theta$).}
+\refbib{Romer (2012), \S10.6, pp.~486--492 (present values instead of asset equations); Kurlat (2020), \S7.5, eq.\ (7.5.1).}
+\rubrica{
+\item $J$ and the free-entry condition as present values: 1 pt.
+\item Job-creation condition with the wage: 1 pt.
+\item Existence and uniqueness: 1 pt. Graph only: 0.5 pt.
+\item Calibration and the four signs: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (4 points) Efficiency with $r\to0$. A planner chooses $\theta$ to maximize steady-state net output
+$y(1-u)+zu-\kappa v$ subject to the Beveridge curve. Derive its condition and prove that the market
+$\theta$ coincides with it if and only if $\phi=1-\alpha$. With $\kappa$ from (b), compute efficient $\theta$ and $u$, and the
+market values when $\phi=0.7$. Explain the externalities.
+\resolespaco
+\begin{sol}
+\passo{objective}{$W(\theta)=y-(y-z)u(\theta)-\kappa\theta u(\theta)$, $u=\frac s{s+f}$, $u'(\theta)=-\frac{u\,f'(\theta)}{s+f}$, $f'=\alpha q$.}
+\passo{planner FOC}{$W'=-(y-z+\kappa\theta)u'-\kappa u=0\Rightarrow(y-z+\kappa\theta)\frac{\alpha q}{s+f}=\kappa\Rightarrow
+\alpha(y-z+\kappa\theta)=\kappa\frac{s}{q}+\kappa\theta$, i.e.\
+\[\alpha(y-z)=\kappa\frac{s}{q(\theta)}+(1-\alpha)\kappa\theta.\]}
+\passo{market at $r=0$}{From (b): $(1-\phi)(y-z)=\kappa\frac{s}{q(\theta)}+\phi\kappa\theta$. Both right-hand sides are
+increasing in $\theta$, so the two solutions coincide for all parameters iff $1-\phi=\alpha$ and $\phi=1-\alpha$: Hosios.}
+\passo{numbers}{Efficient: $\theta=1.024$, $u=8.99\%$ (the market with $\phi=0.5$ reaches it). With $\phi=0.7$:
+$\theta=0.432$, $u=13.21\%$.}
+\passo{externalities}{An extra vacancy raises $f$ (helps the unemployed) and lowers $q$ (congests other
+firms). Entry is efficient when the firm's share of the surplus, $1-\phi$, equals its contribution to
+matching, $\alpha$.}
+\refbib{Romer (2012), \S10.7, pp.~497--498, and problem 10.17, p.~512.}
+\rubrica{
+\item Planner objective and FOC: 1.5 pts.
+\item Comparison and the Hosios condition: 1.5 pts. Stating $\phi=1-\alpha$ without the comparison: max.\ 1 pt in the item.
+\item Numbers and externalities: 1 pt.
+}
+\end{sol}
+
+\textbf{d)} (4 points) With $\alpha=1/2$ the job-creation condition is a quadratic in $x=\sqrt\theta$: solve it. Compute
+$\theta^*$ and $u^*$ after (i) mismatch lowers $\mu$ to $0.225$ and (ii) more generous unemployment insurance
+raises $z$ to $0.8$. Derive the elasticity of $\theta^*$ with respect to $y$ at the calibrated point, and of $u^*$.
+What does the formula say about Shimer's puzzle?
+\resolespaco
+\begin{sol}
+\passo{quadratic}{Multiply $(1-\phi)(y-z)\mu x^{-1}=\kappa(r+s+\phi\mu x)$ by $x$:
+$\kappa\phi\mu x^2+\kappa(r+s)x-(1-\phi)(y-z)\mu=0$, with positive root
+$x=\dfrac{-\kappa(r+s)+\sqrt{\kappa^2(r+s)^2+4\kappa\phi\mu^2(1-\phi)(y-z)}}{2\kappa\phi\mu}$.}
+\passo{shocks}{(i) $\mu=0.225$: $\theta^*=0.935$, $u^*=12.12\%$; both the Beveridge curve shifts out and $\theta$ falls.
+(ii) $z=0.8$: $\theta^*=0.637$, $u^*=11.14\%$.}
+\passo{elasticity}{Implicit differentiation of the job-creation condition at $\theta=1$, with $\kappa$ from (b):
+\[\frac{d\ln\theta^*}{d\ln y}=\frac{y}{y-z}\cdot\frac1{(1-\alpha)+\alpha\phi f/(r+s+\phi f)}=3.33\cdot\frac{1}{0.908}=3.67,\]
+and $\frac{d\ln u^*}{d\ln\theta}=-\alpha(1-u^*)=-0.455$, so $\frac{d\ln u^*}{d\ln y}=-1.67$.}
+\passo{Shimer}{The response is governed by $y/(y-z)$: with a large surplus ($z$ far below $y$) the
+model generates little volatility in $\theta$ and $u$; matching the data requires a small surplus ($z$
+close to $y$) or rigid wages.}
+\refbib{Kurlat (2020), \S7.5, p.~146; Romer (2012), problems 10.12--10.15.}
+\rubrica{
+\item Quadratic and its root: 1 pt.
+\item Both shocks: 1 pt.
+\item Elasticity derived by implicit differentiation: 1.5 pts.
+\item Shimer reading: 0.5 pt.
+}
+\end{sol}
+
+\end{document}

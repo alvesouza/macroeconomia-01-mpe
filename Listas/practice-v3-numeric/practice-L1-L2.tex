@@ -1,0 +1,415 @@
+% Practice list A v3 --- topics of Listas 1-2, QUALIFIER LEVEL (style guide §8: cross-topic,
+% parameter analysis, graphs, answer key up to 15 pages).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-L1-L2-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Measurement, Welfare and Growth --- qualifier level (Listas 1--2)}
+\renewcommand{\espacoresol}{6.5cm}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{Price indices, new goods, welfare and growth accounting}{Kurlat chs.~1--2, 5 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) A household has CES preferences with elasticity of substitution $\eta=3$ between two
+goods and, at base prices, spends half of its budget on each. The price of good 1 rises 50\% and the price
+of good 2 does not change. By how much does a Laspeyres index overstate the true change in the cost of
+living?
+\begin{alternativas}
+\item $2.1\%$
+\item $6.2\%$
+\item $25.0\%$
+\item $0\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{exact index}{For homothetic CES the cost of a util is $P=\big(\sum\omega_ip_i^{1-\eta}\big)^{1/(1-\eta)}$, so the
+exact index is the power mean of order $1-\eta$ of the price relatives with base expenditure weights
+(Question 2(b)): $\big(\tfrac12 1.5^{-2}+\tfrac12\big)^{-1/2}=0.7222^{-1/2}=1.1767$.}
+\passo{bias}{Laspeyres $=\tfrac12\cdot1.5+\tfrac12=1.25$; $1.25/1.1767-1=6.2\%$. Option A is the Cobb--Douglas answer
+($\eta=1$, geometric mean $\sqrt{1.5}$): the bias grows with substitutability. Second-order check:
+$\tfrac\eta2\operatorname{Var}(\ln R)=1.5\cdot0.25(\ln1.5)^2=0.062$.}
+\refbib{Kurlat (2020), \S1.2, pp.~22--25.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Welfare $\times$ growth.} Over 30 years Brazil's mean consumption grows 1.5\% a year, life
+expectancy rises from 66 to 76 years, the variance of log consumption falls from 1.2 to 1.0, and leisure does
+not change. With the Kurlat--Jones--Klenow utility, $\sigma=1$, $\bar u=5$ and initial mean consumption
+normalized to one, the average annual growth of consumption-equivalent welfare is:
+\begin{alternativas}
+\item $1.50\%$
+\item $1.83\%$
+\item $4.33\%$
+\item $2.30\%$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{indifference across dates}{$\lambda$ scales initial consumption to match final welfare:
+$a_0[\bar u+\ln\lambda+\mathbb E\ln c_0]=a_1[\bar u+\mathbb E\ln c_1]$, with $\mathbb E\ln c=\ln\bar c-v/2$ (lognormal):
+$\mathbb E\ln c_0=-0.6$, $\mathbb E\ln c_1=0.45-0.5=-0.05$.}
+\passo{solve}{$\ln\lambda=\frac{76}{66}(4.95)-5+0.6=1.30$, i.e.\ $1.30/30=4.33\%$ a year: consumption $0.45$,
+inequality $0.10$, longevity $(76/66-1)\cdot4.95=0.75$. B omits longevity; D adds $\ln(76/66)$ instead of
+weighting the value of life.}
+\refbib{Kurlat (2020), \S2.2, eqs.\ (2.2.1)--(2.2.2).}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) A Paasche price index can never exceed the corresponding Laspeyres index.
+\gabarito{F}
+\begin{sol}
+\passo{counterexample}{Equal base shares, price relatives $(1.2,1)$, quantity relatives $(1.3,1)$ (demand shifts toward
+the good whose price rises): Laspeyres $1.100$, Paasche $\frac{0.5\cdot1.2\cdot1.3+0.5}{0.5\cdot1.3+0.5}=1.113$. In general
+$P/L=1+\operatorname{Cov}_w(R_p,R_q)/(\bar R_p\bar R_q)$ (Bortkiewicz): Paasche exceeds Laspeyres when price and quantity
+relatives covary positively.}
+\refbib{Kurlat (2020), \S1.2.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{PPP $\times$ productivity growth.} Tradables obey the law of one price and the
+nominal exchange rate is constant. If Brazil's tradable-sector productivity grows 2 points a year faster than
+the US's while non-tradable productivity grows equally in both, Brazil's price level relative to the US rises
+by $2\gamma$ points a year, $\gamma$ being the non-tradable share in consumption.
+\gabarito{T}
+\begin{sol}
+\passo{Balassa--Samuelson in growth rates}{$P=p_T(A_T/A_N)^{\gamma}$ in each country (common wage, zero profits), and
+$p_T^{BR}=Ep_T^{US}$; hence $d\ln\frac{P^{BR}}{EP^{US}}=\gamma[(g_T-g_N)^{BR}-(g_T-g_N)^{US}]=2\gamma$ points.}
+\refbib{Kurlat (2020), \S1.2; Romer (2012), \S4.2.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Measurement $\times$ growth accounting.} Consumers have CES preferences over
+the set $\Omega_t$ of varieties available at date $t$,
+\[U=\Big(\sum_{i\in\Omega_t}(b_ix_i)^{\frac{\eta-1}{\eta}}\Big)^{\frac{\eta}{\eta-1}},\qquad\eta>1,\]
+where $b_i>0$ is a quality weight. The statistical agency observes prices and expenditure shares and
+builds its deflators from varieties present in both periods.}
+
+\textbf{a)} (3 points) Find the minimum expenditure needed to obtain one unit of utility at prices $p$, and
+each variety's expenditure share.
+\resolespaco
+\begin{sol}
+\passo{problem}{$\min\sum_ip_ix_i$ s.t.\ $\sum_i(b_ix_i)^{\rho}=1$, $\rho\equiv\frac{\eta-1}{\eta}\in(0,1)$. FOC with multiplier $\mu$:
+$p_i=\mu\rho b_i^{\rho}x_i^{\rho-1}$.}
+\passo{demands}{$x_i=(\mu\rho)^{\eta}b_i^{\eta-1}p_i^{-\eta}$, using $\frac1{1-\rho}=\eta$ and $\frac{\rho}{1-\rho}=\eta-1$. The constraint
+gives $(\mu\rho)^{\eta-1}\sum_i(p_i/b_i)^{1-\eta}=1$.}
+\passo{cost of a util}{Spending $=(\mu\rho)^{\eta}\sum_ib_i^{\eta-1}p_i^{1-\eta}=(\mu\rho)^{\eta}(\mu\rho)^{1-\eta}=\mu\rho$, so
+\[P=\Big(\sum_i(p_i/b_i)^{1-\eta}\Big)^{\frac1{1-\eta}},\qquad s_i=\frac{p_ix_i}{P}=\frac{(p_i/b_i)^{1-\eta}}{P^{1-\eta}}.\]
+Homotheticity makes $P$ independent of the utility level: it is a true price index.}
+\refbib{Kurlat (2020), \S1.2 (biases of price indices); formula sheet \texttt{rules/01}.}
+\rubrica{
+\item FOC and demands: 1.5 pts.
+\item $P$ and the shares: 1.5 pts. A formula without derivation: max.\ 1 pt in the item.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Keep the set of varieties fixed between dates 0 and 1. Express the exact index $P_1/P_0$ in
+terms of observable price relatives $R_i=p_{i1}/p_{i0}$ and shares, rank it against the Laspeyres and Paasche
+indices, and approximate the Laspeyres bias to second order in the dispersion of $\ln R_i$.
+\resolespaco
+\begin{sol}
+\passo{base weights}{$(P_1/P_0)^{1-\eta}=\sum_i(p_{i1}/b_i)^{1-\eta}/P_0^{1-\eta}=\sum_is_i^0R_i^{1-\eta}$: the power mean of order $1-\eta$
+with base weights, $M_{1-\eta}(R;s^0)$.}
+\passo{current weights}{$s_i^1=s_i^0R_i^{1-\eta}/\sum_js_j^0R_j^{1-\eta}$, so $\sum_is_i^1R_i^{\eta-1}=1/\sum_js_j^0R_j^{1-\eta}$ and
+$P_1/P_0=M_{\eta-1}(R;s^1)$.}
+\passo{ranking}{Laspeyres $=M_1(R;s^0)$, Paasche $=\big(\sum_is_i^1/R_i\big)^{-1}=M_{-1}(R;s^1)$. Power means increase with the
+order; since $1-\eta<1$ and $\eta-1>-1$: Paasche $\le P_1/P_0\le$ Laspeyres, with equality iff all $R_i$ are equal.}
+\passo{second order}{With $z_i=\ln R_i$, mean $\bar z$ and variance $V$ (base weights),
+$\ln M_r=\frac1r\ln\sum s_ie^{rz_i}\approx\bar z+\frac r2V$. Hence $\ln L-\ln(P_1/P_0)\approx\frac12V-\frac{1-\eta}2V=\frac\eta2V$.}
+\refbib{Kurlat (2020), \S1.2, pp.~22--25; Jones (2020), \S2.3.}
+\rubrica{
+\item Exact index with base and current weights: 1.5 pts.
+\item Ranking by the power-mean inequality: 1 pt. Ranking asserted: 0 for this line.
+\item Second-order bias: 0.5 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Now some varieties are new at date 1 and none disappears. Find the exact index in terms
+of the index over continuing varieties and observable shares. What happens as $\eta\to\infty$ and as $\eta\to1$?
+\resolespaco
+\begin{sol}
+\passo{split the index}{Let $C$ be the continuing set and $\lambda_t\equiv\frac{\sum_{i\in C}(p_{it}/b_i)^{1-\eta}}{\sum_{i\in\Omega_t}(p_{it}/b_i)^{1-\eta}}$, which by (a) is
+the expenditure share of continuing varieties at $t$ ($\lambda_0=1$). Then $P_t^{1-\eta}=(P_t^C)^{1-\eta}/\lambda_t$.}
+\passo{formula}{Raising to $1/(1-\eta)$: $P_t=P_t^C\lambda_t^{1/(\eta-1)}$, so
+\[\frac{P_1}{P_0}=\frac{P_1^C}{P_0^C}\Big(\frac{\lambda_1}{\lambda_0}\Big)^{\frac1{\eta-1}}.\]}
+\passo{limits}{$\eta\to\infty$: the exponent $\to0$ and the correction disappears (perfect substitutes add nothing
+except through price). $\eta\to1^+$: the exponent $\to\infty$ and, with $\lambda_1<1$, the correction $\to0$: new
+varieties become infinitely valuable.}
+\refbib{Kurlat (2020), \S1.2 (new-goods bias).}
+\rubrica{
+\item $\lambda_t$ as an observable share: 1 pt.
+\item Formula derived: 1.5 pts.
+\item Both limits: 0.5 pt.
+}
+\end{sol}
+
+\textbf{d)} (3 points) Continuing-variety consumption inflation is 5\% and new varieties take 4\% of date-1
+consumption spending; $\eta=4$. New varieties appear only among consumption goods (share $s_C=0.8$ of GDP);
+investment goods (share $s_I=0.2$) have their own deflator bias $b_I$ from unmeasured quality change. In a
+steady state with $\alpha=1/3$, how is the Solow residual of growth accounting distorted? Compute it for
+$b_I=0$, $b_I=b_C$ and $b_I=3b_C$, where $b_C$ is the consumption-deflator bias.
+\resolespaco
+\begin{sol}
+\passo{consumption bias}{True consumption inflation $1.05\cdot0.96^{1/3}-1=3.58\%$: $b_C=1.42$ points a year.}
+\passo{measured growth}{Real GDP growth is nominal growth minus the deflator, so it is understated by
+$b_Y=s_Cb_C+s_Ib_I$. Capital is built by perpetual inventory from deflated investment, so in a steady state its
+measured growth is understated by $b_I$.}
+\passo{residual}{$g_A^m=(g_Y-b_Y)-\alpha(g_K-b_I)-(1-\alpha)g_L$, hence
+\[g_A^m-g_A=-(s_Cb_C+s_Ib_I)+\alpha b_I.\]
+$b_I=0$: $-1.14$ points; $b_I=b_C$: $-(1-\alpha)b_C=-0.95$; $b_I=3b_C$: $-0.57$.}
+\intuicao{Understated output lowers measured TFP growth; understated capital raises it, because the
+residual absorbs whatever inputs miss. Quality change in equipment is the embodied technical progress of
+Romer's problem 1.12, which growth accounting books as TFP.}
+\refbib{Kurlat (2020), \S5.4, eq.\ (5.4.2), p.~87; Romer (2012), \S1.7 and problem 1.12.}
+\rubrica{
+\item $b_C$: 0.5 pt.
+\item Biases of measured output and capital growth: 1 pt.
+\item Residual formula and the three numbers: 1.5 pts. Ignoring the capital channel: max.\ 1.5 pts in the item.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How do the inflation bias and the residual bias depend on $\eta$, the
+new-variety share $\nu\equiv1-\lambda_1$ and $b_I$? Prove the signs, fill the inflation bias for $\eta\in\{2,4,8\}$ and
+$\nu\in\{2\%,4\%,8\%\}$, find the $b_I$ at which the residual bias changes sign, and draw the inflation bias against
+$\eta$ for the three values of $\nu$.
+\resolespaco
+\begin{sol}
+\passo{signs}{Bias $B(\eta,\nu)=1.05\,[1-(1-\nu)^{1/(\eta-1)}]$. Since $\ln(1-\nu)<0$, $(1-\nu)^{1/(\eta-1)}$ rises with $\eta$ and falls with
+$\nu$: $\partial B/\partial\eta<0$, $\partial B/\partial\nu>0$. The residual bias $-(s_Cb_C)+(\alpha-s_I)b_I$ rises with $b_I$ iff
+$\alpha>s_I$, and is zero at $b_I^*=s_Cb_C/(\alpha-s_I)=8.5$ points: only implausibly fast equipment quality change
+would make measured TFP growth too high.}
+\passo{table}{Inflation bias in points (continuing inflation 5\%):
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $\nu=2\%$ & $\nu=4\%$ & $\nu=8\%$ \\
+\midrule
+$\eta=2$ & 2.10 & 4.20 & 8.40 \\
+$\eta=4$ & 0.70 & 1.42 & 2.88 \\
+$\eta=8$ & 0.30 & 0.61 & 1.24 \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.2cm,xmin=1.5,xmax=10,ymin=0,ymax=17,
+  xlabel={$\eta$},ylabel={bias (points)},legend style={font=\footnotesize},legend pos=north east,
+  tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,blue,domain=1.5:10,samples=120]{105*(1-(0.98)^(1/(x-1)))};
+\addplot[thick,red,domain=1.5:10,samples=120]{105*(1-(0.96)^(1/(x-1)))};
+\addplot[thick,black,dashed,domain=1.5:10,samples=120]{105*(1-(0.92)^(1/(x-1)))};
+\legend{$\nu=2\%$,$\nu=4\%$,$\nu=8\%$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\passo{limits and reading}{$\eta\to1$: $B\to105$ points, because the true index falls toward zero when new varieties
+become essential; $\eta\to\infty$: $B\to0$. The bias is roughly proportional to $\nu$ and to $1/(\eta-1)$: it is a
+problem for goods with many new, differentiated varieties, not for commodities.}
+\refbib{Kurlat (2020), \S1.2 and \S5.4.}
+\rubrica{
+\item Signs proved: 1 pt. Signs listed without the argument: max.\ 0.5 pt here.
+\item Table: 0.5 pt.
+\item $b_I^*$ and its reading: 0.5 pt.
+\item Graph (axes, three decreasing convex curves ordered by $\nu$): 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Growth, capital flows and national income}{Kurlat chs.~4--5; Romer chs.~1, 4 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Development accounting $\times$ capital flows.} Let $Y=AK^{\alpha}(hL)^{1-\alpha}$ with $\alpha=0.4$ and the
+same $A$ in Brazil and the US. Brazil's output per worker is 25\% of the US's and its human capital per worker
+60\%. The ratio of marginal products of capital (Brazil/US) implied by the closed-economy model is about:
+\begin{alternativas}
+\item $8.0$
+\item $3.7$
+\item $1.0$
+\item $2.5$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{MPK in terms of observables}{$MPK=\alpha y/k$ and $k=(y/(Ah^{1-\alpha}))^{1/\alpha}$, so
+$MPK=\alpha A^{1/\alpha}(y/h)^{(\alpha-1)/\alpha}$.}
+\passo{ratio}{$(0.25/0.6)^{-1.5}=3.7$. Without human capital, $0.25^{-1.5}=8.0$ (A). Capital should flow to Brazil;
+that it does not suggests lower $A$ (Lucas paradox).}
+\refbib{Kurlat (2020), \S5.3 (the capital accumulation hypothesis), pp.~80--86.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) With $f(k)=[\alpha k^{-1}+1-\alpha]^{-1}$ (elasticity of substitution $1/2$), $\alpha=1/2$ and $n+g+\delta=0.08$, the
+Golden Rule saving rate is:
+\begin{alternativas}
+\item $50\%$
+\item $20\%$
+\item $8\%$
+\item $32\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{Golden Rule}{$f(k)=\frac{k}{\alpha+(1-\alpha)k}$, $f'(k)=\frac{\alpha}{(\alpha+(1-\alpha)k)^2}=0.08\Rightarrow\alpha+(1-\alpha)k=2.5$, $k=4$, $f=1.6$.}
+\passo{saving rate}{$s=\frac{(n+g+\delta)k}{f(k)}=\frac{0.32}{1.6}=20\%$, which equals the capital share \emph{at} $k_{gr}$, not $\alpha$ (A).}
+\refbib{Kurlat (2020), \S4.3; Romer (2012), \S1.8 (CES).}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) With CES production and an elasticity of substitution different from one, a
+balanced growth path with a constant capital--output ratio exists only if technical progress is
+labor-augmenting.
+\gabarito{T}
+\begin{sol}
+\passo{Uzawa}{On a balanced path $K$ and $Y$ grow at the same rate. With $Y=F(BK,AL)$ CES,
+$Y/K=[\alpha B^{\rho}+(1-\alpha)(AL/K)^{\rho}]^{1/\rho}$ is constant along an exact balanced path only if $B$ is constant
+and $AL/K$ is constant, i.e.\ technology augments labor. Cobb--Douglas is the exception, where all forms are
+equivalent.}
+\refbib{Romer (2012), \S1.2 and problem 1.12.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Growth $\times$ open economy.} In a small open Solow economy with perfect capital
+mobility, a permanent rise in the saving rate permanently raises GDP per worker.
+\gabarito{F}
+\begin{sol}
+\passo{why}{GDP per effective worker is pinned by $f'(k)=r^*+\delta$; saving changes who owns the capital (net foreign
+assets and national income), not domestic production (Question 4).}
+\refbib{Romer (2012), problem 4.4.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Growth $\times$ national accounts $\times$ capital flows.} Brazil as a small open
+economy. Output is $Y=K^{\alpha}(AhL)^{1-\alpha}$; capital moves freely and earns the world rate $r^*$ net of depreciation $\delta$;
+$A$ grows at $g$, $L$ at $n$, $h$ is constant. Residents own wealth $W$ (capital at home or abroad) and save a fraction
+$s$ of gross national income (wages plus the gross return on wealth): $\dot W=s\,\mathrm{GNI}-\delta W$. Numbers:
+$\alpha=1/3$, $r^*=0.04$, $\delta=0.05$, $n+g=0.03$.}
+
+\textbf{a)} (3 points) Characterize GDP per effective worker and its dynamics. What does a rise in $s$ do to GDP?
+What does this imply for the Lucas paradox?
+\resolespaco
+\begin{sol}
+\passo{capital is pinned}{Firms rent capital at $r^*+\delta$: $f'(k)=\alpha k^{\alpha-1}=r^*+\delta$ with $k=K/(AhL)$, so
+$k^*=\big(\frac{\alpha}{r^*+\delta}\big)^{1/(1-\alpha)}$ at every date: capital flows in or out instantly.}
+\passo{GDP}{$y^*=k^{*\alpha}$ is constant, so GDP per worker $Ahy^*$ grows at $g$ from the start: no transition, and $s$
+does not enter. A higher $s$ changes ownership of capital, not production.}
+\passo{Lucas paradox}{With equal $A$ and $h$, the closed-economy MPK gap would be several-fold (item 3(a)) and
+capital would pour in. Small observed flows mean that $A$ and $h$, which set $k^*$ through $Ah$, differ.}
+\refbib{Romer (2012), problem 4.4; Kurlat (2020), \S5.3.}
+\rubrica{
+\item $k^*$ from the world rate: 1 pt.
+\item No transition and no role for $s$ in GDP: 1 pt.
+\item Lucas-paradox reading: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Derive the law of motion of wealth per effective worker, its steady state and the condition
+for stability.
+\resolespaco
+\begin{sol}
+\passo{national income}{Wages per effective worker are $(1-\alpha)y^*$; wealth earns $r^*+\delta$ gross. With $\omega\equiv W/(AhL)$:
+$\mathrm{GNI}/(AhL)=(1-\alpha)y^*+(r^*+\delta)\omega$.}
+\passo{law of motion}{$\dot\omega/\omega=\dot W/W-n-g$ gives
+\[\dot\omega=s(1-\alpha)y^*-\Lambda\,\omega,\qquad\Lambda\equiv n+g+\delta-s(r^*+\delta).\]}
+\passo{solution}{$\omega(t)=\omega^*+(\omega(0)-\omega^*)e^{-\Lambda t}$, $\omega^*=\frac{s(1-\alpha)y^*}{\Lambda}$: it converges iff $\Lambda>0$. If $\Lambda\le0$
+wealth per effective worker grows without bound and the economy eventually ceases to be small.}
+\refbib{Romer (2012), \S1.3 (same method).}
+\rubrica{
+\item GNI per effective worker: 1 pt.
+\item Law of motion: 1 pt. Omitting the return on wealth: max.\ 1 pt in the item.
+\item Explicit solution and stability: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Find the saving rate above which Brazil is a net creditor in the steady state and interpret
+it. Find GNI/GDP in the steady state in closed form.
+\resolespaco
+\begin{sol}
+\passo{creditor condition}{Net foreign assets are $\omega^*-k^*$. Using $(r^*+\delta)k^*=\alpha y^*$:
+$\omega^*>k^*\iff s(1-\alpha)y^*>k^*\Lambda=k^*(n+g+\delta)-s\alpha y^*\iff s\,y^*>(n+g+\delta)k^*$, i.e.
+\[s>\bar s\equiv\frac{(n+g+\delta)k^*}{y^*}=\frac{\alpha(n+g+\delta)}{r^*+\delta},\]
+the closed-economy saving rate whose steady state is $k^*$.}
+\passo{GNI/GDP}{$\frac{\mathrm{GNI}}{\mathrm{GDP}}=(1-\alpha)+\alpha\frac{\omega^*}{k^*}$ and $\frac{\omega^*}{k^*}=\frac{s(1-\alpha)(r^*+\delta)}{\alpha\Lambda}$, so
+\[\frac{\mathrm{GNI}}{\mathrm{GDP}}=(1-\alpha)\Big[1+\frac{s(r^*+\delta)}{\Lambda}\Big]=\frac{(1-\alpha)(n+g+\delta)}{\Lambda},\]
+which equals 1 exactly at $s=\bar s$: creditor status and GNI above GDP are the same statement.}
+\refbib{Romer (2012), \S1.5 and problem 4.4.}
+\rubrica{
+\item Creditor condition derived: 1.5 pts.
+\item GNI/GDP in closed form and the link at $\bar s$: 1.5 pts.
+}
+\end{sol}
+
+\textbf{d)} (3 points) With $s=0.15$ compute $k^*$, $y^*$, $\omega^*$, net foreign assets, the share of domestic capital owned
+abroad, GNI/GDP and the half-life of wealth. Draw $\dot\omega$ against $\omega$ for $s=0.15$ and $s=0.25$, marking $k^*$, and
+describe the transition after $s$ rises.
+\resolespaco
+\begin{sol}
+\passo{numbers}{$k^*=(\tfrac{1/3}{0.09})^{3/2}=7.128$, $y^*=1.925$, wages $1.283$; $\Lambda=0.0665$; $\omega^*=0.1925/0.0665=2.894$; net
+foreign assets $-4.234$ (59\% of domestic capital foreign-owned); GNI/GDP $=0.0533/0.0665=0.802$; half-life
+$\ln2/0.0665=10.4$ years.}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.5cm,xmin=0,xmax=8,ymin=-0.2,ymax=0.36,axis lines=middle,
+  xlabel={$\omega$},ylabel={$\dot\omega$},tick label style={font=\footnotesize},label style={font=\small},
+  legend style={font=\footnotesize},legend pos=north east]
+\addplot[thick,blue,domain=0:8]{0.19245-0.0665*x};
+\addplot[thick,red,domain=0:8]{0.32075-0.0575*x};
+\addplot[dotted,thick] coordinates {(7.128,-0.2) (7.128,0.36)};
+\legend{$s=0.15$,$s=0.25$}
+\node[font=\footnotesize] at (axis cs:2.894,-0.03) {$\omega^*_{.15}$};
+\node[font=\footnotesize] at (axis cs:5.578,-0.03) {$\omega^*_{.25}$};
+\node[font=\footnotesize,anchor=west] at (axis cs:7.15,0.3) {$k^*$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\passo{transition}{Each line crosses zero at its steady state and slopes down (slope $-\Lambda$): stable. After the rise
+in $s$, $\omega$ climbs from $2.894$ toward $5.578$ (half-life $\ln2/0.0575=12.1$ years), still left of $k^*$: GNI rises
+gradually while GDP does not move.}
+\refbib{Romer (2012), problem 4.4.}
+\rubrica{
+\item Numbers: 1.5 pts.
+\item Graph: axes, two downward lines with the right intercepts and zeros, $k^*$ marked: 1 pt.
+\item Transition read off the graph: 0.5 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How do $\omega^*/k^*$, GNI/GDP and the half-life of wealth respond to $s$, $r^*$,
+$n+g$ and $\alpha$? Prove the signs, fill the table for the baseline and for $s=0.25$, $r^*=0.06$, $n+g=0.02$, $\alpha=0.4$
+(one change at a time), and give the limits as $s\to0$ and as $s$ approaches its upper bound.
+\resolespaco
+\begin{sol}
+\passo{signs}{From (c), $\frac{\omega^*}{k^*}=\frac{s(1-\alpha)(r^*+\delta)}{\alpha\Lambda}$, $\frac{\mathrm{GNI}}{\mathrm{GDP}}=\frac{(1-\alpha)N}{\Lambda}$, half-life $=\frac{\ln2}{\Lambda}$, with $N=n+g+\delta$ and
+$\Lambda=N-s(r^*+\delta)$. $\Lambda$ falls with $s$ and $r^*$ and rises with $N$; it does not depend on $\alpha$. Hence: all three rise
+with $s$ and with $r^*$ (a higher return compounds wealth faster); $\omega^*/k^*$ and GNI/GDP fall with $n+g$
+($\partial[N/(N-a)]/\partial N=-a/(N-a)^2<0$) and so does the half-life; $\omega^*/k^*$ and GNI/GDP fall with $\alpha$ (labor income,
+the source of saving, is a smaller share), while the half-life does not depend on $\alpha$.}
+\passo{table}{
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $\omega^*/k^*$ & GNI/GDP & half-life (years) \\
+\midrule
+baseline & 0.406 & 0.802 & 10.4 \\
+$s=0.25$ & 0.783 & 0.928 & 12.1 \\
+$r^*=0.06$ & 0.520 & 0.840 & 10.9 \\
+$n+g=0.02$ & 0.478 & 0.826 & 12.3 \\
+$\alpha=0.4$ & 0.305 & 0.722 & 10.4 \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\passo{limits}{$s\to0$: $\omega^*\to0$ and GNI/GDP $\to1-\alpha$ (residents own nothing and earn only wages). $s\to N/(r^*+\delta)$
+($=0.89$ here): $\Lambda\to0$, wealth, GNI/GDP and the half-life explode; the small-economy assumption fails before.}
+\intuicao{Openness separates where capital works (set by productivity and the world rate) from who owns
+it (set by saving); every parameter that raises the return on owned wealth relative to dilution by growth
+makes residents richer without changing what Brazil produces.}
+\refbib{Romer (2012), problem 4.4; Kurlat (2020), \S1.1 (GDP vs GNI).}
+\rubrica{
+\item Signs proved from the closed forms: 1.5 pts.
+\item Table: 1 pt.
+\item Limits: 0.5 pt.
+}
+\end{sol}
+
+\end{document}

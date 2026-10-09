@@ -1,0 +1,295 @@
+% Practice list D --- topics of Lista 7 (Benigno 2015, AS-AD New Keynesian).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Numbers: practice-lists-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{The New Keynesian AS--AD Model (Lista 7)}
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{Notation (Benigno 2015).} Lower-case letters are logs. AD:
+$y=\bar y_n+(g-\bar g)-\sigma[\,i-(\bar p-p)-\rho\,]$ (eq.\ 21, no consumption taxes).
+AS: $p-p^e=\kappa(y-y_n)$ (eqs.\ 17, 20). Natural output
+$y_n=\frac{1+\eta}{\sigma^{-1}+\eta}a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}g-\frac{1}{\sigma^{-1}+\eta}\mu$ (eq.\ 15);
+efficient output $y_e$ is the same without the $\mu$ term (eq.\ 19). Bars denote the long run.\par}
+
+% =============================================================================
+\bloco{1}{Foundations: AD, AS, natural and efficient output}{Benigno \S\S1--5 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) If the share of firms whose prices are fixed in advance rises, then:
+\begin{alternativas}
+\item $\kappa$ rises, the AS gets steeper, and a cut in $i$ moves output by more.
+\item $\kappa$ falls, the AS gets flatter, and a cut in $i$ moves output by more.
+\item $\kappa$ is unchanged, the AS shifts up, and a cut in $i$ moves prices by more.
+\item $\kappa$ falls, the AS gets steeper, and a cut in $i$ moves prices by more.
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{slope}{Only flexible-price firms respond to marginal cost; with fewer of them the price
+level responds less to the output gap: $\kappa\downarrow$, a flatter AS, so shifts in AD
+move $y$ more and $p$ less.}
+\refbib{Benigno (2015), \S4 and \S4.1, pp.~506--507.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) With $\sigma=\eta=1$, a temporary rise of $0.04$ in the (log) desired markup
+$\mu$ changes $(y_n,\,y_e)$ by:
+\begin{alternativas}
+\item $(-0.04,\,-0.04)$
+\item $(0,\,-0.02)$
+\item $(-0.02,\,0)$
+\item $(-0.02,\,-0.02)$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{coefficients}{$\partial y_n/\partial\mu=-1/(\sigma^{-1}+\eta)=-\tfrac12$, so $\Delta y_n=-0.02$;
+$y_e$ does not depend on $\mu$.}
+\refbib{Benigno (2015), \S4.4, eqs.\ (15) and (19), p.~508.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In Benigno's model the AD slopes down because a higher price level
+raises money demand and therefore the nominal interest rate.
+\gabarito{F}
+\begin{sol}
+\passo{channel}{There is no LM curve: the central bank sets $i$. Given $\bar p$, a higher $p$ lowers
+expected inflation $\bar p-p$, raises the real rate $i-(\bar p-p)$, and households save more:
+an intertemporal channel through the Euler equation.}
+\refbib{Benigno (2015), \S3, eq.\ (21).}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) After a permanent productivity increase, with $i$ unchanged, the
+economy ends up at $p=p^e$ and $y=y_n$: both curves shift and no policy action is needed.
+\gabarito{T}
+\begin{sol}
+\passo{\S6.2}{$y_n$ and $\bar y_n$ rise by the same amount: AS moves right through $(p^e,y_n')$ and
+AD moves right by $\Delta\bar y_n$ (consumption smoothing). The natural rate is unchanged.}
+\refbib{Benigno (2015), \S6.2, p.~512.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Copom's model. Take $\sigma=\eta=1$, $\kappa=0.5$, $\rho=0.02$,
+$p^e=\bar p=0$, $\bar y_n=0$, $g=\bar g$, and initially $a=\mu=0$, so $i=\rho$ gives $y=p=0$.}
+
+\textbf{a)} (5 points) Solve AD and AS for equilibrium $y$ and $p$ as functions of $i$, $\bar p$,
+$p^e$, $y_n$ and $\bar y_n$. Which variables move AD and which move AS?
+\resolespaco
+\begin{sol}
+\passo{AD}{$y=X-\sigma p$ with $X\equiv\bar y_n+(g-\bar g)-\sigma(i-\rho)+\sigma\bar p$.}
+\passo{solve}{Substitute $p=p^e+\kappa(y-y_n)$: $y=\dfrac{X-\sigma p^e+\sigma\kappa\,y_n}{1+\sigma\kappa}$,
+then $p=p^e+\kappa(y-y_n)$.}
+\passo{shifters}{AD: $i$, $g$, $\bar g$, $\bar p$, $\bar y_n$ (future $\bar a$, $\bar\mu$). AS: $p^e$ and
+$y_n$ (current $a$, $g$, $\mu$).}
+\refbib{Benigno (2015), \S4--5.}
+\rubrica{
+\item Rewrites AD with $X$: 1 pt.
+\item Solves for $y$ and $p$: 2.5 pts.
+\item Correct list of shifters: 1.5 pts. Putting $\bar p$ on the AS: $-1$ pt.
+}
+\end{sol}
+
+\textbf{b)} (5 points) A temporary productivity gain: $a=0.03$, $\bar a=0$. Compute $y_n$, then $y$,
+$p$ and the gap with $i=\rho$. Which $i$ restores $p=p^e$ and $y=y_n$? Show that it violates the zero
+lower bound, compute the outcome at $i=0$, and find the long-run price level $\bar p$ that the
+central bank must credibly promise to reach the target with $i=0$.
+\resolespaco
+\begin{sol}
+\passo{natural}{$y_n=\frac{2}{2}\cdot0.03=0.03$; $y_e=y_n$.}
+\passo{no action}{$X=0$: $y=\frac{0.5\cdot0.03}{1.5}=0.01$, $p=0.5(0.01-0.03)=-0.01$; gap $=-0.02$.}
+\passo{required $i$}{Need $y=0.03$, $p=0$, so $X=0.03$: $-(i-0.02)=0.03\Rightarrow i=-1\%<0$.}
+\passo{at the ZLB}{$X=0.02$: $y=\frac{0.02+0.015}{1.5}=0.0233$, $p=-0.0033$.}
+\passo{expectations}{With $i=0$ we need $\sigma\bar p=0.01$: $\bar p=1\%$, giving $y=0.03$, $p=0$.}
+\intuicao{The economy can produce more but demand does not rise with it today; the real rate must
+fall. When $i$ cannot, a higher promised future price level raises expected inflation and
+lowers the real rate, but only if the promise is believed.}
+\refbib{Benigno (2015), \S6.1 (p.~512) and \S9.}
+\rubrica{
+\item $y_n$ and outcome with $i=\rho$: 1.5 pts. Shifting AD in a \emph{temporary} shock: max.\ 2 pts.
+\item Required $i$ and the ZLB: 1.5 pts.
+\item Outcome at $i=0$ and the required $\bar p$: 2 pts.
+}
+\end{sol}
+
+\textbf{c)} (5 points) A temporary markup shock (oil, a tax on firms): $\mu=0.04$, $a=0$. Compute
+$y_n$, $y_e$ and the outcome with $i=\rho$. Find $i$ under strict price stability. The bank minimizes
+$\mathcal L=(p-p^e)^2+\lambda(y-y_e)^2$ subject to the AS, with $\lambda=0.25$: derive the optimal
+$y$, $p$ and $i$. Draw the diagram.
+\resolespaco
+\begin{sol}
+\passo{levels}{$y_n=-0.02$, $y_e=0$. With $i=\rho$: $y=\frac{0.5(-0.02)}{1.5}=-0.0067$,
+$p=0.5(-0.0067+0.02)=+0.0067$: stagflation.}
+\passo{strict}{$p=0\Rightarrow y=y_n=-0.02$, so $X=-0.02$ and $i=\rho+0.02=4\%$.}
+\passo{optimal}{Substitute the AS: $\min_y\kappa^2(y-y_n)^2+\lambda y^2\Rightarrow
+y=\dfrac{\kappa^2}{\kappa^2+\lambda}y_n=\tfrac12(-0.02)=-0.01$, $p=0.5(-0.01+0.02)=0.005$.
+From (a): $-0.015=X-0.01\Rightarrow X=-0.005\Rightarrow i=2.5\%$.}
+\passo{trade-off}{Unlike (b), $y_n\ne y_e$: the bank cannot close the efficient gap and keep
+prices stable at once. It splits the shock according to $\lambda$.}
+\begin{center}
+\begin{tikzpicture}[scale=1.7,>=stealth,font=\small]
+  \draw[->] (-3,0) -- (2,0) node[right]{$y$ ($\times100$)};
+  \draw[->] (0,-1.5) -- (0,2) node[above]{$p$ ($\times100$)};
+  \draw[thick] (-1.6,1.6) -- (1.4,-1.4) node[below right]{AD ($i=\rho$)};
+  \draw[thick,dashed] (-2.4,1.9) node[above]{AD$''$ ($i=2.5\%$)} -- (0.8,-1.3);
+  \draw[thick,blue] (-3,-1.5) -- (2,1) node[right]{AS};
+  \draw[thick,red] (-3,-0.5) -- (1.2,1.6) node[right]{AS$'$};
+  \draw[dotted] (-2,0) -- (-2,-1.2) node[below]{$y_n'$};
+  \fill (0,0) circle (1.2pt) node[below right]{$E$};
+  \fill (-0.667,0.667) circle (1.2pt) node[above right]{$E'$};
+  \fill (-1,0.5) circle (1.2pt) node[below right]{$E''$};
+\end{tikzpicture}\\[2pt]
+{\footnotesize $E=(y_e,p^e)$ is the origin; $E'$: no policy; $E''$: optimal policy; strict price
+stability would sit at $(y_n',p^e)$.}
+\end{center}
+\refbib{Benigno (2015), \S7 (p.~513) and \S11.}
+\rubrica{
+\item $y_n$, $y_e$ and outcome at $i=\rho$: 1.5 pts.
+\item Strict price stability: 1 pt.
+\item Optimal $y$, $p$, $i$: 1.5 pts. Measuring the gap against $y_n$ in the loss: max.\ 2 pts in the item.
+\item Diagram with axes, AS shift through $(p^e,y_n')$, AD shift and points: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Policy analysis}{Benigno \S\S6--12 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) The Focus survey suddenly expects higher \emph{future} productivity; current
+productivity is unchanged (Benigno \S6.3). The policy that keeps $p=p^e$ and $y=y_n$ is to:
+\begin{alternativas}
+\item raise $i$, since AD shifts right while AS stays put.
+\item cut $i$, since AS shifts right while AD stays put.
+\item keep $i$, since $y_n$ today is unchanged by news.
+\item promise a higher $\bar p$, since AD shifts left today.
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{\S6.3}{Higher $\bar a$ raises $\bar y_n$: households want to consume more now (AD right).
+Current $y_n$ is unchanged (AS fixed), so output rises above both $y_n$ and $y_e$: the bank must
+\emph{tighten}.}
+\refbib{Benigno (2015), \S6.3, p.~513.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) With $\sigma=\eta=1$, $\kappa=0.5$ and $i$ fixed, a temporary rise of $0.01$ in $g$
+raises output by:
+\begin{alternativas}
+\item $0.0100$
+\item $0.0050$
+\item $0.0150$
+\item $0.0083$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{both curves move}{AD: $X$ rises by $0.01$. AS: $y_n$ rises by $\frac{\sigma^{-1}}{\sigma^{-1}+\eta}0.01=0.005$.
+$y=\frac{0.01+0.5\cdot0.005}{1.5}=0.0083$: multiplier $0.83<1$; the gap rises only $0.0033$.}
+\refbib{Benigno (2015), \S8.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) At the zero lower bound, monetary policy has no instrument left to
+raise current output.
+\gabarito{F}
+\begin{sol}
+\passo{expectations}{A credible commitment to a higher long-run price level $\bar p$ raises expected
+inflation, lowers the real rate with $i=0$ and shifts AD right.}
+\refbib{Benigno (2015), \S9.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) Productivity and government-spending shocks move $y_n$ and $y_e$ by
+the same amount, so they create no trade-off between stabilizing prices and the efficient gap.
+\gabarito{T}
+\begin{sol}
+\passo{eqs.\ (15), (19)}{The coefficients on $a$ and $g$ are identical; only $\mu$ separates $y_n$
+from $y_e$. Under flexible wages, ``divine coincidence'' holds for these shocks.}
+\refbib{Benigno (2015), \S4.4 and \S11.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive.}
+
+\textbf{a)} (5 points) Derive $y_n$ and $y_e$ from first-order conditions in log form. Use the
+labor supply condition $\eta l+\tilde\sigma^{-1}c=w-p$, the price rule of flexible firms
+$p=w-a+\mu$, the technology $y=a+l$ and the resource constraint $y=s_cc+g$, with
+$\sigma=\tilde\sigma s_c$. For $y_e$, replace the price rule by the planner's condition
+``marginal rate of substitution $=$ marginal product of labor''. Explain why a markup shock
+moves $y_n$ but not $y_e$.
+\resolespaco
+\begin{sol}
+\passo{substitute}{$c=(y-g)/s_c\Rightarrow\tilde\sigma^{-1}c=\sigma^{-1}(y-g)$; $l=y-a$.}
+\passo{natural}{Real wage $w-p=a-\mu$: $\eta(y-a)+\sigma^{-1}(y-g)=a-\mu$, so
+$y_n=\frac{(1+\eta)a+\sigma^{-1}g-\mu}{\sigma^{-1}+\eta}$.}
+\passo{efficient}{Planner: MRS $=$ MPL (log MPL $=a$): $\eta(y-a)+\sigma^{-1}(y-g)=a$, the same
+without $\mu$.}
+\passo{why}{The markup is a wedge between the real wage and the marginal product of labor; the
+planner faces no such wedge. Monopoly power and distorting taxes lower natural output without
+changing what is efficient: $y_n-y_e=-\mu/(\sigma^{-1}+\eta)$.}
+\refbib{Benigno (2015), \S\S3--4.4, eqs.\ (15) and (19).}
+\rubrica{
+\item Substitutions: 1 pt.
+\item Derives $y_n$: 1.5 pts.
+\item Derives $y_e$: 1.5 pts.
+\item Wedge explanation: 1 pt. ``The markup is inefficient'' with no wedge argument: 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (5 points) The Copom cuts the Selic by one percentage point. Compare the short- and
+long-run effects predicted by (i) the New Classical model, (ii) the original Keynesian (IS--LM)
+model and (iii) Benigno's New Keynesian model, along three dimensions: price adjustment and
+expectations; the policy instrument and how AD is built; and whether the model can rank outcomes
+by welfare.
+\resolespaco
+\begin{sol}
+\passo{New Classical}{Flexible prices, rational expectations, competitive markets. An anticipated
+cut is neutral; only surprises move output (Lucas). No welfare-relevant inefficiency to correct.}
+\passo{Keynesian}{Fixed or adaptive prices, AD from IS--LM with the money supply as the
+instrument. The cut raises output persistently; the model is not built from optimizing agents and
+cannot rank outcomes by household welfare.}
+\passo{New Keynesian}{Rational expectations, monopolistic competition, a fraction of prices preset.
+The instrument is $i$; AD comes from the Euler equation. Short run: AD shifts right, $y$ and $p$
+rise along the AS. Long run: all prices adjust, $y=y_n$, money is neutral. Welfare is the
+household's utility, approximated by the quadratic loss in $(p-p^e)$ and $(y-y_e)$.}
+\refbib{Benigno (2015), \S1 and \S12; Lista 7, Q1; Carlin \& Soskice (2024) for the IS--LM contrast.}
+\rubrica{
+\item Each framework with the three dimensions: 1.5 pts each (4.5 pts).
+\item Short- vs long-run distinction in the NK model: 0.5 pt.
+\item Building NK AD from LM / money demand: max.\ 3 pts in the item.
+}
+\end{sol}
+
+\textbf{c)} (5 points) A deleveraging shock (Eggertsson--Krugman): the debt limit of borrowers
+falls sharply. Explain why the economy can fall into a liquidity trap, why the fiscal multiplier
+becomes large, and why more price flexibility can make the recession worse (paradox of
+flexibility). Under what condition on long-run prices does the paradox disappear?
+\resolespaco
+\begin{sol}
+\passo{trap}{Borrowers must cut consumption; AD falls so much that the natural real rate turns
+negative. With $i\ge0$ the bank cannot lower the real rate enough: output stays below $y_n$.}
+\passo{multiplier}{Ricardian equivalence fails: borrowers are constrained and spend extra income,
+and at $i=0$ there is no crowding-out through higher rates. The multiplier can exceed one
+(Benigno reports 1.29 to 1.62), against the upper bound of one in \S8.}
+\passo{flexibility}{Debt is nominal. If inflation between the short and the long run is fixed (as in
+Eggertsson--Krugman), a lower $p$ also lowers $\bar p$ and raises the real value of debt: borrowers
+cut consumption, and the AD can slope \emph{up}. A steeper AS (more flexible prices) then means a
+larger fall in prices and a larger fall in output. For the same reason a downward AS shift (higher
+productivity, lower markups or taxes) becomes contractionary: the paradox of toil.}
+\passo{caveat}{If the long-run price level is anchored whatever happens to current prices, the AD
+slopes down again and both paradoxes disappear (Benigno, footnote 20).}
+\intuicao{In a debt deflation, falling prices transfer resources to savers with a low propensity to
+spend, away from borrowers who must cut back.}
+\refbib{Benigno (2015), \S9 and \S10, eq.\ (32), pp.~518--521.}
+\rubrica{
+\item Liquidity trap mechanism with negative natural rate: 2 pts.
+\item Large multiplier with both reasons (constrained borrowers, no crowding-out): 1.5 pts.
+\item Paradox of flexibility through the real value of debt: 1.5 pts. Arguing through the
+  real interest rate with a fixed $\bar p$: max.\ 0.5 pt on this line.
+}
+\end{sol}
+
+\end{document}

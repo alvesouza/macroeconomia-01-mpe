@@ -1,0 +1,111 @@
+% Romer 10.16 --- solution fragment for hardest-solutions.tex (statement not reproduced).
+% Numbers and identities re-checked by check-10-16-2-9.py.
+\problema{Romer 10.16}{Search efficiency with a general matching function}{p.~512}{Romer \S10.7}
+
+\passo{Environment}{The static economy of eqs.~(10.71)--(10.75): a given pool of $U$ unemployed
+workers; $V$ vacancies, each created at cost $c$; $E=M(U,V)$ matches, each producing $y$; wage
+$w=\phi y$; no income for the unemployed. The wage is a transfer between matched parties, so welfare
+is $W(V)=M(U,V)\,y-cV$. Only the matching function changes. ``Well-behaved'' is taken to mean: $M$ is
+smooth, $M_V>0$, $M_{VV}<0$, $M(U,0)=0$ and $M\le V$ (a filling probability cannot exceed one); neither
+Cobb--Douglas form nor constant returns is assumed. Because $U$ is fixed, the only margin is $V$.
+Define the job-filling probability $q$ and the elasticity of matches with respect to vacancies $\eta$:
+\[
+q(V)\equiv\frac{M(U,V)}{V},\qquad
+\eta(V)\equiv\frac{V\,M_V(U,V)}{M(U,V)}.
+\]}
+
+\passo{The elasticity lies in $(0,1)$}{Strict concavity puts the tangent line at $V$ above the
+function at $0$: $M(U,0)<M(U,V)+M_V(U,V)\,(0-V)$. With $M(U,0)=0$ this reads $V M_V<M$, so
+$\eta(V)<1$; and $M_V>0$ gives $\eta(V)>0$. Differentiating $q$,
+\[
+q'(V)=\frac{V M_V-M}{V^2}=-\frac{q(V)}{V}\,\bigl[1-\eta(V)\bigr]<0 .
+\]}
+
+\passo{Decentralized equilibrium}{A vacancy is filled with probability $q(V)$, and a filled job
+leaves the firm $y-w=(1-\phi)y$. The expected value of opening a vacancy is $q(V)(1-\phi)y-c$; free
+entry drives it to zero (eq.~(10.71) with a general $M$):
+\[
+\frac{M(U,V^{EQ})}{V^{EQ}}\,(1-\phi)\,y=c. \qquad\text{(F)}
+\]
+The left side is strictly decreasing in $V$ because $q'<0$, so (F) has at most one root; it exists
+($V^{EQ}>0$) by assumption, hence it is unique.}
+
+\passo{Planner}{The planner chooses $V$ to maximize $W(V)=M(U,V)\,y-cV$:
+\[
+W'(V)=M_V(U,V)\,y-c,\qquad W''(V)=M_{VV}(U,V)\,y<0 .
+\]
+$W$ is strictly concave, so the first-order condition (eq.~(10.74) with a general $M$)
+\[
+M_V(U,V^{*})\,y=c \qquad\text{(P)}
+\]
+is necessary and sufficient, and $V^*$ is unique.}
+
+\passo{The wedge between (P) and (F)}{By the definition of $\eta$, $M_V=\eta(V)\,M/V=\eta(V)\,q(V)$
+at every $V$, so $W'(V)=\eta(V)\,q(V)\,y-c$. At $V=V^{EQ}$, replace $c$ using (F):
+\[
+W'(V^{EQ})=\eta(V^{EQ})\,q(V^{EQ})\,y-(1-\phi)\,q(V^{EQ})\,y
+=q(V^{EQ})\,y\,\bigl[\eta(V^{EQ})-(1-\phi)\bigr].
+\]}
+
+\passo{Efficiency condition}{($\Leftarrow$) If $\eta(V^{EQ})=1-\phi$, the bracket is zero, so
+$W'(V^{EQ})=0$: $V^{EQ}$ solves (P), whose only root is $V^*$; hence $V^{EQ}=V^*$.
+($\Rightarrow$) If $V^{EQ}=V^*$, then $W'(V^{EQ})=0$; since $q(V^{EQ})\,y>0$, the bracket vanishes:
+$\eta(V^{EQ})=1-\phi$. Therefore
+\[
+V^{EQ}=V^{*}\quad\Longleftrightarrow\quad
+\frac{V\,M_V(U,V)}{M(U,V)}\bigg|_{V=V^{EQ}}=1-\phi .
+\]
+The answer is \textbf{yes}: the condition survives without Cobb--Douglas form or constant returns, with
+one qualification --- the elasticity is evaluated at the equilibrium allocation. Evaluating it at $V^*$
+instead is equivalent: if $\eta(V^*)=1-\phi$, then by (P)
+$q(V^*)(1-\phi)y=\eta(V^*)\,q(V^*)\,y=M_V(U,V^*)\,y=c$, so $V^*$ solves (F), and since the root of (F) is
+unique, $V^{EQ}=V^*$.}
+
+\passo{Direction of the inefficiency}{$W'$ is strictly decreasing and $W'(V^*)=0$. If
+$\eta(V^{EQ})<1-\phi$, then $W'(V^{EQ})<0$, so $V^{EQ}>V^*$: too many vacancies. If
+$\eta(V^{EQ})>1-\phi$, then $W'(V^{EQ})>0$ and $V^{EQ}<V^*$: too few. This is Romer's result for
+$\gamma\lessgtr 1-\phi$, with $\gamma$ replaced by the elasticity at the equilibrium point.}
+
+\passo{What a general $M$ changes}{Under Cobb--Douglas, $\eta\equiv\gamma$ at every point, so the
+condition restricts parameters only. In general $\eta$ varies with $(U,V)$ and $V^{EQ}$ depends on
+$\phi$, $y$, $c$ and $U$, so the condition restricts the equilibrium point. Example, neither
+Cobb--Douglas nor constant-returns: $M=UV/(1+U+V)$, which meets every assumption above. Here
+$M_V=U(1+U)/(1+U+V)^2$, $q=U/(1+U+V)$ and $\eta=(1+U)/(1+U+V)$, so
+\[
+\begin{gathered}
+\text{(F)}:\ 1+U+V^{EQ}=\frac{(1-\phi)\,yU}{c},\qquad
+\text{(P)}:\ \bigl(1+U+V^{*}\bigr)^2=\frac{yU(1+U)}{c},\\
+V^{EQ}=V^*\iff 1-\phi=\Bigl[\frac{c\,(1+U)}{yU}\Bigr]^{1/2}.
+\end{gathered}
+\]
+The last equivalence squares (F) and compares it with (P). With $U=1$, $y=8$, $c=1$: $\phi=\tfrac12$
+gives $V^{EQ}=V^*=2$ and $\eta(V^{EQ})=\tfrac12=1-\phi$; $\phi=\tfrac14$ gives $V^{EQ}=4>V^*=2$, with
+$\eta(V^{EQ})=\tfrac13<\tfrac34$. The efficient share moves with $c/y$ and with the size of the
+unemployment pool, so no fixed bargaining rule is efficient for all fundamentals.}
+
+\intuicao{Split the gap between the social and the private value of a marginal vacancy:
+\[
+\underbrace{M_V\,y}_{\text{social}}-\underbrace{q\,(1-\phi)\,y}_{\text{private}}
+=\underbrace{\phi\,y\,M_V}_{\text{gain to workers}}
+-\underbrace{(1-\phi)\,y\,(q-M_V)}_{\text{congestion on other firms}} .
+\]
+The entrant expects $q$ matches, but total matches rise only by $M_V=\eta q$: the other
+$q-M_V=(1-\eta)q$ are taken from other vacancies, each worth $(1-\phi)y$ to its owner, while each new
+match hands $\phi y$ to a worker. The two externalities cancel iff $M_V=(1-\phi)q$, that is,
+$\eta=1-\phi$. The accounting never uses the functional form; it only has to balance where entry stops.}
+
+\armadilha{(i) Treating $\eta=1-\phi$ as a restriction on parameters: with a general $M$ it must hold at
+$V^{EQ}$, which itself moves with $\phi$; a point $\hat V\neq V^{EQ}$ with $\eta(\hat V)=1-\phi$ proves
+nothing. (ii) Thinking constant returns are needed: $U$ is fixed here, so only the $V$-elasticity
+enters; in the dynamic model constant returns matter only because they make $\eta$ a function of
+tightness $V/U$ alone.}
+
+\refbib{Romer (2012), \S10.7, eqs.~(10.71)--(10.75) and the welfare discussion, pp.~497--498;
+Hosios (1990); Rogerson, Shimer and Wright (2005).}
+
+\checado{\texttt{check-10-16-2-9.py} verifies with sympy, for an arbitrary $M(U,V)$, the identity
+$W'(V)-[q(1-\phi)y-c]=q\,y\,[\eta-(1-\phi)]$ and the externality split; for $M=UV/(1+U+V)$ it checks
+$\eta$, $M_{VV}<0$ and non-constant returns, then solves (F) and (P) by root-finding with $U=1$, $y=8$,
+$c=1$: $\phi=\tfrac12$ gives $V^{EQ}=V^*=2$; $\phi=\tfrac14$ gives $V^{EQ}=4>V^*$; $\phi=0.6$ gives
+$V^{EQ}=1.2<V^*$; at $U=3$ the efficient $\phi\approx0.59$, not $\tfrac12$. The solution manual also
+answers yes; it does not state where $\eta$ is evaluated or the direction of the inefficiency.}

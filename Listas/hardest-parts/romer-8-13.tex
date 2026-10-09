@@ -1,0 +1,142 @@
+% Romer 8.13 --- solution fragment for hardest-solutions.tex (statement not reproduced).
+% Euler equations, approximations and numbers re-checked by check-8-13-8-15.py.
+\problema{Romer 8.13}{Habit formation}{pp.~402--403}{Romer \S8.6}
+
+\passo{Notation}{$\beta\equiv1/(1+\rho)$ and $u(C,Z)\equiv(C/Z)^{1-\theta}/(1-\theta)$, so lifetime utility
+is $U_i=\sum_{t=1}^{T}\beta^{t}u(C_{it},Z_{it})$; the interest rate $r$ is constant and there is no
+uncertainty. The derivatives used throughout are
+\[
+\begin{aligned}
+u_C(C,Z)&=\frac1Z\Big(\frac CZ\Big)^{-\theta}=C^{-\theta}Z^{\theta-1},\qquad
+u_Z(C,Z)=-\frac{C}{Z^{2}}\Big(\frac CZ\Big)^{-\theta}=-C^{1-\theta}Z^{\theta-2},\\
+u_{CZ}(C,Z)&=(\theta-1)\,C^{-\theta}Z^{\theta-2},\quad\text{positive exactly when }\theta>1 .
+\end{aligned}
+\]}
+
+\parte{a}
+\passo{The perturbation, (i)}{Lower $C_{it}$ by $dC$ and raise $C_{i,t+1}$ by $(1+r)\,dC$. In the
+present-value budget, $\sum_{t}C_{it}/(1+r)^{t}\le A_{i0}+\sum_{t}Y_{it}/(1+r)^{t}$, spending changes by
+$-dC/(1+r)^{t}+(1+r)\,dC/(1+r)^{t+1}=0$: the change is feasible in either direction, so at an optimum
+its first-order effect on $U_i$ is zero. The reference levels $Z_{it}=C_{t-1}^{\phi}$ and
+$Z_{i,t+1}=C_{t}^{\phi}$ are aggregates that $i$ takes as given, so only the terms of $t$ and $t+1$ move:
+\[
+\begin{aligned}
+dU_i&=-\beta^{t}C_{it}^{-\theta}Z_{it}^{\theta-1}\,dC+\beta^{t+1}C_{i,t+1}^{-\theta}Z_{i,t+1}^{\theta-1}(1+r)\,dC=0\\
+\Longrightarrow\quad C_{it}^{-\theta}Z_{it}^{\theta-1}&=\frac{1+r}{1+\rho}\,C_{i,t+1}^{-\theta}Z_{i,t+1}^{\theta-1}
+\qquad\text{(dividing by }\beta^{t}dC).
+\end{aligned}
+\]}
+\passo{Euler equation, (i)}{Substitute $Z_{it}=C_{t-1}^{\phi}$ and $Z_{i,t+1}=C_{t}^{\phi}$, then divide both
+sides by $C_{i,t+1}^{-\theta}C_{t-1}^{\phi(\theta-1)}$:
+\[
+\Big(\frac{C_{i,t+1}}{C_{it}}\Big)^{\theta}=\frac{1+r}{1+\rho}\Big(\frac{C_{t}}{C_{t-1}}\Big)^{\phi(\theta-1)}
+\quad\Longrightarrow\quad
+\frac{C_{i,t+1}}{C_{it}}=\Big(\frac{1+r}{1+\rho}\Big)^{1/\theta}\Big(\frac{C_{t}}{C_{t-1}}\Big)^{\phi(\theta-1)/\theta}.
+\]
+For $\phi=0$ this is the standard CRRA Euler equation, Romer's (8.26).}
+\passo{Equilibrium, (ii)}{The representative consumer's consumption is aggregate consumption,
+$C_{it}=C_t$ for all $t$, so the left side becomes $C_{t+1}/C_t$. Taking logs (exact, no approximation):
+\[
+\ln C_{t+1}-\ln C_{t}=a+b\,(\ln C_{t}-\ln C_{t-1}),\qquad
+a\equiv\frac{\ln(1+r)-\ln(1+\rho)}{\theta}\simeq\frac{r-\rho}{\theta},\qquad
+b\equiv\frac{\phi(\theta-1)}{\theta}.
+\]}
+\passo{$\phi>0$ and $\theta=1$}{Then $b=0$ and $\ln C_{t+1}-\ln C_t=\ln(1+r)-\ln(1+\rho)$ every period:
+exactly the path without habits, so habit formation does not affect behavior. At $\theta=1$ period
+utility is $\ln C_{it}-\phi\ln C_{t-1}$ and $u_C=1/C_{it}$ does not depend on $Z_{it}$: the habit
+subtracts a term the individual cannot influence, which lowers the level of utility but changes no
+marginal rate of substitution.}
+\passo{$\phi>0$ and $\theta>1$}{Then $0<b\le(\theta-1)/\theta<1$ (because $\phi\le1$): consumption growth
+is positively serially correlated. With $x_t\equiv\ln C_t-\ln C_{t-1}$, the equation $x_{t+1}=a+bx_t$ has
+the fixed point and dynamics
+\[
+x^{*}=\frac{a}{1-b}=\frac{\ln(1+r)-\ln(1+\rho)}{\theta-\phi(\theta-1)},\qquad x_{t+1}-x^{*}=b\,(x_t-x^{*}),
+\]
+so a burst of growth dies out only gradually, at rate $b$ per period. Since
+$1\le\theta-\phi(\theta-1)<\theta$, long-run growth also responds more to $r-\rho$ than without habits.
+(For $\theta<1$, $b<0$ and growth rates alternate around $x^{*}$.)}
+\intuicao{For $\theta>1$, $u_{CZ}>0$: a higher reference level raises the marginal utility of one's own
+consumption (``catching up with the Joneses''). If aggregate consumption has just grown, the reference
+level is higher at $t+1$ than at $t$, so marginal utility at $t+1$ is high relative to $t$ and each
+consumer tilts spending toward $t+1$, i.e.\ grows faster. Everyone does the same, so past aggregate growth
+feeds current growth. With $\theta=1$ the cross effect $u_{CZ}$ is zero and the habit is behaviorally
+irrelevant.}
+
+\parte{b}
+\passo{Where $C_{it}$ enters, (i)}{Now $Z_{it}=C_{i,t-1}$ and $\phi=1$: $C_{it}$ is the numerator of the
+period-$t$ term and the reference level of the period-$(t+1)$ term. Write
+$u^{(s)}_{C}\equiv u_C(C_{is},C_{i,s-1})$ and $u^{(s)}_{Z}\equiv u_Z(C_{is},C_{i,s-1})$. The perturbation of
+(a)(i) moves $C_{it}$ by $-dC$ and $C_{i,t+1}$ by $(1+r)\,dC$, so it changes utility at $t$, $t+1$ and $t+2$:
+\[
+\begin{aligned}
+dU_i&=\beta^{t}\big[-u^{(t)}_{C}\big]dC+\beta^{t+1}\big[(1+r)\,u^{(t+1)}_{C}-u^{(t+1)}_{Z}\big]dC
++\beta^{t+2}(1+r)\,u^{(t+2)}_{Z}\,dC\\
+&=-\beta^{t}M_t\,dC+\beta^{t+1}(1+r)\,M_{t+1}\,dC,\qquad M_s\equiv u^{(s)}_{C}+\beta\,u^{(s+1)}_{Z}.
+\end{aligned}
+\]
+$M_s$ is the full marginal utility of $C_{is}$ in date-$s$ units; its second term, negative, is the
+habit cost (consuming more at $s$ raises the reference level at $s+1$). At $T$ there is no such cost:
+$M_T=u^{(T)}_{C}$.}
+\passo{Euler equation, (i)}{Setting $dU_i=0$ gives $M_t=\frac{1+r}{1+\rho}M_{t+1}$, i.e.\ with $u_C$, $u_Z$
+from the notation step,
+\[
+C_{it}^{-\theta}C_{i,t-1}^{\theta-1}-\frac{C_{i,t+1}^{1-\theta}C_{it}^{\theta-2}}{1+\rho}
+=\frac{1+r}{1+\rho}\bigg[C_{i,t+1}^{-\theta}C_{it}^{\theta-1}-\frac{C_{i,t+2}^{1-\theta}C_{i,t+1}^{\theta-2}}{1+\rho}\bigg],
+\qquad t\le T-2
+\]
+(for $t=T-1$ the last term is absent). Let $X_s\equiv C_{is}/C_{i,s-1}=1+g_s$. Since
+$C_{is}^{-\theta}C_{i,s-1}^{\theta-1}=X_s^{1-\theta}/C_{is}$ and $C_{i,s+1}^{1-\theta}C_{is}^{\theta-2}=X_{s+1}^{1-\theta}/C_{is}$,
+multiplying by $C_{i,t+1}$ and using $C_{i,t+1}/C_{it}=X_{t+1}$ gives the growth form
+\[
+X_{t+1}\Big[X_t^{1-\theta}-\frac{X_{t+1}^{1-\theta}}{1+\rho}\Big]=\frac{1+r}{1+\rho}\Big[X_{t+1}^{1-\theta}-\frac{X_{t+2}^{1-\theta}}{1+\rho}\Big].
+\]
+Only growth rates appear because $u$ is homogeneous of degree zero in $(C_{it},C_{i,t-1})$.}
+\passo{Linearization, (ii)}{With $\rho=r=0$ the growth form is
+$X_{t+1}\big[X_t^{1-\theta}-X_{t+1}^{1-\theta}\big]=X_{t+1}^{1-\theta}-X_{t+2}^{1-\theta}$. Replace each power by
+$X_s^{1-\theta}\simeq1+(1-\theta)g_s$ (the suggested approximation with $\gamma=1-\theta$) and $X_{t+1}$ by
+$1+g_{t+1}$:
+\[
+\begin{aligned}
+\text{left side:}&\quad(1+g_{t+1})(1-\theta)(g_t-g_{t+1})=(1-\theta)(g_t-g_{t+1})
++\underbrace{(1-\theta)\,g_{t+1}(g_t-g_{t+1})}_{\text{interaction: dropped}},\\
+\text{right side:}&\quad(1-\theta)(g_{t+1}-g_{t+2}).
+\end{aligned}
+\]
+Equating the two and dividing by $-(1-\theta)$, which requires $\theta\neq1$:
+\[
+g_{t+2}-g_{t+1}=g_{t+1}-g_t .
+\]
+Keeping the interaction term instead gives $g_{t+2}-g_{t+1}=(1+g_{t+1})(g_{t+1}-g_t)$.}
+\passo{Direction of the drift (exact)}{With $\rho=r=0$ the Euler equations give
+$M_1=M_2=\dots=M_T\equiv\mu$, and $\mu=M_T=X_T^{1-\theta}/C_{iT}>0$. With $m_s\equiv X_s^{1-\theta}$ and
+$m_{T+1}\equiv0$, $M_s=(m_s-m_{s+1})/C_{is}$ for every $s\le T$, so $m_s-m_{s+1}=\mu C_{is}$; summing over
+$s=t,\dots,T$,
+\[
+\Big(\frac{C_{it}}{C_{i,t-1}}\Big)^{1-\theta}=\mu\sum_{s=t}^{T}C_{is}\equiv\mu R_t ,
+\]
+where $R_t$ is what remains to be consumed from $t$ on. For $\theta>1$, $1+g_t=(\mu R_t)^{-1/(\theta-1)}$
+rises as $R_t$ falls, and to first order the constant step is $g_{t+1}-g_t\simeq\mu C_{it}/(\theta-1)>0$.
+Example ($T=6$, $\theta=3$, $C_{i0}=1$, $\sum_tC_{it}=6$): consumption is U-shaped and $1+g_t$ rises from
+$0.85$ to $1.60$.}
+\intuicao{Internal habits make period utility a function of growth alone, so the consumer smooths growth
+the way a standard consumer smooths levels. But resources move in levels: shifting a small amount from
+$t$ to $t+1$ changes $(\ln X_t,\ln X_{t+1},\ln X_{t+2})$ by $(-\epsilon,+2\epsilon,-\epsilon)$, and
+$\partial u/\partial\ln X=X^{1-\theta}$, so optimality sets the second difference of $X^{1-\theta}$, hence (to
+first order) of $g$, to zero. Growth then changes by the same amount every period: an acceleration
+persists one for one, far more persistence than external habits deliver ($b<1$). The sign comes from the
+end of life: the last period carries no habit cost, so consumption is back-loaded and its growth speeds
+up (in the example it first falls, lowering the habit stock).}
+\armadilha{Part (b) is not part (a) with $\phi=1$: there $Z_{i,t+1}$ is taken as given, here the $u_Z$ term is
+internalized. And the division by $1-\theta$ is not innocuous. At $\theta=1$ with $\rho=0$ lifetime utility
+telescopes to $\ln C_{iT}-\ln C_{i0}$ and the Euler equation reads $0=0$; for $\theta<1$ letting $C_{it}\to0$
+for one period makes $(C_{i,t+1}/C_{it})^{1-\theta}$, and so $U_i$, unbounded. With $\rho=0$, as in (ii), the
+problem has a maximum only for $\theta>1$.}
+\refbib{Romer \S8.4, pp.~380--381, eqs.~(8.24)--(8.26) (CRRA Euler equation by the same perturbation);
+\S8.6, p.~390, n.~14 (habit-formation literature); ch.~7, p.~358 (habits as a source of sluggish
+consumption).}
+\checado{\texttt{check-8-13-8-15.py} differentiates the perturbed utility symbolically and confirms, at
+random points, the (a)(i) Euler ratio and the (b)(i) Euler equation and its growth form; checks $b=0$ at
+$\theta=1$, $0<b<1$ for $\theta>1$ and $x^{*}$; series-expands the (b) condition to first order; and solves
+the $T=6$ example numerically, confirming $M_t$ constant, $X_t^{1-\theta}/R_t$ constant and rising growth.
+The Romer solution manual agrees with (a) and (b); it asserts without proof that growth increases over
+time, which the exact step establishes for $\theta>1$.}

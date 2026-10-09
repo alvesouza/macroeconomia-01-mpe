@@ -1,0 +1,384 @@
+% Practice list D v3 --- topics of Lista 7 (Benigno 2015), QUALIFIER LEVEL (style guide §8: cross-topic,
+% parameter analysis, graphs, answer key up to 15 pages).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number and closed form: practice-L7-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{The New Keynesian AS--AD Model --- qualifier level (Lista 7)}
+\renewcommand{\espacoresol}{6.5cm}
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{Notation (Benigno 2015).} Lower-case letters are log deviations from the
+steady state; bars denote the long run. Households: $u(C)-v(L)+\beta\{u(\bar C)-v(\bar L)\}$,
+$u=C^{1-\tilde\sigma^{-1}}/(1-\tilde\sigma^{-1})$, $v=L^{1+\eta}/(1+\eta)$, $\rho\equiv-\ln\beta$. Resources: $y=s_cc+g$,
+$\sigma\equiv\tilde\sigma s_c$. Firms: demand $Y(j)=(P(j)/P)^{-\theta}(C+G)$, technology $Y(j)=AL(j)$; a fraction $\alpha$ of
+prices is preset at $P^e$. Calibration unless stated: $\alpha=0.75$, $\sigma=0.5$, $\eta=0.2$, $\theta=8$, $\rho=0.01$ (a quarter),
+$p^e=\bar p=0$, $g=\bar g=0$, no taxes.\par}
+
+% =============================================================================
+\bloco{1}{Foundations: AD, AS, natural and efficient output, taxes}{Benigno \S\S1--5 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) The slope $\kappa$ of the AS curve $p-p^e=\kappa(y-y_n)$ under the calibration is:
+\begin{alternativas}
+\item $6.600$
+\item $0.733$
+\item $0.233$
+\item $2.200$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{derivation}{Flexible firms price at $\tilde p=w-a+\mu$; labor supply gives $w-p=\eta l+\sigma^{-1}(y-g)$ with
+$l=y-a$; so $\tilde p-p=(\sigma^{-1}+\eta)(y-y_n)$. With $p=\alpha p^e+(1-\alpha)\tilde p$: $\kappa=\frac{(1-\alpha)(\sigma^{-1}+\eta)}{\alpha}=\frac{0.25\cdot2.2}{0.75}=0.733$.
+A inverts $(1-\alpha)/\alpha$; C uses $\sigma+\eta$; D omits the rigidity factor.}
+\refbib{Benigno (2015), \S4, eqs.\ (16)--(17), pp.~506--508.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{AS--AD $\times$ taxation.} Productivity rises by $a=0.02$ and a payroll tax raises the (log) markup
+by $\mu=0.05$, both temporarily. The changes in $(y_n,\ y_e)$ are:
+\begin{alternativas}
+\item $(-0.0227,\ 0)$
+\item $(0.0109,\ 0.0109)$
+\item $(-0.0118,\ -0.0118)$
+\item $(-0.0118,\ 0.0109)$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{coefficients}{$\sigma^{-1}+\eta=2.2$. From (15): $\Delta y_n=(1.2\cdot0.02-0.05)/2.2=-0.0118$; from (19): $\Delta y_e=1.2\cdot0.02/2.2=0.0109$. Taxes
+enter only the markup (eq.\ 13), so they move $y_n$, never $y_e$.}
+\refbib{Benigno (2015), \S4.4, eqs.\ (13), (15), (19), pp.~507--509.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) Because $\theta$ sets the markup, a higher demand elasticity $\theta$ makes the AS curve steeper.
+\gabarito{F}
+\begin{sol}
+\passo{why}{$\theta$ enters $\mu$, hence $y_n$, but not $\kappa=(1-\alpha)(\sigma^{-1}+\eta)/\alpha$: with linear technology and an economy-wide labor
+market there is no real rigidity. $\theta$ reappears in the welfare weight of the loss function (Question 4).}
+\refbib{Benigno (2015), \S4, eq.\ (17); Romer (2012), \S6.5--6.7.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{AS--AD $\times$ fiscal news.} Holding $i$, $\bar p$ and $p^e$ fixed, news that long-run government
+spending will be higher ($\bar g\uparrow$, $g$ unchanged) lowers current output.
+\gabarito{T}
+\begin{sol}
+\passo{channel}{In the AD, $\bar y_n-\bar g$ falls by $\frac{\eta}{\sigma^{-1}+\eta}\Delta\bar g$ (higher future taxes lower long-run consumption);
+consumption smoothing lowers current demand; the AS does not move, so $y$ falls by $m_{\bar g}\Delta\bar g$,
+$m_{\bar g}=\eta/D=0.067$, $D=(\sigma^{-1}+\eta)(1+\kappa\sigma)$.}
+\refbib{Benigno (2015), \S8, Table 1, p.~515.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{AS--AD foundations $\times$ taxation $\times$ supply shocks.} Build the model from its
+primitives (no taxes unless stated).}
+
+\textbf{a)} (3 points) From the household problem with budget $PC+\frac{\bar P\bar C}{1+i}=WL+\frac{\bar W\bar L}{1+i}+T$, derive the
+Euler equation and the labor-supply condition; log-linearize and combine with $y=s_cc+g$ to obtain the AD curve. Give
+its slope in the $(y,p)$ plane, explain it, and list its shifters.
+\resolespaco
+\begin{sol}
+\passo{FOCs}{Lagrangian with multiplier $\lambda$: $u_c(C)=\lambda P$, $\beta u_c(\bar C)=\lambda\bar P/(1+i)$, $v_l(L)=\lambda W$; hence
+$\frac{u_c(C)}{\beta u_c(\bar C)}=(1+i)\frac P{\bar P}\equiv1+r$ and $\frac{v_l(L)}{u_c(C)}=\frac WP$.}
+\passo{log-linear Euler}{$u_c=C^{-1/\tilde\sigma}$: $\bar c-c=\tilde\sigma[i-(\bar p-p)-\rho]$ (with $\ln(1+i)\approx i$, $\rho=-\ln\beta$).}
+\passo{AD}{$c=(y-g)/s_c$ and $\bar c=(\bar y-\bar g)/s_c$, and long-run output is $\bar y_n$:
+\[y=\bar y_n+(g-\bar g)-\sigma[i-(\bar p-p)-\rho].\]
+Slope $dp/dy=-1/\sigma$: a higher $p$ lowers expected inflation $\bar p-p$, raises the real rate and current saving (an
+intertemporal channel, no LM curve). Shifters: $i$, $g$, $\bar g$, $\bar p$, $\bar y_n$ (i.e.\ $\bar a$, $\bar\mu$, $\bar g$).}
+\refbib{Benigno (2015), \S3, eqs.\ (1)--(6) and (21), pp.~505--509.}
+\rubrica{
+\item FOCs: 1 pt.
+\item Log-linear Euler: 1 pt.
+\item AD, slope with its mechanism, shifters: 1 pt. Slope justified by money demand: 0 for this line.
+}
+\end{sol}
+
+\textbf{b)} (3 points) From the firm's problem derive the optimal flexible price, natural output and the AS curve
+with a fraction $\alpha$ of preset prices.
+\resolespaco
+\begin{sol}
+\passo{optimal price}{$\Pi(j)=(P(j)-\frac WA)(\frac{P(j)}P)^{-\theta}(C+G)$; FOC: $(1-\theta)P(j)^{-\theta}+\theta\frac WAP(j)^{-\theta-1}=0\Rightarrow P(j)=\frac{\theta}{\theta-1}\frac WA$;
+in logs $\tilde p=w-a+\mu$.}
+\passo{gap relation}{Labor supply in logs, $w-p=\eta(y-a)+\sigma^{-1}(y-g)$ (using $l=y-a$, $c=(y-g)/s_c$), gives
+$\tilde p-p=(\sigma^{-1}+\eta)y-(1+\eta)a-\sigma^{-1}g+\mu=(\sigma^{-1}+\eta)(y-y_n)$ with $y_n=\frac{(1+\eta)a+\sigma^{-1}g-\mu}{\sigma^{-1}+\eta}$ (where $\tilde p=p$).}
+\passo{AS}{$p=\alpha p^e+(1-\alpha)\tilde p\Rightarrow\alpha(p-p^e)=(1-\alpha)(\sigma^{-1}+\eta)(y-y_n)$: $\kappa=\frac{(1-\alpha)(\sigma^{-1}+\eta)}{\alpha}=0.733$.}
+\refbib{Benigno (2015), \S4, eqs.\ (9)--(17), pp.~506--508; Romer (2012), problem 6.16.}
+\rubrica{
+\item Optimal price: 1 pt.
+\item Gap relation and $y_n$: 1 pt.
+\item AS and $\kappa$: 1 pt. Quoting $\kappa$: 0 for this line.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Derive efficient output from the planner's problem and compare it with natural output. Show how
+labor, payroll and consumption taxes affect each, and find the subsidy that makes the steady state efficient.
+\resolespaco
+\begin{sol}
+\passo{planner}{$\max u(Y-G)-v(Y/A)$: $u_c(Y-G)=v_l(Y/A)/A$; in logs $\sigma^{-1}(y-g)+\eta(y-a)=a$, so $y_e=\frac{(1+\eta)a+\sigma^{-1}g}{\sigma^{-1}+\eta}$ and
+$y_n-y_e=-\frac{\mu}{\sigma^{-1}+\eta}$: the markup is a wedge between the real wage and the marginal product of labor.}
+\passo{taxes}{With taxes the flexible price becomes $P(j)=\frac{\theta}{\theta-1}\frac{1+\tau_w}{1-\tau_y}\frac WA$ and the labor-supply condition carries
+$\frac{1-\tau_l}{1+\tau_c}$; both wedges add up in the aggregate markup $1+\mu=\frac{\theta}{\theta-1}\frac{(1+\tau_w)(1+\tau_c)}{(1-\tau_y)(1-\tau_l)}$ (eq.\ 13). Taxes therefore
+lower $y_n$ and leave $y_e$ untouched: the planner faces no tax wedge.}
+\passo{efficient subsidy}{$1+\mu=1$ with only a revenue subsidy: $\tau_y=-\frac1{\theta-1}$, i.e.\ 14.3\% at $\theta=8$.}
+\refbib{Benigno (2015), \S4.4, eq.\ (19), p.~509; eq.\ (13), p.~507; footnote 21.}
+\rubrica{
+\item Planner and $y_e$: 1 pt.
+\item Taxes in the markup, effect on $y_n$ only: 1.5 pts.
+\item Subsidy: 0.5 pt.
+}
+\end{sol}
+
+\textbf{d)} (3 points) An oil shock raises the markup by $\mu=0.05$ while productivity falls by $a=-0.02$, both for the short run
+only. Find the equilibrium output gap in terms of the natural real rate and the policy rate, compute the outcome if
+the bank keeps $i=\rho$ and the $i$ that delivers $p=p^e$, and draw the AS--AD diagram (old and new AS, AD, both
+equilibria and $y_e$).
+\resolespaco
+\begin{sol}
+\passo{gap}{Substituting the AS into the AD ($g=\bar g$): $(1+\sigma\kappa)(y-y_n)=\bar y_n-y_n-\sigma(i-\rho)+\sigma(\bar p-p^e)$, i.e.
+$y-y_n=\frac{\sigma}{1+\sigma\kappa}[r_n-i+(\bar p-p^e)]$ with $r_n\equiv\rho+\sigma^{-1}(\bar y_n-y_n)$.}
+\passo{numbers}{$y_n=-0.0336$, $y_e=-0.0109$, $r_n=0.01+2(0.0336)=7.73\%$. With $i=\rho$: gap $=0.366\cdot0.0673=0.0246$, $y=-0.0090$,
+$p-p^e=0.0180$; output is above efficient ($y-y_e=+0.0019$). With $i=r_n=7.73\%$: $p=p^e$, $y=y_n$, 2.3\% below $y_e$.}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=8.6cm,height=6cm,xmin=-4.5,xmax=1.5,ymin=-1.2,ymax=3.4,axis lines=middle,
+  xlabel={$y$ ($\times100$)},ylabel={$p$ ($\times100$)},tick label style={font=\footnotesize},label style={font=\small},
+  legend style={font=\footnotesize},legend pos=outer north east]
+\addplot[thick,black,domain=-1.6:0.6]{-2*x};
+\addplot[thick,blue,domain=-1.5:1.5]{0.733333*x};
+\addplot[thick,red,domain=-4.5:0]{0.733333*(x+3.3636)};
+\addplot[thick,black,dashed,domain=-4.5:-2.8]{-2*(x+3.3636)};
+\legend{AD ($i=\rho$),AS,AS$'$,AD$''$ ($i=r_n$)}
+\addplot[only marks,mark=*] coordinates {(0,0) (-0.902439,1.804878) (-3.3636,0)};
+\addplot[dotted] coordinates {(-1.0909,-1.2) (-1.0909,3.4)};
+\node[font=\footnotesize,anchor=south west] at (axis cs:-0.85,1.8) {$E'$};
+\node[font=\footnotesize,anchor=south east] at (axis cs:-3.4,0.05) {$E''$};
+\node[font=\footnotesize,anchor=north west] at (axis cs:0.05,-0.05) {$E$};
+\node[font=\footnotesize,anchor=north east] at (axis cs:-1.12,-0.6) {$y_e$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\refbib{Benigno (2015), \S5 and \S7, pp.~509--514; natural rate on p.~513.}
+\rubrica{
+\item Gap formula derived: 1 pt.
+\item Numbers for both policies: 1 pt.
+\item Graph: AS shifts through $(y_n',p^e)$, AD unchanged at $i=\rho$, $E'$ and $E''$ placed correctly, $y_e$ marked: 1 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} For the markup shock alone ($\mu=0.05$, $a=0$, $i=\rho$), how do the responses of output and
+prices depend on price rigidity? Find them in closed form as functions of $\kappa$, prove the signs, give the limits $\alpha\to0$ and
+$\alpha\to1$, fill the table for $\alpha\in\{0.5,0.66,0.75,0.9\}$ and read it.
+\resolespaco
+\begin{sol}
+\passo{closed forms}{$y_n=-\frac{\mu}{\sigma^{-1}+\eta}$, $r_n-\rho=\frac{\sigma^{-1}\mu}{\sigma^{-1}+\eta}$, so the gap is $\frac{\mu}{(1+\sigma\kappa)(\sigma^{-1}+\eta)}$ and
+\[y=-\frac{\mu}{\sigma^{-1}+\eta}\cdot\frac{\sigma\kappa}{1+\sigma\kappa},\qquad p-p^e=\frac{\mu}{\sigma^{-1}+\eta}\cdot\frac{\kappa}{1+\sigma\kappa}.\]}
+\passo{signs and limits}{$\frac{\partial}{\partial\kappa}\frac{\kappa}{1+\sigma\kappa}=\frac1{(1+\sigma\kappa)^2}>0$: more flexibility (lower $\alpha$, higher $\kappa$) means a larger fall in output and
+a larger rise in prices. $\alpha\to1$ ($\kappa\to0$): $y\to0$, $p\to p^e$ (output is demand-determined). $\alpha\to0$ ($\kappa\to\infty$): $y\to y_n$ and
+$p-p^e\to\frac{\mu}{1+\sigma\eta}=4.5\%$.}
+\passo{table}{
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$\alpha$ & 0.5 & 0.66 & 0.75 & 0.9 \\
+\midrule
+$\kappa$ & 2.200 & 1.133 & 0.733 & 0.244 \\
+$y$ (\%) & $-1.19$ & $-0.82$ & $-0.61$ & $-0.25$ \\
+$p-p^e$ (\%) & 2.38 & 1.64 & 1.22 & 0.50 \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\passo{reading}{Rigid prices shield output from a cost shock when the policy rate is held fixed, because demand pins
+output down; flexible prices pass the shock to prices and output falls toward $y_n$. With the markup shock alone
+$y_e$ does not move, so every response leaves output below the efficient level, and the more flexible the prices, the
+larger both the efficient gap and the price surprise (in (d), output could exceed $y_e$ only because $y_e$ fell too).}
+\refbib{Benigno (2015), \S7, p.~513; Romer (2012), problem 6.16.}
+\rubrica{
+\item Closed forms: 1 pt.
+\item Signs and both limits proved: 1 pt.
+\item Table and reading: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Policy: optimal rules, the zero bound and household debt}{Benigno \S\S6--12 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Monetary $\times$ fiscal policy.} A temporary cut in consumption taxes of 2 points (like the 2009 IPI
+cut on cars, modeled as $\tau_c=-0.02$, entering the markup one for one) changes the natural real rate
+$r_n=\rho+\sigma^{-1}(\bar y_n-y_n)+\sigma^{-1}(g-\bar g)+(\bar\tau_c-\tau_c)$ by:
+\begin{alternativas}
+\item $+2.00$ points
+\item $-1.82$ points
+\item $+0.18$ points
+\item $0$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{two channels}{Supply: $\Delta\mu=-0.02$, $\Delta y_n=0.02/2.2=0.0091$, lowering $r_n$ by $0.0182$. Demand: $\bar\tau_c-\tau_c$ rises by $0.02$. Net
+$+0.0018$: the bank must raise $i$ slightly to keep output at its natural level.}
+\refbib{Benigno (2015), \S8 and p.~513.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Fiscal multipliers.} With $i$ fixed, a temporary rise in $g$ of 1\% of GDP changes output and the gap
+$y-y_n$ by, respectively:
+\begin{alternativas}
+\item $1.000\%$ and $0.000\%$
+\item $0.909\%$ and $0.000\%$
+\item $0.732\%$ and $0.067\%$
+\item $0.976\%$ and $0.067\%$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{both curves move}{$\Delta y_n=\frac{\sigma^{-1}}{\sigma^{-1}+\eta}=0.909$ per unit; $\Delta r_n=\sigma^{-1}(1-0.909)=0.182$; gap $=0.366\cdot0.182=0.067$; output
+$0.909+0.067=0.976=m_g$ (Table 1).}
+\refbib{Benigno (2015), \S8, Table 1, p.~515.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) At the zero lower bound with $r_n<0$, a credible commitment to a long-run price level higher
+by $-r_n$ restores $y=y_n$ and $p=p^e$.
+\gabarito{T}
+\begin{sol}
+\passo{gap formula}{With $i=0$, $y-y_n=\frac{\sigma}{1+\sigma\kappa}[r_n+(\bar p-p^e)]=0$ when $\bar p-p^e=-r_n$; then $p=p^e$.}
+\refbib{Benigno (2015), \S9, p.~517.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{AS--AD $\times$ household debt.} In the borrower--saver economy with constant inflation between
+the short and the long run, more price flexibility reduces the output cost of a deleveraging shock.
+\gabarito{F}
+\begin{sol}
+\passo{paradox of flexibility}{The AD slopes up (Fisher debt deflation) and the output response $\frac{(1-\chi)\hat d}{\chi-(1-\chi)d_0\kappa}$ grows in size with $\kappa$
+(Question 4(e)).}
+\refbib{Benigno (2015), \S10, pp.~519--521.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Optimal policy $\times$ zero lower bound $\times$ household debt.}}
+
+\textbf{a)} (3 points) The bank minimizes Benigno's welfare loss $L=\tfrac12(y-y_e)^2+\tfrac12\tfrac{\theta}{\kappa}(p-p^e)^2$ (eq.\ 33) subject to the AS. Find
+the optimal relation between the efficient gap and price surprises, describe it in the $(y,p)$ plane and prove that shocks
+that leave $\mu$ unchanged create no trade-off.
+\resolespaco
+\begin{sol}
+\passo{substitution}{With $p-p^e=\kappa(y-y_n)$: $L=\tfrac12(y-y_e)^2+\tfrac12\theta\kappa(y-y_n)^2$, strictly convex in $y$.}
+\passo{targeting rule}{FOC: $(y-y_e)+\theta\kappa(y-y_n)=0$, i.e.\ $(y-y_e)+\theta(p-p^e)=0$ (eq.\ 34); $y^*=\frac{y_e+\theta\kappa y_n}{1+\theta\kappa}$. In the plane: a line through
+$(y_e,p^e)$ with slope $-1/\theta$; the optimum is its intersection with the AS.}
+\passo{no trade-off}{If $\mu$ is unchanged, $y_n=y_e$, and $y=y_e$, $p=p^e$ satisfies both the AS and the rule with $L=0$ (divine
+coincidence); it is implemented by $i=r_n+(\bar p-p^e)$.}
+\refbib{Benigno (2015), \S11, eqs.\ (33)--(34), pp.~521--522.}
+\rubrica{
+\item Substitution and FOC: 1.5 pts.
+\item Geometry: 0.5 pt.
+\item Divine coincidence with the argument: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (3 points) For the shock of Question 2(d), compute the optimal $y$, $p-p^e$ and $i$ and compare with strict price
+stability. Then show that no Taylor rule $i=\bar\imath+\psi_y(y-y_e)+\psi_\pi(p-p^e)$ with a constant intercept implements the optimum under
+productivity shocks ($a=\pm0.004$).
+\resolespaco
+\begin{sol}
+\passo{optimum}{$\theta\kappa=5.867$: $y^*=\frac{-0.0109+5.867(-0.0336)}{6.867}=-0.0303$, $p-p^e=\kappa(y^*-y_n)=0.0024$; check
+$(y^*-y_e)+\theta(p-p^e)=-0.0194+0.0194=0$.}
+\passo{interest rate}{$i=r_n-\frac{1+\sigma\kappa}{\sigma}(y^*-y_n)=0.0773-2.733\cdot0.0033=6.82\%$, between the passive 1\% and strict price
+stability's 7.73\%: the bank accepts a 0.24\% price rise to cushion output.}
+\passo{Taylor rule}{Under a pure productivity shock $y_n=y_e$ and the optimum has zero gaps, so any Taylor rule prescribes
+$i=\bar\imath$. The optimum needs $i=r_n$: $a=0.004$ gives $r_n=0.56\%$, $a=-0.004$ gives $1.44\%$. One intercept cannot equal both:
+the rule must track the natural rate.}
+\refbib{Benigno (2015), \S11.}
+\rubrica{
+\item Optimal $y$, $p$ with the check: 1 pt.
+\item Optimal $i$ and comparison: 1 pt.
+\item Taylor-rule argument: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Pessimism: long-run productivity is expected to fall, $\bar a=-0.05$, with $a=0$. Show that the zero bound binds,
+compute output and prices at $i=0$ with $\bar p=p^e$, find the $\bar p$ that restores the optimum, give the limits as $\kappa\to\infty$ and
+$\kappa\to0$, and discuss credibility.
+\resolespaco
+\begin{sol}
+\passo{natural rate}{$\bar y_n=\frac{1.2}{2.2}(-0.05)=-0.0273$, $y_n=y_e=0$, $r_n=0.01+2(-0.0273)=-4.45\%<0$: $i=r_n$ is unavailable.}
+\passo{at $i=0$}{Gap $=0.366\cdot(-0.0445)=-0.0163$; $p-p^e=-0.0120$. Remedy: $\bar p-p^e=-r_n=4.45\%$.}
+\passo{limits and credibility}{$\kappa\to\infty$: gap $\to0$ and $p-p^e\to r_n=-4.45\%$; $\kappa\to0$: $p=p^e$ and gap $=\sigma r_n=-0.0223$. Once the recession
+is over the bank prefers $\bar p=p^e$: the promise is time-inconsistent and works only if believed.}
+\refbib{Benigno (2015), \S6.3 and \S9, pp.~513 and 517.}
+\rubrica{
+\item $r_n$ and the binding bound: 1 pt.
+\item Outcome at $i=0$ and the required $\bar p$: 1 pt.
+\item Limits and credibility: 1 pt.
+}
+\end{sol}
+
+\textbf{d)} (3 points) With borrowers and savers (share $\chi$ of savers, initial debt $d_0$), Benigno's AD is
+\[y=\bar y_n-\varphi[i-(\bar p_n-p)-\rho]+\tfrac1\chi(g-\bar g)+\tfrac{1-\chi}{\chi}[\hat d+d_0(p-p^e)],\qquad\varphi\equiv\frac{\sigma\chi+(1-\chi)d_0\beta}{\chi},\]
+where $\hat d$ is the change in the debt limit. Find $dy/dp$ when $\bar p_n$ is anchored and when inflation $\bar p_n-p$ is constant,
+name the two channels, and derive the spending multipliers in both regimes; compute them with $\chi=2/3$, $d_0=1.2$, $\beta=0.98$.
+\resolespaco
+\begin{sol}
+\passo{slopes}{Anchored: $dy/dp=-\varphi+\frac{(1-\chi)d_0}{\chi}=-\varpi$, $\varpi\equiv\sigma-\frac{d_0(1-\beta)(1-\chi)}{\chi}=0.488$: the real-rate channel outweighs the
+Fisher channel (a higher $p$ erodes nominal debt). Constant inflation: the real-rate term no longer depends on $p$, so
+$dy/dp=+\frac{(1-\chi)d_0}{\chi}>0$: the AD slopes up.}
+\passo{multipliers}{Temporary $g$ moves $y_n$ by $\frac{g}{1+\sigma\eta}$ and the AD by $g/\chi$. Anchored: $m=\frac{1/\chi+\varpi\kappa/(1+\sigma\eta)}{1+\varpi\kappa}$. Constant inflation:
+$m=\frac{1-(1-\chi)d_0\kappa/(1+\sigma\eta)}{\chi-(1-\chi)d_0\kappa}$, valid when $\chi>(1-\chi)d_0\kappa$.}
+\passo{numbers}{$\alpha=0.75$: $1.344$ and $1.964$; $\alpha=0.66$: $1.290$ and $2.756$ (Benigno's figures). Both exceed one: Ricardian equivalence
+fails for constrained borrowers.}
+\refbib{Benigno (2015), \S10, eq.\ (32), pp.~519--521.}
+\rubrica{
+\item Both slopes with the two channels: 1 pt.
+\item Both multipliers derived: 1.5 pts. Quoted from the article: max.\ 0.5 pt.
+\item Numbers: 0.5 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How does the output response to a fall in the debt limit $\hat d=-0.1$ depend on price
+flexibility in each regime? Find it in closed form, prove the signs, give the stability bound, fill the table for
+$\alpha\in\{0.66,0.75,0.9\}$, and draw both responses against $\kappa$.
+\resolespaco
+\begin{sol}
+\passo{closed forms and signs}{Anchored: $y=\frac{(1-\chi)\hat d/\chi}{1+\varpi\kappa}$, smaller in size as $\kappa$ rises. Constant inflation: $y=\frac{(1-\chi)\hat d}{\chi-(1-\chi)d_0\kappa}$, larger in
+size as $\kappa$ rises, and unbounded as $\kappa\to\frac{\chi}{(1-\chi)d_0}=1.667$, the stability bound.}
+\passo{table}{
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\alpha$ ($\kappa$) & 0.66 (1.133) & 0.75 (0.733) & 0.90 (0.244) \\
+\midrule
+$y$ anchored & $-3.2\%$ & $-3.7\%$ & $-4.5\%$ \\
+$y$ constant inflation & $-15.6\%$ & $-8.9\%$ & $-5.9\%$ \\
+multiplier, anchored & 1.29 & 1.34 & 1.44 \\
+multiplier, constant inflation & 2.76 & 1.96 & 1.60 \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.4cm,xmin=0,xmax=1.6,ymin=-30,ymax=0,xlabel={$\kappa$},ylabel={$y$ (\%)},
+  legend style={font=\footnotesize},legend pos=south west,tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,blue,domain=0:1.6,samples=80]{100*(-0.05)/(1+0.488*x)};
+\addplot[thick,red,domain=0:1.55,samples=120]{100*(-0.1/3)/(2/3-0.4*x)};
+\addplot[dotted] coordinates {(1.6667,-30) (1.6667,0)};
+\legend{anchored $\bar p_n$,constant inflation}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\passo{reading}{When long-run prices are anchored, flexible prices help: a lower $p$ raises expected inflation and cuts the
+real rate. When inflation is expected to persist, a lower $p$ lowers future prices too and raises the real value of
+debt: flexibility deepens the slump (paradox of flexibility), and the multiplier is largest exactly where the slump is.}
+\refbib{Benigno (2015), \S10, pp.~519--521, and footnote 20.}
+\rubrica{
+\item Closed forms, signs and the bound: 1 pt.
+\item Table: 1 pt.
+\item Graph: one decreasing-in-size and one exploding curve, bound marked: 1 pt.
+}
+\end{sol}
+
+\end{document}

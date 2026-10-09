@@ -1,0 +1,123 @@
+% Romer (2012), Problem 1.12 --- solution fragment, \input by ../hardest-solutions.tex.
+% Statement not reproduced (project rule). Every result is re-derived by check-1-12-1-15.py.
+\problema{Romer 1.12}{Embodied technological progress}{pp.~47--48}{Romer \S1.3, \S1.5}
+\noindent\textbf{Notation and assumptions.} $g_X\equiv\dot X/X$ for any variable $X$. Labor grows at
+rate $n$ and $A$ at rate $\mu>0$; $0<\alpha<1$, $0<s<1$ and $n+\delta>0$. Throughout,
+$\phi\equiv\alpha/(1-\alpha)$, so that $\alpha=\phi(1-\alpha)$ and $1+\phi=1/(1-\alpha)$.
+
+\parte{a}
+\passo{Capital-augmenting progress is labor-augmenting in disguise}{Because $\alpha=\phi(1-\alpha)$,
+$A^{\alpha}=(A^{\phi})^{1-\alpha}$, and the production function can be rewritten as
+\[ Y=A^{\alpha}K^{\alpha}L^{1-\alpha}=K^{\alpha}(A^{\phi}L)^{1-\alpha}
+\quad\Longrightarrow\quad
+y\equiv\frac{Y}{A^{\phi}L}=\Big(\frac{K}{A^{\phi}L}\Big)^{\alpha}=k^{\alpha},
+\qquad k\equiv\frac{K}{A^{\phi}L}. \]}
+\passo{Law of motion of $k$}{Log-differentiating the definition of $k$ gives $g_k=g_K-\phi\mu-n$.
+Dividing $\dot K=sY-\delta K$ by $K$ gives $g_K=s\,Y/K-\delta$, and $Y/K=y/k=k^{\alpha-1}$. Hence
+\[ \frac{\dot k}{k}=s\,k^{\alpha-1}-m_a,\qquad m_a\equiv n+\delta+\phi\mu>0,
+\qquad\text{that is,}\qquad \dot k=s\,k^{\alpha}-m_a\,k. \]}
+\passo{Global convergence}{The growth rate of $k$, $\Gamma_a(k)\equiv s\,k^{\alpha-1}-m_a$, satisfies
+\[ \Gamma_a'(k)=-(1-\alpha)s\,k^{\alpha-2}<0,\qquad \lim_{k\downarrow0}\Gamma_a(k)=+\infty,\qquad
+\lim_{k\to\infty}\Gamma_a(k)=-m_a<0. \]
+So it has a unique zero, $k^*=(s/m_a)^{1/(1-\alpha)}$, with $\dot k>0$ for $k<k^*$ and $\dot k<0$ for $k>k^*$. From any $k(0)>0$, $k$ moves monotonically
+toward $k^*$ and cannot cross it (it is a rest point), so $k(t)\to k^*$.}
+\passo{Balanced growth}{At $k=k^*$, $y=y^*=(k^*)^{\alpha}$ is constant, so $K=k^*A^{\phi}L$ and
+$Y=y^*A^{\phi}L$ both grow at the growth rate of $A^{\phi}L$:
+\[ g_K^{\mathrm{bgp}}=g_Y^{\mathrm{bgp}}=n+\phi\mu=n+\frac{\alpha\mu}{1-\alpha},\qquad
+g_{Y/L}^{\mathrm{bgp}}=g_{K/L}^{\mathrm{bgp}}=\frac{\alpha\mu}{1-\alpha}. \]}
+\intuicao{With Cobb--Douglas technology it does not matter which factor $A$ multiplies: $A^{\alpha}$
+on capital is $(A^{\phi})^{1-\alpha}$ on labor, so capital-augmenting progress at rate $\mu$ is
+labor-augmenting progress at rate $\phi\mu$, and the Solow result (output per worker grows at the
+rate of labor-augmenting progress) delivers $\alpha\mu/(1-\alpha)$. That is why the problem imposes
+Cobb--Douglas: otherwise capital-augmenting progress is incompatible with balanced growth (Uzawa's
+theorem).}
+
+\parte{b}
+\passo{Change of variable}{Let $\tilde J\equiv J/A$. Then $Y=J^{\alpha}L^{1-\alpha}=(A\tilde J)^{\alpha}
+L^{1-\alpha}$, the technology of (a) with $\tilde J$ in place of $K$. As in (a),
+$Y=\tilde J^{\alpha}(A^{\phi}L)^{1-\alpha}$, so $y\equiv Y/(A^{\phi}L)=j^{\alpha}$ with
+$j\equiv\tilde J/(A^{\phi}L)$.}
+\passo{Accumulation of $\tilde J$: obsolescence}{Using $\dot J=sAY-\delta J$ and $J=A\tilde J$,
+\[ g_{\tilde J}=g_J-\mu=\frac{sAY}{J}-\delta-\mu=\frac{sY}{\tilde J}-(\delta+\mu)
+\quad\Longrightarrow\quad \dot{\tilde J}=sY-(\delta+\mu)\tilde J. \]
+This is the capital accumulation equation of (a) with depreciation rate $\delta+\mu$. Integrating,
+\[ \tilde J(t)=e^{-(\delta+\mu)t}\,\tilde J(0)+\int_0^t e^{-(\delta+\mu)(t-v)}\,sY(v)\,dv: \]
+one unit of output invested at $v$ still supplies $e^{-\delta(t-v)}A(v)$ units of $J$ at $t$, as
+many as $e^{-(\delta+\mu)(t-v)}$ units of output invested at $t$ would. So $\tilde J$ measures the
+stock in current-vintage machines, and it loses value through decay ($\delta$) and obsolescence
+($\mu$).}
+\passo{Law of motion of $j$}{Log-differentiating, $g_j=g_{\tilde J}-\phi\mu-n$. With
+$Y/\tilde J=y/j=j^{\alpha-1}$ and $\mu+\phi\mu=\mu/(1-\alpha)$,
+\[ \dot j=s\,j^{\alpha}-m\,j,\qquad m\equiv n+\delta+\frac{\mu}{1-\alpha}=m_a+\mu. \]}
+\passo{Global convergence}{The argument of (a) applies with $m$ in place of $m_a$:
+$\Gamma(j)\equiv s\,j^{\alpha-1}-m$ has ${\Gamma'(j)=-(1-\alpha)s\,j^{\alpha-2}<0}$ and falls from
+$+\infty$ to $-m<0$, so from any $j(0)>0$, $j$ converges monotonically to $j^*=(s/m)^{1/(1-\alpha)}$.
+The dynamics even solve in closed form: $z\equiv j^{1-\alpha}=j/y=\tilde J/Y$ satisfies
+$\dot z=(1-\alpha)j^{-\alpha}\dot j=(1-\alpha)(s-mz)$, which is linear, so
+\[ \frac{\tilde J(t)}{Y(t)}=\frac{s}{m}+\Big[\frac{\tilde J(0)}{Y(0)}-\frac{s}{m}\Big]
+e^{-(1-\alpha)m\,t}. \]}
+\passo{Balanced growth}{With $j=j^*$ and $y=y^*$ constant, $Y=y^*A^{\phi}L$ and
+$\tilde J=j^*A^{\phi}L$ grow at $n+\phi\mu$, and $J=A\tilde J$ grows $\mu$ faster:
+\[ g_Y^{\mathrm{bgp}}=n+\frac{\alpha\mu}{1-\alpha},\quad g_J^{\mathrm{bgp}}=n+\frac{\mu}{1-\alpha},\quad
+g_{Y/L}^{\mathrm{bgp}}=\frac{\alpha\mu}{1-\alpha},\quad g_{J/Y}^{\mathrm{bgp}}=\mu. \]}
+\intuicao{Relative to (a), embodiment changes one thing: the stock that matters, $\tilde J$,
+depreciates at $\delta+\mu$ instead of $\delta$. Depreciation moves levels, not balanced-growth
+rates, so output grows exactly as in (a). Effective capital $J$ outgrows output by $\mu$ because
+every vintage is more productive than the one before.}
+
+\parte{c}
+\passo{Output on the balanced growth path}{On the path, $Y(t)=A(t)^{\phi}L(t)\,y^*$ with
+$y^*=(j^*)^{\alpha}=(s/m)^{\alpha/(1-\alpha)}$. The paths of $A$ and $L$ and the break-even rate $m$
+do not depend on $s$, so
+\[ \ln Y(t)=\phi\ln A(t)+\ln L(t)+\frac{\alpha}{1-\alpha}\,(\ln s-\ln m)
+\quad\Longrightarrow\quad\frac{\partial\ln Y(t)}{\partial\ln s}=\frac{\alpha}{1-\alpha}, \]
+which is $1/2$ for $\alpha=1/3$, whatever the values of $\mu$, $n$ and $\delta$.}
+
+\parte{d}
+\passo{Linearize around $j^*$}{Write $\dot j=h(j)\equiv s\,j^{\alpha}-m\,j$. At the rest point
+$h(j^*)=0$, i.e.\ $s(j^*)^{\alpha-1}=m$, so $h'(j^*)=\alpha s(j^*)^{\alpha-1}-m=\alpha m-m$.
+A first-order Taylor expansion gives
+\[ \dot j\simeq-\lambda\,(j-j^*),\qquad
+\lambda\equiv-h'(j^*)=(1-\alpha)\,m=(1-\alpha)(n+\delta)+\mu, \]
+so $j(t)-j^*\simeq e^{-\lambda t}[j(0)-j^*]$.}
+\passo{Output converges at the same rate}{Since $y=j^{\alpha}$, $\dot y=\alpha j^{\alpha-1}h(j)$,
+whose derivative with respect to $j$ at $j^*$ is $\alpha(j^*)^{\alpha-1}h'(j^*)$ because $h(j^*)=0$;
+and $y-y^*\simeq\alpha(j^*)^{\alpha-1}(j-j^*)$. Hence $\dot y\simeq-\lambda(y-y^*)$ and
+$y(t)-y^*\simeq e^{-\lambda t}[y(0)-y^*]$. The closed form in (b) shows that $\tilde J/Y$ converges
+at exactly this rate globally, not only near the path.}
+\passo{Magnitude}{With $\alpha=1/3$, $n=0.01$, $\delta=0.03$ and $\mu=0.04$ (so that
+$g_{Y/L}^{\mathrm{bgp}}=\phi\mu=0.02$), $\lambda=\tfrac23(0.04)+0.04\approx0.067$ per year: the
+economy closes about $6.7\%$ of the gap each year, a half-life of $\ln2/\lambda\approx10.4$ years.}
+
+\parte{e}
+\passo{Elasticity: unchanged}{In the basic model, (1.27) gives $\alpha_K(k^*)/[1-\alpha_K(k^*)]$,
+which under Cobb--Douglas is $\alpha/(1-\alpha)$, the same as in (c). In both models balanced-growth
+output is proportional to $(s/\text{break-even rate})^{\alpha/(1-\alpha)}$, and neither break-even
+rate ($n+g+\delta$ there, $m$ here) depends on $s$.}
+\passo{Speed: faster}{In the basic model, (1.31) gives $\lambda_S=(1-\alpha)(n+g+\delta)$. Comparing
+requires a normalization. Holding fixed the balanced-growth rate of output per worker
+($g=\phi\mu$), $\lambda_S=(1-\alpha)(n+\delta)+\alpha\mu=(1-\alpha)m_a$, which is also the speed in
+(a) (linearize as in (d) with $m_a$), and
+\[ \lambda-\lambda_S=(1-\alpha)(m-m_a)=(1-\alpha)\mu>0. \]
+Holding fixed the rate of technical progress instead ($g=\mu$), $\lambda-\lambda_S=\alpha\mu>0$.
+Either way embodiment speeds up convergence. With the numbers of (d) and $g=\phi\mu=0.02$,
+$\lambda_S=\tfrac23(0.06)=0.04$, the text's $4\%$ with a half-life of about 17 years, against
+$\lambda\approx0.067$ and about 10 years.}
+\intuicao{The speed of convergence is $1-\alpha$ times the break-even rate, the rate at which the
+accumulated stock must be replenished just to keep pace. Embodiment raises that rate by the
+obsolescence rate $\mu$: old capital is ``forgotten'' faster, so initial conditions die out faster.
+The long-run response to $s$, in contrast, depends only on the curvature $\alpha$, because $s$
+scales gross investment and leaves the break-even rate unchanged. Embodiment matters for
+transitions, not for the long-run level effect of saving.}
+\armadilha{Dividing $J$ by $A$ adds $-\mu$ to the law of motion of $\tilde J$. Dropping it collapses
+(b) into (a), gives $\lambda=(1-\alpha)(n+\delta)+\alpha\mu$ and hides the speed-up. Also, the
+elasticity in (c) is that of output: $j^*$, and hence $J$, has elasticity $1/(1-\alpha)$ with
+respect to $s$.}
+\refbib{Romer (2012), \S1.3 (eq.~1.18) and \S1.5 (eqs.~1.27 and 1.31); Solow (1960) and Sato (1966),
+as cited in the problem.}
+\checado{\texttt{check-1-12-1-15.py} re-derives with sympy $y=k^{\alpha}$ and $y=j^{\alpha}$, the
+laws of motion of $k$ and $j$, $m=m_a+\mu$, $j^*$, the elasticity, $h'(j^*)$, the speed of $y$, the
+closed form for $\tilde J/Y$ and both comparisons with $\lambda_S$; it then integrates the levels of
+$K$ and $J$ numerically and recovers the balanced-growth rates, the elasticity and the speeds
+$(1-\alpha)m_a$ and $(1-\alpha)m$. The solution manual agrees on every result; its comparison in (e)
+implicitly sets $g=\mu$.}

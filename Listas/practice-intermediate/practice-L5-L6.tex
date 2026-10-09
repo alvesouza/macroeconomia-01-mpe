@@ -1,0 +1,270 @@
+% Practice list C --- topics of Listas 5-6 (Kurlat chs. 9-11).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Numbers: practice-lists-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{General Equilibrium, Money and Inflation (Listas 5--6)}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{General equilibrium}{Kurlat ch.~9 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. The Tesouro asks what pins down the real rate on NTN-Bs in
+model economies with a representative household and competitive markets.}
+
+\textbf{a)} (3 points) Two-period endowment economy, $u=\ln c$, $\beta=0.96$, $y_1=100$, $y_2=104$,
+no government. The equilibrium real interest rate is:
+\begin{alternativas}
+\item $4.00\%$
+\item $8.33\%$
+\item $4.17\%$
+\item $0.00\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{market clearing}{The representative household cannot trade with itself: $a=0$,
+$c_t=y_t$. Euler: $1+r=\dfrac{u'(y_1)}{\beta u'(y_2)}=\dfrac{y_2}{\beta y_1}=\dfrac{104}{96}=1.0833$.
+Option C is $1/\beta-1$, which ignores growth.}
+\refbib{Kurlat (2020), \S9.1, p.~165.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Infinite-horizon economy on a balanced growth path where consumption
+grows at $g=2\%$, $u=c^{1-\sigma}/(1-\sigma)$, $\sigma=2$, $\beta=0.98$. The real interest rate is:
+\begin{alternativas}
+\item $2.04\%$
+\item $4.08\%$
+\item $8.24\%$
+\item $6.16\%$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{Euler}{$(1+g)^{\sigma}=\beta(1+r)\Rightarrow1+r=1.02^2/0.98=1.0616$. Approximation:
+$r\approx\rho+\sigma g=2.04+4=6.04\%$.}
+\refbib{Kurlat (2020), \S9.3, p.~172.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In the two-period endowment economy of (a), a rise in patience
+($\beta\uparrow$) raises equilibrium saving.
+\gabarito{F}
+\begin{sol}
+\passo{price adjusts}{Aggregate saving is zero in any equilibrium. Higher $\beta$ raises the
+desire to save at the old $r$, so $r$ falls until households again want $a=0$.}
+\refbib{Kurlat (2020), \S9.1.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) By the First Welfare Theorem, the steady-state capital stock of the
+competitive infinite-horizon economy maximizes steady-state consumption (Golden Rule).
+\gabarito{F}
+\begin{sol}
+\passo{modified rule}{The competitive steady state satisfies $F_K-\delta=1/\beta-1$, below the
+Golden Rule's $F_K-\delta=0$. It is Pareto-efficient because impatient households value
+consumption now; maximizing \emph{steady-state} consumption is not their objective.}
+\refbib{Kurlat (2020), \S9.2--9.3.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Infinite-horizon economy: household with
+$\sum_t\beta^t c_t^{1-\sigma}/(1-\sigma)$, inelastic labor $L_t=1$; firm with $Y=AK^{\alpha}L^{1-\alpha}$;
+capital depreciates at $\delta$; $K_0$ given. Numbers: $\beta=0.95$, $\sigma=2$, $\alpha=1/3$,
+$\delta=0.1$, $A=1$.}
+
+\textbf{a)} (5 points) Write the household's period budget constraint when it owns and rents the
+capital, and derive its Euler equation. Solve the firm's problem. Show that $1+r_{t+1}=r^K_{t+1}+1-\delta$
+and define a competitive equilibrium (allocation, prices, conditions).
+\resolespaco
+\begin{sol}
+\passo{household}{$c_t+K_{t+1}=w_t+r^K_tK_t+(1-\delta)K_t$ (plus bonds $b_t$ in zero net supply:
+$+\,(1+r_t)b_t-b_{t+1}$).}
+\passo{Euler}{$c_t^{-\sigma}=\beta(1+r_{t+1})c_{t+1}^{-\sigma}$. The bond and capital FOCs give the
+same Euler only if $1+r_{t+1}=r^K_{t+1}+1-\delta$ (no arbitrage).}
+\passo{firm}{$\max AK^{\alpha}L^{1-\alpha}-w L-r^K K$: $r^K=\alpha AK^{\alpha-1}$, $w=(1-\alpha)AK^{\alpha}$;
+CRS gives zero profits.}
+\passo{definition}{Allocation $\{c_t,K_{t+1},L_t\}$ and prices $\{w_t,r^K_t,r_t\}$ such that
+(i) the household maximizes utility given prices; (ii) the firm maximizes profits given prices;
+(iii) markets clear: $L_t=1$, capital demanded $=K_t$, bonds $b_t=0$, goods
+$c_t+K_{t+1}-(1-\delta)K_t=AK_t^{\alpha}$.}
+\intuicao{Bonds and capital are two ways to carry resources forward; in equilibrium they must
+pay the same, or no one would hold one of them.}
+\refbib{Kurlat (2020), \S9.3, pp.~172--180; Lista 5, Q2.}
+\rubrica{
+\item Budget constraint and Euler: 1.5 pts.
+\item Firm FOCs: 1 pt.
+\item No-arbitrage derived, not just stated: 1 pt.
+\item Definition with all three conditions and every market: 1.5 pts. Missing market clearing:
+  max.\ 3 pts in the item.
+}
+\end{sol}
+
+\textbf{b)} (5 points) Compute the steady state: $r$, $r^K$, $K$, $Y$, $C$, $w$ and the saving rate
+$\delta K/Y$. Why does $\sigma$ not appear, and why does $r$ depend only on $\beta$?
+\resolespaco
+\begin{sol}
+\passo{interest}{$c_{t+1}=c_t\Rightarrow1+r=1/\beta$: $r=5.26\%$; $r^K=r+\delta=0.1526$.}
+\passo{capital}{$\alpha K^{\alpha-1}=0.1526\Rightarrow K=(0.3333/0.1526)^{3/2}=3.227$.}
+\passo{rest}{$Y=K^{1/3}=1.478$; $C=Y-\delta K=1.155$; $w=\tfrac23Y=0.985$;
+$\delta K/Y=21.8\%$.}
+\passo{$\sigma$}{$\sigma$ governs the willingness to deviate from flat consumption. In steady state
+consumption is flat, so only $\beta$ matters; $\sigma$ shapes the transition, not the destination.}
+\intuicao{A household that keeps consumption constant needs a return that exactly compensates
+its impatience; technology then adjusts $K$ until the marginal product delivers it.}
+\refbib{Kurlat (2020), \S9.3.}
+\rubrica{
+\item $r$ and $r^K$: 1.5 pts.
+\item $K$, $Y$, $C$, $w$, saving rate: 2.5 pts. Forgetting $\delta$ in $r^K$: max.\ 2 pts in the item.
+\item Role of $\sigma$ and $\beta$: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (5 points) Compute the Golden Rule $K_{gr}$ and $C_{gr}$ and show $K<K_{gr}$. Explain
+why this is consistent with the First Welfare Theorem and what happens as $\beta\to1$. Then let
+$A$ rise permanently to $1.1$: by how much do $K$, $Y$, $C$, $w$ and $r$ change in the new steady state?
+\resolespaco
+\begin{sol}
+\passo{Golden Rule}{$\max_K K^{\alpha}-\delta K\Rightarrow\alpha K^{\alpha-1}=\delta$:
+$K_{gr}=(0.3333/0.1)^{3/2}=6.086$, $C_{gr}=1.217>1.155$.}
+\passo{why lower}{$F_K=r+\delta>\delta$ and $F_K$ is decreasing, so $K<K_{gr}$. Getting to $K_{gr}$
+would cost consumption now; impatient households do not want that trade. As $\beta\to1$,
+$r\to0$ and $K\to K_{gr}$.}
+\passo{TFP}{$r$ is still $1/\beta-1$, so $r^K$ is unchanged and $K/Y$ too.
+$K=(\alpha A/r^K)^{1/(1-\alpha)}$ scales with $A^{3/2}$: $K$, $Y$, $C$ and $w$ all rise by
+$1.1^{1.5}-1=15.4\%$; $r$ unchanged.}
+\intuicao{The planner and the market agree: both discount the future at $\beta$. The Golden Rule
+ignores the time cost of building capital.}
+\refbib{Kurlat (2020), \S9.2 and \S9.3; \S4.3 (Golden Rule).}
+\rubrica{
+\item $K_{gr}$, $C_{gr}$ and the comparison: 1.5 pts.
+\item Consistency with the FWT (impatience) and $\beta\to1$: 2 pts. Calling the economy
+  inefficient: max.\ 2 pts in the item.
+\item TFP comparative statics with $r$ unchanged: 1.5 pts.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Money and inflation}{Kurlat chs.~10--11 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. Banco Central data and money-demand theory.}
+
+\textbf{a)} (3 points) The public holds currency equal to 25\% of demand deposits and banks
+hold reserves equal to 15\% of deposits. With a monetary base of R\$ 200 billion, M1 is:
+\begin{alternativas}
+\item R\$ 500 billion
+\item R\$ 1{,}333 billion
+\item R\$ 625 billion
+\item R\$ 250 billion
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{multiplier}{$m=\dfrac{1+cr}{rr+cr}=\dfrac{1.25}{0.40}=3.125$; $M1=3.125\cdot200=625$.
+Option B ($200/0.15$) ignores currency leakage.}
+\refbib{Kurlat (2020), \S10.2--10.3, pp.~192--199.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Real money demand is $m=e^{-a\pi}$ with $a=4$ (Cagan). The steady-state
+inflation that maximizes revenue from the inflation tax $\pi m$ is:
+\begin{alternativas}
+\item $25\%$
+\item $40\%$
+\item $4\%$
+\item $100\%$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{Laffer}{$\frac{d}{d\pi}\pi e^{-a\pi}=e^{-a\pi}(1-a\pi)=0\Rightarrow\pi=1/a=25\%$.}
+\refbib{Kurlat (2020), \S11.3, p.~215; Exercise 11.6.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) If money is superneutral, permanently raising money growth from
+4\% to 8\% leaves the nominal interest rate unchanged.
+\gabarito{F}
+\begin{sol}
+\passo{Fisher}{Superneutrality concerns \emph{real} variables: $r$ is unchanged, so inflation
+rises 4 points and $i=r+\pi$ rises 4 points too (Fisher effect).}
+\refbib{Kurlat (2020), \S11.2, p.~208.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) With Baumol--Tobin demand $M/P=\sqrt{FY/(2i)}$ ($F$ a real cost
+per trip), if real income and the nominal interest rate both double, real balances are unchanged.
+\gabarito{T}
+\begin{sol}
+\passo{elasticities}{Income elasticity $+\tfrac12$, interest elasticity $-\tfrac12$: the two
+doublings cancel inside the square root.}
+\refbib{Kurlat (2020), \S10.4, p.~199.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Brazil in the 1980s. Real money demand is
+$M/P=\kappa\,Y e^{-a i}$ with $i=r+\pi$; $Y$ grows at $g$, money at $\mu$. Numbers: $\kappa=0.3$,
+$a=2.5$, $r=0.04$, $g=0.02$ (illustrative).}
+
+\textbf{a)} (5 points) Show that in a steady state with constant $i$, $\pi=\mu-g$. Write
+seigniorage $\dot M/P$ and the inflation tax $\pi M/P$ as shares of $Y$ as functions of $\mu$, and
+explain their difference. When does the approximation $i=r+\pi$ fail?
+\resolespaco
+\begin{sol}
+\passo{inflation}{Constant $i$ makes $M/(PY)$ constant, so $\mu-\pi-g=0$: $\pi=\mu-g$.}
+\passo{seigniorage}{$\dfrac{\dot M}{PY}=\mu\dfrac{M}{PY}=\mu\kappa e^{-a(r+\mu-g)}$;
+inflation tax $=\pi\dfrac{M}{PY}=(\mu-g)\kappa e^{-a(r+\mu-g)}$.}
+\passo{difference}{$g\,M/(PY)$: a growing economy demands more real balances, which the
+government can issue without inflation. This part is not a tax on holders.}
+\passo{Fisher}{Exact: $1+i=(1+r)(1+\pi)$; the cross term $r\pi$ is negligible only at low
+inflation. At 80\% a year it is not.}
+\refbib{Kurlat (2020), \S11.2--11.3, pp.~208--217.}
+\rubrica{
+\item Derives $\pi=\mu-g$ from constant real balances per unit of output: 1.5 pts.
+\item Both revenue formulas: 1.5 pts. Treating seigniorage and inflation tax as two additive
+  revenues: max.\ 2 pts in the item.
+\item Difference and Fisher caveat: 2 pts.
+}
+\end{sol}
+
+\textbf{b)} (5 points) Find the money growth rate that maximizes seigniorage, the associated
+inflation, the maximum revenue (\% of GDP) and the share collected as inflation tax.
+\resolespaco
+\begin{sol}
+\passo{FOC}{$\dfrac{d}{d\mu}\mu e^{-a\mu}=e^{-a\mu}(1-a\mu)=0\Rightarrow\mu^*=1/a=40\%$.}
+\passo{numbers}{$\pi=38\%$; $S/Y=0.4\cdot0.3\cdot e^{-2.5(0.04+0.38)}=0.12\,e^{-1.05}=4.20\%$ of GDP.
+Inflation-tax share $=\pi/\mu=95\%$.}
+\intuicao{Above $\mu^*$ the base $M/P$ shrinks faster than the rate rises: the Laffer curve of
+inflation. Money printing has a ceiling on what it can finance.}
+\refbib{Kurlat (2020), \S11.3; Exercise 11.6 (Cagan).}
+\rubrica{
+\item FOC and $\mu^*=1/a$: 2 pts.
+\item Inflation, revenue and share: 2 pts.
+\item Laffer interpretation: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (5 points) The government must finance a deficit of 3\% of GDP by printing money.
+Find the steady states numerically and say which one is on the wrong side of the Laffer
+curve. What inflation does the Friedman rule prescribe here, and why do central banks such as
+the BCB target positive inflation instead?
+\resolespaco
+\begin{sol}
+\passo{two roots}{Solve $\mu\cdot0.3\,e^{-2.5(0.02+\mu)}=0.03$: $\mu=15.5\%$ ($\pi=13.5\%$) and
+$\mu=82.3\%$ ($\pi=80.3\%$). Both finance the deficit; the second is beyond $\mu^*=40\%$.}
+\passo{wrong side}{At $\pi=80\%$ the same revenue is raised with a much smaller base and much
+larger distortions (shoe-leather, menu, relative-price dispersion): strictly worse.}
+\passo{Friedman rule}{Set $i=0$: $\pi=-r=-4\%$, removing the opportunity cost of money.}
+\passo{why positive targets}{Measurement bias in price indices, downward nominal rigidity, and
+room to cut $i$ before hitting zero.}
+\intuicao{A deficit that money must finance pins the inflation rate; the only choice left is
+which side of the Laffer curve, and expectations can push the economy to the bad one.}
+\refbib{Kurlat (2020), \S11.3--11.4, pp.~215--222.}
+\rubrica{
+\item Both roots: 2 pts. Only one root found: max.\ 3 pts in the item.
+\item Identifies the bad equilibrium and why: 1 pt.
+\item Friedman rule: 1 pt.
+\item Reasons for positive targets: 1 pt.
+}
+\end{sol}
+
+\end{document}

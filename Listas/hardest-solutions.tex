@@ -1,0 +1,88 @@
+% The hardest textbook exercises on the topics of Listas 1-7: list + solutions.
+% Plan (references, weights, readings): pratica-hardest.md. Statements are NOT reproduced (CLAUDE.md).
+% Romer solutions: hardest-parts/*.tex, each checked by hardest-parts/*-check.py.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1).
+\documentclass[11pt,a4paper]{article}
+\input{hardest-preamble}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Macroeconomics I --- MPE Insper}\\[2pt]
+  {\large The hardest textbook exercises on Listas 1--7: list and solutions}
+\end{center}
+
+\noindent\textbf{How to use this.} Thirty exercises from Kurlat (2020) and Romer (2012), the hardest
+the two books offer on the course's topics. Statements are not reproduced: open the book at the
+page given and attempt the exercise fully before reading the solution. Kurlat's exercises are solved
+step by step, with verification code, in the existing \texttt{Resolucao/kurlat\_solutions\_*.pdf}
+(the page column below is the PDF page). Romer's problems are solved in Part~II of this document;
+every number and key derivation there is re-checked by the scripts in \texttt{Listas/hardest-parts/}.
+Weights, readings and the study roadmap are in \texttt{Listas/pratica-hardest.md}.
+
+\section*{Part I --- The list}
+\addcontentsline{toc}{section}{Part I --- The list}
+
+{\small
+\begin{longtable}{@{}rllllll@{}}
+\toprule
+\# & Book & No. & Page & Topic & Level & Solution \\
+\midrule
+\endhead
+1 & Kurlat & 2.7 & 42 & Welfare: risk aversion & Advanced & \texttt{ch1-4}, p.~29 \\
+2 & Kurlat & 2.8 & 42 & Welfare: inequality & Advanced & \texttt{ch1-4}, p.~30 \\
+3 & Kurlat & 2.9 & 43 & Welfare: cross-country & Advanced & \texttt{ch1-4}, p.~20 \\
+4 & Kurlat & 2.10 & 43 & Welfare: difference principle & Advanced & \texttt{ch1-4}, p.~32 \\
+5 & Kurlat & 4.4 & 73 & AK model & Advanced & \texttt{ch1-4}, p.~50 \\
+6 & Kurlat & 4.5 & 73 & Malthusian model & Advanced & \texttt{ch1-4}, p.~53 \\
+7 & Kurlat & 5.2 & 94 & Speed of convergence & Advanced & \texttt{ch05}, p.~7 \\
+8 & Kurlat & 5.7 & 96 & Accounts, returns, growth accounting & Advanced & \texttt{ch05}, p.~13 \\
+9 & Kurlat & 5.8 & 97 & Golden Rule from national accounts & Advanced & \texttt{ch05}, p.~16 \\
+10 & Kurlat & 6.9 & 125 & Marginal propensity to consume & Advanced & \texttt{ch06}, p.~8 \\
+11 & Kurlat & 7.5 & 148 & Prescott's calculation & Advanced & \texttt{ch07}, p.~14 \\
+12 & Kurlat & 9.12 & 185 & Optimal vs fixed saving & Advanced & \texttt{ch09}, p.~30 \\
+13 & Kurlat & 9.13 & 186 & First Welfare Theorem failure & Advanced & \texttt{ch09}, p.~16 \\
+14 & Kurlat & 10.5 & 203 & Baumol--Tobin & Advanced & \texttt{ch10-11}, p.~8 \\
+15 & Kurlat & 11.6 & 219 & Seignorage, Laffer curve & Advanced & \texttt{ch10-11}, p.~17 \\
+16 & Kurlat & 11.7 & 221 & Bank seignorage & Advanced & \texttt{ch10-11}, p.~23 \\
+17 & Romer & 1.12 & 47--48 & Embodied technical progress & Graduate & Part II \\
+18 & Romer & 1.15 & 48 & Resources and land & Graduate & Part II \\
+19 & Romer & 4.8 & 186 & Education sector & Graduate & Part II \\
+20 & Romer & 8.1 & 398 & Life-cycle saving & Graduate & Part II \\
+21 & Romer & 8.13 & 402--403 & Habit formation & Graduate & Part II \\
+22 & Romer & 8.15 & 403--404 & Time inconsistency & Graduate & Part II \\
+23 & Romer & 10.16 & 512 & Search efficiency & Graduate & Part II \\
+24 & Romer & 2.9 & 95 & Closed-form Ramsey & Graduate & Part II \\
+25 & Romer & 2.12 & 96 & Temporary capital taxes & Graduate & Part II \\
+26 & Romer & 11.1 & 576 & Forward-looking Cagan & Graduate & Part II \\
+27 & Romer & 11.22 & 583 & Adaptive-expectations Cagan & Graduate & Part II \\
+28 & Romer & 6.16 & 311 & Flexible vs rigid prices & Graduate & Part II \\
+29 & Romer & 6.10 & 308--309 & Menu costs, multiple equilibria & Graduate & Part II \\
+30 & Romer & 6.7 & 308 & Liquidity trap & Graduate & Part II \\
+\bottomrule
+\end{longtable}}
+
+\noindent{\footnotesize Book pages are printed pages: Kurlat (2020), \emph{A Course in Modern Macroeconomics};
+Romer (2012), \emph{Advanced Macroeconomics}, 4th ed. Solution pages for Kurlat refer to the PDF pages of
+\texttt{Resolucao/kurlat\_solutions\_<chapter>.pdf}.\par}
+
+\tableofcontents
+
+\section*{Part II --- Solutions to the Romer problems}
+\addcontentsline{toc}{section}{Part II --- Solutions to the Romer problems}
+
+\input{hardest-parts/romer-1-12}
+\input{hardest-parts/romer-1-15}
+\input{hardest-parts/romer-4-8}
+\input{hardest-parts/romer-8-1}
+\input{hardest-parts/romer-8-13}
+\input{hardest-parts/romer-8-15}
+\input{hardest-parts/romer-10-16}
+\input{hardest-parts/romer-2-9}
+\input{hardest-parts/romer-2-12}
+\input{hardest-parts/romer-11-1}
+\input{hardest-parts/romer-11-22}
+\input{hardest-parts/romer-6-16}
+\input{hardest-parts/romer-6-10}
+\input{hardest-parts/romer-6-7}
+
+\end{document}

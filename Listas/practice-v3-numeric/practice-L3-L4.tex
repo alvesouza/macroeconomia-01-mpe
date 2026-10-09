@@ -1,0 +1,382 @@
+% Practice list B v3 --- topics of Listas 3-4, QUALIFIER LEVEL (style guide §8: cross-topic,
+% parameter analysis, graphs, answer key up to 15 pages).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-L3-L4-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Consumption, Saving and Labor Markets --- qualifier level (Listas 3--4)}
+\renewcommand{\espacoresol}{6.5cm}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{Consumption, present bias and interest rates}{Kurlat chs.~6, 9; Romer ch.~8 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) A household lives 40 periods ($t=0,\dots,39$) with CRRA utility, $\sigma=2$, $\beta=0.97$, faces $r=4\%$
+and has total wealth $W$ (financial plus human, in present value at $t=0$). The share of $W$ consumed at $t=0$ is:
+\begin{alternativas}
+\item $3.42\%$
+\item $4.55\%$
+\item $2.50\%$
+\item $3.85\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{path}{Euler: $c_t=c_0[\beta(1+r)]^{t/\sigma}$; budget $\sum_{t=0}^{39}c_t(1+r)^{-t}=W$ gives $c_0\sum_{t=0}^{39}\gamma^t=W$ with
+$\gamma\equiv\beta^{1/\sigma}(1+r)^{1/\sigma-1}=\sqrt{0.97/1.04}=0.96576$.}
+\passo{share}{$c_0/W=\frac{1-\gamma}{1-\gamma^{40}}=\frac{0.03424}{0.75182}=4.55\%$. A is the infinite-horizon $1-\gamma$; C is $1/40$; D is $r/(1+r)$.}
+\refbib{Kurlat (2020), \S6.3, eqs.\ (6.3.6)--(6.3.9), pp.~117--120.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Consumption $\times$ general equilibrium.} A two-period endowment economy with a
+representative household: $y_2/y_1=1.03$, $\beta=0.97$, CRRA with $\sigma=2$. The equilibrium real interest rate is:
+\begin{alternativas}
+\item $3.09\%$
+\item $6.19\%$
+\item $9.37\%$
+\item $3.00\%$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{clearing}{No one can lend in the aggregate: $c_t=y_t$. Euler: $y_1^{-\sigma}=\beta(1+r)y_2^{-\sigma}\Rightarrow1+r=(y_2/y_1)^{\sigma}/\beta=1.0609/0.97$,
+$r=9.37\%$. B uses $\sigma=1$; A ignores growth.}
+\refbib{Kurlat (2020), \S9.1, pp.~165--168.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{Consumption $\times$ credit markets.} A household strictly inside the region where it
+neither borrows nor lends (borrowing rate above the deposit rate) starts saving after a small rise in the deposit
+rate.
+\gabarito{F}
+\begin{sol}
+\passo{kink}{At the kink the MRS $u'(y_1)/[\beta u'(y_2)]$ lies strictly between $1+r_s$ and $1+r_b$; a small rise in $r_s$ keeps it
+above $1+r_s$, so saving is still unattractive and consumption does not change.}
+\refbib{Kurlat (2020), Exercise 6.6 (kinked budget sets).}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Consumption $\times$ fiscal policy.} A household at a binding borrowing limit receives a
+lump-sum tax cut of 100 today, financed by a tax increase of $100(1+r)$ next period. If the limit still binds after
+the cut, current consumption rises by exactly 100.
+\gabarito{T}
+\begin{sol}
+\passo{why}{With the limit binding, $c_1=y_1-\tau_1+b$: consumption equals current resources, so it moves one for one with
+the tax cut; Ricardian equivalence fails because the household cannot borrow against the future tax.}
+\refbib{Kurlat (2020), \S6.2 and Exercise 6.5.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Consumption $\times$ behavioral economics $\times$ general equilibrium.} Three periods
+$t=0,1,2$; in (a)--(c) the interest rate is zero and the household has wealth $W$ at date 0. The self at date $t$ maximizes
+$u(c_t)+\beta\sum_{s>t}u(c_s)$ with $u(c)=c^{1-\sigma}/(1-\sigma)$ ($\ln c$ if $\sigma=1$) and $0<\beta<1$.}
+
+\textbf{a)} (3 points) Find the plan chosen with commitment (self 0 chooses all three consumptions), by a naive self 0
+(who believes future selves will follow its plan), and by a sophisticated self 0 (who anticipates self 1's choice).
+\resolespaco
+\begin{sol}
+\passo{self 1}{$\max u(c_1)+\beta u(c_2)$ s.t.\ $c_1+c_2=W_1$: $c_1^{-\sigma}=\beta c_2^{-\sigma}\Rightarrow c_2=\beta^{1/\sigma}c_1$, so $c_1=kW_1$, $c_2=(1-k)W_1$,
+$k\equiv\frac1{1+\beta^{1/\sigma}}>\frac12$.}
+\passo{commitment}{Self 0 weighs dates 1 and 2 equally: $c_1=c_2=c$, and $u'(c_0)=\beta u'(c)\Rightarrow c_0=\beta^{-1/\sigma}c$; the budget gives
+$c=\frac{W}{2+\beta^{-1/\sigma}}$.}
+\passo{naive}{Believing $c_1=c_2$, self 0 picks the commitment $c_0$; then self 1 re-optimizes: $c_1=kW_1$, $c_2=(1-k)W_1$.}
+\passo{sophisticated}{Self 0 solves $\max_{c_0}u(c_0)+\beta[u(kW_1)+u((1-k)W_1)]$, $W_1=W-c_0$. FOC:
+$c_0^{-\sigma}=\beta[k^{1-\sigma}+(1-k)^{1-\sigma}]W_1^{-\sigma}$, so $c_0=\frac{x_s}{1+x_s}W$ with $x_s\equiv\big(\beta[k^{1-\sigma}+(1-k)^{1-\sigma}]\big)^{-1/\sigma}$ (for $\sigma=1$,
+$x_s=1/(2\beta)$).}
+\refbib{Romer (2012), \S8.6 and problem 8.15, pp.~397--404; Kurlat (2020), \S6.4.}
+\rubrica{
+\item Self 1's rule: 0.5 pt.
+\item Commitment plan: 1 pt.
+\item Naive plan (two steps): 0.5 pt.
+\item Sophisticated FOC and $c_0$: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Determine when the sophisticated self 0 consumes more, less or the same as the naive one,
+and explain the mechanism.
+\resolespaco
+\begin{sol}
+\passo{compare}{Naive: $c_0/W_1=x_n=\beta^{-1/\sigma}/2$, so $x_n^{-\sigma}=\beta2^{\sigma}=2\beta\varphi(\tfrac12)$ with $\varphi(z)\equiv z^{1-\sigma}$. Sophisticated:
+$x_s^{-\sigma}=\beta[\varphi(k)+\varphi(1-k)]$. Since $z\mapsto z^{-\sigma}$ is decreasing and $c_0=\frac{x}{1+x}W$ rises with $x$:
+$c_0^s<c_0^n\iff\varphi(k)+\varphi(1-k)>2\varphi(\tfrac12)$.}
+\passo{Jensen}{$\varphi''(z)=\sigma(\sigma-1)z^{-\sigma-1}$: $\varphi$ is strictly convex if $\sigma>1$, linear in logs at $\sigma=1$ (both sides equal),
+concave if $\sigma<1$. With $k\ne\frac12$: $\sigma>1\Rightarrow c_0^s<c_0^n$; $\sigma=1\Rightarrow$ equal; $\sigma<1\Rightarrow c_0^s>c_0^n$.}
+\passo{mechanism}{The sophisticate knows the wealth it leaves will be split unevenly. With high curvature ($\sigma>1$) an
+uneven split raises the marginal value of extra wealth, so it saves more to compensate; with $\sigma<1$ the
+misallocation lowers that value and it consumes more now. Under log the two forces cancel exactly.}
+\refbib{Romer (2012), problem 8.15(b)(ii).}
+\rubrica{
+\item Reduction to the comparison of $\varphi$ values: 1.5 pts.
+\item Jensen argument with all three cases: 1 pt.
+\item Mechanism: 0.5 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) What share of $W$ would self 0 pay for an illiquid account that commits future consumption?
+Find a formula, its limits as $\beta\to1$ and as $\sigma\to\infty$, and compute it for $\sigma=2$, $\beta=1/2$.
+\resolespaco
+\begin{sol}
+\passo{homogeneity}{For $\sigma\ne1$ every plan is proportional to $W$, so self 0's value is $V_j(W)=W^{1-\sigma}v_j$ ($j=$ commitment $c$,
+sophisticated $s$). The willingness to pay $x$ solves $V_c((1-x)W)=V_s(W)$:
+\[x=1-\Big(\frac{v_s}{v_c}\Big)^{\frac1{1-\sigma}};\qquad\sigma=1:\ x=1-\exp\Big(-\frac{V_c-V_s}{1+2\beta}\Big).\]
+It does not depend on $W$.}
+\passo{limits}{$\beta\to1$: $k\to\frac12$, all plans coincide, $x\to0$. $\sigma\to\infty$: $\beta^{1/\sigma}\to1$, $k\to\frac12$, self 1 also splits evenly, $x\to0$
+(the table in (e) shows the decline).}
+\passo{numbers}{$\sigma=2$, $\beta=\frac12$, $W=100$, plans $(c_0,c_1,c_2)$:
+\[\begin{aligned}&\text{commitment }(41.42,\,29.29,\,29.29),\quad\text{naive }(41.42,\,34.31,\,24.26),\\
+&\text{sophisticated }(41.06,\,34.53,\,24.41);\end{aligned}\]
+$V_c=-0.05828$, $V_s=-0.05932$, $V_n=-0.05932$; $x=1-V_c/V_s=1.74\%$ (log: $2.90\%$).}
+\refbib{Romer (2012), problem 8.15; Kurlat (2020), \S6.4 (commitment, defaults).}
+\rubrica{
+\item Homogeneity and the formula: 1.5 pts.
+\item Limits: 0.5 pt.
+\item Numbers: 1 pt.
+}
+\end{sol}
+
+\textbf{d)} (3 points) Now every household receives $y$ at each date and households are identical and sophisticated;
+they can borrow and lend at $r_{01}$ (between dates 0 and 1) and $r_{12}$. Find the equilibrium interest rates, show
+whether they depend on $\sigma$, and draw them against $\beta\in[0.4,1]$.
+\resolespaco
+\begin{sol}
+\passo{clearing}{Identical households cannot lend to each other: $c_t=y$ at every date.}
+\passo{$r_{12}$}{Self 1's Euler at $c_1=c_2=y$: $y^{-\sigma}=\beta(1+r_{12})y^{-\sigma}\Rightarrow1+r_{12}=1/\beta$.}
+\passo{self 1's rule at these prices}{With $\beta(1+r_{12})=1$, self 1 sets $c_2=c_1$ and $c_1=W_1/(1+\beta)$, where $W_1=y+y/(1+r_{12})=y(1+\beta)$
+in equilibrium: $c_1=y$. Self 0's value of $W_1$ is $2u(W_1/(1+\beta))$, with marginal value $\frac{2}{1+\beta}u'(y)$.}
+\passo{$r_{01}$}{Self 0's Euler: $u'(y)=(1+r_{01})\beta\frac{2}{1+\beta}u'(y)\Rightarrow1+r_{01}=\frac{1+\beta}{2\beta}$. Neither rate depends on $\sigma$ (equal endowments). At
+$\beta=\frac12$: $r_{01}=50\%$, $r_{12}=100\%$; with $\beta=1$ both are zero.}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=9.5cm,height=5cm,xmin=0.4,xmax=1,ymin=0,ymax=1.55,xlabel={$\beta$},ylabel={rate},
+  legend style={font=\footnotesize},tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,blue,domain=0.4:1,samples=80]{(1+x)/(2*x)-1};
+\addplot[thick,red,domain=0.4:1,samples=80]{1/x-1};
+\legend{$r_{01}$,$r_{12}$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\intuicao{Present bias makes everyone want to bring consumption forward; with nobody to borrow from, rates
+rise until each self is content with its endowment, and the near-term rate rises most.}
+\refbib{Kurlat (2020), \S9.1 (endowment equilibrium), pp.~165--168.}
+\rubrica{
+\item Market clearing and $r_{12}$: 1 pt.
+\item Self 0's marginal value of wealth and $r_{01}$: 1 pt.
+\item Graph: axes, two decreasing curves meeting at zero when $\beta=1$, $r_{12}$ above $r_{01}$: 1 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How do the value of commitment and the equilibrium rates depend on
+$\beta$ and $\sigma$? Prove the signs you can, fill the value of commitment for $\sigma\in\{1,1.5,2,5\}$ and $\beta\in\{0.5,0.7,0.9\}$,
+and read the results.
+\resolespaco
+\begin{sol}
+\passo{rates}{$\partial r_{01}/\partial\beta=-\frac1{2\beta^2}<0$, $\partial r_{12}/\partial\beta=-\frac1{\beta^2}<0$, $\partial/\partial\sigma=0$; $r_{12}>r_{01}$ for $\beta<1$.}
+\passo{table}{Willingness to pay for commitment (\% of $W$):
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $\beta=0.5$ & $\beta=0.7$ & $\beta=0.9$ \\
+\midrule
+$\sigma=1$ & 2.90 & 0.92 & 0.09 \\
+$\sigma=1.5$ & 2.20 & 0.65 & 0.06 \\
+$\sigma=2$ & 1.74 & 0.50 & 0.05 \\
+$\sigma=5$ & 0.75 & 0.21 & 0.02 \\
+\bottomrule
+\end{tabular}
+\end{center}
+It falls with $\beta$ (less disagreement between selves) and with $\sigma$ (self 1's split approaches the even split).}
+\passo{reading}{The demand for commitment is concentrated where present bias is strong and curvature is low:
+that is where defaults and illiquid accounts (401(k)s, Brazil's FGTS) matter. In equilibrium the same bias shows
+up as high short-term real rates, independent of $\sigma$ when endowments are flat.}
+\refbib{Kurlat (2020), \S6.4 and \S9.1; Romer (2012), problem 8.15.}
+\rubrica{
+\item Signs of the rates: 1 pt.
+\item Table: 1 pt.
+\item Reading of both dependences: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Labor supply, taxes, transfers and search}{Kurlat ch.~7; Romer ch.~10 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Labor $\times$ consumption smoothing.} Per-period utility $\ln c-\psi\frac{h^{1+1/\varepsilon}}{1+1/\varepsilon}$, $\varepsilon=0.5$; 40 periods with
+$\beta(1+r)=1$ and equal wages. The wage rises 10\% in one period only. To first order, hours in that period rise by:
+\begin{alternativas}
+\item $4.9\%$
+\item $5.0\%$
+\item $0\%$
+\item $3.3\%$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{FOCs}{$\psi h_t^{1/\varepsilon}=\lambda w_t$ with $\lambda=1/c$ constant across periods; so $d\ln h_1=\varepsilon(d\ln w_1-d\ln c)$ and
+$d\ln h_t=-\varepsilon\,d\ln c$ for $t\ne1$.}
+\passo{budget}{$d\ln c=\sum_ts_t(d\ln w_t+d\ln h_t)$ with earnings shares $s_t=1/40$; solving, $d\ln c=s_1d\ln w_1$ and
+$d\ln h_1=\varepsilon(1-s_1)d\ln w_1=0.5\cdot0.975\cdot10\%=4.9\%$ (4.6\% for the exact discrete change). B is the pure Frisch
+response; C the response to a permanent raise.}
+\refbib{Kurlat (2020), \S7.4, pp.~140--141.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Search $\times$ wage setting.} In the steady-state search model with $f=\mu\theta^{\alpha}$, $\alpha=0.5$, free entry
+$(y-w)q(\theta)=\kappa(r+s)$, the wage is rigid at $w=0.95$ while productivity $y=1$ moves. The elasticity of tightness $\theta$
+with respect to $y$ is:
+\begin{alternativas}
+\item $3.7$
+\item $40$
+\item $20$
+\item $2.0$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{log-differentiate}{$q=\mu\theta^{\alpha-1}$: $\ln(y-w)+(\alpha-1)\ln\theta=$ const, so $\frac{d\ln\theta}{d\ln y}=\frac1{1-\alpha}\frac{y}{y-w}=2\cdot20=40$. A is the
+bargained-wage value: rigid wages are one answer to Shimer's puzzle.}
+\refbib{Kurlat (2020), \S7.5, p.~146; Romer (2012), problem 10.15.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{Search $\times$ efficiency.} With a general constant-returns matching function, the search
+equilibrium is efficient iff the workers' share of the surplus equals the elasticity of matches with respect to
+unemployment, evaluated at the equilibrium tightness.
+\gabarito{T}
+\begin{sol}
+\passo{Hosios}{The planner's and the market's conditions coincide iff the firms' share equals the vacancy elasticity
+of matches; with constant returns the two elasticities add to one, and both are evaluated where the economy is.}
+\refbib{Romer (2012), \S10.7 and problem 10.16.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Labor $\times$ transfers.} With $u=\ln c+\alpha\ln(1-h)$ and a lump-sum transfer $T>0$ that each household
+takes as given, an individual household's hours do not respond to its after-tax wage.
+\gabarito{F}
+\begin{sol}
+\passo{supply}{$h=\frac1{1+\alpha}-\frac{\alpha T}{(1+\alpha)w_n}$ rises with $w_n$ when $T>0$; hours are flat in $w_n$ only when $T=0$ (Question 4(a)).}
+\refbib{Kurlat (2020), \S7.2.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Labor supply $\times$ taxes and transfers $\times$ welfare.} Households have
+$u=\ln c+\alpha\ln(1-h)$ with one unit of time; a linear technology pays $w=1$ per hour; labor income is taxed at $\tau$ and the
+revenue is returned as a lump-sum transfer $T$ that each household takes as given. Baseline $\alpha=0.8$.}
+
+\textbf{a)} (3 points) Derive individual labor supply given $(\tau,T)$. Show what the tax does when $T=0$, and find
+equilibrium hours $h(\tau)$ when the budget balances.
+\resolespaco
+\begin{sol}
+\passo{FOC}{$\max\ln[(1-\tau)h+T]+\alpha\ln(1-h)$: $\frac{1-\tau}{c}=\frac{\alpha}{1-h}$, i.e.\ $\alpha c=(1-\tau)(1-h)$ with $c=(1-\tau)h+T$.}
+\passo{individual supply}{$\alpha[(1-\tau)h+T]=(1-\tau)(1-h)\Rightarrow h=\frac1{1+\alpha}-\frac{\alpha T}{(1+\alpha)(1-\tau)}$. With $T=0$, $h=\frac1{1+\alpha}$:
+the tax's income and substitution effects cancel.}
+\passo{balanced budget}{$T=\tau h$ (each household still takes $T$ as given): $c=h$, and the FOC gives
+$\frac{1-\tau}{h}=\frac{\alpha}{1-h}\Rightarrow h(\tau)=\frac{1-\tau}{1-\tau+\alpha}$, decreasing in $\tau$; $h(0)=0.556$.}
+\refbib{Kurlat (2020), \S7.2--7.3 and Exercise 7.5, pp.~131--140, 148--149.}
+\rubrica{
+\item FOC: 1 pt.
+\item Individual supply and the $T=0$ case: 1 pt.
+\item Equilibrium $h(\tau)$ with $T$ substituted after the FOC: 1 pt. Substituting before: max.\ 1.5 pts in the item.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Find the tax rate that maximizes revenue (the size of the transfer program), prove that revenue
+is single-peaked, and draw revenue against $\tau$.
+\resolespaco
+\begin{sol}
+\passo{revenue}{$R(\tau)=\tau h(\tau)=\frac{\tau(1-\tau)}{1+\alpha-\tau}$. The numerator of $R'$ is $N(\tau)=\tau^2-2(1+\alpha)\tau+(1+\alpha)$.}
+\passo{single peak}{$N$ is a convex parabola with $N(0)=1+\alpha>0$ and $N(1)=-\alpha<0$: exactly one root in $(0,1)$, the other above 1.
+So $R'>0$ before and $R'<0$ after
+\[\tau^*=(1+\alpha)-\sqrt{\alpha(1+\alpha)}=1.8-1.2=0.6,\qquad R(\tau^*)=0.6\cdot\tfrac{0.4}{1.2}=0.2.\]}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=9.5cm,height=5cm,xmin=0,xmax=1,ymin=0,ymax=0.23,xlabel={$\tau$},ylabel={$R(\tau)$},
+  tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,blue,domain=0:1,samples=100]{x*(1-x)/(1.8-x)};
+\addplot[only marks,mark=*] coordinates {(0.6,0.2) (0.4,0.171429) (0.5,0.192308)};
+\node[font=\footnotesize,anchor=south] at (axis cs:0.6,0.2) {$\tau^*=0.6$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\refbib{Kurlat (2020), \S7.3.}
+\rubrica{
+\item Revenue and the sign of $R'$: 1 pt.
+\item Single-peak proof and $\tau^*$: 1 pt.
+\item Graph: axes, hump-shaped curve, peak at $(0.6,0.2)$: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Derive the welfare cost of the program in consumption-equivalent terms (the share of
+consumption at $\tau=0$ the household would give up to avoid the program), prove that it is zero to first order at
+$\tau=0$ and increasing, and compute it at $\tau=0.4$, $0.5$, $0.6$.
+\resolespaco
+\begin{sol}
+\passo{welfare}{With $c=h$: $U(\tau)=\ln h(\tau)+\alpha\ln(1-h(\tau))$. The cost $x$ solves $U(0)+\ln(1-x)=U(\tau)$:
+$x(\tau)=1-e^{U(\tau)-U(0)}$.}
+\passo{shape}{$U'(\tau)=h'(\tau)\big[\frac1h-\frac{\alpha}{1-h}\big]$. At $\tau=0$, $h=\frac1{1+\alpha}$ and the bracket is zero: no first-order cost. For
+$\tau>0$, $h<\frac1{1+\alpha}$, so $\frac1h>1+\alpha>\frac{\alpha}{1-h}$; with $h'<0$, $U'<0$: the cost rises with $\tau$.}
+\passo{numbers}{$\tau=0.4$: $h=0.429$, $x=5.68\%$; $\tau=0.5$: $h=0.385$, $x=10.18\%$; $\tau=0.6$: $h=0.333$, $x=17.01\%$.}
+\intuicao{The program moves nothing between households; its whole effect is a wedge on the price of leisure,
+and the loss grows with the square of the wedge near zero.}
+\refbib{Kurlat (2020), Exercise 7.5 (welfare comparison).}
+\rubrica{
+\item Welfare measure: 1 pt.
+\item First-order zero and monotonicity proved: 1 pt.
+\item Numbers: 1 pt.
+}
+\end{sol}
+
+\textbf{d)} (3 points) At $\tau=0.4$, compute the Marshallian and Hicksian elasticities of individual hours with respect to the
+after-tax wage, the balanced-budget elasticity $d\ln h/d\ln(1-\tau)$, and the Frisch elasticity. Which one does Prescott's
+experiment use?
+\resolespaco
+\begin{sol}
+\passo{Marshallian}{From (a), $\partial h/\partial w_n=\frac{\alpha T}{(1+\alpha)w_n^2}$, so $e_M=\frac{\alpha T}{(1+\alpha)w_nh}=\frac{\alpha\tau}{(1+\alpha)(1-\tau)}=0.296$ (using $T=\tau h$).}
+\passo{Hicksian}{Slutsky: $\partial h^c/\partial w_n=\partial h/\partial w_n-h\,\partial h/\partial T=\frac{\alpha c}{(1+\alpha)w_n^2}$, so $e_H=\frac{\alpha}{(1+\alpha)(1-\tau)}=0.741$.}
+\passo{balanced budget and Frisch}{$\frac{d\ln h}{d\ln(1-\tau)}=1-h=0.571$. Frisch (marginal utility of wealth fixed): $\frac{\alpha}{1-h}=\lambda w_n$ gives
+$\frac{1-h}{h}=1.333$.}
+\passo{which one}{Prescott compares economies whose revenue is rebated, so the relevant response is the
+balanced-budget one: larger than the Marshallian (the transfer offsets part of the income effect) and smaller
+than the Hicksian.}
+\refbib{Kurlat (2020), \S7.2--7.3 and footnote 8, p.~149.}
+\rubrica{
+\item Each elasticity derived: 0.5 pt each (2 pts).
+\item Which one and why: 1 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How do $\tau^*$, hours at $\tau=0.5$ and the welfare cost at $\tau=0.5$ depend on $\alpha$?
+Prove the signs you can, give the limits of $\tau^*$, fill the table for $\alpha\in\{0.4,0.8,1.54,3\}$ (1.54 is the value in Kurlat's
+Exercise 7.5) and read it.
+\resolespaco
+\begin{sol}
+\passo{signs}{$\frac{d\tau^*}{d\alpha}=1-\frac{1+2\alpha}{2\sqrt{\alpha(1+\alpha)}}<0$ because $(1+2\alpha)^2=4\alpha(1+\alpha)+1$. Hours $\frac{1-\tau}{1-\tau+\alpha}$ fall with $\alpha$.}
+\passo{limits}{$\alpha\to0$: $\tau^*\to1$ (leisure worthless, no distortion until everything is taxed). $\alpha\to\infty$: $\tau^*\to\frac12$, from
+$\sqrt{\alpha^2+\alpha}=\alpha+\frac12-\frac1{8\alpha}+\dots$}
+\passo{table}{
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $\tau^*$ & $h(0.5)$ & cost at $\tau=0.5$ \\
+\midrule
+$\alpha=0.4$ & 0.652 & 0.556 & 7.19\% \\
+$\alpha=0.8$ & 0.600 & 0.385 & 10.18\% \\
+$\alpha=1.54$ & 0.562 & 0.245 & 12.75\% \\
+$\alpha=3$ & 0.536 & 0.143 & 14.70\% \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\passo{reading}{A higher weight on leisure makes hours more responsive at the margin: the Laffer peak arrives earlier
+and the same 50\% wedge costs more. Prescott's account of Europe needs a large $\alpha$, i.e.\ an elasticity at the top
+of the micro estimates (Kurlat \S7.3).}
+\refbib{Kurlat (2020), \S7.3 and Exercise 7.5.}
+\rubrica{
+\item Sign of $d\tau^*/d\alpha$ proved and both limits: 1.5 pts.
+\item Table: 1 pt.
+\item Reading: 0.5 pt.
+}
+\end{sol}
+
+\end{document}

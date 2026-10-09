@@ -1,0 +1,39 @@
+% Shared preamble of the answer key to the hardest textbook exercises (hardest-solutions.tex).
+% Fragments in hardest-parts/*.tex use only the macros below. Statements are NOT reproduced
+% (CLAUDE.md): each solution cites the exercise by number and page.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}   % Type 1 vector fonts (replaces PK bitmaps)
+\usepackage{cmap}      % ToUnicode CMap -> copyable text and accents
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{\footnotesize Macroeconomics I --- MPE Insper}
+\rhead{\footnotesize Hardest textbook exercises --- solutions}
+\cfoot{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{14pt}
+\setlist{topsep=2pt,itemsep=2pt}
+
+% \problema{Romer 1.12}{Embodied technological progress}{p.~47--48}{Romer \S1.3, \S1.5}
+\newcommand{\problema}[4]{\bigskip\noindent
+  {\large\bfseries\color{blue!55!black}#1 --- #2}\par\nopagebreak
+  \noindent{\footnotesize\color{black!60}Statement in the book, #3. Background: #4.}\par
+  \noindent\rule{\linewidth}{0.3pt}\par\nopagebreak\smallskip
+  \addcontentsline{toc}{subsection}{#1 --- #2}}
+\newcommand{\parte}[1]{\par\medskip\noindent\textbf{(#1)}\ }
+\newcommand{\passo}[2]{\par\smallskip\noindent\textbf{Step --- #1.}~#2}
+\newcommand{\intuicao}[1]{\par\smallskip\noindent\textit{Economic intuition.}~#1}
+\newcommand{\armadilha}[1]{\par\smallskip\noindent\textit{Where this goes wrong.}~#1}
+\newcommand{\refbib}[1]{\par\smallskip\noindent{\footnotesize\color{black!60}\textbf{Ref:} #1}}
+\newcommand{\checado}[1]{\par\smallskip\noindent{\footnotesize\color{black!60}\textbf{Checked:} #1}}

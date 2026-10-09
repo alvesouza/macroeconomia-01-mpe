@@ -1,0 +1,367 @@
+% Practice list C v3 --- topics of Listas 5-6, QUALIFIER LEVEL (style guide §8: cross-topic,
+% parameter analysis, graphs, answer key up to 15 pages).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-L5-L6-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{General Equilibrium, Money and Fiscal Policy --- qualifier level (Listas 5--6)}
+\renewcommand{\espacoresol}{6.5cm}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{General equilibrium, hours and taxes}{Kurlat ch.~9; Romer ch.~2 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{General equilibrium $\times$ labor supply.} A two-period economy has a fixed capital stock $K$ and no
+investment. Households have $u(c)+\psi\ln l$ each period, $u=c^{1-\sigma}/(1-\sigma)$, one unit of time; firms produce
+$Y=AK^{\alpha}L^{1-\alpha}$ competitively. In equilibrium, with $L=1/3$, $\sigma=2$ and $\alpha=1/3$, the elasticity $d\ln L/d\ln A$ is:
+\begin{alternativas}
+\item $-0.46$
+\item $0$
+\item $+0.46$
+\item $-1.00$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{equilibrium conditions}{Goods clearing without investment: $c=Y$. Firm: $w=(1-\alpha)Y/L$. Household:
+$\psi/(1-L)=w\,u'(c)$. Combining: $\dfrac{\psi}{1-L}=\dfrac{(1-\alpha)Y^{1-\sigma}}{L}$.}
+\passo{log-differentiation}{$\frac{L}{1-L}d\ln L=(1-\sigma)d\ln Y-d\ln L$ and $d\ln Y=d\ln A+(1-\alpha)d\ln L$:
+$\frac{d\ln L}{d\ln A}=\frac{1-\sigma}{L/(1-L)+\alpha+(1-\alpha)\sigma}=\frac{-1}{0.5+1/3+4/3}=-0.46$. With $\sigma>1$ the income effect dominates; B is
+the log case.}
+\refbib{Kurlat (2020), \S9.1, pp.~165--168; Lista 5, Q1(e).}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{General equilibrium $\times$ growth.} In the continuous-time Ramsey model with $f(\tilde k)=\tilde k^{1/3}$,
+$\rho=0.03$, $\sigma=2$, $g=0.02$, $n=0.01$, $\delta=0.05$, the steady-state gross saving rate is:
+\begin{alternativas}
+\item $33.3\%$
+\item $22.2\%$
+\item $26.7\%$
+\item $16.7\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{modified golden rule}{$\dot{\hat c}=0$: $f'(\tilde k^*)=\rho+\delta+\sigma g=0.12$; $s=\frac{(n+g+\delta)\tilde k}{f(\tilde k)}=\frac{(n+g+\delta)\alpha}{f'(\tilde k)}=\frac{0.08/3}{0.12}=22.2\%$,
+below the Golden Rule's $\alpha=33.3\%$ (A). C uses $\sigma=1$.}
+\refbib{Romer (2012), \S2.5 and problem 2.6; Kurlat (2020), \S9.3, p.~177.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{General equilibrium $\times$ fiscal policy.} In the Ramsey model, a permanent, unanticipated
+rise in government purchases financed by lump-sum taxes lowers consumption one for one on impact and leaves
+capital unchanged forever.
+\gabarito{T}
+\begin{sol}
+\passo{why}{$\dot{\tilde k}=f(\tilde k)-\hat c-\hat G-(n+g+\delta)\tilde k$ and the Euler equation does not involve $\hat G$: the new steady state has the
+same $\tilde k^*$ and $\hat c^*$ lower by $\Delta\hat G$; the saddle path shifts down by $\Delta\hat G$, so $\hat c$ jumps by $-\Delta\hat G$ and there is no
+transition.}
+\refbib{Romer (2012), \S2.7, pp.~71--76.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{General equilibrium $\times$ taxes.} A permanent tax on capital income whose revenue is
+rebated lump-sum leaves the steady-state capital stock unchanged, because the rebate gives the revenue back.
+\gabarito{F}
+\begin{sol}
+\passo{wedge}{The rebate removes the income effect, not the wedge: $(1-\tau)(f'-\delta)=\rho+\sigma g$, so $f'(\tilde k^*)$ rises and $\tilde k^*$ falls.}
+\refbib{Romer (2012), problem 2.10; Kurlat (2020), Exercise 9.6.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{General equilibrium $\times$ labor supply $\times$ taxes.} An infinite-horizon economy
+without growth: households maximize $\int_0^\infty e^{-\rho t}[\ln c+\psi\ln(1-h)]\,dt$, own the capital and rent it to firms; firms
+produce $Y=K^{\alpha}h^{1-\alpha}$; capital depreciates at $\delta$; labor income is taxed at $\tau$ and the revenue is rebated lump-sum.
+Numbers: $\alpha=1/3$, $\rho=0.04$, $\delta=0.06$; $\psi$ is set so that $h=1/3$ when $\tau=0.3$.}
+
+\textbf{a)} (3 points) Derive the household's optimality conditions (intertemporal and intratemporal), the firm's
+conditions and the government budget, and write the equilibrium as a dynamic system in $(K,c)$.
+\resolespaco
+\begin{sol}
+\passo{household}{Budget $\dot k=rk+(1-\tau)wh+T-c$. Over a short period $\Delta$ the Euler condition is
+$u_c(t)=e^{-\rho\Delta}(1+r\Delta)u_c(t+\Delta)$; with $u_c=1/c$ and $\Delta\to0$: $\dot c/c=r-\rho$. Within each instant,
+the marginal rate of substitution equals the after-tax wage: $\frac{\psi/(1-h)}{1/c}=(1-\tau)w$.}
+\passo{firms and government}{$r^K=\alpha K^{\alpha-1}h^{1-\alpha}$, $w=(1-\alpha)K^{\alpha}h^{-\alpha}$; no arbitrage: $r=r^K-\delta$; $T=\tau wh$.}
+\passo{system}{Goods clearing: $\dot K=K^{\alpha}h^{1-\alpha}-c-\delta K$; Euler: $\dot c=c(\alpha K^{\alpha-1}h^{1-\alpha}-\delta-\rho)$; hours are defined
+implicitly by $\psi c/(1-h)=(1-\tau)(1-\alpha)K^{\alpha}h^{-\alpha}$, so $h=h(K,c)$ with $h_K>0$ and $h_c<0$ (implicit function
+theorem).}
+\refbib{Kurlat (2020), \S9.1 and \S9.3; Romer (2012), \S2.2.}
+\rubrica{
+\item Euler and intratemporal conditions: 1.5 pts.
+\item Firms, no-arbitrage, government: 0.5 pt.
+\item System with $h(K,c)$ and its signs: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Find the steady state. Which ratios does the tax leave unchanged? Find hours in closed form and
+calibrate $\psi$.
+\resolespaco
+\begin{sol}
+\passo{ratios}{$\dot c=0$: $\alpha(K/h)^{\alpha-1}=\rho+\delta\Rightarrow K/h=\big(\frac{\alpha}{\rho+\delta}\big)^{\frac1{1-\alpha}}=6.086$, $y/h=1.826$; $\dot K=0$: $c/h=y/h-\delta K/h=1.461$,
+$c/y=1-\frac{\delta\alpha}{\rho+\delta}=0.8$. None depends on $\tau$: $r$ and $w$ are unchanged too.}
+\passo{hours}{Intratemporal condition with $c=h(c/h)$ and $w=(1-\alpha)y/h$:
+\[\frac{h}{1-h}=\frac{(1-\tau)(1-\alpha)}{\psi\,c/y}.\]
+Unique, since the left side rises from 0 to $\infty$ on $(0,1)$. With $h=1/3$ at $\tau=0.3$: $\psi=\frac{0.7\cdot2/3}{0.5\cdot0.8}=7/6$.}
+\intuicao{This is Prescott's formula of List B, now with $c/y$ determined in general equilibrium by impatience
+and depreciation.}
+\refbib{Kurlat (2020), \S9.3, p.~177, and Exercise 7.5.}
+\rubrica{
+\item Ratios pinned by $\rho+\delta$: 1.5 pts.
+\item Hours in closed form and $\psi$: 1.5 pts.
+}
+\end{sol}
+
+\textbf{c)} (3 points) The tax rises permanently and unexpectedly from 0.30 to 0.45. Find the long-run changes in $h$, $K$,
+$Y$, $C$, $r$ and $w$.
+\resolespaco
+\begin{sol}
+\passo{hours}{$\frac{h}{1-h}=\frac{0.55\cdot2/3}{(7/6)\cdot0.8}=0.393$, so $h=0.2821$: $-15.4\%$.}
+\passo{scale}{$K$, $Y$ and $C$ are fixed multiples of $h$: all fall $15.4\%$ ($K$ from $2.029$ to $1.717$, $c$ from $0.487$ to $0.412$).
+$K/h$ is unchanged, so $r$ and $w$ do not move in the long run.}
+\intuicao{The tax shrinks the economy without changing its proportions: fewer hours make capital less
+productive, and households keep only the capital whose return still covers $\rho+\delta$.}
+\refbib{Kurlat (2020), \S9.3; Romer (2012), \S2.7.}
+\rubrica{
+\item Hours: 1 pt.
+\item Scale of $K$, $Y$, $C$ and unchanged prices: 2 pts.
+}
+\end{sol}
+
+\textbf{d)} (3 points) Characterize the transition. Linearize the system at the new steady state (use the implicit
+function for $h$), show that it is a saddle, find the half-life, the impact responses of $c$ and $h$, and draw the
+paths of $K$, $c$ and $h$ (percent deviations from the old steady state).
+\resolespaco
+\begin{sol}
+\passo{Jacobian}{Differentiating $\dot K$ and $\dot c$ with $h=h(K,c)$ (chain rule, $h_K=0.0754$, $h_c=-0.943$):
+$J=\begin{pmatrix}0.1318&-2.1475\\-0.0087&-0.0918\end{pmatrix}$. $\det J<0$: real roots of opposite sign, $\mu_-=-0.1563$, $\mu_+=0.1963$; one predetermined
+($K$) and one jump variable ($c$): a saddle with a unique convergent path. Half-life $\ln2/0.1563=4.4$ years.}
+\passo{impact}{Stable arm: $dc/dK=0.134$. $K$ starts at the old $2.029$, so $c(0)\approx0.412+0.134(2.029-1.717)$: $-6.8\%$ against the old
+steady state ($-7.0\%$ on the exact nonlinear path). Hours jump to $-19.8\%$: they overshoot the long-run $-15.4\%$.}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.4cm,xmin=0,xmax=25,ymin=-22,ymax=0,xlabel={years},ylabel={\% vs old steady state},
+  legend style={font=\footnotesize},legend pos=south east,tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,black,domain=0:25,samples=80]{-15.3846*(1-exp(-0.156319*x))};
+\addplot[thick,blue,domain=0:25,samples=80]{-15.3846+8.6002*exp(-0.156319*x)};
+\addplot[thick,red,dashed,domain=0:25,samples=80]{-15.3846-4.7812*exp(-0.156319*x)};
+\addplot[dotted] coordinates {(0,-15.3846) (25,-15.3846)};
+\legend{$K$,$c$,$h$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\passo{reading}{Capital is high relative to the new hours, so consumption stays above its new level; the wealth
+effect pushes leisure up and hours undershoot. As capital runs down, consumption falls and hours recover to
+$-15.4\%$.}
+\refbib{Romer (2012), \S2.6, pp.~67--71; Kurlat (2020), \S9.3.}
+\rubrica{
+\item Jacobian with the implicit $h$: 1 pt.
+\item Saddle argument, half-life, impact responses: 1 pt.
+\item Graph: three paths starting at the right values and converging to $-15.4\%$, $h$ below the line: 1 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How do steady-state hours and the speed of convergence depend on $\tau$ and $\psi$?
+Prove the signs you can, fill the table for $\tau\in\{0,0.3,0.45,0.6\}$, give the limits, and explain why the speed changes.
+\resolespaco
+\begin{sol}
+\passo{signs}{From (b), $h/(1-h)$ is proportional to $(1-\tau)/\psi$: $\partial h/\partial\tau<0$, $\partial h/\partial\psi<0$; $K$, $Y$, $C$ move with $h$; $r$, $w$, $c/y$
+do not depend on $\tau$ or $\psi$. Limits: $\tau\to1$ or $\psi\to\infty$ gives $h\to0$; $\psi\to0$ gives $h\to1$.}
+\passo{table}{
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$\tau$ & 0 & 0.30 & 0.45 & 0.60 \\
+\midrule
+$h$ & 0.417 & 0.333 & 0.282 & 0.222 \\
+stable root & $-0.143$ & $-0.151$ & $-0.156$ & $-0.163$ \\
+half-life (years) & 4.8 & 4.6 & 4.4 & 4.2 \\
+\bottomrule
+\end{tabular}
+\end{center}}
+\passo{why the speed changes}{The speed depends on $\tau$ and $\psi$ only through steady-state hours ($\psi=1.5$ at $\tau=0.3$ gives
+$h=0.28$ and the same root as $\tau=0.45$). Lower $h$ means a higher Frisch elasticity $(1-h)/h$: hours absorb more of the
+adjustment, so capital reaches its new level faster.}
+\refbib{Kurlat (2020), \S7.4 (Frisch elasticity) and \S9.3.}
+\rubrica{
+\item Signs and limits proved: 1.5 pts.
+\item Table: 1 pt.
+\item Explanation through hours and the Frisch elasticity: 0.5 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Money, inflation and fiscal policy}{Kurlat chs.~10--11; Romer ch.~11 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Money demand $\times$ welfare.} Baumol--Tobin: income $Y=1200$ a year, cost $F=2$ per trip to the bank,
+nominal rate $i=6\%$. The welfare cost of $i>0$, measured as the Bailey area $\int_0^im(x)\,dx-i\,m(i)$, is:
+\begin{alternativas}
+\item $8.49$
+\item $16.97$
+\item $4.24$
+\item $0$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{demand}{Minimize $FN+iY/(2N)$: $N^*=\sqrt{iY/(2F)}=4.243$, $m=\sqrt{FY/(2i)}=141.4$.}
+\passo{Bailey area}{$2\sqrt{FYi/2}-\sqrt{FYi/2}=\sqrt{FYi/2}=8.49=FN^*$: the resources spent on trips. The forgone interest $i\,m$ is
+a transfer to the issuer, not a loss; B adds it.}
+\refbib{Kurlat (2020), \S10.4, pp.~199--201; \S11.4.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Money $\times$ expectations.} Cagan with perfect foresight, in logs: $m_t-p_t=-a(p_{t+1}-p_t)$, $a=4$
+(monthly). At $t=0$ the central bank credibly announces a permanent 10\% rise in the money supply at $t=4$. On impact,
+$p_0$ rises by:
+\begin{alternativas}
+\item $0\%$
+\item $4.1\%$
+\item $10\%$
+\item $8.0\%$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{forward solution}{$p_t=\frac{m_t}{1+a}+\frac a{1+a}p_{t+1}$; with no bubbles $p_t=\frac1{1+a}\sum_{j\ge0}(\tfrac a{1+a})^jm_{t+j}$, so
+$\Delta p_0=(\tfrac a{1+a})^4\cdot10\%=4.1\%$.}
+\refbib{Kurlat (2020), Exercise 11.6; Romer (2012), problem 11.1.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) In the Cagan model with perfect foresight, a credible announcement that money growth will
+fall permanently in the future leaves inflation unchanged until money growth actually falls.
+\gabarito{F}
+\begin{sol}
+\passo{forward-looking}{A lower future money path lowers $p_t$ today: expected inflation falls, real money demand rises and
+inflation falls on announcement (Question 4(d) runs the same logic in reverse).}
+\refbib{Romer (2012), problem 11.1.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Money $\times$ taxes.} If nominal interest income is taxed at 30\%, keeping the after-tax real
+return constant requires the nominal rate to rise by more than one point per point of expected inflation.
+\gabarito{T}
+\begin{sol}
+\passo{Darby effect}{$(1-t)i-\pi^e=\text{const}\Rightarrow di/d\pi^e=1/(1-t)=1.43$.}
+\refbib{Kurlat (2020), \S11.4.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. \emph{Money $\times$ fiscal policy $\times$ expectations: unpleasant arithmetic.} Real money demand
+(share of GDP) is $m=\kappa e^{-a\pi}$, $\kappa=0.3$, $a=2.5$ (annual); output does not grow, so seigniorage in a steady state is $S=\pi m$.
+Debt (share of GDP) evolves as $b_{t+1}=(1+r)b_t+d-S_t$, with $r=0.05$, primary deficit $d=0.005$ and $b_0=0.3$. For $T$ years the
+central bank holds seigniorage at $S_1$; afterwards debt is frozen and seigniorage covers the interest bill.}
+
+\textbf{a)} (3 points) Characterize the steady states of this economy: the relation between debt, deficit and
+seigniorage, the maximum seigniorage, and the inflation rate if debt is stabilized at once.
+\resolespaco
+\begin{sol}
+\passo{budget}{Constant debt: $b=(1+r)b+d-S\Rightarrow S=d+rb$.}
+\passo{Laffer}{$S(\pi)=\pi\kappa e^{-a\pi}$, $S'=\kappa e^{-a\pi}(1-a\pi)$: rises up to $\pi=1/a=40\%$, $S_{\max}=\kappa/(ae)=4.41\%$ of GDP, then falls;
+each $S<S_{\max}$ has two inflation rates. Take the low one (the high one is the wrong side of the Laffer curve).}
+\passo{immediate stabilization}{$S_0=d+rb_0=0.02$: $\pi_0=8.18\%$.}
+\refbib{Kurlat (2020), \S11.3, eq.\ (11.3.1), p.~216; Romer (2012), \S11.9.}
+\rubrica{
+\item $S=d+rb$: 0.5 pt.
+\item Laffer curve and $S_{\max}$ derived: 1.5 pts.
+\item $\pi_0$ on the low branch: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (3 points) Find debt at $T$ and the seigniorage needed afterwards in closed form. Compute them and the
+inflation rates during and after the tight phase for $S_1=0.01$, $T=10$.
+\resolespaco
+\begin{sol}
+\passo{debt}{Iterating $b_{t+1}=(1+r)b_t+(d-S_1)$: $b_T=(1+r)^Tb_0+(d-S_1)\frac{(1+r)^T-1}{r}=0.4258$.}
+\passo{seigniorage later}{$S_2=d+rb_T=(1+r)^T(d+rb_0-S_1)+S_1=S_1+(1+r)^T(S_0-S_1)=2.63\%$: the tightness gap compounds at $r$.}
+\passo{inflation}{Tight phase $\pi_1=3.65\%$ (low root of $S=0.01$); afterwards $\pi_2=11.76\%$, against $8.18\%$ with immediate
+stabilization.}
+\refbib{Kurlat (2020), \S11.3.}
+\rubrica{
+\item $b_T$: 1 pt.
+\item $S_2$ in the compounding form: 1 pt.
+\item Both inflation rates: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (3 points) Prove that tighter money today means higher inflation later, and find the length of the tight
+phase beyond which no steady state exists.
+\resolespaco
+\begin{sol}
+\passo{unpleasant arithmetic}{$S_2-S_0=[(1+r)^T-1](S_0-S_1)>0$ whenever $S_1<S_0$ and $T\ge1$. On the low branch $\pi$ is
+increasing in $S$, so $\pi_2>\pi_0$: lower inflation now is bought with higher inflation forever after.}
+\passo{collapse}{No steady state exists once $S_2>S_{\max}$: $(1+r)^T>\frac{S_{\max}-S_1}{S_0-S_1}$, so
+\[T^*=\frac{\ln[(S_{\max}-S_1)/(S_0-S_1)]}{\ln(1+r)}=25.2\text{ years for }S_1=0.01.\]
+Beyond $T^*$ the interest bill cannot be paid with seigniorage at any inflation rate.}
+\refbib{Kurlat (2020), \S11.3; Romer (2012), \S11.9.}
+\rubrica{
+\item Sign of $S_2-S_0$ and the monotone branch: 1.5 pts.
+\item $T^*$ derived and computed: 1.5 pts.
+}
+\end{sol}
+
+\textbf{d)} (3 points) Now money demand is forward-looking, $m_t-p_t=-a(p_{t+1}-p_t)$ in logs, money grows at $\mu_1$ until $T$ and
+at $\mu_2$ afterwards, and this is known. Find inflation in the years before $T$ and evaluate it 1, 3 and 5 years before
+the switch with $\mu_1=3.65\%$ and $\mu_2=11.76\%$.
+\resolespaco
+\begin{sol}
+\passo{forward solution}{$p_t=\frac1{1+a}\sum_{j\ge0}\lambda^jm_{t+j}$, $\lambda\equiv\frac a{1+a}$. Write $m_{t+j}-m_t=\mu_1j+\Delta\max(0,t+j-T)$ with $\Delta=\mu_2-\mu_1$.
+Using $\frac1{1+a}\sum_jj\lambda^j=a$: $p_t=m_t+a\mu_1+a\Delta\lambda^{T-t}$ for $t\le T$.}
+\passo{inflation}{$\pi_s=p_s-p_{s-1}=\mu_1+a\Delta(\lambda^{T-s}-\lambda^{T-s+1})=\mu_1+\Delta\lambda^{T-s+1}$, since $a(1-\lambda)=\lambda$; after $T$, $\pi=\mu_2$.}
+\passo{numbers}{$\lambda=0.714$: one year before, $9.44\%$; three years, $6.61\%$; five years, $5.16\%$, all above $\mu_1=3.65\%$.}
+\intuicao{Expected inflation reduces money demand now, so the price level starts rising before the money
+does: tight money does not even buy low inflation in the meantime.}
+\refbib{Romer (2012), problem 11.1; Kurlat (2020), Exercise 11.6.}
+\rubrica{
+\item Forward solution with the switch: 1.5 pts.
+\item Inflation path: 1 pt.
+\item Numbers: 0.5 pt.
+}
+\end{sol}
+
+\textbf{e)} (3 points) \emph{Parameter analysis.} How does post-stabilization inflation depend on $S_1$, $T$ and $r$? Prove the signs, fill the
+table for $S_1\in\{0.005,0.01,0.015\}$ and $T\in\{5,10,20\}$, compute $T^*$ for each $S_1$, and draw $\pi_2$ against $T$ for the three $S_1$.
+\resolespaco
+\begin{sol}
+\passo{signs}{$\partial S_2/\partial T=(1+r)^T\ln(1+r)(S_0-S_1)>0$ iff $S_1<S_0$; $\partial S_2/\partial S_1=1-(1+r)^T<0$; $\partial S_2/\partial r>0$ (both
+$(1+r)^T$ and $S_0=d+rb_0$ rise). $\pi_2$ inherits these signs on the low branch. $T^*$ rises with $S_1$.}
+\passo{table}{$\pi_2$ (\%):
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $T=5$ & $T=10$ & $T=20$ \\
+\midrule
+$S_1=0.005$ & 10.45 & 13.88 & none \\
+$S_1=0.010$ & 9.66 & 11.76 & 20.16 \\
+$S_1=0.015$ & 8.90 & 9.88 & 13.06 \\
+\bottomrule
+\end{tabular}
+\end{center}
+$T^*=19.7$, $25.2$ and $36.1$ years.}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=5.4cm,xmin=0,xmax=38,ymin=7,ymax=38,xlabel={$T$ (years)},ylabel={$\pi_2$ (\%)},
+  legend style={font=\footnotesize},legend pos=north west,tick label style={font=\footnotesize},label style={font=\small}]
+\addplot[thick,red,mark=none] coordinates {(0,8.18) (2,8.99) (4,9.93) (6,11.02) (8,12.32) (10,13.88) (12,15.80) (14,18.26) (16,21.58) (18,26.72)};
+\addplot[thick,blue,mark=none] coordinates {(0,8.18) (2,8.71) (4,9.32) (6,10.02) (8,10.82) (10,11.76) (12,12.85) (14,14.15) (16,15.72) (18,17.66) (20,20.16) (22,23.61) (24,29.29)};
+\addplot[thick,black,dashed,mark=none] coordinates {(0,8.18) (2,8.44) (4,8.74) (6,9.08) (8,9.45) (10,9.88) (12,10.35) (14,10.90) (16,11.52) (18,12.24) (20,13.06) (22,14.02) (24,15.15) (26,16.51) (28,18.16) (30,20.24) (32,23.00) (34,27.05) (36,36.43)};
+\legend{$S_1=0.005$,$S_1=0.010$,$S_1=0.015$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\passo{reading}{The tighter the money and the longer it lasts, the higher the inflation that follows, and the curve
+steepens as $S_2$ approaches $S_{\max}$, where the low and high equilibria merge. With $r$ above growth, monetary
+restraint without fiscal adjustment postpones inflation and enlarges it: the Brazilian 1980s in one equation.}
+\refbib{Kurlat (2020), \S11.3; Romer (2012), \S11.9.}
+\rubrica{
+\item Signs proved: 1 pt.
+\item Table and $T^*$: 1 pt.
+\item Graph: three increasing convex curves from $8.18\%$, ordered by $S_1$, ending at $T^*$: 1 pt.
+}
+\end{sol}
+
+\end{document}

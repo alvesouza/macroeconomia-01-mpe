@@ -1,0 +1,109 @@
+% Romer 6.16 --- solution fragment for hardest-solutions.tex (statement not reproduced).
+% Pricing solution, output effects and the mapping to Benigno's kappa re-checked by check-11-22-6-16.py.
+\problema{Romer 6.16}{Flexible- and rigid-price firms}{p.~311}{Romer \S6.5--6.7; Benigno (2015) \S4}
+
+\passo{Environment}{All variables are in logs. Aggregate demand is $y=m-p$ (eq.~(6.41) in logs). A
+firm's desired price is $p^*=p+\phi y$ (eq.~(6.58) with the constant normalized to zero), that is,
+$p^*=(1-\phi)p+\phi m$ (eq.~(6.61)), with $\phi>0$ so that the flexible-price equilibrium is stable
+(\S6.5). Flexible-price firms set $p^f=p^*$ after observing $m$; rigid-price firms set $p^r=Ep^*$
+before. $E$ is the expectation held when rigid prices are set, so a change in $m$ is
+\emph{anticipated} if it is known at that moment. A fraction $q\in(0,1)$ of firms is rigid:
+$p=q\,p^r+(1-q)\,p^f$. With every price flexible, $p^*=p$ forces $y=0$: natural output is $y_n=0$
+and $p=m$.}
+
+\parte{a}
+\passo{Substitute the price index}{Inserting $p=q\,p^r+(1-q)\,p^f$ into $p^f=(1-\phi)p+\phi m$,
+\[ p^f=(1-\phi)\big[q\,p^r+(1-q)\,p^f\big]+\phi m . \]}
+
+\passo{Collect $p^f$}{Moving the $p^f$ terms to the left,
+\[ p^f\big[1-(1-\phi)(1-q)\big]=(1-\phi)\,q\,p^r+\phi m ,\qquad
+1-(1-\phi)(1-q)=q+\phi(1-q)\equiv D>0 . \]
+Dividing by $D$ and using $D-\phi=(1-\phi)q$,
+\[ p^f=\frac{(1-\phi)\,q\,p^r+\phi m}{q+\phi(1-q)}=p^r+\frac{\phi}{q+\phi(1-q)}\,\big(m-p^r\big). \tag{A} \]
+Flexible-price firms close the fraction $\phi/D$ of the gap between money and the rigid price. Since
+$D-\phi=(1-\phi)q$, $\phi/D<1$ exactly when $\phi<1$, i.e.\ when desired prices rise less than
+one-for-one with the price level ($\partial p^*/\partial p=1-\phi$: strategic complementarity).}
+
+\parte{b}
+\passo{Expected flexible price}{The flexible firms' rule holds whatever $m$ turns out to be, and
+expectations are linear, so $Ep^f=(1-\phi)\,Ep+\phi\,Em$. The right side is exactly the rigid
+firms' rule: $Ep^f=p^r$. Each rigid firm expects to charge what the flexible firms will charge.}
+
+\passo{Expected price level}{$p^r$ is chosen with the information behind $E$, so $Ep^r=p^r$ and
+\[ Ep=q\,p^r+(1-q)\,Ep^f=q\,p^r+(1-q)\,p^r=p^r . \]}
+
+\passo{Solve}{Substituting $Ep=p^r$ into the rigid firms' rule and dividing by $\phi>0$,
+\[ p^r=(1-\phi)\,p^r+\phi\,Em\quad\Longrightarrow\quad \phi\,p^r=\phi\,Em
+\quad\Longrightarrow\quad p^r=Em . \tag{B} \]
+No parameter appears: rigid firms preset the price level that flexible prices would deliver given
+what they know, and $Ey=Em-Ep=0$. Check against (A): with $p^r=Em$,
+$Ep^f=Em+\frac{\phi}{D}(Em-Em)=Em=p^r$, as the first step requires.}
+
+\parte{c}
+\passo{Price level and output}{With (B), (A) reads $p^f=Em+\frac{\phi}{D}(m-Em)$, so
+\[ \begin{aligned}
+p&=q\,Em+(1-q)\Big[Em+\frac{\phi}{D}(m-Em)\Big]=Em+\frac{(1-q)\,\phi}{D}\,(m-Em),\\
+y&=m-p=\Big[1-\frac{(1-q)\,\phi}{D}\Big](m-Em)=\frac{q}{q+\phi(1-q)}\,(m-Em),
+\end{aligned} \tag{C} \]
+because $D-(1-q)\phi=q$.}
+
+\passo{(i) Anticipated changes}{Write $m=Em+u$, where $u\equiv m-Em$ is the part of money unknown
+when rigid prices were set; by (C), $y=(q/D)\,u$ depends on $u$ alone. An anticipated change raises
+$Em$ and $m$ by the same $\Delta$ and leaves $u$ unchanged: $\Delta y=0$, while $p^r$, $p^f$ and $p$
+all rise by $\Delta$. Money is neutral because the rigid firms knew the change when they set their
+prices, so every price incorporates it, and the flexible firms keep their relative price
+$p^f-p^r=(\phi/D)\,u$ unchanged.}
+
+\passo{(ii) Unanticipated changes}{Raising $m$ by $\Delta$ with $Em$ fixed raises $u$ by $\Delta$:
+\[ \Delta y=\frac{q}{q+\phi(1-q)}\,\Delta>0,\qquad \Delta p=\frac{(1-q)\,\phi}{q+\phi(1-q)}\,\Delta<\Delta . \]
+Since $D-q=\phi(1-q)>0$, $0<q/D<1$. Output absorbs part of the surprise because the fraction $q$ of
+prices is stuck at $Em$; by (A), flexible firms raise their prices by $(\phi/D)\Delta$, which is less
+than $\Delta$ when $\phi<1$.}
+
+\passo{Mapping to Benigno's AS curve}{The AS curve follows from the pricing side alone. From the
+price index and $Ep=p^r$, $p-Ep=(1-q)(p^f-Ep)$; and $p^f-Ep=(p^f-p)+(p-Ep)=\phi y+(p-Ep)$. Hence
+\[ q\,(p-Ep)=(1-q)\,\phi\,y\quad\Longrightarrow\quad p-Ep=\frac{(1-q)\,\phi}{q}\,(y-y_n),
+\qquad y_n=0 . \tag{D} \]
+This is Benigno's eq.~(17), $p-p^e=\kappa\,(y-y_n)$, under the dictionary: the rigid share $q$ is
+his share $\alpha$ of prices preset at $p^e$; $p^r=Ep$ is his $p^e$; $p^f$ is his $\tilde p$, whose
+rule $\tilde p-p=(\sigma^{-1}+\eta)(y-y_n)$ (his eq.~(16)) is $p^*-p=\phi y$ with
+$\phi=\sigma^{-1}+\eta$. Therefore $\kappa=(1-q)\phi/q=(1-\alpha)(\sigma^{-1}+\eta)/\alpha$. Romer's
+\S6.5 economy is the special case $U=C-L^\gamma/\gamma$: utility is linear in $C$ ($\sigma^{-1}=0$)
+and $L^\gamma/\gamma=L^{1+\eta}/(1+\eta)$ with $\eta=\gamma-1$, so $\phi=\gamma-1=\sigma^{-1}+\eta$.}
+
+\passo{Output effect and real rigidity}{Combining (D) with the AD curve and $Ep=Em$,
+$y=(m-Em)-(p-Ep)=(m-Em)-\kappa y$, so
+\[ \begin{gathered}
+y=\frac{m-Em}{1+\kappa},\qquad \frac{1}{1+\kappa}=\frac{q}{q+(1-q)\,\phi},\\
+\frac{\partial}{\partial\phi}\Big(\frac{q}{q+\phi(1-q)}\Big)=-\frac{q\,(1-q)}{\big[q+\phi(1-q)\big]^2}<0 ,
+\end{gathered} \]
+which reproduces (C). Lower $\phi$ (more real rigidity) means a flatter AS (lower $\kappa$) and a
+larger output response to the same surprise. Limits: as $\phi\to0$, $y\to m-Em$, so the whole
+surprise goes to output although a fraction $1-q$ of firms is free to reprice (with $p^*=p$ they
+choose not to); at $\phi=1$, $p^f=m$ and $y=q\,(m-Em)$; as $\phi\to\infty$, $y\to0$. With Benigno's
+calibration ($\alpha=0.66$, $\sigma=0.5$, $\eta=0.2$; his \S8), $\kappa=0.34\times2.2/0.66\approx1.13$
+and a 1\% money surprise raises $y$ by $1/(1+\kappa)\approx0.47\%$; keeping $\alpha=0.66$ but setting
+$\phi=0.2$ gives $\kappa\approx0.10$ and $\approx0.91\%$.}
+
+\intuicao{Real rigidity alone is neutral: with $q=0$, $y=0$ for every $\phi$ ($\kappa\to\infty$). It
+magnifies nominal rigidity: when $\phi$ is small, flexible firms care mostly about their price
+relative to the sticky ones, so they track the preset prices rather than money, and a small share of
+preset prices freezes much of the price level (\S6.7). Anticipated money is neutral for any $q$ and
+$\phi$, because no price is stuck at a stale value.}
+
+\armadilha{(1) ``Anticipated'' refers to the information held when rigid prices are set: a change
+announced after that date is a surprise here even if it is public before $m$ is realized. (2) $p^r$
+is a choice, not an outcome to forecast: $Ep^r=p^r$, which is what delivers $Ep=p^r$. (3) Romer's
+$\eta$ (the elasticity of demand, Benigno's $\theta$) is not Benigno's $\eta$ (the inverse Frisch
+elasticity); and Benigno's $\sigma\equiv\tilde\sigma s_c$ is the intertemporal elasticity scaled by
+the consumption share.}
+
+\refbib{Romer (2012), \S6.5, eqs.~(6.41), (6.58), (6.61), and \S6.7 (real rigidity); Benigno (2015),
+\S4.1, eqs.~(16)--(17), calibration in \S8.}
+
+\checado{\texttt{check-11-22-6-16.py} solves the pricing system with sympy by brute force (without the
+shortcut $Ep^f=p^r$) and confirms (A), $p^r=Em$, (C), $\partial y/\partial Em=0$ at given $u$,
+$0<q/D<1$, (D) with $\kappa=(1-q)\phi/q$, its identity with $(1-\alpha)(\sigma^{-1}+\eta)/\alpha$ under
+the mapping, $y=(m-Em)/(1+\kappa)$, the sign of $\partial y/\partial\phi$ and the calibration numbers.
+The solution manual agrees: same $p^f$, $p^r=Em$, $y=q\,(m-Em)/[\phi+(1-\phi)q]$ and the same
+real-rigidity derivative (its eq.~(19)); it does not discuss Benigno's AS.}

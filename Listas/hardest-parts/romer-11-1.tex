@@ -1,0 +1,96 @@
+% Romer 11.1. Checked by check-2-12-11-1.py (sympy).
+\problema{Romer 11.1}{The forward-looking Cagan model}{p.~576}{Romer \S11.1}
+Money demand as given in the problem, with $b>0$ and $c$ a constant: real balances $m_t-p_t$ fall when
+expected inflation $E_tp_{t+1}-p_t$ rises, because with output and the real rate fixed, higher expected
+inflation raises the nominal rate (the Fisher identity (11.3)) and with it the cost of holding money.
+Write $\phi\equiv b/(1+b)\in(0,1)$, so that $1-\phi=1/(1+b)$. Nothing below uses more than the
+linearity of $E_t$ and the law of iterated projections, so $E_t$ can be read as perfect foresight
+($E_tx_{t+i}=x_{t+i}$) throughout.
+
+\parte{a}
+\passo{Collect the terms in $p_t$}{Expanding the right side, $m_t-p_t=c-bE_tp_{t+1}+bp_t$, so
+$(1+b)p_t=m_t-c+bE_tp_{t+1}$ and
+\[ p_t=\frac{1}{1+b}(m_t-c)+\frac{b}{1+b}\,E_tp_{t+1}=(1-\phi)(m_t-c)+\phi E_tp_{t+1}. \]
+Today's price level is a weighted average of $m_t-c$ (the price level that would clear the market with
+zero expected inflation) and the price level expected for tomorrow.}
+
+\parte{b}
+\passo{Shift one period and take expectations}{(a) holds at every date, so
+$p_{t+1}=(1-\phi)(m_{t+1}-c)+\phi E_{t+1}p_{t+2}$. Applying $E_t$, which is linear,
+\[ E_tp_{t+1}=(1-\phi)(E_tm_{t+1}-c)+\phi E_t\bigl[E_{t+1}p_{t+2}\bigr]
+=(1-\phi)(E_tm_{t+1}-c)+\phi E_tp_{t+2}, \]
+by the law of iterated projections: everything known at $t$ is still known at $t+1$, so
+$E_t[E_{t+1}x]=E_tx$; today's forecast of tomorrow's forecast is today's forecast (a predictable revision
+would mean today's forecast is not rational).}
+
+\parte{c}
+\passo{Iterate}{Substituting (b) into (a) gives
+$p_t=(1-\phi)(m_t-c)+\phi(1-\phi)(E_tm_{t+1}-c)+\phi^2E_tp_{t+2}$. By induction, for every $n\ge1$,
+\[ p_t=(1-\phi)\sum_{i=0}^{n-1}\phi^i\,(E_tm_{t+i}-c)+\phi^n E_tp_{t+n},\qquad E_tm_t=m_t. \]
+For $n=1$ this is (a). If it holds for $n$, apply (a) at $t+n$ and take $E_t$ with the law of iterated
+projections, $E_tp_{t+n}=(1-\phi)(E_tm_{t+n}-c)+\phi E_tp_{t+n+1}$; substituting turns the last term
+into $(1-\phi)\phi^n(E_tm_{t+n}-c)+\phi^{n+1}E_tp_{t+n+1}$, which is the formula for $n+1$.}
+\passo{Impose no bubbles}{The problem's condition is $\lim_{n\to\infty}\phi^nE_tp_{t+n}=0$. Letting
+$n\to\infty$ and using $(1-\phi)\sum_{i\ge0}\phi^i=(1-\phi)/(1-\phi)=1$ (valid as $0<\phi<1$),
+\[ p_t=-c+\sum_{i=0}^{\infty}\frac{b^i}{(1+b)^{i+1}}\,E_tm_{t+i}, \]
+provided expected money grows by less than the factor $1/\phi=(1+b)/b$ per period. The weights are
+positive and sum to one: $p_t+c$ is a weighted average of current and expected future money stocks.}
+\passo{Why the condition is needed}{(a) alone does not pin down $p_t$. If $p^F_t$ is the solution above
+and $B_t$ satisfies $E_tB_{t+1}=B_t/\phi$, then $p^F_t+B_t$ also satisfies (a): the extra terms are $B_t$
+on the left and $\phi E_tB_{t+1}=B_t$ on the right. Such a bubble is expected to grow at rate $1/b$ per
+period, pushing expected inflation up and real balances down without end (Romer's footnote~1,
+p.~516). Since $\phi^nE_tB_{t+n}=B_t$ for all $n$, the no-bubbles condition says exactly $B_t=0$.}
+
+\parte{d}
+\passo{The chain of expectations}{From (c), $\partial p_t/\partial E_tm_{t+i}=b^i/(1+b)^{i+1}>0$. The
+mechanism runs backward in time. Money-market equilibrium at $t+i$ makes the expected price level
+$E_tp_{t+i}$ higher. Then expected inflation from $t+i-1$ to $t+i$ is higher, so the nominal rate at
+$t+i-1$ is higher and real money demand at $t+i-1$ is lower; with $m_{t+i-1}$ unchanged, $p_{t+i-1}$
+must rise to shrink real balances. That raises expected inflation from $t+i-2$ to $t+i-1$, and so on
+back to $t$: higher expected inflation from $t$ to $t+1$ lowers the demand for real balances today, and
+since $m_t$ is given, only a higher $p_t$ clears the money market. Each step back passes on the fraction
+$\phi=b/(1+b)$ of the effect, so it decays geometrically with the horizon, and more slowly the more
+interest-elastic money demand is (larger $b$). If the whole expected path of money rises by one unit,
+$p_t$ rises by one unit, since the weights sum to one.}
+\intuicao{The price level behaves like an asset price: it is the present value of current and future
+fundamentals (the money stocks), discounted at rate $1/b$, since $1/(1+1/b)=\phi$. News about future
+money moves today's price level before any money is printed, just as news about future dividends moves
+today's share price.}
+
+\parte{e}
+\passo{Substitute the path}{With $E_tm_{t+i}=m_t+gi$ in the formula of (c),
+\[ p_t=-c+(1-\phi)\sum_{i=0}^{\infty}\phi^i(m_t+gi)=m_t-c+g\,(1-\phi)S,\qquad
+S\equiv\sum_{i=0}^{\infty}i\,\phi^i. \]}
+\passo{Evaluate the series}{The $i=0$ term of $S$ is zero, so $S=\sum_{j\ge1}j\phi^j$, while
+$\phi S=\sum_{i\ge0}i\phi^{i+1}=\sum_{j\ge1}(j-1)\phi^j$. Subtracting,
+$S-\phi S=\sum_{j\ge1}\phi^j=\phi/(1-\phi)$, so $S=\phi/(1-\phi)^2$ and
+$(1-\phi)S=\phi/(1-\phi)=\dfrac{b/(1+b)}{1/(1+b)}=b$. Hence
+\[ p_t=m_t-c+bg. \]}
+\passo{Check}{The same formula one period ahead gives $E_tp_{t+1}=m_t+g-c+bg$, so expected inflation is
+$E_tp_{t+1}-p_t=g$ and $m_t-p_t=c-bg=c-b(E_tp_{t+1}-p_t)$: money demand holds. The no-bubbles condition
+holds too, since $\phi^n(m_t+gn-c+bg)\to0$.}
+\passo{Effect of $g$}{$\partial p_t/\partial g=b>0$. With $m_t$ given, faster expected money growth
+raises expected inflation one for one, raises the nominal rate (the Fisher effect) and lowers the demand
+for real balances by $b$ per unit of $g$; the money market clears today only if $p_t$ jumps up by
+$b\,\Delta g$, and real balances $m_t-p_t=c-bg$ fall. This is the discrete-time counterpart of Romer's
+Figure~11.2: when a higher money growth rate becomes known, the price level jumps although the money
+stock does not.}
+\intuicao{What sets today's price level is the expected path of money, not just its current stock.
+Run in reverse, the same result says that a credible disinflation (a fall in $g$) lowers $p_t$ on
+impact unless $m_t$ jumps up by $b\,|\Delta g|$, which is why the ends of hyperinflations come with
+bursts of money growth while prices stabilize (Romer, pp.~517--518).}
+
+\armadilha{(i) Shifting (a) forward but keeping $E_t$ inside: the shifted equation holds with
+$E_{t+1}p_{t+2}$, and only the law of iterated projections turns $E_t[E_{t+1}p_{t+2}]$ into
+$E_tp_{t+2}$. (ii) Mishandling the constant: each term carries $-(1-\phi)\phi^i c$, and these add up to
+exactly $-c$. (iii) Reading $\partial p_t/\partial g=b$ as an effect that arrives with the extra money:
+it is immediate, through expected inflation and money demand, with $m_t$ unchanged.}
+
+\refbib{Romer (2012), \S11.1, pp.~514--518 (eq.~(11.3), Figure~11.2, footnote~1 on bubble paths); the
+no-bubbles condition parallels problem 8.8.}
+\checado{\texttt{check-2-12-11-1.py} re-derives (a) with sympy and verifies: the iterated formula of
+(c) over eight forward substitutions; the weights $b^i/(1+b)^{i+1}$ and their unit sum; the series
+$\sum_i i\phi^i=\phi/(1-\phi)^2$; the closed form $p_t=m_t-c+bg$, by symbolic summation and by a
+3{,}000-term numerical sum; that it clears the money market and satisfies the no-bubbles condition;
+$\partial p_t/\partial g=b$; and that adding a bubble with $E_tB_{t+1}=B_t/\phi$ preserves (a). Romer's
+solution manual (pp.~11-1--11-2) agrees: $p_t=m_t-c+bg$ and $\partial p_t/\partial g=b$.}

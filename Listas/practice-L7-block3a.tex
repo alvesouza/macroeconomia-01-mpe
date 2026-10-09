@@ -1,0 +1,80 @@
+% =============================================================================
+\bloco{3}{Integrative: a pandemic in the AS--AD model}{Benigno \S\S4--11; Kurlat chs.~6--7 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Expectations $\times$ AS--AD.} To fight a pandemic slump with $i$ fixed, the central bank credibly
+raises the long-run price level by $d\bar p>0$; the preset prices $p^e$ are predetermined. Current output changes by:
+\begin{alternativas}
+\item $dy=\sigma\,d\bar p$
+\item $dy=\frac{\sigma}{1+\sigma\kappa}\,d\bar p$
+\item $dy=d\bar p$
+\item $dy=\frac{\sigma\kappa}{1+\sigma\kappa}\,d\bar p$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{solve}{AD (21) with $g=\bar g$ and $i$ fixed: $dy=\sigma(d\bar p-dp)$, because expected inflation $\bar p-p$ lowers the real rate. AS (20)
+with $p^e$ and $y_n$ fixed: $dp=\kappa\,dy$. Hence $dy=\frac{\sigma}{1+\sigma\kappa}d\bar p>0$ and $dp=\frac{\sigma\kappa}{1+\sigma\kappa}d\bar p\in(0,d\bar p)$.}
+\passo{distractors}{A drops the AS feedback: it is the rigid-price limit $\kappa\to0$. C makes two mistakes: it drops $\sigma$ and the
+feedback, moving output one for one with $\bar p$. D is $dp$, the price response. As $\kappa\to\infty$, $dy\to0$ and $dp\to d\bar p$: the promise then moves only prices.}
+\refbib{Benigno (2015), \S5, eqs.\ (20)--(21) and p.~510 (a higher $\bar p$ shifts the AD right); \S9.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Growth $\times$ AS--AD.} Productivity rises permanently, $a=\bar a>0$ (say, lasting gains from remote work),
+while the bank keeps $i=\rho$ and $\bar p=p^e$. The new equilibrium $(y,\ p-p^e)$ is:
+\begin{alternativas}
+\item $\big(0,\ -\frac{\kappa(1+\eta)a}{\sigma^{-1}+\eta}\big)$
+\item $\big(\frac{(1+\eta)a}{\sigma^{-1}+\eta},\ -\frac{\kappa(1+\eta)a}{\sigma^{-1}+\eta}\big)$
+\item $\big(\frac{(1+\eta)a}{\sigma^{-1}+\eta},\ 0\big)$
+\item $\big(a,\ 0\big)$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{natural levels}{The flexible price $\tilde p=w-a+\mu$ and labor supply $w-p=\eta(y-a)+\sigma^{-1}(y-g)$ give, at $g=\mu=0$,
+$\tilde p-p=(\sigma^{-1}+\eta)y-(1+\eta)a$, so $y_n=\frac{(1+\eta)a}{\sigma^{-1}+\eta}$. With $\bar a=a$, $\bar y_n=y_n$ and $r_n=\rho+\sigma^{-1}(\bar y_n-y_n)=\rho$.}
+\passo{equilibrium}{The AS shifts right through $(y_n,p^e)$ and the AD shifts right by $\bar y_n$, through the same point. AS (20) in AD (21)
+gives the gap $y-y_n=\frac{\sigma}{1+\sigma\kappa}[r_n-i+(\bar p-p^e)]=0$, so $y=y_n$ and $p=p^e$.}
+\passo{distractors}{A holds output at its old level, as if the unchanged $i$ fixed demand, and reads $p$ off the new AS. B takes the AS's downward shift, $\kappa y_n$, for the change in $p$. D is the knife-edge $\sigma=1$ (log utility with $s_c=1$): $y_n-a=\frac{(1-\sigma^{-1})a}{\sigma^{-1}+\eta}$
+vanishes only there, where income and substitution effects on hours cancel.}
+\refbib{Benigno (2015), \S4, eq.\ (15); \S6.2 and p.~513 (a permanent shock leaves the natural real rate unchanged).}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{Consumption theory $\times$ AS--AD.} Hold $i$ and the long-run price level fixed. A lump-sum
+transfer financed by public debt (such as Brazil's 2020 \emph{aux\'{\i}lio emergencial}) leaves output unchanged in Benigno's
+representative-agent model, whereas in his borrower--saver model (eq.~(32), stable equilibrium) a debt-financed transfer to
+the borrowers raises output.
+\gabarito{T}
+\begin{sol}
+\passo{representative agent}{The budget (2) holds only the present value $T$ of net transfers. A transfer $B$ now, repaid by taxes
+$(1+i)B$ later, changes it by $B-\frac{(1+i)B}{1+i}=0$, so no choice changes at given prices. Lump-sum taxes enter neither the AD (21) nor
+the markup in the AS: $y$ and $p$ do not move (Ricardian equivalence).}
+\passo{borrowers and savers}{Benigno's AD is
+\[y=\bar y_n-\varphi[i-(\bar p_n-p)-\rho]+\tfrac1\chi(g-\bar g)-\tfrac{1-\chi}{\chi}(\tau_b-\bar\tau_b)+\tfrac{1-\chi}{\chi}[\hat d+d_0(p-p^e)],\]
+with $\varphi\equiv\sigma+(1-\chi)d_0\beta/\chi$. Borrowers stay at their debt limit and consume their current resources, so taxes enter
+only through $\tau_b-\bar\tau_b$; savers' taxes do not enter. A transfer now ($d\tau_b<0$), repaid later by borrowers ($d\bar\tau_b>0$) or by savers
+($d\bar\tau_b=0$), shifts the AD right by $\frac{1-\chi}{\chi}\Delta$, $\Delta\equiv-(d\tau_b-d\bar\tau_b)>0$. With $i$ and $\bar p_n$ fixed, $dy=\frac{1-\chi}{\chi}\Delta-\varpi\,dp$, where
+$\varpi\equiv\varphi-\frac{(1-\chi)d_0}{\chi}=\sigma-\frac{d_0(1-\beta)(1-\chi)}{\chi}$ nets the real-rate channel against the Fisher channel; the AS gives
+$dp=\kappa\,dy$ ($y_n$ does not depend on the distribution of wealth). So $dy=\frac{(1-\chi)\Delta}{\chi(1+\varpi\kappa)}>0$: stability means $1+\varpi\kappa>0$,
+which is automatic when $\varpi\ge0$.}
+\refbib{Benigno (2015), \S3, eq.\ (2) and footnote~3; \S10, eq.\ (32), pp.~519--521; Kurlat (2020), ch.~6, \S6.2 (Taxes and Ricardian
+Equivalence) and Exercise~6.5.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Labor $\times$ AS--AD.} Okun's law maps gaps into unemployment, $u-u_n=-\gamma(y-y_n)$ with
+$\gamma>0$. After the oil shock of Question~2(d) (short run only: the markup rises, $\mu>0$, and productivity falls, $a<0$), a bank
+that keeps $i=\rho$ and $\bar p=p^e$ leaves unemployment below its natural rate even though output falls.
+\gabarito{T}
+\begin{sol}
+\passo{natural levels}{The long run is untouched, $\bar y_n=0$, while $y_n=\frac{(1+\eta)a-\mu}{\sigma^{-1}+\eta}<0$. The natural real rate rises,
+$r_n-\rho=\sigma^{-1}(\bar y_n-y_n)>0$, so holding $i=\rho$ is a loose policy.}
+\passo{gap and output}{AS (20) in AD (21): $y-y_n=\frac{\sigma}{1+\sigma\kappa}(r_n-\rho)=\frac{\bar y_n-y_n}{1+\sigma\kappa}>0$, hence
+$u-u_n=-\gamma\frac{\bar y_n-y_n}{1+\sigma\kappa}<0$; and $y=\frac{\sigma\kappa y_n+\bar y_n}{1+\sigma\kappa}=\frac{\sigma\kappa}{1+\sigma\kappa}y_n\in(y_n,0)$.}
+\passo{conditions}{In general $u<u_n$ iff $\bar y_n>y_n$ (that is, $r_n>i$), and $y<0$ iff $\sigma\kappa y_n+\bar y_n<0$. The temporary shock,
+$y_n<0=\bar y_n$, meets both; a permanent one ($\bar y_n=y_n$) would leave $u=u_n$.}
+\intuicao{Output falls with its natural level, but by less: the expected recovery raises the natural real rate, and a bank that
+does not follow it lets demand hold output above $y_n$.}
+\refbib{Benigno (2015), \S7 and p.~513 (natural real rate); Jones (2020), ch.~9, \S9.4 (Okun's law).}
+\end{sol}

@@ -1,0 +1,279 @@
+% Practice list B --- topics of Listas 3-4 (Kurlat chs. 6-7).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Numbers: practice-lists-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Consumption, Saving and the Labor Market (Listas 3--4)}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{Consumption and saving}{Kurlat ch.~6 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. A young worker in São Paulo lives two periods, with
+$u(c_1)+\beta u(c_2)$, $u=\ln c$, $\beta=0.8$, income $y_1=60$, $y_2=150$, and borrows or lends
+freely at $r=0.25$ (illustrative; a period is a decade).}
+
+\textbf{a)} (3 points) The worker's optimal saving $a=y_1-c_1$ is:
+\begin{alternativas}
+\item $-30$
+\item $+40$
+\item $-40$
+\item $-20$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{wealth}{$W=y_1+y_2/(1+r)=60+150/1.25=180$.}
+\passo{log rule}{$c_1=W/(1+\beta)=180/1.8=100$, so $a=60-100=-40$: the worker borrows against
+high future income.}
+\refbib{Kurlat (2020), \S6.2, p.~105.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Replace log utility by $u(c)=c^{1-\sigma}/(1-\sigma)$ with $\sigma=2$,
+keeping $\beta$, $r$ and incomes. Then $c_1$ equals:
+\begin{alternativas}
+\item $120.0$
+\item $100.0$
+\item $90.0$
+\item $108.3$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{Euler}{$c_2/c_1=[\beta(1+r)]^{1/\sigma}=1^{1/2}=1$, so $c_1=c_2=c$ and $c(1+1/1.25)=180$
+gives $c=100$. When $\beta(1+r)=1$ the household smooths perfectly whatever its EIS $1/\sigma$.}
+\refbib{Kurlat (2020), \S6.2.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) For the worker in (a), a tax cut of 10 in period 1 financed by a tax
+increase of 12.5 in period 2 raises $c_1$.
+\gabarito{F}
+\begin{sol}
+\passo{Ricardian equivalence}{Present value of taxes changes by $-10+12.5/1.25=0$, so $W$ and
+consumption are unchanged; saving rises by 10.}
+\refbib{Kurlat (2020), \S6.2 (taxes) and \S6.3.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) If the worker faces the borrowing limit $a\ge-10$, the same tax
+change raises $c_1$ by exactly 10.
+\gabarito{T}
+\begin{sol}
+\passo{binding limit}{Unconstrained $c_1=100$ needs $a=-40<-10$: the limit binds and
+$c_1=y_1+10=70$. After the cut $c_1=60+10+10=80$, still below the desired 100, so the limit
+still binds and $c_1$ rises one for one.}
+\refbib{Kurlat (2020), \S6.2, borrowing constraints.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. A worker earns $y$ in period 1 and nothing in period 2
+(retirement). Preferences $u(c_1)+\beta u(c_2)$ with $u(c)=c^{1-\sigma}/(1-\sigma)$
+($\ln c$ if $\sigma=1$); the worker saves at rate $r$.}
+
+\textbf{a)} (5 points) Derive $c_1$, $c_2$ and $a$ in closed form. Show how the sign of
+$\partial a/\partial r$ depends on $\sigma$, and explain it with income and substitution effects.
+\resolespaco
+\begin{sol}
+\passo{problem}{$\max u(c_1)+\beta u(c_2)$ s.t.\ $c_1+\dfrac{c_2}{1+r}=y$.}
+\passo{Euler}{$c_1^{-\sigma}=\beta(1+r)c_2^{-\sigma}\Rightarrow c_2=[\beta(1+r)]^{1/\sigma}c_1$.}
+\passo{solution}{$c_1=\dfrac{y}{1+\beta^{1/\sigma}(1+r)^{1/\sigma-1}}$,
+$c_2=[\beta(1+r)]^{1/\sigma}c_1$, $a=y-c_1$.}
+\passo{sign}{$a$ rises with $r$ iff the denominator rises with $r$, i.e.\ iff $1/\sigma-1>0$:
+$\sigma<1\Rightarrow\partial a/\partial r>0$; $\sigma=1\Rightarrow0$; $\sigma>1\Rightarrow<0$.}
+\intuicao{A higher $r$ makes future consumption cheaper (substitution: save more) and makes a
+saver richer (income: consume more today). The EIS $1/\sigma$ sets the strength of substitution;
+with log the two cancel exactly.}
+\refbib{Kurlat (2020), \S6.2, pp.~105--117.}
+\rubrica{
+\item Budget constraint and Euler: 2 pts. Discounting $c_2$ by multiplying by $(1+r)$: max.\ 2 pts.
+\item Closed forms: 1.5 pts.
+\item Sign by $\sigma$ with income/substitution explanation: 1.5 pts. Sign stated in words that
+  contradicts the derived exponent: max.\ 2 pts in the item (words must agree with the math).
+}
+\end{sol}
+
+\textbf{b)} (5 points) Let $\sigma=1$, $\beta=0.8$, $r=0.25$, $y=150$. The government taxes interest
+income at $\tau=0.4$, so $c_2=(1+(1-\tau)r)a+T$, and returns the revenue as a lump-sum $T$ in
+period 2 (the worker takes $T$ as given). Compute $c_1$, $c_2$, $a$ and $T$ with and without the
+tax. Show that the tax changes $c_2/c_1$ while an equal-revenue lump-sum tax would not, and
+measure the welfare cost as the percentage cut in consumption in both periods that would give
+the untaxed worker the same utility.
+\resolespaco
+\begin{sol}
+\passo{no tax}{$\beta(1+r)=1$: $c_1=c_2=150/1.8=83.33$, $a=66.67$.}
+\passo{with tax}{Euler uses the after-tax return: $c_2/c_1=\beta(1+0.6\cdot0.25)=0.92$. In
+equilibrium $T=\tau r a$, so $c_2=(1+r)a$ and the resource constraint is still $c_1+c_2/1.25=150$:
+$c_1(1+0.92/1.25)=150\Rightarrow c_1=86.41$, $c_2=79.49$, $a=63.59$, $T=0.4\cdot0.25\cdot63.59=6.36$.}
+\passo{lump-sum comparison}{A lump-sum tax leaves the return at $r$: Euler $c_2/c_1=\beta(1+r)=1$.
+The interest tax drives a wedge between the private return $(1-\tau)r$ and the social return $r$:
+it distorts the intertemporal margin.}
+\passo{welfare}{$\Delta U=\ln\frac{86.41}{83.33}+0.8\ln\frac{79.49}{83.33}=-0.00154$; the cut
+$\lambda$ solves $1.8\ln(1-\lambda)=-0.00154$: $\lambda=0.086\%$.}
+\intuicao{Log utility makes saving insensitive to $r$ only when income and substitution effects
+both act. Rebating the revenue removes the income effect and leaves pure substitution, so saving
+falls (66.67 to 63.59).}
+\refbib{Kurlat (2020), \S6.2; Lista 3, Q2(d).}
+\rubrica{
+\item Untaxed allocation: 1 pt.
+\item Taxed Euler and allocation, revenue: 2 pts. Using $r$ instead of $(1-\tau)r$ in the Euler: max.\ 1 pt.
+\item Wedge argument (which margin is distorted): 1 pt.
+\item Welfare cost: 1 pt.
+}
+\end{sol}
+
+\textbf{c)} (5 points) Return to the worker of Question 1(a) ($y_1=60$, $y_2=150$, log,
+$\beta=0.8$, $r=0.25$). Compare the response of $c_1$ to (i) a one-off transfer of 10 in period 1
+(like the 2020 \emph{auxílio emergencial}) and (ii) a permanent rise of 10 in both periods. Redo
+both for a worker facing $a\ge-10$. What does this say about the permanent income hypothesis
+and about the Keynesian consumption function?
+\resolespaco
+\begin{sol}
+\passo{unconstrained}{(i) $\Delta W=10$, $\Delta c_1=10/1.8=5.56$, $\Delta a=4.44$.
+(ii) $\Delta W=10+10/1.25=18$, $\Delta c_1=10$, $\Delta a=0$.}
+\passo{constrained}{The limit binds in both cases (desired $c_1=105.6$ and $110$ exceed
+$y_1+10+\Delta y_1=80$), so $c_1=y_1+10$ and $\Delta c_1=10$ in both.}
+\passo{reading}{The unconstrained worker responds to wealth, not current income (PIH): the
+marginal propensity to consume out of a transitory transfer is $1/(1+\beta)=0.56$. Constrained
+workers have MPC $=1$: the Keynesian consumption function reappears exactly where credit fails.}
+\intuicao{Aggregate MPC from a one-off transfer depends on how many households are
+credit-constrained, which is why stimulus checks are more effective in poor, unbanked economies.}
+\refbib{Kurlat (2020), \S6.1 (Keynesian) and \S6.2--6.3.}
+\rubrica{
+\item Both unconstrained responses: 2 pts.
+\item Constrained responses with the check that the limit still binds: 2 pts.
+\item PIH vs Keynesian interpretation: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Labor supply and unemployment}{Kurlat ch.~7 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. A PNAD Contínua respondent has $u=\ln c+\theta\ln l$,
+$\theta=1$, one unit of time ($h=1-l$), real wage $w=20$ and non-labor income $\pi=4$.}
+
+\textbf{a)} (3 points) Hours worked are:
+\begin{alternativas}
+\item $0.6$
+\item $0.4$
+\item $0.5$
+\item $0.2$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{FOC}{$\theta c/l=w$ with $c=w(1-l)+\pi$: $l=\frac{\theta}{1+\theta}\cdot\frac{w+\pi}{w}=\tfrac12\cdot\tfrac{24}{20}=0.6$,
+so $h=0.4$. Option A is leisure; C is the $\pi=0$ answer.}
+\refbib{Kurlat (2020), \S7.2, p.~131.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) The reservation wage (below which she does not work) is:
+\begin{alternativas}
+\item $2$
+\item $8$
+\item $20$
+\item $4$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{corner}{$w^r=u_l/u_c$ at $(c=\pi,\,l=1)$: $w^r=\theta\pi/1=4$.}
+\refbib{Kurlat (2020), \S7.2.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) For this respondent, a 10\% rise in the after-tax wage leaves hours
+unchanged, because with log utility income and substitution effects cancel.
+\gabarito{F}
+\begin{sol}
+\passo{check}{$h=1-\tfrac12(1+\pi/w)$ rises with $w$ when $\pi>0$. The cancellation needs
+$\pi=0$: non-labor income weakens the income effect of a wage rise.}
+\refbib{Kurlat (2020), \S7.2.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) In the DMP model with $m=\mu V^{\alpha}U^{1-\alpha}$, a rise in matching
+efficiency $\mu$ shifts the Beveridge curve toward the origin: fewer vacancies are needed at each
+unemployment rate.
+\gabarito{T}
+\begin{sol}
+\passo{Beveridge}{Steady state: $s(1-u)=\mu v^{\alpha}u^{1-\alpha}$. At given $u$, higher $\mu$
+needs lower $v$ to create the same flow of matches.}
+\refbib{Kurlat (2020), \S7.5, p.~142; Lista 4, Q2.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Brazil's labor tax wedge. A household has
+$U=\ln c+b\,\dfrac{l^{1-\gamma}}{1-\gamma}$ ($b,\gamma>0$), one unit of time, wage $w$, labor-income tax
+$\tau$ and a lump-sum transfer $T$: $c=(1-\tau)w(1-l)+T$.}
+
+\textbf{a)} (5 points) Derive the labor supply condition. Show that when $T=0$ hours depend on
+neither $w$ nor $\tau$, for any $\gamma$. Show that when $T>0$ hours rise with $(1-\tau)w$.
+\resolespaco
+\begin{sol}
+\passo{FOC}{$b\,l^{-\gamma}=\dfrac{(1-\tau)w}{c}=\dfrac{(1-\tau)w}{(1-\tau)w(1-l)+T}$.}
+\passo{$T=0$}{$b\,l^{-\gamma}(1-l)=1$: $w$ and $\tau$ drop out. Income and substitution effects of
+the net wage cancel.}
+\passo{$T>0$}{Rewrite as $G(l)\equiv b\,l^{-\gamma}\big[(1-l)+\tfrac{T}{(1-\tau)w}\big]=1$, with
+$G'(l)<0$. A higher $(1-\tau)w$ lowers the bracket; to restore $G=1$, $l$ must fall: hours rise.}
+\intuicao{The transfer is income that does not scale with the wage, so a wage rise has a smaller
+income effect than substitution effect.}
+\refbib{Kurlat (2020), \S7.2; Lista 4, Q1.}
+\rubrica{
+\item FOC: 2 pts.
+\item $T=0$ result: 1.5 pts.
+\item $T>0$ comparative statics with a sign argument: 1.5 pts. Asserting the sign without proof: 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (5 points) Now the budget balances: $T=\tau w(1-l)$ in equilibrium (each household still
+takes $T$ as given). With $\gamma=1$, $b=1$, find hours as a function of $\tau$, compute them for
+$\tau=0$ and $\tau=0.5$ and $dh/d\tau$ at $\tau=0$. Why is the effect larger than in (a) with $T=0$?
+Relate to Prescott's comparison of hours in Europe and the US.
+\resolespaco
+\begin{sol}
+\passo{equilibrium consumption}{$c=(1-\tau)w(1-l)+\tau w(1-l)=w(1-l)$.}
+\passo{hours}{FOC: $1/l=(1-\tau)/(1-l)\Rightarrow l=1/(2-\tau)$, $h=(1-\tau)/(2-\tau)$:
+$h(0)=0.5$, $h(0.5)=1/3$; $dh/d\tau=-1/(2-\tau)^2=-0.25$ at $\tau=0$.}
+\passo{why}{The rebate gives back the income, so the income effect vanishes and only
+substitution remains: the tax works like a pure fall in the price of leisure.}
+\passo{Prescott}{Higher effective labor taxes in Europe, with revenue returned as transfers, can
+explain much of its lower hours, under elasticities of this size.}
+\intuicao{Taxes on labor depress hours through what they finance as well as what they take:
+spending returned lump-sum keeps consumption up while the price of leisure stays low.}
+\refbib{Kurlat (2020), \S7.3 (evidence, Prescott 2004).}
+\rubrica{
+\item Uses $T=\tau w(1-l)$ only after the FOC (household takes $T$ as given): 1.5 pts.
+  Substituting $T$ before differentiating: max.\ 2 pts in the item.
+\item $h(\tau)$, numbers and derivative: 2 pts.
+\item Income-effect argument and Prescott: 1.5 pts.
+}
+\end{sol}
+
+\textbf{c)} (5 points) DMP model: separation rate $s=0.03$ per month, $m=\mu V^{0.5}U^{0.5}$,
+$\mu=0.6$, tightness $\theta=V/U=0.25$. Compute $f$, $q$, $u^*$ and $v^*$. After the pandemic,
+mismatch lowers $\mu$ to $0.45$. Compute $u^*$ at the same $\theta$ and the vacancy rate needed to
+keep $u$ at its old value. Explain the shift versus a movement along the Beveridge curve, and
+why a firm posting one more vacancy creates an externality.
+\resolespaco
+\begin{sol}
+\passo{rates}{$f=\mu\theta^{0.5}=0.3$, $q=\mu\theta^{-0.5}=1.2$ (check $f=\theta q$).}
+\passo{steady state}{$s(1-u)=fu\Rightarrow u^*=s/(s+f)=0.03/0.33=9.09\%$; $v^*=\theta u^*=2.27\%$.}
+\passo{lower $\mu$}{$f=0.45\cdot0.5=0.225$, $u^*=0.03/0.255=11.76\%$. To keep $u=9.09\%$:
+$v=\big(s(1-u)/(\mu u^{0.5})\big)^2=4.04\%$, almost twice as many vacancies.}
+\passo{shift vs movement}{A fall in $\mu$ moves the whole curve away from the origin (more of
+both $u$ and $v$). A demand change moves the economy along a fixed curve ($v$ and $u$ in
+opposite directions).}
+\passo{externality}{One more vacancy raises $\theta$: $f$ rises (helps workers), $q$ falls
+(hurts other firms). The firm weighs only its own expected match, so these effects are not priced.}
+\refbib{Kurlat (2020), \S7.5; Lista 4, Q2.}
+\rubrica{
+\item $f$, $q$, $u^*$, $v^*$: 1.5 pts.
+\item New $u^*$ and required $v$: 1.5 pts.
+\item Shift vs movement, with axes $(u,v)$ named: 1 pt.
+\item Externality with both sides named: 1 pt.
+}
+\end{sol}
+
+\end{document}

@@ -1,0 +1,320 @@
+% Practice list A --- topics of Listas 1-2 (Kurlat chs. 1-5).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Numbers: practice-lists-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Measurement, Solow and Growth Accounting (Listas 1--2)}
+
+\begin{document}
+\cabecalho
+
+% =============================================================================
+\bloco{1}{Measuring output, prices and welfare}{Kurlat chs.~1--2 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. IBGE's national accounts team tests its procedures on a
+two-good economy (food, good 1; electronics, good 2):}
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+ & $p_1$ & $q_1$ & $p_2$ & $q_2$ \\
+\midrule
+2024 & 2 & 10 & 10 & 5 \\
+2025 & 3 & 12 & 7 & 8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{a)} (3 points) With 2024 as the base year, the GDP deflator for 2025 (2024 $=100$) is:
+\begin{alternativas}
+\item $92.86$
+\item $131.43$
+\item $88.46$
+\item $113.04$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{nominal and real}{Nominal GDP 2025 $=3\cdot12+7\cdot8=92$. Real GDP 2025 at 2024 prices
+$=2\cdot12+10\cdot8=104$. Deflator $=100\cdot 92/104=88.46$.}
+\passo{distractors}{$92.86=65/70$ is the Laspeyres (fixed 2024 basket) price index, not the
+deflator; $131.43=92/70$ is nominal GDP growth; $113.04$ inverts the ratio.}
+\refbib{Kurlat (2020), \S1.2, p.~22.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Real GDP growth between 2024 and 2025 computed with Kurlat's chained
+method (geometric average of the growth rates at initial-year and final-year prices) is:
+\begin{alternativas}
+\item $48.57\%$
+\item $31.43\%$
+\item $41.54\%$
+\item $45.01\%$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{two growth rates}{At 2024 prices: $1+g^I=104/70=1.4857$. At 2025 prices: real 2024
+$=3\cdot10+7\cdot5=65$, so $1+g^F=92/65=1.4154$.}
+\passo{chain}{$1+g=(1.4857\cdot1.4154)^{1/2}=1.4501$, i.e.\ $45.01\%$. Option B is nominal growth.}
+\intuicao{Electronics grows most and its relative price falls, so early-year prices weight the
+fast-growing good more and give the higher rate; chaining splits the difference.}
+\refbib{Kurlat (2020), \S1.2, ``Alternative 3: chained prices'', pp.~23--24.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) If the IPCA, a Laspeyres index with a fixed basket, rises 6\% in a
+year, then the extra income a household needs to reach its original utility level rose by
+\emph{at least} 6\%.
+\gabarito{F}
+\begin{sol}
+\passo{substitution bias}{The fixed basket still affords the old utility, so 6\% is enough; the
+household can do better by substituting toward goods that became relatively cheaper. The
+Laspeyres index is an \emph{upper} bound on the true cost-of-living change: at most 6\%.}
+\refbib{Kurlat (2020), \S1.2; formula sheet \texttt{rules/01\_mensuracao\_agregados.md}.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) Suppose tradable goods obey the law of one price at the market
+exchange rate and non-tradable services are cheaper in Brazil than in the US. Then converting
+Brazil's GDP to dollars at the market exchange rate understates it relative to a PPP conversion.
+\gabarito{T}
+\begin{sol}
+\passo{why}{At the market rate tradables are priced the same in both countries, but Brazil's
+non-tradables are valued at their (low) Brazilian price. PPP values them at common prices, so
+Brazilian output is worth more at PPP (Balassa--Samuelson).}
+\refbib{Kurlat (2020), \S1.2, ``Comparisons across countries and PPP''.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. A Penn World Table analyst compares Brazil and the US. Each
+produces a tradable good $T$ and a non-tradable service $N$. Prices are in local currency;
+the market exchange rate is $e=5$ reais per dollar.}
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+ & $p_T$ & $q_T$ & $p_N$ & $q_N$ \\
+\midrule
+Brazil (reais) & 10 & 50 & 20 & 100 \\
+US (dollars) & 2 & 200 & 20 & 150 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{a)} (5 points) Compute Brazil's GDP in dollars (i) at the market exchange rate and
+(ii) at PPP, using US prices as the common prices. Compute Brazil/US GDP under each
+measure and the implied PPP exchange rate. Explain the gap.
+\resolespaco
+\begin{sol}
+\passo{local GDP}{Brazil: $10\cdot50+20\cdot100=2500$ reais. US: $2\cdot200+20\cdot150=3400$ dollars.}
+\passo{market rate}{$2500/5=500$ dollars; Brazil/US $=500/3400=0.147$.}
+\passo{PPP}{Brazil's quantities at US prices: $2\cdot50+20\cdot100=2100$ dollars;
+Brazil/US $=2100/3400=0.618$. Implied PPP rate: $2500/2100=1.19$ reais per dollar.}
+\passo{gap}{Tradables obey the law of one price ($10/2=5=e$), but the service costs
+$20/5=4$ dollars in Brazil against 20 in the US. The market rate prices Brazil's large service
+sector at a fifth of its PPP value, so Brazil looks 4.2 times poorer than it is.}
+\intuicao{Exchange rates are set by traded goods; living standards depend on all goods. Poorer
+countries have cheap non-tradables (low wages in services), so the market rate understates them.}
+\refbib{Kurlat (2020), \S1.2, pp.~24--27.}
+\rubrica{
+\item Local GDP of both countries: 1 pt.
+\item Market-rate conversion and ratio: 1 pt.
+\item PPP value, ratio and implied PPP rate: 2 pts.
+\item Explanation through non-tradables / law of one price: 1 pt. Saying only ``PPP is better''
+  with no mechanism: 0 for this line.
+\item Converting PPP by dividing by $e$ again (double conversion): max.\ 2 pts in the item.
+\item Arithmetic slip with correct method: $-1$ pt.
+}
+\end{sol}
+
+\textbf{b)} (5 points) Now use the Jones--Klenow welfare measure of Kurlat \S2.2 with $\sigma=1$
+and equal leisure in both countries, so that a random person's utility is
+$\mathbb{E}\big[a(\bar u+\ln c)\big]$, where $a=1$ if alive. Normalize $c_{US}=1$, set
+$\bar u=5$, survival probabilities $a_{US}=0.79$, $a_{BR}=0.76$, and Brazilian consumption per
+person $\bar c_{BR}=0.30$, \emph{equal for everyone}. Derive $\lambda$ (the scaling of US
+consumption that leaves Rawls indifferent), compute it, and split the welfare gap into a
+consumption part and a life-expectancy part.
+\resolespaco
+\begin{sol}
+\passo{indifference}{$a_{US}\,[\bar u+\ln(\lambda c_{US})]=a_{BR}\,[\bar u+\ln \bar c_{BR}]$, so
+$\ln\lambda=\dfrac{a_{BR}}{a_{US}}(\bar u+\ln \bar c_{BR})-\bar u$.}
+\passo{number}{$\ln\lambda=\frac{0.76}{0.79}(5-1.204)-5=-1.348$, so $\lambda=0.260$.}
+\passo{decomposition}{With equal survival $\lambda$ would be $0.30$. Lower life expectancy
+multiplies it by $0.260/0.30=0.866$: about 13\% of consumption-equivalent welfare.}
+\intuicao{$\bar u$ is the value of being alive. Three fewer years of life expectancy cost Rawls
+the chance of enjoying $\bar u+\ln c$, so he needs less US consumption to be indifferent.}
+\refbib{Kurlat (2020), \S2.2, eqs.\ (2.2.1)--(2.2.2), pp.~33--41.}
+\rubrica{
+\item Writes the indifference condition with $a$ multiplying the whole bracket: 2 pts.
+\item Solves for $\ln\lambda$ and computes $\lambda\approx0.26$: 2 pts.
+\item Decomposition and interpretation: 1 pt.
+\item Multiplying only $\ln c$ by $a$ (forgetting $\bar u$): max.\ 2 pts in the item.
+}
+\end{sol}
+
+\textbf{c)} (5 points) Now half of Brazilians consume $0.12$ and half $0.48$ (same mean $0.30$).
+Recompute $\lambda$. By how much does inequality lower it? Would a higher $\sigma$ make the
+penalty larger or smaller? Why does Brazil fall further behind in welfare than in consumption?
+\resolespaco
+\begin{sol}
+\passo{expected log}{$\mathbb{E}\ln c=\tfrac12\ln0.12+\tfrac12\ln0.48=\ln\sqrt{0.0576}=\ln 0.24$.}
+\passo{new $\lambda$}{$\ln\lambda=\frac{0.76}{0.79}(5+\ln0.24)-5=-1.563$, so $\lambda=0.210$.}
+\passo{penalty}{$0.210/0.260=0.807$: inequality removes about 19\%. It acts through the ratio
+geometric/arithmetic mean $0.24/0.30=0.8$, scaled by survival ($0.8^{0.96}$).}
+\passo{role of $\sigma$}{$\sigma$ is the curvature of $u$. With $\sigma>1$, utility is more concave
+and the poor half's low consumption weighs more: the penalty grows.}
+\intuicao{Behind the veil of ignorance, inequality is risk. A risk-averse Rawls pays to avoid it,
+so an unequal country with the same mean consumption is worth less to him.}
+\refbib{Kurlat (2020), \S2.2, risk aversion and eq.\ (2.2.5), pp.~35--38.}
+\rubrica{
+\item Uses $\mathbb{E}\ln c$, not $\ln\mathbb{E}c$: 2 pts. Using $\ln 0.30$: max.\ 1 pt in the item.
+\item New $\lambda\approx0.21$ and the penalty: 2 pts.
+\item Direction of $\sigma$ with the concavity argument: 1 pt.
+}
+\end{sol}
+
+% =============================================================================
+\bloco{2}{Solow, the Golden Rule and growth accounting}{Kurlat chs.~4--5 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items. IPEA calibrates a Solow model \emph{per worker}, without
+technological progress: $y=k^{\alpha}$, $\alpha=1/3$, $s=0.20$, $n=0.02$, $\delta=0.08$.}
+
+\textbf{a)} (3 points) Steady-state output per worker $y^*$ is:
+\begin{alternativas}
+\item $2.828$
+\item $1.131$
+\item $1.414$
+\item $2.000$
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\passo{steady state}{$k^*=\big(s/(n+\delta)\big)^{1/(1-\alpha)}=2^{3/2}=2.828$;
+$y^*=(k^*)^{1/3}=2^{1/2}=1.414$. Option A is $k^*$; option B is $c^*=(1-s)y^*$.}
+\refbib{Kurlat (2020), \S4.2, p.~57.}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) Moving the economy to the Golden Rule saving rate raises steady-state
+consumption per worker by approximately:
+\begin{alternativas}
+\item $7.6\%$
+\item $0\%$, since $s=0.20$ already maximizes $c^*$
+\item $33.3\%$
+\item $16.7\%$
+\end{alternativas}
+\gabarito{A}
+\begin{sol}
+\passo{Golden Rule}{$f'(k_{gr})=n+\delta$ gives $s_{gr}=\alpha=1/3$ and
+$k_{gr}=(\alpha/(n+\delta))^{3/2}=6.086$, $c_{gr}=6.086^{1/3}-0.1\cdot6.086=1.217$.}
+\passo{gain}{$c^*=0.8\cdot1.414=1.131$; $1.217/1.131-1=7.6\%$.}
+\refbib{Kurlat (2020), \S4.3, p.~61.}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) Because this economy is below the Golden Rule, raising $s$ to
+$s_{gr}$ is a Pareto improvement.
+\gabarito{F}
+\begin{sol}
+\passo{transition}{Below the Golden Rule, reaching $k_{gr}$ requires \emph{lower} consumption
+during the transition. Current generations lose; only the reverse case
+($k^*>k_{gr}$, dynamic inefficiency) gives a free lunch.}
+\refbib{Kurlat (2020), \S4.3.}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) If $g_Y=3\%$, $g_K=4.5\%$, $g_L=1.5\%$ and $\alpha=1/3$, then all
+growth of output per worker comes from capital deepening.
+\gabarito{F}
+\begin{sol}
+\passo{accounting}{$g_y=3-1.5=1.5\%$; capital deepening $\alpha g_k=\tfrac13(4.5-1.5)=1.0\%$;
+residual $g_A=0.5\%$. A third of $g_y$ is TFP.}
+\refbib{Kurlat (2020), \S5.4, eq.\ (5.4.2), p.~86.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(15 points) Discursive. Brazil is modeled as a Solow economy with labor-augmenting
+technology: $Y=K^{\alpha}(AL)^{1-\alpha}$, $\alpha=1/3$, $s=0.24$, $n=0.01$, $g=0.02$ (growth of $A$),
+$\delta=0.05$. Work \emph{per efficiency unit}: $\tilde k=K/(AL)$, $\tilde y=Y/(AL)$.}
+
+\textbf{a)} (5 points) Derive the law of motion of $\tilde k$ (continuous time) and compute
+$\tilde k^*$, $\tilde y^*$, $\tilde c^*$, $K/Y$ and the marginal product of capital in steady state.
+Give the growth rates of $\tilde y$, $Y/L$ and $Y$ on the balanced growth path. Is Brazil above or
+below the Golden Rule? Prove it with the marginal product, then confirm with $\tilde c$.
+\resolespaco
+\begin{sol}
+\passo{law of motion}{$\dot{\tilde k}/\tilde k=\dot K/K-g-n$ and $\dot K=sY-\delta K$, so
+$\dot{\tilde k}=s\tilde k^{\alpha}-(n+g+\delta)\tilde k$.}
+\passo{steady state}{$\tilde k^*=(0.24/0.08)^{3/2}=3^{3/2}=5.196$, $\tilde y^*=3^{1/2}=1.732$,
+$\tilde c^*=0.76\cdot1.732=1.316$, $K/Y=\tilde k^*/\tilde y^*=s/(n+g+\delta)=3$.}
+\passo{growth}{$\tilde y$: 0; $Y/L$: $g=2\%$; $Y$: $n+g=3\%$.}
+\passo{Golden Rule test}{$f'(\tilde k^*)=\alpha\tilde y^*/\tilde k^*=\tfrac13\cdot\tfrac13=0.111>n+g+\delta=0.08$.
+Capital is scarce relative to the Golden Rule: \emph{below} it. Check: $s_{gr}=1/3$ gives
+$\tilde k_{gr}=(0.333/0.08)^{3/2}=8.505$ and $\tilde c_{gr}=1.361>1.316$.}
+\intuicao{The return on capital net of what it costs to maintain $\tilde k$ ($n+g+\delta$) is positive,
+so more capital would raise steady-state consumption.}
+\refbib{Kurlat (2020), \S4.3 and \S4.5, pp.~61--72.}
+\rubrica{
+\item Law of motion with $(n+g+\delta)$: 1 pt. Omitting $g$: max.\ 2 pts in the item.
+\item Steady-state values and $K/Y$: 2 pts.
+\item BGP growth rates: 1 pt. Saying $\tilde y$ grows at $g$: $-1$ pt.
+\item Golden Rule comparison with a correct criterion: 1 pt.
+}
+\end{sol}
+
+\textbf{b)} (5 points) Floods destroy 30\% of the capital stock at $t_0$ (illustrative). Using the
+log-linear approximation $\dot{\ln\tilde y}\approx-\lambda(\ln\tilde y-\ln\tilde y^*)$, derive
+$\lambda$, compute the half-life of the gap, the impact effect on $Y/L$ and its growth rate just
+after the shock. Separately, suppose emigration permanently lowers $n$ to $0.005$: compute the
+change in $\tilde y^*$ and the long-run growth of $Y/L$ and of $Y$.
+\resolespaco
+\begin{sol}
+\passo{speed}{Linearize $\dot{\tilde k}/\tilde k=s\tilde k^{\alpha-1}-(n+g+\delta)$ in $\ln\tilde k$
+at the steady state: derivative $(\alpha-1)s\tilde k^{*\alpha-1}=-(1-\alpha)(n+g+\delta)$. Since
+$\ln\tilde y=\alpha\ln\tilde k$, the same speed applies:
+$\lambda=(1-\alpha)(n+g+\delta)=\tfrac23\cdot0.08=0.0533$.}
+\passo{half-life}{$\ln2/\lambda=13.0$ years.}
+\passo{impact}{$L$ and $A$ do not jump, so $Y/L$ falls by $1-0.7^{1/3}=11.2\%$.}
+\passo{growth after}{$\ln\tilde y-\ln\tilde y^*=\tfrac13\ln0.7=-0.119$; $\tilde y$ grows at
+$0.0533\cdot0.119=0.63\%$, so $Y/L$ grows at $2+0.63=2.63\%$ and decelerates toward $2\%$.}
+\passo{lower $n$}{$\tilde y^*=(0.24/0.075)^{1/2}=1.789$: $+3.3\%$ level effect. Long-run growth of $Y/L$
+stays $g=2\%$; growth of $Y$ falls from $3\%$ to $2.5\%$.}
+\intuicao{Destroyed capital raises its marginal product, so recovery is fast at first. Demography
+changes the level of $\tilde y^*$ and the growth of the aggregate, never the growth of income per
+person, which is pinned by $g$.}
+\refbib{Kurlat (2020), \S4.2 and \S4.5; Romer (2012), \S1.5 (speed of convergence).}
+\rubrica{
+\item Derives $\lambda=(1-\alpha)(n+g+\delta)$: 1.5 pts. Quoting it without derivation: 0.5 pt.
+\item Half-life and impact effect: 1.5 pts.
+\item Growth just after the shock: 1 pt.
+\item Effect of lower $n$, both growth rates: 1 pt. Saying long-run growth of $Y/L$ rises: max.\ 3 pts in the item.
+}
+\end{sol}
+
+\textbf{c)} (5 points) Development accounting with $y=A\,k^{\alpha}h^{1-\alpha}$. Brazil/US ratios:
+$y=0.25$, $k=0.20$, $h=0.60$. Compute the TFP ratio and the share of the log income gap due to
+$k$, $h$ and TFP. Then suppose a quarter of Brazil's measured capital is security capital
+(walls, armored cars) that produces nothing. Recompute the TFP ratio on productive capital and
+explain what the residual measured in the first step was capturing.
+\resolespaco
+\begin{sol}
+\passo{TFP}{$A_{BR}/A_{US}=0.25/(0.2^{1/3}\cdot0.6^{2/3})=0.25/(0.585\cdot0.711)=0.601$.}
+\passo{shares}{$\ln0.25=-1.386$. Capital: $\tfrac13\ln0.2/\ln0.25=38.7\%$; human capital:
+$\tfrac23\ln0.6/\ln0.25=24.6\%$; TFP: $\ln0.601/\ln0.25=36.7\%$. They add to $100\%$.}
+\passo{security capital}{Productive $k$ ratio $=0.75\cdot0.2=0.15$:
+$A_{BR}/A_{US}=0.25/(0.15^{1/3}\cdot0.711)=0.661$.}
+\passo{interpretation}{Counting security capital as productive overstates Brazil's inputs, so
+the measured residual (0.601) is lower than the TFP of productive capital (0.661). The residual
+captures crime as if it were bad technology: it bundles technology with misallocation and
+institutions.}
+\intuicao{TFP is ``a measure of our ignorance'': whatever inputs do not explain lands in it,
+including policies and resource allocation.}
+\refbib{Kurlat (2020), \S5.3--5.5, pp.~80--95.}
+\rubrica{
+\item TFP ratio: 1.5 pts.
+\item Log decomposition adding to one: 1.5 pts.
+\item Recomputed TFP with productive capital: 1 pt.
+\item Interpretation of the residual: 1 pt. Calling the residual ``pure technology'': 0 for this line.
+}
+\end{sol}
+
+\end{document}

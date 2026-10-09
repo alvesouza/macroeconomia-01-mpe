@@ -1,12 +1,20 @@
 ---
 description: Corrige e analisa a qualidade da resolução do aluno para uma lista/simulado no estilo MPE, aplicando a rubrica (tetos por erro conceitual, penalidades leves, não-cumulatividade), com feedback e referências aos livros. Atribui nota por item e total.
-argument-hint: <lista .tex/.pdf> [arquivo da resolução do aluno | cole a resolução]
+argument-hint: <lista .tex/.pdf> [arquivo da resolução do aluno | cole a resolução] [style: <nome>]
 allowed-tools: Read Grep Glob Bash PowerShell Write Edit AskUserQuestion
 ---
 
 Corrige a resolução do aluno para a lista indicada em `$ARGUMENTS`, no estilo de correção do MPE.
 
 Estilo de rubrica e solução: siga **`~/.claude/commands/templates/estilo-avaliacao.md`** (ou `rules/00_estilo_avaliacao.md`).
+
+**Named style.** If `$ARGUMENTS` names a grading style (`style: macro 1`, `--style macro-1`,
+"no estilo macro 1"), grade by `~/.claude/commands/templates/styles/<name>.md` instead (match
+case-insensitively, spaces as hyphens; if no file matches, list `styles/` and ask). A named
+style outranks the project's `rules/00_estilo_avaliacao.md`. Keep its scoring, rubric caps,
+light penalties, non-cumulativity and graduate-mode (§8) grading; take the course bindings
+(bibliography for the `Ref:` anchors, scope exclusions, block-to-lecture table) from this
+project's `CLAUDE.md`, `rules/` and `Map/`.
 
 ## Passo 1 — Carregue a lista e o gabarito
 

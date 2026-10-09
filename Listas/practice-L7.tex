@@ -1,0 +1,26 @@
+% Practice list D v4 --- topics of Lista 7 (Benigno 2015), QUALIFIER LEVEL, SYMBOLIC (style guide §8:
+% cross-topic and integrative questions, parameter analysis, graphs, answer key 10-15 pages).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x); check: pdffonts (all Type 1). Every result: practice-L7-check.py
+\documentclass[11pt,a4paper]{article}
+\input{practice-preamble}
+\solucoesfalse                 % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{The New Keynesian AS--AD Model --- qualifier level (Lista 7)}
+\renewcommand{\espacoresol}{6.5cm}
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{Notation (Benigno 2015).} Lower-case letters are log deviations from the
+steady state; bars denote the long run. Households: $u(C)-v(L)+\beta\{u(\bar C)-v(\bar L)\}$,
+$u=C^{1-\tilde\sigma^{-1}}/(1-\tilde\sigma^{-1})$, $v=L^{1+\eta}/(1+\eta)$, $\rho\equiv-\ln\beta$. Resources: $y=s_cc+g$,
+$\sigma\equiv\tilde\sigma s_c$. Firms: demand $Y(j)=(P(j)/P)^{-\theta}(C+G)$, technology $Y(j)=AL(j)$; a fraction $\alpha$ of
+prices is preset at $P^e$. Parameters: $0<\alpha<1$, $\sigma,\eta,\rho>0$, $\theta>1$;
+unless stated, $p^e=\bar p=0$, $g=\bar g=0$ and no taxes.\par}
+
+\input{practice-L7-block1}
+\input{practice-L7-block2}
+\input{practice-L7-block3a}
+\input{practice-L7-block3b}
+
+\end{document}

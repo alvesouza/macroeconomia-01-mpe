@@ -1,0 +1,94 @@
+% =============================================================================
+\bloco{3}{Integrative: consumption, labor, pensions and welfare}{Kurlat chs.~2, 4, 6--7; Romer chs.~2, 8, 10 \,\textbullet\, 25 points}
+
+\questao{(10 points) Objective items.}
+
+\textbf{a)} (3 points) \emph{Consumption $\times$ fiscal policy $\times$ credit.} Brazil's 2020 emergency aid, stylized.
+Households live two periods with utility $u(c_1)+\beta u(c_2)$ ($u$ strictly concave, $\beta\in(0,1)$) and save $a$ at the real
+rate $r>-1$ at which the government borrows, subject to a fixed limit $a\ge-b$, $b\ge0$. A share $\lambda\in(0,1)$ of
+households is at the limit; the other $1-\lambda$ are strictly inside it. Every household gets a lump-sum transfer $T>0$ in
+period 1, financed by debt repaid with interest through equal lump-sum taxes in period 2; the limit still binds for the
+constrained after the transfer. At the given $r$, average period-1 consumption per household changes by:
+\begin{alternativas}
+\item $\Delta\bar c_1=T$
+\item $\Delta\bar c_1=(1-\lambda)T$
+\item $\Delta\bar c_1=0$
+\item $\Delta\bar c_1=\lambda T$
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\passo{unconstrained}{The debt $T$ is repaid with taxes $(1+r)T$ in period 2. For endowments $(y_1,y_2)$ the present value of
+resources is $y_1+T+\frac{y_2-(1+r)T}{1+r}=y_1+\frac{y_2}{1+r}$: unchanged. An unconstrained household keeps its plan and saves
+the whole transfer; its $a$ rises by $T$, so the limit stays slack: $\Delta c_1=0$.}
+\passo{constrained}{At $a=-b$, $c_1=y_1+T+b$, so $\Delta c_1=T$. The limit binds while
+$u'(y_1+T+b)>\beta(1+r)\,u'\big(y_2-(1+r)(T+b)\big)$; the left side falls and the right side rises with $T$, so it binds for
+every $T$ below a threshold, as assumed.}
+\passo{aggregate}{$\Delta\bar c_1=\lambda T+(1-\lambda)\cdot0=\lambda T$: the aggregate propensity to spend a debt-financed transfer is
+the constrained share. A treats every household as constrained; C applies Ricardian equivalence to all (it needs
+everyone to borrow at $r$); B makes both mistakes at once, giving the constrained Ricardian behavior and the unconstrained
+full spending.}
+\refbib{Kurlat (2020), \S6.2 (Taxes and Ricardian Equivalence) and Exercise 6.5; Romer (2012), \S8.6 (Liquidity Constraints).}
+\end{sol}
+
+\medskip
+\textbf{b)} (3 points) \emph{Labor $\times$ welfare measurement.} Jones and Klenow's flow utility (Kurlat \S2.2, with
+$\sigma=1$) is $\ln c-\theta(1-l)^2$, $\theta>0$, where $l$ is leisure and $1-l=h$ is market hours. Between two dates,
+consumption per person in Brazil moves from $c_0$ to $c_1$ and market hours from $h_0$ to $h_1$ (both in $(0,1)$), with
+survival and inequality unchanged. The consumption equivalent $\Lambda$, the factor on date-0 consumption (hours held at
+$h_0$) that delivers date-1 welfare, satisfies:
+\begin{alternativas}
+\item $\ln\Lambda=\ln(c_1/c_0)$
+\item $\ln\Lambda=\ln(c_1/c_0)+\theta(h_0^2-h_1^2)$
+\item $\ln\Lambda=\ln(c_1/c_0)+\theta(h_0-h_1)$
+\item $\ln\Lambda=\ln(c_1/c_0)-\theta(h_0-h_1)$
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\passo{definition}{Kurlat's (2.2.2) with $u=\bar u+\ln c-\theta h^2$ ($\bar u$ cancels: survival is unchanged): $u(\Lambda c_0,h_0)=u(c_1,h_1)$,
+i.e.\ $\ln\Lambda+\ln c_0-\theta h_0^2=\ln c_1-\theta h_1^2$, so $\ln\Lambda=\ln(c_1/c_0)+\theta(h_0^2-h_1^2)$.}
+\passo{reading}{$\Lambda<c_1/c_0$ iff $h_1>h_0$: growth that comes with longer hours overstates welfare growth. A ignores
+leisure; C uses hours in levels instead of squares; D makes two mistakes: levels, and the sign of the leisure term flipped, as if
+hours were a good.}
+\passo{general case}{The additive form needs $\sigma=1$. With $\frac{c^{1-\sigma}}{1-\sigma}$,
+$\Lambda^{1-\sigma}=(c_1/c_0)^{1-\sigma}+{(1-\sigma)\theta(h_0^2-h_1^2)\,c_0^{\sigma-1}}$ (when positive): the leisure term depends
+on the level $c_0$, and $\ln\Lambda$ tends to B as $\sigma\to1$.}
+\refbib{Kurlat (2020), \S2.2 (Beyond GDP), eqs.\ (2.2.1)--(2.2.2).}
+\end{sol}
+
+\medskip
+\textbf{c)} (2 points, T or F) \emph{Consumption $\times$ labor.} A household maximizes $\sum_{t=0}^{N}\beta^t[\ln c_t-v(h_t)]$
+($N\ge1$, $v$ increasing and strictly convex, interior hours) and borrows and lends freely at a given rate $r$. With these
+separable preferences, news at $t=0$ of a permanent wage increase from $t=1$ on, with $w_0$ unchanged, makes the
+household work more at $t=0$.
+\gabarito{F}
+\begin{sol}
+\passo{FOCs}{With multiplier $\eta$ on $\sum_t\frac{c_t-w_th_t}{(1+r)^t}=a_0$: $c_t=\frac{[\beta(1+r)]^t}{\eta}$ and
+$v'(h_t)=\frac{\eta\,w_t}{[\beta(1+r)]^t}$, so $h_t$ rises with $\eta$ and with $w_t$.}
+\passo{wealth effect}{$\eta$ solves $\Phi(\eta,w)\equiv a_0+\sum_t\frac{w_th_t-c_t}{(1+r)^t}=0$. $\Phi$ is strictly increasing in $\eta$
+($h_t\uparrow$, $c_t\downarrow$) and in each $w_t$ ($w_th_t\uparrow$), so the root is unique and
+$\frac{d\eta}{dw_t}=-\frac{\Phi_{w_t}}{\Phi_\eta}<0$ for every $t\ge1$.}
+\passo{today}{$v'(h_0)=\eta w_0$ with $w_0$ fixed: $h_0$ falls and $c_0=1/\eta$ rises. As in Kurlat's (7.4.4), hours today
+depend on $w_0u'(c_0)$, and only $u'(c_0)$ moved: the household is richer and buys more leisure now, while
+intertemporal substitution shifts work toward the high-wage dates.}
+\refbib{Kurlat (2020), \S7.4 (A Dynamic Model), eqs.\ (7.4.2)--(7.4.4).}
+\end{sol}
+
+\medskip
+\textbf{d)} (2 points, T or F) \emph{Search $\times$ social insurance.} In the steady-state search model (tightness $\theta$,
+vacancy-filling rate $q(\theta)$ and job-finding rate $f(\theta)=\theta q(\theta)$ with $q'<0<f'$, productivity $y$,
+unemployment benefit $z<y$, flow vacancy cost $\kappa$, separation rate $s$, interest rate $r$, free entry of vacancies,
+Nash-bargained wage with workers' bargaining power $\phi\in[0,1)$), more generous unemployment benefits (a higher $z$, e.g.\
+a more generous \emph{seguro-desemprego}) lower job creation $\theta$ even when workers have no bargaining power ($\phi=0$).
+\gabarito{T}
+\begin{sol}
+\passo{wage}{With $\phi=0$ the worker gets none of the match surplus: $V_E=V_U$. The asset equations $rV_E=w+s(V_U-V_E)$
+and $rV_U=z+f(\theta)(V_E-V_U)$ then read $rV_E=w$ and $rV_U=z$, so $w=z$: the wage is the worker's outside option.}
+\passo{free entry}{$rV_F=y-w-sV_F$ and $0=rV_V=-\kappa+q(\theta)V_F$ give $\frac{(y-z)\,q(\theta)}{r+s}=\kappa$. With $q'<0$,
+$\frac{d\theta}{dz}=\frac{q(\theta)}{(y-z)\,q'(\theta)}<0$; with Question 3(b)'s $q=A_m\theta^{-\xi}$, $\theta=\big[\frac{A_m(y-z)}{\kappa(r+s)}\big]^{1/\xi}$ and
+$\frac{\partial\ln\theta}{\partial z}=-\frac{1}{\xi(y-z)}$.}
+\passo{why}{Zero bargaining power does not shield the wage from $z$: the threat point moves it one for one, and the firm's
+surplus $y-z$ shrinks. For any $\phi\in[0,1)$, job creation $(1-\phi)(y-z)=\kappa\big[\frac{r+s}{q(\theta)}+\phi\theta\big]$ has a right side
+increasing in $\theta$, so again $d\theta/dz<0$, and unemployment $s/[s+f(\theta)]$ rises.}
+\refbib{Romer (2012), \S10.6 (Search and Matching Models); Kurlat (2020), \S7.5 (Search), eq.\ (7.5.1) with zero
+worker bargaining power.}
+\end{sol}

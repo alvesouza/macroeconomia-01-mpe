@@ -1,0 +1,112 @@
+% Romer 8.15 --- solution fragment for hardest-solutions.tex (statement not reproduced).
+% Closed forms, the naive = sophisticated result and the CRRA numbers re-checked by check-8-13-8-15.py.
+\problema{Romer 8.15}{Time-inconsistent preferences}{pp.~403--404}{Romer \S8.6}
+
+\passo{Environment}{With $r=0$ the only constraint is $c_1+c_2+c_3=W$. The date-1 self weights
+$(\ln c_1,\ln c_2,\ln c_3)$ by $(1,\delta,\delta)$ and the date-2 self weights $(\ln c_2,\ln c_3)$ by $(1,\delta)$:
+quasi-hyperbolic ($\beta$--$\delta$) discounting with short-run factor $\delta$ and long-run factor $1$. Every
+future date is discounted by $\delta$ relative to ``now'', but two future dates are not discounted
+relative to each other. Every objective below is a sum of strictly concave functions of the choice
+variables on a convex set, so first-order conditions identify the maxima.}
+
+\parte{a}
+\passo{(i) Commitment}{Substitute $c_3=W-c_1-c_2$ into the date-1 objective and differentiate with
+respect to $c_1$ and $c_2$:
+\[
+\frac{1}{c_1}-\frac{\delta}{W-c_1-c_2}=0,\qquad\frac{\delta}{c_2}-\frac{\delta}{W-c_1-c_2}=0 .
+\]
+The second condition gives $c_2=c_3$; the first gives $c_3=\delta c_1$. The budget then reads
+$c_1+2\delta c_1=W$:
+\[
+c_1^{C}=\frac{W}{1+2\delta},\qquad c_2^{C}=c_3^{C}=\frac{\delta W}{1+2\delta}.
+\]}
+\passo{The date-2 self's rule}{At date 2 the remaining wealth is $W_2\equiv W-c_1$ and the date-2 self
+maximizes $\ln c_2+\delta\ln(W_2-c_2)$: $1/c_2=\delta/(W_2-c_2)$, so $W_2-c_2=\delta c_2$ and
+\[
+c_2=\frac{W_2}{1+\delta},\qquad c_3=\frac{\delta W_2}{1+\delta}.
+\]
+The rule is proportional to wealth, with date-2 share $s^{*}\equiv1/(1+\delta)>1/2$.}
+\passo{(ii) Naivete}{The naif expects to follow the date-1 plan, so it solves the commitment problem and
+picks $c_1^{N}=c_1^{C}$. Then $W_2=W-c_1^{N}=2\delta W/(1+2\delta)$ and the date-2 rule gives
+\[
+c_1^{N}=\frac{W}{1+2\delta},\qquad c_2^{N}=\frac{2\delta}{1+\delta}\cdot\frac{W}{1+2\delta},\qquad
+c_3^{N}=\frac{2\delta^{2}}{1+\delta}\cdot\frac{W}{1+2\delta}.
+\]}
+\passo{(iii) Sophistication}{The sophisticate substitutes the date-2 rule, with $W_2=W-c_1$, into its
+date-1 objective:
+\[
+\ln c_1+\delta\ln\frac{W-c_1}{1+\delta}+\delta\ln\frac{\delta(W-c_1)}{1+\delta}
+=\ln c_1+2\delta\ln(W-c_1)+\delta\ln\frac{\delta}{(1+\delta)^{2}} .
+\]
+The first-order condition $1/c_1=2\delta/(W-c_1)$ gives $W-c_1=2\delta c_1$, so $c_1^{S}=W/(1+2\delta)=c_1^{N}$;
+the same date-2 rule then gives $c_2^{S}=c_2^{N}$ and $c_3^{S}=c_3^{N}$.}
+
+\parte{b}
+\passo{(i) In what sense preferences are time-inconsistent}{Seen from date 1, $c_2$ and $c_3$ carry the
+same weight, so the plan is $c_3/c_2=1$. At date 2 the same person, with no new information, sets
+$c_3/c_2=\delta<1$; comparing (a)(ii) with (a)(i),
+\[
+\frac{c_2^{N}}{c_2^{C}}=\frac{2}{1+\delta}>1,\qquad\frac{c_3^{N}}{c_3^{C}}=\frac{2\delta}{1+\delta}<1 .
+\]
+The marginal rate of substitution between $c_2$ and $c_3$ depends on the date at which it is evaluated,
+not only on the dates at which consumption occurs, so the plan that is optimal at date 1 is no longer
+optimal at date 2 and is abandoned. (With exponential weights $(1,\delta,\delta^2)$ and $(1,\delta)$ the ratio
+of the weights on $c_3$ and $c_2$ is $\delta$ at both dates, and plans are kept.) The date-1 self loses
+from the revision, since $c_1$ is the same in both cases:
+\[
+U_1^{C}-U_1^{N}=\delta\ln\frac{c_2^{C}c_3^{C}}{c_2^{N}c_3^{N}}=\delta\ln\frac{(1+\delta)^{2}}{4\delta}>0,
+\]
+because $(1+\delta)^2-4\delta=(1-\delta)^2>0$; it would pay for a commitment device, such as the illiquid
+saving Romer mentions on p.~398.}
+\passo{(ii) Why sophistication changes nothing}{Let the date-2 split be any rule proportional to wealth,
+$c_2=sW_2$ and $c_3=(1-s)W_2$, with $s\in(0,1)$ independent of $W_2$. The date-1 objective is then
+\[
+\ln c_1+\delta\ln[s(W-c_1)]+\delta\ln[(1-s)(W-c_1)]=\ln c_1+2\delta\ln(W-c_1)+\delta\ln[s(1-s)],
+\]
+so $s$ enters only through an additive constant, and the first-order condition $1/c_1=2\delta/(W-c_1)$
+does not contain $s$: $c_1=W/(1+2\delta)$ for every $s$. The naif uses $s=1/2$, the sophisticate
+$s=s^{*}$; both choose the same $c_1$, after which the same date-2 self chooses $c_2$ and $c_3$.
+Equivalently, the marginal value of saving at date 1 is
+\[
+\delta\Big[\frac{1}{c_2}\frac{\partial c_2}{\partial W_2}+\frac{1}{c_3}\frac{\partial c_3}{\partial W_2}\Big]
+=\delta\Big[\frac{s}{sW_2}+\frac{1-s}{(1-s)W_2}\Big]=\frac{2\delta}{W_2},
+\]
+independent of $s$.}
+\intuicao{The sophisticate knows that a unit saved will go mostly to $c_2$, where its marginal utility is
+low, and less to $c_3$, where it is high. With log utility, marginal utility times consumption is one,
+so each share times its marginal utility equals $1/W_2$ and the two effects cancel exactly. Put
+differently, the future self's misallocation works like a lower return on saving, and with log utility
+the income and substitution effects of a change in the return offset each other.}
+\passo{What changes with CRRA utility}{Replace $\ln c$ by $u(c)=c^{1-\sigma}/(1-\sigma)$, $\sigma>0$,
+$\sigma\neq1$, in both objectives. Commitment: $c_1^{-\sigma}=\delta c_2^{-\sigma}=\delta c_3^{-\sigma}$, so
+$c_2=c_3=\delta^{1/\sigma}c_1$ and $c_1^{C}=c_1^{N}=W/(1+2\delta^{1/\sigma})$. Date 2: $c_2^{-\sigma}=\delta c_3^{-\sigma}$
+gives $c_3=\delta^{1/\sigma}c_2$, again a proportional rule, with $s^{*}=1/(1+\delta^{1/\sigma})$. For any share
+$s$, $u(sW_2)=s^{1-\sigma}u(W_2)$, so the date-1 problem and its first-order condition are
+\[
+\begin{aligned}
+&\max_{c_1}\;u(c_1)+\delta A(s)\,u(W-c_1),\qquad A(s)\equiv s^{1-\sigma}+(1-s)^{1-\sigma},\\
+&c_1^{-\sigma}=\delta A(s)\,(W-c_1)^{-\sigma}\;\Longrightarrow\;c_1=\frac{W}{1+[\delta A(s)]^{1/\sigma}} .
+\end{aligned}
+\]
+Now $s$ scales the marginal value of saving instead of shifting a constant. The naif's $s=1/2$ gives
+$A=2^{\sigma}$ and returns the commitment $c_1$. $A$ is symmetric about $1/2$ with
+$A''(s)=-\sigma(1-\sigma)[s^{-\sigma-1}+(1-s)^{-\sigma-1}]$, and $s^{*}\neq1/2$. For $\sigma<1$, $A$ is concave
+with its maximum at $1/2$, so $A(s^{*})<2^{\sigma}$ and $c_1^{S}>c_1^{N}$: the substitution effect dominates
+and the sophisticate saves less. For $\sigma>1$, $A$ is convex with its minimum at $1/2$, so
+$c_1^{S}<c_1^{N}$: the income effect dominates and it saves more to offset its future self's
+overspending. With $\delta=1/2$: $\sigma=2$ gives $c_1^{S}=0.4106W<c_1^{N}=0.4142W$, and $\sigma=1/2$ gives
+$c_1^{S}=0.6897W>c_1^{N}=0.6667W$.}
+\armadilha{Naivete and commitment share $c_1$ by construction, so the inconsistency shows up only in
+$(c_2,c_3)$; comparing first-period choices cannot reveal it. And the equivalence of naive and
+sophisticated choices is a property of log utility, not of the $\beta$--$\delta$ structure: the date-2 rule
+is proportional to wealth for every CRRA utility, but only under log does the share drop out of the
+marginal value of saving.}
+\refbib{Romer \S8.6, pp.~397--398 (time-inconsistent preferences; Laibson, 1997); \S8.4, pp.~381--383
+(income and substitution effects of the interest rate).}
+\checado{\texttt{check-8-13-8-15.py} solves the commitment, date-2, naive and sophisticated problems
+symbolically, verifies that the cross derivative $\partial^2/\partial c_1\partial s$ of the date-1 objective
+under an arbitrary share $s$ is zero, checks $U_1^{C}-U_1^{N}=\delta\ln[(1+\delta)^2/(4\delta)]>0$, and for
+$\sigma\in\{2,1/2\}$ re-derives $s^{*}$, $c_1^{N}$ and $c_1^{S}$ by numerical maximization, matching the
+closed forms and the printed numbers. The Romer solution manual agrees; its (b)(ii) gives the same two
+offsetting effects and states, without derivation, that with other utility functions either ordering is
+possible, which the CRRA step makes precise.}
