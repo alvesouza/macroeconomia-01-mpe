@@ -20,6 +20,7 @@ project's `CLAUDE.md`, `rules/` and `Map/`.
 
 1. Identifique a lista (`.tex` ou `.pdf`) em `$ARGUMENTS` ou em `Listas/`.
 2. Obtenha a **solução de referência**: se houver `*-gabarito.*` ou blocos `sol`/`\rubrica` no `.tex`, use-os. Se não houver, **derive** a solução e a rubrica seguindo o estilo (com `Map/`, `rules/` e os livros: N&S piso; J-R/MWG para rigor).
+   Any solution written here (a derived reference solution, or the correct path shown in the feedback) follows the style's "Equations, notation and layout" rule: a Notation list, numbered equations cited at each step, one operation per displayed line. Show every substitution as its own line: the receiving equation with the substituted expression in place, in parentheses, before simplifying (with (1) $A=B+C$ and (2) $B=2A$: first $A=(2A)+C$, then $C=-A$); numbers plugged in are shown in place before the result, with enough decimals that the displayed arithmetic reproduces the printed value.
 
 ## Passo 2 — Ingira a resolução do aluno
 

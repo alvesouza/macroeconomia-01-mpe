@@ -1,0 +1,28 @@
+% Practice list --- every topic of the course (Aulas 1-9), weighted toward the Prova 01 error clusters
+% (Prova/prova-01-error-analysis.md). Blocks 1-5: Kurlat caps 1-7; blocks 6-9: Kurlat caps 9-11 + Benigno (2015).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x) with a per-job jobname; check: pdffonts (all Type 1).
+% Every result: python practice-all-topics-check-a.py && python practice-all-topics-check-b.py
+\documentclass[11pt,a4paper]{article}
+\input{../practice-preamble}
+\newenvironment{notacao}{\par\smallskip\noindent\textbf{Notation.}\begin{itemize}[leftmargin=1.4em,topsep=1pt,itemsep=0pt]\small}{\end{itemize}}
+\allowdisplaybreaks
+\usepackage{needspace}
+\solucoestrue                  % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Every topic of the course (Aulas 1--9)}
+\renewcommand{\espacoresol}{5.5cm}
+
+\begin{document}
+\cabecalho
+
+\input{practice-all-topics-block1}
+\input{practice-all-topics-block2}
+\input{practice-all-topics-block3}
+\input{practice-all-topics-block4}
+\input{practice-all-topics-block5}
+\input{practice-all-topics-block6}
+\input{practice-all-topics-block7}
+\input{practice-all-topics-block8}
+\input{practice-all-topics-block9}
+
+\end{document}

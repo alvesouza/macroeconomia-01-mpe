@@ -1,0 +1,292 @@
+% =============================================================================
+% Block 4 --- Aula 4: consumption and saving (two-period problem, Euler, Ricardian equivalence, credit constraints).
+% Weighted toward Prova 01 error cluster 3 (list every choice variable and every income source).
+\bloco{4}{Consumption and saving}{Aula 4 \,\textbullet\, Kurlat ch.~6 \,\textbullet\, 10 points}
+
+\questao{(4 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 6.4 ``Consumption and
+Income'', pp.~122--123 --- statement reproduced verbatim, all items (a)--(d).}}
+
+\noindent Suppose there are two households in the economy. Each of them solves a special case of Exercise 6.1, where
+$\tau_1=\tau_2=a_0=0$, $\beta=1$ and $r=0$.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Solve for $c_1$ as a function of $y_1$ and $y_2$.
+\item Suppose the incomes of each of the households are:
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & $y_1$ & $y_2$ \\
+\midrule
+Household A & 2 & 4 \\
+Household B & 6 & 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Compute $c_1$ and $c_2$ for each of the households.
+\item Suppose an economist is trying to decide what is a reasonable model for consumption behavior and only has data for period 1. Is
+the data supportive of the Keynesian view of the consumption function? Explain.
+\item Suppose the same economist now looks at data for period 2 in addition to data for period 1. Is the data supportive of the
+Keynesian view of the consumption function? Explain.
+\end{enumerate}
+\noindent\textit{Our note, not in the book:} Kurlat's Exercise 6.1 (p.~121) is $\max_{c_1,a,c_2}u(c_1)+\beta u(c_2)$ s.t.\
+$a=a_0+y_1-\tau_1-c_1$ and $c_2=y_2-\tau_2+(1+r)a$, with $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$.\par
+\noindent\textit{Added to the book's items (not in the book):} in (c) and (d), fit the line $c=a+by$ that a Keynesian economist would
+estimate and say what it does and does not show.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $c_t$, $y_t$: consumption and income in period $t\in\{1,2\}$. $\beta=1$: discount factor. $r=0$: interest rate.
+\item $u$: strictly increasing and strictly concave period utility (CRRA with curvature $\sigma>0$ in Exercise~6.1).
+\item $a$, $b$: intercept and slope of the Keynesian line $c=a+by$; $\bar y$, $\bar c$: sample means.
+\end{notacao}
+\passo{(a)}{Exercise~6.1 with $\tau_1=\tau_2=a_0=0$ gives the Euler equation and the budget constraint:}
+\begin{align}
+u'(c_1)&=\beta(1+r)\,u'(c_2), \label{b4q10:euler}\\
+c_1+\frac{c_2}{1+r}&=y_1+\frac{y_2}{1+r}. \label{b4q10:bc}
+\end{align}
+Substituting $\beta=1$ and $r=0$ into \eqref{b4q10:euler}:
+\begin{align*}
+u'(c_1)&=(1)(1+(0))\,u'(c_2)\\
+u'(c_1)&=u'(c_2).
+\end{align*}
+$u$ is strictly concave, so $u'$ is strictly decreasing and
+$c_1=c_2$ for any $\sigma$. Substituting $c_2=c_1$ into \eqref{b4q10:bc} with $r=0$:
+\begin{align}
+c_1+\frac{(c_1)}{1+(0)}&=y_1+\frac{y_2}{1+(0)}\nonumber\\
+2c_1&=y_1+y_2\nonumber\\
+c_1=c_2&=\frac{y_1+y_2}{2}. \label{b4q10:c}
+\end{align}
+\passo{(b)}{Using \eqref{b4q10:c} for each household:}
+\begin{align*}
+\text{A:}\quad c_1=c_2&=(2+4)/2=3,\qquad y_1-c_1=2-3=-1,\\
+\text{B:}\quad c_1=c_2&=(6+4)/2=5,\qquad y_1-c_1=6-5=1 .
+\end{align*}
+A borrows $1$ in period 1; B saves $1$.
+\passo{(c) period-1 data}{The line through $(y,c)=(2,3)$ and $(6,5)$:}
+\begin{align*}
+b&=\frac{5-3}{6-2}=0.5,\\
+a&=3-0.5\times2=2 .
+\end{align*}
+So $c=2+0.5\,y$: a positive intercept, a marginal propensity of $0.5<1$, and an average propensity that falls with income
+($3/2=1.5$ against $5/6=0.83$). On its face this is Keynes's consumption function. But the slope is not a behavioural response:
+income differences in period 1 are partly temporary, and by \eqref{b4q10:c} each household consumes its \emph{average} income.
+\passo{(d) both periods}{In period 2 both incomes are $4$ while consumption is $3$ and $5$: current income does not explain
+consumption at all. Over time A's income doubles ($2\to4$) and B's falls ($6\to4$), and neither household changes $c$: the
+time-series propensity to consume out of these anticipated income changes is zero. Pooling the four observations, the least-squares
+line is}
+\begin{equation}
+b=\frac{\mathrm{cov}(y,c)}{\mathrm{var}(y)},\qquad a=\bar c-b\,\bar y. \label{b4q10:ols}
+\end{equation}
+With $y=(2,6,4,4)$ and $c=(3,5,3,5)$: $\bar y=4$, $\bar c=4$, $\mathrm{cov}(y,c)=1$, $\mathrm{var}(y)=2$. Using \eqref{b4q10:ols}:
+\begin{align*}
+b&=1/2=0.5,\\
+a&=4-0.5\times4=2 .
+\end{align*}
+The pooled line is still $c=2+0.5\,y$, yet it fits no household's behaviour: the data reject the Keynesian function and support the
+permanent-income view of \eqref{b4q10:c}, where $c$ depends on lifetime resources ($y_1+y_2=6$ for A and $10$ for B).
+\intuicao{A cross-section confounds permanent and temporary income; consumption responds to the first, so a Keynesian slope fitted
+on one year of data measures how much income variation is permanent, not how households react to income.}
+\refbib{Kurlat (2020), \S6.1 (p.~103) and \S6.2 (p.~105), eqs.~(6.2.10)--(6.2.11). Consistent with the project's worked solution
+(Problem 6.4, folder \texttt{Resolucao}); the book prints no answer.}
+\rubrica{
+\item (a) 1; (b) 1; (c) 1; (d) 1. Calling the period-1 slope the households' MPC without qualification: max.\ 0.5 pt in (c).
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(5 points) Discursive. \emph{Choice variables $\times$ Ricardian equivalence $\times$ credit constraints.} A Brazilian worker lives two
+periods (working life and retirement, about 30 years each) with utility $\ln c_1+\beta\ln c_2$, $\beta=0.6$. In period 1 she holds initial
+wealth $a_0=10$, earns labour income $w_1=40$ (hours are fixed), receives dividends $\Pi_1=10$ from the family firm she owns and pays a
+lump-sum tax $\tau_1=10$. In period 2 she receives income $y_2=90$ and pays $\tau_2=10$. She borrows or lends $a$ at the gross rate
+$1+r=2$ (about $2.3\%$ a year over 30 years).}
+
+\textbf{a)} (2 points) List every choice variable and every source of income. Write the two period budget constraints and the
+intertemporal one, set up the Lagrangian, derive the first-order conditions and the Euler equation, and find $c_1$, $c_2$ and $a$.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $c_1$, $c_2>0$: consumption in working life and in retirement. $a\in\mathbb R$: assets carried into period 2 ($a<0$ is borrowing).
+\item $a_0=10$: initial wealth. $w_1=40$: labour income. $\Pi_1=10$: dividends. $y_2=90$: period-2 income. $\tau_1$, $\tau_2$: lump-sum taxes.
+\item $\beta\in(0,1)$: discount factor, $0.6$. $r$: interest rate over the period, $1+r=2$.
+\item $W$: lifetime resources in present value. $\lambda>0$: multiplier on the intertemporal budget.
+\end{notacao}
+\passo{choices and income}{Choice variables: $c_1$, $c_2$, $a$ (a negative $a$ is borrowing). Income: initial wealth $a_0$, labour income
+$w_1$, profits $\Pi_1$ (she owns the firm), period-2 income $y_2$; taxes $\tau_1$, $\tau_2$ are paid out of them.}
+\passo{constraints}{Resources equal uses in each period:}
+\begin{align}
+c_1+a&=a_0+w_1+\Pi_1-\tau_1, \label{b4q11:bc1}\\
+c_2&=y_2-\tau_2+(1+r)\,a. \label{b4q11:bc2}
+\end{align}
+Solve \eqref{b4q11:bc2} for $a$:
+\[
+a=\frac{c_2-y_2+\tau_2}{1+r}.
+\]
+Substitute this into \eqref{b4q11:bc1}:
+\[
+c_1+\Big(\frac{c_2-y_2+\tau_2}{1+r}\Big)=a_0+w_1+\Pi_1-\tau_1 .
+\]
+Collect the terms in $c_2$ on the left:
+\begin{equation}
+c_1+\frac{c_2}{1+r}=a_0+w_1+\Pi_1-\tau_1+\frac{y_2-\tau_2}{1+r}\equiv W. \label{b4q11:ibc}
+\end{equation}
+With the data:
+\[
+W=10+40+10-10+\frac{90-10}{2}=50+40=90 .
+\]
+\passo{Lagrangian and FOCs}{Maximise utility subject to \eqref{b4q11:ibc}:}
+\begin{equation}
+\mathcal L=\ln c_1+\beta\ln c_2+\lambda\Big[W-c_1-\frac{c_2}{1+r}\Big]. \label{b4q11:L}
+\end{equation}
+Differentiate \eqref{b4q11:L} with respect to $c_1$ and $c_2$:
+\begin{align}
+\frac1{c_1}&=\lambda, \label{b4q11:foc1}\\
+\frac{\beta}{c_2}&=\frac{\lambda}{1+r}. \label{b4q11:foc2}
+\end{align}
+Substitute $\lambda$ from \eqref{b4q11:foc1} into \eqref{b4q11:foc2} and rearrange:
+\begin{align}
+\frac{\beta}{c_2}&=\frac{(1/c_1)}{1+r}\nonumber\\
+\frac{\beta}{c_2}&=\frac{1}{(1+r)\,c_1}\nonumber\\
+c_2&=\beta(1+r)\,c_1. \label{b4q11:euler}
+\end{align}
+With the data, $c_2=0.6\times2\times c_1=1.2\,c_1$.
+\passo{solution}{Substitute \eqref{b4q11:euler} into \eqref{b4q11:ibc}:}
+\begin{align*}
+c_1+\frac{\big(\beta(1+r)\,c_1\big)}{1+r}&=W\\
+c_1+\beta c_1&=W\\
+(1+\beta)\,c_1&=W,
+\end{align*}
+so
+\begin{equation}
+c_1=\frac{W}{1+\beta}=\frac{90}{1.6}=56.25. \label{b4q11:c1}
+\end{equation}
+Then \eqref{b4q11:euler} and \eqref{b4q11:bc1} give
+\begin{align*}
+c_2&=1.2\times(56.25)=67.5,\\
+a&=10+40+10-10-(56.25)\\
+&=50-56.25=-6.25 .
+\end{align*}
+Check with \eqref{b4q11:bc2}: $c_2=80+2\times(-6.25)=67.5$.
+\intuicao{She consumes the fraction $1/(1+\beta)$ of lifetime wealth whatever its timing; her income is back-loaded ($y_2$ is large), so
+smoothing makes her a borrower.}
+\refbib{Kurlat (2020), \S6.2 (p.~105) and Exercise~6.1 (p.~121). The closed form of $c_1$ is the $\sigma=1$ case of the instructor's
+solution to Lista~3, Q1(a) (\texttt{Listas/solu\c{c}\~oes do instrutor/PSET 3 (1).pdf}).}
+\rubrica{
+\item Choice variables and income sources 0.5; constraints and $W$ 0.5; FOCs and Euler 0.5; $c_1,c_2,a$ with check 0.5.
+Profits $\Pi_1$ or $a_0$ omitted from the budget (the Prova~01 Q2(c) error): max.\ 1 pt. Discounting $c_2$ by $(1+r)$ in the wrong direction: max.\ 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (1.5 points) The government cuts $\tau_1$ to $0$, finances the gap by selling bonds and repays them with interest by raising $\tau_2$ to
+$30$. Find the new $c_1$, $c_2$ and $a$, the change in private, public and national saving, and the assumptions the result needs.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a); a prime marks values after the tax change ($\tau_1'=0$, $\tau_2'=30$).
+\item $S^p$, $S^g$, $S$: private, public and national saving in period 1, with $S=S^p+S^g$.
+\end{notacao}
+\passo{wealth}{Using \eqref{b4q11:ibc} with the new taxes:}
+\[
+W'=10+40+10-0+\frac{90-30}{2}=60+30=90=W .
+\]
+The tax cut of $10$ is matched by a tax rise of $20=10\times(1+r)$, the same in present value.
+\passo{choices}{$W$, $\beta$ and $r$ are unchanged, so \eqref{b4q11:c1} and \eqref{b4q11:euler} give $c_1=56.25$ and $c_2=67.5$. By \eqref{b4q11:bc1}:}
+\begin{align*}
+a'&=10+40+10-0-(56.25)\\
+&=60-56.25=3.75 ,
+\end{align*}
+so $a$ rises by exactly $10$, the bonds she buys.
+\passo{saving}{The changes in period 1:}
+\begin{align*}
+\Delta S^p&=\Delta a=3.75-(-6.25)=10,\\
+\Delta S^g&=\Delta\tau_1=-10\ \text{(the deficit)},\\
+\Delta S&=10-10=0 .
+\end{align*}
+National saving is unchanged: Ricardian equivalence.
+\passo{assumptions}{Lump-sum taxes; the government and the household borrow at the same $r$; the taxpayer who gets the cut pays the
+later tax (same horizon); she can borrow and lend freely at $r$.}
+\refbib{Kurlat (2020), \S6.2, ``Taxes and Ricardian Equivalence''; Exercise~6.5 (p.~123).}
+\rubrica{\item Wealth 0.5; choices 0.5; saving and assumptions 0.5. Claiming $c_1$ rises: max.\ 0.5 pt.}
+\end{sol}
+
+\textbf{c)} (1.5 points) Now she cannot borrow: $a\ge0$. Solve her problem before and after the tax change of (b). Does Ricardian equivalence hold?
+What is her marginal propensity to consume out of the tax cut?
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). $\mu\ge0$: multiplier on the borrowing constraint $a\ge0$.
+\end{notacao}
+\passo{the problem}{Substitute \eqref{b4q11:bc1} and \eqref{b4q11:bc2} for $c_1$ and $c_2$, so that $a$ is the only choice:}
+\begin{equation}
+\mathcal L=\ln\big(a_0+w_1+\Pi_1-\tau_1-a\big)+\beta\ln\big(y_2-\tau_2+(1+r)a\big)+\mu\,a. \label{b4q11:Lc}
+\end{equation}
+Differentiate \eqref{b4q11:Lc} with respect to $a$:
+\begin{equation}
+-\frac1{c_1}+\frac{\beta(1+r)}{c_2}+\mu=0,\qquad \mu\ge0,\qquad \mu\,a=0. \label{b4q11:foca}
+\end{equation}
+\passo{before}{The unconstrained choice $a=-6.25$ violates $a\ge0$, so the constraint binds: $a=0$, and \eqref{b4q11:bc1}--\eqref{b4q11:bc2} give}
+\begin{align*}
+c_1&=a_0+w_1+\Pi_1-\tau_1-(0)\\
+&=10+40+10-10=50,\\
+c_2&=y_2-\tau_2+(1+r)(0)\\
+&=90-10=80 .
+\end{align*}
+Solve \eqref{b4q11:foca} for $\mu$:
+\begin{align*}
+\mu&=\frac1{c_1}-\frac{\beta(1+r)}{c_2}\\
+&=\frac1{50}-\frac{1.2}{80}=0.02-0.015=0.005>0 .
+\end{align*}
+The Euler equation holds as an inequality, $u'(c_1)>\beta(1+r)u'(c_2)$.
+\passo{after}{Period-1 resources are $60$ and the unconstrained choice of (b) gives $a=3.75\ge0$: the constraint no longer binds
+($\mu=0$ in \eqref{b4q11:foca}, which is then the Euler equation \eqref{b4q11:euler}), so $c_1=56.25$, $c_2=67.5$.}
+\passo{equivalence fails}{$c_1$ rises from $50$ to $56.25$ out of a tax cut that leaves $W$ unchanged:}
+\[
+\text{MPC}=\frac{56.25-50}{10}=0.625 .
+\]
+The cut works as a loan from the government that the market would not give her.
+\intuicao{Credit-constrained households consume current income, so the timing of taxes matters for them and a debt-financed transfer
+raises demand.}
+\refbib{Kurlat (2020), Exercise~6.5 \emph{Credit Constraints and Ricardian Equivalence} (p.~123); \S6.2, ``Taxes and Ricardian Equivalence''.}
+\rubrica{
+\item Before 0.5 (with the inequality); after 0.5; MPC and conclusion 0.5. Imposing the Euler equality while the constraint binds: max.\ 0.5 pt.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(1 point) Multiple choice. A household with $u(c)=c^{1-\sigma}/(1-\sigma)$, $\sigma>0$, has income only in period 1 ($y_1>0$, $y_2=0$, no
+taxes, no initial wealth) and saves at rate $r$. When $r$ rises, $\partial c_1/\partial r$:}
+\begin{alternativas}
+\item is negative for every $\sigma>0$: a higher $r$ makes future consumption cheaper, so she saves more.
+\item is positive iff $\sigma>1$: for a saver, the income effect of $r$ then outweighs the substitution effect.
+\item is positive iff $\sigma<1$: an elasticity of intertemporal substitution above one makes the income effect dominate.
+\item is zero for every $\sigma>0$: with $y_2=0$ there is no future income for a change in $r$ to revalue.
+\item is negative iff $\sigma>1$: $\sigma$ is the elasticity of intertemporal substitution, so a large $\sigma$ makes substitution dominate.
+\end{alternativas}
+\gabarito{B}
+\begin{sol}
+\begin{notacao}
+\item $c_1$, $c_2$: consumption; $y_1>0$: period-1 income; $\beta\in(0,1)$: discount factor; $r>-1$: interest rate;
+$\sigma>0$: curvature of $u$, so $1/\sigma$ is the EIS; $D$: defined in \eqref{b4q12:c1}.
+\end{notacao}
+\passo{closed form}{The CRRA Euler equation and the budget constraint with $y_2=0$:}
+\begin{align}
+c_2&=[\beta(1+r)]^{1/\sigma}c_1, \label{b4q12:euler}\\
+c_1+\frac{c_2}{1+r}&=y_1. \label{b4q12:bc}
+\end{align}
+Substitute \eqref{b4q12:euler} into \eqref{b4q12:bc}:
+\begin{align}
+c_1+\frac{\big([\beta(1+r)]^{1/\sigma}c_1\big)}{1+r}&=y_1\nonumber\\
+c_1\big[1+\beta^{1/\sigma}(1+r)^{\frac1\sigma-1}\big]&=y_1\nonumber\\
+c_1=\frac{y_1}{D},\qquad D&\equiv1+\beta^{1/\sigma}(1+r)^{\frac1\sigma-1}. \label{b4q12:c1}
+\end{align}
+\passo{sign}{Differentiate \eqref{b4q12:c1} with respect to $r$:}
+\begin{align*}
+\frac{\partial c_1}{\partial r}&=-\frac{y_1}{D^2}\,\frac{\partial D}{\partial r}\\
+&=-\frac{y_1}{D^2}\,\Big(\beta^{1/\sigma}\Big(\frac1\sigma-1\Big)(1+r)^{\frac1\sigma-2}\Big)\\
+&=\frac{y_1\beta^{1/\sigma}(1+r)^{\frac1\sigma-2}}{D^2}\cdot\frac{\sigma-1}{\sigma}.
+\end{align*}
+The first factor is positive, so the derivative is
+positive iff $\sigma>1$, zero at $\sigma=1$ (log), negative iff $\sigma<1$. The EIS is $1/\sigma$; with $\sigma>1$ it is below one and the income
+effect wins. A is the substitution effect alone; C reverses the condition; D ignores that $r$ also raises her interest income; E reverses
+the sign and calls $\sigma$ the EIS (two mistakes).
+\refbib{Kurlat (2020), \S6.2 (p.~105) and Exercises~6.1(e), 6.3 (pp.~121--122). Confirmed by the instructor's solution to Lista~3,
+Q1(c): $\partial c_1/\partial r$ has the sign of $(\sigma-1)/\sigma$ (\texttt{PSET 3 (1).pdf}).}
+\end{sol}

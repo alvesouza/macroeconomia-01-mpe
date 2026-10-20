@@ -1,0 +1,33 @@
+% Prova 01 remediation --- Q2 topics: Solow golden rule, two-period household, competitive equilibrium and its law of motion.
+% Error clusters 2-4 of Prova/prova-01-error-analysis.md. Book exercises are reproduced verbatim with a source line (user request).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile from this folder: pdflatex (2x, per-job jobname, see .agent/notes/latex-lists-build.md); pdffonts (all Type 1).
+% Every symbolic and numeric result: practice-P1-growth-ge-check.py
+\documentclass[11pt,a4paper]{article}
+\input{../practice-preamble}
+\newenvironment{notacao}{\par\smallskip\noindent\textbf{Notation.}\begin{itemize}[leftmargin=1.4em,topsep=1pt,itemsep=0pt]\small}{\end{itemize}}
+\allowdisplaybreaks
+\solucoestrue                % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{Golden rule and the two-period competitive equilibrium (Prova 01, Q2)}
+\renewcommand{\espacoresol}{5.5cm}
+\setlength{\emergencystretch}{3em}   % lets the long \texttt paths in the Ref lines break cleanly
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{Notation (Kurlat 2020).} Capital share $\alpha$ in $Y=AK^\alpha L^{1-\alpha}$ (the exam wrote it
+$\sigma$); $\sigma$ is reserved for the curvature of $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$ ($1/\sigma$ is the intertemporal elasticity of substitution,
+$\sigma=1$ is $\ln c$); $\beta\in(0,1)$ discount factor, $\rho\equiv1/\beta-1$; $\delta$ depreciation; $n$ population growth; $a$ assets
+carried into the next period; $r^K$ rental rate of capital, $r$ interest rate, with $1+r=r^K+1-\delta$ (Kurlat (9.3.11)).
+Lower-case $k$, $y$, $c$ are per worker unless stated. Book exercises are reproduced verbatim, in the book's own notation, after a source line; parts this list adds are marked.
+\par
+\noindent\textbf{What this list repairs.} (i) Golden-rule algebra: carry the exponent $\frac{\alpha}{1-\alpha}$, cross-check with
+MPK $=n+\delta$, test a knife edge. (ii) The household problem: every choice variable and every income source, corners included.
+(iii) Market clearing turns one household's saving rule into a law of motion $k_{t+1}=\phi(k_t)$; the saving rate it implies is
+chosen, and need not be the golden-rule rate.\par}
+
+\input{practice-P1-growth-ge-block1}
+\input{practice-P1-growth-ge-block2}
+\input{practice-P1-growth-ge-block3}
+
+\end{document}

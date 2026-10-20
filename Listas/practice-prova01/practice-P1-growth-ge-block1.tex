@@ -1,0 +1,606 @@
+% =============================================================================
+\bloco{1}{Exam level: the golden rule and the two-period household}{Kurlat \S\S4.3, 6.2; Jones ch.~5 \,\textbullet\, 35 points}
+
+\questao{(8 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 5.8 ``National Accounts and
+The Golden Rule'', pp.~97--98 --- statement reproduced verbatim, all items (a)--(d).}
+\emph{What this trains:} reading $\alpha$, $s$ and $\delta$ off the national accounts, then deciding on which side of the golden rule
+the economy sits, by two independent routes (the saving rate against $\alpha$; the MPK against $n+\delta$).}
+
+\noindent In 2018, the following events happened in Aurum, which is a closed economy that uses the Denarius (plural: Denarii) as its currency.
+\begin{itemize}[leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Grano, Inc.\ hired Cornelia to plant and harvest 500 tons of wheat on a large plot of land using a tractor. Both the land and
+the tractor are owned by Grano, Inc.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Cornelia 200 Denarii for her work on the harvest.
+  \item It sold the wheat to Panem, Inc.\ for 1,000 Denarii.
+  \end{itemize}
+\item The tractor the Cornelia used:
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item Was new at the beginning of the year. It was worth 2,000 Denarii.
+  \item Was no longer new at the end of the year. By then it was worth 1,800 Denarii.
+  \end{itemize}
+\item Panem, Inc.\ hired Gaius to grind the wheat in its mill and produce a million loaves of bread.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Gaius 1,400 Denarii for his work.
+  \item It sold the bread for 4,000 Denarii to the hungry citizens, who eat it.
+  \end{itemize}
+\item Fabrica, Inc.\ hired Livia to build a combine harvester.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Livia 400 Denarii for her work.
+  \item It sold the combine harvester to Grano, Inc.\ for 1,000 Denarii.
+  \end{itemize}
+\end{itemize}
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Construct GDP accounts (in Denarii) for Aurum by production, income and expenditure.
+\item What were the income shares of labor and capital?
+\item What was the savings rate?
+\item Assume the following:
+  \begin{itemize}[topsep=0pt,itemsep=0pt]
+  \item the savings rate is constant,
+  \item the production function has the form:
+  \[
+  Y=AK^\alpha L^{1-\alpha}
+  \]
+  and there is no technological progress,
+  \item the depreciation rate for the tractor is typical for the capital stock as a whole,
+  \item the population is constant.
+  \end{itemize}
+In the long run, would the level of consumption be higher if the economy slightly increased its saving rate?
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Grano, Panem, Fabrica: the three firms of the exercise. $VA_j$: value added of firm $j$.
+\item $C$, $I$, $G$, $NX$: consumption, investment, government purchases and net exports (final uses); here $G=NX=0$.
+\item $Y$: GDP. $K$: capital stock. $L$: labour. $A>0$: total factor productivity. $\alpha\in(0,1)$: capital share in
+$Y=AK^\alpha L^{1-\alpha}$.
+\item $S$: saving. $s\in(0,1)$: saving rate. $\delta\in(0,1)$: depreciation rate. $n\ge0$: population growth rate.
+\item $k_{SS}$, $c_{SS}$: steady-state capital and consumption per worker. $s_{GR}$: golden-rule saving rate.
+MPK: marginal product of capital, $\partial Y/\partial K$.
+\end{notacao}
+\passo{(a) production}{The product approach nets out intermediate inputs:}
+\begin{equation}
+VA_j=\text{sales}_j-\text{intermediate inputs}_j,\qquad \text{GDP}=\textstyle\sum_j VA_j. \label{q1:va}
+\end{equation}
+The tractor is capital; its wear is depreciation, not an intermediate. The wheat is used up within the year, so it is an
+intermediate input of Panem. Using \eqref{q1:va} for each firm:
+\begin{align*}
+VA_{\text{Grano}} &= 1000-0=1000,\\
+VA_{\text{Panem}} &= 4000-1000=3000,\\
+VA_{\text{Fabrica}} &= 1000-0=1000.
+\end{align*}
+Summing with \eqref{q1:va}:
+\[
+\text{GDP}=1000+3000+1000=5000\ \text{Denarii}.
+\]
+\passo{(a) income}{GDP is also the sum of factor incomes:}
+\begin{equation}
+\text{GDP}=\text{wages}+\text{capital income}. \label{q1:inc}
+\end{equation}
+Wages: $200+1400+400=2000$. Capital income is each firm's value added minus its wages (gross operating surplus, depreciation
+included):
+\begin{align*}
+\text{Grano} &: 1000-200=800,\\
+\text{Panem} &: 3000-1400=1600,\\
+\text{Fabrica} &: 1000-400=600,\\
+\text{total} &: 800+1600+600=3000.
+\end{align*}
+By \eqref{q1:inc}:
+\[
+\text{GDP}=2000+3000=5000 .
+\]
+\passo{(a) expenditure}{GDP is the sum of final uses:}
+\begin{equation}
+\text{GDP}=C+I+G+NX. \label{q1:exp}
+\end{equation}
+$C=4000$ (bread eaten by citizens), $I=1000$ (the combine harvester), $G=NX=0$. By \eqref{q1:exp}:
+\[
+\text{GDP}=4000+1000=5000 .
+\]
+The three approaches agree.
+\passo{(b) shares}{Divide each income total of (a) by GDP:}
+\[
+\text{labour share}=\frac{2000}{5000}=0.4,\qquad \text{capital share}=\frac{3000}{5000}=0.6 .
+\]
+With $Y=AK^\alpha L^{1-\alpha}$ and competitive factor markets the capital share is $\alpha$, so $\alpha=0.6$.
+\passo{(c) saving rate}{Closed economy, no government: saving is output not consumed, and it equals investment,}
+\begin{equation}
+S=Y-C=I. \label{q1:S}
+\end{equation}
+Dividing \eqref{q1:S} by $Y$:
+\[
+s=\frac{I}{Y}=\frac{1000}{5000}=0.2 .
+\]
+\passo{(d) route 1, saving rates}{The Solow steady state per worker is}
+\begin{align}
+k_{SS} &= \left(\frac{sA}{n+\delta}\right)^{\frac1{1-\alpha}}, \label{q1:kss}\\
+c_{SS} &= (1-s)Ak_{SS}^\alpha. \label{q1:css}
+\end{align}
+Substitute \eqref{q1:kss} into \eqref{q1:css}; the exponent becomes $\frac{\alpha}{1-\alpha}$:
+\begin{align}
+c_{SS} &= (1-s)A\left[\left(\frac{sA}{n+\delta}\right)^{\frac1{1-\alpha}}\right]^{\alpha}\nonumber\\
+&= (1-s)A\left(\frac{sA}{n+\delta}\right)^{\frac{\alpha}{1-\alpha}}\nonumber\\
+&\propto (1-s)s^{\frac{\alpha}{1-\alpha}}. \label{q1:prop}
+\end{align}
+With $\alpha=0.6$ from (b), $\frac{\alpha}{1-\alpha}=1.5$, so \eqref{q1:prop} reads
+\begin{align}
+c_{SS} &\propto (1-s)s^{\frac{(0.6)}{1-(0.6)}}\nonumber\\
+&= (1-s)s^{1.5}. \label{q1:c15}
+\end{align}
+Differentiate \eqref{q1:c15} with the product rule:
+\begin{align}
+\frac{d}{ds}\big[(1-s)s^{1.5}\big] &= 1.5s^{0.5}(1-s)-s^{1.5}\nonumber\\
+&= 1.5s^{0.5}-2.5s^{1.5}\nonumber\\
+&= s^{0.5}(1.5-2.5s). \label{q1:deriv}
+\end{align}
+\eqref{q1:deriv} is zero at $s_{GR}=1.5/2.5=0.6=\alpha$ and positive for $s<0.6$. At $s=0.2$:
+\begin{align*}
+(0.2)^{0.5}\big(1.5-2.5(0.2)\big) &= 0.2^{0.5}(1.5-0.5)\\
+&= 0.447>0 .
+\end{align*}
+\passo{(d) route 2, MPK}{The tractor, worth 2000 when new, is worth 1800 at year end, and the population is constant:}
+\[
+\delta=\frac{2000-1800}{2000}=0.1,\qquad n=0 .
+\]
+In the steady state with $n=0$, saving replaces depreciation:
+\begin{equation}
+sY=\delta K. \label{q1:ssK}
+\end{equation}
+Divide \eqref{q1:ssK} by $\delta Y$:
+\[
+\frac KY=\frac s\delta=\frac{0.2}{0.1}=2 .
+\]
+Differentiating $Y=AK^\alpha L^{1-\alpha}$ with respect to $K$ gives
+\begin{equation}
+\text{MPK}=\alpha\frac YK. \label{q1:mpk}
+\end{equation}
+Substituting $\alpha=0.6$ and $K/Y=2$ into \eqref{q1:mpk}:
+\begin{align*}
+\text{MPK} &= \frac{(0.6)}{(2)}\\
+&= 0.3>n+\delta=0.1 .
+\end{align*}
+Too little capital: setting \eqref{q1:mpk} equal to $n+\delta=\delta$, the golden rule needs
+\begin{align*}
+(0.6)\frac YK &= (0.1)\\
+\frac KY &= \frac\alpha\delta=6 .
+\end{align*}
+\passo{answer}{Yes: a slightly higher saving rate raises long-run consumption, because $s=0.2<s_{GR}=\alpha=0.6$ by
+\eqref{q1:deriv} (equivalently MPK $=0.3>n+\delta=0.1$ by \eqref{q1:mpk}).}
+\intuicao{Below the golden rule an extra unit of capital yields more output (MPK) than it costs to maintain ($n+\delta$), so the
+steady state can afford both more capital and more consumption.}
+\refbib{Kurlat (2020), \S4.3, eq.\ (4.3.4), p.~61. Matches Problem 5.8 in the project's worked solutions,
+\texttt{Resolucao/}\allowbreak\texttt{kurlat\_solutions\_ch05.tex}.}
+\rubrica{
+\item (a) three approaches, each computed: 3 pts. Wheat treated as final or the harvester netted out: max.\ 1 pt for (a).
+\item (b)--(c): 2 pts. (d) both routes: 3 pts; verdict without a computed comparison: max.\ 1 pt for (d).
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(10 points) \textit{Source: Jones, C.\,I. (2020), \emph{Macroeconomics}, 5th ed., ch.~5, Review Question~4, p.~129 ---
+statement reproduced verbatim; item (a) asks it in Jones's model with the exponent $1/3$; items (b)--(d) are added by this list.}
+\emph{What this trains:} the steady-state consumption formula with the right exponent, and the exam's exact algebra slip.}
+
+\noindent\textbf{Review Question 4 (Jones).} What is the solution of the Solow model for consumption per person in the steady state,
+$c^\ast\equiv C^\ast/L^\ast$? How does each parameter in the solution affect $c^\ast$, and why?
+
+\textbf{a)} (2 points) Answer Review Question 4 in Jones's model ($Y=\bar AK^{1/3}\bar L^{2/3}$, $\Delta K=sY-\bar dK$).
+
+\noindent\textit{Added parts (not in the book):}\par\nopagebreak
+\textbf{b)} (2 points) Find the $s$ that maximises $c^\ast$. Check it with the MPK condition.
+
+\textbf{c)} (3 points) In the exam, a student substituted $k^\ast$ instead of $k^{\ast\alpha}$ and maximised $(1-s)\left(\frac{s}{n+\delta}\right)^{\frac1{1-\alpha}}$.
+For a general capital share $\alpha$, which saving rate does that give? Compare it with the true golden rule as $\alpha\to0$ and
+explain which one passes this knife-edge test, and why.
+
+\textbf{d)} (3 points) Let $Y_t=K_t^\alpha(A_tL_t)^{1-\alpha}$, $A_{t+1}=(1+g)A_t$, $L_{t+1}=(1+n)L_t$, $K_{t+1}=(1-\delta)K_t+sY_t$. With
+$\tilde k\equiv K/(AL)$, derive $\tilde k_{t+1}(\tilde k_t)$, the steady state $\tilde k^\ast$, consumption per effective worker $\hat c^\ast(s)$ and
+the golden-rule $s$. Show that at any steady state MPK $=\alpha N/s$, with $N\equiv(1+n)(1+g)-1+\delta$. Evaluate $\hat c^\ast$ at
+$s\in\{0.2,\ s_{GR},\ 0.6\}$ for $\alpha=1/3$, $n=0.01$, $g=0.02$, $\delta=0.05$.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $Y$: output. $K$: capital. $\bar L>0$: labour, constant. $\bar A>0$: TFP, constant. $\Delta K$: change in $K$ over a period.
+\item $s\in(0,1)$: saving rate. $\bar d\in(0,1)$: Jones's depreciation rate (Kurlat's $\delta$).
+\item $K^\ast$: steady-state capital; $y^\ast\equiv Y^\ast/\bar L$, $c^\ast$: steady-state output and consumption per worker.
+\item Items (c)--(d): $\alpha\in(0,1)$ capital share; $n>0$, $g>0$: growth rates of $L$ and $A$; $\delta\in(0,1)$ depreciation.
+\item $\tilde k\equiv K/(AL)$, $\tilde y\equiv Y/(AL)$: capital and output per effective worker; $\hat c^\ast$: steady-state consumption
+per effective worker. $N\equiv(1+n)(1+g)-1+\delta$: the effective break-even rate. MPK $=\partial Y/\partial K$.
+\end{notacao}
+\passo{(a) steady state}{Jones's model, with $\bar L$ constant:}
+\begin{align}
+Y &= \bar AK^{1/3}\bar L^{2/3}, \label{q2:Y}\\
+\Delta K &= sY-\bar dK. \label{q2:dK}
+\end{align}
+Set $\Delta K=0$ in \eqref{q2:dK}:
+\begin{equation}
+sY^\ast=\bar dK^\ast. \label{q2:ss}
+\end{equation}
+Substitute \eqref{q2:Y} into \eqref{q2:ss}:
+\[
+s\big(\bar AK^{\ast1/3}\bar L^{2/3}\big)=\bar dK^\ast .
+\]
+Divide by $\bar dK^{\ast1/3}$:
+\[
+K^{\ast2/3}=\frac{s\bar A}{\bar d}\,\bar L^{2/3} .
+\]
+Raise both sides to the power $3/2$ and divide by $\bar L$:
+\begin{equation}
+\frac{K^\ast}{\bar L}=\left(\frac{s\bar A}{\bar d}\right)^{3/2}. \label{q2:K}
+\end{equation}
+Divide \eqref{q2:Y} by $\bar L$ and substitute \eqref{q2:K}:
+\begin{align}
+y^\ast &= \bar A\left(\frac{K^\ast}{\bar L}\right)^{1/3}\nonumber\\
+&= \bar A\left[\left(\frac{s\bar A}{\bar d}\right)^{3/2}\right]^{1/3}\nonumber\\
+&= \bar A\left(\frac{s\bar A}{\bar d}\right)^{1/2}\nonumber\\
+&= \bar A^{3/2}\left(\frac{s}{\bar d}\right)^{1/2}. \label{q2:ystar}
+\end{align}
+Consumption is the share $1-s$ of \eqref{q2:ystar}:
+\begin{align}
+c^\ast &= (1-s)y^\ast\nonumber\\
+&= (1-s)\left[\bar A^{3/2}\left(\frac{s}{\bar d}\right)^{1/2}\right]\nonumber\\
+&= (1-s)\bar A^{3/2}\left(\frac{s}{\bar d}\right)^{1/2}. \label{q2:cstar}
+\end{align}
+\passo{(a) parameters}{Read the exponents of \eqref{q2:cstar}. $\partial c^\ast/\partial\bar A>0$ with elasticity $3/2$: TFP raises output
+directly and through the capital it induces. $\partial c^\ast/\partial\bar d<0$ (elasticity $-1/2$): more depreciation means less capital.
+$s$: ambiguous, a larger capital stock against a smaller consumed share.}
+\passo{(b) maximise}{Take the log of \eqref{q2:cstar}:}
+\begin{equation}
+\ln c^\ast=\text{const}+\ln(1-s)+\tfrac12\ln s. \label{q2:lnc}
+\end{equation}
+Differentiate \eqref{q2:lnc} with respect to $s$ and set it to zero:
+\begin{equation}
+-\frac1{1-s}+\frac1{2s}=0. \label{q2:foc}
+\end{equation}
+Multiply \eqref{q2:foc} by $2s(1-s)>0$:
+\begin{align*}
+-2s+(1-s) &= 0\\
+2s &= 1-s\\
+s &= \tfrac13 .
+\end{align*}
+SOC: differentiating \eqref{q2:foc} once more, $-\frac1{(1-s)^2}-\frac1{2s^2}<0$, a maximum.
+Check with the MPK. Differentiating \eqref{q2:Y} and using \eqref{q2:ss}:
+\begin{align}
+\text{MPK} &= \frac13\,\frac{Y}{K}\nonumber\\
+&= \frac13\left(\frac{\bar d}{s}\right). \label{q2:mpk}
+\end{align}
+Substituting $s=1/3$ into \eqref{q2:mpk}:
+\begin{align*}
+\text{MPK} &= \frac13\left(\frac{\bar d}{(1/3)}\right)\\
+&= \bar d,
+\end{align*}
+so MPK equals $\bar d$ (here $n=0$) exactly at $s=1/3$.
+\passo{(c) the slip}{The student's objective, in logs:}
+\begin{equation}
+\ln\big[(1-s)s^{\frac1{1-\alpha}}\big]=\ln(1-s)+\frac{1}{1-\alpha}\ln s. \label{q2:slip}
+\end{equation}
+Differentiate \eqref{q2:slip} and set it to zero:
+\[
+-\frac1{1-s}+\frac{1}{(1-\alpha)s}=0 .
+\]
+Multiply by $(1-\alpha)s(1-s)>0$:
+\begin{align}
+(1-\alpha)s &= 1-s\nonumber\\
+s &= \frac1{2-\alpha}. \label{q2:sslip}
+\end{align}
+The right objective carries the exponent $\frac{\alpha}{1-\alpha}$:
+\begin{equation}
+\ln\big[(1-s)s^{\frac{\alpha}{1-\alpha}}\big]=\ln(1-s)+\frac{\alpha}{1-\alpha}\ln s. \label{q2:right}
+\end{equation}
+Differentiate \eqref{q2:right}, set it to zero and multiply by $(1-\alpha)s(1-s)$:
+\begin{align}
+\alpha(1-s) &= (1-\alpha)s\nonumber\\
+s_{GR} &= \alpha. \label{q2:sgr}
+\end{align}
+At $\alpha=1/3$, \eqref{q2:sslip} gives
+\begin{align*}
+s &= \frac1{2-(1/3)}\\
+&= 0.6,
+\end{align*}
+against $s_{GR}=1/3$ from \eqref{q2:sgr}.
+\passo{(c) knife edge}{As $\alpha\to0$ capital produces nothing, so every unit saved is wasted and the best $s$ must go to $0$:
+\eqref{q2:sgr} gives $s_{GR}=\alpha\to0$ and passes; \eqref{q2:sslip} gives $\frac1{2-\alpha}\to\frac12$ and fails (it would save half of
+output to maintain useless machines).}
+\passo{(d) law of motion}{The statement's model:}
+\begin{align}
+Y_t &= K_t^\alpha(A_tL_t)^{1-\alpha}, \label{q2:Yd}\\
+K_{t+1} &= (1-\delta)K_t+sY_t, \label{q2:Kd}\\
+A_{t+1}L_{t+1} &= (1+g)(1+n)A_tL_t. \label{q2:AL}
+\end{align}
+Divide \eqref{q2:Yd} by $A_tL_t$:
+\begin{equation}
+\tilde y_t=\tilde k_t^\alpha. \label{q2:yt}
+\end{equation}
+Divide \eqref{q2:Kd} by $A_{t+1}L_{t+1}$, written as in \eqref{q2:AL}, and use \eqref{q2:yt}:
+\begin{align}
+\tilde k_{t+1} &= \frac{(1-\delta)K_t+sY_t}{\big((1+g)(1+n)A_tL_t\big)}\nonumber\\
+&= \frac{(1-\delta)\tilde k_t+s\tilde y_t}{(1+n)(1+g)}\nonumber\\
+&= \frac{(1-\delta)\tilde k_t+s\big(\tilde k_t^\alpha\big)}{(1+n)(1+g)}\nonumber\\
+&= \frac{(1-\delta)\tilde k_t+s\tilde k_t^\alpha}{(1+n)(1+g)}. \label{q2:lom}
+\end{align}
+Steady state: set $\tilde k_{t+1}=\tilde k_t=\tilde k$ in \eqref{q2:lom} and multiply by $(1+n)(1+g)$:
+\begin{align}
+(\tilde k) &= \frac{(1-\delta)(\tilde k)+s(\tilde k)^\alpha}{(1+n)(1+g)}\nonumber\\
+(1+n)(1+g)\tilde k &= (1-\delta)\tilde k+s\tilde k^\alpha\nonumber\\
+\big[(1+n)(1+g)-1+\delta\big]\tilde k &= s\tilde k^\alpha\nonumber\\
+N\tilde k &= s\tilde k^\alpha. \label{q2:ssd}
+\end{align}
+Solve \eqref{q2:ssd} for $\tilde k$:
+\begin{equation}
+\tilde k^\ast=\left(\frac sN\right)^{\frac1{1-\alpha}}. \label{q2:kt}
+\end{equation}
+Consumption per effective worker is $(1-s)\tilde y$; use \eqref{q2:yt} and \eqref{q2:kt}:
+\begin{align}
+\hat c^\ast &= (1-s)\big(\tilde k^{\ast\alpha}\big)\nonumber\\
+&= (1-s)\left[\left(\frac sN\right)^{\frac1{1-\alpha}}\right]^{\alpha}\nonumber\\
+&= (1-s)\left(\frac sN\right)^{\frac{\alpha}{1-\alpha}}. \label{q2:chat}
+\end{align}
+In $s$, \eqref{q2:chat} is the objective \eqref{q2:right} up to a constant, so it is maximised at $s_{GR}=\alpha$, \eqref{q2:sgr}.
+Expanding, $N=n+g+ng+\delta$: the continuous-time $n+g+\delta$ plus the cross term $ng$.
+\passo{(d) MPK cross-check}{Differentiate \eqref{q2:Yd} with respect to $K_t$:}
+\begin{equation}
+\text{MPK}=\alpha K^{\alpha-1}(AL)^{1-\alpha}=\alpha\tilde k^{\alpha-1}. \label{q2:mpkd}
+\end{equation}
+By \eqref{q2:kt}, $\tilde k^{\ast1-\alpha}=s/N$. Substitute into \eqref{q2:mpkd}:
+\begin{align}
+\text{MPK} &= \frac{\alpha}{\tilde k^{\ast1-\alpha}}\nonumber\\
+&= \frac{\alpha}{(s/N)}\nonumber\\
+&= \frac{\alpha N}{s}. \label{q2:mpkN}
+\end{align}
+So MPK $=N\iff s=\alpha$; $s<\alpha\iff$ MPK $>N$ (too little capital).
+\passo{(d) numbers}{The break-even rate:}
+\[
+N=1.01\times1.02-1+0.05=0.0802 .
+\]
+With $\alpha=1/3$, $\frac1{1-\alpha}=1.5$. Using \eqref{q2:kt}:
+\begin{align*}
+s=0.2 &: \ \tilde k^\ast=(0.2/0.0802)^{1.5}=3.9381,\\
+s=1/3 &: \ \tilde k^\ast=(0.3333/0.0802)^{1.5}=8.4734,\\
+s=0.6 &: \ \tilde k^\ast=(0.6/0.0802)^{1.5}=20.4628.
+\end{align*}
+Using \eqref{q2:chat} as $(1-s)\tilde k^{\ast1/3}$:
+\begin{align*}
+s=0.2 &: \ \hat c^\ast=0.8\times3.9381^{1/3}=1.2633,\\
+s=1/3 &: \ \hat c^\ast=\tfrac23\times8.4734^{1/3}=1.3591,\\
+s=0.6 &: \ \hat c^\ast=0.4\times20.4628^{1/3}=1.0941.
+\end{align*}
+Using \eqref{q2:mpkN}:
+\begin{align*}
+s=0.2 &: \ \text{MPK}=\frac{(1/3)(0.0802)}{(0.2)}=0.1337,\\
+s=1/3 &: \ \text{MPK}=\frac{(1/3)(0.0802)}{(1/3)}=0.0802=N,\\
+s=0.6 &: \ \text{MPK}=\frac{(1/3)(0.0802)}{(0.6)}=0.0446.
+\end{align*}
+The slip's answer
+($s=0.6$, from \eqref{q2:sslip}) loses
+\[
+1-\frac{1.0941}{1.3591}=19.5\%
+\]
+of the attainable consumption.
+\intuicao{The golden rule reinvests exactly capital's income: saving $\alpha$ of output pays the maintenance $N\tilde k$ of the stock whose
+marginal product equals that maintenance cost.}
+\refbib{Jones (2020), ch.~5, eqs.\ (5.7)--(5.9), pp.~112--113; Jones, \emph{Instructor's Manual} (2016), ch.~5, answer to Review
+Question 4, p.~37 (gives $c^\ast=(1-s)\bar A^{3/2}(s/\bar d)^{1/2}$ and ``optimal $s$ = the exponent on capital, 1/3''; its line that a higher
+depreciation rate \emph{raises} $c^\ast$ is a slip: $\bar d$ is in the denominator). Kurlat (2020), \S4.3; Romer (2012), Problem 2.15(c), p.~97.}
+\rubrica{
+\item (a) $c^\ast$ with exponents $3/2$, $1/2$: 2 pts. (b): 2 pts; no MPK check: $-0.5$.
+\item (c) $1/(2-\alpha)$ and the knife-edge argument: 3 pts. (d): 3 pts; arithmetic slip with correct method: $-0.5$ (does not add to a ceiling).
+\item Ceiling: maximising $(1-s)k^\ast$ instead of $(1-s)k^{\ast\alpha}$ anywhere: max.\ 1 pt on that sub-item.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(10 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 6.1 ``Two-Period Problem
+with Taxes and Initial Wealth'', pp.~121--122 --- statement reproduced verbatim, all items (a)--(e).}
+\emph{What this trains:} the full household problem with every income source, closed forms, and how $\sigma$ decides
+whether $c_1$ rises or falls with $r$ (the log case $\sigma=1$ is the exam's).}
+
+\noindent Suppose a household solves the following two-period consumption-savings problem with taxes:
+\begin{gather*}
+\max_{c_1,a,c_2}\ u(c_1)+\beta u(c_2)\\
+\text{s.t.}\\
+a=a_0+y_1-\tau_1-c_1\\
+c_2=y_2-\tau_2+(1+r)\,a
+\end{gather*}
+with $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$, where: $c_1$ is consumption at time 1, $c_2$ is consumption at time 2, $y_1$ is household income
+at time 1, $y_2$ is household income at time 2, $\tau_1$ are taxes at time 1, $\tau_2$ are taxes at time 2, and $a_0$ is initial wealth.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Solve for the household's choice of $c_1$, $c_2$ and $a$ in closed form.\footnote{Kurlat's footnote: ``In closed form'' means
+that you have an explicit expression for something. Suppose I ask you to determine some variable $x$. Then something like
+$x=y^2-z$ is a solution ``in closed form''; something like $e^x+x-b=0$ also implicitly tells what $x$ should be but is not in closed form.}
+\item How does $\frac{c_1}{y_1}$ depend on $y_2$? What would happen if households suddenly became optimistic about the future?
+\item How does $\frac{c_1}{y_1}$ depend on $a_0$? Interpret.
+\item How does $\frac{c_1}{y_1}$ depend on $\beta$? Interpret.
+\item Suppose $y_2=\tau_1=\tau_2=0$ and compute $\frac{\partial c_1}{\partial r}$. How does the answer depend on $\sigma$? Interpret the
+answer. [Hint: this is a hard question, not the maths but the interpretation. Think about what $\sigma$ means for the relative
+importance of income and substitution effects]
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $c_1,c_2>0$: consumption in periods 1 and 2. $a$: assets carried into period 2 ($a<0$ is borrowing).
+\item $a_0\ge0$: initial wealth. $y_1,y_2\ge0$: income. $\tau_1,\tau_2$: lump-sum taxes. $r>-1$: interest rate.
+\item $\beta\in(0,1)$: discount factor. $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$, $\sigma>0$ (curvature; $1/\sigma$ is the intertemporal
+elasticity of substitution; $\sigma=1$ is $\ln c$), so $u'(c)=c^{-\sigma}$.
+\item $W$: present value of resources; $D$: the consumption divisor (both defined below, where first used).
+\end{notacao}
+\passo{(a) set-up}{Choice variables $c_1,c_2,a$. The two period budgets:}
+\begin{align}
+c_1+a &= a_0+y_1-\tau_1, \label{q3:b1}\\
+c_2 &= y_2-\tau_2+(1+r)a. \label{q3:b2}
+\end{align}
+Solve \eqref{q3:b1} for $a$ and substitute into \eqref{q3:b2}:
+\begin{equation}
+c_2=y_2-\tau_2+(1+r)(a_0+y_1-\tau_1-c_1). \label{q3:c2}
+\end{equation}
+With $c_2$ given by \eqref{q3:c2}, the problem has one choice:
+\begin{equation}
+\max_{c_1}\ u(c_1)+\beta u(c_2),\qquad c_2\ \text{from \eqref{q3:c2}}. \label{q3:max}
+\end{equation}
+\passo{(a) Euler}{Differentiate \eqref{q3:max} with respect to $c_1$, using $\partial c_2/\partial c_1=-(1+r)$ from \eqref{q3:c2}:}
+\begin{equation}
+u'(c_1)-\beta(1+r)u'(c_2)=0. \label{q3:foc}
+\end{equation}
+Substitute $u'(c)=c^{-\sigma}$ into \eqref{q3:foc}:
+\begin{align*}
+\big(c_1^{-\sigma}\big)-\beta(1+r)\big(c_2^{-\sigma}\big) &= 0\\
+c_1^{-\sigma} &= \beta(1+r)c_2^{-\sigma}.
+\end{align*}
+Divide by $c_1^{-\sigma}\beta(1+r)$ and raise to the power $1/\sigma$:
+\begin{equation}
+c_2=[\beta(1+r)]^{1/\sigma}c_1. \label{q3:euler}
+\end{equation}
+\passo{(a) closed forms}{Divide \eqref{q3:c2} by $1+r$ and move $c_1$ to the left: the present-value budget is}
+\begin{equation}
+c_1+\frac{c_2}{1+r}=W,\qquad W\equiv a_0+y_1-\tau_1+\frac{y_2-\tau_2}{1+r}. \label{q3:pv}
+\end{equation}
+Substitute \eqref{q3:euler} into \eqref{q3:pv}:
+\begin{align*}
+c_1+\frac{\big([\beta(1+r)]^{1/\sigma}c_1\big)}{1+r} &= W\\
+c_1+\frac{\beta^{1/\sigma}(1+r)^{1/\sigma}}{1+r}\,c_1 &= W\\
+c_1\big[1+\beta^{1/\sigma}(1+r)^{\frac1\sigma-1}\big] &= W.
+\end{align*}
+Name the bracket
+\begin{equation}
+D\equiv1+\beta^{1/\sigma}(1+r)^{\frac1\sigma-1}>1. \label{q3:D}
+\end{equation}
+Then
+\begin{equation}
+c_1=\frac WD. \label{q3:c1}
+\end{equation}
+Substitute \eqref{q3:c1} into \eqref{q3:euler}, and into \eqref{q3:b1} solved for $a$:
+\begin{align*}
+c_2 &= [\beta(1+r)]^{1/\sigma}\left(\frac WD\right)\\
+&= \frac{[\beta(1+r)]^{1/\sigma}W}{D},\\
+a &= a_0+y_1-\tau_1-\left(\frac WD\right)\\
+&= a_0+y_1-\tau_1-\frac WD .
+\end{align*}
+\passo{(b) future income}{By \eqref{q3:pv}, $\partial W/\partial y_2=\frac1{1+r}$. Differentiate \eqref{q3:c1}:}
+\begin{align*}
+\frac{\partial c_1}{\partial y_2} &= \frac1D\left(\frac1{1+r}\right)\\
+&= \frac1{(1+r)D}>0,\\
+\frac{\partial(c_1/y_1)}{\partial y_2} &= \frac1{y_1(1+r)D}.
+\end{align*}
+Optimism about $y_2$ raises consumption and cuts saving today.
+\passo{(c) wealth}{By \eqref{q3:pv}, $\partial W/\partial a_0=\partial W/\partial y_1=1$. Differentiate \eqref{q3:c1}:}
+\begin{align*}
+\frac{\partial c_1}{\partial a_0}=\frac{\partial c_1}{\partial y_1} &= \frac1D\,(1)\\
+&= \frac1D\in(0,1),
+\end{align*}
+using $D>1$ from \eqref{q3:D}. Only the present value of resources matters, and the household spreads any windfall over both periods.
+\passo{(d) patience}{Differentiate \eqref{q3:D} with respect to $\beta$:}
+\[
+\frac{\partial D}{\partial\beta}=\frac1\sigma\beta^{\frac1\sigma-1}(1+r)^{\frac1\sigma-1}>0 .
+\]
+Differentiate \eqref{q3:c1} ($W$ does not contain $\beta$) and substitute:
+\[
+\frac{\partial c_1}{\partial\beta}=-\frac{W}{D^2}\cdot\frac{\partial D}{\partial\beta}
+=-\frac{W}{D^2}\cdot\left(\frac1\sigma\beta^{\frac1\sigma-1}(1+r)^{\frac1\sigma-1}\right)<0 .
+\]
+A more patient household consumes less now and saves more.
+\passo{(e) interest rate}{With $y_2=\tau_1=\tau_2=0$, \eqref{q3:pv} gives}
+\begin{align*}
+W &= a_0+y_1-(0)+\frac{(0)-(0)}{1+r}\\
+&= a_0+y_1,
+\end{align*}
+so \eqref{q3:c1} becomes
+\begin{equation}
+c_1=\frac{(a_0+y_1)}D. \label{q3:c1e}
+\end{equation}
+Differentiate \eqref{q3:D} with respect to $r$:
+\begin{equation}
+D'(r)=\beta^{1/\sigma}\left(\frac1\sigma-1\right)(1+r)^{\frac1\sigma-2}. \label{q3:Dr}
+\end{equation}
+Differentiate \eqref{q3:c1e} and substitute \eqref{q3:Dr}, using $-\left(\frac1\sigma-1\right)=\frac{\sigma-1}{\sigma}$:
+\begin{align}
+\frac{\partial c_1}{\partial r} &= -\frac{(a_0+y_1)D'(r)}{D^2}\nonumber\\
+&= -\frac{(a_0+y_1)\left(\beta^{1/\sigma}\left(\frac1\sigma-1\right)(1+r)^{\frac1\sigma-2}\right)}{D^2}\nonumber\\
+&= \frac{(a_0+y_1)\beta^{1/\sigma}(1+r)^{\frac1\sigma-2}}{D^2}\cdot\frac{\sigma-1}{\sigma}. \label{q3:dc1dr}
+\end{align}
+Sign of \eqref{q3:dc1dr} $=$ sign of $\sigma-1$. A saver is richer when $r$ rises (income effect: $c_1\uparrow$), and waiting is cheaper
+(substitution: $c_1\downarrow$). $\sigma>1$ (low elasticity $1/\sigma$): income wins. $\sigma<1$: substitution wins. $\sigma=1$: they
+cancel; \eqref{q3:D} gives
+\begin{align*}
+D &= 1+\beta^{1/(1)}(1+r)^{\frac1{(1)}-1}\\
+&= 1+\beta,
+\end{align*}
+and $c_1=\frac{a_0+y_1}{1+\beta}$ does not depend on $r$.
+\intuicao{Numerator $W$ = how much the household has; denominator $D$ = how it splits it across dates. Every comparative static moves one
+of the two.}
+\refbib{Kurlat (2020), \S6.2, pp.~105--117. Instructor key PSET~3 (\texttt{Listas/soluções do instrutor/PSET 3 (1).pdf}), Q1(a)--(c):
+same method, same $c_1$ and $a$. Two slips in that key: its boxed $c_2$ has denominator $1+\beta^{1/\sigma}(1+r)^{\frac1\sigma-1}$ where
+$1+\beta^{-1/\sigma}(1+r)^{1-\frac1\sigma}$ is needed, and its $\partial c_1/\partial r$ drops the factor $\beta^{1/\sigma}$; the sign, set by $\frac{\sigma-1}{\sigma}$, is right.}
+\rubrica{
+\item (a) Euler and closed forms: 4 pts. Euler only, no closed forms: max.\ 2 pts.
+\item (b)--(d): 3 pts. (e) derivative and its sign: 2 pts; income and substitution reading: 1 pt.
+\item Ceiling: $1/\sigma$ and $\sigma$ swapped in the reading of (e): max.\ 1 pt for (e).
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(7 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 6.2 ``Savings Rates for
+Different People'', p.~122 --- statement reproduced verbatim, all items (a)--(b). Its Exercise~6.1 is Question~3 of this list.}
+\emph{What this trains:} a saving rate out of \emph{current} income depends on the income profile and, through human wealth, on $r$,
+even when the saving rate out of \emph{lifetime} wealth does not.}
+
+\noindent An economist has data on the occupation, this year's income (denoted $y$) and this year's consumption (denoted $c$) of a sample
+of 26-year-olds. Within this sample, some are top professional athletes and others are medical doctors in their first year of
+residence. [Make whatever assumptions you think are reasonable and, if you wish, refer back to Exercise 6.1]
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Suppose one computed $s=\frac{y-c}{y}$ for each individual in the sample. Should we expect $s$ to be higher for athletes or doctors?
+\item Suppose interest rates go down. How should we expect the response of $s$ to differ between the two groups?
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $y_1,y_2>0$: income in periods 1 and 2; $m\equiv y_2/y_1$: the income profile. $c_1$: consumption in period 1.
+\item $s\equiv1-c_1/y_1$: saving rate out of \emph{current} income ($s<0$ is borrowing).
+\item $r>-1$, $\beta\in(0,1)$, $\sigma>0$, $W$ and $D$: as in Question~3, \eqref{q3:pv} and \eqref{q3:D}.
+\end{notacao}
+\passo{(a) assumption}{A 26-year-old athlete earns most of his lifetime income now ($m$ small); a first-year resident earns
+little now and much later ($m$ large). Use Question~3 with $a_0=\tau_1=\tau_2=0$; then \eqref{q3:pv} gives}
+\begin{equation}
+W=y_1+\frac{y_2}{1+r}=y_1\Big(1+\frac{m}{1+r}\Big). \label{q4:W}
+\end{equation}
+The saving rate out of current income is
+\begin{equation}
+s=1-\frac{c_1}{y_1}. \label{q4:s}
+\end{equation}
+Substitute \eqref{q3:c1} and then \eqref{q4:W} into \eqref{q4:s}:
+\begin{align}
+s &= 1-\frac1{y_1}\left(\frac WD\right)\nonumber\\
+&= 1-\frac1{y_1D}\left(y_1\Big(1+\frac{m}{1+r}\Big)\right)\nonumber\\
+&= 1-\frac1D\Big(1+\frac{m}{1+r}\Big), \label{q4:sm}
+\end{align}
+which is decreasing in $m$.
+\passo{(a) answer}{$s$ is higher for athletes; residents' $s$ can be negative (they borrow). With $\beta=0.97$, $\sigma=2$, $r=0.06$,
+\eqref{q3:D} gives $D=1+0.97^{1/2}\,1.06^{-1/2}=1.9566$. Using \eqref{q4:sm}:}
+\begin{align*}
+\text{athlete } (y_1,y_2)=(10,2),\ m=0.2 &: \ s=1-\frac{1+0.2/1.06}{1.9566}=0.392,\\
+\text{resident } (3,9),\ m=3 &: \ s=1-\frac{1+3/1.06}{1.9566}=-0.958.
+\end{align*}
+\passo{(b) channels}{Differentiate \eqref{q4:W} with respect to $r$:}
+\[
+\frac{\partial W}{\partial r}=-\frac{y_2}{(1+r)^2}<0 .
+\]
+So a fall in $r$ (i) raises human wealth $\frac{y_2}{1+r}$, by an amount proportional to $y_2$, raising $c_1$; (ii) changes $D$, whose
+sign depends on $\sigma$ (Question~3(e), \eqref{q3:Dr}). For borrowers (residents) income and substitution effects both raise $c_1$;
+for lenders (athletes) they conflict.
+\passo{(b) answer}{Residents' $s$ falls clearly; athletes' $s$ barely moves (and, with $\sigma>1$, rises). Cut $r$ from $6\%$ to $2\%$;
+\eqref{q3:D} and then \eqref{q4:sm} give:}
+\begin{align*}
+D &= 1+0.97^{1/2}\,(1.02)^{-1/2}=1.9752,\\
+\text{athlete} &: \ s=1-\frac{1+0.2/(1.02)}{(1.9752)}=0.3944,\\
+\text{resident} &: \ s=1-\frac{1+3/(1.02)}{(1.9752)}=-0.9953.
+\end{align*}
+Subtracting the values of (a) to four decimals ($0.3925$ and $-0.9576$):
+\[
+\text{athlete } \Delta s=+0.002,\qquad \text{resident } \Delta s=-0.038 .
+\]
+\intuicao{The same optimising rule produces opposite saving rates when income arrives at different dates; a rate cut is a transfer from
+lenders to borrowers.}
+\refbib{Kurlat (2020), \S6.2; numbers as in the project's worked solution \texttt{Resolucao/}\allowbreak\texttt{kurlat\_solutions\_ch06.tex}, Problem 6.2.}
+\rubrica{
+\item (a) the income-profile argument with the formula for $s$: 3 pts; ranking without the profile argument: max.\ 1 pt.
+\item (b) human-wealth channel and borrower/lender sign: 4 pts; ``lower $r$ always lowers saving'' for both groups: max.\ 1 pt.
+}
+\end{sol}

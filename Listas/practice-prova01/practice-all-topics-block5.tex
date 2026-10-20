@@ -1,0 +1,294 @@
+% =============================================================================
+% Block 5 --- Aula 5: labour and leisure (static supply, income vs substitution, taxes, Frisch, search).
+% Weighted toward Prova 01 error cluster 3 (every choice variable has a first-order condition; corners count).
+\bloco{5}{Labour and leisure}{Aula 5 \,\textbullet\, Kurlat ch.~7 \,\textbullet\, 10 points}
+
+\questao{(4 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 7.3 ``Consumption Taxes and
+Labor Supply'', pp.~147--148 --- statement reproduced verbatim, all items (a)--(e).}}
+
+\noindent Suppose a household solves the following problem:
+\begin{align*}
+&\max_{c,l}\ u(c)+v(l)\\
+s.t.\quad &(1+\tau_c)\,c\le w(1-\tau)(1-l)
+\end{align*}
+where $c$ is consumption, $l$ is leisure and $\tau$ is an income tax. $\tau_c$ is a consumption tax, so that if the household wishes to
+consume $c$ it must pay $(1+\tau_c)\,c$.
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Draw the household's budget constraint. What is the slope?
+\item Find the first-order conditions for the household's consumption-leisure decision. How do the effects of $\tau$ and $\tau_c$
+relate to each other? Explain.
+\item If the household chooses $c^*$ and $l^*$, how much tax revenue does the government collect?
+\item Suppose the government had originally set $\tau_c=0$ and $\tau>0$ and now wants to enact a tax reform that uses consumption
+taxes instead of income taxes. What would be the level of $\tau_c$ that leaves the decisions of the household unchanged?
+\item How much revenue does the government collect under the new system? How does it compare to the old system? Explain.
+\end{enumerate}
+\noindent\textit{Added to the book's items (not in the book):} in (d), also give the consumption tax that replaces a 30\% income tax.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $c\ge0$: consumption. $l\in[0,1]$: leisure; $1-l$: hours worked. $w>0$: wage.
+\item $\tau\in[0,1)$: labour-income tax. $\tau_c\ge0$: consumption tax. $u$, $v$: increasing, concave utilities of $c$ and $l$.
+\item $\lambda>0$: multiplier on the budget. $c^*$, $l^*$: the optimal choices. $R$, $R'$: tax revenue under the income and the consumption tax.
+\end{notacao}
+\passo{(a) budget line}{Spending on consumption, taxes included, equals after-tax labour income:}
+\begin{equation}
+(1+\tau_c)\,c=w(1-\tau)(1-l). \label{b5q13:bc}
+\end{equation}
+Solving \eqref{b5q13:bc} for $c$:
+\[
+c=\frac{w(1-\tau)}{1+\tau_c}\,(1-l).
+\]
+With $l$ on the horizontal axis and $c$ on the vertical, this is a line from $(l,c)=(1,0)$ to $\big(0,\frac{w(1-\tau)}{1+\tau_c}\big)$, with slope
+$\dfrac{dc}{dl}=-\dfrac{w(1-\tau)}{1+\tau_c}$: the real after-tax wage in units of consumption.
+\passo{(b) first-order conditions}{Maximise $u(c)+v(l)$ subject to \eqref{b5q13:bc}:}
+\begin{equation}
+\mathcal L=u(c)+v(l)-\lambda\big[(1+\tau_c)c-w(1-\tau)(1-l)\big]. \label{b5q13:L}
+\end{equation}
+Differentiate \eqref{b5q13:L} with respect to $c$ and $l$:
+\begin{align}
+u'(c)&=\lambda(1+\tau_c), \label{b5q13:fc}\\
+v'(l)&=\lambda w(1-\tau). \label{b5q13:fl}
+\end{align}
+Divide \eqref{b5q13:fl} by \eqref{b5q13:fc}:
+\begin{equation}
+\frac{v'(l)}{u'(c)}=\frac{w(1-\tau)}{1+\tau_c}. \label{b5q13:mrs}
+\end{equation}
+Both taxes act only through the same wedge $\frac{1-\tau}{1+\tau_c}$ between the marginal rate of substitution and the wage. Since
+\eqref{b5q13:mrs} and \eqref{b5q13:bc} determine $(c^*,l^*)$ and contain the taxes only through that wedge, any pair $(\tau,\tau_c)$ with the
+same wedge gives the same $c^*$ and $l^*$.
+\passo{(c) revenue}{The government collects both taxes:}
+\begin{equation}
+R=\tau w(1-l^*)+\tau_c\,c^*. \label{b5q13:R}
+\end{equation}
+\passo{(d) equivalent consumption tax}{With $\tau_c=0$ the wedge is $1-\tau$; with income tax $0$ it is $\frac1{1+\tau_c}$. Equal wedges:}
+\begin{align*}
+\frac1{1+\tau_c}&=1-\tau\\
+1+\tau_c&=\frac1{1-\tau}\\
+\tau_c&=\frac{\tau}{1-\tau}.
+\end{align*}
+For $\tau=0.30$:
+\begin{align*}
+\tau_c&=\frac{0.30}{1-(0.30)}\\
+&=0.30/0.70=0.4286,
+\end{align*}
+i.e.\ $42.86\%$.
+\passo{(e) revenue compared}{The allocation is unchanged, so \eqref{b5q13:bc} under the old income tax ($\tau_c=0$) gives
+$c^*=w(1-\tau)(1-l^*)$. By \eqref{b5q13:R} with income tax $0$ and $\tau_c=\tau/(1-\tau)$:}
+\begin{align*}
+R'&=(0)\,w(1-l^*)+\tau_c\,c^*\\
+&=\tau_c\,c^*\\
+&=\Big(\frac{\tau}{1-\tau}\Big)\big(w(1-\tau)(1-l^*)\big)\\
+&=\tau w(1-l^*)=R .
+\end{align*}
+Same revenue: with the same allocation, the government collects what the household earns minus what it consumes,
+$w(1-l^*)-c^*$, under either tax.
+\intuicao{A tax on spending is a tax on what labour buys, so it discourages work exactly as a tax on earnings does; the labels
+differ, the wedge does not.}
+\refbib{Kurlat (2020), \S7.2 (p.~131), eq.~(7.2.3). Consistent with the project's worked solution (Problem 7.3,
+folder \texttt{Resolucao}); the book prints no answer.}
+\rubrica{
+\item (a) 0.5; (b) 1.5; (c) 0.5; (d) 0.75; (e) 0.75. Slope $-w$ (taxes ignored) or $-w(1-\tau)(1+\tau_c)$: max.\ 0.25 pt in (a).
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(5 points) Discursive. \emph{Labour supply $\times$ taxes and transfers $\times$ Frisch elasticity.} A Brazilian household has one unit
+of time, splits it between leisure $l$ and work $h=1-l$, and has utility $\ln c+\theta\ln l$, $\theta=1.5$. It earns wage $w$, pays a labour-income
+tax $\tau$ and receives a lump-sum transfer $T$ (Bolsa Fam\'ilia) that does not depend on its earnings. Let $\tilde w\equiv w(1-\tau)$. Baseline:
+$\tilde w=0.7$, $T=0.1$.}
+
+\textbf{a)} (2 points) Name the choice variables and the income sources, set up the Lagrangian with the time constraint $l\le1$, and derive
+the first-order conditions. Find labour supply $h(\tilde w,T)$ when it is interior, the condition for participation, and the baseline
+values of $l$, $h$ and $c$.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $c\ge0$: consumption. $l\in(0,1]$: leisure; $h=1-l$: hours worked. $\theta>0$: weight of leisure, here $1.5$.
+\item $w$: wage; $\tau\in[0,1)$: labour-income tax; $\tilde w\equiv w(1-\tau)$: after-tax wage. $T\ge0$: lump-sum transfer.
+\item $\lambda>0$: multiplier on the budget. $\mu\ge0$: multiplier on the time constraint $l\le1$. $w^r$: reservation wage.
+\end{notacao}
+\passo{problem}{Choices: $c$ and $l$ ($h=1-l$). Income: after-tax labour income $\tilde w(1-l)$ and the transfer $T$. The budget and
+the Lagrangian with the time constraint:}
+\begin{align}
+c&=\tilde w(1-l)+T, \label{b5q14:bc}\\
+\mathcal L&=\ln c+\theta\ln l+\lambda\big[\tilde w(1-l)+T-c\big]+\mu(1-l). \label{b5q14:L}
+\end{align}
+\passo{FOCs}{Differentiate \eqref{b5q14:L} with respect to $c$ and $l$:}
+\begin{align}
+\frac1c&=\lambda, \label{b5q14:fc}\\
+\frac{\theta}{l}-\lambda\tilde w-\mu&=0,\qquad \mu\ge0,\qquad \mu(1-l)=0. \label{b5q14:fl}
+\end{align}
+Interior ($l<1$, so $\mu=0$): substitute \eqref{b5q14:fc} into \eqref{b5q14:fl}:
+\begin{align}
+\frac{\theta}{l}-\Big(\frac1c\Big)\tilde w-(0)&=0\nonumber\\
+\frac{\theta/l}{1/c}&=\tilde w\nonumber\\
+\theta c&=\tilde w\,l \qquad\text{(MRS $=$ after-tax wage)}. \label{b5q14:mrs}
+\end{align}
+\passo{labour supply}{Substitute \eqref{b5q14:bc} into \eqref{b5q14:mrs}:}
+\begin{align*}
+\theta\big(\tilde w(1-l)+T\big)&=\tilde w\,l\\
+\theta\tilde w(1-l)+\theta T&=\tilde w\,l\\
+\theta\tilde w-\theta\tilde w\,l+\theta T&=\tilde w\,l\\
+\theta(\tilde w+T)&=(1+\theta)\,\tilde w\,l .
+\end{align*}
+Hence
+\begin{equation}
+l=\frac{\theta(\tilde w+T)}{(1+\theta)\tilde w}. \label{b5q14:l}
+\end{equation}
+Using $h=1-l$ and \eqref{b5q14:l}:
+\begin{align}
+h&=1-\Big(\frac{\theta(\tilde w+T)}{(1+\theta)\tilde w}\Big)\nonumber\\
+&=\frac1{1+\theta}-\frac{\theta T}{(1+\theta)\tilde w}. \label{b5q14:h}
+\end{align}
+\passo{participation}{By \eqref{b5q14:h}, $h>0\iff\tilde w>\theta T\equiv w^r$, the reservation wage: by \eqref{b5q14:mrs}, the MRS at
+$(c,l)=(T,1)$ is $\frac{\theta/1}{1/T}=\theta T$. If $\tilde w\le\theta T$ the household is at the corner $l=1$, $c=T$; then \eqref{b5q14:fc} and
+\eqref{b5q14:fl} give}
+\begin{align*}
+\frac{\theta}{(1)}-\Big(\frac1{T}\Big)\tilde w-\mu&=0\\
+\mu&=\theta-\frac{\tilde w}{T}\ge0 :
+\end{align*}
+saying so \emph{is} the condition for $l$.
+\passo{baseline}{$w^r=1.5\times0.1=0.15<0.7$: interior. Using \eqref{b5q14:l}, $h=1-l$ and \eqref{b5q14:bc}:}
+\begin{align*}
+l&=\frac{1.5\times(0.7+0.1)}{(1+1.5)\times0.7}\\
+&=\frac{1.5\times0.8}{2.5\times0.7}=\frac{1.2}{1.75}=0.6857,\\
+h&=1-0.6857=0.3143,\\
+c&=0.7\times0.3143+0.1=0.32 .
+\end{align*}
+Check with \eqref{b5q14:mrs}: $\theta c/\tilde w=1.5\times0.32/0.7=0.6857=l$.
+\refbib{Kurlat (2020), \S7.2 (p.~131). The interior labour supply is the $\gamma=1$, $b=\theta$ case of the instructor's solution to Lista~4,
+Q1(a), $(1-h)^{\gamma}-bh=bT/((1-\tau)w)$ (\texttt{Listas/solu\c{c}\~oes do instrutor/PSET 4 (2).pdf}).}
+\rubrica{
+\item Lagrangian with all choices and both income sources 0.5; FOCs 0.5; $h(\tilde w,T)$ 0.5; reservation wage and numbers 0.5.
+Transfer $T$ left out of the budget: max.\ 1 pt. No treatment of the corner: $-0.25$ pt.
+}
+\end{sol}
+
+\textbf{b)} (1.5 points) Sign $\partial h/\partial\tilde w$ and explain it with income and substitution effects, separating $T=0$ from $T>0$. Then
+compute the change in $h$ when (i) $T$ rises to $0.2$; (ii) with $w=1$, $\tau$ rises from $0.3$ to $0.4$ and $T$ stays at $0.1$.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a); $\Delta h$: change in hours from the baseline $h=0.3143$.
+\end{notacao}
+\passo{sign}{Differentiate \eqref{b5q14:h} with respect to $\tilde w$:}
+\begin{equation}
+\frac{\partial h}{\partial\tilde w}=\frac{\theta T}{(1+\theta)\tilde w^2}\ge0. \label{b5q14:dh}
+\end{equation}
+With $T=0$, \eqref{b5q14:h} gives
+\begin{align*}
+h&=\frac1{1+\theta}-\frac{\theta\,(0)}{(1+\theta)\tilde w}\\
+&=\frac1{1+\theta}=0.4
+\end{align*}
+whatever $\tilde w$: the substitution effect (leisure got dearer) and the income
+effect (the household is richer and buys more leisure) cancel exactly under log utility. With $T>0$ a higher wage raises total income
+proportionally less, so the income effect is weaker and substitution wins, as the sign of \eqref{b5q14:dh} shows.
+\passo{(i) transfer}{Using \eqref{b5q14:h} with $T=0.2$:}
+\begin{align*}
+h&=\frac1{1+1.5}-\frac{1.5\times(0.2)}{(1+1.5)\times0.7}\\
+&=0.4-\frac{1.5\times0.2}{2.5\times0.7}=0.4-0.1714=0.2286,\\
+\Delta h&=0.2286-0.3143=-0.0857 .
+\end{align*}
+A pure income effect: leisure is normal. The reservation wage rises to $\theta T=1.5\times0.2=0.3$, still below $0.7$.
+\passo{(ii) tax}{Now $\tilde w=1\times(1-0.4)=0.6$. Using \eqref{b5q14:h} with $T=0.1$:}
+\begin{align*}
+h&=\frac1{1+1.5}-\frac{1.5\times0.1}{(1+1.5)\times(0.6)}\\
+&=0.4-\frac{0.15}{2.5\times0.6}=0.4-\frac{0.15}{1.5}=0.3,\\
+\Delta h&=0.3-0.3143=-0.0143 .
+\end{align*}
+With $T=0$ the same tax would leave $h=0.4$: in this model a labour tax lowers hours only through the transfer it finances, which is
+Prescott's argument (Kurlat Exercise~7.5).
+\refbib{Kurlat (2020), \S7.2 (p.~131) and \S7.3 (p.~137).}
+\rubrica{
+\item Sign and the $T=0$ case 0.5; (i) 0.5; (ii) 0.5. ``A higher wage always raises hours'' without the decomposition: max.\ 0.25 pt for the sign.
+}
+\end{sol}
+
+\textbf{c)} (1.5 points) Compute the Frisch elasticity of labour supply (consumption held constant) and the uncompensated (Marshallian)
+elasticity with $T$ fixed, at the baseline. Which one governs the response of hours to a temporary rise in wages, and which to a permanent one?
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). $\varepsilon_F$: Frisch elasticity of hours to $\tilde w$, holding $c$ fixed. $\varepsilon_M$: Marshallian elasticity, holding $T$ fixed.
+\end{notacao}
+\passo{Frisch}{Both elasticities share one definition and differ in what is held fixed:}
+\begin{equation}
+\varepsilon\equiv\frac{\partial h}{\partial\tilde w}\,\frac{\tilde w}{h}. \label{b5q14:eps}
+\end{equation}
+Solve \eqref{b5q14:mrs} for $l$ with $c$ fixed:
+\begin{align*}
+l&=\theta c/\tilde w,\\
+h&=1-\theta c/\tilde w,\\
+\frac{\partial h}{\partial\tilde w}\Big|_c&=\frac{\theta c}{\tilde w^2}.
+\end{align*}
+Substitute into \eqref{b5q14:eps}, then use $l=\theta c/\tilde w$:
+\begin{align*}
+\varepsilon_F&=\Big(\frac{\theta c}{\tilde w^2}\Big)\frac{\tilde w}{h}\\
+&=\frac{\theta c/\tilde w}{h}\\
+&=\frac lh=\frac{0.6857}{0.3143}=\frac{24}{11}=2.18 .
+\end{align*}
+\passo{Marshallian}{Substitute \eqref{b5q14:dh}, which holds $T$ fixed, into \eqref{b5q14:eps}:}
+\begin{align*}
+\varepsilon_M&=\Big(\frac{\theta T}{(1+\theta)\tilde w^2}\Big)\,\frac{\tilde w}{h}\\
+&=\frac{\theta T}{(1+\theta)\tilde w\,h}\\
+&=\frac{1.5\times0.1}{(1+1.5)\times0.7\times0.3143}\\
+&=\frac{0.15}{2.5\times0.7\times0.3143}=\frac{0.15}{0.55}=\frac3{11}=0.27 .
+\end{align*}
+\passo{reading}{A temporary raise barely changes lifetime wealth, so consumption, and the marginal utility of wealth, hardly move: hours
+respond with roughly the Frisch elasticity (Kurlat's Uber surge-pricing example). A permanent raise moves consumption too, the income
+effect offsets substitution, and the response is the Marshallian one. Micro estimates of the Frisch elasticity lie around 0.4--1, well
+below $2.18$, the usual objection to models that need large hours responses.}
+\refbib{Kurlat (2020), \S7.4 (p.~140), eq.~(7.4.4), and Exercise~7.5(j)--(l) (p.~149).}
+\rubrica{
+\item $\varepsilon_F$ 0.5; $\varepsilon_M$ 0.5; temporary versus permanent 0.5. Replacing $c$ from the budget in the Frisch step (that gives the
+Marshallian elasticity): max.\ 0.25 pt for $\varepsilon_F$.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(1 point) Multiple choice. Kurlat's one-period search model: a share $U=0.10$ of the labour force starts unemployed; matches are
+$m(V,U)=V^{1/2}U^{1/2}$; a vacancy costs $\chi$ and a filled job gives the firm $(1-\mu)(y-b)$; firms post vacancies until
+$q(V,U)(1-\mu)(y-b)=\chi$, with $q=m/V$; after hiring, unemployment is $U'=U-m(V,U)$. Initially $(1-\mu)(y-b)/\chi=0.4$. Higher
+unemployment insurance $b$ lowers this ratio to $0.3$. Then:}
+\begin{alternativas}
+\item $V$ rises from 0.016 to 0.025 and $U'$ falls from 0.06 to 0.05: a richer outside option makes workers easier to hire.
+\item $V$ falls from 0.016 to 0.009 and $U'$ falls from 0.06 to 0.05: fewer vacancies are filled faster, so more workers find jobs.
+\item $V$ falls from 0.016 to 0.012 and $U'$ falls from 0.06 to 0.05: vacancies fall in proportion to the firm's surplus.
+\item $V$ stays at 0.016 and $U'$ rises from 0.06 to 0.07: benefits raise the wage but leave the vacancy decision unchanged.
+\item $V$ falls from 0.016 to 0.009 and $U'$ rises from 0.06 to 0.07: a movement along a Beveridge-type relation.
+\end{alternativas}
+\gabarito{E}
+\begin{sol}
+\begin{notacao}
+\item $U$, $V$: unemployed and vacancies; $m$: matches; $q=m/V$: job-filling rate; $\mu\in(0,1)$: workers' bargaining share;
+$y$: output of a match; $b$: unemployment benefit; $\chi$: vacancy cost; $S\equiv(1-\mu)(y-b)/\chi$; $U'$: unemployment after hiring.
+\end{notacao}
+\passo{vacancies}{The matching function and the free-entry condition of the statement:}
+\begin{align}
+m&=V^{1/2}U^{1/2}, \label{b5q15:m}\\
+q\,S&=1,\qquad q=\frac{m}{V}. \label{b5q15:fe}
+\end{align}
+Substituting \eqref{b5q15:m} into $q=m/V$:
+\begin{align*}
+q&=\frac{(V^{1/2}U^{1/2})}{V}\\
+&=(U/V)^{1/2}.
+\end{align*}
+Substituting this into \eqref{b5q15:fe}:
+\begin{align}
+(U/V)^{1/2}S&=1\nonumber\\
+V&=U S^2. \label{b5q15:V}
+\end{align}
+With the data, \eqref{b5q15:V} gives $V=0.1\times0.4^2=0.016$, then $V=0.1\times0.3^2=0.009$.
+\passo{unemployment}{Substitute \eqref{b5q15:V} into \eqref{b5q15:m}:}
+\begin{align*}
+m&=(US^2)^{1/2}U^{1/2}\\
+&=(US^2\cdot U)^{1/2}=US ,
+\end{align*}
+that is $0.04$, then $0.03$. So $U'=U-m$ rises from $0.10-0.04=0.06$ to $0.10-0.03=0.07$.
+\passo{reading}{$b$ raises the bargained wage $w=b+\mu(y-b)$ and cuts the firm's surplus, so fewer vacancies and fewer matches: $V$ down and
+$U'$ up, the negative co-movement of the Beveridge curve. A uses the wrong direction; B and C get $U'$ wrong (C also takes $V\propto S$:
+two mistakes); D ignores that a lower surplus lowers $V$.}
+\refbib{Kurlat (2020), \S7.5, eqs.~(7.5.1)--(7.5.2) (pp.~142--145) and Exercise~7.7 (p.~150). In the stock-flow version of Lista~4, Q2,
+a fall in tightness likewise moves the economy along the Beveridge curve derived in the instructor's \texttt{PSET 4 (2).pdf}, Q2(b),
+while a fall in matching efficiency shifts it out.}
+\end{sol}

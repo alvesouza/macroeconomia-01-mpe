@@ -67,6 +67,8 @@ mkdir -p Listas && cp ~/.claude/commands/templates/lista-exam.tex "Listas/lista-
 ```
 - Defina `\listatema`. Remova o exemplo do template.
 - Cada questão usa as macros (`\bloco`, `\questao`, `\alternativas`, `\gabarito`, `\resolespaco`) e cada solução vai dentro de `\begin{sol}...\end{sol}` com `\passo`, `\intuicao`, `\refbib` e `\rubrica` (com tetos conceituais + penalidades leves + não-cumulatividade).
+- Every solution follows the style's "Equations, notation and layout" rule: open with `\begin{notacao}` (every variable and parameter, meaning and range); number every equation a later step uses (`\label` with a question prefix, e.g. `q3:euler`) and cite it at each step with `\eqref` ("substituting (7) into (5)"); tag the statement's own equations so solutions can cite them; one operation per displayed line (`align` + `\nonumber`), no long inline chains. Never `\eqref` a label that lives inside `sol` from statement text. Show every substitution as its own line: the receiving equation with the substituted expression in place, in parentheses, before simplifying (with (1) $A=B+C$ and (2) $B=2A$: first $A=(2A)+C$, then $C=-A$); numbers plugged in are shown in place before the result, with enough decimals that the displayed arithmetic reproduces the printed value.
+- Write and edit `.tex` with the file Write/Edit tools, not shell heredocs or `sed`: the shell here collapses `\\` to `\` and turns `\b`, `\n` into control characters.
 - Deixe o toggle em `\solucoesfalse` (a lista em branco é o default).
 
 ## Passo 6 — Compile e verifique

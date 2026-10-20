@@ -1,0 +1,430 @@
+% =============================================================================
+\bloco{3}{Created: the Prova~01 economy, extended}{Kurlat \S1.1 \,\textbullet\, 35 points}
+
+\questao{(12 points) \emph{Inventories and data sales.} The economy of Prova~01 in a new year. All values in reais;
+nothing else happens.
+\begin{itemize}[leftmargin=1.4em]
+\item Firm A uses no intermediate inputs. It produces inputs worth 800 and pays wages of 500. It sells inputs worth 600 to B and
+keeps the remaining 200 in its warehouse.
+\item Firm B uses all 600 of the inputs it bought, pays wages of 200, buys advertising from N for 100 and a market-research
+dataset from N for 60. It sells final goods to households for 900; final goods worth 150 at market prices are still unsold in its
+warehouse at the end of the year.
+\item Social network N is free for its users. It sells the advertising (100) and the dataset (60) to B and another dataset to a
+firm abroad for 40. It pays wages of 120 and has no other costs.
+\end{itemize}}
+\noindent\textbf{a)} (7 points) Compute GDP by the product, income and expenditure approaches in one table (by firm for product and
+income, by component for expenditure) and check that they agree.\\
+\textbf{b)} (3 points) In words: why do the 200 of stored inputs and the 150 of unsold goods count in this year's GDP, and
+why does N's data enter the expenditure column once and not the other time?\\
+\textbf{c)} (2 points) Next year B sells its 150 of stored goods to households for 150, and nothing else happens. Give the
+three approaches for that year and explain the result in one sentence.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item A, B, N: the input firm, the final-goods firm and the social network. $Q_j$, $Z_j$, $VA_j$, $W_j$, $\Pi_j$ for
+$j\in\{A,B,N\}$, and the identities \eqref{q1:G1}--\eqref{q1:G4}: as in Question~1.
+\item $C$, $X\ge0$: consumption and exports; $G=M=0$. $I$: investment, here the change in inventories (negative when they are
+drawn down).
+\end{notacao}
+
+\passo{a) value added}{Gross output is sales plus additions to inventory. A sells 600 and stores 200:}
+\begin{align}
+Q_A &= (600)+(200) \nonumber\\
+&= 800. \label{q7:QA}
+\end{align}
+A uses no inputs, so by \eqref{q1:G2} and \eqref{q7:QA}:
+\begin{align*}
+VA_A &= (800)-(0)\\
+&= 800 .
+\end{align*}
+B sells 900 and stores 150:
+\begin{align}
+Q_B &= (900)+(150) \nonumber\\
+&= 1{,}050. \label{q7:QB}
+\end{align}
+B's intermediate inputs are A's inputs, the advertising and the dataset:
+\begin{align}
+Z_B &= (600)+(100)+(60) \nonumber\\
+&= 760. \label{q7:ZB}
+\end{align}
+Using \eqref{q1:G2} with \eqref{q7:QB} and \eqref{q7:ZB}:
+\begin{align}
+VA_B &= (1{,}050)-(760) \nonumber\\
+&= 290. \label{q7:vaB}
+\end{align}
+N sells the advertising and the two datasets, with no inputs:
+\begin{align}
+Q_N=VA_N &= (100)+(60)+(40) \nonumber\\
+&= 200. \label{q7:vaN}
+\end{align}
+Summing $VA_A=800$, \eqref{q7:vaB} and \eqref{q7:vaN} with \eqref{q1:G1}:
+\begin{align*}
+\text{GDP} &= (800)+(290)+(200)\\
+&= 1{,}290 .
+\end{align*}
+\passo{a) income}{By \eqref{q1:G3}, each firm's profit is its value added minus its wages:}
+\begin{align}
+\Pi_A &= (800)-(500) \nonumber\\
+&= 300, \label{q7:PiA}\\
+\Pi_B &= (1{,}050)-(760)-(200) \nonumber\\
+&= 90, \label{q7:PiB}\\
+\Pi_N &= (200)-(120) \nonumber\\
+&= 80. \label{q7:PiN}
+\end{align}
+Adding up the wages and the profits \eqref{q7:PiA}--\eqref{q7:PiN}:
+\begin{align}
+\textstyle\sum_j W_j &= (500)+(200)+(120) \nonumber\\
+&= 820, \label{q7:W}\\
+\textstyle\sum_j \Pi_j &= (300)+(90)+(80) \nonumber\\
+&= 470. \label{q7:Pi}
+\end{align}
+By \eqref{q1:G3}, the sum of \eqref{q7:W} and \eqref{q7:Pi}:
+\begin{align*}
+\text{GDP} &= (820)+(470)\\
+&= 1{,}290 .
+\end{align*}
+\passo{a) expenditure}{Investment is the change in inventories, A's 200 plus B's 150:}
+\begin{align}
+I &= (200)+(150) \nonumber\\
+&= 350. \label{q7:I}
+\end{align}
+With $C=900$, $X=40$ and $G=M=0$, \eqref{q1:G4} and \eqref{q7:I} give
+\begin{align*}
+\text{GDP} &= (900)+(350)+(40)\\
+&= 1{,}290 .
+\end{align*}
+\begin{center}\footnotesize\begin{tabular}{@{}lr@{\qquad}lr@{\qquad}lr@{}}\toprule
+\multicolumn{2}{@{}c}{Production (value added)} & \multicolumn{2}{c}{Income} & \multicolumn{2}{c@{}}{Expenditure}\\\midrule
+A: $800-0$ & 800 & A: wages 500 $+$ profit 300 & 800 & Consumption & 900\\
+B: $1{,}050-760$ & 290 & B: wages 200 $+$ profit 90 & 290 & Investment (inventories) & 350\\
+N: $200-0$ & 200 & N: wages 120 $+$ profit 80 & 200 & Exports & 40\\\midrule
+GDP & 1{,}290 & GDP & 1{,}290 & GDP & 1{,}290\\\bottomrule\end{tabular}\end{center}
+\passo{b) interpretation}{GDP counts what is \emph{produced} this year, sold or not. Goods produced and kept are an investment in
+inventories, valued in the producer's output and in its profit; that is how the product and income columns pick them up. The
+dataset sold to B is an input B uses up in production --- intermediate, already inside the price of B's goods --- so it has no
+final-use entry. The dataset sold abroad leaves the country: it is a final use by a non-resident, an export. The service users get
+for free has no price and stays out, as in Prova~01.}
+\passo{c) next year}{Production: B's output is its sales minus the goods drawn from inventory, so by \eqref{q1:G2}:}
+\begin{align*}
+VA_B=Q_B &= (150)-(150)\\
+&= 0 .
+\end{align*}
+Income: B's revenue 150 against the 150 value of goods leaving the warehouse; by \eqref{q1:G3}:
+\begin{align*}
+\Pi_B &= (150)-(150)\\
+&= 0 .
+\end{align*}
+Expenditure: $C=+150$ and $I=-150$ (inventories fall); by \eqref{q1:G4}:
+\begin{align*}
+\text{GDP} &= (150)+(-150)\\
+&= 0 .
+\end{align*}
+GDP $=0$: the goods were counted the year they were made; selling them later moves them from $I$ to $C$ and creates no new
+production.
+\intuicao{The 160 of N's sales to B and the 600 of A's sales to B appear in the product column only as deductions from B's output;
+the final-use column sees only what is left at the end of the chain: consumption, inventories and exports.}
+\refbib{Kurlat (2020), \S1.1, Ex.~1.2 (value added), p.~17; Ex.~1.3 (inventories as investment, negative when drawn down), p.~17;
+Ex.~1.6 (exports), p.~19. Same treatment of inventories in Williamson (2014), solutions manual, ch.~2, problems 1, 3 and 6
+(``additions to inventory are treated as purchasing one's own output'').}
+\rubrica{
+\item a) 7 points: each approach 2, agreement checked 1. Only one approach: max.\ 2.5 (the Prova~01 Q1(b) error).
+\item Inventories left out (GDP $=940$), or the data sold to B added to $C$: max.\ 3 for a).
+\item b) 3 points: inventories 1.5, the two data sales 1.5. c) 2 points; GDP of 150 next year: 0 for c).
+\item Arithmetic slip with the right layout: $-0.5$, once.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(12 points) \emph{Imports, a software sale, dividends and the government.} Another year of the Prova~01 economy.
+All values in reais; nothing else happens.
+\begin{itemize}[leftmargin=1.4em]
+\item Firm A imports raw materials for 100, turns them into inputs and sells the inputs to B for 600. It pays wages of 350.
+\item Firm B uses the inputs, buys advertising from N for 100, pays wages of 250 and sells final goods for 1{,}000: 850 to
+domestic households and 150 to buyers abroad.
+\item Network N is free for its users. It sells the advertising (100) and sells licences of a photo-editing app to domestic
+households for 80. It pays wages of 150, of which 100 go to a team that builds a recommendation engine N will use itself for
+several years. It has no other costs. Out of its profit, N pays dividends of 40; half of its shareholders live abroad.
+\item The government hires content moderators for wages of 30 (their service is free to the public), pays unemployment
+benefits of 25 and collects taxes of 55 from households.
+\end{itemize}}
+\noindent\textbf{a)} (6 points) Compute GDP by the three approaches in one table and check that they agree.\\
+\textbf{b)} (2 points) Compute gross national income (GNI) and explain why it differs from GDP.\\
+\textbf{c)} (2 points) In words: classify the app licences, the recommendation engine, the dividends and the unemployment
+benefits, each in one sentence.\\
+\textbf{d)} (2 points) Prova~01 Q1(c) had GDP $=1{,}100$. Account for the difference between that number and your answer
+to (a), item by item.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item A, B, N, and Gov (the government as a producer). $Q_j$, $Z_j$, $VA_j$, $W_j$, $\Pi_j$ (operating surplus for N) and
+the identities \eqref{q1:G1}--\eqref{q1:G4}: as in Question~1.
+\item $C$, $I$, $G$, $X$, $M\ge0$: consumption, investment, government purchases, exports, imports.
+\item GNI: gross national income, the income of residents. $NFI$: net primary income from abroad (negative when more is paid
+to non-residents than received from them).
+\end{notacao}
+
+\passo{a) value added}{By \eqref{q1:G2}, output minus intermediate inputs. A's input is the imported raw material; B's are A's
+inputs and the advertising:}
+\begin{align}
+VA_A &= (600)-(100) \nonumber\\
+&= 500, \label{q8:vaA}\\
+VA_B &= (1{,}000)-(600)-(100) \nonumber\\
+&= 300. \label{q8:vaB}
+\end{align}
+N has no inputs; its output is the ads, the app and the own-account software, valued at its cost (the team's wages):
+\begin{align}
+VA_N &= (100)+(80)+(100) \nonumber\\
+&= 280. \label{q8:vaN}
+\end{align}
+The government's output is valued at cost, $VA_{Gov}=30$. Summing with \eqref{q1:G1}:
+\begin{align*}
+\text{GDP} &= (500)+(300)+(280)+(30)\\
+&= 1{,}110 .
+\end{align*}
+\passo{a) income}{By \eqref{q1:G3}, profit is value added minus wages, using \eqref{q8:vaA}--\eqref{q8:vaN}:}
+\begin{align*}
+\Pi_A &= (600)-(100)-(350)\\
+&= 150,\\
+\Pi_B &= (1{,}000)-(600)-(100)-(250)\\
+&= 50,\\
+\Pi_N &= (280)-(150)\\
+&= 130.
+\end{align*}
+The government pays wages of 30 and earns no surplus. Adding up wages and profits:
+\begin{align}
+\textstyle\sum_j W_j &= (350)+(250)+(150)+(30) \nonumber\\
+&= 780, \label{q8:W}\\
+\textstyle\sum_j \Pi_j &= (150)+(50)+(130) \nonumber\\
+&= 330. \label{q8:Pi}
+\end{align}
+By \eqref{q1:G3}, the sum of \eqref{q8:W} and \eqref{q8:Pi}:
+\begin{align}
+\text{GDP} &= (780)+(330) \nonumber\\
+&= 1{,}110. \label{q8:Y}
+\end{align}
+\passo{a) expenditure}{Consumption is B's domestic sales plus the app licences:}
+\begin{align}
+C &= (850)+(80) \nonumber\\
+&= 930. \label{q8:C}
+\end{align}
+With $I=100$ (the recommendation engine), $G=30$, $X=150$ and $M=100$, \eqref{q1:G4} and \eqref{q8:C} give
+\begin{align*}
+\text{GDP} &= (930)+(100)+(30)+(150)-(100)\\
+&= 1{,}110 .
+\end{align*}
+\begin{center}\footnotesize\begin{tabular}{@{}lr@{\qquad}lr@{\qquad}lr@{}}\toprule
+\multicolumn{2}{@{}c}{Production (value added)} & \multicolumn{2}{c}{Income} & \multicolumn{2}{c@{}}{Expenditure}\\\midrule
+A: $600-100$ & 500 & A: wages 350 $+$ profit 150 & 500 & Consumption $850+80$ & 930\\
+B: $1{,}000-600-100$ & 300 & B: wages 250 $+$ profit 50 & 300 & Investment (software) & 100\\
+N: $100+80+100$ & 280 & N: wages 150 $+$ surplus 130 & 280 & Government & 30\\
+Government (at cost) & 30 & Government: wages 30 & 30 & Exports & 150\\
+ & & & & Imports & $-100$\\\midrule
+GDP & 1{,}110 & GDP & 1{,}110 & GDP & 1{,}110\\\bottomrule\end{tabular}\end{center}
+\passo{b) GNI}{Half of the dividends is income paid to non-residents out of domestic production, and nothing is received from
+abroad:}
+\begin{align*}
+NFI &= -\frac{(40)}{2}\\
+&= -20 .
+\end{align*}
+GNI adds net primary income from abroad to GDP:
+\begin{equation}
+\text{GNI}=\text{GDP}+NFI. \label{q8:gni}
+\end{equation}
+Substitute \eqref{q8:Y} and $NFI=-20$ into \eqref{q8:gni}:
+\begin{align*}
+\text{GNI} &= (1{,}110)+(-20)\\
+&= 1{,}090 .
+\end{align*}
+GDP measures production inside the country; GNI measures the income of its residents.
+\passo{c) classification}{App licences: a service sold to households, final consumption ($C$). Recommendation engine: own-account
+software, gross fixed capital formation ($I$), valued at cost. Dividends: a distribution of N's profit already counted in the income
+column; they change who receives the income, not GDP (only GNI, for the part paid abroad). Unemployment benefits: a transfer
+financed by taxes, no production, in neither $G$ nor GDP; the taxes of 55 do not enter either.}
+\passo{d) bridge from 1{,}100}{Start from Prova~01 Q1(c) and add each change, by \eqref{q1:G1}:}
+\begin{align*}
+\text{GDP} &= (1{,}100)\underbrace{{}+(80)}_{\text{the app, new }C}\ \underbrace{{}+(30)}_{\text{government services}}\
+\underbrace{{}-(100)}_{\text{A's imported raw materials}}\\
+&= 1{,}110 ,
+\end{align*}
+which is \eqref{q8:Y}; the 100 of raw materials is no longer domestic value added. Selling 150 of B's goods abroad instead of at
+home moves 150 from $C$ to $X$ in \eqref{q1:G4} and leaves GDP unchanged; the dividends, benefits and taxes change nothing.
+\intuicao{Imports cancel twice over: the 100 of raw materials is inside the price of B's goods ($C$ and $X$), so it must come out
+through $-M$. The software is counted exactly as in Prova~01 Q1(c): as investment, never as the consumption of the workers who
+built it --- what they buy with their wages is already in $C$.}
+\refbib{Kurlat (2020), \S1.1, Ex.~1.6 (imports and exports), p.~19; Exs.~1.7--1.8 (government at cost, transfers), p.~20; Jones
+(2020), ch.~2, p.~22 (intellectual property products in $I$). GDP vs.\ GNI: Williamson (2014), solutions manual, ch.~2, problem~2(c).}
+\rubrica{
+\item a) 6 points: each approach 1.8, agreement 0.6. Only one approach: max.\ 2.
+\item Software counted as consumption: max.\ 3 for a) and 0 for its line in c). Imports not subtracted: max.\ 3 for a).
+\item Transfers or taxes added to $G$ or to income: max.\ 3 for a).
+\item b) 2 points; GNI $=$ GDP $-40$ (all dividends treated as paid abroad): 1. c) 0.5 per classification. d) 2 points.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(11 points) \emph{Capitalise or expense? Depreciation and measured growth.} Two years of the Prova~01 economy. A's
+and B's value added is all paid out as factor income (wages and profits; the split is not needed). All values in reais.
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Year 1} is Prova~01 Q1(c): A sells inputs to B for 600; B sells final goods to households for 1{,}000; N sells
+advertising to B for 100 and uses that 100 to pay workers who build software for N's own use. The software is ready at the end of
+year 1, will be used for four years and depreciates by $100/4=25$ a year from year 2 on.
+\item \textbf{Year 2}: A, B and the advertising are as in year 1, and no new software is built. N launches ad-free premium
+accounts: households buy accounts for 50, and B buys accounts for 20 for its marketing staff to use at work. N pays its support
+staff wages of 30 and has no other costs.
+\end{itemize}}
+\noindent\textbf{a)} (3 points) Year 1: compute GDP by the three approaches (i) when the software is capitalised (current convention) and
+(ii) when it is expensed as a current cost of N (the older convention).\\
+\textbf{b)} (3 points) Year 2, software capitalised: compute GDP by the three approaches, and net domestic product (NDP).\\
+\textbf{c)} (2 points) Compute GDP growth from year 1 to year 2 under each convention, and explain in words why the sign differs.\\
+\textbf{d)} (1.5 points) In words: why do the households' 50 of premium accounts enter $C$ while B's 20 do not?\\
+\textbf{e)} (1.5 points) In words: a student wrote that the 100 of software is ``consumption, because the workers spend their
+wages''. Explain what is wrong, using the three columns.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item A, B, N; $Q_j$, $Z_j$, $VA_j$, $W_j$, $\Pi_j$ (operating surplus, gross of depreciation) and the identities
+\eqref{q1:G1}--\eqref{q1:G4}: as in Question~1. A superscript $1$ or $2$ marks the year.
+\item $C$, $I\ge0$: consumption and investment ($G=X=M=0$). $D_N\ge0$: depreciation of N's software.
+\item NDP: net domestic product. $g$: GDP growth rate from year 1 to year 2 (any sign).
+\end{notacao}
+
+\passo{a)(i) capitalised}{A's value added is its sales, 600. By \eqref{q1:G2}, B's output minus A's inputs and the advertising:}
+\begin{align}
+VA_B &= (1{,}000)-(600)-(100) \nonumber\\
+&= 300. \label{q9:vaB}
+\end{align}
+N's output is the ads plus the software, valued at cost:
+\begin{align}
+VA_N &= (100)+(100) \nonumber\\
+&= 200. \label{q9:vaN}
+\end{align}
+Summing with \eqref{q1:G1}:
+\begin{align}
+\text{GDP}^1_{\mathrm{cap}} &= (600)+(300)+(200) \nonumber\\
+&= 1{,}100. \label{q9:Y1c}
+\end{align}
+Income: N pays wages of 100, so by \eqref{q1:G3} and \eqref{q9:vaN} its operating surplus is
+\begin{align*}
+\Pi_N &= (200)-(100)\\
+&= 100 .
+\end{align*}
+Adding A's and B's factor income, N's wages and N's surplus, by \eqref{q1:G3}:
+\begin{align*}
+\text{GDP} &= (600)+(300)+(100)+(100)\\
+&= 1{,}100 .
+\end{align*}
+Expenditure, by \eqref{q1:G4} with $C=1{,}000$ and $I=100$:
+\begin{align*}
+\text{GDP} &= (1{,}000)+(100)\\
+&= 1{,}100 .
+\end{align*}
+\passo{a)(ii) expensed}{The software is not output, only a cost, so $VA_N=100$ (the ads). By \eqref{q1:G1}, with $VA_A=600$ and
+\eqref{q9:vaB}:}
+\begin{align}
+\text{GDP}^1_{\mathrm{exp}} &= (600)+(300)+(100) \nonumber\\
+&= 1{,}000. \label{q9:Y1e}
+\end{align}
+Income: N's profit is the ads minus the wages, by \eqref{q1:G3}:
+\begin{align*}
+\Pi_N &= (100)-(100)\\
+&= 0 .
+\end{align*}
+Adding up incomes, by \eqref{q1:G3}:
+\begin{align*}
+\text{GDP} &= (600)+(300)+(100)+(0)\\
+&= 1{,}000 .
+\end{align*}
+Expenditure: $C=1{,}000$ and $I=0$, so by \eqref{q1:G4}:
+\begin{align*}
+\text{GDP} &= (1{,}000)+(0)\\
+&= 1{,}000 .
+\end{align*}
+\begin{center}\footnotesize\begin{tabular}{@{}lrr@{\qquad}lrr@{\qquad}lrr@{}}\toprule
+Production & (i) & (ii) & Income & (i) & (ii) & Expenditure & (i) & (ii)\\\midrule
+A & 600 & 600 & A & 600 & 600 & Consumption & 1{,}000 & 1{,}000\\
+B & 300 & 300 & B & 300 & 300 & Investment & 100 & 0\\
+N & 200 & 100 & N: wages & 100 & 100 & & & \\
+ & & & N: surplus & 100 & 0 & & & \\\midrule
+GDP & 1{,}100 & 1{,}000 & GDP & 1{,}100 & 1{,}000 & GDP & 1{,}100 & 1{,}000\\\bottomrule\end{tabular}\end{center}
+\passo{b) year 2}{By \eqref{q1:G2}, B's output minus A's inputs, the advertising and the 20 of accounts:}
+\begin{align}
+VA^2_B &= (1{,}000)-(600)-(100)-(20) \nonumber\\
+&= 280. \label{q9:vaB2}
+\end{align}
+N has no inputs; its output is the ads plus all premium accounts:
+\begin{align}
+VA^2_N &= (100)+(50)+(20) \nonumber\\
+&= 170. \label{q9:vaN2}
+\end{align}
+Summing $VA_A=600$, \eqref{q9:vaB2} and \eqref{q9:vaN2} with \eqref{q1:G1}:
+\begin{align}
+\text{GDP}^2 &= (600)+(280)+(170) \nonumber\\
+&= 1{,}050. \label{q9:Y2}
+\end{align}
+Income: N pays wages of 30, so by \eqref{q1:G3} and \eqref{q9:vaN2} its gross operating surplus is
+\begin{align*}
+\Pi^2_N &= (170)-(30)\\
+&= 140 .
+\end{align*}
+The software depreciates by a quarter of its cost each year, and the surplus splits into that depreciation and net profit:
+\begin{align*}
+D_N &= \frac{(100)}{4}\\
+&= 25,\\
+\Pi^2_N-D_N &= (140)-(25)\\
+&= 115 .
+\end{align*}
+Adding up incomes, by \eqref{q1:G3}:
+\begin{align*}
+\text{GDP}^2 &= (600)+(280)+(30)+(140)\\
+&= 1{,}050 .
+\end{align*}
+Expenditure: no investment, no exports; by \eqref{q1:G4}:
+\begin{align*}
+\text{GDP}^2=C &= (1{,}000)+(50)\\
+&= 1{,}050 .
+\end{align*}
+NDP subtracts depreciation from GDP:
+\begin{equation}
+\text{NDP}=\text{GDP}-D_N. \label{q9:ndp}
+\end{equation}
+Substitute \eqref{q9:Y2} and $D_N=25$ into \eqref{q9:ndp}:
+\begin{align*}
+\text{NDP} &= (1{,}050)-(25)\\
+&= 1{,}025 .
+\end{align*}
+\passo{c) growth}{Capitalised: dividing \eqref{q9:Y2} by \eqref{q9:Y1c},}
+\begin{align*}
+g_{\mathrm{cap}} &= \frac{(1{,}050)}{(1{,}100)}-1\\
+&= -4.55\% .
+\end{align*}
+Expensed: year-2 GDP is also \eqref{q9:Y2} (no software is built in year 2); dividing it by \eqref{q9:Y1e},
+\begin{align*}
+g_{\mathrm{exp}} &= \frac{(1{,}050)}{(1{,}000)}-1\\
+&= +5.00\% .
+\end{align*}
+Under capitalisation year 1 contains a final good, the software, that year 2 does not produce, so
+measured GDP falls although consumption rises from 1{,}000 to 1{,}050; under expensing the software never appears, and GDP only
+sees the rise in consumption. The convention changes the level of GDP in the year the asset is built and, through it, the growth rate.
+\passo{d) intermediate vs final}{The households use the accounts up themselves: final consumption, $C$ in \eqref{q1:G4}. B uses the
+same accounts as an input for producing and selling its goods: intermediate consumption, in $Z_B$ of \eqref{q1:G2}, so B's value
+added falls from \eqref{q9:vaB} to \eqref{q9:vaB2}:}
+\begin{align*}
+VA_B-VA^2_B &= (300)-(280)\\
+&= 20 .
+\end{align*}
+That 20 is already inside the price of B's goods; adding it to $C$ would count it twice. N's value added rises by the full 70 in
+both cases ($50+20$ in \eqref{q9:vaN2}).
+\passo{e) the exam error}{The wages are on the \emph{income} side, \eqref{q1:G3}: N's workers earn 100, and what they buy with it
+is part of $C=1{,}000$, which the statement keeps unchanged. The expenditure side, \eqref{q1:G4}, asks who uses the \emph{output}:
+the software is kept by N and used for four years, so it is investment. Calling it consumption counts the workers' income as a final use and, with $C$ fixed at 1{,}000, leaves
+the expenditure column at 1{,}000 against 1{,}100 in the other two --- the three columns stop agreeing, which flags the error.}
+\intuicao{Capitalising treats own-account software like a machine bought from outside: an asset produced now that pays off later, its
+wear recorded as depreciation (in NDP, not in GDP). Expensing treats it as a cost, like electricity. Same economy, different GDP.}
+\refbib{Kurlat (2020), \S1.1, Ex.~1.3 (investment), p.~17; Ex.~1.10 (depreciation; GDP is gross), p.~21. Jones (2020), ch.~2,
+p.~22 (intellectual property products --- software, R\&D --- in $I$) and p.~25 (effect on the labor share).}
+\rubrica{
+\item a) 3 points: 1.5 per convention, the three approaches each. Only GDP totals: max.\ 1.
+\item b) 3 points: three approaches 2.4, NDP 0.6. Depreciation subtracted from GDP: max.\ 1.5 for b).
+\item c) 2 points: both rates 1, explanation 1. d) 1.5 points. e) 1.5 points; ``it is consumption'' repeated: 0 for e).
+}
+\end{sol}

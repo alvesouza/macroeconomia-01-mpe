@@ -1,0 +1,353 @@
+% =============================================================================
+% Block 3 --- Aula 3: Solow evidence (golden rule, technological progress, growth and TFP accounting).
+% Weighted toward Prova 01 error cluster 2 (golden-rule algebra: carry the exponent, cross-check, knife edge).
+\needspace{14\baselineskip}% keep the block heading, Q7's source line and its statement together
+\bloco{3}{Solow continued: golden rule, TFP and growth accounting}{Aula 3 \,\textbullet\, Kurlat \S4.3--4.5, ch.~5 \,\textbullet\, 10 points}
+
+\questao{(4 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 5.4 ``Measurement of the
+Capital Stock'', pp.~94--95 --- statement reproduced verbatim, all items (a)--(d).}}
+
+\noindent The capital stock is not easy to measure. A common way to try to do this is to:
+\begin{itemize}[leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item guess a value for $K_0$ at some date in the past (maybe when statistics were first collected),
+\item measure investment every year thereafter (which is also not that easy), and
+\item use the equation
+\[
+K_{t+1}=(1-\delta)\,K_t+I_t \tag{5.5.1}
+\]
+to compute the capital stock for every year thereafter.
+\end{itemize}
+Consider an economy that is in a steady state without technological progress (and has been there for an infinitely long time).
+Every year the level of investment is:
+\[
+I_t=0.2
+\]
+and the depreciation rate is:
+\[
+\delta=0.1
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item What is the capital stock?
+\item The statistical office only started measuring investment in year 0. By then the economy was already in steady state. They
+guessed (incorrectly) that the capital stock in year 0 was $K_0=1$. Use equation (5.5.1) to compute how the estimate of the capital
+stock changed over time after year 0 and plot your answer. (You don't need to provide a closed form solution, a nice graph made
+with a spreadsheet is enough). Compute the ratio:
+\[
+\frac{K_{ESTIMATE}}{K_{TRUE}}
+\]
+for the years 5, 10, and 50. (Again, you can just take the numbers from a spreadsheet).
+\item Suppose now that the statistics office started collecting statistics a long time ago (an infinite time ago) so we don't have the
+problem of making the wrong initial guess. However, instead of using the correct value of $\delta$, the statistical office incorrectly
+believes that $\delta=0.05$. What is their estimate of the capital stock? Why does it differ from the truth?
+\item The production function in this economy is
+\[
+Y=AK^{\alpha}L^{1-\alpha} \tag{5.5.2}
+\]
+and there are accurate data on GDP and on total hours of labor supply. Using the inaccurate estimate of $K$ from part (c), plus
+accurate data on total labor and GDP, an economist is trying to measure the economy's productivity, i.e.\ to solve for $A$ in
+equation (5.5.2). Find an expression for
+\[
+\frac{A_{ESTIMATE}}{A_{TRUE}}
+\]
+as a function of
+\[
+\frac{K_{ESTIMATE}}{K_{TRUE}}
+\]
+Given the numbers from part (c) and using $\alpha=0.35$, how far would the economist's estimate be from the truth?
+\end{enumerate}
+\noindent\textit{Changed by this list (not in the book):} for (b), give the closed form of the estimate, not only a spreadsheet.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $K_t$: capital stock; $I=0.2$: investment, constant every year; $\delta=0.1$: true depreciation rate.
+\item $K^{TRUE}$: the true (steady-state) stock. $K^{EST}_t$: the statistician's estimate in year $t$, started from the guess $K^{EST}_0=1$.
+\item $e_t\equiv K^{EST}_t-K^{TRUE}$: the estimation error. $\hat\delta=0.05$: the wrong depreciation rate of (c).
+\item $A$: TFP, measured as a residual; $Y$, $L$: output and labour; $\alpha=0.35$: capital share.
+\end{notacao}
+\passo{(a) true stock}{Kurlat's perpetual-inventory equation (5.5.1), with constant investment:}
+\begin{equation}
+K_{t+1}=(1-\delta)K_t+I. \label{b3q7:pim}
+\end{equation}
+In a steady state $K_{t+1}=K_t=K$, so \eqref{b3q7:pim} gives
+\begin{align*}
+K&=(1-\delta)K+I\\
+\delta K&=I\\
+K^{TRUE}&=I/\delta=0.2/0.1=2 .
+\end{align*}
+\passo{(b) wrong initial guess}{The estimate and the truth both obey \eqref{b3q7:pim}. Subtracting one from the other, $I$ cancels:}
+\begin{equation}
+e_{t+1}=(1-\delta)\,e_t,\qquad e_0=1-2=-1. \label{b3q7:err}
+\end{equation}
+Iterating \eqref{b3q7:err} $t$ times:
+\begin{align*}
+e_t&=(1-\delta)^t e_0\\
+&=(1-0.1)^t\,(-1)=-0.9^t,\\
+K^{EST}_t&=K^{TRUE}+e_t\\
+&=(2)+(-0.9^t)=2-0.9^t,\\
+\frac{K^{EST}_t}{K^{TRUE}}&=\frac{(2-0.9^t)}{(2)}\\
+&=1-\tfrac12\,0.9^t .
+\end{align*}
+Evaluating at the three dates:
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Year $t$ & $0.9^t$ & $K^{EST}_t$ & $K^{EST}_t/K^{TRUE}$\\
+\midrule
+5 & 0.5905 & 1.4095 & 0.7048\\
+10 & 0.3487 & 1.6513 & 0.8257\\
+50 & 0.0052 & 1.9948 & 0.9974\\
+\bottomrule
+\end{tabular}
+\end{center}
+The guess is forgotten geometrically at rate $1-\delta$.
+\passo{(c) wrong depreciation}{With $\hat\delta=0.05$ the perpetual inventory adds up every past vintage of investment, each
+kept at the survival rate $1-\hat\delta$:}
+\begin{align*}
+K^{EST}&=\textstyle\sum_{j\ge0}(1-\hat\delta)^jI\\
+&=I/\hat\delta=0.2/0.05=4,
+\end{align*}
+twice the truth: every vintage of investment is kept on the books twice as long as it really survives.
+\passo{(d) TFP}{TFP is the residual of the production function:}
+\begin{equation}
+A=\frac{Y}{K^{\alpha}L^{1-\alpha}}. \label{b3q7:A}
+\end{equation}
+Dividing \eqref{b3q7:A} at $K^{EST}$ by \eqref{b3q7:A} at $K^{TRUE}$, with the same $Y$ and $L$:
+\begin{align*}
+\frac{A^{EST}}{A^{TRUE}}&=\frac{Y/\big[(K^{EST})^{\alpha}L^{1-\alpha}\big]}{Y/\big[(K^{TRUE})^{\alpha}L^{1-\alpha}\big]}\\
+&=\Big(\frac{K^{EST}}{K^{TRUE}}\Big)^{-\alpha}\\
+&=\Big(\frac{4}{2}\Big)^{-0.35}=2^{-0.35}=0.7846 :
+\end{align*}
+measured TFP is about $21.5\%$ too low.
+\intuicao{TFP is a residual, so every error in measuring inputs lands in it with the opposite sign, damped by the input's share.}
+\refbib{Kurlat (2020), \S5.4 (p.~86) and \S5.5 (p.~89). Consistent with the project's worked solution
+(Problem 5.4, folder \texttt{Resolucao}); the book prints no answer.}
+\rubrica{
+\item (a) 0.5; (b) 1.5 (closed form 1, three ratios 0.5); (c) 1; (d) 1. Ratio in (d) written as $2^{\alpha}$ (sign of the bias reversed): max.\ 0.5 pt in (d).
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(5 points) Discursive. \emph{Golden rule $\times$ interest rates $\times$ dynamic efficiency.} Solow model in continuous time with
+labour-augmenting technology: $Y=K^{\alpha}(AL)^{1-\alpha}$, $\dot A/A=g$, $\dot L/L=n$, depreciation $\delta$, saving rate $s$. Variables per
+efficiency unit: $\tilde k=K/(AL)$, $\tilde y=\tilde k^{\alpha}$, $\tilde c=(1-s)\tilde y$, and $\dot{\tilde k}=s\tilde k^{\alpha}-(n+g+\delta)\tilde k$.
+Competitive factor markets give $r=\alpha\tilde k^{\alpha-1}-\delta$. Illustrative calibration for Brazil: $\alpha=1/3$, $n=0.01$,
+$g=0.02$, $\delta=0.05$, $s=0.18$.}
+
+\textbf{a)} (2 points) Find steady-state $\tilde c^*(s)$ in closed form and the saving rate $s_{GR}$ that maximises it, with the second-order
+condition. Cross-check with the capital-stock version of the problem, and use a knife-edge value of $\alpha$ to test your exponent.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $K$, $L$: capital and labour; $A$: labour-augmenting technology. $g\ge0$: growth of $A$; $n\ge0$: growth of $L$.
+\item $\delta\in(0,1)$: depreciation. $s\in(0,1)$: saving rate. $\alpha\in(0,1)$: capital share.
+\item $\tilde k\equiv K/(AL)$, $\tilde y$, $\tilde c$: capital, output and consumption per efficiency unit; a star marks the steady state.
+\item $r$: real interest rate. $s_{GR}$: golden-rule saving rate. $\tilde k_{GR}$: golden-rule capital per efficiency unit.
+\end{notacao}
+\passo{the statement's equations}{Numbered here for reference:}
+\begin{align}
+\dot{\tilde k}&=s\tilde k^{\alpha}-(n+g+\delta)\tilde k, \label{b3q8:kdot}\\
+\tilde y&=\tilde k^{\alpha},\qquad \tilde c=(1-s)\,\tilde y, \label{b3q8:yc}\\
+r&=\alpha\tilde k^{\alpha-1}-\delta. \label{b3q8:r}
+\end{align}
+\passo{steady state}{Set $\dot{\tilde k}=0$ in \eqref{b3q8:kdot}:}
+\begin{align}
+s\tilde k^{\alpha}&=(n+g+\delta)\tilde k \label{b3q8:be}\\
+\tilde k^{1-\alpha}&=\frac{s}{n+g+\delta}. \nonumber
+\end{align}
+Raise both sides to the power $1/(1-\alpha)$:
+\begin{equation}
+\tilde k^*=\Big(\frac{s}{n+g+\delta}\Big)^{\frac1{1-\alpha}}. \label{b3q8:kss}
+\end{equation}
+Substitute \eqref{b3q8:kss} into \eqref{b3q8:yc}:
+\begin{align}
+\tilde c^*(s)&=(1-s)(\tilde k^*)^{\alpha}\nonumber\\
+&=(1-s)\Big(\Big(\frac{s}{n+g+\delta}\Big)^{\frac1{1-\alpha}}\Big)^{\alpha}\nonumber\\
+&=(1-s)\Big(\frac{s}{n+g+\delta}\Big)^{\frac{\alpha}{1-\alpha}}. \label{b3q8:css}
+\end{align}
+The exponent is $\alpha/(1-\alpha)$, not $1/(1-\alpha)$: $\tilde k^*$ enters raised to $\alpha$.
+\passo{first-order condition}{Take the log of \eqref{b3q8:css}:}
+\begin{equation}
+\ln\tilde c^*=\ln(1-s)+\frac{\alpha}{1-\alpha}\ln s-\frac{\alpha}{1-\alpha}\ln(n+g+\delta). \label{b3q8:ln}
+\end{equation}
+Differentiate \eqref{b3q8:ln} with respect to $s$ and set it to zero:
+\begin{equation}
+-\frac1{1-s}+\frac{\alpha}{(1-\alpha)s}=0. \label{b3q8:foc}
+\end{equation}
+Multiply \eqref{b3q8:foc} by $(1-\alpha)s(1-s)>0$:
+\begin{align*}
+\alpha(1-s)&=(1-\alpha)s\\
+\alpha-\alpha s&=s-\alpha s\\
+\alpha&=s .
+\end{align*}
+Hence
+\begin{equation}
+\boxed{s_{GR}=\alpha}. \label{b3q8:sgr}
+\end{equation}
+\passo{second-order condition}{Differentiate the left side of \eqref{b3q8:foc} once more:}
+\[
+\frac{d^2\ln\tilde c^*}{ds^2}=-\frac1{(1-s)^2}-\frac{\alpha}{(1-\alpha)s^2}<0 .
+\]
+At $s=\alpha$:
+\begin{align*}
+\frac{d^2\ln\tilde c^*}{ds^2}\Big|_{s=\alpha}&=-\frac1{(1-(\alpha))^2}-\frac{\alpha}{(1-\alpha)(\alpha)^2}\\
+&=-\frac1{(1-\alpha)^2}-\frac{1}{(1-\alpha)\alpha}\\
+&=-\frac{\alpha+(1-\alpha)}{\alpha(1-\alpha)^2}\\
+&=-\frac1{\alpha(1-\alpha)^2}.
+\end{align*}
+A maximum.
+\passo{cross-check}{Choose $\tilde k$ directly. By \eqref{b3q8:yc} and then \eqref{b3q8:be}, steady-state consumption is}
+\begin{align}
+\tilde c^*&=\tilde k^{\alpha}-s\tilde k^{\alpha}\nonumber\\
+&=\tilde k^{\alpha}-(n+g+\delta)\tilde k. \label{b3q8:ck}
+\end{align}
+Maximising \eqref{b3q8:ck} over $\tilde k$:
+\begin{equation}
+\alpha\tilde k^{\alpha-1}=n+g+\delta, \label{b3q8:mpk}
+\end{equation}
+that is, MPK $=n+g+\delta$. Solve \eqref{b3q8:be} for $s$ and substitute \eqref{b3q8:mpk}:
+\begin{align*}
+s&=\frac{(n+g+\delta)\,\tilde k}{\tilde k^{\alpha}}\\
+&=\frac{(\alpha\tilde k^{\alpha-1})\,\tilde k}{\tilde k^{\alpha}}\\
+&=\alpha\tilde k^{\alpha-1}\,\tilde k^{1-\alpha}\\
+&=\alpha .
+\end{align*}
+Same answer as \eqref{b3q8:sgr}.
+\passo{knife edge}{As $\alpha\to0$ capital is useless, so $s_{GR}\to0$, as \eqref{b3q8:sgr} says. Dropping the $\alpha$ in the exponent
+of \eqref{b3q8:css}, $\max(1-s)s^{1/(1-\alpha)}$ gives $s=1/(2-\alpha)\to1/2$: absurd, so the exponent is wrong.}
+\refbib{Kurlat (2020), \S4.3 (p.~61) and \S4.5 (p.~69); Prova~01, Q2(b) (\texttt{Prova/}\allowbreak\texttt{prova-01-error-analysis.md}).}
+\rubrica{
+\item $\tilde c^*(s)$ with exponent $\alpha/(1-\alpha)$ 0.5; FOC and $s_{GR}$ 0.5; SOC 0.25; cross-check 0.5; knife edge 0.25.
+Exponent $1/(1-\alpha)$ carried into the FOC: max.\ 0.75 pt. $s_{GR}$ confused with the $s$ that maximises $\tilde k^*$: max.\ 0.5 pt.
+}
+\end{sol}
+
+\textbf{b)} (1.5 points) Compute $\tilde k^*$, $\tilde c^*$ and $r$ at $s=0.18$ and at $s_{GR}$. Show that $r-(n+g)$ has the sign of $\alpha-s$, and say
+whether Brazil should raise its saving rate.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a); calibration $\alpha=1/3$, $n=0.01$, $g=0.02$, $\delta=0.05$.
+\end{notacao}
+\passo{numbers}{Here $n+g+\delta=0.08$, $\frac{\alpha}{1-\alpha}=\frac12$ and $\frac1{1-\alpha}=\frac32$. Using \eqref{b3q8:kss} and \eqref{b3q8:css}
+at $s=0.18$, where $s/0.08=2.25$:}
+\begin{align*}
+\tilde k^*&=\Big(\frac{0.18}{0.01+0.02+0.05}\Big)^{3/2}\\
+&=2.25^{3/2}=3.375,\\
+\tilde c^*&=(1-0.18)\Big(\frac{0.18}{0.01+0.02+0.05}\Big)^{1/2}\\
+&=0.82\times2.25^{1/2}=0.82\times1.5=1.23 .
+\end{align*}
+At $s=1/3$, where $s/0.08=4.1667$:
+\begin{align*}
+\tilde k^*&=\Big(\frac{1/3}{0.08}\Big)^{3/2}\\
+&=4.1667^{3/2}=8.5052,\\
+\tilde c^*&=\Big(1-\frac13\Big)\Big(\frac{1/3}{0.08}\Big)^{1/2}\\
+&=\tfrac23\times4.1667^{1/2}=\tfrac23\times2.0412=1.3608 .
+\end{align*}
+The ratio is $1.3608/1.23=1.106$: $10.6\%$ more consumption per efficiency unit.
+\passo{interest rate}{Divide \eqref{b3q8:be} by $s\tilde k$:}
+\begin{equation}
+\tilde k^{\alpha-1}=\frac{n+g+\delta}{s}. \label{b3q8:kam1}
+\end{equation}
+Substitute \eqref{b3q8:kam1} into \eqref{b3q8:r}:
+\begin{align}
+r&=\alpha\Big(\frac{n+g+\delta}{s}\Big)-\delta\nonumber\\
+&=\frac{\alpha(n+g+\delta)}{s}-\delta. \label{b3q8:rs}
+\end{align}
+Subtract $n+g$ from both sides of \eqref{b3q8:rs}:
+\begin{align*}
+r-(n+g)&=\frac{\alpha(n+g+\delta)}{s}-(n+g+\delta)\\
+&=(n+g+\delta)\Big(\frac{\alpha}{s}-1\Big),
+\end{align*}
+positive iff $s<\alpha$. Using \eqref{b3q8:rs} at each saving rate:
+\begin{align*}
+s=0.18:\quad r&=\tfrac13\times\tfrac{0.08}{0.18}-0.05=0.1481-0.05=0.0981>0.03,\\
+s=1/3:\quad r&=\tfrac13\times\tfrac{0.08}{(1/3)}-0.05\\
+&=0.08-0.05=0.03=n+g .
+\end{align*}
+The golden rule is $r=n+g$.
+\passo{policy}{Brazil is below the golden rule and dynamically efficient. Raising $s$ to $1/3$ raises long-run consumption, but
+consumption falls on impact and for a while along the transition: generations are traded off, and Solow, with no preferences,
+cannot say whether the sacrifice is worth it. That is the job of the microfounded models of Aulas 4--6.}
+\refbib{Kurlat (2020), \S4.3 (p.~61) and \S4.4 (p.~63); Exercise~5.8 (p.~97).}
+\rubrica{
+\item Numbers 0.5; $r-(n+g)$ sign 0.5; policy reading 0.5. Concluding that being below the golden rule is inefficient: max.\ 0.25 pt for the reading.
+}
+\end{sol}
+
+\textbf{c)} (1.5 points) Another economy has the same parameters but $s=0.45$. Show that cutting $s$ to $\alpha$ raises consumption per
+efficiency unit on impact and at every later date, and name the inefficiency.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). $\tilde k_0$: capital per efficiency unit when $s$ is cut; $\tilde c_t$, $\tilde k_t$: values along the transition.
+\item $f(\tilde k)\equiv\tilde k^{\alpha}-(n+g+\delta)\tilde k$: steady-state consumption as a function of $\tilde k$, the right side of \eqref{b3q8:ck}.
+\end{notacao}
+\passo{diagnosis}{At $s=0.45$, $s/0.08=5.625$. Using \eqref{b3q8:kss}, \eqref{b3q8:css} and \eqref{b3q8:rs}:}
+\begin{align*}
+\tilde k^*&=\Big(\frac{0.45}{0.08}\Big)^{3/2}\\
+&=5.625^{3/2}=13.3409,\\
+\tilde c^*&=(1-0.45)\Big(\frac{0.45}{0.08}\Big)^{1/2}\\
+&=0.55\times5.625^{1/2}=0.55\times2.3717=1.3044<1.3608,\\
+r&=\tfrac13\times\tfrac{0.08}{0.45}-0.05=0.0093<n+g=0.03 .
+\end{align*}
+\passo{impact}{$\tilde k$ is predetermined, so by \eqref{b3q8:yc} $\tilde y=2.3717$ on impact and $\tilde c$ jumps:}
+\[
+\tilde c:\ 0.55\times2.3717=1.3044\ \longrightarrow\ \tfrac23\times2.3717=1.5811 .
+\]
+\passo{transition}{Using \eqref{b3q8:yc} and then \eqref{b3q8:kdot} for $s\tilde k^{\alpha}$, consumption along the path is}
+\begin{align}
+\tilde c_t&=\tilde k_t^{\alpha}-s\tilde k_t^{\alpha}\nonumber\\
+&=\tilde k_t^{\alpha}-\big(\dot{\tilde k}_t+(n+g+\delta)\tilde k_t\big)\nonumber\\
+&=\tilde k_t^{\alpha}-(n+g+\delta)\tilde k_t-\dot{\tilde k}_t\nonumber\\
+&=f(\tilde k_t)-\dot{\tilde k}_t. \label{b3q8:cpath}
+\end{align}
+With $s=\alpha$, $\tilde k$ falls monotonically from $13.3409$ to $\tilde k_{GR}=8.5052$, so $\dot{\tilde k}_t<0$. On
+$(\tilde k_{GR},13.3409]$, $f$ is decreasing: $f'(\tilde k)=\alpha\tilde k^{\alpha-1}-(n+g+\delta)$ is negative above $\tilde k_{GR}$ by
+\eqref{b3q8:mpk}. So $\tilde k_t<\tilde k_0$ gives $f(\tilde k_t)>f(\tilde k_0)$, and \eqref{b3q8:cpath} gives
+\[
+\tilde c_t>f(\tilde k_t)>f(\tilde k_0)=1.3044\quad\text{at every }t,
+\]
+ending at $1.3608$.
+\passo{name}{Every date gains and none loses: a Pareto improvement. The economy over-accumulates capital, $r<n+g$:
+\textbf{dynamic inefficiency}.}
+\refbib{Kurlat (2020), \S4.3 (p.~61); Romer (2012), \S1.4 and \S2.11 (pp.~88--91).}
+\rubrica{
+\item Diagnosis 0.25; impact 0.5; transition argument 0.5; name 0.25. Asserting the path without the monotonicity argument: max.\ 0.25 pt for it.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(1 point) Multiple choice. Illustrative Brazilian data, 2000--2014 averages: GDP grows $3.2\%$, the capital stock $4.4\%$ and hours
+$1.8\%$ a year; the capital share is $0.4$. The Solow residual, and the share of the growth of output \emph{per hour} it accounts for, are:}
+\begin{alternativas}
+\item $0.36$ p.p.\ a year, accounting for about 11\% of the growth of output per hour.
+\item $-0.16$ p.p.\ a year, accounting for about $-5\%$ of the growth of output per hour.
+\item $1.44$ p.p.\ a year, accounting for about 45\% of the growth of output per hour.
+\item $0.36$ p.p.\ a year, accounting for about 26\% of the growth of output per hour.
+\item $0.56$ p.p.\ a year, accounting for about 40\% of the growth of output per hour.
+\end{alternativas}
+\gabarito{D}
+\begin{sol}
+\begin{notacao}
+\item $g_Y$, $g_K$, $g_L$, $g_A$: growth of output, capital, hours and TFP (p.p.\ a year); $g_y$: growth of output per hour; $\alpha=0.4$: capital share.
+\end{notacao}
+\passo{residual}{Kurlat's growth-accounting equation (5.4.2):}
+\begin{equation}
+g_A=g_Y-\alpha g_K-(1-\alpha)g_L. \label{b3q9:ga}
+\end{equation}
+Substituting the data into \eqref{b3q9:ga}:
+\begin{align*}
+g_A&=3.2-0.4\times4.4-0.6\times1.8\\
+&=3.2-1.76-1.08=0.36 .
+\end{align*}
+\passo{per hour}{Output per hour grows at $g_y=g_Y-g_L=3.2-1.8=1.4$. Subtracting $g_L$ from both sides of \eqref{b3q9:ga} and rearranging:}
+\begin{align*}
+g_y&=g_A+\alpha(g_K-g_L)\\
+&=(0.36)+0.4\times(4.4-1.8)\\
+&=0.36+0.4\times2.6=0.36+1.04=1.4 .
+\end{align*}
+The residual's share is $0.36/1.4=25.7\%$.
+\passo{distractors}{A divides by output growth ($0.36/3.2$); B swaps the shares ($3.2-2.64-0.72$) and divides by $3.2$ (two mistakes);
+C drops labour ($3.2-1.76$) and divides by $3.2$ (two); E swaps the shares and drops labour ($3.2-2.64$), divided by $1.4$ (two).}
+\refbib{Kurlat (2020), \S5.4, eq.~(5.4.2) (p.~86).}
+\end{sol}

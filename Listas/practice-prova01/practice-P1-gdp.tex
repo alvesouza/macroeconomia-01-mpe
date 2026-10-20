@@ -1,0 +1,29 @@
+% Prova 01 remediation --- practice list on GDP measurement (error cluster 1 of Prova/prova-01-error-analysis.md).
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric (copy saved as practice-P1-gdp-gabarito.tex).
+% Compile from this folder: pdflatex (2x); check: pdffonts (all Type 1). Every number: practice-P1-gdp-check.py
+\documentclass[11pt,a4paper]{article}
+\input{../practice-preamble}
+\usepackage{needspace}
+\newenvironment{notacao}{\par\smallskip\noindent\textbf{Notation.}\begin{itemize}[leftmargin=1.4em,topsep=1pt,itemsep=0pt]\small}{\end{itemize}}
+\solucoesfalse                % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{GDP measurement --- three approaches that must agree (Prova 01, Question 1)}
+\renewcommand{\espacoresol}{6cm}
+\setlength{\emergencystretch}{3em}   % lets the long \texttt URL in Kurlat 1.4 break cleanly
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{How to use this list.} Book exercises are reproduced verbatim, in the book's own notation and
+currency, after a source line; parts this list adds are marked. Every numerical item asks for GDP by the \emph{product} (value-added),
+\emph{income} and \emph{expenditure} approaches; an answer that gives one approach only is incomplete, and the
+three totals must agree. Lay out each answer as Kurlat does: one table with columns Production $|$ Income $|$
+Expenditure. Notation: $Y=C+I+G+X-M$ (Kurlat 2020, eq.~1.1.1, p.~15); A = input firm, B = final-goods firm,
+N = ad-financed social network, as in Prova~01. Amounts without a unit are in reais.\par}
+
+\input{practice-P1-gdp-block1}
+\needspace{12\baselineskip}   % keep each block heading with its first question
+\input{practice-P1-gdp-block2}
+\needspace{12\baselineskip}
+\input{practice-P1-gdp-block3}
+
+\end{document}

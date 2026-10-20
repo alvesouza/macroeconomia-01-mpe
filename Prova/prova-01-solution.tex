@@ -1,0 +1,1031 @@
+% Prova 01 (Macroeconomics I, MPE Insper, 2026/T3) --- detailed solution.
+% Diagnosis of the graded answers: prova-01-error-analysis.md (same folder).
+% Format (rules/00_estilo_avaliacao.md §4): every equation used later is numbered and cited at each
+% step; each question opens with a Notation list; one operation per displayed line.
+% Numbering: Q1 uses (G1)-(G4); Q2 keeps the statement's (1)-(4) and continues from (5); Q3 keeps the
+% statement's (AD), (AS), (YN), (LF), (YE) and continues the numeric sequence.
+% Build from Prova/: pdflatex prova-01-solution.tex (twice); pdffonts prova-01-solution.pdf (all Type 1).
+% Every closed form: python prova-01-solution-check.py
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}   % Type 1 vector fonts (replaces PK bitmaps)
+\usepackage{cmap}      % ToUnicode CMap -> copyable text and accents
+\usepackage[portuguese,english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{needspace}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{\footnotesize Macroeconomics I --- MPE Insper}
+\rhead{\footnotesize Prova 01 --- detailed solution}
+\cfoot{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{14pt}
+\setlist{topsep=2pt,itemsep=1pt}
+\allowdisplaybreaks
+
+\newcommand{\questao}[2]{\par\bigskip\needspace{6\baselineskip}\noindent
+  {\large\bfseries\color{blue!55!black}Question #1 --- #2}\par\noindent\rule{\linewidth}{0.3pt}\par}
+% The exam's statement, verbatim and in the exam's language (Portuguese), as printed.
+\newcommand{\enunciado}[1]{\par\smallskip\noindent{\footnotesize\textit{Statement, as printed in the exam:}}%
+  \begin{quote}\small\begin{otherlanguage}{portuguese}#1\end{otherlanguage}\end{quote}}
+\newcommand{\itemq}[1]{\par\medskip\needspace{6\baselineskip}\enunciado{#1}}
+\newcommand{\passo}[1]{\par\smallskip\noindent\textbf{Step --- #1.}~}
+\newcommand{\intuicao}[1]{\par\smallskip\noindent\textit{Economic intuition.}~#1}
+\newcommand{\erro}[1]{\par\smallskip\noindent{\color{red!60!black}\textbf{Where the marks went.}~#1}}
+\newcommand{\refbib}[1]{\par\smallskip\noindent{\footnotesize\color{black!60}\textbf{Ref:} #1}}
+\newcommand{\rubrica}[1]{\par\smallskip\noindent\textbf{What earns the points.}\begin{itemize}[leftmargin=1.4em,topsep=1pt]#1\end{itemize}}
+\newenvironment{notacao}{\par\smallskip\noindent\textbf{Notation.}\begin{itemize}[leftmargin=1.4em,topsep=1pt,itemsep=0pt]\small}{\end{itemize}}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Macroeconomics I --- MPE Insper}\\[2pt]
+  {\large Prova 01 --- detailed solution}\\[2pt]
+  \textit{Graded answer: Q1 1.0/1.5, Q2 3.1/5.5, Q3 0.5/3.0}
+\end{center}
+{\footnotesize\noindent \textbf{How to read this.} Each question and item opens with its statement
+reproduced verbatim from the exam, in Portuguese as printed. Each question then has a Notation list. Every
+equation a later step uses carries a number, and each step says which equations it uses. Q2 and Q3
+keep the exam's own equation labels. Each item ends with the intuition, what the grader penalised
+in the submitted answer, and what earns the points. The item-by-item diagnosis is in
+\texttt{prova-01-error-analysis.md}.\par}
+
+% =====================================================================
+\questao{1}{National accounts (1.5 pt)}
+\enunciado{\textbf{1. (1,5 pontos)} Considere uma economia simplificada, sem impostos, gastos do governo e sem
+comércio exterior. Nela há dois tipos de firmas: a que produz insumos necessários à produção dos bens,
+à cargo da outra firma, vendidos às famílias. Suponha que num determinado ano, a firma produtora de
+insumos (Firma A) produziu \$600 que foram vendidos à Firma B, que produziu bens vendidos às famílias
+no valor de \$1.000.}
+
+\begin{notacao}
+\item A, B, N: the input firm, the final-goods firm and (from 1.b) the social network.
+\item $VA_j$: value added of firm $j$, its gross output minus the intermediate inputs it uses up.
+\item $C$, $I$, $G$, $NX$: household consumption, investment, government purchases and net exports
+(final uses). Here $G=NX=0$.
+\item Factor income: wages paid to workers plus profits (operating surplus) left to owners.
+\end{notacao}
+
+\passo{0, the three definitions used below}
+GDP is the market value of the \emph{final} goods and services produced in the period. It can be
+computed three ways, which must agree:
+\begin{align}
+\text{GDP} &= \textstyle\sum_j VA_j, \tag{G1}\label{G1}\\
+VA_j &= \text{gross output}_j-\text{intermediate inputs}_j, \tag{G2}\label{G2}\\
+\text{GDP} &= \textstyle\sum_j(\text{wages}_j+\text{profits}_j), \tag{G3}\label{G3}\\
+\text{GDP} &= C+I+G+NX. \tag{G4}\label{G4}
+\end{align}
+A good is \emph{intermediate} when it is used up in producing another good within the period.
+
+\itemq{\textbf{1.a (0,5 ponto)} Calcule o PIB desta economia, explicando precisamente o cálculo e o
+conceito utilizado.}
+\passo{1, classify}The \$600 of inputs is used up by B within the year, so it is intermediate.
+\passo{2, product approach}Using \eqref{G2} for each firm (A buys no inputs):
+\begin{align*}
+VA_A &= 600-0=600,\\
+VA_B &= 1000-600=400.
+\end{align*}
+Summing with \eqref{G1}:
+\[
+\text{GDP}=600+400=1000 .
+\]
+\passo{3, income approach}Each firm's value added is paid out to its workers and owners. A's
+factors earn 600 and B's earn 400, so by \eqref{G3}:
+\[
+\text{GDP}=600+400=1000 .
+\]
+\passo{4, expenditure approach}The only final use is household consumption, $C=1000$, with
+$I=G=NX=0$. By \eqref{G4}:
+\[
+\text{GDP}=1000+0+0+0=1000 .
+\]
+\intuicao{Adding $600+1000=1600$ would count the inputs twice: once when A sells them and again
+inside the price of B's goods. Netting out intermediate inputs in \eqref{G2} is what makes the three
+approaches agree.}
+\refbib{Kurlat (2020), §1.1--1.2, pp.~13--19 (the three approaches; Example 1.6, p.~19).}
+\rubrica{\item 1000 with the final-good or value-added concept stated (full marks were given).}
+
+\itemq{\textbf{1.b (0,5 ponto)} Considere agora que nesta economia a Firma B contrata o serviço de uma
+rede social recentemente criada que é gratuita para seus usuários e financiada por publicidade. A
+Firma B gasta \$100 em publicidade na rede social mas isto não gera ainda impacto nas suas vendas no
+período, que fica no patamar inicial. Calcule, justificando, o PIB desta economia na ótica do
+produto, da renda e do dispêndio, comparando-o com o valor obtido no item anterior (1.a),
+explicando o que esta comparação indica.}
+\passo{1, classify the advertising}Advertising is a service bought \emph{by a firm} and used up in
+its production in the period, so it is an intermediate input of B. The service N gives its users
+has a price of zero; no transaction takes place, so it is not in GDP.
+\passo{2, product approach}Using \eqref{G2}, with B now using two inputs:
+\begin{align*}
+VA_A &= 600-0=600,\\
+VA_B &= 1000-600-100=300,\\
+VA_N &= 100-0=100.
+\end{align*}
+Summing with \eqref{G1}:
+\[
+\text{GDP}=600+300+100=1000 .
+\]
+\passo{3, income approach}A's factors earn 600. B's profit falls by the 100 it pays N, so B's
+factors earn 300. N's workers and owners earn 100. By \eqref{G3}:
+\[
+\text{GDP}=600+300+100=1000 .
+\]
+\passo{4, expenditure approach}Final uses are unchanged ($C=1000$); the advertising is not a final
+use. By \eqref{G4}:
+\[
+\text{GDP}=1000 .
+\]
+\begin{center}\small
+\begin{tabular}{lcccc}\toprule
+Approach & A & B & N & GDP\\\midrule
+Product, \eqref{G1}--\eqref{G2} & 600 & 300 & 100 & 1000\\
+Income, \eqref{G3} & 600 & 300 & 100 & 1000\\
+Expenditure, \eqref{G4} & \multicolumn{3}{c}{$C=1000$} & 1000\\\bottomrule
+\end{tabular}\end{center}
+\passo{5, comparison}GDP is the same as in 1.a. Only the \emph{distribution} of income moved: 100
+went from B's factors to N's. Users do get value from the free service, but GDP does not record it,
+because it has no market price. This is a limit of GDP as a welfare measure.
+\intuicao{A new firm appears and GDP does not rise, because its whole output is an input into a
+product whose final value did not change.}
+\erro{The answer gave 1000 with one sentence. The item asked for all three approaches; the grader
+wrote ``3 óticas??''.}
+\refbib{Kurlat (2020), §1.2 (intermediate vs final); ch.~2 (what GDP leaves out).}
+\rubrica{\item Advertising classified as intermediate. \item All three approaches computed and
+shown to agree. \item The comparison: same GDP, redistribution, unmeasured value of the free
+service.}
+
+\itemq{\textbf{1.c (0,5 ponto)} Suponha agora que a rede social utilize integralmente a receita de
+\$100 para produzir um novo software (e nada mais se altere em relação ao que foi descrito em 1.b).
+Calcule, justificando, o PIB desta economia na ótica do produto, da renda e do dispêndio,
+comparando-o com o valor obtido no item anterior (1.b), explicando o que esta comparação indica.}
+\passo{1, classify the software}N pays \$100 to programmers who write software for N's own use. The
+software is a durable productive asset, used for more than one period. National accounts record it
+as \emph{gross fixed capital formation} (investment in intellectual property), valued at its cost
+of 100. It is a final good.
+\passo{2, product approach}N's gross output is now ads plus software, $100+100=200$, with no
+intermediate inputs. Using \eqref{G2}:
+\begin{align*}
+VA_N &= 200-0=200,\\
+VA_A &= 600,\qquad VA_B=300\ \text{(as in 1.b)}.
+\end{align*}
+Summing with \eqref{G1}:
+\[
+\text{GDP}=600+300+200=1100 .
+\]
+\passo{3, income approach}N pays 100 in wages. Its operating surplus is its output minus wages:
+\[
+\text{profit}_N=200-100=100 .
+\]
+So N's factor income is $100+100=200$. By \eqref{G3}:
+\[
+\text{GDP}=600+300+200=1100 .
+\]
+\passo{4, expenditure approach}Nothing else changes, so $C=1000$. Investment is now the software,
+$I=100$. By \eqref{G4}:
+\[
+\text{GDP}=1000+100=1100 .
+\]
+\begin{center}\small
+\begin{tabular}{lcccc}\toprule
+Approach & A & B & N & GDP\\\midrule
+Product, \eqref{G1}--\eqref{G2} & 600 & 300 & 200 & 1100\\
+Income, \eqref{G3} & 600 & 300 & wages 100 + profit 100 & 1100\\
+Expenditure, \eqref{G4} & \multicolumn{3}{c}{$C=1000$, $I=100$} & 1100\\\bottomrule
+\end{tabular}\end{center}
+\passo{5, comparison}GDP rises by 100 relative to 1.b because a new \emph{final} good, an investment
+good, was produced. If the software were expensed as an intermediate cost, GDP would stay at 1000.
+Capitalising software is the modern national-accounts convention, and it is what makes the three
+approaches agree at 1100.
+\intuicao{In 1.b the \$100 was used up inside B's product. Here it is spent producing something that
+lasts, and producing a lasting asset adds to output.}
+\erro{The answer reached 1100 but said the \$100 becomes ``wages and consumption''. On the income
+side it is wages; on the expenditure side it is \emph{investment}, since consumption is still 1000
+by assumption. The three approaches were again missing.}
+\refbib{Kurlat (2020), §1.2 (investment as a final use, pp.~17--19).}
+\rubrica{\item Software identified as investment, not consumption or intermediate. \item All three
+approaches with 1100. \item The comparison: the $+100$ comes from $I$.}
+
+% =====================================================================
+\questao{2}{Solow, golden rule and a two-period competitive equilibrium (5.5 pt)}
+\enunciado{\textbf{2. (5,5 pontos)} Considere uma economia descrita pelo modelo de Solow, onde as variáveis
+agregadas satisfazem as equações: (1) $Y_t=A_t\,.\,(K_t^{\sigma})\,.\,(L_t^{1-\sigma})$,
+(2) $K_{t+1}=(1-\delta)K_t+s\,.\,Y_t$, (3) $L_{t+1}=(1+n)L_t$, (4) $A_{t+1}=A_t=A>1$, sendo que
+$\{\sigma,\delta,s,n\}\in(0,1)$.}
+{\small The statement's equations, numbered as in the exam, for citation below:}
+\begin{align}
+Y_t &= A_t\,K_t^{\sigma}L_t^{1-\sigma}, \tag{1}\label{e1}\\
+K_{t+1} &= (1-\delta)K_t+s\,Y_t, \tag{2}\label{e2}\\
+L_{t+1} &= (1+n)L_t, \tag{3}\label{e3}\\
+A_{t+1} &= A_t=A>1. \tag{4}\label{e4}
+\end{align}
+\setcounter{equation}{4}
+
+\begin{notacao}
+\item $Y_t$: output (GDP) in period $t$. $K_t$: capital stock. $L_t$: number of workers.
+\item $A$: total factor productivity, constant and $>1$ by \eqref{e4}.
+\item $\sigma\in(0,1)$: elasticity of output with respect to capital, which under competition is
+capital's share of income.
+\item $\delta\in(0,1)$: depreciation rate. $s\in(0,1)$: saving rate (share of output saved).
+$n\in(0,1)$: growth rate of the labour force.
+\item $y_t\equiv Y_t/L_t$, $k_t\equiv K_t/L_t$, $c_t$: output, capital and consumption per worker.
+\item $k_{SS}$: steady-state capital per worker. $s_{GR}$: golden-rule saving rate.
+\end{notacao}
+
+\itemq{\textbf{2.a (1 ponto)} Defina as variáveis estacionárias por letras minúsculas e encontre uma
+expressão para $(k_{t+1}/k_t)$ e, então, o valor de estado estacionário de $k$, denotando-o por
+$k_{SS}$.}
+\passo{1, define the stationary variables}$A$ is constant and $L_t$ grows at rate $n$, so the
+variables that settle down are the per-worker ones:
+\begin{equation}
+y_t\equiv\frac{Y_t}{L_t},\qquad k_t\equiv\frac{K_t}{L_t}. \label{e5}
+\end{equation}
+\passo{2, intensive production function}Divide \eqref{e1} by $L_t$, using $A_t=A$ from \eqref{e4}:
+\begin{align}
+y_t &= \frac{A K_t^{\sigma}L_t^{1-\sigma}}{L_t}\nonumber\\
+&= A K_t^{\sigma}L_t^{-\sigma}\nonumber\\
+&= A\left(\frac{K_t}{L_t}\right)^{\sigma}\nonumber\\
+&= A k_t^{\sigma}. \label{e6}
+\end{align}
+\passo{3, accumulation per worker}Divide \eqref{e2} by $L_t$:
+\[
+\frac{K_{t+1}}{L_t}=(1-\delta)\frac{K_t}{L_t}+s\,\frac{Y_t}{L_t}.
+\]
+Replace $K_t/L_t$ by $k_t$ from \eqref{e5} and $Y_t/L_t$ by $Ak_t^{\sigma}$ from \eqref{e6}:
+\begin{align}
+\frac{K_{t+1}}{L_t} &= (1-\delta)\,(k_t)+s\,\big(A k_t^{\sigma}\big)\nonumber\\
+&= (1-\delta)k_t+s\,A k_t^{\sigma}. \label{e7}
+\end{align}
+The left side has $K_{t+1}$ over last period's labour. Multiply and divide by $L_{t+1}$, then use
+\eqref{e3}:
+\begin{align}
+\frac{K_{t+1}}{L_t} &= \frac{K_{t+1}}{L_{t+1}}\cdot\frac{L_{t+1}}{L_t}\nonumber\\
+&= (1+n)\,k_{t+1}. \label{e8}
+\end{align}
+Substitute \eqref{e8} into the left side of \eqref{e7}:
+\begin{align}
+\big((1+n)\,k_{t+1}\big) &= (1-\delta)k_t+s\,A k_t^{\sigma}\nonumber\\
+(1+n)\,k_{t+1} &= (1-\delta)k_t+s\,A k_t^{\sigma}. \label{e9}
+\end{align}
+\passo{4, the ratio}Divide \eqref{e9} by $(1+n)k_t$:
+\begin{equation}
+\frac{k_{t+1}}{k_t}=\frac{1-\delta+s\,A k_t^{\sigma-1}}{1+n}. \label{e10}
+\end{equation}
+\passo{5, steady state}In a steady state $k_{t+1}=k_t=k$, so the left side of \eqref{e10} is
+$(1)$:
+\begin{align*}
+(1) &= \frac{1-\delta+s\,A k^{\sigma-1}}{1+n}.
+\end{align*}
+Multiply by $1+n$ and solve for $k$:
+\begin{align*}
+1+n &= 1-\delta+s\,A k^{\sigma-1}\\
+n+\delta &= s\,A k^{\sigma-1}\\
+k^{1-\sigma} &= \frac{sA}{n+\delta}.
+\end{align*}
+Raise both sides to the power $1/(1-\sigma)$:
+\begin{equation}
+\boxed{k_{SS}=\left(\frac{sA}{n+\delta}\right)^{\frac{1}{1-\sigma}}} \label{e11}
+\end{equation}
+\passo{6, stability}In \eqref{e10}, $\sigma<1$ makes $k_t^{\sigma-1}$ fall as $k_t$ rises. So the
+ratio is above 1 when $k_t<k_{SS}$ and below 1 when $k_t>k_{SS}$: from any $k_0>0$, $k_t$ converges
+to $k_{SS}$.
+\intuicao{In the steady state, saving per worker, $sAk^{\sigma}$, exactly covers the capital needed
+to equip new workers ($nk$) and to replace worn-out capital ($\delta k$).}
+\rubrica{\item \eqref{e6} and the $(1+n)$ factor in \eqref{e8} derived, not assumed. \item The
+ratio \eqref{e10} and $k_{SS}$ \eqref{e11} (full marks were given).}
+
+\itemq{\textbf{2.b (1 ponto)} Demonstre qual é a taxa de poupança maximiza o consumo de estado
+estacionário (a taxa da chamada regra de ouro, $s_{GR}$).}
+\passo{1, consumption per worker}Consumption is the part of output not saved:
+\begin{equation}
+c_t=(1-s)\,y_t. \label{e12}
+\end{equation}
+\passo{2, steady-state output}Evaluate \eqref{e6} at $k_{SS}$ from \eqref{e11}:
+\begin{align}
+y_{SS} &= A\,k_{SS}^{\sigma}\nonumber\\
+&= A\left[\left(\frac{sA}{n+\delta}\right)^{\frac{1}{1-\sigma}}\right]^{\sigma}\nonumber\\
+&= A\left(\frac{sA}{n+\delta}\right)^{\frac{\sigma}{1-\sigma}}. \label{e13}
+\end{align}
+The exponent is $\frac{\sigma}{1-\sigma}$: output depends on $k_{SS}$ raised to $\sigma$.
+\passo{3, steady-state consumption}Substitute \eqref{e13} for $y$ in \eqref{e12}:
+\begin{align}
+c_{SS}(s) &= (1-s)\left(A\left(\frac{sA}{n+\delta}\right)^{\frac{\sigma}{1-\sigma}}\right)\nonumber\\
+&= (1-s)\,A\left(\frac{sA}{n+\delta}\right)^{\frac{\sigma}{1-\sigma}}. \label{e14}
+\end{align}
+\passo{4, take logs}Take the log of \eqref{e14}:
+\begin{equation}
+\ln c_{SS}=\ln A+\ln(1-s)+\frac{\sigma}{1-\sigma}\Big[\ln s+\ln A-\ln(n+\delta)\Big]. \label{e15}
+\end{equation}
+Only $\ln(1-s)$ and $\frac{\sigma}{1-\sigma}\ln s$ depend on $s$.
+\passo{5, first-order condition}Differentiate \eqref{e15} with respect to $s$ and set it to zero:
+\begin{equation}
+-\frac{1}{1-s}+\frac{\sigma}{(1-\sigma)\,s}=0. \label{e16}
+\end{equation}
+Multiply \eqref{e16} by $(1-\sigma)s(1-s)>0$:
+\begin{align*}
+-(1-\sigma)s+\sigma(1-s) &= 0\\
+-s+\sigma s+\sigma-\sigma s &= 0\\
+\sigma-s &= 0.
+\end{align*}
+Hence
+\begin{equation}
+\boxed{s_{GR}=\sigma} \label{e17}
+\end{equation}
+\passo{6, second-order condition}Differentiate \eqref{e16} once more:
+\[
+\frac{d^2\ln c_{SS}}{ds^2}=-\frac{1}{(1-s)^2}-\frac{\sigma}{(1-\sigma)s^2}<0 .
+\]
+So \eqref{e15} is strictly concave in $s$, and \eqref{e17} is the maximum.
+\passo{7, cross-check through $k$}In a steady state, \eqref{e9} with $k_{t+1}=k_t=k$ gives
+\begin{equation}
+sAk^{\sigma}=(n+\delta)\,k. \label{e18}
+\end{equation}
+Substitute \eqref{e6} for $y$ in \eqref{e12}, then replace $sAk^{\sigma}$ using \eqref{e18}:
+\begin{align}
+c_{SS} &= (1-s)\big(Ak^{\sigma}\big)\nonumber\\
+&= Ak^{\sigma}-sAk^{\sigma}\nonumber\\
+&= Ak^{\sigma}-\big((n+\delta)k\big)\nonumber\\
+&= Ak^{\sigma}-(n+\delta)k. \label{e19}
+\end{align}
+Maximise \eqref{e19} over $k$:
+\begin{equation}
+\sigma A k^{\sigma-1}=n+\delta, \label{e20}
+\end{equation}
+that is, the marginal product of capital equals $n+\delta$. Solve \eqref{e18} for $s$ and
+substitute \eqref{e20} for $n+\delta$:
+\begin{align*}
+s &= \frac{(n+\delta)\,k}{Ak^{\sigma}}\\
+&= \frac{\big(\sigma A k^{\sigma-1}\big)\,k}{Ak^{\sigma}}\\
+&= \frac{\sigma A k^{\sigma}}{Ak^{\sigma}}\\
+&= \sigma .
+\end{align*}
+Same answer as \eqref{e17}.
+\passo{8, sanity test at a knife edge}If $\sigma\to0$, capital is useless, so the best saving rate
+must go to 0. \eqref{e17} gives $s_{GR}\to0$ and passes. The submitted answer $1/(2-\sigma)$ gives
+$1/2$ and fails.
+\intuicao{Saving more raises $k$, but each extra unit of capital adds less output and needs more
+replacement. The golden rule stops where one more unit of capital per worker adds exactly as much
+output, $\sigma Ak^{\sigma-1}$, as it costs to maintain, $n+\delta$ (eq.~\eqref{e20}). With
+Cobb--Douglas, that happens when the saving rate equals capital's share.}
+\erro{The answer wrote $c_{SS}=A(1-s)\left(\frac{sA}{n+\delta}\right)^{\frac{1}{1-\sigma}}$: it
+substituted $k_{SS}$ instead of $k_{SS}^{\sigma}$ (step 2 above), so the exponent lost its $\sigma$.
+The method (logs, derivative, solving) was right but led to $s=1/(2-\sigma)$.}
+\refbib{Kurlat (2020), §4.4 (golden rule); Kurlat ex.~5.8, p.~97.}
+\rubrica{\item $c_{SS}$ with exponent $\sigma/(1-\sigma)$, \eqref{e14}. \item FOC solved to
+$s_{GR}=\sigma$, with the SOC or the cross-check \eqref{e20}. \item The interpretation: capital
+share.}
+
+\itemq{\textbf{2.c (1 ponto)} Considere agora o equilíbrio competitivo de uma economia que existe por
+apenas dois períodos. Nesta economia há um estoque inicial de capital que se deprecia totalmente em
+um período. E há uma firma representativa que é maximizadora de lucros em mercados perfeitamente
+concorrenciais e que tem a mesma função de produção (1). O consumidor representativo escolhe o
+quanto consumir e trabalhar no primeiro período, mas atinge idade que o retira da força de trabalho
+no segundo período. Logo, suas escolhas dependem de uma riqueza inicial (em termos reais) $a_0>0$ e
+da renda real do trabalho apenas no primeiro período: $w_1\,.\,A\,.\,L_1$. A renda não consumida no
+primeiro período é transferida para o segundo período através do acúmulo de riqueza, sendo $r$ a
+taxa de juros real. Por fim, sua utilidade intertemporal é dada por $U=u(c_1)+\beta u(c_2)$, sendo
+$u(c)=ln(c_t)$. Derive e explique a restrição orçamentária intertemporal deste consumidor
+representativo.}
+\begin{notacao}
+\item $c_1$, $c_2$: the household's consumption in periods 1 and 2.
+\item $a_0>0$: initial real wealth. $a_1$: assets carried from period 1 to period 2 (saving).
+\item $L_1$: hours worked in period 1, with time endowment $\bar L$, normalised to $\bar L=1$.
+\item $w_1$: real wage per efficiency unit of labour, so labour income is $w_1AL_1$.
+\item $\Pi_1$: profit of the firm, paid to the household that owns it.
+\item $r$: real interest rate between periods 1 and 2. $\beta\in(0,1)$: discount factor
+(patience).
+\item $K_1$: initial capital stock; $k_1=K_1/L_1$, $k_2=K_2/L_1$ (capital per unit of labour).
+\end{notacao}
+\passo{1, who owns what}The household owns the firm. The firm uses the initial capital stock $K_1$,
+which is fully used up in production. After paying wages, the firm's profit
+$\Pi_1=Y_1-w_1AL_1$ goes to the household.
+\passo{2, period-1 budget}Resources (wealth, wages, profits) equal uses (consumption, saving):
+\begin{equation}
+c_1+a_1=a_0+w_1AL_1+\Pi_1. \label{e21}
+\end{equation}
+\passo{3, period-2 budget}The retired household has only its savings with interest, and it consumes
+everything because there is no later period:
+\begin{equation}
+c_2=(1+r)\,a_1. \label{e22}
+\end{equation}
+Since $c_2\ge0$, \eqref{e22} also implies $a_1\ge0$: nobody lends to a household with no future
+income.
+\passo{4, combine}Solve \eqref{e22} for $a_1$:
+\[
+a_1=\frac{c_2}{1+r}.
+\]
+Substitute this for $a_1$ in \eqref{e21}:
+\[
+c_1+\left(\frac{c_2}{1+r}\right)=a_0+w_1AL_1+\Pi_1 .
+\]
+Drop the parentheses:
+\begin{equation}
+\boxed{c_1+\frac{c_2}{1+r}=a_0+w_1AL_1+\Pi_1} \label{e23}
+\end{equation}
+together with the time constraint
+\begin{equation}
+0\le L_1\le 1. \label{e24}
+\end{equation}
+\passo{5, explain}The left side of \eqref{e23} is the \emph{present value} of lifetime consumption:
+period-2 consumption is discounted by $1+r$. The right side is the present value of lifetime
+resources (wealth, wages and profits, all received in period 1). Since $u'(c)>0$, leaving
+resources unspent is never optimal, so \eqref{e23} holds with equality.
+\intuicao{One unit not consumed today becomes $1+r$ units tomorrow. So the price of $c_2$ in units
+of $c_1$ is $1/(1+r)$.}
+\erro{The answer omitted profits $\Pi_1$ (the grader added ``$+\Pi$ (lucro das firmas)'') and called
+the left side ``total consumption adjusted by the interest rate'' instead of its present value.}
+\rubrica{\item Both period constraints \eqref{e21}--\eqref{e22}, with profits. \item The combined
+constraint \eqref{e23}. \item The present-value interpretation.}
+
+\itemq{\textbf{2.d (1 ponto)} Monte o problema do consumidor representativo descrito em 2.c e calcule
+as condições de primeira ordem para \underline{\textbf{todas}} as variáveis de sua escolha (incluindo
+a equação descrevendo a decisão intertemporal do consumo). Por fim, encontre a equação que descreve a
+escolha ótima de $c_1$ (como função apenas de parâmetros, preços e níveis de renda e riqueza),
+interpretando-a economicamente.}
+\begin{notacao}
+\item $\lambda$: multiplier on the budget \eqref{e23} (marginal utility of a unit of wealth).
+\item $\nu\ge0$: multiplier on the time constraint $L_1\le1$ in \eqref{e24}.
+\item $W\equiv a_0+w_1A+\Pi_1$: lifetime resources when $L_1=1$ (defined in step 6).
+\end{notacao}
+\passo{1, list the choices first}The household chooses $c_1$, $c_2$ and $L_1$. Then \eqref{e21}
+gives $a_1$. It takes $w_1$, $r$ and $\Pi_1$ as given.
+\passo{2, Lagrangian}Maximise $U$ subject to \eqref{e23} and \eqref{e24}:
+\begin{equation}
+\mathcal L=\ln c_1+\beta\ln c_2
++\lambda\Big[a_0+w_1AL_1+\Pi_1-c_1-\frac{c_2}{1+r}\Big]+\nu\,(1-L_1). \label{e25}
+\end{equation}
+\passo{3, FOC for $c_1$}Differentiate \eqref{e25} with respect to $c_1$:
+\begin{equation}
+\frac{1}{c_1}=\lambda. \label{e26}
+\end{equation}
+\passo{4, FOC for $c_2$}Differentiate \eqref{e25} with respect to $c_2$:
+\begin{equation}
+\frac{\beta}{c_2}=\frac{\lambda}{1+r}. \label{e27}
+\end{equation}
+\passo{5, FOC for $L_1$}Differentiate \eqref{e25} with respect to $L_1$:
+\begin{equation}
+\lambda\,w_1A-\nu=0,\qquad \nu\ge0,\qquad \nu\,(1-L_1)=0. \label{e28}
+\end{equation}
+Substitute $\lambda$ from \eqref{e26} into \eqref{e28}:
+\begin{align*}
+\left(\frac{1}{c_1}\right)w_1A-\nu &= 0\\
+\nu &= \frac{w_1A}{c_1}>0 .
+\end{align*}
+Since $\nu>0$, the last condition in \eqref{e28} forces
+\begin{equation}
+L_1=1. \label{e29}
+\end{equation}
+Work has no utility cost here (there is no leisure in $U$), while every hour raises income. So the
+household supplies its whole time endowment: a corner solution.
+\passo{6, Euler equation}Substitute $\lambda$ from \eqref{e26} into \eqref{e27}:
+\begin{align*}
+\frac{\beta}{c_2} &= \frac{\left(\frac{1}{c_1}\right)}{1+r}\\
+\frac{\beta}{c_2} &= \frac{1}{(1+r)\,c_1}.
+\end{align*}
+Cross-multiply:
+\begin{equation}
+c_2=\beta(1+r)\,c_1. \label{e30}
+\end{equation}
+Equivalently, $\frac{1/c_1}{\beta/c_2}=1+r$: the marginal rate of substitution equals the relative
+price.
+\passo{7, solve}Define lifetime resources at $L_1=1$:
+\begin{equation}
+W\equiv a_0+w_1A+\Pi_1. \label{e31}
+\end{equation}
+Substitute \eqref{e30} for $c_2$ and \eqref{e29} for $L_1$ in \eqref{e23}:
+\begin{align*}
+c_1+\frac{\big(\beta(1+r)\,c_1\big)}{1+r} &= a_0+w_1A\,(1)+\Pi_1 .
+\end{align*}
+The right side is $W$ by \eqref{e31}; simplify:
+\begin{align*}
+c_1+\frac{\beta(1+r)\,c_1}{1+r} &= W\\
+c_1+\beta c_1 &= W\\
+c_1(1+\beta) &= W.
+\end{align*}
+Hence
+\begin{equation}
+\boxed{c_1=\frac{a_0+w_1A+\Pi_1}{1+\beta}}. \label{e32}
+\end{equation}
+Substitute \eqref{e32} for $c_1$ in \eqref{e30}:
+\begin{align}
+c_2 &= \beta(1+r)\left(\frac{W}{1+\beta}\right)\nonumber\\
+&= \frac{\beta(1+r)}{1+\beta}\,W. \label{e33}
+\end{align}
+From \eqref{e21} with $L_1=1$ \eqref{e29} and $W$ \eqref{e31}, $a_1=W-c_1$. Substitute \eqref{e32} for
+$c_1$:
+\begin{align}
+a_1 &= W-\left(\frac{W}{1+\beta}\right)\nonumber\\
+&= \frac{(1+\beta)W-W}{1+\beta}\nonumber\\
+&= \frac{\beta}{1+\beta}\,W. \label{e34}
+\end{align}
+\passo{8, interpret}
+\begin{itemize}[leftmargin=1.4em]
+\item By \eqref{e32}, the household consumes the fraction $1/(1+\beta)$ of lifetime resources
+today: its marginal propensity to consume out of wealth.
+\item Differentiating \eqref{e32}: $\partial c_1/\partial\beta=-W/(1+\beta)^2<0$. A more patient
+household consumes less today and saves more. If $\beta\to0$, it consumes everything in period 1.
+\item \eqref{e32} does not contain $r$. All resources arrive in period 1. A higher $r$ makes saving
+more rewarding (substitution effect, $c_1\downarrow$) and makes the saver richer (income effect,
+$c_1\uparrow$). With log utility the two cancel exactly.
+\end{itemize}
+\erro{The Euler equation and $c_1$ were right (full marks on those parts), but there was no FOC for
+$L_1$ (``Escolha de $L_1$??'', 0/0.2), and $\Pi_1$ was again missing from $c_1$.}
+\refbib{Kurlat (2020), §6.1 (two-period problem, log utility); ch.~9 for households that own firms.}
+\rubrica{\item Lagrangian \eqref{e25} with every choice variable. \item FOCs for $c_1$, $c_2$
+\emph{and} $L_1$ (corner), \eqref{e26}--\eqref{e29}. \item Euler \eqref{e30}, $c_1$ in closed form
+\eqref{e32}, interpretation of $\beta$ and of $r$.}
+
+\itemq{\textbf{2.e (1 ponto)} Calcule a taxa de poupança deste agente representativo (ou seja, da
+participação da poupança na renda do agente). Depois encontre uma expressão para $k_2$ como função
+apenas de $k_1$ e de parâmetros do modelo (lembrando que se trata de uma economia com mercados
+perfeitamente competitivos). Faça então um diagrama da expressão encontrada, colocando no eixo
+horizontal $k_1$ e no eixo vertical $k_2$ e mostre \underline{\textbf{graficamente}} qual é o estado
+estacionário desta economia}
+\begin{notacao}
+\item $s^\ast$: the household's saving rate (saving over lifetime resources).
+\item $\phi(k_1)$: the law of motion, next period's capital as a function of this period's.
+\end{notacao}
+\passo{1, saving rate}Divide \eqref{e34} by $W$:
+\[
+\frac{a_1}{W}=\frac{\left(\frac{\beta}{1+\beta}W\right)}{W}.
+\]
+Cancel $W$:
+\begin{equation}
+\boxed{s^\ast\equiv\frac{a_1}{W}=\frac{\beta}{1+\beta}} \label{e35}
+\end{equation}
+It is constant and set by patience alone.
+\passo{2, the firm}With $L_1=1$ from \eqref{e29}, $K_1=k_1$. Using \eqref{e1} with $A_t=A$, the firm
+chooses labour to maximise profit:
+\begin{equation}
+\max_{L_1}\ A k_1^{\sigma}L_1^{1-\sigma}-w_1AL_1. \label{e36}
+\end{equation}
+Differentiate \eqref{e36} with respect to $L_1$:
+\begin{equation}
+(1-\sigma)A k_1^{\sigma}L_1^{-\sigma}=w_1A. \label{e37}
+\end{equation}
+Substitute $L_1=1$ from \eqref{e29} into \eqref{e37} to get the wage bill:
+\begin{align}
+(1-\sigma)A k_1^{\sigma}\,(1)^{-\sigma} &= w_1A\nonumber\\
+w_1A &= (1-\sigma)A k_1^{\sigma}. \label{e38}
+\end{align}
+\passo{3, profits}Profit is output minus the wage bill, $\Pi_1=Y_1-w_1AL_1$. Substitute $Y_1$ from
+\eqref{e1} (with $L_1=1$) and $w_1A$ from \eqref{e38}:
+\begin{align}
+\Pi_1 &= \big(A k_1^{\sigma}(1)^{1-\sigma}\big)-\big((1-\sigma)A k_1^{\sigma}\big)(1)\nonumber\\
+&= A k_1^{\sigma}-(1-\sigma)A k_1^{\sigma}\nonumber\\
+&= \sigma A k_1^{\sigma}. \label{e39}
+\end{align}
+This is capital's share of output. Substitute \eqref{e38} for $w_1A$ and \eqref{e39} for $\Pi_1$ in
+\eqref{e31}:
+\begin{align}
+W &= a_0+\big((1-\sigma)Ak_1^{\sigma}\big)+\big(\sigma Ak_1^{\sigma}\big)\nonumber\\
+&= a_0+A k_1^{\sigma}. \label{e40}
+\end{align}
+\passo{4, market clearing}In a closed economy with no government, the only way to carry resources
+into period 2 is to install capital. So all saving becomes period-2 capital:
+\begin{equation}
+K_2=a_1. \label{e41}
+\end{equation}
+Substitute \eqref{e34} for $a_1$ in \eqref{e41}, with $k_2=K_2$ (one unit of labour):
+\[
+k_2=\left(\frac{\beta}{1+\beta}\,W\right).
+\]
+Then substitute \eqref{e40} for $W$:
+\[
+k_2=\frac{\beta}{1+\beta}\big(a_0+Ak_1^{\sigma}\big).
+\]
+Name this map $\phi$:
+\begin{equation}
+\boxed{k_2=\frac{\beta}{1+\beta}\big(a_0+A k_1^{\sigma}\big)\equiv\phi(k_1)} \label{e42}
+\end{equation}
+\passo{5, shape of $\phi$}Read off \eqref{e42}:
+\begin{itemize}[leftmargin=1.4em]
+\item $\phi(0)=\frac{\beta a_0}{1+\beta}>0$: the curve starts above the origin.
+\item $\phi'(k)=\frac{\beta}{1+\beta}\,\sigma A k^{\sigma-1}>0$ and $\phi''(k)<0$: increasing and
+concave.
+\item $\phi'(k)\to\infty$ as $k\to0$ and $\phi'(k)\to0$ as $k\to\infty$.
+\end{itemize}
+So $\phi(k)-k$ is positive at $k=0$, eventually negative, and strictly concave. It crosses zero
+exactly once: one steady state, $\phi(k_{SS})=k_{SS}$. At the crossing the curve cuts the 45° line
+from above, so $\phi'(k_{SS})<1$ and the steady state is stable.
+\passo{6, steady state}For the economy to repeat, each period's household must face the same
+problem. Take later cohorts with no extra wealth ($a_0=0$; the capital they inherit already pays
+out through $\Pi$). Substitute $k_2=k_1=k$ and $a_0=0$ into \eqref{e42}:
+\begin{align*}
+(k) &= \frac{\beta}{1+\beta}\big((0)+A (k)^{\sigma}\big)\\
+k &= \frac{\beta}{1+\beta}A k^{\sigma}.
+\end{align*}
+Divide by $k^{\sigma}$:
+\begin{align*}
+k^{1-\sigma} &= \frac{\beta A}{1+\beta}.
+\end{align*}
+Hence
+\begin{equation}
+\boxed{k_{SS}=\left(\frac{\beta A}{1+\beta}\right)^{\frac{1}{1-\sigma}}} \label{e43}
+\end{equation}
+The slope there: from step 5,
+\[
+\phi'(k_{SS})=\sigma\cdot\frac{\beta}{1+\beta}A k_{SS}^{\sigma-1}.
+\]
+At $k_{SS}$, $k^{1-\sigma}=\frac{\beta A}{1+\beta}$; dividing both sides by $k_{SS}^{1-\sigma}$ gives
+$1=\frac{\beta}{1+\beta}Ak_{SS}^{\sigma-1}$. Substitute this bracket into $\phi'(k_{SS})$:
+\begin{align*}
+\phi'(k_{SS}) &= \sigma\cdot(1)\\
+&= \sigma<1 .
+\end{align*}
+With a recurring $a_0>0$, $k_{SS}$ solves $k=\phi(k)$ in \eqref{e42}; it has no closed form but is
+read off the diagram.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=8.5cm,height=7cm,xmin=0,xmax=0.4,ymin=0,ymax=0.4,
+  axis lines=left,xlabel={$k_1$},ylabel={$k_2$},xtick={0.1602,0.2376},xticklabels={$k_{SS}^{a_0=0}$,$k_{SS}$},
+  ytick={0.05},yticklabels={$\frac{\beta a_0}{1+\beta}$},tick label style={font=\scriptsize},
+  legend style={font=\scriptsize,at={(0.03,0.97)},anchor=north west,draw=none}]
+\addplot[black,dashed,domain=0:0.4] {x};
+\addlegendentry{45° line}
+\addplot[blue!70!black,thick,domain=0.0001:0.4,samples=120] {(0.15+x^0.4)/3};
+\addlegendentry{$\phi(k)$, $a_0>0$}
+\addplot[red!70!black,thick,dotted,domain=0.0001:0.4,samples=120] {(x^0.4)/3};
+\addlegendentry{$\phi(k)$, $a_0=0$}
+\addplot[only marks,mark=*,mark size=1.6pt] coordinates {(0.2376,0.2376) (0.1602,0.1602)};
+\draw[gray,densely dotted] (axis cs:0.2376,0) -- (axis cs:0.2376,0.2376);
+\draw[gray,densely dotted] (axis cs:0.1602,0) -- (axis cs:0.1602,0.1602);
+\end{axis}
+\end{tikzpicture}\\[-2pt]
+{\footnotesize Figure 1. The law of motion \eqref{e42} against the 45° line (illustrative values
+$A=1$, $\sigma=0.4$, $\beta=0.5$, $a_0=0.15$). Below $k_{SS}$ the curve lies above the 45° line, so
+$k$ rises; above it, $k$ falls.}
+\end{center}
+\intuicao{Each period the household saves a fixed fraction of what it has \eqref{e35}, and market
+clearing \eqref{e41} turns that saving into next period's capital. Diminishing returns ($\sigma<1$)
+make output, and so saving, grow less than proportionally with capital. Capital therefore stops
+growing where saving just replaces the capital that is used up.}
+\par\noindent\textit{Reading note.} The statement does not say who owns $K_1$. In the
+overlapping-generations reading (the young save only their wages; the old consume the capital
+income), \eqref{e42} becomes $k_2=\frac{\beta}{1+\beta}(1-\sigma)Ak_1^{\sigma}$ and
+$k_{SS}=\big(\frac{\beta(1-\sigma)A}{1+\beta}\big)^{1/(1-\sigma)}$. The diagram and the argument are
+the same.
+\erro{The saving rate was not taken from the optimum (\eqref{e34} already gives it). Instead the
+answer set $(1-s)Y=wAL$, which equates consumption with labour income and has no basis in the
+model. There was no market-clearing condition \eqref{e41}. The resulting map $k_2=Ak_1^{\sigma}-w_1A$
+and the slope inequality were wrong (0/1).}
+\refbib{Kurlat (2020), ch.~9 (equilibrium with production); Romer (2012), §2.9--2.10 (Diamond
+model, log utility, full depreciation), for the OLG reading.}
+\rubrica{\item Saving rate \eqref{e35} from the household's optimum. \item Firm FOC \eqref{e37},
+profits \eqref{e39}, and market clearing \eqref{e41}. \item $\phi(k_1)$ \eqref{e42}, the diagram
+with the 45° line, and the steady state at the crossing.}
+
+\itemq{\textbf{2.f. (0,5 ponto)} Discuta intuitivamente a relação do modelo dos itens 2.c-2.e com o
+modelo de Solow dos itens 2.a-2.b.}
+\begin{notacao}
+\item $k_{GR}$: the golden-rule capital stock, where \eqref{e20} holds.
+\end{notacao}
+\passo{1, same law of motion}Substitute $\delta=1$ (capital fully used up) and $n=0$ (constant
+labour) into \eqref{e9}:
+\begin{align}
+\big(1+(0)\big)\,k_{t+1} &= \big(1-(1)\big)k_t+s\,A k_t^{\sigma}\nonumber\\
+k_{t+1} &= s\,A k_t^{\sigma}. \label{e44}
+\end{align}
+With $a_0=0$, \eqref{e42} is exactly \eqref{e44} with $s=\frac{\beta}{1+\beta}$. Likewise,
+substitute $\delta=1$, $n=0$ and $s=\frac{\beta}{1+\beta}$ into \eqref{e11}:
+\begin{align*}
+k_{SS} &= \left(\frac{\left(\frac{\beta}{1+\beta}\right)A}{(0)+(1)}\right)^{\frac{1}{1-\sigma}}\\
+&= \left(\frac{\beta A}{1+\beta}\right)^{\frac{1}{1-\sigma}},
+\end{align*}
+which is \eqref{e43}.
+\passo{2, the difference that matters}Solow \emph{assumes} a constant saving rate. Here it is
+\emph{chosen}, \eqref{e35}: it depends on patience $\beta$, and it is constant and independent of
+$r$ only because utility is logarithmic. With CRRA utility of curvature $\theta\ne1$ it would move
+with the interest rate. So the two-period equilibrium is a microfoundation for Solow's saving rule.
+\passo{3, against the golden rule}Compare \eqref{e35} with \eqref{e17}. Substitute $\delta=1$ and
+$n=0$ into \eqref{e20}:
+\begin{align*}
+\sigma A k^{\sigma-1} &= (0)+(1)\\
+k^{1-\sigma} &= \sigma A\\
+k_{GR} &= (\sigma A)^{\frac{1}{1-\sigma}} .
+\end{align*}
+Comparing with \eqref{e43}:
+\[
+k_{SS}>k_{GR}\iff\frac{\beta}{1+\beta}>\sigma .
+\]
+The equilibrium reaches the golden rule only by coincidence. If $\frac{\beta}{1+\beta}>\sigma$, it
+accumulates too much capital: saving less would raise consumption in every period (dynamic
+inefficiency, possible when households live finitely). Nothing in a competitive equilibrium aims at
+maximising steady-state consumption; households weigh today against tomorrow with their own
+$\beta$.
+\intuicao{Same machine (Solow's accumulation \eqref{e44}), different engine (a saving rate from
+preferences rather than a parameter).}
+\erro{The answer said only ``Solow with $\delta=1$ and $n=0$'' (0.1/0.5), half of step 1. It missed
+the endogenous saving rate and the comparison with $s_{GR}$.}
+\refbib{Kurlat (2020), ex.~9.12 ``Optimal vs Fixed Savings Rates'', p.~185.}
+\rubrica{\item The mapping $\delta=1$, $n=0$, $s=\beta/(1+\beta)$. \item Endogenous vs exogenous
+saving. \item Comparison with $s_{GR}=\sigma$.}
+
+% =====================================================================
+\questao{3}{The New Keynesian AS--AD model of Benigno (2015) (3.0 pt)}
+\enunciado{\textbf{3. (3 pontos)} Considere o modelo novo-keynesiano simplificado apresentado por Benigno
+(2015), que se baseia nas seguintes equações de demanda e oferta agregadas (em que variáveis com
+barra em cima são as de longo prazo, quando todas as firmas reajustam preços; as demais sendo de
+curto prazo):
+\[\text{(AD)}\qquad y=\bar y+(g-\bar g)-\sigma\big[i-(\bar p-p)\big]-\sigma ln\beta\]
+\[\text{(AS)}\qquad p-p^e=\kappa(y-y_n)\]
+em que $p^e$ é o preço fixado pelas firmas que não podem reajustar preços e $y_n$ é o produto
+natural de curto prazo, dado por:
+$y_n=\frac{1+\eta}{\sigma^{-1}+\eta}a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}g-\frac{1}{\sigma^{-1}+\eta}\mu$,
+sendo $\mu$ o parâmetro que representa o grau de markup nesta economia.}
+{\small The statement's equations, with the exam's labels, for citation below:}
+\begin{align}
+y &= \bar y+(g-\bar g)-\sigma\big[i-(\bar p-p)\big]-\sigma\ln\beta, \tag{AD}\label{AD}\\
+p-p^e &= \kappa\,(y-y_n), \tag{AS}\label{AS}\\
+y_n &= \frac{1+\eta}{\sigma^{-1}+\eta}\,a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,g-\frac{1}{\sigma^{-1}+\eta}\,\mu, \tag{YN}\label{YN}\\
+L &= \tfrac12(y-y_e)^2+\frac{\phi}{2\kappa}(p-p^e)^2, \tag{LF}\label{LF}\\
+y_e &= \frac{1+\eta}{\sigma^{-1}+\eta}\,a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,g. \tag{YE}\label{YE}
+\end{align}
+
+\begin{notacao}
+\item $y$, $p$: output and price level today (in logs). $\bar y$, $\bar p$: their long-run values,
+when all firms have reset prices.
+\item $p^e$: the price preset by the firms that cannot adjust this period.
+\item $i$: nominal interest rate, the central bank's instrument. $\beta\in(0,1)$: discount factor.
+\item $g$, $\bar g$: government spending today and in the long run.
+\item $a$, $\bar a$: productivity today and in the long run.
+\item $\mu$, $\bar\mu$: the firms' desired markup today and in the long run.
+\item $\sigma>0$: intertemporal elasticity of substitution (in Q3; it is \emph{not} the capital
+share of Q2). $\eta>0$: inverse Frisch elasticity of labour supply.
+\item $\kappa>0$: slope of AS; it is larger the more firms adjust prices.
+\item $y_n$: natural output (flexible prices, with the markup). $y_e$: efficient output (no markup).
+\item $\phi\ge0$: the weight the central bank puts on price surprises in the loss \eqref{LF}.
+\end{notacao}
+
+\passo{0a, long-run output}Long-run output is \eqref{YN} evaluated at long-run values:
+\begin{equation}
+\bar y=\frac{1+\eta}{\sigma^{-1}+\eta}\,\bar a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}\,\bar g-\frac{1}{\sigma^{-1}+\eta}\,\bar\mu. \label{e45}
+\end{equation}
+\textbf{Key fact for Q3:} $\bar\mu$ enters through $\bar y$, which is in \eqref{AD}. The current
+$\mu$ enters through $y_n$, which is in \eqref{AS}.
+\passo{0b, the two curves in the $(y,p)$ plane}Solve \eqref{AD} for $p$:
+\begin{equation}
+p=\bar p-i-\ln\beta+\frac{\bar y+g-\bar g-y}{\sigma}. \label{e46}
+\end{equation}
+This is a downward line with slope $-1/\sigma$. Rewrite \eqref{AS}:
+\begin{equation}
+p=p^e+\kappa\,(y-y_n). \label{e47}
+\end{equation}
+This is an upward line with slope $\kappa$ through $(y_n,p^e)$.
+\passo{0c, the equilibrium}Substitute \eqref{e47} for $p$ into \eqref{AD}:
+\begin{align*}
+y &= \bar y+(g-\bar g)-\sigma\Big[i-\Big(\bar p-\big(p^e+\kappa(y-y_n)\big)\Big)\Big]-\sigma\ln\beta .
+\end{align*}
+Open the brackets:
+\begin{align*}
+y &= \bar y+g-\bar g-\sigma i+\sigma\bar p-\sigma\big[p^e+\kappa(y-y_n)\big]-\sigma\ln\beta\\
+y &= \bar y+g-\bar g-\sigma i+\sigma\bar p-\sigma p^e-\sigma\kappa\,y+\sigma\kappa\,y_n-\sigma\ln\beta .
+\end{align*}
+Move $-\sigma\kappa\,y$ to the left:
+\begin{align*}
+y+\sigma\kappa\,y &= \bar y+g-\bar g-\sigma i+\sigma(\bar p-p^e)+\sigma\kappa\,y_n-\sigma\ln\beta .
+\end{align*}
+Divide by $1+\sigma\kappa$:
+\begin{equation}
+y=\frac{\bar y+g-\bar g-\sigma i+\sigma(\bar p-p^e)+\sigma\kappa\,y_n-\sigma\ln\beta}{1+\sigma\kappa}. \label{e48}
+\end{equation}
+
+\itemq{\textbf{3.a (1 ponto)} Considere que há uma expectativa de aumento no longo prazo do markup.
+Represente \underline{graficamente}, explicando economicamente o porquê, a situação de equilíbrio
+inicial antes desta informação e o deslocamento que define o novo equilíbrio após a nova
+expectativa. Não se esqueça de indicar o hiato do produto e usá-lo em sua explicação.}
+\passo{1, initial equilibrium $E_0$}Before the news, monetary policy has set $i$ so that AD crosses
+AS at $(y_n,p^e)$: output at its natural level, prices as expected, output gap $y-y_n=0$.
+\passo{2, which curve moves}Differentiate \eqref{e45} with respect to $\bar\mu$:
+\begin{equation}
+d\bar y=-\frac{d\bar\mu}{\sigma^{-1}+\eta}<0. \label{e49}
+\end{equation}
+By \eqref{YN}, $y_n$ depends on the current $\mu$, which has not moved, so $dy_n=0$.
+Hence \eqref{AD} shifts left by $|d\bar y|$ at every $p$ (see \eqref{e46}), and \textbf{AS
+\eqref{e47} does not move}. Economically: households expect lower income in the long run; to smooth
+consumption (Euler equation) they consume less \emph{today} at any given real interest rate.
+\passo{3, new equilibrium $E_1$}Differentiate \eqref{e48}; only $\bar y$, $i$ and $y_n$ can move.
+Substitute $di=0$ and $dy_n=0$:
+\begin{align}
+dy &= \frac{d\bar y-\sigma\,(0)+\sigma\kappa\,(0)}{1+\sigma\kappa}\nonumber\\
+&= \frac{d\bar y}{1+\sigma\kappa}. \label{e50}
+\end{align}
+Substitute \eqref{e49} for $d\bar y$ in \eqref{e50}:
+\begin{align*}
+dy &= \frac{\left(-\dfrac{d\bar\mu}{\sigma^{-1}+\eta}\right)}{1+\sigma\kappa}\\
+&= -\frac{d\bar\mu}{(1+\sigma\kappa)(\sigma^{-1}+\eta)}<0 .
+\end{align*}
+Differentiate \eqref{e47} ($p^e$ is preset) and substitute $dy_n=0$:
+\begin{align}
+dp &= \kappa\,\big(dy-(0)\big)\nonumber\\
+&= \kappa\,dy<0. \label{e51}
+\end{align}
+\passo{4, output gap}Since $dy_n=0$, the gap moves one-for-one with output:
+\[
+d(y-y_n)=dy<0 .
+\]
+This is a negative output gap, a demand-driven recession, with prices below what the preset firms
+expected ($p<p^e$). Flexible-price firms cut prices; firms with preset prices keep $p^e$ and produce
+what is demanded, so output falls.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=9cm,height=6.5cm,xmin=-1,xmax=0.8,ymin=-0.7,ymax=0.6,axis lines=left,
+  xlabel={$y$},ylabel={$p$},xtick={-0.4,0},xticklabels={$y_1$,$y_n$},ytick={-0.2,0},yticklabels={$p_1$,$p^e$},
+  tick label style={font=\scriptsize},clip=false]
+\draw[gray,densely dotted] (axis cs:-1,0) -- (axis cs:0,0) -- (axis cs:0,-0.7);
+\draw[gray,densely dotted] (axis cs:-1,-0.2) -- (axis cs:-0.4,-0.2) -- (axis cs:-0.4,-0.7);
+\addplot[black,thick,domain=-1:0.8] {0.5*x} node[right,font=\scriptsize]{AS};
+\addplot[blue!70!black,thick,domain=-0.55:0.55] {-x} node[below,font=\scriptsize]{AD$_0$};
+\addplot[red!70!black,thick,domain=-1:0.1] {-(x+0.6)};
+\node[red!70!black,font=\scriptsize,anchor=west] at (axis cs:-0.95,0.4) {AD$_1$};
+\addplot[only marks,mark=*,mark size=1.5pt] coordinates {(0,0) (-0.4,-0.2)};
+\node[font=\scriptsize,anchor=south west] at (axis cs:0,0) {$E_0=(y_n,p^e)$};
+\node[font=\scriptsize,anchor=north east] at (axis cs:-0.4,-0.2) {$E_1$};
+\draw[->,red!70!black] (axis cs:0.25,-0.25) -- (axis cs:-0.3,-0.25) node[midway,below,font=\scriptsize]{$\bar\mu\uparrow\Rightarrow\bar y\downarrow$};
+\end{axis}
+\end{tikzpicture}\\[-2pt]
+{\footnotesize Figure 2. News of a higher long-run markup: AD shifts left, AS stays. The output gap is
+the horizontal distance $y_1-y_n<0$.}
+\end{center}
+\intuicao{The markup will raise prices relative to costs only \emph{in the future}. What it changes
+today is expected income, which is a demand effect. A supply effect would need firms' costs or
+markups to change today.}
+\erro{The answer shifted AS through $y_n$ (``$\uparrow\bar\mu$, não $\uparrow\mu$!'') and then
+described AD with $p\uparrow,y\downarrow$, a contradictory sign story (0.2/1).}
+\refbib{Benigno (2015), §6.3 (news about the future, Fig.~8, p.~513) and §7 (markup shocks, Fig.~9).}
+\rubrica{\item AD shifts left because $\bar y$ falls \eqref{e49}; AS fixed because $y_n$ is fixed.
+\item Graph with $E_0$ and $E_1$. \item Negative gap \eqref{e50} and the mechanism (consumption
+smoothing, sticky prices).}
+
+\itemq{\textbf{3.b (1 ponto)} Com base no item anterior, explique intuitivamente o que uma autoridade
+monetária comprometida com a estabilidade de preços deveria fazer após a expectativa de aumento no
+markup, e qual o custo econômico de assim proceder.}
+\passo{1, the target}Price stability means $p=p^e$. By \eqref{e47}, that requires $y=y_n$, i.e. back
+to $E_0$. Monetary policy cannot move AS; it moves AD through $i$.
+\passo{2, the size of the move}Differentiate \eqref{e48} and substitute $dy=0$ (the target) and
+$dy_n=0$:
+\begin{align*}
+(0) &= \frac{d\bar y-\sigma\,di+\sigma\kappa\,(0)}{1+\sigma\kappa}\\
+0 &= d\bar y-\sigma\,di\\
+\sigma\,di &= d\bar y .
+\end{align*}
+Hence
+\begin{equation}
+di=\frac{d\bar y}{\sigma}. \label{e52}
+\end{equation}
+Substitute \eqref{e49} for $d\bar y$ in \eqref{e52}:
+\begin{align}
+di &= \frac{\left(-\dfrac{d\bar\mu}{\sigma^{-1}+\eta}\right)}{\sigma}\nonumber\\
+&= -\frac{d\bar\mu}{\sigma(\sigma^{-1}+\eta)}\nonumber\\
+&= -\frac{d\bar\mu}{\sigma\sigma^{-1}+\sigma\eta}\nonumber\\
+&= -\frac{d\bar\mu}{1+\sigma\eta}<0. \label{e53}
+\end{align}
+The central bank \textbf{cuts} $i$. The cut lowers the real rate, raises current consumption, and
+moves AD$_1$ back to AD$_0$ in Figure 2. Its size equals the fall in the natural rate of interest.
+\passo{3, the cost}
+\begin{itemize}[leftmargin=1.4em]
+\item In terms of the output gap the cost is \emph{zero}. A pure demand shock has no trade-off:
+stabilising prices also closes $y-y_n$ (what the literature calls the divine coincidence).
+\item What policy \emph{cannot} fix: output returns only to $y_n$, which is below the efficient
+$y_e$ (compare \eqref{YN} with \eqref{YE}: the markup term), and $\bar y$ is permanently lower by
+\eqref{e49}. Those are real effects, beyond monetary policy.
+\item If $i$ is already near zero, the cut in \eqref{e53} may be infeasible (zero lower bound, §9).
+The recession then persists unless policy can promise a higher $\bar p$ or use fiscal policy.
+\end{itemize}
+\intuicao{Raising $i$, as in the answer, would push AD further left by \eqref{e48}: a deeper
+recession and a larger fall in prices, the opposite of price stability.}
+\erro{The answer said to \emph{raise} the rate ``to contain the rise in prices''; prices are
+falling here. The cost was not discussed (0.1/1).}
+\refbib{Benigno (2015), §6 (natural rate and policy), §9 (zero lower bound), §11 (no trade-off for
+demand shocks).}
+\rubrica{\item Cut $i$, \eqref{e53}, with the reason (AD back to $E_0$). \item No gap cost (divine
+coincidence). \item What remains: $y_n<y_e$, lower $\bar y$, the ZLB caveat.}
+
+\itemq{\textbf{3.c (1 ponto)} Suponha que a autoridade monetária representa o conjunto de preferências
+sociais e seus objetivos em termos da seguinte função de perda quadrática e do parâmetro $\phi\ge0$:
+\[\text{(LF)}\qquad L=\frac12(y-y_e)^2+\frac{\phi}{2\kappa}(p-p^e)^2\]
+onde $y_e=\frac{1+\eta}{\sigma^{-1}+\eta}a+\frac{\sigma^{-1}}{\sigma^{-1}+\eta}g$ é o nível eficiente
+de produto. Derive a regra ótima de política monetária (IT) e mostre graficamente qual é a política
+ótima após a expectativa de aumento do markup no longo prazo. Discuta como sua resposta neste item
+depende do valor de $\phi$.}
+\begin{notacao}
+\item $y^\ast$, $p^\ast$, $i^\ast$: the optimal output, price level and interest rate.
+\end{notacao}
+\passo{1, the constraint}The central bank sets $i$, which moves only AD. So it can pick any point on
+AS, and \eqref{AS} is its constraint:
+\begin{equation}
+p-p^e=\kappa\,(y-y_n). \label{e54}
+\end{equation}
+\passo{2, substitute the constraint}Substitute \eqref{e54} for $p-p^e$ in \eqref{LF}:
+\begin{align}
+L &= \tfrac12(y-y_e)^2+\frac{\phi}{2\kappa}\big(\kappa(y-y_n)\big)^2\nonumber\\
+&= \tfrac12(y-y_e)^2+\frac{\phi}{2\kappa}\,\kappa^2(y-y_n)^2\nonumber\\
+&= \tfrac12(y-y_e)^2+\frac{\phi\kappa}{2}(y-y_n)^2 . \label{e55}
+\end{align}
+This is the loss as a function of $y$ alone, $L(y)$.
+\passo{3, first-order condition}Differentiate \eqref{e55} and set it to zero:
+\begin{equation}
+(y-y_e)+\phi\kappa\,(y-y_n)=0. \label{e56}
+\end{equation}
+The second derivative of \eqref{e55} is $1+\phi\kappa>0$, so \eqref{e56} gives a minimum.
+\passo{4, the targeting rule}Group \eqref{e56} as $(y-y_e)+\phi\big(\kappa(y-y_n)\big)=0$. By
+\eqref{e54}, the bracket equals $p-p^e$. Substitute it:
+\[
+(y-y_e)+\phi\big(p-p^e\big)=0 .
+\]
+That is the targeting rule:
+\begin{equation}
+\boxed{(y-y_e)+\phi\,(p-p^e)=0}. \label{e57}
+\end{equation}
+\passo{5, the optimal point}Solve \eqref{e56} for $y$:
+\begin{align}
+y(1+\phi\kappa) &= y_e+\phi\kappa\,y_n\nonumber\\
+y^\ast &= \frac{y_e+\phi\kappa\,y_n}{1+\phi\kappa}. \label{e58}
+\end{align}
+Subtract $y_n$ from \eqref{e58}:
+\begin{align*}
+y^\ast-y_n &= \frac{y_e+\phi\kappa\,y_n}{1+\phi\kappa}-y_n\\
+&= \frac{y_e+\phi\kappa\,y_n-(1+\phi\kappa)\,y_n}{1+\phi\kappa}\\
+&= \frac{y_e-y_n}{1+\phi\kappa}.
+\end{align*}
+Substitute this for $y-y_n$ in \eqref{e54}:
+\begin{align}
+p^\ast-p^e &= \kappa\left(\frac{y_e-y_n}{1+\phi\kappa}\right)\nonumber\\
+p^\ast &= p^e+\frac{\kappa\,(y_e-y_n)}{1+\phi\kappa}. \label{e59}
+\end{align}
+\passo{6, the instrument}Substitute $(y^\ast,p^\ast)$ for $(y,p)$ in \eqref{AD}:
+\[
+(y^\ast)=\bar y+(g-\bar g)-\sigma\big[i-(\bar p-(p^\ast))\big]-\sigma\ln\beta .
+\]
+Solve for $i$:
+\begin{align}
+\sigma i &= \bar y+g-\bar g-y^\ast+\sigma(\bar p-p^\ast)-\sigma\ln\beta\nonumber\\
+i^\ast &= \frac{\bar y+g-\bar g-y^\ast}{\sigma}+\bar p-p^\ast-\ln\beta. \label{e60}
+\end{align}
+\passo{7, the news}$\bar\mu$ appears in neither \eqref{YE} nor \eqref{YN}, so by \eqref{e58} and
+\eqref{e59} $y^\ast$ and $p^\ast$ do not change. Only $\bar y$ changes. Differentiate \eqref{e60}
+and substitute $dy^\ast=dp^\ast=0$:
+\begin{align*}
+di^\ast &= \frac{d\bar y-(0)}{\sigma}-(0)\\
+&= \frac{d\bar y}{\sigma}.
+\end{align*}
+Substitute \eqref{e49} for $d\bar y$:
+\begin{align}
+di^\ast &= \frac{\left(-\dfrac{d\bar\mu}{\sigma^{-1}+\eta}\right)}{\sigma}\nonumber\\
+&= -\frac{d\bar\mu}{1+\sigma\eta}<0. \label{e61}
+\end{align}
+$\phi$ enters \eqref{e60} only through $y^\ast$ and $p^\ast$, which did not move, so \eqref{e61}
+does not depend on $\phi$. The central bank fully offsets the AD shift for \emph{every} weight: it is
+the same cut as \eqref{e53}.
+\passo{8, the role of $\phi$}$\phi$ decides \emph{where} on AS the economy sits, not how policy
+reacts to this shock. With $\mu>0$, \eqref{YN} and \eqref{YE} give $y_e>y_n$. Then, from
+\eqref{e58}--\eqref{e59}:
+\begin{itemize}[leftmargin=1.4em]
+\item $\phi\to\infty$ (only prices matter): $y^\ast=y_n$, $p^\ast=p^e$, strict price stability.
+\item $\phi=0$ (only output matters): $y^\ast=y_e$, $p^\ast>p^e$.
+\item $0<\phi<\infty$: $y_n<y^\ast<y_e$; the bank accepts some price surprise to bring output closer
+to its efficient level.
+\end{itemize}
+$\phi$ \emph{would} matter for a \emph{current} markup shock, which moves $y_n$ in \eqref{YN} but
+not $y_e$ in \eqref{YE}, and so creates a trade-off.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=10cm,height=7cm,xmin=-0.3,xmax=1.9,ymin=-0.45,ymax=0.8,axis lines=left,
+  xlabel={$y$},ylabel={$p$},xtick={0,0.5,1},xticklabels={$y_n$,$y^\ast$,$y_e$},ytick={0,0.25},
+  yticklabels={$p^e$,$p^\ast$},tick label style={font=\scriptsize},clip=false]
+\draw[gray,densely dotted] (axis cs:-0.3,0.25) -- (axis cs:0.5,0.25) -- (axis cs:0.5,-0.45);
+\draw[gray,densely dotted] (axis cs:-0.3,0) -- (axis cs:1,0) -- (axis cs:1,-0.45);
+\addplot[black,thick,domain=-0.3:1.6] {0.5*x} node[right,font=\scriptsize]{AS};
+\addplot[gray,dashed,domain=-0.3:1.9] {(1-x)/2} node[below,font=\scriptsize]{targeting rule};
+\addplot[blue!70!black,thick,domain=0.05:1.15] {0.75-x} node[below,font=\scriptsize]{AD$_0$};
+\addplot[red!70!black,thick,domain=-0.3:0.45] {0.15-x} node[below,font=\scriptsize]{AD$_1$};
+\addplot[green!40!black,domain=0:360,samples=120] ({1+0.7071*cos(x)},{0.3536*sin(x)});
+\addplot[only marks,mark=*,mark size=1.5pt] coordinates {(0.5,0.25) (0.1,0.05) (1,0)};
+\node[font=\scriptsize,anchor=south west] at (axis cs:0.5,0.25) {$O$};
+\node[font=\scriptsize,anchor=north east] at (axis cs:0.1,0.05) {$E_1$};
+\end{axis}
+\end{tikzpicture}\\[-2pt]
+{\footnotesize Figure 3. Optimal policy (illustrative values $\kappa=0.5$, $\sigma=1$, $\phi=2$,
+$y_n=0$, $y_e=1$, $p^e=0$). The loss ellipse centred at $(y_e,p^e)$ is tangent to AS at $O$, where
+the targeting rule \eqref{e57} crosses AS. The news moves AD$_0$ to AD$_1$ (point $E_1$ if $i$ is
+unchanged); the optimal cut \eqref{e61} brings it back to AD$_0$, through $O$.}
+\end{center}
+\intuicao{The loss function says what the bank cares about; AS says what it can get. The news
+changes neither, so the best attainable point does not change. Only the interest rate needed to
+reach it changes.}
+\erro{The answer did not set $dL/dy=0$ along AS (step 3). It substituted AS into AD, differentiated
+with respect to $i$, and then used a $y_e$ containing $\mu$, concluding that the response depends on
+whether $\phi>\sigma$. For this shock the response \eqref{e61} does not depend on $\phi$ at all.}
+\refbib{Benigno (2015), §11, eqs.~(33)--(35), Fig.~14, pp.~521--523; Lista 7 Q4.}
+\rubrica{\item Loss written on AS, \eqref{e55}, and $dL/dy=0$ with SOC. \item Targeting rule
+\eqref{e57}, $y^\ast$, $p^\ast$, $i^\ast$. \item Graph (ellipse tangent to AS, AD shifted and
+restored). \item \eqref{e61} independent of $\phi$, and what $\phi$ does decide.}
+
+\end{document}

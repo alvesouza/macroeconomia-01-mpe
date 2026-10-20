@@ -1,0 +1,217 @@
+FIRST EXAM, QUESTION TWO. THE GOLDEN RULE, THE HOUSEHOLD PROBLEM, AND THE ROAD FROM ONE HOUSEHOLD TO THE WHOLE ECONOMY. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Textbook: Kurlat, 2020. Chapter 4 on the Solow model, with the golden rule in section 4.3, printed pages 61 to 63. Chapter 6 on consumption and saving, section 6.2, from printed page 105. Chapter 9 on general equilibrium, section 9.1, from printed page 165.
+
+
+HOW TO LISTEN
+
+This track teaches the concepts behind question two of your first exam. The question was worth 5.5 points and you scored 3.1. Item 2 a, the Solow steady state, was fully right. The marks went in four places: an exponent dropped in the golden rule, a missing income source and a missing first-order condition in the household problem, a missing market-clearing step in the general equilibrium, and a comparison with Solow that stopped halfway.
+
+There are five parts. Part one is the golden rule: what it means, the algebra that went wrong, and how to check it. Part two is the household problem: every choice variable and every income source. Part three takes you from one household to the whole economy: market clearing, the law of motion for capital, and the diagram against the forty-five degree line, described in words. Part four connects the result back to Solow and to the golden rule. Part five is the topic in five lines.
+
+Each part has the idea, then the autopsy of what was written in the exam, then two or three analogous cases worked in words, then a short self-test with the answers right after the pause cue.
+
+Notation, spoken. The exam uses sigma for the capital share in production: output per worker is A times k to the power sigma. Kurlat calls the same number alpha; it is the same thing. Beta is the household's patience, the weight on next period's utility. n is population growth and delta is depreciation. When I say "k one" I mean capital per worker in period one; "k two" is capital in period two. "c one" and "c two" are consumption in the two periods, "a one" is the asset the household carries from period one to period two, and "L one" is the labour it supplies in period one.
+
+
+PART ONE. THE GOLDEN RULE. ITEM 2 B.
+
+The idea first. The Solow model takes the saving rate as given. The golden rule asks a normative question: if a society could pick its saving rate once and for all, which one gives the most consumption per person in the steady state? Kurlat poses it in section 4.3, printed page 61, and justifies it like this: if you were to be born into a society that is and will remain in steady state, the golden rule society is the one where you would do best.
+
+Saving pulls steady-state consumption two ways. Directly, consumption is one minus s, times output, so more saving means a smaller share consumed. Indirectly, more saving means more steady-state capital and more output. At a saving rate of zero there is nothing to consume from; at one, nothing is consumed. Somewhere in between consumption peaks.
+
+Kurlat's trick, printed page 62, is to choose capital instead of the saving rate. In a steady state, investment must exactly replace what depreciation and population growth take away, so consumption is output minus n plus delta, times k. Maximise that over k and you get the golden rule condition, equation 4.3.4 on printed page 63: the marginal product of capital equals n plus delta. At the margin, one more unit of capital adds exactly as much output as it costs to maintain it. Beyond that point, extra capital costs more to keep up than it yields, and consumption falls.
+
+Now the result for the exam's technology. With output equal to A times k to the sigma, the marginal product is sigma times output divided by k. Setting it equal to n plus delta gives: n plus delta, times k, equals sigma times output. But n plus delta, times k, is exactly steady-state investment. So investment equals sigma times output, which means the saving rate equals sigma. The golden rule saving rate is the capital share.
+
+There is a clean way to remember why. In a competitive economy, capital's income is the marginal product times k, which is sigma times output. So the golden rule economy invests exactly what capital earns and consumes exactly what labour earns. If capital's share of income is one third, the golden rule saving rate is one third.
+
+The direct route, the one the exam asked for. Write steady-state consumption as one minus s, times A, times steady-state capital to the power sigma. Steady-state capital, from item 2 a, is s times A over n plus delta, all raised to the power one over one minus sigma. Substitute it in. Capital is raised to the power sigma, so the whole bracket ends up raised to sigma over one minus sigma. Steady-state consumption is therefore proportional to one minus s, times s to the power sigma over one minus sigma.
+
+Take logs, because the product becomes a sum. The log of consumption is a constant, plus the log of one minus s, plus sigma over one minus sigma times the log of s. Differentiate with respect to s and set it to zero. The first term gives minus one over one minus s. The second gives sigma over one minus sigma, divided by s. Setting the sum to zero and cross-multiplying: sigma times one minus s equals one minus sigma, times s. Expand: sigma minus sigma s equals s minus sigma s. The sigma s terms cancel and you are left with s equal to sigma. The second derivative is negative, so it is a maximum.
+
+The autopsy. What you wrote: the correct starting point, consumption equal to one minus s times A times capital to the sigma. But when you substituted steady-state capital, the sigma vanished. You raised the bracket to one over one minus sigma instead of sigma over one minus sigma. In other words you substituted capital itself, not capital to the power sigma. Carrying that through the same steps gives one minus sigma times s equal to one minus s, and so a saving rate of one over two minus sigma. The grader gave 0.3 out of 1. The method was right; the exponent was not.
+
+Why it matters: one over two minus sigma is always at least one half, so it would tell every society to save at least half its output, whatever the technology.
+
+Three checks catch it, and each takes less than a minute.
+
+Check one, the cross-check. Solve the same problem the other way: choose k to maximise output minus n plus delta, times k. That gives the marginal product equal to n plus delta, and from there the saving rate equals sigma in two lines. If the two routes disagree, one of them has an error.
+
+Check two, the knife edge. Push sigma towards zero. Then capital barely produces anything. Saving would be pure waste, and the golden rule saving rate should go to zero. The correct answer, sigma, does go to zero. The wrong answer, one over two minus sigma, goes to one half. A golden rule that tells a society to save half its output when capital is useless has to be wrong.
+
+Check three, the exponent itself. Steady-state output responds to the saving rate with an elasticity of sigma over one minus sigma, so that is the exponent consumption must carry. One over one minus sigma means you substituted capital where you needed output.
+
+Analogous cases.
+
+Case one, a different capital share. Suppose capital's share is 0.3. Then the golden rule saving rate is 0.3. If the share were 0.5, the golden rule saving rate would be 0.5. Now take a country with a capital share of one third that saves 20 per cent. It is below the golden rule. Raising its saving rate towards one third would raise steady-state consumption, though the generations living through the transition would consume less while the extra capital is built. A country with the same share saving 45 per cent is above it, and saving less would raise consumption both now and in the new steady state.
+
+Case two, technological progress growing at rate g, as in Kurlat section 4.5. The break-even term becomes n plus g plus delta, and the golden rule sets the marginal product of capital per effective worker equal to it. Run the same two lines and the saving rate is still sigma, whatever the break-even rate.
+
+Case three, the over-accumulation test you can run on data. In any Cobb-Douglas steady state, the saving rate times A times k to the sigma minus one equals n plus delta. Multiply both sides by sigma over s, and the marginal product of capital equals sigma over s, times n plus delta. So the marginal product is below n plus delta exactly when the saving rate is above sigma. An economy saving more than its capital share has pushed capital past the golden rule. Keep this in mind for part four.
+
+Self-test for part one. Pause after each question.
+
+Question one. In words, what does the golden rule condition say?
+
+Question two. Steady-state consumption is proportional to one minus s, times s raised to which power?
+
+Question three. What does the knife-edge check give for the correct answer and for the wrong answer as sigma goes to zero?
+
+Answers. One: the marginal product of capital equals n plus delta, so one more unit of capital yields exactly what it costs to maintain. Two: sigma over one minus sigma. Three: the correct answer, sigma, goes to zero, as it should when capital is useless; the wrong answer goes to one half.
+
+
+PART TWO. THE HOUSEHOLD PROBLEM: EVERY CHOICE VARIABLE, EVERY INCOME SOURCE. ITEMS 2 C AND 2 D.
+
+The idea first. The second half of question two replaces Solow's fixed saving rate with a household that chooses. The household lives two periods. In period one it works and receives income; in period two it is retired and lives on what it saved. It starts with some initial wealth, a zero. It has one unit of time it can work in period one. And, this is the detail that matters, it owns the firm.
+
+Before writing any Lagrangian, make two lists. That habit is the whole lesson of this part.
+
+The first list: what does the household choose? Consumption in period one, c one. Consumption in period two, c two. The asset it carries forward, a one. And how much it works in period one, L one. Four choice variables.
+
+The second list: where does its income come from? Initial wealth, a zero. Labour income: the wage times the labour it supplies, which the exam writes as w one times A times L one. And the firm's profit in period one, which goes to its owner, the household. Three sources in period one. In period two, the only income is the return on the asset: one plus r, times a one.
+
+Now the budget constraints. In period one, consumption plus the asset carried forward equals initial wealth plus labour income plus profit. In period two, consumption equals one plus r, times the asset. Use the second to write the asset as c two divided by one plus r, and substitute it into the first. The result is the intertemporal budget constraint: c one, plus c two divided by one plus r, equals initial wealth plus labour income plus profit.
+
+Read it the right way. The left side is the present value of lifetime consumption: a unit of tomorrow's consumption costs one over one plus r units of today's. The right side is initial wealth plus the present value of income, here all received in period one. The constraint binds, because leaving wealth unspent is never optimal when utility rises with consumption.
+
+The autopsy of item 2 c. What you wrote: a budget constraint with labour income but without the firm's profit, and the interpretation "consumption adjusted by r". The grader gave 0.9 out of 1.
+
+Why the missing profit matters. The household owns the firm, so profit is household income. In item 2 e, labour income plus profit must add up to output; leave out the profit and the household's resources fall short of what the economy produced, so market clearing cannot close. A small omission in 2 c becomes a broken equilibrium in 2 e.
+
+Why "consumption adjusted by r" is loose. The constraint is a present-value statement: the present value of what you consume equals the present value of what you have. "Adjusted by r" names the operation without saying what it means. The sentence that earns the full mark is "the present value of lifetime consumption equals initial wealth plus the present value of income, labour and profit".
+
+The check that catches it: ask "what does this household own?" Every asset it owns, including shares in a firm, is a source of income that belongs in the budget.
+
+Now the first-order conditions, item 2 d. The Lagrangian adds two constraints to the utility: the budget, with multiplier lambda, and the time limit that labour cannot exceed one, with multiplier nu.
+
+The condition for c one: the marginal utility of c one, which is one over c one under log utility, equals lambda.
+
+The condition for c two: beta over c two equals lambda divided by one plus r.
+
+Put the two together and you have the Euler equation: c two equals beta times one plus r, times c one. Consumption grows when the household is patient or when the return to saving is high.
+
+The condition for L one. This is the one the exam left out. Labour does not appear in utility; working costs the household nothing. It appears only in the budget, where each unit of labour adds w one times A to resources. So the derivative of the Lagrangian with respect to L one is lambda times the wage, minus nu. Setting it to zero gives nu equal to the wage divided by c one, which is strictly positive. A positive multiplier on the time constraint means the constraint binds: L one equals one. The household supplies its whole endowment of time. That is a corner solution.
+
+The autopsy of item 2 d. What you wrote: the Euler equation and c one, both right, and no condition for labour. The grader gave 0.8 out of 1. The item asked for the conditions for all the household's choice variables, and L one is one of them.
+
+A trivial choice feels like no choice, but "L one equals one because work has no utility cost and the wage is positive" is the first-order condition. The check: every one of the four choice variables gets its line.
+
+With L one equal to one, total resources are initial wealth plus the wage times A plus profit. Call them resources. The solution: c one is resources divided by one plus beta. The asset a one is beta over one plus beta, times resources. And c two is one plus r times a one, which is beta times one plus r over one plus beta, times resources.
+
+What it says. With log utility the household consumes a fixed fraction, one over one plus beta, of its resources and saves the rest; more patience means more saving. And c one does not depend on r. All resources arrive in period one, so r does not change their value. A higher r makes tomorrow's consumption cheaper, the substitution effect, and makes a saver richer, the income effect; under log utility the two cancel exactly.
+
+Analogous cases.
+
+Case one, labour that costs utility. Suppose utility also includes gamma times the log of leisure, one minus L one. Now one more unit of work adds the wage times the marginal utility of consumption and removes leisure worth gamma over one minus L one. The household works until the two are equal: the marginal rate of substitution between leisure and consumption equals the wage, as in Kurlat chapter 7. The solution is interior. With a utility cost the condition is an equality; without one it is a corner. Either way it must be written.
+
+Case two, income in period two. Suppose the household also receives a pension, y two, in period two. The intertemporal budget gains a term: y two divided by one plus r. Resources are now initial wealth plus labour income plus profit plus the present value of the pension, and c one is still resources over one plus beta. But now c one depends on r. A higher r lowers the present value of the pension, so the household is poorer in present-value terms and consumes less today. The rule to remember: c one is independent of r under log utility only when all income arrives in period one.
+
+Case three, curvature different from log. Suppose utility has constant relative risk aversion theta, where theta equal to one is the log case. The Euler equation becomes: c two over c one equals beta times one plus r, raised to the power one over theta. Solving with the same budget, the saving rate is no longer constant: it depends on r. If theta is below one, the substitution effect dominates and the saving rate rises with r. If theta is above one, the income effect dominates and the saving rate falls with r. Only at theta equal to one, the log case, is it the constant beta over one plus beta. Hold on to this: it is why the log case gives such a clean general equilibrium in part three.
+
+Self-test for part two. Pause after each question.
+
+Question one. Name the four choice variables and the three period-one income sources.
+
+Question two. State the intertemporal budget constraint in words.
+
+Question three. What is the first-order condition for labour here, and what does it imply?
+
+Answers. One: c one, c two, a one and L one; initial wealth, labour income and the firm's profit. Two: the present value of lifetime consumption equals initial wealth plus the present value of labour income and profit. Three: lambda times the wage minus nu equals zero, so nu equals the wage over c one, which is positive; the time constraint binds and L one equals one, a corner, because work has no utility cost.
+
+
+PART THREE. FROM ONE HOUSEHOLD TO THE ECONOMY. ITEM 2 E.
+
+The idea first. Part two solved the problem of one household taking prices as given. An equilibrium needs three things, and the definition used for Kurlat chapter 9 lists them: households optimise given prices, firms optimise given prices, and every market clears. Item 2 e asks you to put the three together and get a rule for how capital moves from one period to the next.
+
+Step one, the saving rate, read off the household's optimum. The household saves a one, which is beta over one plus beta times its resources. So the saving rate, saving divided by resources, is beta over one plus beta. It is a constant, fixed by patience alone. That is the first thing item 2 e asked for, and it is already sitting in the solution to 2 d.
+
+Step two, the firm. The firm is competitive, so it pays labour its marginal product. With the household supplying L one equal to one, the wage bill is one minus sigma, times A, times k one to the sigma. What is left is profit, and it is the capital share: sigma times A times k one to the sigma. The initial capital stock belongs to the household's firm and depreciates fully in production, so this profit is the whole return on it. Add the two and you get output: labour income plus profit equals output in period one. This is where the missing profit from item 2 c would have broken the chain.
+
+Step three, market clearing. The household's only way to save is to hold capital. There is no bond market with someone on the other side, no foreign lender, no government. So what households save in period one is exactly the capital the economy has in period two. Capital in period two equals a one. That one sentence turns a household's saving rule into a law of motion for the whole economy.
+
+Put the three steps together. Capital in period two equals beta over one plus beta, times initial wealth plus A times k one to the sigma. Read it: tomorrow's capital is a fixed fraction of today's resources, and today's resources are initial wealth plus today's output.
+
+The autopsy of item 2 e. What you wrote: no saving rate derived from the optimum, no market-clearing condition linking capital in period two to the household's asset, a map from k one to k two that did not follow from the model, and a diagram with no valid steady state. The grader gave zero out of 1. This was a conceptual error, not an algebra slip: the bridge from one household to the economy was missing.
+
+The check that catches it: after solving any household problem in an equilibrium question, ask "which market makes this household's choice equal to an aggregate quantity?" Here it is the capital market: saving equals next period's capital. Write that equation explicitly. Without it you have a demand, not an equilibrium. The course's own pitfall list for general equilibrium puts it first: solving only the Euler equation gives you the demand, not the equilibrium.
+
+Now the diagram, described so you can draw it while listening.
+
+Put today's capital, k one, on the horizontal axis and tomorrow's capital, k two, on the vertical axis. Draw the forty-five degree line, where tomorrow's capital equals today's. Any point where the law of motion crosses that line is a steady state, because capital reproduces itself.
+
+Now draw the law of motion. At k one equal to zero, output is zero, but the household still has its initial wealth, so the curve starts above the origin, at beta over one plus beta times initial wealth. As k one rises, the curve rises, steeply at first and then flatter and flatter, because output has diminishing returns to capital. Its slope falls towards zero. So it is a concave curve that starts above the forty-five degree line and ends up below it. It must cross the line, and because it is concave it crosses exactly once. That crossing is the steady state.
+
+Read the dynamics off the picture. Left of the crossing the curve is above the line, so capital grows; right of it, capital shrinks. To trace a path, go up from k one to the curve, across to the forty-five degree line, and up to the curve again; the steps staircase into the crossing.
+
+Why the crossing is stable, in one sentence: at the crossing the curve's slope is below one, so a gap from the steady state shrinks each period. In fact, when initial wealth is zero the slope there is exactly sigma, the capital share.
+
+Now the steady state itself. Treat the initial wealth as a one-off for the first generation, so in later periods it is zero. The law of motion is then k two equals beta over one plus beta, times A, times k one to the sigma. When initial wealth is zero, the curve also passes through the origin: zero capital produces nothing and nothing is saved. That point is a trivial steady state, and it is unstable, since any positive capital grows away from it. The meaningful steady state sets k two equal to k one: steady-state capital is beta A over one plus beta, raised to the power one over one minus sigma.
+
+A reading note. The statement does not say who owns the capital in period one. In the overlapping-generations reading, where the young save only their wages and the old consume the capital income, the law of motion gains a factor of one minus sigma in front. That is Diamond's model, Romer chapter 2; the diagram and the logic are identical.
+
+Analogous cases.
+
+Case one, numbers you can follow in your head. Take beta equal to one, sigma equal to one half, A equal to one, and initial wealth zero. The saving rate is one half. The law of motion is: tomorrow's capital is one half times the square root of today's. The steady state is one half squared, which is 0.25. Start at k equal to 1. Next period, capital is 0.5. Then 0.354. Then 0.297. Then 0.273. Then 0.261. The distance from 0.25 goes 0.75, 0.25, 0.104, 0.047, 0.023, 0.011: near the steady state it roughly halves each period, which is the slope of one half, the capital share, at work.
+
+Case two, more patience. A higher beta raises the saving rate, shifts the curve up, and moves the crossing right: the Solow comparative static of a higher saving rate, now driven by preferences.
+
+Case three, curvature different from log. Now the saving rate depends on r, and in equilibrium one plus r equals the marginal product of capital in period two, which depends on k two. The saving rate depends on the capital it creates, so the law of motion is no longer a fixed fraction of resources. It is still a curve crossing the forty-five degree line, found numerically. Only the log case delivers Solow's constant saving rate exactly.
+
+Self-test for part three. Pause after each question.
+
+Question one. What are the three conditions in the definition of a competitive equilibrium?
+
+Question two. Which equation turns the household's saving rule into a law of motion for capital?
+
+Question three. Describe where the law-of-motion curve starts, its shape, and why it crosses the forty-five degree line once.
+
+Answers. One: households maximise utility given prices; firms maximise profit given prices; all markets clear. Two: market clearing in the capital market, capital in period two equals the household's asset a one. Three: it starts above the origin, at beta over one plus beta times initial wealth; it is concave with a slope falling towards zero; so it starts above the line and ends below it, and crosses exactly once, with a slope below one at the crossing.
+
+
+PART FOUR. BACK TO SOLOW AND TO THE GOLDEN RULE. ITEM 2 F.
+
+The idea first. Compare the law of motion you just built with Solow's. Solow in discrete time says: tomorrow's capital per worker is one minus delta times today's, plus s times output, all divided by one plus n. Set delta equal to one, full depreciation, and n equal to zero. You are left with tomorrow's capital equal to s times output. That is exactly the law of motion of part three, with s equal to beta over one plus beta. And the steady state of part three is the Solow steady state from item 2 a with that same s plugged in.
+
+So far that is what you wrote: "Solow with delta equal to one and n equal to zero". It is true. It is also only half the answer. The grader gave 0.1 out of 0.5.
+
+The half that carries the marks: in Solow the saving rate is assumed. Here it comes out of optimisation. Patience pins it down at beta over one plus beta, and log utility makes it constant and independent of the interest rate. So this model microfounds Solow's fixed saving rate: it tells you when a constant saving rate is what optimising households would actually choose. Kurlat's exercise 9.12, printed page 185, is built around this same contrast between a fixed and an optimally chosen saving rate.
+
+And there is a second comparison the item wanted, against item 2 b. The golden rule saving rate is sigma. The equilibrium saving rate is beta over one plus beta. Nothing forces them to be equal. They coincide only if beta over one plus beta happens to equal sigma. So the competitive equilibrium does not maximise steady-state consumption. If beta over one plus beta is above sigma, the economy over-accumulates: its steady-state capital is above the golden rule level. With finite lives, that kind of dynamic inefficiency is possible.
+
+Use the test from part one: here n plus delta is one, so the steady-state marginal product is sigma divided by the saving rate, and the golden rule needs it equal to one, a zero net interest rate.
+
+Analogous cases.
+
+Case one. Beta equal to one and sigma equal to one third. The saving rate is one half, above one third. The marginal product of capital in the steady state is one third divided by one half, which is two thirds, below one. One plus r is two thirds, so the net interest rate is negative. Too much capital: a society that saved less would consume more in every period, now and in the steady state.
+
+Case two. Beta equal to one half and sigma equal to one third. The saving rate is one half divided by one and a half, which is one third. It equals sigma. This economy sits exactly at the golden rule, by coincidence of parameters, not by design.
+
+Case three. Beta equal to one quarter and sigma equal to one third. The saving rate is one quarter divided by one and a quarter, which is 0.2, below one third. The marginal product is one third divided by 0.2, which is five thirds, above one. Too little capital relative to the golden rule. But that is not a mistake by these households: they are impatient, and for them consuming earlier is worth the lower steady state.
+
+A contrast. With infinitely lived households, Kurlat section 9.3, the steady state satisfies the modified golden rule, the net marginal product equals the rate of time preference, so it saves less than the golden rule and never over-accumulates. With finite lives, as here, nothing prevents over-accumulation.
+
+The check that catches the half-answer in 2 f: any time a question asks for "the relation" between a microfounded model and Solow, answer three things. The mechanical match: which parameter values make the laws of motion identical. The economic difference: what Solow assumes that this model derives. And the welfare comparison: whether the derived saving rate equals the golden rule.
+
+Self-test for part four. Pause after each question.
+
+Question one. Which Solow parameter values make the two laws of motion identical?
+
+Question two. What does this model derive that Solow assumes?
+
+Question three. With beta equal to one and sigma equal to one third, is the economy above or below the golden rule, and how does the interest rate tell you?
+
+Answers. One: delta equal to one and n equal to zero, with s equal to beta over one plus beta. Two: the saving rate, pinned down by patience, constant and independent of r because of log utility. Three: above; the saving rate is one half, the marginal product is two thirds, so the net interest rate is negative, below the golden rule's zero.
+
+
+PART FIVE. THE WHOLE QUESTION IN FIVE LINES.
+
+One. The golden rule saving rate is the capital share: steady-state consumption is one minus s times s to the power sigma over one minus sigma, so carry the sigma, and check it with the marginal product equal to n plus delta.
+
+Two. Before any Lagrangian, list every choice variable and every income source; a household that owns the firm receives its profit.
+
+Three. A choice with no utility cost is a corner, and saying "L one equals one because work costs nothing and the wage is positive" is the first-order condition.
+
+Four. Market clearing, capital tomorrow equals saving today, turns a saving rule into a law of motion; the steady state is where the concave curve crosses the forty-five degree line, and it is stable because the slope there is below one.
+
+Five. The result is Solow with full depreciation and no population growth, but with a saving rate that is chosen, beta over one plus beta, and that equals the golden rule only by coincidence.

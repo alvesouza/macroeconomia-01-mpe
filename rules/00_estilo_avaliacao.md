@@ -84,6 +84,30 @@ em branco não contam como erro.
   intertemporal). A rubrica deve pontuar **eixos rotulados, curvas nomeadas e direção do
   deslocamento** separadamente da conclusão verbal.
 
+- **Equations, notation and layout (every solution).**
+  1. Number every equation a later step uses (`\label`/`\eqref`, or `(1)`, `(2)`... in
+     Markdown) and name the source at each step: "Using (2) and (4)...", "Substituting (7)
+     into (5)...", "Dividing (3) by $L_t$...". Equations of the statement keep the statement's
+     numbers. *Why:* a step that does not say where its terms come from cannot be checked
+     line by line; the reader has to reverse-engineer it.
+  2. Open each solution with a **Notation** list: every variable and parameter, what it
+     means, and its admissible range. Define any new symbol on the line where it first
+     appears. *Why:* the same letter means different things across topics ($\sigma$ is the
+     capital share in Solow and the intertemporal elasticity in Benigno).
+  3. One operation per displayed line. Use display equations, not long inline chains, with a
+     short sentence between displays saying what was done. *Why:* clustered math hides the
+     step where an error happens (Prova 01 lost its golden-rule exponent inside an inline
+     chain).
+  4. Show every substitution as its own line: write the receiving equation with the substituted
+     expression in place, in parentheses, before simplifying. With (1) $A=B+C$ and (2) $B=2A$,
+     "substituting (2) into (1)" gives $A=(2A)+C$ on one line, and only the next line gives
+     $C=-A$. *Why:* jumping from the cited equations straight to the result hides the one line a
+     reader needs to check the substitution, and sign and exponent errors live there.
+     Plugging in numbers is a substitution too: show the numbers in place, then the result,
+     e.g. $VA_B=(1000)-(600)$, then $=400$. The displayed arithmetic must reproduce the printed
+     result: carry enough decimals that the shown operation gives the stated value (not
+     $-0.6365-(-0.6460)$ printed as $0.00946$), and keep any check script asserting that value.
+
 ## 5. Uso da bibliografia (obrigatório)
 
 Ancore conteúdo e referências nos livros do curso, via `Map/` e `rules/` quando existirem:
@@ -99,9 +123,17 @@ estão em `Livros/`. Cite sempre a edição **local** e diga qual é.
 
 ⚠️ **Ljungqvist & Sargent está fora do escopo** — nunca usar como fonte de exercícios.
 
-Formule questões **originais** a partir do entendimento dos conceitos; nunca copie ou
-parafraseie exercícios do livro. Use o `Map/` para pesos por tópico e para páginas nas
-linhas `Ref:`.
+**Book questions used in a list or mock exam.** Reproduce the question's text verbatim, every
+sub-item, table and number, never only its number and page. Open it with an explicit source
+line before the text: author (year), title, exercise number and name, page, and "reproduced
+verbatim". Mark anything added or changed ("Added parts (not in the book)", "numbers
+changed", "items (a)-(c) only"). Take the text from the PDF, not from the `.md` conversion,
+which garbles spacing, tables and glyphs. When the source has no exercise (an article
+section), say so in the source line and write the statement as your own. *Why:* a list that
+says "Kurlat 6.1, p. 121" cannot be worked without the book open, and the source line keeps
+the reproduced text attributed.
+Questions you create stay original: do not disguise a book exercise as your own.
+Use o `Map/` para pesos por tópico e para páginas nas linhas `Ref:`.
 
 ## 6. Convenções LaTeX
 

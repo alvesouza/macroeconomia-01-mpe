@@ -1,0 +1,162 @@
+FIRST EXAM, QUESTION THREE. BENIGNO'S AGGREGATE SUPPLY AND AGGREGATE DEMAND: WHICH CURVE MOVES, WHICH WAY POLICY GOES, AND WHAT THE LOSS FUNCTION DECIDES. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Source: Pierpaolo Benigno, "New-Keynesian economics, an aggregate supply and aggregate demand view", Research in Economics, 2015. Sections 4 and 5 for the two curves, printed pages 507 to 511; section 6 on productivity shocks, pages 511 to 513; section 7 on mark-up shocks, pages 513 and 514; section 11 on optimal policy, pages 521 to 523.
+
+
+HOW TO LISTEN
+
+This track teaches the concepts behind question three of your first exam. The question was worth 3 points and you scored about 0.5. All three items lost marks for conceptual reasons, and they share one root: the long-run mark-up was treated as if it were the current mark-up. Fix that one confusion and most of the question falls into place.
+
+There are four parts. Part one: the two curves, and which variable moves which curve; this is item 3 a. Part two: the sign of monetary policy and the divine coincidence, including when it fails; this is item 3 b. Part three: optimal policy as choosing a point on the supply curve, and why the weight phi does not matter for news about the long-run mark-up but does matter for a current mark-up shock; this is item 3 c. Part four is the topic in five lines.
+
+Each part has the idea, the autopsy of what was written, analogous cases worked in words, and a self-test with answers after the pause cue.
+
+Notation, spoken. y is output and p is the price level, both in logs. p e is the price level that firms with preset prices expected and locked in. y n is natural output: what output would be if all prices were flexible, given the current mark-up. y e is efficient output: what a planner would choose, with no mark-up at all. Anything with "bar" is a long-run, future value: a bar is future productivity, g bar future government spending, mu bar the long-run mark-up, p bar the long-run price level, and y bar long-run output. Without "bar", a, g and mu are current values. Sigma here is not a capital share: it is how strongly output responds to the real interest rate. Kappa is the slope of the supply curve, eta is the inverse of the elasticity of labour supply, and phi is the weight the central bank puts on price stability.
+
+Scope, said once. Everything here is Benigno's two-period model at the article's level. The supply curve is the New-Classical form in the price level. The forward-looking Calvo Phillips curve and stochastic dynamic models are outside this course.
+
+
+PART ONE. THE TWO CURVES, AND WHICH BAR MOVES WHICH CURVE. ITEM 3 A.
+
+The idea first. Benigno's model has two curves on axes with output across and the price level up.
+
+Aggregate demand comes from the household's Euler equation. Today's output equals long-run output, plus current government spending minus long-run government spending, minus sigma times the real interest rate, plus a constant from patience. The real interest rate is the nominal rate i minus expected inflation, and expected inflation is the long-run price level minus today's price level. So a lower price today, with p bar fixed, means higher expected inflation, a lower real rate, and more demand. That is why AD slopes down, with slope minus one over sigma.
+
+Read the AD equation for what shifts it. Anything that changes long-run output y bar. The long-run price level p bar. The nominal rate i. And government spending, current and future. The key one is y bar. Long-run output rises with future productivity, rises with future government spending, and falls with the long-run mark-up: a rise in mu bar lowers y bar by the rise divided by the inverse of sigma plus eta. Households who expect lower permanent income cut consumption today. That is the Euler equation doing consumption smoothing.
+
+Aggregate supply is the New-Classical curve. The price level minus the expected price level equals kappa times output minus natural output. It passes through the point where output equals y n and the price equals p e, and slopes up with slope kappa. Prices rise above what was expected only when output is above its natural level. What shifts AS is anything that moves natural output, and natural output depends on current productivity, current government spending and the current mark-up.
+
+So the rule, in one sentence: the bars move AD, through y bar or p bar; the current variables move AS, through y n. Current government spending is the one that moves both.
+
+The autopsy. Item 3 a was about news of a higher long-run mark-up, mu bar. What you wrote: an AS shift, driven by the current mark-up, and a sign story of "p up, y down" attached to AD. The grader gave 0.2 out of 1.
+
+Why it fails, twice over. First, the wrong curve. The current mark-up has not moved. Only the expectation of the long-run one has. So natural output does not move and AS stays put. What moves is y bar, and through it AD, to the left. Second, the sign story contradicts itself. "Prices up, output down" is what an AS shift produces: a move along a downward-sloping AD. A shift of AD moves you along the upward-sloping AS, so prices and output move in the same direction. A leftward AD shift means both fall.
+
+Two checks catch it. Check one: before drawing anything, ask "is the shocked variable barred or current?" Barred means AD. Current means AS. Check two: after drawing, ask "do my signs match the curve that moved?" AD shifts move price and output together; AS shifts move them in opposite directions.
+
+The correct answer. Start at the initial point, where AD crosses AS at natural output and the expected price. News of a higher long-run mark-up lowers y bar. AD shifts left. AS does not move. In the new equilibrium, output falls by the change in y bar divided by one plus sigma kappa, and the price level falls by kappa times that. An output gap opens: output below natural output. It is a demand-driven recession. Firms that can reset prices cut them; firms with preset prices keep p e and produce whatever is demanded.
+
+Why output falls by less than the AD shift. As prices fall, with p bar fixed, expected inflation rises and the real rate falls, which supports demand. That cushion is the one plus sigma kappa in the denominator. With Benigno's own calibration, sigma 0.5 and kappa about 1.13, a fall in y bar of 1 per cent lowers output by about 0.64 per cent and the price level by about 0.72 per cent.
+
+A word on the two output gaps, because this model always has two. Output minus natural output drives prices. Output minus efficient output measures welfare. A long-run mark-up shock moves neither natural nor efficient output today, so both gaps fall by the same amount.
+
+Analogous cases.
+
+Case one, news of higher future productivity, a bar up. Long-run output rises; households expect to be richer and raise consumption today; AD shifts right. Current productivity has not moved, so AS stays put. Output and prices both rise, and output goes above both natural and efficient output. Benigno's section 6.3 calls this optimism; the economy overheats on a forecast.
+
+Case two, news of higher future government spending, g bar up. Here two things happen inside AD. Future spending raises y bar, because households will work more when the government absorbs resources, but by less than one for one. And g bar enters AD with a minus sign directly. The net effect on AD is negative: future spending makes households poorer tomorrow, so they cut consumption today. With Benigno's numbers the net shift is about a tenth of the spending change. AD shifts left, AS stays put, and output and prices fall, just like the mark-up news.
+
+Case three, a current mark-up shock, mu up today. Now natural output falls, so AS shifts up and to the left, through the new point at the lower natural output and the old expected price. AD does not move. Output falls and prices rise: stagflation, section 7. Here "p up, y down" is the right story, because this is the shock that moves AS.
+
+Self-test for part one. Pause after each question.
+
+Question one. Which curve does news of a higher long-run mark-up move, and through which variable?
+
+Question two. After an AD shift, do price and output move in the same or opposite directions?
+
+Question three. News arrives that productivity will be higher in the future. Which curve moves, and which way?
+
+Answers. One: AD, through long-run output y bar; it shifts left, and AS stays put because natural output depends on the current mark-up. Two: the same direction, because the economy moves along the upward-sloping AS. Three: AD, to the right; AS stays put because current productivity has not changed.
+
+
+PART TWO. THE SIGN OF POLICY, AND THE DIVINE COINCIDENCE. ITEM 3 B.
+
+The idea first. The central bank's instrument is the nominal rate i, and i appears only in AD. So monetary policy can slide AD but can never move AS. Every policy question in this model is: where on AS do we want to be, and which way must AD move to get there?
+
+Price stability means keeping the price level at what firms expected, p equal to p e. On AS, that happens at exactly one point: output equal to natural output. So after the mark-up news, price stability requires putting AD back where it was. AD shifted left, so the bank must shift it right, which means cutting i. By how much? Enough to offset the fall in y bar: the cut is the fall in y bar divided by sigma. In terms of the shock, that is the rise in mu bar divided by sigma times the inverse of sigma plus eta. With Benigno's numbers, a 1 per cent fall in y bar calls for a cut of 2 percentage points.
+
+There is a second way to see the sign. AD is centred on the natural real rate, the rate at which output equals natural output. That rate contains one over sigma times long-run output minus current natural output. When y bar falls and y n does not, the natural rate falls. Good policy follows the natural rate, so the policy rate falls too.
+
+What does the cut cost? In terms of the gaps, nothing. This is the divine coincidence. The mark-up news moved neither natural output nor efficient output. So bringing output back to y n also brings prices back to p e, and nothing moves the gap against efficient output either. One instrument, two targets, no conflict, because the shock is a pure demand shock.
+
+What the cut does not fix, and you should say so. First, natural output is still below efficient output, because of the mark-up wedge that was there before the news. Monetary policy cannot cure that; it comes from market power and taxes, not from sticky prices. Second, y bar is lower for good; that is a supply-side fact about the long run. And one caveat: if the rate is already near zero, the cut may be impossible, which is the liquidity trap of section 9.
+
+The autopsy. What you wrote: raise the rate. The grader gave 0.1 out of 1, a conceptual error on the sign, with no discussion of cost.
+
+Why it fails. Raising i shifts AD further left. Output falls further below natural, and prices fall further below p e. It deepens exactly the recession and the price fall it should cure. The instinct to raise rates belongs to a different shock, one where prices are rising, and in this item prices were falling.
+
+The check that catches it: the policy move must have the sign that undoes the AD shift. AD left, cut. AD right, raise. Equivalently, move i in the direction the natural rate moved. Then add one sentence on cost: is there a trade-off, and why or why not?
+
+Now where the divine coincidence fails. It needs the shock to move natural and efficient output together, or not at all. A current mark-up shock breaks it: it lowers natural output, but efficient output, which has no mark-up in it, stays put. Now the two gaps point opposite ways. After the shock, output is above the new natural level, which is why prices are rising, and below efficient output, which is why welfare has fallen.
+
+The two targets now demand opposite moves. Price stability needs output back at the new, lower natural level: AD must shift left, so raise i, by the fall in natural output divided by sigma, and output sinks deeper below efficient. Efficient output needs output held where it was: AD must shift right, so cut i, by kappa times the fall in natural output, and prices rise more than they would with no policy. One instrument cannot hit both. That is the trade-off, and it is why section 7 calls the mark-up shock inefficient.
+
+The criterion to carry: there is a trade-off if and only if the shock moves the gap between natural and efficient output, and in this model that happens if and only if the shock moves the current mark-up.
+
+Analogous cases.
+
+Case one, future productivity news. AD shifted right; output and prices rose above target. Raise i by the rise in y bar divided by sigma. Restrictive, and costless: natural and efficient output did not move. Benigno's summary on printed page 513: monetary policy can always stabilise prices and the output gap at once after productivity shocks, but the direction depends on the nature of the shock.
+
+Case two, future government spending news. AD shifted left. Cut i, by the net AD shift divided by sigma. No trade-off, since current natural and efficient output are untouched.
+
+Case three, a temporary rise in current productivity. Natural and efficient output both rise by the same amount. AS shifts right; AD does not move; output rises but by less than natural output, and prices fall. Cut i, by the rise in natural output divided by sigma, and both targets are met. A positive productivity shock that calls for a cut, while the future productivity news called for a raise: same variable, opposite policy, because one is current and one is barred.
+
+Self-test for part two. Pause after each question.
+
+Question one. After the mark-up news, does price stability require raising or cutting i, and by how much?
+
+Question two. Why is there no trade-off in that case?
+
+Question three. Why does a current mark-up shock create a trade-off?
+
+Answers. One: cutting, by the fall in y bar divided by sigma, to bring AD back through natural output at the expected price. Two: the news moved neither natural nor efficient output, so closing the gap against natural output also stabilises prices and leaves the welfare gap untouched; a pure demand shock, the divine coincidence. Three: it lowers natural output but not efficient output, so price stability and efficient output need opposite moves in i.
+
+
+PART THREE. OPTIMAL POLICY IS A CHOICE OF POINT ON AS. ITEM 3 C.
+
+The idea first. The central bank minimises a loss with two terms: one half of output minus efficient output, squared, plus phi over two kappa times the price surprise, p minus p e, squared. Phi is the weight on price stability. Benigno shows in section 11 that with phi equal to theta, the elasticity of substitution between goods, this loss is an approximation to the household's own welfare.
+
+Now the key step. The bank controls i, and i moves only AD. So whatever AD the bank picks, the economy ends up somewhere on AS. AS is the constraint; it is the menu of points the bank can reach. Use it. On AS, the price surprise equals kappa times output minus natural output. Substitute that into the loss and everything is in terms of output: one half of output minus efficient output, squared, plus phi kappa over two times output minus natural output, squared.
+
+Minimise over output. The derivative is output minus efficient output, plus phi kappa times output minus natural output, set to zero. Replace kappa times output minus natural output by the price surprise again, and you get the targeting rule: output minus efficient output, plus phi times the price surprise, equals zero.
+
+Solve for output. Optimal output is a weighted average: efficient output with weight one, natural output with weight phi kappa, divided by one plus phi kappa. The optimal price is then read off AS. Finally, the rate that delivers that point comes from AD: choose i so that AD passes through it.
+
+Picture it. The loss has elliptical contours centred on efficient output at the expected price. The optimum is where an ellipse is tangent to AS. Call that point O. The bank then sets i to run AD through O.
+
+Now the mark-up news. Neither efficient output nor natural output moves. The weighted average does not move. So O does not move. The shock only shifts AD to the left, and the optimal response is to bring AD back through the same point O: cut i by the fall in y bar divided by sigma. That is the same cut as in part two, and it holds for any phi.
+
+So what does phi do? It decides where on AS the point O sits. As phi goes to infinity, O is at natural output and the expected price: strict price stability. With phi equal to zero, O is at efficient output, with prices above p e. Phi sets the level of the target. It does not change how far AD must move when the shock leaves the target where it was.
+
+The autopsy. What you wrote: you did not use the condition that the derivative of the loss with respect to output, along AS, is zero. Instead you differentiated with respect to i, and then used an efficient output that contained the mark-up. You concluded the response depends on phi against sigma. The grader gave about 0.2 out of 1.
+
+Why it fails, three ways. First, efficient output has no mark-up in it; that is what makes it efficient. The planner faces no market power, so mu cannot appear in y e. Putting mu there turns a demand shock into something that looks like a trade-off. Second, differentiating with respect to i is not wrong in principle, but i works through AD and then AS together, and it is easy to lose a term; choosing the point on AS is cleaner, because AS is the only constraint. Third, the conclusion: the response to the news does not depend on phi at all.
+
+The check that catches it: after any shock, ask "did efficient output move? did natural output move?" If neither moved, the optimal point does not move, and the response is simply to undo the AD shift, whatever phi is.
+
+Where your phi-against-sigma idea does belong. It is the right answer to a different question: a current mark-up shock. There, natural output falls and efficient output does not, so the optimal point moves along the new AS. The optimal policy lets a fraction one over one plus phi kappa of the shock into prices. With no policy at all, the fraction is one over one plus sigma kappa, because that is where the new AS meets the unchanged AD. So the bank raises i if phi is above sigma, letting less into prices than doing nothing would, and cuts i if phi is below sigma. With the welfare weight phi equal to theta equal to 8 and kappa about 1.13, only about 10 per cent of the shock reaches prices. For a fall in natural output of 1 per cent, the optimal rise in i is about 1.69 points, less than the 2 points strict price stability would need. That is section 11, Figure 14, printed page 523. The comparison of phi with sigma was a real result, attached to the wrong shock.
+
+Analogous cases.
+
+Case one, future productivity news. Neither y n nor y e moves, so O does not move. The optimal response is to raise i by the rise in y bar divided by sigma, for any phi.
+
+Case two, a current productivity shock. Natural and efficient output both rise by the same amount. The weighted average rises by that amount too, the distance between optimal and natural output is unchanged, and so the optimal price does not change. So O moves right along the new AS, and the bank cuts i to put AD through it. Again phi does not matter, because the gap between natural and efficient output did not change.
+
+Case three, a current mark-up shock. Natural output falls, efficient output does not, so their gap changes and O moves to a point that depends on phi. This is the only one of the three where phi changes the response.
+
+The general rule: phi matters for the response exactly when the shock moves natural output minus efficient output, which is exactly when there is a trade-off.
+
+Self-test for part three. Pause after each question.
+
+Question one. Why is AS, and not AD, the constraint in the central bank's problem?
+
+Question two. State the targeting rule in words.
+
+Question three. Why does phi not affect the optimal response to the long-run mark-up news?
+
+Question four. After a current mark-up shock, when does the optimal policy raise i?
+
+Answers. One: i appears only in AD, so the bank can put AD anywhere; the economy always lands on AS, which is the set of reachable points. Two: output minus efficient output, plus phi times the price surprise, equals zero. Three: the news moves neither efficient nor natural output, so the optimal point on AS does not move; the bank just undoes the AD shift with a cut of the fall in y bar over sigma; phi only fixes where that point is. Four: when phi is above sigma, because then the optimum lets less of the shock into prices than the no-policy point does.
+
+
+PART FOUR. THE WHOLE QUESTION IN FIVE LINES.
+
+One. Barred variables move AD through long-run output; current variables move AS through natural output; news about the long-run mark-up shifts AD left and leaves AS alone.
+
+Two. An AD shift moves price and output in the same direction; an AS shift moves them in opposite directions; check your signs against the curve that moved.
+
+Three. Policy moves only AD, so its sign is the one that undoes the AD shift: AD left, cut; AD right, raise.
+
+Four. A shock that moves natural and efficient output together, or neither, has no trade-off, the divine coincidence; a current mark-up shock moves only natural output, and the coincidence fails.
+
+Five. Optimal policy picks the point on AS where the loss is lowest; phi decides where that point is, and matters for the response only when the shock moves natural output relative to efficient output.

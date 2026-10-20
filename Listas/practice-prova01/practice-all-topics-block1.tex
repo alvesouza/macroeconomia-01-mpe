@@ -1,0 +1,331 @@
+% =============================================================================
+% Block 1 --- Aula 1: measurement (GDP by three approaches, price indices, PPP, beyond GDP).
+% Weighted toward Prova 01 error cluster 1 (every approach computed, and they must agree).
+\bloco{1}{Measuring aggregates: GDP, price indices, PPP, beyond GDP}{Aula 1 \,\textbullet\, Kurlat chs.~1--2 \,\textbullet\, 10 points}
+
+\questao{(4 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 1.3 ``Chained GDP'',
+pp.~28--29 --- statement reproduced verbatim, all items (a)--(c).}}
+
+\noindent The country of Fructus produces Apples, Bananas and Cherries. Its production statistics are given below:
+\begin{center}\small
+\begin{tabular}{@{}l*{6}{r}@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Apples}} & \multicolumn{2}{c}{\textbf{Bananas}} & \multicolumn{2}{c}{\textbf{Cherries}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+ & quantity & price & quantity & price & quantity & price \\
+\midrule
+2000 & 100 & 40 & 50 & 30 & 200 & 20 \\
+2001 & 103 & 39 & 47 & 35 & 206 & 20 \\
+2002 & 107 & 39 & 47 & 38 & 213 & 19 \\
+2003 & 109 & 39 & 45 & 38 & 215 & 18 \\
+2004 & 112 & 40 & 46 & 41 & 224 & 18 \\
+2005 & 112 & 39 & 46 & 39 & 227 & 17 \\
+2006 & 114 & 40 & 47 & 36 & 237 & 16 \\
+2007 & 115 & 40 & 46 & 42 & 249 & 16 \\
+2008 & 119 & 40 & 43 & 44 & 255 & 16 \\
+2009 & 118 & 42 & 40 & 46 & 262 & 15 \\
+2010 & 116 & 43 & 41 & 44 & 268 & 15 \\
+2011 & 118 & 42 & 40 & 50 & 280 & 15 \\
+2012 & 117 & 42 & 41 & 50 & 289 & 15 \\
+2013 & 119 & 43 & 40 & 53 & 290 & 14 \\
+2014 & 120 & 44 & 40 & 56 & 297 & 13 \\
+2015 & 125 & 45 & 41 & 59 & 308 & 13 \\
+2016 & 128 & 45 & 38 & 66 & 320 & 13 \\
+2017 & 129 & 46 & 38 & 61 & 330 & 13 \\
+2018 & 131 & 47 & 37 & 64 & 344 & 13 \\
+2019 & 136 & 47 & 37 & 61 & 353 & 13 \\
+2020 & 143 & 47 & 34 & 61 & 361 & 12 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent(you can download them as an Excel spreadsheet from the book website)
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Compute a real GDP series at year-2000 prices using base year prices and using the chained method.
+\item Plot both series and comment on any differences.
+\item What was the average growth rate according to each method?
+\end{enumerate}
+\noindent\textit{Added to the book's items (not in the book):} use the chained method of Kurlat \S1.2; show the 2000--2001 link in full,
+describe the plot of (b) in words, and report both series for 2000, 2005, 2010, 2015 and 2020 and the average growth rates.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $i\in\{A,B,C\}$: the three goods of the table (B are bananas, C cherries).
+\item $p_{i,t}>0$, $q_{i,t}>0$: price and quantity of good $i$ in year $t\in\{2000,\dots,2020\}$.
+\item $Y_t$: real GDP at constant 2000 prices. $Y^{ch}_t$: chained real GDP, expressed in 2000 prices.
+\item $g^I_t$, $g^F_t$: growth from $t-1$ to $t$ valued at initial ($t-1$) and at final ($t$) prices. $g_t$: chained growth.
+\item $\bar g$: average annual growth rate over 2000--2020.
+\end{notacao}
+\passo{base-year prices}{Real GDP at constant prices values each year's quantities at the 2000 prices,
+$(p_A,p_B,p_C)_{2000}=(40,30,20)$:}
+\begin{equation}
+Y_t=\textstyle\sum_i p_{i,2000}\,q_{i,t}. \label{b1q1:base}
+\end{equation}
+Using \eqref{b1q1:base} for 2000 and 2001:
+\begin{align*}
+Y_{2000}&=40\times100+30\times50+20\times200\\
+&=4{,}000+1{,}500+4{,}000=9{,}500,\\
+Y_{2001}&=40\times103+30\times47+20\times206\\
+&=4{,}120+1{,}410+4{,}120=9{,}650.
+\end{align*}
+\passo{the 2001 chain link}{Kurlat's chained method measures each year's growth at both years' prices and
+takes the geometric average:}
+\begin{align}
+1+g^I_t&=\frac{\sum_i p_{i,t-1}\,q_{i,t}}{\sum_i p_{i,t-1}\,q_{i,t-1}}, \label{b1q1:gI}\\
+1+g^F_t&=\frac{\sum_i p_{i,t}\,q_{i,t}}{\sum_i p_{i,t}\,q_{i,t-1}}, \label{b1q1:gF}\\
+1+g_t&=\big[(1+g^I_t)(1+g^F_t)\big]^{1/2}, \label{b1q1:g}\\
+Y^{ch}_t&=Y^{ch}_{t-1}\,(1+g_t),\qquad Y^{ch}_{2000}=Y_{2000}. \label{b1q1:chain}
+\end{align}
+For 2001 the initial prices are the 2000 prices, so \eqref{b1q1:gI} is the ratio of the two sums of the previous step:
+\[
+1+g^I_{2001}=\frac{9{,}650}{9{,}500}=1.01579 .
+\]
+At the 2001 prices, $(39,35,20)$:
+\begin{align*}
+\textstyle\sum_i p_{i,2001}\,q_{i,2001}&=39\times103+35\times47+20\times206\\
+&=4{,}017+1{,}645+4{,}120=9{,}782,\\
+\textstyle\sum_i p_{i,2001}\,q_{i,2000}&=39\times100+35\times50+20\times200\\
+&=3{,}900+1{,}750+4{,}000=9{,}650.
+\end{align*}
+Substituting these into \eqref{b1q1:gF}:
+\[
+1+g^F_{2001}=\frac{9{,}782}{9{,}650}=1.01368 .
+\]
+Using \eqref{b1q1:g}:
+\[
+1+g_{2001}=(1.01579\times1.01368)^{1/2}=1.01473 ,
+\]
+a chained growth of $1.473\%$. Using \eqref{b1q1:chain}:
+\begin{align*}
+Y^{ch}_{2001}&=9{,}500\times(1+g_{2001})\\
+&=9{,}500\times(1.014734)\\
+&=9{,}639.97 .
+\end{align*}
+Repeating \eqref{b1q1:gI}--\eqref{b1q1:chain} every year:
+\begin{center}\small
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+ & 2000 & 2005 & 2010 & 2015 & 2020 \\
+\midrule
+At 2000 prices & 9{,}500 & 10{,}400 & 11{,}230 & 12{,}390 & 13{,}960 \\
+Chained (2000 prices) & 9{,}500 & 10{,}341.8 & 10{,}950.0 & 11{,}922.8 & 12{,}976.2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\passo{(b) the gap}{The fixed-price series grows faster and the gap widens every year. Cherries expand most ($200\to361$) while
+their relative price falls ($20\to12$); bananas shrink ($50\to34$) while theirs rises ($30\to61$). The fixed 2000 prices in
+\eqref{b1q1:base} keep weighting cherries at their old, high price, so they overstate growth; \eqref{b1q1:gI}--\eqref{b1q1:gF}
+update the weights every year.}
+\passo{(c) average growth}{The average annual rate compounds over the 20 years:}
+\begin{equation}
+1+\bar g=\Big(\frac{Y_{2020}}{Y_{2000}}\Big)^{1/20}. \label{b1q1:avg}
+\end{equation}
+Applying \eqref{b1q1:avg} to each series of the table:
+\begin{align*}
+\text{at 2000 prices:}\quad 1+\bar g&=(13{,}960/9{,}500)^{1/20}=1.0194,\\
+\text{chained:}\quad 1+\bar g&=(12{,}976.2/9{,}500)^{1/20}=1.0157,
+\end{align*}
+that is, $1.94\%$ and $1.57\%$ a year.
+\intuicao{A base year far in the past weights each good by a relative price that no longer holds; when the goods that grow most are the
+ones getting cheaper, that weighting inflates measured real growth.}
+\refbib{Kurlat (2020), ch.~1, \S1.2, ``Alternative 3: chained prices'' (pp.~22--24); Exercise~1.5 (p.~29) asks why expanding sectors
+tend to get cheaper. The book prints no answer; every figure is recomputed in the check script.}
+\rubrica{
+\item (a) base-year series 1 pt, chained series with the 2001 link shown 1.5 pts; (b) 0.75 pt; (c) 0.75 pt.
+\item Chained growth computed as an arithmetic average of $g^I$ and $g^F$: $-0.25$ pt (the numbers barely change, the method does).
+Average growth taken as the arithmetic mean of annual rates: $-0.25$ pt. Series at current prices called ``real'': max.\ 1 pt.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(5 points) Discursive. \emph{Three approaches $\times$ price indices $\times$ beyond GDP.} An illustrative Brazilian
+economy (BRL billion, 2025) has four producers.
+\begin{itemize}[leftmargin=1.4em]
+\item Agro firm F grows soybeans with no intermediate inputs. It sells 300 to the food processor P, exports 200 and pays wages of 250.
+\item P buys the 300 of soybeans, imports packaging for 100 and buys 40 of online advertising from N. It produces 700 of food:
+households buy 650 and 50 stays unsold in P's warehouse. P pays wages of 180.
+\item Platform N gives households a free app financed by advertising; its only sale is the 40 of ads to P, and it pays 30 to the app
+staff. It also pays 60 in wages to programmers who write software that N will use in its own operations for ten years.
+\item The government pays 120 in wages to public school teachers and 80 in Bolsa Fam\'ilia transfers, financed by taxes.
+\end{itemize}
+Each firm's profit is its revenue plus any output added to its own stocks, minus wages and intermediate inputs.}
+
+\textbf{a)} (2 points) Compute 2025 GDP by the production, income and expenditure approaches, and show that they agree.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $j\in\{F,P,N,\text{Gov}\}$: the agro firm, the food processor, the platform and the government (BRL billion, 2025).
+\item $VA_j$: value added of producer $j$. $W_j\ge0$: wages it pays. $\Pi_j$: its profit (statement's definition).
+\item $C$, $I$, $G$, $X$, $M$: household consumption, investment (fixed capital plus inventories), government purchases
+of goods and services, exports and imports.
+\end{notacao}
+\passo{the four identities used below}{GDP is the value of final goods and services produced; the three approaches must
+agree:}
+\begin{align}
+\text{GDP}&=\textstyle\sum_j VA_j, \label{b1q2:gdpva}\\
+VA_j&=\text{gross output}_j-\text{intermediate inputs}_j, \label{b1q2:va}\\
+\text{GDP}&=\textstyle\sum_j W_j+\sum_j\Pi_j, \label{b1q2:inc}\\
+\text{GDP}&=C+I+G+X-M. \label{b1q2:exp}
+\end{align}
+The government sells nothing, so its output is valued at cost: its value added is its wage bill.
+\passo{production (value added)}{P's gross output is its sales plus the food added to its stocks:
+$650+50=700$. Own-account software is valued at cost, 60. Using \eqref{b1q2:va}:}
+\begin{align*}
+VA_F&=500-0=500,\\
+VA_P&=700-300-100-40=260,\\
+VA_N&=(40+60)-0=100,\\
+VA_{\text{Gov}}&=120.
+\end{align*}
+Summing with \eqref{b1q2:gdpva}:
+\[
+\text{GDP}=500+260+100+120=980 .
+\]
+\passo{income}{Wages, with N paying the app staff and the programmers:}
+\[
+\textstyle\sum_j W_j=250+180+(30+60)+120=640 .
+\]
+Profits, by the statement's definition (revenue plus own stocks, minus wages and inputs):
+\begin{align*}
+\Pi_F&=500-250=250,\\
+\Pi_P&=700-300-100-40-180=80,\\
+\Pi_N&=100-90=10,
+\end{align*}
+a total of $340$. Using \eqref{b1q2:inc}:
+\[
+\text{GDP}=640+340=980 .
+\]
+\passo{expenditure}{$C=650$ (the app is free: no transaction). $I$ is inventory plus software, which is gross fixed capital
+formation: $I=50+60=110$. $G=120$ (the transfer of 80 buys no good or service). $X=200$, $M=100$. Using \eqref{b1q2:exp}:}
+\[
+\text{GDP}=650+110+120+200-100=980 .
+\]
+\passo{traps}{Summing gross outputs, $500+700+100+120=1{,}420$, double counts the soybeans and the ads, which P uses up;
+\eqref{b1q2:va} nets them out.}
+\refbib{Kurlat (2020), ch.~1, \S1.1 (p.~15); Prova~01, Q1(b)--(c) (\texttt{Prova/}\allowbreak\texttt{prova-01-error-analysis.md}).}
+\rubrica{
+\item 0.7 pt per approach (2 pts in total with agreement). Software placed in $C$, or the transfer in $G$: max.\ 1 pt in the item.
+}
+\end{sol}
+
+\textbf{b)} (1.5 points) Give the number and the reason in each case. (i) GDP if N books the software as a current expense.
+(ii) GDP a student obtains by counting Bolsa Fam\'ilia in $G$. (iii) Gross national income if 30 of F's profit belongs to a foreign
+shareholder. (iv) What part of the app's value to households GDP records, and how a welfare measure such as Jones--Klenow's would treat it.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). GNI: gross national income, the factor income of residents.
+\end{notacao}
+\passo{(i)}{Expensed, the software is an intermediate input of N. Using \eqref{b1q2:va} and then \eqref{b1q2:exp}, with
+$I=50$:}
+\begin{align*}
+VA_N&=100-60=40,\\
+\text{GDP}&=650+50+120+200-100=920 .
+\end{align*}
+National accounts capitalise own-account software as investment in intellectual property, because it is a durable
+productive asset; then GDP $=980$, as in (a).
+\passo{(ii)}{$980+80=1{,}060$ is wrong: a transfer moves income from taxpayers to families and pays for no current production,
+so it is not in $G$ in \eqref{b1q2:exp}. It enters $C$ only when the families spend it, and that spending is already in the 650.}
+\passo{(iii)}{GDP is territorial; GNI counts the income of residents:}
+\begin{equation}
+\text{GNI}=\text{GDP}-\text{factor income paid abroad}+\text{factor income received from abroad}. \label{b1q2:gni}
+\end{equation}
+Using \eqref{b1q2:gni}, with nothing received from abroad:
+\[
+\text{GNI}=980-30+0=950 .
+\]
+\passo{(iv)}{GDP records only the 40 of ads, as an intermediate input of P that is already inside the price of food. The service
+households get at price zero is not a market transaction, so its value is missing from GDP. A consumption-based welfare
+measure (Kurlat ch.~2) would count it only if it were valued, e.g.\ by households' willingness to pay or time spent.}
+\refbib{Kurlat (2020), ch.~1, \S1.1 and ch.~2, \S2.1--2.2 (pp.~31--33).}
+\rubrica{\item 0.375 pt per sub-case, number and reason. Number without the reason: half.}
+\end{sol}
+
+\textbf{c)} (1.5 points) In 2026 every quantity repeats, while prices change: food $+10\%$, soybeans $+20\%$ (domestic and
+export price), imported packaging $+50\%$, teachers' wages $+5\%$; ads and software unchanged. Compute nominal GDP in 2026, real GDP at
+2025 prices and the inflation rate of the GDP deflator. Compare it with a consumer price index (IPCA-type, Laspeyres) built on the
+household basket, and explain the gap.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a); subscripts 2025 and 2026 date a value. Quantities $q$ are the same in both years.
+\item $P^D_t$: GDP deflator, nominal over real GDP, with $P^D_{2025}=1$. $\pi^D$: its inflation rate.
+\item $\text{CPI}_t$: Laspeyres consumer price index on the 2025 household basket $q^H_{2025}$, with $\text{CPI}_{2025}=1$.
+\end{notacao}
+\passo{nominal GDP}{Each 2025 component of \eqref{b1q2:exp} is multiplied by its price change (software is unchanged):}
+\begin{align*}
+C&=650\times1.1=715,\\
+I&=50\times1.1+60=115,\\
+G&=120\times1.05=126,\\
+X&=200\times1.2=240,\\
+M&=100\times1.5=150.
+\end{align*}
+Using \eqref{b1q2:exp}:
+\begin{equation}
+\text{GDP}^{\text{nom}}_{2026}=715+115+126+240-150=1{,}046. \label{b1q2:nom}
+\end{equation}
+Production check with \eqref{b1q2:va}: F sells $300\times1.2=360$ at home and exports $240$; P's output is $715+55=770$:
+\begin{align*}
+VA_F&=360+240=600,\\
+VA_P&=770-360-150-40=220,\\
+VA_N&=100,\qquad VA_{\text{Gov}}=126,
+\end{align*}
+and \eqref{b1q2:gdpva} gives $600+220+100+126=1{,}046$.
+\passo{real GDP and deflator}{At 2025 prices the 2026 quantities give the 2025 value, since nothing moved:}
+\begin{equation}
+\text{GDP}^{\text{real}}_{2026}=980. \label{b1q2:real}
+\end{equation}
+The deflator is the ratio of \eqref{b1q2:nom} to \eqref{b1q2:real}:
+\[
+P^D_{2026}=\frac{1{,}046}{980}=1.0673,\qquad \pi^D=6.73\% .
+\]
+Real growth is zero, so all of the $6.73\%$ nominal growth is price.
+\passo{CPI}{Households buy only food (the app costs zero; the transfer is not a good), so the Laspeyres index is}
+\[
+\text{CPI}_{2026}=\frac{\sum_i p_{i,2026}\,q^H_{i,2025}}{\sum_i p_{i,2025}\,q^H_{i,2025}}=\frac{650\times1.1}{650}=1.10,
+\]
+a rise of $10\%$.
+\passo{the gap}{The deflator prices domestic production. Splitting the rise from \eqref{b1q2:real} to \eqref{b1q2:nom} by item:
+food $700\times0.10=70$, teachers $120\times0.05=6$, exports $200\times0.20=40$, imports $-100\times0.50=-50$
+(the soybeans sold to P cancel between F and P):}
+\begin{align*}
+\text{GDP}^{\text{nom}}_{2026}-\text{GDP}^{\text{real}}_{2026}&=70+6+40-50=66,\\
+\pi^D&=66/980=6.73\% .
+\end{align*}
+Dearer imports \emph{lower} the deflator, because $M$ is subtracted, and exports raise it. The CPI prices what households
+consume, imported goods included, with fixed base-year weights.
+\refbib{Kurlat (2020), ch.~1, \S1.2 (p.~22).}
+\rubrica{
+\item Nominal GDP 0.5; deflator 0.5; CPI and the gap 0.5. Imports added rather than subtracted: max.\ 0.5 pt. Arithmetic slip with the right
+method: $-0.25$ pt.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(1 point) Multiple choice. Brazil's GDP per capita is BRL~60{,}000 (illustrative); the market exchange rate is 5.0 BRL per USD and
+the Penn World Table PPP conversion factor is 2.5 BRL per USD; US GDP per capita is USD~85{,}000. Which statement is correct?}
+\begin{alternativas}
+\item At PPP Brazil's GDP per capita is USD~12{,}000, about 14\% of the US level, since PPP strips out the cheaper Brazilian tradables.
+\item At PPP it is USD~24{,}000, about 28\% of the US level, because tradable goods are cheaper in Brazil while the real is undervalued.
+\item At PPP it is USD~24{,}000, about 28\% of the US level, because non-tradable services are cheaper in Brazil, so a real buys more there.
+\item At PPP it is USD~150{,}000, about 176\% of the US level, because PPP converts reais at the price of a common basket of goods.
+\item At market rates it is USD~24{,}000 and at PPP USD~12{,}000, so the market rate overstates Brazilian living standards.
+\end{alternativas}
+\gabarito{C}
+\begin{sol}
+\begin{notacao}
+\item $y=60{,}000$: GDP per capita in BRL; $e$: a conversion rate in BRL per USD (market $5.0$, PPP $2.5$); $y^{US}=85{,}000$ USD.
+\end{notacao}
+\passo{numbers}{A value in BRL is converted to USD by dividing by the rate:}
+\begin{equation}
+y^{USD}=\frac{y}{e}. \label{b1q3:conv}
+\end{equation}
+Using \eqref{b1q3:conv} at each rate, then dividing by $y^{US}$:
+\begin{align*}
+\text{market:}\quad y^{USD}&=60{,}000/5.0=12{,}000, & 12{,}000/85{,}000&=14.1\%,\\
+\text{PPP:}\quad y^{USD}&=60{,}000/2.5=24{,}000, & 24{,}000/85{,}000&=28.2\%.
+\end{align*}
+\passo{reason}{The PPP factor is below the market rate because non-tradables (haircuts, rents, services) are cheaper in a
+lower-productivity country (Balassa--Samuelson); tradables roughly obey the law of one price. A uses the market number with the wrong
+label; B has the right number with the tradables story; D multiplies by the PPP factor ($60{,}000\times2.5$) and keeps a wrong reason
+(two mistakes); E swaps the two conversions.}
+\refbib{Kurlat (2020), ch.~1, \S1.2 (PPP comparisons, p.~22); Jones (2020), ch.~2.}
+\end{sol}

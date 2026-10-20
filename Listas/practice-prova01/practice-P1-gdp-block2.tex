@@ -1,0 +1,486 @@
+% =============================================================================
+\bloco{2}{Harder book items and conceptual classification}{Kurlat \S\S1.1, 2.2, 4.3, 5.2, 5.4; Jones ch.~2 \,\textbullet\, 35 points}
+
+\questao{(10 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 5.8 ``National Accounts and
+The Golden Rule'', pp.~97--98 --- statement reproduced verbatim, all items (a)--(d).}}
+\textit{What this trains:} the three approaches with an investment good and depreciation, then reading factor shares and
+the saving rate off the accounts and using them in the golden rule --- Prova~01 Q1 and Q2(b) in one exercise.
+
+\noindent In 2018, the following events happened in Aurum, which is a closed economy that uses the Denarius (plural: Denarii) as its currency.
+\begin{itemize}[leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Grano, Inc.\ hired Cornelia to plant and harvest 500 tons of wheat on a large plot of land using a tractor. Both the land and
+the tractor are owned by Grano, Inc.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Cornelia 200 Denarii for her work on the harvest.
+  \item It sold the wheat to Panem, Inc.\ for 1,000 Denarii.
+  \end{itemize}
+\item The tractor the Cornelia used:
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item Was new at the beginning of the year. It was worth 2,000 Denarii.
+  \item Was no longer new at the end of the year. By then it was worth 1,800 Denarii.
+  \end{itemize}
+\item Panem, Inc.\ hired Gaius to grind the wheat in its mill and produce a million loaves of bread.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Gaius 1,400 Denarii for his work.
+  \item It sold the bread for 4,000 Denarii to the hungry citizens, who eat it.
+  \end{itemize}
+\item Fabrica, Inc.\ hired Livia to build a combine harvester.
+  \begin{itemize}[label=--,topsep=0pt,itemsep=0pt]
+  \item It paid Livia 400 Denarii for her work.
+  \item It sold the combine harvester to Grano, Inc.\ for 1,000 Denarii.
+  \end{itemize}
+\end{itemize}
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Construct GDP accounts (in Denarii) for Aurum by production, income and expenditure.
+\item What were the income shares of labor and capital?
+\item What was the savings rate?
+\item Assume the following:
+  \begin{itemize}[topsep=0pt,itemsep=0pt]
+  \item the savings rate is constant,
+  \item the production function has the form:
+  \[
+  Y=AK^\alpha L^{1-\alpha}
+  \]
+  and there is no technological progress,
+  \item the depreciation rate for the tractor is typical for the capital stock as a whole,
+  \item the population is constant.
+  \end{itemize}
+In the long run, would the level of consumption be higher if the economy slightly increased its saving rate?
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Grano (G), Panem (P), Fabrica (F): the three firms. $VA_j$, $\Pi_j$ and the identities \eqref{q1:G1}--\eqref{q1:G4}: as in Question~1.
+\item $D\ge0$: depreciation of Grano's tractor. $S$: national saving. $Y>0$: GDP; $K>0$: the capital stock; $L>0$: labour.
+\item $A>0$: total factor productivity. $\alpha\in(0,1)$: the capital exponent of $Y=AK^{\alpha}L^{1-\alpha}$, equal to the capital
+share under competitive factor pay. $\delta\in(0,1)$: depreciation rate. $n\ge0$: labour-force growth (here $n=0$).
+\item $s\in(0,1)$: saving rate. $k\equiv K/L$, $y\equiv Y/L$, $c$: capital, output and consumption per worker; the subscript $ss$
+marks the steady state. $s_{GR}$: the golden-rule saving rate. $MPK$: marginal product of capital.
+\end{notacao}
+
+\passo{(a) accounts}{Grano uses no intermediate inputs (the tractor and the land are capital); the wheat is intermediate for Panem;
+the combine harvester is a final good, investment by Grano. By \eqref{q1:G2}:}
+\begin{align}
+VA_G &= (1{,}000)-(0) \nonumber\\
+&= 1{,}000, \label{q3:vaG}\\
+VA_P &= (4{,}000)-(1{,}000) \nonumber\\
+&= 3{,}000, \label{q3:vaP}\\
+VA_F &= (1{,}000)-(0) \nonumber\\
+&= 1{,}000. \label{q3:vaF}
+\end{align}
+Summing \eqref{q3:vaG}--\eqref{q3:vaF} with \eqref{q1:G1}:
+\begin{align}
+Y &= (1{,}000)+(3{,}000)+(1{,}000) \nonumber\\
+&= 5{,}000. \label{q3:Y}
+\end{align}
+The tractor loses value from 2{,}000 to 1{,}800:
+\begin{align}
+D &= (2{,}000)-(1{,}800) \nonumber\\
+&= 200. \label{q3:D}
+\end{align}
+Capital income by \eqref{q1:G3}, value added minus wages:
+\begin{align*}
+\Pi_G &= (1{,}000)-(200)\\
+&= 800,\\
+\Pi_P &= (4{,}000)-(1{,}000)-(1{,}400)\\
+&= 1{,}600,\\
+\Pi_F &= (1{,}000)-(400)\\
+&= 600.
+\end{align*}
+Grano's 800 splits into the depreciation \eqref{q3:D} and a profit of
+\begin{align*}
+\Pi_G-D &= (800)-(200)\\
+&= 600 .
+\end{align*}
+Adding up wages and profits:
+\begin{align}
+\text{wages} &= (200)+(1{,}400)+(400) \nonumber\\
+&= 2{,}000, \label{q3:W}\\
+\text{profits} &= (600)+(1{,}600)+(600) \nonumber\\
+&= 2{,}800. \label{q3:Pi}
+\end{align}
+Income: by \eqref{q1:G3}, adding \eqref{q3:W}, \eqref{q3:Pi} and \eqref{q3:D},
+\begin{align*}
+Y &= (2{,}000)+(2{,}800)+(200)\\
+&= 5{,}000 .
+\end{align*}
+Expenditure: by \eqref{q1:G4}, with $C=4{,}000$ (Panem's food) and $I=1{,}000$ (the harvester),
+\begin{align*}
+Y &= (4{,}000)+(1{,}000)\\
+&= 5{,}000 .
+\end{align*}
+All three equal \eqref{q3:Y}.
+\begin{center}\footnotesize\begin{tabular}{@{}lr@{\qquad}lr@{\qquad}lr@{}}\toprule
+\multicolumn{2}{@{}c}{Production} & \multicolumn{2}{c}{Income} & \multicolumn{2}{c@{}}{Expenditure}\\\midrule
+Agriculture (Grano) & 1{,}000 & Wages $200+1{,}400+400$ & 2{,}000 & Consumption & 4{,}000\\
+Food (Panem) & 3{,}000 & Profits $600+1{,}600+600$ & 2{,}800 & Investment & 1{,}000\\
+Machinery (Fabrica) & 1{,}000 & Depreciation & 200 & & \\\midrule
+Total & 5{,}000 & Total & 5{,}000 & Total & 5{,}000\\\bottomrule\end{tabular}\end{center}
+\passo{(b) shares}{Dividing \eqref{q3:W} by \eqref{q3:Y}:}
+\begin{align*}
+\text{labor share} &= \frac{(2{,}000)}{(5{,}000)}\\
+&= 0.4 .
+\end{align*}
+Dividing the sum of \eqref{q3:Pi} and \eqref{q3:D} by \eqref{q3:Y} (gross of depreciation, as GDP is gross):
+\begin{align}
+\text{capital share} &= \frac{(2{,}800)+(200)}{(5{,}000)} \nonumber\\
+&= 0.6. \label{q3:ksh}
+\end{align}
+\passo{(c) saving rate}{Closed economy, no government, so saving is output not consumed, and it equals investment:}
+\begin{align*}
+S &= Y-C\\
+&= (5{,}000)-(4{,}000)\\
+&= 1{,}000=I .
+\end{align*}
+Dividing by \eqref{q3:Y}:
+\begin{align}
+s &= \frac{(1{,}000)}{(5{,}000)} \nonumber\\
+&= 0.2. \label{q3:s}
+\end{align}
+\passo{(d) golden rule}{With $Y=AK^\alpha L^{1-\alpha}$, competitive factor pay makes the capital share equal to $\alpha$, so by
+\eqref{q3:ksh} $\alpha=0.6$. Dividing \eqref{q3:D} by the tractor's value:}
+\begin{align}
+\delta &= \frac{(200)}{(2{,}000)} \nonumber\\
+&= 0.10, \label{q3:delta}
+\end{align}
+and $n=0$. In steady state saving replaces depreciation, $sY=\delta K$; per worker, substituting $y=Ak^{\alpha}$:
+\begin{align}
+sy &= \delta k, \nonumber\\
+s\big(Ak^{\alpha}\big) &= \delta k. \label{q3:ss}
+\end{align}
+Divide \eqref{q3:ss} by $\delta k^{\alpha}$ and raise to the power $1/(1-\alpha)$:
+\begin{align}
+k^{1-\alpha} &= \frac{sA}{\delta}, \nonumber\\
+k_{ss} &= \Big(\frac{sA}{\delta}\Big)^{\frac{1}{1-\alpha}}. \label{q3:kss}
+\end{align}
+Substitute \eqref{q3:kss} into $y=Ak^{\alpha}$:
+\begin{align}
+y_{ss} &= A\bigg(\Big(\frac{sA}{\delta}\Big)^{\frac{1}{1-\alpha}}\bigg)^{\alpha} \nonumber\\
+&= A\Big(\frac{sA}{\delta}\Big)^{\frac{\alpha}{1-\alpha}} \nonumber\\
+&= A^{\frac{1}{1-\alpha}}\Big(\frac{s}{\delta}\Big)^{\frac{\alpha}{1-\alpha}}. \label{q3:yss}
+\end{align}
+Consumption is the part of output not saved:
+\begin{equation}
+c_{ss}=(1-s)\,y_{ss}. \label{q3:css}
+\end{equation}
+Substitute \eqref{q3:yss} into \eqref{q3:css}, take logs and differentiate with respect to $s$:
+\begin{align}
+c_{ss} &= (1-s)\Big(A^{\frac{1}{1-\alpha}}\Big(\frac{s}{\delta}\Big)^{\frac{\alpha}{1-\alpha}}\Big), \nonumber\\
+\ln c_{ss} &= \ln(1-s)+\frac{1}{1-\alpha}\ln A+\frac{\alpha}{1-\alpha}\big(\ln s-\ln\delta\big), \nonumber\\
+\frac{d\ln c_{ss}}{ds} &= -\frac{1}{1-s}+\frac{\alpha}{(1-\alpha)s}. \label{q3:dlnc}
+\end{align}
+Evaluate \eqref{q3:dlnc} at $\alpha=0.6$ and \eqref{q3:s}:
+\begin{align*}
+\frac{d\ln c_{ss}}{ds} &= -\frac{1}{1-(0.2)}+\frac{(0.6)}{\big(1-(0.6)\big)(0.2)}\\
+&= -\frac{1}{0.8}+\frac{0.6}{0.4\times0.2}\\
+&= -1.25+7.5\\
+&= 6.25>0 .
+\end{align*}
+Multiplying \eqref{q3:dlnc} by $(1-\alpha)s(1-s)>0$ leaves $\alpha(1-s)-(1-\alpha)s=\alpha-s$, so the sign is positive exactly
+when $s<\alpha$:
+\begin{equation}
+s_{GR}=\alpha=0.6. \label{q3:sgr}
+\end{equation}
+Cross-check with Kurlat's condition $f'(k_{gr})=\delta+n$. From \eqref{q3:ss}, with \eqref{q3:s} and \eqref{q3:delta}:
+\begin{align*}
+\frac{K}{Y} &= \frac{s}{\delta}\\
+&= \frac{(0.2)}{(0.1)}\\
+&= 2 .
+\end{align*}
+So, by the marginal product of the Cobb--Douglas function,
+\begin{align*}
+MPK &= \alpha\frac{Y}{K}\\
+&= \frac{(0.6)}{(2)}\\
+&= 0.3>\delta+n=0.1 ;
+\end{align*}
+capital is below the golden rule. \textbf{Yes:} a slightly higher saving rate raises long-run consumption, by \eqref{q3:sgr}.
+\intuicao{The national accounts hand you the two numbers the golden rule needs: the capital share ($\alpha$) and the saving rate ($I/Y$).
+Saving 20\% when capital earns 60\% of income means the marginal unit of capital pays far more than it costs to maintain.}
+\refbib{Kurlat (2020), \S1.1, Ex.~1.10 (depreciation added back), p.~21; \S4.3, eq.~(4.3.4), p.~63; \S5.2, p.~78. No book answer exists;
+every figure is verified by the check script.}
+\rubrica{
+\item (a) 4 points: each column 1.3; the combine harvester counted as intermediate (GDP 4{,}000): max.\ 1.5 for (a).
+\item (b) 2 points; (c) 1 point.
+\item (d) 3 points: $s_{GR}=\alpha$ derived or justified 1.5, numbers and conclusion 1.5. Comparing $s$ with the labor share: max.\ 1.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(12 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 5.7 ``GDP Accounting,
+Interest Rates and Growth Accounting'', pp.~96--97 --- statement reproduced verbatim, all items (a)--(e).}}
+\textit{What this trains:} an open economy with imported capital, imported consumption, exports, government output at cost and
+income taxes; then the same accounts feed the interest rate and a Solow residual.
+
+\noindent Proletaria is a mythical country in Central Asia, where the currency is the ruble. The exchange rate is 10 rubles per euro.
+
+Suppose the production function in Proletaria is given by:
+\[
+Y=K^\alpha L^{1-\alpha}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Find expressions for the output-to-capital ratio $\frac YK$ and the marginal product of capital $F_K$ as functions of $K$
+and $L$.
+\end{enumerate}
+During 2014, the following events took place in Proletaria.
+\begin{itemize}[leftmargin=2.2em,topsep=2pt,itemsep=1pt]
+\item Kapitas, the main manufacturer in the country, imported an industrial welder made in Germany, for which it paid 1,000 euro.
+\item By the end of the year, the industrial welder was no longer new. Its estimated value in the resale market was 960 euro.
+\item 100 workers worked for Kapitas the entire year making screws and nails, using the new welder. Each of them received wages
+for 350 rubles.
+\item Each of the Kapitas workers paid 100 rubles in income taxes.
+\item The total output of Kapitas consisted of 1 million screws and 1 million nails. All of it was exported to Austria for a total
+of 4,000 euro.
+\item The government of Proletaria employed one of the 100 workers as Chief of the Secret Police (in addition to his factory job)
+to maintain law and order, and paid her a salary of 10,000 rubles.
+\item The workers ate beef imported from France, which cost a total of 2,500 euro.
+\end{itemize}
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em,topsep=2pt,itemsep=1pt,start=2]
+\item Construct GDP accounts (in rubles) for Proletaria by production, income and expenditure.
+\item What were the income shares of labor and capital?
+\item Suppose that we know that the capital stock in Proletaria is 100,000 rubles and that the depreciation rate of the
+industrial welder is typical for this country's capital stock. What interest rate should we expect to observe?
+\item During 2015, additional investment in Proletaria has exceeded depreciation so that the capital stock now stands at
+120,000 rubles. The labor force also grew thanks to immigration, and now consists of 105 workers instead of 100. GDP during 2015
+was 55,000 rubles (prices were constant). How much of the growth in GDP between 2014 and 2015 can be attributed to growth in
+Total Factor Productivity?
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $Y>0$: GDP; $K>0$: the capital stock; $L>0$: labour (workers); all in the exercise's units, values in rubles.
+\item $\alpha\in(0,1)$: the capital exponent of $Y=K^{\alpha}L^{1-\alpha}$, equal to the capital share under competition.
+$F_K$: marginal product of capital. $\delta\in(0,1)$: depreciation rate. $r$: the real interest rate.
+\item $g_Y$, $g_K$, $g_L$: growth rates of $Y$, $K$, $L$; the Solow residual is the growth of TFP.
+\item $C$, $I$, $G$, $X$, $M$, $\Pi$ and the identities \eqref{q1:G1}--\eqref{q1:G4}: as in Question~1. The exchange rate is
+10 rubles per euro.
+\end{notacao}
+
+\passo{(a) ratios}{Write the technology as}
+\begin{equation}
+Y=K^{\alpha}L^{1-\alpha}. \label{q4:Y}
+\end{equation}
+Divide \eqref{q4:Y} by $K$:
+\begin{align*}
+\frac YK &= K^{\alpha-1}L^{1-\alpha}\\
+&= \Big(\frac KL\Big)^{\alpha-1}.
+\end{align*}
+Differentiate \eqref{q4:Y} with respect to $K$ and use \eqref{q4:Y} again:
+\begin{align}
+F_K &= \alpha K^{\alpha-1}L^{1-\alpha} \nonumber\\
+&= \alpha\frac{\big(K^{\alpha}L^{1-\alpha}\big)}{K} \nonumber\\
+&= \alpha\frac YK. \label{q4:FK}
+\end{align}
+\passo{(b) accounts, in rubles (10 rubles per euro)}{Convert each euro amount, and compute the wage bill and the taxes:}
+\begin{align*}
+\text{welder (imported investment)} &= (1{,}000)\times(10)\\
+&= 10{,}000,\\
+\text{exports} &= (4{,}000)\times(10)\\
+&= 40{,}000,\\
+\text{beef (imported consumption)} &= (2{,}500)\times(10)\\
+&= 25{,}000,\\
+\text{Kapitas wages} &= (100)\times(350)\\
+&= 35{,}000,\\
+\text{income taxes} &= (100)\times(100)\\
+&= 10{,}000.
+\end{align*}
+Kapitas's gross profit, by \eqref{q1:G3}:
+\begin{align*}
+\Pi &= (40{,}000)-(35{,}000)\\
+&= 5{,}000 .
+\end{align*}
+It splits into depreciation and net profit:
+\begin{align*}
+\text{depreciation} &= \big((1{,}000)-(960)\big)\times(10)\\
+&= 400,\\
+\text{net profit} &= (5{,}000)-(400)\\
+&= 4{,}600.
+\end{align*}
+The police chief's salary, 10{,}000, is government output valued at cost. The income taxes are a transfer and appear nowhere.
+Product, by \eqref{q1:G1}--\eqref{q1:G2}:
+\begin{align}
+Y &= (40{,}000)+(10{,}000) \nonumber\\
+&= 50{,}000. \label{q4:Y0}
+\end{align}
+Income, by \eqref{q1:G3}:
+\begin{align*}
+Y &= (35{,}000)+(10{,}000)+(5{,}000)\\
+&= 50{,}000 .
+\end{align*}
+Imports are the welder plus the beef; expenditure, by \eqref{q1:G4}:
+\begin{align*}
+M &= (10{,}000)+(25{,}000)\\
+&= 35{,}000,\\
+Y &= (25{,}000)+(10{,}000)+(10{,}000)+(40{,}000)-(35{,}000)\\
+&= 50{,}000 .
+\end{align*}
+\begin{center}\footnotesize\begin{tabular}{@{}lr@{\qquad}lr@{\qquad}lr@{}}\toprule
+\multicolumn{2}{@{}c}{Production} & \multicolumn{2}{c}{Income} & \multicolumn{2}{c@{}}{Expenditure}\\\midrule
+Manufacturing & 40{,}000 & Wages (Kapitas) & 35{,}000 & Consumption & 25{,}000\\
+Public administration & 10{,}000 & Wages (government) & 10{,}000 & Investment & 10{,}000\\
+ & & Profit 4{,}600 $+$ deprec.\ 400 & 5{,}000 & Government & 10{,}000\\
+ & & & & Exports & 40{,}000\\
+ & & & & Imports (welder $+$ beef) & $-35{,}000$\\\midrule
+Total & 50{,}000 & Total & 50{,}000 & Total & 50{,}000\\\bottomrule\end{tabular}\end{center}
+\passo{(c) shares}{Dividing all wages by \eqref{q4:Y0}:}
+\begin{align*}
+\text{labor share} &= \frac{(35{,}000)+(10{,}000)}{(50{,}000)}\\
+&= 0.9 .
+\end{align*}
+Dividing the gross profit by \eqref{q4:Y0}:
+\begin{align}
+\alpha=\text{capital share} &= \frac{(5{,}000)}{(50{,}000)} \nonumber\\
+&= 0.1. \label{q4:alpha}
+\end{align}
+\passo{(d) interest rate}{The depreciation rate is the value lost (the same 40 euros behind the 400 rubles of (b)) over the
+value at the start:}
+\begin{align}
+\delta &= \frac{(1{,}000)-(960)}{(1{,}000)} \nonumber\\
+&= 0.04. \label{q4:delta}
+\end{align}
+The interest rate is the marginal product of capital net of depreciation; substitute \eqref{q4:FK}:
+\begin{align}
+r &= F_K-\delta \nonumber\\
+&= \Big(\alpha\frac YK\Big)-\delta. \label{q4:r}
+\end{align}
+Substitute \eqref{q4:alpha}, \eqref{q4:Y0}, $K=100{,}000$ and \eqref{q4:delta} into \eqref{q4:r}:
+\begin{align*}
+r &= (0.1)\times\frac{(50{,}000)}{(100{,}000)}-(0.04)\\
+&= 0.05-0.04\\
+&= 0.01,
+\end{align*}
+i.e.\ 1\%.
+\passo{(e) growth accounting}{Growth rates from one year to the next:}
+\begin{align*}
+g_Y &= \frac{(55{,}000)}{(50{,}000)}-1\\
+&= 10\%,\\
+g_K &= \frac{(120{,}000)}{(100{,}000)}-1\\
+&= 20\%,\\
+g_L &= \frac{(105)}{(100)}-1\\
+&= 5\%.
+\end{align*}
+The Solow residual is output growth not explained by factor growth, weighted by the shares:
+\begin{equation}
+\text{residual}=g_Y-\alpha\,g_K-(1-\alpha)\,g_L. \label{q4:res}
+\end{equation}
+Substitute the growth rates and \eqref{q4:alpha} into \eqref{q4:res}:
+\begin{align*}
+\text{residual} &= (10\%)-(0.1)\times(20\%)-\big(1-(0.1)\big)\times(5\%)\\
+&= 10\%-0.1\times20\%-0.9\times5\%\\
+&= 10\%-2\%-4.5\%\\
+&= 3.5\%.
+\end{align*}
+So 3.5 of the 10 percentage points, 35\% of the growth, is TFP. With exact logs in \eqref{q4:res}:
+\begin{align*}
+\text{residual} &= (\ln1.1)-(0.1)(\ln1.2)-(0.9)(\ln1.05)\\
+&= 0.0953-0.0182-0.0439\\
+&= 0.0332,
+\end{align*}
+34.8\% of $\ln1.1$.
+\intuicao{Imports are subtracted because $C$ and $I$ include goods made abroad; the welder raises investment and imports by the same
+amount and leaves GDP untouched. The income side is what gives $\alpha$, and $\alpha$ is what turns GDP into $r$ and into TFP.}
+\refbib{Kurlat (2020), \S1.1, Exs.~1.6--1.8, pp.~19--20; \S5.2, $r=F_K-\delta$, p.~78; \S5.4, eq.~(5.4.2), p.~87. No book answer exists.}
+\rubrica{
+\item (a) 1 point; (b) 5 points (each column 1.5; conversion at 10 rubles per euro 0.5).
+\item Income taxes counted in GDP, or the welder counted without its import: max.\ 2 for (b).
+\item (c) 2 points (government wages are labor income; using $35{,}000/40{,}000$ with a stated reason: 1.5).
+\item (d) 2 points: $r$ without $-\delta$: max.\ 1. (e) 2 points.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(10 points) Conceptual --- answer in words, no numbers. For each event, say whether it adds to this year's GDP;
+if it does, name the producer whose value added rises, the income it generates and the final use ($C$, $I$, $G$ or $X$) it
+enters; if it does not, say why. Two to four sentences each.}
+\noindent\textbf{a)} A search engine is free for households and is paid for by advertising sold to firms.\\
+\textbf{b)} A bank's own IT staff write a risk-management program the bank will use for years; a drug company's
+laboratory runs a research project for its own future products.\\
+\textbf{c)} A household sells its five-year-old car to another household through a used-car dealer.\\
+\textbf{d)} One family owns the house it lives in; next door an identical house is rented to a tenant.\\
+\textbf{e)} An accounting firm prepares one tax return for a manufacturing company and one for a household.\\
+\textbf{f)} The government pays retirement pensions and pays the salaries of public-school teachers.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $C$, $I$, $G$, $X$: the final uses of \eqref{q1:G4} (consumption, investment, government purchases, exports).
+\item Value added, income and the three approaches: \eqref{q1:G1}--\eqref{q1:G3} of Question~1. No numbers are needed.
+\end{notacao}
+\passo{a)}{The ads are a service bought by firms, so they are an \emph{intermediate} input: the network's value added is counted, but no
+final use appears for it; it is embedded in the price of the advertisers' goods. The search itself has a zero price and is no market
+transaction, so it adds nothing beyond that. The users' gain is real welfare that GDP does not measure.}
+\passo{b)}{Both are \emph{gross fixed capital formation} in intellectual property products: durable assets that yield services for several
+years. With no market price, each is valued at its production cost. Production: the bank's and the company's output includes the
+asset; income: the wages paid plus an operating surplus; expenditure: $I$. It is not consumption (no household buys it) and not an
+intermediate input (it is not used up within the year).}
+\passo{c)}{The car was produced, and counted, five years ago; changing its owner is not new production. Only the dealer's service is
+current output: its margin is the dealer's value added, its profit and wages, and the buyer's consumption of a trade service.}
+\passo{d)}{Both houses produce housing services that enter $C$. For the tenant, the rent is paid in the market; for the owner, an
+\emph{imputed} rent is counted as both consumption and income of the owner. Without it, GDP would fall every time a tenant bought the
+house she lives in, with no change in what is produced.}
+\passo{e)}{The same service is \emph{intermediate} when the company buys it (a cost of making its goods, already inside their price) and
+\emph{final} when the household buys it ($C$). The accounting firm's value added counts in both cases; only the final-use column
+differs. The classification follows the buyer and the use, never the product.}
+\passo{f)}{Pensions are transfers: no good or service is produced in exchange, so they enter neither $G$ nor GDP. Teachers produce
+education with no market price; it is valued at cost: value added of public education $=$ the wages $=$ income, and the final use is
+$G$.}
+\intuicao{One question settles every case: was something produced this year, and who used it up? Firms using it $\Rightarrow$
+intermediate; households $\Rightarrow C$; firms keeping it for years $\Rightarrow I$; government $\Rightarrow G$; nothing produced $\Rightarrow$ 0.}
+\refbib{Kurlat (2020), \S1.1: inventories and investment (Ex.~1.3, p.~17), financial investment (Ex.~1.4, p.~18), durables and imputed rent
+(Ex.~1.5, pp.~18--19), government at cost and transfers (Exs.~1.7--1.8, p.~20), non-market activity (Ex.~1.11, p.~22); \S2.2, p.~33.
+Jones (2020), ch.~2, p.~22: intellectual property products in $I$; government purchases vs.\ transfers.}
+\rubrica{
+\item 10/6 points per item, judged on the classification and the reason.
+\item Own-account software or R\&D called consumption (the Prova~01 Q1(c) error), or the free service counted as a final use: 0 for that item.
+\item Right classification with no reason: half the item.
+}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(3 points) \textit{Source: Kurlat, P. (2020), \emph{A Course in Modern Macroeconomics}, Exercise 1.4 ``Drugs and
+Prostitution'', p.~29, and Exercise 2.4 ``Construction and the Armed Forces'', p.~41; Jones, C.\,I. (2020), \emph{Macroeconomics},
+5th ed., ch.~2, Exercise~9 ``Earthquakes and GDP'', p.~41 --- statements reproduced verbatim; the closing instruction is added
+by this list.}}
+\textit{What this trains:} separating what GDP measures (market production) from what it does not (legality, welfare, the
+stock of wealth).
+
+\noindent\textbf{Kurlat 1.4 Drugs and Prostitution.} Read the following article:
+\texttt{http://\allowbreak www.economist.com/\allowbreak news/\allowbreak finance-\allowbreak and-\allowbreak economics/\allowbreak
+21603073-\allowbreak italys-\allowbreak inclusion-\allowbreak illicit-\allowbreak activities-\allowbreak its-\allowbreak figures-\allowbreak
+excites-\allowbreak much-\allowbreak interest-\allowbreak sex}. What do you think? Should drug
+production and prostitution be included in the calculation of GDP?
+
+\noindent\textbf{Kurlat 2.4 Construction and the Armed Forces.} Suppose we compared welfare in two otherwise identical countries.
+Country A dedicates 50\% of GDP to maintaining a large army. Country B dedicates 50\% of GDP to building houses. In which of the
+two countries would welfare be higher, according to the measure used by Jones and Klenow. What do you think of this?
+
+\noindent\textbf{Jones 9. Earthquakes and GDP:} Suppose the rural part of a country is hit by a major earthquake that destroys
+10 percent of the country's housing stock. The government and private sector respond with a major construction effort to help
+rebuild houses. Discuss how this episode is likely to affect (a) the economic well-being of the people in the country and (b) the
+economy's measured GDP.
+
+\noindent\textit{Added (not in the book):} answer each of the three in words.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $C$, $G$, $I$: consumption, government purchases and investment, as in \eqref{q1:G4}.
+\item Jones--Klenow measure: Kurlat's welfare index, built on consumption $C+G$ (Kurlat 2020, \S2.2).
+\end{notacao}
+\passo{Kurlat 1.4}{GDP measures market production, not its moral worth; drugs and prostitution are voluntary transactions that pay
+incomes and meet final demand, so the accounts' logic says include them. Including them also keeps GDP comparable across
+countries with different laws and over time when laws change (legalisation would otherwise raise measured GDP with no change in
+activity). Against: the figures are estimates built on strong assumptions. Theft, by contrast, is excluded: it is a forced transfer,
+not production (Williamson 2014, solutions manual, ch.~2, problem~9).}
+\passo{Kurlat 2.4}{GDP is the same in both. The Jones--Klenow measure, as Kurlat implements it, puts $C+G$ in utility: military spending
+is government consumption and counts, while housebuilding is investment and does not. So country A scores higher this year. That
+is hard to accept: it assumes a unit of defence is worth a unit of private consumption, and it ignores that the houses will deliver
+housing services --- consumption, through rents and imputed rents --- for decades. The measure is a one-year snapshot; investment
+pays off to future residents.}
+\passo{Jones 9}{(a) Well-being falls: a tenth of the housing stock is lost, and the rebuilding uses labour and materials that would
+otherwise have made something new (the broken-window fallacy). (b) Measured GDP probably rises: reconstruction is new residential
+investment, and GDP counts the flow of production, not the stock of wealth destroyed. Confirmed: Jones \emph{Instructor's Manual}
+(2016), ch.~2, Exercise~8, pp.~12--13.}
+\refbib{Kurlat (2020), \S2.2, pp.~33--34 (Jones--Klenow; $C+G$ in utility, p.~34); Jones (2020), ch.~2.}
+\rubrica{
+\item 1 point per exercise. Any answer that equates GDP with welfare: 0 for that exercise.
+\item Kurlat 2.4 answered ``B is better off'' without noting that the measure puts $G$ in and $I$ out: half.
+}
+\end{sol}

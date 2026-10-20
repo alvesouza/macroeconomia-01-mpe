@@ -1,0 +1,36 @@
+% Remediation list for Prova 01, Q3 (error cluster 5 in Prova/prova-01-error-analysis.md): Benigno (2015) AS--AD.
+% Which bar moves which curve, both output gaps, the sign of the policy response, divine coincidence,
+% optimal policy along the AS. Block 1: source experiments (Lista 7 and Carlin--Soskice text verbatim with a source line; Benigno sections marked as having no exercises); Block 2: harder
+% and conceptual; Block 3: created items with graphs.
+% \solucoesfalse -> blank list ; \solucoestrue -> answer key + rubric.
+% Compile: pdflatex (2x) with a per-job jobname; check: pdffonts (all Type 1). Every result: practice-P1-adas-check.py
+\documentclass[11pt,a4paper]{article}
+\input{../practice-preamble}
+\newenvironment{notacao}{\par\smallskip\noindent\textbf{Notation.}\begin{itemize}[leftmargin=1.4em,topsep=1pt,itemsep=0pt]\small}{\end{itemize}}
+\solucoestrue                  % <<<< \solucoestrue for the ANSWER KEY
+\newcommand{\listatema}{The New Keynesian AS--AD model (Prova 01 remediation, Q3)}
+\renewcommand{\espacoresol}{5.5cm}
+
+\begin{document}
+\cabecalho
+
+{\footnotesize\noindent\textbf{Notation (as in Prova 01; Benigno 2015).} Lower-case letters are logs (deviations from the steady
+state); bars denote the long run; $\Omega\equiv\sigma^{-1}+\eta$; $\rho\equiv-\ln\beta$, so $-\sigma\ln\beta=\sigma\rho$.
+\begin{align}
+y&=\bar y+(g-\bar g)-\sigma[i-(\bar p-p)]-\sigma\ln\beta, \tag{AD}\label{AD}\\
+p-p^e&=\kappa(y-y_n), \tag{AS}\label{AS}\\
+y_n&=\tfrac{1+\eta}{\Omega}\,a+\tfrac{\sigma^{-1}}{\Omega}\,g-\tfrac{1}{\Omega}\,\mu, \tag{YN}\label{YN}\\
+\bar y&=\tfrac{1+\eta}{\Omega}\,\bar a+\tfrac{\sigma^{-1}}{\Omega}\,\bar g-\tfrac{1}{\Omega}\,\bar\mu, \tag{YB}\label{YB}\\
+y_e&=\tfrac{1+\eta}{\Omega}\,a+\tfrac{\sigma^{-1}}{\Omega}\,g, \tag{YE}\label{YE}\\
+L&=\tfrac12(y-y_e)^2+\tfrac{\phi}{2\kappa}(p-p^e)^2,\qquad \phi\ge0\qquad\text{(loss of the central bank)}. \tag{LF}\label{LF}
+\end{align}
+$a,\mu,g$ are current productivity, (log) markup and public spending; $\bar a,\bar\mu,\bar g$ their long-run values. Parameters:
+$\sigma,\eta,\kappa>0$. Unless stated, the economy starts at an efficient steady state ($y=y_n=y_e=\bar y$, $p=p^e=\bar p$, $g=\bar g$; a
+subsidy offsets the steady-state markup, so $\mu,\bar\mu$ are deviations from it), the bank sets $i$, and $p^e$ and $\bar p$ do not
+move. ``Shock'' means a change $d(\cdot)$ from that point.\par}
+
+\input{practice-P1-adas-block1}
+\input{practice-P1-adas-block2}
+\input{practice-P1-adas-block3}
+
+\end{document}

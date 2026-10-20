@@ -1,0 +1,290 @@
+% =============================================================================
+\bloco{2}{Harder and conceptual: which bar moves which curve, signs, divine coincidence, zero bound}{Benigno \S\S4--11 \,\textbullet\, 38 points}
+
+\questao{(10 points) \emph{Which bar moves which curve.} Consider a small rise, one at a time, in each of $a,\bar a,\mu,\bar\mu,g,\bar g,\bar p,p^e$.}
+
+\textbf{a)} (6 points) Build a table with, for each variable: the curve that moves and its shift (horizontal for AD and AS; vertical for
+$p^e$); whether $y_e$ moves; whether there is a trade-off; and the $di$ (sign and closed form) that keeps $y=y_n$ and $p=p^e$.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $y$, $p$, $\bar y$, $\bar p$, $p^e$, $y_n$, $y_e$, $i$, $a$, $\bar a$, $\mu$, $\bar\mu$, $g$, $\bar g$, $\sigma>0$, $\eta>0$, $\kappa>0$, $\Omega\equiv\sigma^{-1}+\eta$: as in
+Question~1. Each row is a small rise $d(\cdot)>0$ in one variable, the others fixed; $\bar p$ and $p^e$ move only in their own rows.
+\item Trade-off: price stability and $y=y_e$ cannot both be reached with $i$.
+\end{notacao}
+\passo{method}{By \eqref{q1:dAS} the AS shifts horizontally by $dy_n$ (or vertically by $dp^e$); by \eqref{q1:dAD} the AD shifts horizontally by
+$d\bar y+dg-d\bar g+\sigma\,d\bar p$. $y=y_n$ and $p=p^e$ mean $d(y-y_n)=0$; put this in \eqref{q1:M} of Question~1:}
+\begin{equation}
+0=d\bar y+dg-d\bar g-\sigma\,di+\sigma(d\bar p-dp^e)-dy_n . \nonumber
+\end{equation}
+Solve for $di$:
+\begin{equation}
+di=\frac{d\bar y+dg-d\bar g-dy_n}{\sigma}+d\bar p-dp^e . \label{q5:di}
+\end{equation}
+Each row fills \eqref{q5:di} with the derivatives of \eqref{YN} and \eqref{YB}; $y_e$ moves by the derivative of \eqref{YE}.
+\begin{center}\small
+\begin{tabular}{lllccl}
+\toprule
+Rise in & Curve that moves (shift) & Through & $y_e$ moves? & Trade-off? & $di$ for $p=p^e$ \\
+\midrule
+$a$ & AS right, $\frac{1+\eta}{\Omega}da$ & $y_n$ & yes, equally & no & $-\frac{(1+\eta)da}{\sigma\Omega}$ (cut) \\
+$\bar a$ & AD right, $\frac{1+\eta}{\Omega}d\bar a$ & $\bar y$ & no & no & $+\frac{(1+\eta)d\bar a}{\sigma\Omega}$ (raise) \\
+$\mu$ & AS left, $\frac{1}{\Omega}d\mu$ & $y_n$ & \textbf{no} & \textbf{yes} & $+\frac{d\mu}{\sigma\Omega}$ (raise) \\
+$\bar\mu$ & AD left, $\frac{1}{\Omega}d\bar\mu$ & $\bar y$ & no & no & $-\frac{d\bar\mu}{\sigma\Omega}$ (cut) \\
+$g$ & AD right $dg$; AS right $\frac{\sigma^{-1}}{\Omega}dg$ & both & yes, equally & no & $+\frac{\eta\,dg}{\sigma\Omega}$ (raise) \\
+$\bar g$ & AD left, $\frac{\eta}{\Omega}d\bar g$ & $\bar y-\bar g$ & no & no & $-\frac{\eta\,d\bar g}{\sigma\Omega}$ (cut) \\
+$\bar p$ & AD right, $\sigma\,d\bar p$ & $\bar p-p$ & no & no & $+d\bar p$ (raise) \\
+$p^e$ & AS up, $dp^e$ (vertical) & $p^e$ & no & no & $-dp^e$ (cut) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\passo{the two subtle rows}{$\bar g$: by \eqref{YB}, $d\bar y=\frac{\sigma^{-1}}{\Omega}d\bar g$. The AD shift is then}
+\begin{align}
+d\bar y-d\bar g&=\Big(\frac{\sigma^{-1}}{\Omega}\,d\bar g\Big)-d\bar g\nonumber\\
+&=\Big(\frac{\sigma^{-1}}{\Omega}-1\Big)d\bar g\nonumber\\
+&=\frac{\sigma^{-1}-\sigma^{-1}-\eta}{\Omega}\,d\bar g\nonumber\\
+&=-\frac{\eta}{\Omega}\,d\bar g \label{q5:gb}
+\end{align}
+(long-run consumption falls); \eqref{q5:di} gives $di=-\frac{\eta\,d\bar g}{\sigma\Omega}$. $g$: by \eqref{YN}, $dy_n=\frac{\sigma^{-1}}{\Omega}dg$, so the gap pressure
+in \eqref{q5:di} is
+\begin{align}
+dg-dy_n&=dg-\Big(\frac{\sigma^{-1}}{\Omega}\,dg\Big)\nonumber\\
+&=\frac{\eta}{\Omega}\,dg , \nonumber
+\end{align}
+by the same step as \eqref{q5:gb}. $p^e$: with $p^e$ higher and $\bar p$ fixed, $p=p^e$ means lower expected inflation $\bar p-p$, so a
+higher real rate; by \eqref{q5:di}, $i$ must fall one for one.
+\rubrica{\item One point per correct pair of rows (curve, shift, $y_e$, trade-off, $di$), up to 6. A row with the wrong curve: 0 for that row.}
+\end{sol}
+
+\textbf{b)} (2 points) In words: state the rule that tells you which curve a variable moves.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). Euler equation: the household's condition linking consumption today to expected long-run consumption.
+\end{notacao}
+\passo{rule}{Current real fundamentals ($a$, $\mu$, $g$) change what firms can produce at stable prices today, so they move $y_n$ and the AS.
+Long-run fundamentals ($\bar a$, $\bar\mu$, $\bar g$) change long-run consumption, which reaches today only through the Euler equation, so they
+move the AD. $g$ is also spending today, so it moves both. Nominal anchors: $\bar p$ moves the AD (expected inflation), $p^e$ the AS.}
+\rubrica{\item Rule with the Euler channel for the bars: 2 pts; a list without the reason: 1 pt.}
+\end{sol}
+
+\textbf{c)} (2 points) In words: why is $\mu$ the only row with a trade-off?
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a).
+\end{notacao}
+\passo{reason}{Subtract \eqref{YE} from \eqref{YN}:}
+\begin{equation}
+y_n-y_e=-\frac{\mu}{\Omega}. \label{q5:wedge}
+\end{equation}
+A trade-off exists iff the shock moves \eqref{q5:wedge}. Only current $\mu$ enters $y_n$ without entering $y_e$: the planner
+does not face the markup. The bars are long-run variables, and the short-run gap between $y_n$ and $y_e$ does not contain them.
+\refbib{Benigno (2015), \S4.1--\S4.4, eqs.\ (15), (19), (21), pp.~507--509; \S\S6--8, pp.~511--517; Kurlat (2020), \S11.2, p.~208 (Fisher equation, row $\bar p$).}
+\rubrica{\item The criterion $d(y_n-y_e)\neq0$: 1 pt. \item Why the bars do not enter it: 1 pt.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(8 points) \emph{Diagnose the answer (words only, no algebra).} News arrives that the long-run markup will rise ($d\bar\mu>0$;
+current $\mu$ unchanged). A student writes four claims. For each, say whether it is right and, if not, correct it in words.}
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+\item ``Firms will charge higher markups, so the AS shifts left.''
+\item ``Along the AD, prices go up and output goes down.''
+\item ``To keep prices stable the bank must raise $i$, accepting a deeper recession as the price of stable prices.''
+\item ``The optimal response depends on whether $\phi$ is larger than $\sigma$, i.e.\ on whether the IT line is flatter than the AD.''
+\end{enumerate}
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $\mu$, $\bar\mu$: current and long-run markup; here $d\bar\mu>0$, $d\mu=0$. $y$, $p$, $\bar y$, $p^e$, $y_n$, $y_e$, $i$: as in Question~1.
+\item $\phi\ge0$: weight on price surprises in \eqref{LF}; $\sigma>0$: intertemporal elasticity (the slope of AD is $-1/\sigma$ in $(y,p)$).
+\end{notacao}
+\passo{(1) wrong}{Today's prices are set with today's markup $\mu$, which has not changed; by \eqref{YN}, $y_n$ and the AS do not move. By
+\eqref{YB} the news lowers long-run output $\bar y$, hence expected long-run consumption; consumption smoothing cuts spending today: the \textbf{AD} shifts left.}
+\passo{(2) wrong}{``$p$ up, $y$ down'' is the signature of an AS shift, which did not happen. The AD moves left along a fixed AS, so the new
+point has \emph{both} lower output and lower prices: a demand-driven recession, $y-y_n<0$ and $y-y_e<0$.}
+\passo{(3) wrong sign, wrong cost}{Prices are below $p^e$; to restore them the bank must bring the AD back to the right: \textbf{cut} $i$. A rise
+deepens both the fall in prices and the recession. The cut has no cost: it returns the economy to the initial point, where both gaps are
+zero (a pure AD shock; divine coincidence).}
+\passo{(4) wrong}{$\phi$ chooses a point on the AS only when the shock separates $y_n$ from $y_e$ (\eqref{q4:ddi}, Question 4(c)). Here neither
+moves, so the best point is the old one for every $\phi$, and the bank fully offsets the AD shift. ($\phi\gtrless\sigma$ decides the sign only for a current markup
+shock, Question 3(c).)}
+\refbib{\texttt{Prova/prova-01-error-analysis.md}, Q3 and error cluster 5; Benigno (2015), \S6.3, p.~513; \S11, pp.~521--523.}
+\rubrica{\item 2 pts per claim: 0.5 for the verdict, 1.5 for the correction with its mechanism. A verdict without a reason: 0.5 at most.}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(9 points) \emph{When does the divine coincidence fail?} True or false; justify each in words (1.5 points each).}
+
+\textbf{a)} If nominal wages were preset as well as prices, a productivity shock could create a trade-off between price stability and
+the efficient output gap.
+\gabarito{T}
+\begin{sol}
+\begin{notacao}
+\item $y_n$, $y_e$: natural and efficient output, \eqref{YN} and \eqref{YE}; trade-off as in Question~5. $g$, $\mu$, $\bar a$, $\bar\mu$, $i$:
+as in Question~1; $\Omega\equiv\sigma^{-1}+\eta$, $\sigma,\eta>0$. $\phi\ge0$: weight in \eqref{LF}. These symbols serve all six items.
+\end{notacao}
+\passo{reason}{The no-trade-off result for productivity rests on flexible wages: they make $y_n$ move one for one with $y_e$. With preset wages
+the real wage cannot follow productivity, and $y_n$ and $y_e$ separate (Benigno fn.~9, p.~513).}
+\end{sol}
+
+\textbf{b)} A temporary rise in $g$ forces the bank to choose between stable prices and a zero efficient gap.
+\gabarito{F}
+\begin{sol}
+\passo{reason}{Differentiating \eqref{YN} and \eqref{YE}, $g$ moves $y_n$ and $y_e$ by the same $\frac{\sigma^{-1}}{\Omega}dg$. Raising $i$ to put $y$ at $y_n$ also puts it at $y_e$: one instrument, one target.}
+\end{sol}
+
+\textbf{c)} Around a steady state with a large markup distortion, $y_e$ need not be the welfare-relevant target, and the results for
+markup shocks are the ones most at risk.
+\gabarito{T}
+\begin{sol}
+\passo{reason}{The quadratic loss is an approximation around an efficient steady state; in the distorted case the target changes and the
+optimal response to markup shocks is what changes most (Benigno fn.~21, p.~522).}
+\end{sol}
+
+\textbf{d)} A temporary rise in the consumption tax is a pure demand shock, so it creates no trade-off.
+\gabarito{F}
+\begin{sol}
+\passo{reason}{It raises the effective markup (AS left, $y_n$ falls, $y_e$ does not) \emph{and} changes the intertemporal price of consumption
+(AD). The markup part separates $y_n$ from $y_e$: a trade-off (Benigno \S8, p.~515).}
+\end{sol}
+
+\textbf{e)} After bad news about $\bar a$, if the zero bound binds, the bank faces a trade-off between price stability and the efficient gap.
+\gabarito{F}
+\begin{sol}
+\passo{reason}{Both targets ask for the same thing: more demand, since prices and output are both too low. The zero bound limits the
+instrument; it does not make the targets conflict. The coincidence holds; it just cannot be implemented with $i$ alone.}
+\end{sol}
+
+\textbf{f)} A dovish bank ($\phi<\sigma$) answers news of a higher $\bar\mu$ with a larger cut than a hawkish bank.
+\gabarito{F}
+\begin{sol}
+\passo{reason}{The cut is $\frac{d\bar\mu}{\sigma\Omega}$ for every $\phi$ (\eqref{q4:di} with $X=0$, Question 4(c)): the news moves neither $y_n$ nor $y_e$.}
+\rubrica{\item Each item: 0.5 for the verdict, 1 for the justification. A verdict without a justification: 0.5 at most (T/F rule of the cover applies to the verdicts).}
+\end{sol}
+
+% -----------------------------------------------------------------------------
+\questao{(11 points) \emph{The zero bound after $\bar\mu$ news.} Start from the steady state with $i=\rho>0$. News arrives that the long-run
+markup will rise, $d\bar\mu>0$; current $\mu$ is unchanged and the bank cannot set $i<0$.}
+
+\textbf{a)} (3 points) Find the rate that keeps $p=p^e$ and the size $d\bar\mu^*$ above which the zero bound binds. Interpret with the natural rate.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item $y$, $p$, $\bar y$, $\bar p$, $p^e$, $y_n$, $y_e$, $i$, $\mu$, $\bar\mu$, $g$, $\sigma>0$, $\eta>0$, $\kappa>0$, $\Omega\equiv\sigma^{-1}+\eta$: as in Question~1.
+\item $\rho\equiv-\ln\beta>0$: the initial rate, $i=\rho$ (at the steady state \eqref{AD} holds with $y=\bar y$, $p=\bar p$, $g=\bar g$). The zero bound: $i\ge0$.
+\item The shock: $d\bar\mu>0$, $d\mu=0$. $d\bar\mu^*>0$: the size at which the zero bound starts to bind.
+\item $r_n\equiv\rho+\sigma^{-1}(\bar y-y_n)$: the natural real interest rate.
+\end{notacao}
+\passo{rate}{By \eqref{YB}, $d\bar y=-\frac{d\bar\mu}{\Omega}$; by \eqref{YN}, $dy_n=0$. Put $d(y-y_n)=0$ in \eqref{q1:M}:}
+\begin{equation}
+0=d\bar y-\sigma\,di . \nonumber
+\end{equation}
+Solve for $di$ and substitute $d\bar y$:
+\begin{align}
+di&=\frac{d\bar y}{\sigma}\nonumber\\
+&=\frac{(-d\bar\mu/\Omega)}{\sigma}\nonumber\\
+&=-\frac{d\bar\mu}{\sigma\Omega}. \label{q8:di}
+\end{align}
+Add \eqref{q8:di} to the initial $i=\rho$:
+\begin{align}
+i&=\rho+\Big(-\frac{d\bar\mu}{\sigma\Omega}\Big)\nonumber\\
+&=\rho-\frac{d\bar\mu}{\sigma\Omega}. \label{q8:i}
+\end{align}
+\passo{threshold}{The rate \eqref{q8:i} is negative iff}
+\begin{equation}
+\frac{d\bar\mu}{\sigma\Omega}>\rho . \nonumber
+\end{equation}
+Multiply by $\sigma\Omega>0$:
+\begin{equation}
+d\bar\mu>d\bar\mu^*\equiv\sigma\Omega\rho . \label{q8:thr}
+\end{equation}
+\passo{reading}{Initially $\bar y=y_n$, so $r_n=\rho$. After the news, $dr_n=\sigma^{-1}d\bar y$; substitute $d\bar y$ from \eqref{YB} into $r_n=\rho+dr_n$:}
+\begin{align}
+r_n&=\rho+\sigma^{-1}\Big(-\frac{d\bar\mu}{\Omega}\Big)\nonumber\\
+&=\rho-\frac{d\bar\mu}{\sigma\Omega} , \nonumber
+\end{align}
+the rate \eqref{q8:i} is the natural rate. Bad enough news makes it negative, and no nominal $i\ge0$ reaches it.
+\rubrica{\item Rate: 1.5 pts. Threshold: 1 pt. Natural-rate reading: 0.5 pt.}
+\end{sol}
+
+\textbf{b)} (3 points) Let $d\bar\mu>d\bar\mu^*$ and $i=0$. Find $dy$, $dp$, $d(y-y_n)$, $d(y-y_e)$. Is there a trade-off?
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a); here $d\bar\mu>d\bar\mu^*$.
+\end{notacao}
+\passo{solution}{Going from $i=\rho$ to $i=0$ is $di=-\rho$. Put this and $d\bar y=-\frac{d\bar\mu}{\Omega}$ in \eqref{q1:M}:}
+\begin{align}
+(1+\sigma\kappa)\,d(y-y_n)&=\Big(-\frac{d\bar\mu}{\Omega}\Big)-\sigma(-\rho)\nonumber\\
+&=-\frac{d\bar\mu}{\Omega}+\sigma\rho . \nonumber
+\end{align}
+Divide by $1+\sigma\kappa$; as $dy_n=dy_e=0$, output and both gaps move together:
+\begin{equation}
+dy=d(y-y_n)=d(y-y_e)=\frac{\sigma\rho-d\bar\mu/\Omega}{1+\sigma\kappa}<0 , \label{q8:dy}
+\end{equation}
+negative because \eqref{q8:thr} gives $d\bar\mu/\Omega>\sigma\rho$. By \eqref{q1:dAS}, $dp=\kappa\,dy$; substitute \eqref{q8:dy}:
+\begin{align}
+dp&=\kappa\Big(\frac{\sigma\rho-d\bar\mu/\Omega}{1+\sigma\kappa}\Big)\nonumber\\
+&=\frac{\kappa(\sigma\rho-d\bar\mu/\Omega)}{1+\sigma\kappa}<0 . \nonumber
+\end{align}
+\passo{trade-off}{No: both prices and output are too low; the bank lacks the instrument, not a compatible target (Question 7(e)).}
+\rubrica{\item Closed forms: 2 pts. \item No trade-off, with the reason: 1 pt.}
+\end{sol}
+
+\textbf{c)} (3 points) Find the commitment $d\bar p$ that restores $y=y_n$ and $p=p^e$ with $i=0$. Explain the channel and why credibility matters.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). $d\bar p$: the promised change in the long-run price level. $\bar p-p$: expected inflation; $i-(\bar p-p)$: the real rate.
+\end{notacao}
+\passo{size}{Put $d(y-y_n)=0$, $di=-\rho$, $d\bar y=-\frac{d\bar\mu}{\Omega}$ and $d\bar p$ in \eqref{q1:M}:}
+\begin{align}
+0&=\Big(-\frac{d\bar\mu}{\Omega}\Big)-\sigma(-\rho)+\sigma\,d\bar p\nonumber\\
+&=-\frac{d\bar\mu}{\Omega}+\sigma\rho+\sigma\,d\bar p . \nonumber
+\end{align}
+Solve for $d\bar p$:
+\begin{equation}
+d\bar p=\frac{d\bar\mu}{\sigma\Omega}-\rho>0 , \label{q8:pb}
+\end{equation}
+positive by \eqref{q8:thr}.
+\passo{channel}{A higher long-run price level raises expected inflation $\bar p-p$, so the real rate $i-(\bar p-p)$ falls with $i$ stuck at 0
+(Fisher equation; long-run neutrality makes $\bar p$ costless for $\bar y$).}
+\passo{credibility}{Next period the bank would prefer not to deliver the higher $\bar p$; if households expect it to renege, $\bar p$ does not move
+and neither does the AD.}
+\refbib{Benigno (2015), \S9, pp.~517--519; Kurlat (2020), \S11.2, p.~208.}
+\rubrica{\item $d\bar p$: 1.5 pts. \item Channel: 1 pt. \item Credibility: 0.5 pt.}
+\end{sol}
+
+\textbf{d)} (2 points) Alternatively, find the temporary $dg$ that restores $p=p^e$ at $i=0$, and say why fiscal policy works here.
+\resolespaco
+\begin{sol}
+\begin{notacao}
+\item Symbols as in (a). $dg$: the temporary rise in public spending ($d\bar g=0$).
+\end{notacao}
+\passo{size}{Differentiate \eqref{YN} with only $g$ moving:}
+\begin{equation}
+dy_n=\frac{\sigma^{-1}}{\Omega}\,dg . \label{q8:dyn}
+\end{equation}
+Put $d(y-y_n)=0$, $di=-\rho$, $d\bar y=-\frac{d\bar\mu}{\Omega}$, $dg$ and \eqref{q8:dyn} in \eqref{q1:M}:
+\begin{align}
+0&=\Big(-\frac{d\bar\mu}{\Omega}\Big)+dg-\sigma(-\rho)-\Big(\frac{\sigma^{-1}}{\Omega}\,dg\Big)\nonumber\\
+&=-\frac{d\bar\mu}{\Omega}+\sigma\rho+dg-\frac{\sigma^{-1}}{\Omega}\,dg . \nonumber
+\end{align}
+Use $1-\frac{\sigma^{-1}}{\Omega}=\frac{\eta}{\Omega}$ (as in \eqref{q5:gb}):
+\begin{equation}
+0=-\frac{d\bar\mu}{\Omega}+\sigma\rho+\Big(\frac{\eta}{\Omega}\Big)dg . \nonumber
+\end{equation}
+Move the other terms to the left side:
+\begin{equation}
+\frac{\eta}{\Omega}\,dg=\frac{d\bar\mu}{\Omega}-\sigma\rho . \nonumber
+\end{equation}
+Multiply by $\Omega/\eta$:
+\begin{equation}
+dg=\frac{d\bar\mu-\sigma\Omega\rho}{\eta}>0 , \label{q8:g}
+\end{equation}
+positive by \eqref{q8:thr}.
+\passo{why}{By \eqref{q1:dAD} $g$ shifts the AD by $dg$, and by \eqref{q8:dyn} the AS only by $\frac{\sigma^{-1}}{\Omega}dg$, so it closes the gap; with $i$ stuck, there is no rate rise to crowd it out.}
+\refbib{Benigno (2015), \S8, pp.~514--517; \S9, pp.~517--519.}
+\rubrica{\item $dg$: 1.5 pts. \item Reason: 0.5 pt.}
+\end{sol}

@@ -76,6 +76,15 @@ e a resolução da Lista 6.
 | `MPE_Macro1_2026_Lista6.pdf` | 6 (10 pts) | **21/09/2025** ⏰ *(sic — provável erro por 2026)* | ✅ |
 | `lista-exam.tex` | template LaTeX (`\ifsolucoes`) | — | — |
 
+**`practice-prova01/`** — remediation of Prova 01 ([[../Prova/prova-01-error-analysis]]), each list `.tex` → blank `.pdf` + `-gabarito.pdf`, verified by its `-check.py`:
+
+| File | Content |
+|---|---|
+| `practice-P1-gdp` | 9 items: GDP by three approaches, intermediate vs final, own-account software |
+| `practice-P1-growth-ge` | 10 items: golden rule algebra, two-period household, $k_2(k_1)$, Solow vs GE |
+| `practice-P1-adas` | 10 items: Benigno, which bar moves which curve, policy sign, optimal policy |
+| `practice-all-topics` | 27 items, one block per Aula 1-9 |
+
 ### `Resolucao/`
 
 | Arquivo | O que é |
@@ -152,6 +161,9 @@ então página impressa = página do PDF ([[books-index]]).
 | `lista-05-topics-explained-narrated.txt` | the **topics Lista 5 tests**, concept by concept (equilibrium, welfare theorem, frozen factors, σ and hours, r as a price, ownership, steady state vs golden rule, saddle path, shocks); no solutions | 17,126 | ~114 min at 150 wpm (~76 min at 1.5×) |
 | `lista-07-topics-explained-narrated.txt` | the **topics Lista 7 tests** (Benigno §1-7, §11), concept by concept, from the three schools to optimal policy; no solutions | 14,094 | ~94 min at 150 wpm (~63 min at 1.5×) |
 | `correction-gaps-narrated.txt` | the **gaps found in the graded Listas 1-4 and 6**, one chapter per gap, with the answer that earns each lost mark and the nine-rule checklist ([[avaliacao-listas-2-3-6]]) | 10,997 | ~73 min at 150 wpm (~49 min at 1.5×) |
+| `prova-01-gdp-narrated.txt` | Prova 01 Q1: the three GDP approaches, the exam mistakes, analogous cases, self-test | 3,796 | ~25 min at 150 wpm |
+| `prova-01-growth-ge-narrated.txt` | Prova 01 Q2: golden rule, household problem, $k_2(k_1)$, Solow vs GE | 5,377 | ~36 min at 150 wpm |
+| `prova-01-adas-narrated.txt` | Prova 01 Q3: Benigno shocks, policy sign, optimal policy | 3,872 | ~26 min at 150 wpm |
 
 Gerados por `/speechify`. Texto puro em **inglês** (regra global de idioma), sem símbolo,
 tabela ou código: a matemática é ditada em palavras. Importar no Speechify por **Add file**;
@@ -173,6 +185,8 @@ os parágrafos viram pontos de navegação.
 | `simulado-01.tex` → `-exam.pdf` / `-solutions.pdf` | full final format, Aulas 1-9 (2026-09-26) | 8 (4 blocks × 25) | final level, every question retests a graded mistake |
 | `simulado-02.tex` → `-exam.pdf` / `-solutions.pdf` | full final format, Aulas 1-9 (2026-09-26) | 8 (4 blocks × 25) | final level, every question retests a graded mistake |
 | `simulado-03.tex` → `-exam.pdf`; solution in `Map/simulado-03/` | conceptual final, Aulas 1-9 (2026-09-28) | 8 (4 blocks × 25) | explanation-heavy: T/F with justification, draw and interpret |
+| `simulado-04.tex` → `-exam.pdf` / `-solutions.pdf` | Prova 01 format: GDP / Solow + two-period GE / Benigno (2026-10-16) | 3 (1.5 + 5.5 + 3) | exam level, retests the Prova 01 errors |
+| `simulado-05.tex` → `-exam.pdf` / `-solutions.pdf` | whole course incl. labour and money (2026-10-16) | 4 (2 + 2.5 + 2.5 + 3) | exam level or above |
 
 Player: `quiz.html` na raiz — abrir e carregar o `.md`. O botão **💾 HTML** exporta uma
 cópia autocontida com a sessão embutida; o JSON exportado alimenta `/quiz-analyze`.

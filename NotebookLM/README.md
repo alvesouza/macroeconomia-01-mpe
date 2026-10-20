@@ -275,6 +275,25 @@ None of them reads a list solution aloud.
 > labour), `aula-04-audio-2` (where Ricardian equivalence breaks) and `aula-07-audio-2` (the
 > trip-cost mechanism). These prompts drill the written answer, not the model.
 
+### Prova 01 — error clusters (2026-10-16)
+
+**5 audio prompts, no slides or video**: one per error cluster in
+[`Prova/prova-01-error-analysis.md`](../Prova/prova-01-error-analysis.md). Each one autopsies the
+mistake and closes by rehearsing the answer that earns the mark. The exam is not a source: upload
+only the Kurlat and Benigno PDFs. No language line; confirm **Settings → Output language = English**.
+
+| File | Type | Thesis | Items | Chars |
+|---|---|---|---|---|
+| [audio/prova-01-audio-1-three-ledgers-one-total.md](audio/prova-01-audio-1-three-ledgers-one-total.md) | Audio | GDP is one number in three ledgers that must agree; own-account software is investment, never consumption | Q1(b,c) | 4,492 |
+| [audio/prova-01-audio-2-carry-the-exponent.md](audio/prova-01-audio-2-carry-the-exponent.md) | Audio | Golden-rule saving = capital share by two routes that must agree; test where the candidates differ ($\sigma\to0$) | Q2(b) | 4,498 |
+| [audio/prova-01-audio-3-two-lists-before-the-lagrangian.md](audio/prova-01-audio-3-two-lists-before-the-lagrangian.md) | Audio | List every choice and every income source first; labour is a corner, profits are wealth, log utility consumes $1/(1+\beta)$ | Q2(c,d) | 4,556 |
+| [audio/prova-01-audio-4-saving-becomes-capital.md](audio/prova-01-audio-4-saving-becomes-capital.md) | Audio | Market clearing turns a saving rule into a law of motion; Solow with $\delta=1$, $n=0$ and a *chosen* $s$ that need not be $s_{GR}$ | Q2(e,f) | 4,728 |
+| [audio/prova-01-audio-5-which-bar-moves-which-curve.md](audio/prova-01-audio-5-which-bar-moves-which-curve.md) | Audio | Bars move AD, current variables move AS; pure AD shock → cut, no trade-off; optimal offset independent of the weight | Q3(a-c) | 4,618 |
+
+> Overlap capped at one sentence each: `aula-06-audio-2` (why the infinitely lived economy
+> saves below the golden rule), `lista-05-audio-1` (the sign habit), `lista-07-audio-2/4` and
+> `aula-09-audio-1` (curve shifts, loss-and-tangency, divine coincidence).
+
 ---
 
 ## Anatomia

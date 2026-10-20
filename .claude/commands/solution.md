@@ -23,6 +23,13 @@ Solve the exercise(s) specified by `$ARGUMENTS`. This can be a file path (solve 
    - LaTeX for all math: `$...$` inline, `$$...$$` display
    - Numbered steps for long derivations
    - Intermediate results clearly labeled
+   - Number every equation a later step uses and cite it at each step ("using (2) and (4)",
+     "substituting (7) into (5)"); keep the statement's own equation numbers
+   - Open with a **Notation** list (every variable and parameter, its meaning and range); define
+     each new symbol where it first appears
+   - One operation per displayed line; display equations instead of long inline chains, with a
+     short sentence between displays
+   - Show every substitution as its own line: the receiving equation with the substituted expression in place, in parentheses, before simplifying (with (1) $A=B+C$ and (2) $B=2A$: first $A=(2A)+C$, then $C=-A$); numbers plugged in are shown in place before the result, with enough decimals that the displayed arithmetic reproduces the printed value
 
    **d) Code** (when the problem is computational):
    - Check `CLAUDE.md` for the project's code language — use that (do NOT default to R if the project specifies Python)
@@ -57,6 +64,7 @@ Solve the exercise(s) specified by `$ARGUMENTS`. This can be a file path (solve 
 
 ## Important
 
+- Write and edit `.tex` with the file Write/Edit tools, not shell heredocs or `sed`: the shell here collapses `\\` to `\` and turns `\b`, `\n` into control characters.
 - Never skip algebraic steps that a student might find non-obvious.
 - For proofs: state what you're proving, then proceed formally.
 - If the exercise has multiple parts (a, b, c...), solve each with clear separation.
