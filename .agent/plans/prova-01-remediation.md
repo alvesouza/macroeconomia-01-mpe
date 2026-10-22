@@ -47,3 +47,11 @@ book-solutions.md). Model: `Prova/prova-01-solution.tex` (rewritten). Rewrite th
 practice-P1-gdp, practice-P1-growth-ge, practice-P1-adas, practice-all-topics (blocks 1-5, 6-9),
 simulado-04, simulado-05. Statements, results and points unchanged; check scripts still pass;
 PDFs rebuilt; pdffonts Type 1.
+
+## Revision 2026-10-21: self-contained book questions
+
+User: "write the questions in more detail, so I don't need to go into the original source, like the
+Benigno list is doing". Each book-based question in practice-P1-gdp, -growth-ge, -adas and
+practice-all-topics gets a marked context box after its source line: every equation, figure, table,
+example, earlier exercise and model set-up the verbatim text refers to, restated with the book's
+numbering and every symbol defined, taken from the PDF. Verbatim text unchanged.

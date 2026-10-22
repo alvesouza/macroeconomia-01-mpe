@@ -164,6 +164,7 @@ então página impressa = página do PDF ([[books-index]]).
 | `prova-01-gdp-narrated.txt` | Prova 01 Q1: the three GDP approaches, the exam mistakes, analogous cases, self-test | 3,796 | ~25 min at 150 wpm |
 | `prova-01-growth-ge-narrated.txt` | Prova 01 Q2: golden rule, household problem, $k_2(k_1)$, Solow vs GE | 5,377 | ~36 min at 150 wpm |
 | `prova-01-adas-narrated.txt` | Prova 01 Q3: Benigno shocks, policy sign, optimal policy | 3,872 | ~26 min at 150 wpm |
+| `uncovered-topics-narrated.txt` | the topics **Prova 01 did not test**, six parts: measurement, growth evidence, consumption, labour + GE, money and inflation, Benigno beyond the exam; exam angle, traps, self-tests | 17,473 | ~116 min at 150 wpm (~78 min at 1.5x) |
 
 Gerados por `/speechify`. Texto puro em **inglês** (regra global de idioma), sem símbolo,
 tabela ou código: a matemática é ditada em palavras. Importar no Speechify por **Add file**;

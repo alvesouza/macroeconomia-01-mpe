@@ -5,6 +5,19 @@
 pp.~179--180 --- statement reproduced verbatim, all items (a)--(c).}
 \emph{What this trains:} prices come from the firm's FOCs and the no-arbitrage condition $1+r=r^K+1-\delta$; the Euler equation then
 signs the consumption path.}
+\par\smallskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small\textbf{Context from the book (added by this list, from
+Kurlat \S9.3, pp.~172--174):} Kurlat's infinite-period economy. The representative household chooses $c_t$, $l_t$, $a_{t+1}$ to maximise
+$\sum_{t=0}^{\infty}\beta^t[u(c_t)+v(l_t)]$ (9.3.1) subject to $a_{t+1}=(1+r_t)a_t+w_t(1-l_t)+\Pi^F_t+\Pi^I_t-c_t$ (9.3.2): $c_t$ is
+consumption, $l_t$ leisure out of one unit of time, $a_t$ assets, $r_t$ the real interest rate, $w_t$ the wage, $\Pi^F_t$ and $\Pi^I_t$ the
+profits of productive and investment firms (zero in equilibrium), $\beta$ the discount factor. Each period a representative firm
+maximises $F(K,L)-w_tL-r^K_tK$, with $r^K_t$ the rental rate of capital; investment firms build next period's capital. Markets clear:
+$F(K_t,L_t)=c_t+I_t$ (9.3.4), $K_{t+1}=K_t(1-\delta)+I_t$ (9.3.5), $L_t+l_t=1$ (9.3.6), with $I_t$ investment and $\delta$ the depreciation
+rate. The firm's first-order conditions are $F_K(K_t,L_t)-r^K_t=0$ (9.3.9) and $F_L(K_t,L_t)-w_t=0$ (9.3.10); the household's Euler
+equation and the zero-NPV condition of investment firms are
+\[ u'(c_t)=\beta(1+r_{t+1})\,u'(c_{t+1}), \tag{9.3.8} \]
+\[ r_{t+1}=r^K_{t+1}-\delta. \tag{9.3.11} \]
+With $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$ and $L_t=1$, the Euler equation becomes
+$\frac{c_{t+1}}{c_t}=[\beta(1+F_K(K_{t+1},1)-\delta)]^{1/\sigma}$ (9.3.14).}}
 
 \noindent Suppose the production function is the following:
 \[
@@ -68,6 +81,21 @@ F_K-\delta=\rho>0 \label{q5:ss}
 Investment'', p.~185, and 9.12 ``Optimal vs Fixed Savings Rates'', pp.~185--186 (the key synthesis) --- statements reproduced verbatim,
 all items. Change: 9.12 is worked in Python (the book points to Matlab code); item (f) is added by this list.}
 \emph{What this trains:} the saving rate Solow assumes is the one the optimising economy chooses in the long run; it is below $s_{GR}$.}
+\par\smallskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small\textbf{Context from the book (added by this list, from
+Kurlat \S4.1, pp.~56--57, and \S9.3, pp.~172--177):} Kurlat's infinite-period economy (Question~5's box gives the household, firm and
+market-clearing set-up). With labour fixed at $L_t=1$: $K_t$ is capital at $t$, $c_t$ consumption, $I_t$ investment, GDP is
+$F(K_t,1)=c_t+I_t$ (9.3.4), $F_K$ is the marginal product of capital, $\delta$ the depreciation rate, $\beta$ the discount factor and
+$\sigma$ the curvature of $u(c)=\frac{c^{1-\sigma}}{1-\sigma}$. The \emph{Euler equation}, i.e.\ the household's optimality condition with the
+interest rate $r_{t+1}=F_K(K_{t+1},L_{t+1})-\delta$ substituted, is
+\[ \frac{u'(c_t)}{\beta u'(c_{t+1})}=1+F_K(K_{t+1},L_{t+1})-\delta, \tag{9.3.13} \]
+which with this $u$ and $L_t=1$ reads $\frac{c_{t+1}}{c_t}=[\beta(1+F_K(K_{t+1},1)-\delta)]^{1/\sigma}$ (9.3.14). The \emph{resource constraint},
+i.e.\ the law of motion of capital, is
+\[ K_{t+1}=(1-\delta)K_t+F(K_t,1)-c_t. \tag{9.3.15} \]
+Consumption is constant ($c_{t+1}=c_t$) exactly when
+\[ F_K(K_{t+1},1)-\delta=\frac1\beta-1, \tag{9.3.17} \]
+which pins down the steady-state capital. Given $K_0$, only one $c_0$ starts the saddle path that converges to the steady state; from a
+higher $c_0$ the capital stock is eventually depleted, from a lower one consumption eventually falls to zero (p.~176). ``Like we assumed
+in Chapter~4'': the savings rate is an exogenous constant $s$, so $I_t=sY_t$ (4.1.3), and $K_{t+1}=(1-\delta)K_t+I_t$ (4.1.4).}}
 
 \noindent\textit{Added (not in the book): work 9.11 symbolically, and 9.12 in Python (the book points to Matlab code).}\par
 
@@ -242,6 +270,21 @@ Diamond model and microeconomic foundations for the Solow model'', p.~97 --- sta
 by the set-up and part (a) of Problem 2.15, p.~97, which 2.16(b) refers to (2.15(b)--(d) omitted); item (c) is added by this list.}
 \emph{Harder, contrast.} \emph{What this trains:} the exam's ``Solow with $\delta=1$'' remark done right, in
 the overlapping-generations reading where the young save only their wage.}
+\par\smallskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small\textbf{Context from the book (added by this list, from
+Romer \S1.2, pp.~11--12, and \S\S2.8--2.10, pp.~77--81):} \emph{Notation} (\S1.2). $A_tL_t$ is effective labour; $k\equiv K/(AL)$ is
+capital and $y\equiv Y/(AL)$ output per unit of effective labour. Constant returns give the intensive form $y=f(k)$, $f(k)\equiv F(k,1)$
+(1.4), with $f(0)=0$, $f'>0$, $f''<0$; the Inada conditions are $\lim_{k\to0}f'(k)=\infty$ and $\lim_{k\to\infty}f'(k)=0$.
+\emph{The Diamond model} (\S2.8). Time is discrete. $L_t$ individuals are born at $t$ and live two periods, $L_t=(1+n)L_{t-1}$. Each
+supplies one unit of labour when young and splits the labour income $A_tw_t$ between consumption $C_{1t}$ and saving; when old, consumes
+the saving and its interest, $C_{2t+1}$. Utility is
+\[ U_t=\frac{C_{1t}^{1-\theta}}{1-\theta}+\frac1{1+\rho}\,\frac{C_{2t+1}^{1-\theta}}{1-\theta},\qquad\theta>0,\ \rho>-1, \tag{2.43} \]
+and $\theta=1$ is logarithmic utility. Firms produce $Y_t=F(K_t,A_tL_t)$ with $A_t=(1+g)A_{t-1}$; markets are competitive and there is
+no depreciation, so the interest rate is $r_t=f'(k_t)$ and the wage per unit of effective labour is $w_t=f(k_t)-k_tf'(k_t)$. The young
+save the fraction (\S2.9, p.~80)
+\[ s(r)=\frac{(1+r)^{(1-\theta)/\theta}}{(1+\rho)^{1/\theta}+(1+r)^{(1-\theta)/\theta}} \tag{2.55} \]
+of their labour income. Next period's capital is their saving, $K_{t+1}=s(r_{t+1})L_tA_tw_t$ (2.57); dividing by $A_{t+1}L_{t+1}$ and
+substituting $r_{t+1}$ and $w_t$ (\S2.10, p.~81):
+\[ k_{t+1}=\frac1{(1+n)(1+g)}\,s\big(f'(k_{t+1})\big)\,[f(k_t)-k_tf'(k_t)]. \tag{2.59} \]}}
 
 \noindent\textit{Added (not in the book): Problem 2.15 is included because 2.16(b) refers to it.}\par
 

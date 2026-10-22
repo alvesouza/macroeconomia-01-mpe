@@ -294,6 +294,29 @@ only the Kurlat and Benigno PDFs. No language line; confirm **Settings → Outpu
 > saves below the golden rule), `lista-05-audio-1` (the sign habit), `lista-07-audio-2/4` and
 > `aula-09-audio-1` (curve shifts, loss-and-tangency, divine coincidence).
 
+### Topics Prova 01 did not test (2026-10-21)
+
+**6 audio prompts, no slides or video**: one per topic cluster in
+[`.agent/plans/uncovered-topics-audio-tts.md`](../.agent/plans/uncovered-topics-audio-tts.md). Each one
+drills exam-style reasoning (what a question on the topic asks, the common trap, the sentence that
+earns the mark) and closes with a rehearsal. Upload the Kurlat book, `Livro_Kurlat_Cap10-11_Money_and_Inflation.pdf`
+(audio 5) and the Benigno PDF. No language line; confirm **Settings → Output language = English**.
+
+| File | Type | Thesis | Items | Chars |
+|---|---|---|---|---|
+| [audio/uncovered-audio-1-name-the-weights.md](audio/uncovered-audio-1-name-the-weights.md) | Audio | Every index is a choice of weights: say which weights, which way another choice moves the number, and what the measure leaves out | K §1.2, §11.1, ch. 2; Exs. 1.2, 1.5, 2.1, 2.2 | 4,899 |
+| [audio/uncovered-audio-2-attribution-is-not-cause.md](audio/uncovered-audio-2-attribution-is-not-cause.md) | Audio | Growth accounting attributes, it does not explain; evidence consistent with Solow does not prove it | K §3.3, §5.3-5.4; Exs. 3.3, 5.3, 5.4 | 4,860 |
+| [audio/uncovered-audio-3-saver-or-borrower.md](audio/uncovered-audio-3-saver-or-borrower.md) | Audio | State the change in lifetime wealth and the household's position (saver, borrower, neither) before any sign or MPC | K §6.2; Exs. 6.2, 6.3, 6.4, 6.8 | 4,886 |
+| [audio/uncovered-audio-4-name-the-margin.md](audio/uncovered-audio-4-name-the-margin.md) | Audio | Name the margin a shock or tax touches; Frisch for temporary wages, one wedge for two taxes, policy as redistribution under the FWT | K §7.4, §9.2; Exs. 7.3, 7.5, 9.4, 9.6 | 4,885 |
+| [audio/uncovered-audio-5-whose-choice-moves.md](audio/uncovered-audio-5-whose-choice-moves.md) | Audio | Multiplier, seigniorage base and real rate each hide a choice; name whose choice moves (Cagan Laffer peak, pickpockets, Fisher surprise) | K §10.3, §11.1, §11.3; Exs. 10.1-10.3, 11.3, 11.4, 11.6, 11.8 | 4,835 |
+| [audio/uncovered-audio-6-the-condition-the-trap-skips.md](audio/uncovered-audio-6-the-condition-the-trap-skips.md) | Audio | Four Benigno question shapes, each with a skipped condition: negative gap, mandate ($\phi$ vs $\sigma$), gap multiplier, the price-level promise at the ZLB | B §6-9, §11 | 4,881 |
+
+> Overlap capped at one sentence each: `gaps-audio-3` (PPP), `aula-03-audio-1` (the residual),
+> `gaps-audio-4` (conditional convergence), `aula-04-audio-2` and `gaps-audio-5` (Ricardo, the
+> saver's knife edge), `gaps-audio-1/2` (transfer channel, Beveridge curve), `aula-07-audio-1/2/3`
+> (identity, $\eta$, superneutrality), `aula-09-audio-1/2` and `lista-07-audio-*` (shock taxonomy,
+> multipliers, ZLB).
+
 ---
 
 ## Anatomia

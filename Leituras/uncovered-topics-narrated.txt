@@ -1,0 +1,764 @@
+THE TOPICS YOUR FIRST EXAM DID NOT TEST. MEASUREMENT, GROWTH EVIDENCE, CONSUMPTION, LABOUR AND GENERAL EQUILIBRIUM, MONEY AND INFLATION, AND BENIGNO BEYOND THE FIRST EXAM. A LISTENING VERSION.
+
+Macroeconomics 1, Professional Master's in Economics, Insper, third trimester of 2026. Textbook: Kurlat, 2020, chapters 1 to 7 and 9 to 11. For lectures 8 and 9: Benigno, 2015.
+
+
+HOW TO LISTEN
+
+The first exam tested four things: GDP by its three approaches, the Solow model with the golden rule, the two-period household and its general equilibrium, and Benigno's news about long-run markups with optimal policy. This script teaches what it left out, in six parts. Part one, measurement. Part two, the evidence on growth. Part three, consumption. Part four, labour and general equilibrium. Part five, money and inflation. Part six, Benigno beyond the first exam.
+
+Every part runs the same way: the idea from intuition; how an exam asks it, with the Kurlat exercises the professor's lists have used; the common trap and the check that catches it; worked examples with simple numbers; a self-test with the answers right after the pause; and a three-line summary. Math is spoken in words.
+
+This script complements the three Prova 01 scripts, which teach what the exam did test. Where the correction-gaps or instructor-solutions scripts already took a topic apart, I point you there instead of repeating it.
+
+
+PART ONE. MEASUREMENT. PRICE INDICES, REAL VERSUS NOMINAL, PURCHASING POWER PARITY, AND BEYOND GDP. KURLAT CHAPTERS 1 AND 2.
+
+Sources for this part: Kurlat section 1.2, Making Comparisons, printed pages 22 to 26. Section 11.1, on the GDP deflator and the consumer price index, printed pages 205 and 206. And chapter 2, Beyond GDP, printed pages 31 to 39.
+
+The first exam asked you to compute GDP three ways. It did not ask how to compare that number with another year, another country, or what people actually care about. That is this part.
+
+
+One point one. Why "real growth" is a choice, not a fact.
+
+Nominal GDP can rise for two reasons: the economy produced more stuff, or the same stuff got more expensive. Real GDP tries to keep only the first reason. To do that you must add up different goods, wheat and computers, using some set of prices as weights.
+
+Kurlat, printed page 23: if every quantity grew in the same proportion, or every price moved by the same amount, any set of prices would give the same real growth. The ambiguity appears only when relative prices move and the mix of goods changes at the same time.
+
+Here is Kurlat's own example, the country of Expandia, which uses the dollar. In 2017 it produced 10 tons of wheat at 50 dollars a ton and 1 computer at 1,000 dollars. Nominal GDP: 500 plus 1,000, which is 1,500 dollars. In 2018 it produced 11 tons of wheat at 60 dollars and 2 computers at 600 dollars each. Nominal GDP: 660 plus 1,200, which is 1,860 dollars. Wheat output grew 10 percent. Computer output doubled.
+
+Alternative one, base-year prices. Value the 2018 quantities at 2017 prices: 11 tons at 50 is 550, and 2 computers at 1,000 is 2,000. Total, 2,550. Compare with 1,500, and real growth is 70 percent. This is the Laspeyres approach: the weights are the prices of the initial period.
+
+Alternative two, final-year prices. Value the 2017 quantities at 2018 prices: 10 tons at 60 is 600, and 1 computer at 600 is 600. Total, 1,200. Compare 1,860 with 1,200, and real growth is 55 percent. This is the Paasche approach: the weights are the prices of the current period.
+
+Same economy, same year, 70 percent against 55 percent. Why? Look at which good expanded and which way its price moved. Computers doubled, and their price fell from 1,000 to 600. Valuing at the old prices weights the expanding good at its old, high price, so growth looks large. Valuing at the new prices weights it at its new, low price, so growth looks smaller. Kurlat's rule, printed page 24: using an earlier base year gives a higher growth rate when the sectors that expand most are those whose relative price is falling, and the reverse when they are rising.
+
+Alternative three, chained prices. Neither year is the right one, so take something in between. For each pair of adjacent years, compute growth both ways, then average the two with a geometric average: one plus chained growth equals the square root of one plus the Laspeyres growth, times one plus the Paasche growth. For Expandia, the square root of 1.70 times 1.55 is about 1.623, so chained growth is about 62.3 percent. Then real GDP next year is this year's times one plus that growth, and you repeat, a chain of calculations linking every year back to the base year. A small trap: the arithmetic average of 70 and 55 is 62.5, close enough to tempt you. Kurlat's formula is the geometric one; write the square root.
+
+
+One point two. Nominal, real, and the two price indices.
+
+Once you have real GDP, a price index falls out for free. The GDP deflator is nominal GDP divided by real GDP, times 100. In Expandia with 2017 as the base year, the 2018 deflator is 1,860 over 2,550, times 100, which is about 73. The price level fell about 27 percent, Kurlat, printed page 205, even though wheat got dearer. The deflator weights each price by that good's share of production, and production shifted toward computers, whose price collapsed.
+
+An identity checks every such calculation: one plus nominal growth equals one plus real growth, times one plus inflation. In Expandia, nominal GDP grew 24 percent, and 1.70 times the deflator ratio of about 0.729 gives 1.24. It closes.
+
+The consumer price index is built differently. A survey fixes a basket of what households consume. The index is the cost of that fixed basket at today's prices, divided by its cost at base-year prices, times 100.
+
+Three differences between the two indices, and each is an exam sentence.
+
+First, the basket. The deflator covers everything produced at home, including investment goods and exports, and excludes imports. The consumer price index covers what households consume, imported goods included, and excludes investment goods and exports.
+
+Second, the weights. The deflator uses current quantities as weights, so it is a Paasche-type price index. The consumer price index uses a fixed base-period basket, so it is a Laspeyres-type price index.
+
+Third, the bias. A fixed basket ignores that households switch away from goods whose prices rose, so the consumer price index overstates the rise in the cost of living: the same substitution bias, seen from the price side. New goods and quality improvements push the same way.
+
+When do the two tell different stories? Kurlat's case, printed page 206, is an oil exporter. In small numbers: the country produces 10 barrels of oil at 10 dollars and 20 loaves of bread at 5 dollars, so GDP is 200. Households consume the 20 loaves and 5 imported phones at 20 dollars each, so the consumer basket also costs 200. Now the oil price doubles to 20 and nothing else changes. The deflator, with the same quantities, becomes 10 times 20 plus 20 times 5, which is 300, over 200: an index of 150, or 50 percent inflation. The consumer price index does not move at all, because households buy no oil. Zero inflation. Both numbers are right; they answer different questions.
+
+The trap with real versus nominal is subtraction. Nominal growth of 8 percent with 5 percent inflation is real growth of 1.08 divided by 1.05, minus one: about 2.86 percent, close to 3. But nominal growth of 100 percent with inflation of 80 percent is 2 divided by 1.8, minus one: about 11.1 percent, not 20. The check: divide gross rates; subtract only when every rate is a few percent.
+
+
+One point three. Comparing countries: the market exchange rate, purchasing power parity, and Balassa-Samuelson.
+
+The quick common unit is the market exchange rate. Kurlat's example, printed pages 25 and 26: in 2018 Mexico's GDP was 23.5 trillion pesos and its population 127 million, so about 185,000 pesos per person. At about 19 pesos per dollar, that is about 9,700 dollars per person.
+
+The drawback: a dollar changed into pesos buys more in Mexico than in the United States, so the market rate mixes how much a country produces with how cheap its prices are. Purchasing power parity separates them: throw the exchange rate away and value each foreign quantity at the US price of its equivalent good. For Mexico, most estimates put GDP per person at parity around 18,000 dollars, almost twice the market-rate figure.
+
+A by-product is the parity exchange rate, the rate at which the two measures would coincide: GDP at parity in dollars divided by GDP in local currency. For Mexico that is 18,000 over 185,000, about 0.097 dollars per peso, against a market rate of about 0.053. Divide the market rate by the parity rate and you get about 0.54: converted at the market rate, goods in Mexico cost on average a bit over half what they cost in the United States. The Big Mac index is the one-good version of the same idea.
+
+Why are prices systematically lower in poorer countries? The Balassa-Samuelson effect. Its four steps, and the model answer for List 1 item 1 e, are in part three of the correction-gaps script. Here instead is a small economy that shows how big the effect can be.
+
+Two countries. One traded good costs 1 dollar in both, because arbitrage ships it; haircuts nobody ships. A rich worker produces 10 units of the traded good per hour, a poor worker 2, so wages are 10 and 2 dollars an hour. Barbers everywhere cut one haircut per hour, and since workers can move between sectors a barber earns the local wage: a haircut costs 10 dollars in the rich country and 2 in the poor one. Half the workers in each country cut hair.
+
+At local prices converted at the market rate, output per worker is 10 dollars in the rich country and 2 in the poor one, from either sector. The rich country looks 5 times as productive.
+
+Now value both at the rich country's prices. The poor traded worker still produces 2 dollars' worth; the poor barber's haircut is worth 10. Average output per worker: 2 plus 10, over 2, which is 6. The true gap is 10 against 6, a factor of about 1.67. The market rate overstated it threefold, and all of the error came from the haircut, the non-traded good priced at the poor country's low wage.
+
+
+One point four. Beyond GDP: the Human Development Index and the Jones and Klenow welfare measure.
+
+GDP measures production; people care about consuming, free time, living long and not being poor. The Human Development Index, from the United Nations, printed pages 31 and 32, has three components, each squeezed roughly between zero and one.
+
+The life expectancy index is life expectancy minus 20, divided by 85 minus 20, which is 65.
+
+The education index is the average of two ratios: average years of schooling of 25-year-olds divided by 15, and expected years of schooling of 5-year-olds divided by 18.
+
+The income index is the log of income per person, minus the log of 100, divided by the log of 75,000 minus the log of 100. Income here is GNP per person at purchasing power parity.
+
+The index itself is the geometric average of the three: the cube root of their product.
+
+A worked example. A country with life expectancy 75, 9 average years of schooling among 25-year-olds, 15 expected years among 5-year-olds, and income of 15,000 dollars per person. Life expectancy index: 55 over 65, about 0.846. Education index: 9 over 15 is 0.6, 15 over 18 is about 0.833, and their average is about 0.717. Income index: the log of 150 over the log of 750, about 0.757. The cube root of the product of the three is about 0.771.
+
+Two design features matter for questions. First, income enters in logs, so doubling income adds the same amount to the income index at any level: the log of 2 over the log of 750, about 0.105. A poor country gains as much from doubling as a rich one. Second, the geometric average punishes imbalance. A 10 percent fall in any one component lowers the index by about 3.5 percent, whatever the other two are, so no strength fully compensates a collapse in one dimension.
+
+The index correlates 0.94 with GDP per person in 2017. Kurlat's criticism, printed pages 32 and 33: the scaling and the equal weights are arbitrary.
+
+The Jones and Klenow measure, printed pages 33 to 39, answers the criticism by letting people's own choices set the weights. The thought experiment: a random person, whom Jones and Klenow call Rawls, will spend one year in a country, call it Utilia, without knowing who he will be there, young or old, rich or poor. That is choosing behind the veil of ignorance. The alternative is the United States with everyone's consumption multiplied by a number lambda, and lambda is the value that makes Rawls indifferent. Microeconomics calls it an equivalent variation; here it is the consumption-equivalent measure of welfare.
+
+Rawls's utility in a year, if he is alive, is a constant u-bar, plus consumption to the power one minus sigma over one minus sigma, minus theta times the square of the fraction of time spent working. If he is dead it is zero. Four departures from GDP enter. One, consumption, not production: investment and net exports give Rawls nothing during his year. Two, leisure and non-market production, through theta. Three, life expectancy, through u-bar, the value of being alive: his age is drawn at random, and if it exceeds life expectancy he is dead. Four, inequality, through sigma: behind the veil, an unequal country is a lottery, and sigma measures how much Rawls dislikes it.
+
+Each parameter is read from choices: sigma from how people invest and insure, with estimates from about 1 to about 10 and a baseline of 1; u-bar from what people pay for safety and demand for dangerous jobs; theta from how much they choose to work.
+
+A worked example of the inequality term. Under log utility, sigma equal to one, compare a country where everyone consumes 100 with one where half consume 50 and half 150. Rawls's expected utility in the unequal one is the average of the log of 50 and the log of 150, which is the log of about 86.6: a welfare cost of about 13.4 percent of consumption. With sigma equal to 2, the same calculation gives the harmonic mean, 75: a cost of 25 percent. More risk aversion, more weight on inequality. Kurlat's exercise 2.10 takes this to the limit: Rawls's difference principle, judging a society by its worst-off member, would follow from choices behind the veil only under extreme risk aversion.
+
+The results, Figure 2.2.3. Lambda and GDP per person are very highly correlated, so GDP is not a bad welfare proxy. The exceptions are the exam material. France and other Western European countries look better on welfare than on GDP: longer lives, more leisure, less inequality. Singapore, Hong Kong and South Korea look worse: they consume a small share of what they produce. So do oil producers such as Kuwait and Saudi Arabia, which are also unequal. South Africa and Botswana look worse mainly through low life expectancy, the result of the AIDS epidemic.
+
+
+One point five. How an exam asks it.
+
+List 1 question 1 was Kurlat exercise 1.2, Comparisons Across Time and Across Countries, printed page 27, recast as Brazil against Colombia: real GDP at base-year and at current-year prices, why the two growth rates differ, then market-rate against parity GDP and why they differ. List 1 question 2 was exercise 2.2, Other Things that Matter, printed page 41, assigned by number: name a variable GDP leaves out, and say which choices would reveal how much people value it. The numbers and model answers are in the correction-gaps and instructor-solutions scripts.
+
+What the lists have not yet used, and the final could: exercise 1.3, Chained GDP, printed page 28, which asks you to build the chained series; exercise 1.5, Changes in Relative Prices, printed page 29; exercise 2.1, the HDI against Jones and Klenow, printed page 40; exercises 2.5 and 2.6 on the value of life expectancy, printed page 41; and, at an advanced level, exercises 2.7 to 2.10 on risk aversion and inequality, printed pages 42 and 43.
+
+The pattern holds: compute two numbers, then explain why they differ. The marks sit in the explanation, and the explanation has to name a direction and a mechanism.
+
+
+One point six. The traps and the checks.
+
+The error is calling the base year "a convention". The correction is to name which good expanded, which way its relative price moved, and therefore which index overstates growth.
+
+The error is treating the deflator and the consumer price index as the same thing. The correction is to ask which basket each prices: production, or consumption, imports included.
+
+The error is explaining the parity gap with trade costs or tariffs. Those are frictions in traded goods, where the market rate works best. The correction is non-traded goods priced at low wages: Balassa-Samuelson.
+
+The error is describing Jones and Klenow as "the HDI with more variables". The correction: its weights come from people's own choices, and the result is measured in units of consumption.
+
+
+One point seven. Self-test. Pause after each question.
+
+Question one. Quantities shift toward a good whose price fell. Which overstates growth: base-year prices or final-year prices?
+
+Question two. A country exports oil and the oil price doubles. Which index jumps, the deflator or the consumer price index, and why?
+
+Question three. In the haircut economy, why does the market rate exaggerate the productivity gap?
+
+Question four. Under log utility, an equal society consumes 100 each; an unequal one has half at 50 and half at 150. What is the consumption-equivalent of the unequal one?
+
+Answers. One: base-year prices, because they weight the expanding good at its old, high price. Two: the deflator, because it prices what the country produces, and oil is a large part of that; households do not buy the oil, so the consumer price index barely moves. Three: because the poor country's haircuts are valued at its own low wage, while their real output, one haircut an hour, is the same as in the rich country. Four: about 86.6, the geometric mean of 50 and 150, a cost of about 13.4 percent.
+
+
+Part one in three lines.
+
+One. Real growth depends on which prices weight the goods: old prices overstate growth when the expanding goods are getting cheaper, so agencies chain with a geometric average.
+
+Two. The deflator prices production and the consumer price index prices a fixed consumer basket; nominal growth equals real growth times inflation in gross terms, so divide, do not subtract.
+
+Three. Parity beats market rates because non-traded goods are cheap where wages are low, and welfare measures add consumption, leisure, life and inequality, with Jones and Klenow taking the weights from people's own choices.
+
+
+PART TWO. THE EVIDENCE ON GROWTH. CONVERGENCE, DEVELOPMENT ACCOUNTING, AND GROWTH ACCOUNTING WITH THE SOLOW RESIDUAL. KURLAT CHAPTERS 3 AND 5.
+
+Sources for this part: Kurlat section 3.3, Growth Across Countries, printed page 51. Section 5.3, The Capital Accumulation Hypothesis, printed pages 80 to 86. Section 5.4, Growth Accounting, printed pages 86 to 88. Section 5.5, on where productivity differences come from, from printed page 89.
+
+The first exam tested the Solow machine: the steady state and the golden rule. It did not test the question chapter 5 is built around. Does the machine explain the world?
+
+
+Two point one. The question chapter 5 asks.
+
+Kurlat states a conjecture, numbered 5.1. Suppose all countries share the same production function, and poor countries are poor only because they have less capital per worker. That is a logically possible explanation of income differences, and if it were true, the policy advice would be simple: accumulate capital.
+
+Chapter 5 tests it three ways, with growth rates, direct measurement of capital, and interest rates, and all three reject it. Then section 5.4 turns the same logic on growth over time within one country: growth accounting.
+
+
+Two point two. Convergence, absolute and conditional.
+
+The intuition first. With diminishing returns, the first machines a worker gets are hugely productive and the hundredth is not. So an economy far below its steady state invests in high-return capital and grows fast; one near its steady state barely grows. Growth slows as you approach the target.
+
+Kurlat makes it precise in equation 5.3.1, printed page 81, assuming no technological progress and no population growth. Four steps. One: the growth rate of output per worker is output next period over output this period, minus one. Two: replace output by the production function, so it is f of k next period minus f of k this period, over f of k. Three: a first-order Taylor approximation turns the numerator into the marginal product of capital times the change in k. Four: the change in k is saving, s times f of k, minus depreciation, delta times k. Rearranging, and calling the capital share alpha, the growth rate of output per worker is approximately s times the marginal product of capital, minus delta times alpha.
+
+Read it. The only thing that varies with k is the marginal product, and it falls as k rises. So among countries with the same s, delta and technology, the poorer one grows faster.
+
+That is absolute convergence: if every country had the same steady state, initially poorer countries should grow faster, and everyone would end up at the same level. The data, Figure 3.3.1 on printed page 51, growth since 1960 against initial income, show no such pattern. Initially rich countries grow at similar rates, near the middle of the range. Initially poor countries are all over the place: South Korea and Botswana grew very fast and caught up; Congo and Madagascar grew very slowly or shrank and fell further behind.
+
+Kurlat gives the data two more chances, printed pages 81 and 82. Weight countries by population, Figure 5.3.1, and some convergence appears, stronger since 1980, because China and India started very poor and grew very fast. Look within groups, Figure 5.3.2, and convergence is strong among US states from 1929 to 1988 and among Western European countries, though in recent decades poorer US states have not grown faster. And a point of logic: evidence consistent with a conjecture does not prove it; poor states may have converged because their technology caught up.
+
+So the model's real prediction is conditional convergence. Each country converges to its own steady state, set by its own saving rate, population growth, depreciation and technology. A country grows fast when it is far below its own target, not when it is poor in some absolute sense.
+
+A worked example, with numbers you can carry. Use equation 5.3.1 with alpha equal to one third, delta equal to 0.05, technology equal to one, and no population growth.
+
+Country one saves 0.2. Its steady-state capital per worker is s over delta, which is 4, raised to the power three halves, which is 8. Start it at capital per worker of 1. The marginal product there is one third. Growth is 0.2 times one third, minus 0.05 times one third, which is 0.05: 5 percent a year. Check the formula at the steady state, capital of 8: the marginal product is one third times 8 to the power minus two thirds, which is one twelfth; 0.2 times one twelfth minus 0.05 times one third is exactly zero. Good: at the steady state the economy stops growing, as it must.
+
+Country two saves only 0.1. Its steady state is 2 raised to three halves, about 2.83. Start it at capital of 1 as well. Growth is 0.1 times one third, minus 0.05 times one third, which is about 1.67 percent.
+
+Country three saves 0.2, like country one, but starts at capital of 2. Its marginal product is one third times 2 to the power minus two thirds, about 0.21. Growth is about 2.5 percent.
+
+Now compare countries two and three. Country two is poorer, capital of 1 against 2, and it grows more slowly, 1.67 percent against 2.5. No absolute convergence. Yet both obey the model: country two is close to its own low target, country three is far below its high one. That is exactly why a scatter of growth against initial income can show nothing while the Solow model is working perfectly. Hold the steady-state determinants fixed and the negative relation reappears.
+
+The trap: writing "the Solow model predicts that poor countries grow faster than rich ones". The check: ask "faster relative to what?" The answer the marks want is "relative to their own steady states".
+
+
+Two point three. Development accounting: measuring capital directly.
+
+The second test, printed page 83. Instead of growth rates, use levels. Four steps. One, measure the capital stock in each country. Two, assume a production function common to all, output per worker equals A times k to the alpha, with alpha equal to 0.35, a decent fit for the United States. Three, back out A from US data: A is US output per worker over US capital per worker to the alpha. Four, predict each country's output per worker by plugging its own capital into that function, and compare with what it actually produces.
+
+The result, Figure 5.3.3, is decisive. In poor countries actual output is far below the prediction, and the poorer the country, the bigger the miss. If capital were the only difference, the poorest countries would have output per person around 10,000 dollars; their actual figure is closer to 1,000.
+
+The same idea in ratio form, which is how an exam asks it. Output per worker in country i relative to the United States equals relative productivity, A of i over A of the US, times relative capital per worker raised to the power alpha. You observe relative output and relative capital; productivity is what is left.
+
+A worked example. A country produces one fifth of US output per worker and has one tenth of US capital per worker. Take alpha equal to one third. Relative capital to the power one third is the cube root of 0.1, about 0.464. Relative productivity is 0.2 divided by 0.464, about 0.431.
+
+How much of the five-fold gap does each explain? Capital accounts for a factor of 1 over 0.464, about 2.15. Productivity accounts for a factor of 1 over 0.431, about 2.32. Multiply them and you get back 5. In logs, capital explains about 48 percent of the gap and productivity about 52 percent.
+
+Notice why capital explains so little even though this country has only one tenth of US capital. The exponent alpha compresses capital differences: a ten-fold capital gap becomes about a two-fold output gap. That is the arithmetic behind the robust finding of this literature: productivity explains most of the cross-country income differences, capital the smaller part. Section 5.5 then asks what productivity is made of, starting with human capital, as in Hall and Jones 1999, measured from wages.
+
+The trap: forgetting the exponent, and dividing relative output by relative capital itself. That would give a productivity of 2 for this country, twice the US level, which is absurd. The check: productivity is relative output over relative capital to the alpha, and with a small alpha that denominator is much closer to one than relative capital is.
+
+
+Two point four. The interest-rate test and Lucas's puzzle.
+
+The third test, printed pages 84 to 86, needs no capital data at all. If poor countries are poor only for lack of capital, their capital is scarce, so its marginal product, and hence the interest rate, should be very high.
+
+With Cobb-Douglas, the rental rate of capital is alpha times k to the power alpha minus one. If country A's output per worker is x times country B's, then A's rental rate over B's is x raised to the power alpha minus one over alpha. Kurlat compares Mexico, with output per person about 0.3 of the US, using alpha of 0.35. The ratio comes out at about 9.4: Mexico's rental rate should be more than nine times the US rate. With a US interest rate of 7.4 percent and depreciation of 4 percent, the US rental rate is 0.114, so Mexico's would be about 1.08, and its interest rate about 104 percent. Kurlat's Table 5.1 extends it: India over 1,000 percent, Ethiopia close to 10,000 percent.
+
+Lucas, in 1990, drew the implication. If that were true, why would anyone invest in the United States at 7.4 percent when Ethiopia pays thousands of percent? Capital would rush to poor countries. It does not. So capital scarcity cannot be the main difference. This is often called the Lucas paradox.
+
+
+Two point five. Growth accounting and the Solow residual.
+
+Now turn from comparing countries to explaining one country's growth over time, section 5.4. The question: output grew; was it more machines, more workers, or better technology?
+
+Start from output as a function of capital, labour and technology, equation 5.4.1. Take a first-order Taylor expansion of output growth, then multiply and divide each term by its own factor. You get equation 5.4.2, printed page 87, in words: output growth equals the capital share times capital growth, plus the labour share times labour growth, plus a residual.
+
+Why shares? Because more capital raises output by its marginal product, and in competitive markets capital is paid its marginal product, so the marginal product times capital over output is exactly capital's share of income. That is Kurlat's key insight: factor shares, which you read straight off the national accounts, tell you the marginal products you need.
+
+Everything on the right can be measured except the last term: shares from the accounts, capital growth from investment and depreciation, labour growth from participation, unemployment and hours, not just population. The residual is found by subtraction: GDP growth, minus the capital share times capital growth, minus the labour share times labour growth. That is the Solow residual, also called total factor productivity growth.
+
+What does it contain? Kurlat, printed page 87: everything other than capital accumulation and more labour, from literal technological progress to changes in policies that lead to better or worse allocation of resources. It is sometimes called a measure of our ignorance. The Gotham problem of List 2 is the textbook case: a fall in crime, with technology constant, shows up as nearly a full point of productivity growth a year. Part five of the correction-gaps script works it.
+
+Kurlat's worked case, Example 5.1, printed page 88. In the 1960s Western observers feared the Soviet economy. Powell, in 1968, decomposed Soviet growth from 1928 to 1966. GDP grew 5.4 percent a year. The capital share was 0.4 and capital grew 6.5 percent, contributing 2.6 points. The labour share was 0.6 and labour grew 2.8 percent, contributing about 1.7 points. The residual: about 1.1 percent.
+
+The lessons. The growth was fast but not mysterious: investment rose from 8 to 31 percent of GDP, and women entered the labour force. Productivity growth was unremarkable, close to US levels. So growth should slow, as capital hits diminishing returns and participation cannot rise forever; the 1970s and 1980s vindicated it. A footnote links back to part one: the 5.4 percent uses final-year prices for 1928 to 1937, and base-year prices give 6.7 percent, because manufacturing expanded while its prices fell.
+
+A worked example of your own. Output grows 4 percent a year, capital 6 percent, labour 2 percent, and the capital share is 0.3. Capital contributes 0.3 times 6, which is 1.8 points. Labour contributes 0.7 times 2, which is 1.4 points. The residual is 4 minus 1.8 minus 1.4, which is 0.8 points. Productivity explains one fifth of growth.
+
+Check it per worker, because exams switch forms. Output per worker grows 4 minus 2, which is 2 percent; capital per worker grows 6 minus 2, which is 4 percent. Per worker, output growth equals the capital share times capital-per-worker growth plus the residual: 0.3 times 4 is 1.2, and 2 minus 1.2 is 0.8. The same residual. If the two forms disagree, you have mixed aggregate and per-worker rates.
+
+The classic trap: swapping the shares. Put 0.7 on capital and 0.3 on labour and the residual becomes 4 minus 4.2 minus 0.6, which is minus 0.8: a booming economy with falling productivity. The check: the capital share is around one third, the labour share around two thirds, and the bigger weight goes on labour.
+
+
+Two point six. How an exam asks it.
+
+List 1 question 3 was Kurlat exercise 3.3, Within-Region Convergence, printed page 52, assigned by number: growth against initial income, separately for Europe, Latin America and Africa. The professor's slopes and their reading are in part two of the instructor-solutions script. List 2 question 2, Gotham, was authored on sections 5.3 and 5.4, a relative of exercises 5.3 and 5.9; it asked for development accounting and for the growth-accounting decomposition, and its last item, the residual capturing a misallocation, was the hardest.
+
+Still unused, and natural for the final: exercises 5.1, Quantifying the Solow Model, printed page 93; 5.3, Causes of Growth and Growth Accounting, page 94; 5.6, Interest Rates, page 96; 5.7, which combines GDP accounting, interest rates and growth accounting, page 96; and 5.9, Disease and TFP, page 98. Exercise 5.2, The Speed of Convergence, page 94, is the advanced one.
+
+The shape of the question: a decomposition with numbers, then "what does the residual measure here?" The sentence that earns the mark names what, other than technology, the residual is picking up.
+
+
+Two point seven. Self-test. Pause after each question.
+
+Question one. State the difference between absolute and conditional convergence in one sentence each.
+
+Question two. A country has one tenth of US capital per worker, and the capital share is one third. By what factor does capital alone lower its output per worker?
+
+Question three. Output grows 4 percent, capital 6, labour 2, capital share 0.3. What is the Solow residual?
+
+Question four. Why did the interest-rate test reject the capital-only explanation?
+
+Answers. One: absolute convergence says poorer countries grow faster, full stop; conditional convergence says each country grows faster the further it is below its own steady state. Two: by a factor of the cube root of one tenth, about 0.464, so output per worker is a bit under half the US level from capital alone. Three: 0.8 percentage points. Four: capital scarce enough to explain the income gaps would imply interest rates of over 100 percent in Mexico and far more in poorer countries, so capital would flow there, and it does not.
+
+
+Part two in three lines.
+
+One. The Solow model predicts conditional convergence, each country toward its own steady state; absolute convergence fails in world data and appears only within similar groups.
+
+Two. Development accounting and the interest-rate test both show that capital explains a minority of income gaps, because the exponent alpha compresses capital differences, so productivity does most of the work.
+
+Three. Growth accounting weights each factor's growth by its income share and finds the residual by subtraction, and that residual includes allocation and measurement, not only technology.
+
+
+PART THREE. CONSUMPTION. THE INTEREST RATE AND THE ROLE OF SIGMA, PERMANENT INCOME AND THE MARGINAL PROPENSITY TO CONSUME, AND RICARDIAN EQUIVALENCE AND WHEN IT FAILS. KURLAT CHAPTER 6.
+
+Sources for this part: Kurlat section 6.1, the Keynesian consumption function, printed page 103. Section 6.2, the two-period model, printed pages 105 to 117: the effect of interest rates from page 109, the explicit CRRA solution on page 111, the permanent income hypothesis on pages 112 and 113, and taxes and Ricardian equivalence on pages 113 to 115. Section 6.3, many periods, from printed page 117.
+
+The first exam used log utility with all income in period one: the one case where the interest rate does not move consumption today and the timing of income never arises. This part opens both doors.
+
+
+Three point one. The machine, in one breath.
+
+A household lives two periods, with income y one and y two, and can borrow or save at the interest rate r. Its lifetime budget says: c one, plus c two divided by one plus r, equals y one plus y two divided by one plus r. Present value of consumption equals present value of income. The price of a unit of tomorrow's consumption, in units of today's, is one over one plus r.
+
+The optimum is the Euler equation, 6.2.8: the marginal utility of c one equals beta, times one plus r, times the marginal utility of c two. Kurlat's reading: a unit of wealth consumed today yields its marginal utility now; saved, it becomes one plus r units tomorrow, each worth the marginal utility of c two, discounted by beta. At the optimum the household is indifferent at the margin.
+
+Now CRRA utility, the constant relative risk aversion form: u of c is c to the power one minus sigma, over one minus sigma, so marginal utility is c to the power minus sigma. Put that in the Euler equation and c two equals beta times one plus r, raised to the power one over sigma, times c one. Put that into the budget, and you get equation 6.2.9, printed page 111.
+
+c one equals the present value of income, y one plus y two over one plus r, divided by a denominator: one, plus beta to the power one over sigma, times one plus r to the power one over sigma minus one.
+
+The numerator is what the household has. The denominator is how it splits it across the two periods, and it is where patience, the interest rate and sigma all enter. One vocabulary sentence to write whenever sigma appears: sigma is the curvature of utility, and one over sigma is the elasticity of intertemporal substitution. A low sigma means a household happy to tilt consumption toward whichever period is cheaper.
+
+
+Three point two. Why a higher interest rate has an ambiguous effect.
+
+Picture the budget line with c one on the horizontal axis and c two on the vertical. A rise in r makes it steeper, pivoting around the endowment point, because the household can always consume its income, whatever the rate. Kurlat, printed pages 109 and 110.
+
+Two effects. The substitution effect: consumption today has become more expensive relative to tomorrow, so the household shifts toward tomorrow. It always lowers c one.
+
+The income effect depends on which side of the market the household is on. A saver earns more on its savings, so it is richer, and being richer it wants more of everything, c one included. A borrower pays more on its debt, so it is poorer, and it wants less of everything.
+
+Put them together. For a borrower both effects lower c one: the sign is unambiguous. For a saver they pull in opposite directions, and the net effect is ambiguous. Kurlat adds a footnote case: a household that switches from borrowing to saving when the rate rises, where the income effect can go either way.
+
+Kurlat's Figure 6.2.4 shows both: the retirement saver, whose income effect wins so that consumption today rises, and the optimistic borrower, whose consumption today falls.
+
+Formula 6.2.9 shows where sigma decides. Look at a pure saver, with no income tomorrow. Then the numerator is just y one, and r enters only through the denominator, through the factor one plus r to the power one over sigma minus one. If sigma is below one, that exponent is positive, the denominator rises with r, and c one falls: substitution wins. If sigma equals one, the exponent is zero and nothing moves: the log case, where the two effects cancel exactly. If sigma is above one, the exponent is negative, the denominator falls, and c one rises: the income effect wins.
+
+Why does a large sigma make the income effect win? A high-curvature household dislikes uneven consumption, so it will not chase the better price; it takes part of the gain as consumption today.
+
+A worked example. A pure saver: income of 100 today, nothing tomorrow, beta equal to one. At an interest rate of zero, the denominator is 2 for any sigma, so c one is 50 and saving is 50. Now raise the interest rate to 10 percent.
+
+With sigma equal to one half, the denominator becomes one plus 1.1, which is 2.1. c one falls to about 47.6, and saving rises to about 52.4. Check the budget: c two is 1.1 squared times 47.6, about 57.6, and 47.6 plus 57.6 over 1.1 is 100. It closes.
+
+With sigma equal to one, c one stays at 50.
+
+With sigma equal to 2, the denominator becomes one plus 1.1 to the power minus one half, about 1.953. c one rises to about 51.2, and saving falls to about 48.8.
+
+Same household, same rise in the interest rate: saving goes up, stays put, or goes down, depending only on sigma.
+
+Now a borrower. Income of zero today and 110 tomorrow, beta equal to one. At a zero rate, wealth is 110 and c one is 55 for any sigma. Raise the rate to 10 percent. The numerator now falls too: 110 over 1.1 is 100. This is a third channel, sometimes called the human-wealth effect: future income is worth less today. With sigma equal to one half, c one is 100 over 2.1, about 47.6. With sigma equal to 2, it is 100 over 1.953, about 51.2. Both below 55. For a borrower, c one falls whatever sigma is.
+
+The trap, and it cost List 3 item 1 c: the right condition, followed by a sentence with the wrong sign. The correction-gaps script, part six, takes that item apart. The check is a knife edge. Set sigma to one and confirm that nothing moves. Then ask which side of one you are on, and which way the exponent one over sigma minus one tilts the denominator. Only then write the sentence. And a second check: before signing anything, ask whether the household saves or borrows. The ambiguity exists only for a saver.
+
+
+Three point three. Permanent income and the marginal propensity to consume.
+
+Keynes, section 6.1: consumption is a function of current income, and when income rises by one dollar consumption rises by less than one dollar. The derivative of consumption with respect to income is the marginal propensity to consume, and Keynes says it is below one.
+
+The two-period model says something sharper. Consumption depends on the present value of income, not on current income; Friedman, in 1957, called it permanent income. So how much consumption responds to more income depends on whether the increase is temporary or permanent.
+
+A temporary rise in y one, with y two unchanged, like a one-off bonus. Differentiate 6.2.9 and the marginal propensity to consume is one over the denominator, equation 6.2.10, printed page 112. That is below one, as Keynes said, but for a different reason: the household spreads the windfall over both periods.
+
+A permanent raise of the same amount in both periods. The response, equation 6.2.11, is one plus one over one plus r, all over the same denominator. That is larger. And in the special case beta times one plus r equals one, where patience exactly offsets the interest rate and the Euler equation gives c one equal to c two, it equals exactly one. A permanent raise is consumed one for one.
+
+A worked example. Let the interest rate be 4 percent and beta be one over 1.04, so beta times one plus r is one. The denominator is one plus one over 1.04, about 1.96. The marginal propensity to consume out of a temporary rise is one over 1.96, about 0.51: the household consumes half today and saves half for tomorrow. Out of a permanent rise it is exactly one. Notice that when beta times one plus r is one, sigma drops out entirely: the household wants flat consumption whatever its curvature.
+
+Stretch the horizon and the temporary response shrinks. With an infinite horizon, section 6.3, and beta times one plus r equal to one, consumption is flat forever, and its present value is consumption times one plus r over r. So a windfall of one raises consumption every period by r over one plus r. At 4 percent that is about 0.038. A one-off bonus is almost all saved; a permanent raise is all spent.
+
+This reconciles two facts, printed page 113. Across households in one year, consumption rises with income much less than one for one, Figure 6.1.1; over long periods, consumption moves roughly in proportion to income, Figure 6.1.2. Households with high income this year include many who simply had a good year, and they consume according to a permanent income lower than this year's. Average over many people and years, the temporary parts wash out, and consumption tracks permanent income.
+
+The trap: answering "how much does consumption rise when income rises?" with one number. The check: ask "temporary or permanent, and over what horizon?" The model answer gives both, and the sentence that earns the mark is that consumption responds to changes in wealth, not to changes in current income.
+
+
+Three point four. Ricardian equivalence, and when it fails.
+
+The government buys G one and G two, and raises lump-sum taxes tau one and tau two. It can borrow and lend at r, but must repay. Its budget, equation 6.2.14: the present value of spending equals the present value of taxes.
+
+The household's budget now uses after-tax income. Combine it with the government's budget and you get equation 6.2.16, printed page 114: the present value of consumption equals the present value of income minus the present value of government spending. Look at what is missing. The taxes have vanished. Any timing of taxes that satisfies the government's budget leaves the household's budget, and so its consumption, unchanged. That is Ricardian equivalence, after David Ricardo.
+
+The mechanism, in Kurlat's words, printed page 115: the government announces a tax cut today with spending unchanged. People work out that it must borrow and so raise taxes tomorrow. They save the whole cut, to pay the future tax, and leave consumption alone.
+
+A worked example. The interest rate is 5 percent. The government cuts today's tax by 10 and raises tomorrow's by 10 times 1.05, which is 10.5. The present value of taxes is unchanged. The household saves the extra 10; at 5 percent it becomes 10.5, which pays the new tax exactly. Private saving rises by 10, public saving falls by 10, and national saving does not move.
+
+Kurlat's assumptions, each of which can fail: people are rational and understand the government's budget; the tax change does not alter expected spending; government and households face the same interest rate, and everyone can borrow and lend at it; and taxes are lump sum. And what it does not say: that the government is irrelevant, or anything about changes in spending. Only the timing of taxes is irrelevant, everything else held equal.
+
+Now break it with a credit constraint, Kurlat exercise 6.5. Suppose the household cannot borrow: its assets must be at least zero.
+
+A worked example. Log utility, beta equal to one, interest rate zero. Income of 20 today and 100 tomorrow. Unconstrained, the household would consume half its wealth of 120 in each period: 60 and 60, borrowing 40. It cannot. So it consumes 20 today and 100 tomorrow. The Euler equation fails as an equality: marginal utility today, one over 20, is greater than marginal utility tomorrow, one over 100. That strict inequality is the signature of a binding constraint, and it is the line to write in an exam.
+
+Now the government cuts today's tax by 10 and raises tomorrow's by 10. With a zero interest rate the present value is unchanged. An unconstrained household would not move: still 60 and 60. The constrained household now consumes 30 today and 90 tomorrow. Its consumption today rose by the full 10: a marginal propensity to consume of one out of the tax cut. The constraint still binds, since 30 is below the 60 it would like. In effect the government has lent the household money it could not borrow on its own.
+
+A saver with income of 100 today and 20 tomorrow consumes 60 and 60; the same tax change raises its saving from 40 to 50 and leaves consumption alone. So the aggregate effect of a deficit-financed tax cut depends on how many households are constrained. List 3 question 2 item d asked the other classic failure, a tax on the return to saving, which distorts the Euler equation itself; the margin and the welfare argument are in the correction-gaps and instructor-solutions scripts.
+
+
+Three point five. How an exam asks it.
+
+List 3 question 1 was Kurlat exercise 6.1, Two-Period Problem with Taxes and Initial Wealth, printed page 121, almost word for word. Its item c imported exercise 6.3, Consumption and Interest Rates, printed page 122: the derivative of c one with respect to r and the role of sigma. Its item e was Ricardian equivalence. List 3 question 2 was exercise 6.5, Credit Constraints and Ricardian Equivalence, printed page 123, with item d taken from exercise 6.6, A Tax on Savings, the same page.
+
+Still unused: exercise 6.2, Savings Rates for Different People, printed page 122; 6.4, Consumption and Income, page 122; 6.7, One Rational Household, page 124; 6.8, The Marginal Propensity to Consume, page 124; and 6.9, the same in proportional terms, page 125. The last three are permanent-income exercises, and they are the natural place for a final to go.
+
+The shape: derive the closed form; sign a derivative; then a conceptual last item, where the marks go to the sentence that matches the sign and names the mechanism.
+
+
+Three point six. Self-test. Pause after each question.
+
+Question one. A pure saver has sigma equal to 2 and the interest rate rises. Does c one rise or fall, and which effect dominates?
+
+Question two. A borrower faces a higher interest rate. Can c one rise?
+
+Question three. With beta times one plus r equal to one and an interest rate of 4 percent, what is the two-period marginal propensity to consume out of a temporary rise in income, and out of a permanent one?
+
+Question four. A household that cannot borrow gets a tax cut of 10 today, paid back by a tax of 10 tomorrow, at a zero interest rate. How does its consumption today respond, and what does an unconstrained household do?
+
+Answers. One: it rises; the income effect dominates, because a high-curvature household takes part of its gain as consumption today. Two: not while it remains a borrower; both the substitution and the income effects lower c one, and future income is worth less today. Only a household that switches to saving has an ambiguous income effect. Three: about 0.51 out of a temporary rise, exactly one out of a permanent one. Four: its consumption today rises by the full 10; the unconstrained household saves the cut and does not change its consumption.
+
+
+Part three in three lines.
+
+One. A higher interest rate always lowers c one through substitution; for a saver the income effect pushes the other way, and with CRRA utility the saver's c one falls if sigma is below one, stays put at one, and rises above one.
+
+Two. Consumption follows permanent income: the marginal propensity to consume is below one for temporary income, one for permanent income when beta times one plus r is one, and smaller still the longer the horizon.
+
+Three. With lump-sum taxes and free borrowing only the present value of taxes matters, so a tax cut is saved; a binding credit constraint breaks this, and the constrained household spends the whole cut.
+
+
+PART FOUR. LABOUR AND GENERAL EQUILIBRIUM. KURLAT CHAPTER 7, LABOR AND LEISURE, PRINTED PAGES 127 TO 150, AND CHAPTER 9, GENERAL EQUILIBRIUM, PRINTED PAGES 165 TO 186.
+
+Five pieces: static labour supply with taxes and transfers; Frisch versus Marshallian elasticities; search and the Beveridge curve; the First Welfare Theorem and its failures; and the modified golden rule. Scope note: Kurlat chapter 8, Investment, is outside this course; the programme jumps from chapter 7 to chapter 9.
+
+
+FOUR POINT ONE. THE STATIC LABOUR SUPPLY DECISION.
+
+The concept first. A household has one unit of time. It spends l on leisure and works one minus l, at the real wage w. Whatever it earns, plus any non-labour income, it consumes. Move the leisure term to the left side and the budget reads: consumption plus w times leisure equals w plus non-labour income. The wage is the price of leisure. Every hour you do not work costs you w units of consumption.
+
+The first-order condition says the marginal rate of substitution between leisure and consumption equals the wage. In words: the marginal utility of leisure divided by the marginal utility of consumption equals w. That is Kurlat section 7.2, from printed page 131.
+
+Now raise the wage. Two forces pull in opposite directions. The substitution effect: leisure has become more expensive, so you buy less of it and work more. The income effect: at the old hours you are richer, and leisure is a normal good, so you buy more of it and work less. The net effect on hours is ambiguous, and the labour supply curve can bend backwards.
+
+Three benchmark preferences settle the sign, and exam questions are built on all three, so learn them as a set.
+
+Benchmark one, quasi-linear utility: utility equals consumption plus theta times the log of leisure. This is Kurlat exercise 7.1, printed page 146. There is no income effect on leisure at all. The first-order condition gives leisure equal to theta divided by w, so hours rise with the wage. With theta equal to 0.5, a wage of 1 gives hours of 0.5, and a wage of 2 gives hours of 0.75. Pure substitution.
+
+Benchmark two, log-log utility: the log of consumption plus alpha times the log of leisure, with no non-labour income. Here the income and substitution effects cancel exactly. Leisure equals alpha divided by one plus alpha, whatever the wage. Hours do not respond to w at all. This is the preference economists like for growth, because real wages have risen many times over in a century while hours have fallen only modestly.
+
+Taxes versus transfers. Put a proportional labour tax tau and a lump-sum transfer T into the budget. Consumption equals w times one minus tau times hours, plus T. The two instruments do completely different things. The tax is just a lower wage, so it has both an income and a substitution effect. The transfer leaves the price of leisure untouched and only makes you richer, so it is a pure income effect, and it lowers hours.
+
+Combine that with benchmark two and you get the sentence that earns the mark. With log consumption and no transfer, the tax drops out of the labour supply equation entirely. Its income and substitution effects cancel. Any effect of the tax on hours runs through the transfer it finances. This holds for any leisure term, as long as consumption enters as a log.
+
+How an exam asks it. Lista 4, question 1, used the log of consumption plus b times leisure to the power one minus gamma, over one minus gamma, with a tax and a transfer, asked for the labour supply equation, and then asked for the effect of a higher tax with intuition. The book sources are Kurlat 7.1, 7.2 on military service, 7.3 on consumption taxes, and above all 7.5, Prescott's calculation, printed page 148.
+
+The trap, and it is the one that cost the mark on Lista 4 item 1 b. The derivative was right: it had T in the numerator. The sentence under it said a lower net wage makes leisure cheaper, so people consume less and enjoy more leisure. That is the substitution effect alone, and with log consumption it is exactly cancelled. The grader put a question mark on it. The words contradicted the formula.
+
+The check that catches it. Before you write any intuition, set the other parameters to their knife-edge values and ask what your formula says. Here, set T to zero. The effect of tau vanishes. So the story has to be about T: a higher tax shrinks earning capacity, which makes the same transfer large relative to it, which strengthens the pure income effect, which cuts hours.
+
+Worked example, in words, using the numbers of Kurlat 7.5. Utility is the log of consumption plus 1.54 times the log of leisure, and the wage is 1. Solving the first-order condition with the budget gives leisure equal to alpha times the after-tax wage plus T, divided by one plus alpha times the after-tax wage.
+
+The United States: tax 0.34, transfer 0.102. The after-tax wage is 0.66. Leisure comes out at 0.700, so people work 0.300 of their time.
+
+Europe: tax 0.53, transfer 0.124. The after-tax wage is 0.47. Leisure is 0.766, so people work 0.234 of their time. With output equal to hours, European GDP per person is about 22 percent lower.
+
+Both budgets balance: 0.34 times 0.300 is 0.102, and 0.53 times 0.234 is 0.124.
+
+Now the punchline. Remove the transfers and keep the taxes. Leisure goes to 1.54 divided by 2.54, which is 0.606, and hours to 0.394, in both places and at any tax rate. The tax rate on its own does nothing. Europe works less because its taxes finance transfers, and the transfers carry the income effect.
+
+And welfare is not GDP. Solve for the fraction of American consumption that would leave an American, at American leisure, exactly as well off as a European. It comes out at about 0.90. So Europe is about 10 percent worse off in consumption terms, while its GDP is 22 percent lower. The difference is the extra leisure, which GDP does not count.
+
+
+FOUR POINT TWO. FRISCH VERSUS MARSHALLIAN.
+
+The concept. A labour supply elasticity is the percent rise in hours per percent rise in the wage, and it depends on what you hold fixed. The Marshallian, or uncompensated, elasticity lets the household re-optimise consumption too, using its budget, as we just did.
+
+The Frisch elasticity holds consumption fixed, or more precisely the marginal utility of wealth. Kurlat's footnote on printed page 149 is careful here: holding consumption fixed is not the same as holding utility fixed, so the Frisch elasticity is related to the substitution effect but is not identical to it.
+
+Why two? Because of time. A temporary wage change barely moves lifetime wealth, so the relevant response is Frisch: work hard while the wage is high. A permanent change moves lifetime wealth fully, so the income effect is present, and the relevant response is Marshallian. It is the permanent-income logic of chapter 6, applied to hours.
+
+Worked example, same Prescott model. From the first-order condition alone, leisure equals alpha times consumption divided by the after-tax wage. Hold consumption fixed and differentiate. The elasticity of hours with respect to the after-tax wage turns out to be leisure divided by hours. For the United States, 0.700 divided by 0.300 is 2.33.
+
+Compare that with the Marshallian elasticity of the same preferences with no transfer, which is exactly zero, as benchmark two showed. Same household, same utility, an elasticity of zero or of 2.33, depending on what is held fixed.
+
+How an exam asks it. Kurlat 7.5 items j to l ask exactly this, and the book reports that empirical estimates of the Frisch elasticity are usually between 0.4 and 1. Prescott's calculation needs 2.33. So the claim that taxes explain the whole hours gap between Europe and the United States rests on a labour supply elasticity two to five times what micro data find.
+
+The trap. Using the Marshallian elasticity where the question is about a temporary change or a business cycle, or calling the Frisch elasticity the substitution effect. The check: ask whether lifetime wealth moved. If it barely moved, Frisch. If it moved one for one, Marshallian.
+
+
+FOUR POINT THREE. SEARCH AND THE BEVERIDGE CURVE.
+
+The concept. A competitive labour market has neither unemployment nor unfilled vacancies, yet in the data both coexist. The Diamond, Mortensen and Pissarides model, Kurlat section 7.5, printed pages 142 to 145, explains why: finding each other takes time.
+
+The matching function, in the Lista 4 form: new matches equal mu times vacancies to the power alpha times unemployed to the power one minus alpha. Define tightness theta as vacancies divided by unemployed. Then the job-finding rate, matches per unemployed worker, is mu times theta to the power alpha, which rises with tightness. The job-filling rate, matches per vacancy, is mu times theta to the power alpha minus one, which falls with tightness. And the finding rate equals theta times the filling rate.
+
+A notation warning. In Lista 4, mu is matching efficiency. In Kurlat's text, the letter mu is the worker's bargaining power in the wage. Say which one you mean.
+
+The steady state. Each period a fraction s of the employed lose their jobs. Unemployment is constant when the flow out of employment equals the flow into it: s times one minus u equals mu times v to the power alpha times u to the power one minus alpha. Name it in words before you solve it. This is job destruction equals job creation.
+
+That equation, read in the plane of unemployment across and vacancies up, is the Beveridge curve. It slopes down, and the reason is a flow reason, not an algebra reason. When unemployment is higher, two things happen. There are more searchers, so each vacancy matches more easily. And there are fewer employed, so fewer jobs are destroyed. Both mean fewer vacancies are needed to balance the flows.
+
+Worked example. Separation rate 2 percent, mu equal to 0.5, alpha equal to 0.5. At unemployment of 5 percent, the vacancy rate that balances the flows is 2.89 percent. At unemployment of 8 percent, it is 1.69 percent. Downward slope, confirmed. Check the first point: tightness is 2.89 over 5, about 0.58, so the finding rate is 0.5 times the square root of 0.58, which is 0.38. Inflows are 0.38 times 0.05, which is 0.019. Outflows are 0.02 times 0.95, also 0.019. The flows balance.
+
+Now the distinction the exam is built to test: movement versus shift. A movement along the curve changes tightness at a given matching technology. In a boom, matches become more profitable, firms post more vacancies, and the economy slides up and to the left along the same curve. A shift changes the matching technology itself. Let mu fall from 0.5 to 0.4, holding unemployment at 5 percent. The vacancy rate needed rises from 2.89 to 4.51 percent, a factor of 1.5625, which is 1.25 squared. The elasticity of vacancies with respect to mu is minus one over alpha, minus 2 here, and every point moves out. An outward shift of the Beveridge curve is the empirical signal of deteriorating matching, from skills mismatch or geography, as opposed to a cyclical movement along it.
+
+How an exam asks it. Lista 4 question 2, six points, was the full model in five items: the law of motion, the steady state and the curve, the two rates as functions of tightness, the externality of one extra vacancy, and the effect of a fall in mu. The book exercise is Kurlat 7.7, printed page 150, which asks, in the book's one-period version, which changes produce a Beveridge-curve pattern.
+
+Two traps, both from Lista 4. Item 2 e blurred shift and movement. The sentence that earns the mark: a fall in mu shifts all the feasible combinations of unemployment and vacancies, rather than just changing how a given tightness is split between them.
+
+Item 2 d, the extra vacancy, said the firm ignores the effect because its own loss is tiny. Wrong agent: a loss to yourself is internalised by definition. The full answer: one more vacancy raises tightness, so the finding rate rises and workers gain; the filling rate falls, so other firms lose; the posting firm gains privately and weighs only its own profit. The check: an externality always lands on somebody else. And it is exactly a failure of the next theorem.
+
+
+FOUR POINT FOUR. THE FIRST WELFARE THEOREM, AND WHEN IT FAILS.
+
+The concept. In general equilibrium, prices are whatever makes everybody's plans compatible. Write the definition in three parts; it earns marks on its own. A competitive equilibrium is an allocation and a set of prices such that, one, given prices, households maximise utility subject to their budgets; two, given prices, firms maximise profits; three, all markets clear.
+
+The First Welfare Theorem, Kurlat proposition 9.1, printed page 170: a competitive equilibrium allocation solves the social planner's problem, or with many households, is Pareto optimal. The logic in one sentence, from page 171: the planner maximises utility subject to technology; households maximise utility subject to prices; but prices reflect technology, because the wage equals the marginal product of labour and the rental rate equals the marginal product of capital. So households end up maximising subject to technology too.
+
+The conditions. Competitive behaviour, so no monopoly power. No externalities. Complete markets. And, from the book's footnote, no asymmetric information and no borrowing constraints. Kurlat's policy lesson, page 171: if a policy is not about redistribution, it can only be justified by naming which condition of the theorem fails.
+
+Failure one, a distortionary tax. Take the Prescott economy, output equal to hours, wage 1. The planner sets the marginal rate of substitution equal to the marginal product of labour, which is 1. That gives leisure of 0.606 and hours of 0.394. The market with a tax of 0.34 sets the marginal rate of substitution equal to 0.66. Hand every cent back as a lump-sum transfer, and hours are still only 0.300. The rebate returns the resources but not the margin: the 34 percent wedge remains. In welfare terms, the household at the taxed allocation would need about 5.2 percent more consumption to be as well off as at the planner's allocation.
+
+Failure two, an externality. Kurlat's example is an orchestra in my garden that my neighbours enjoy: I hire it less often than a planner would. The vacancy congestion of the search model has the same structure.
+
+How an exam asks it. Kurlat 9.1 is the theorem itself. 9.4, pro-worker policies, and 9.13, the Enclosure Acts, ask whether a policy helps and which condition fails. 9.6, capital income taxes, is the distortionary-tax case on the savings margin, the cousin of the tax on savings in 6.6 that appeared in Lista 3. Lista 5 asked for the three-part definition in question 1 c and invoked the theorem in the golden-rule puzzle of question 2 e.
+
+Traps. Stating the theorem without its conditions, which is where true-or-false questions live. Confusing Pareto efficient with fair: efficiency says nothing about distribution. And believing a rebated tax is harmless because the money comes back.
+
+
+FOUR POINT FIVE. INFINITE HORIZON AND THE MODIFIED GOLDEN RULE.
+
+The concept, Kurlat section 9.3, from printed page 172: the household maximises discounted utility over infinite periods. Scope note: we use only the Euler equation and transversality; dynamic programming and the Bellman equation are outside this course.
+
+Two equations do the work. The Euler equation: marginal utility today equals beta times one plus r times marginal utility tomorrow. And no-arbitrage on capital, from Lista 5 question 2 c: one plus r equals the rental rate plus one minus delta, whoever owns the capital.
+
+In steady state consumption is constant, so marginal utility is the same in both periods, and the Euler equation forces beta times one plus r to equal one. So r equals one over beta minus one, which depends only on patience. Put it into no-arbitrage: the marginal product of capital minus delta equals one over beta minus one. That is the modified golden rule.
+
+The golden rule from chapter 4 says the marginal product of capital equals delta. Since one over beta minus one is positive, the steady-state marginal product is higher than at the golden rule. With diminishing returns, a higher marginal product means less capital. The optimum sits below the golden rule.
+
+Why, when the First Welfare Theorem says the equilibrium is optimal? Because the golden rule maximises steady-state consumption, not utility. Reaching it means sacrificing consumption now for more consumption later, and an impatient household values the later consumption less. As beta goes to one, the two coincide. And the book adds, page 177, that this does not depend on starting low: a household handed the golden-rule capital stock would run it down, eating the difference.
+
+Worked example. Output is capital to the power one third, delta 0.1, beta 0.96. The golden rule needs a marginal product of 0.1, which gives capital of about 6.09 and steady-state consumption of about 1.217. The modified golden rule needs a marginal product of 0.1 plus 0.0417, so 0.1417, which gives capital of about 3.61 and consumption of about 1.173. The real interest rate is 4.17 percent. Lower capital, lower long-run consumption, higher utility. Raise beta to 0.99 and capital rises to 5.27; at 0.999 it is 6.00, closing in on 6.09.
+
+How an exam asks it. Lista 5 question 2 e, the bonus, asked for exactly this: derive the golden rule, show steady-state capital is below it, explain why the theorem does not contradict it, and say what happens as beta goes to one. The book exercises are 9.11, patience and investment, and 9.12, optimal versus fixed savings rates, which closes the thread from Solow to general equilibrium.
+
+The trap. Saying the economy under-saves and is therefore inefficient. Wrong. Below the golden rule is optimal here. The check: which object is being maximised? Steady-state consumption gives the golden rule; discounted utility gives the modified rule.
+
+
+SELF-TEST FOR PART FOUR. Pause after each question.
+
+Question one. With utility equal to the log of consumption plus alpha times the log of leisure, and no transfer, what does a labour tax do to hours, and why?
+
+Question two. Prescott's preferences give a Frisch elasticity of 2.33 and a Marshallian elasticity of zero. How can both be true?
+
+Question three. A fall in matching efficiency. Shift or movement, and what happens to vacancies at a given unemployment rate?
+
+Question four. Why does the optimal steady-state capital stock lie below the golden rule?
+
+Answers. One: nothing; the income and substitution effects cancel, and any effect of the tax runs through the transfer it finances. Two: Frisch holds consumption fixed, so only the price of leisure moves; Marshallian lets consumption adjust, and with log preferences the income effect cancels the substitution effect. Three: a shift outward; vacancies rise, here from 2.89 to 4.51 percent, because each pair of unemployment and vacancies now yields fewer matches. Four: the household is impatient, so it equates the net marginal product of capital to one over beta minus one, which is above zero; the golden rule maximises steady-state consumption, not discounted utility.
+
+
+PART FOUR IN THREE LINES.
+
+One. The wage is the price of leisure; a tax is a lower wage, a transfer is pure income, and with log consumption the tax works only through the transfer.
+
+Two. Frisch holds consumption fixed and governs temporary changes; Marshallian lets it adjust; on the Beveridge curve, tightness is a movement and matching efficiency is a shift.
+
+Three. Competitive equilibrium is optimal unless a condition fails, such as a tax wedge or an externality on somebody else; and optimal capital sits below the golden rule because patience is finite.
+
+
+PART FIVE. MONEY AND INFLATION. KURLAT CHAPTER 10, MONEY, PRINTED PAGES 191 TO 203, AND CHAPTER 11, THE PRICE LEVEL AND INFLATION, PRINTED PAGES 205 TO 222.
+
+A word on how this part relates to what you already have. The narration for lecture 7 walks both chapters section by section and solves Lista 6. This part does not repeat that. It takes the exam angle: for each idea, the sentence that earns the mark, the trap, and fresh numbers. Six pieces: the multiplier, Baumol-Tobin, the quantity equation, inflation equals mu minus eta g, Fisher, and seigniorage with the Cagan Laffer curve.
+
+
+FIVE POINT ONE. AGGREGATES AND THE MONEY MULTIPLIER.
+
+The concept. The monetary base is currency plus bank reserves, and it is the only aggregate the central bank controls directly. M1 is currency held by the public plus demand deposits. M2 adds savings deposits and similar near-money. Each wider aggregate is less liquid.
+
+Banks keep only a fraction of deposits as reserves and lend the rest, and the loans come back as new deposits. Kurlat's M1 multiplier, equation 10.3.1, printed page 197, is one divided by the quantity rho plus chi minus chi times rho. Rho is the reserve ratio, reserves over deposits. Chi is the share of M1 the public holds as cash.
+
+Worked example. Rho of 0.1 and chi of 0.2: the denominator is 0.1 plus 0.2 minus 0.02, which is 0.28, and the multiplier is about 3.57. One extra unit of base becomes 3.57 units of M1. Now a loss of confidence in banks pushes chi to 0.4. The denominator becomes 0.46 and the multiplier falls to about 2.17. The central bank did nothing, yet M1 per unit of base fell by about 40 percent.
+
+The sentence that earns the mark: the central bank controls the base; the multiplier depends on rho, which it can influence through reserve requirements, and on chi and on banks' willingness to hold excess reserves, which it does not control. That is why the multiplier is not a constant. Kurlat's evidence, page 198: after 2008, with rates near zero and interest paid on reserves, banks sat on reserves, the base rose almost fivefold and the M1 multiplier fell from about 2 to below 1.
+
+How an exam asks it. Kurlat 10.1 on central bank instruments, 10.2, pickpockets, which is a change in the public's cash share, and 10.3, interest on reserves. The trap: confusing the base with M1, or treating the multiplier as a fixed number. The check: for each parameter in the formula, ask who chooses it.
+
+
+FIVE POINT TWO. BAUMOL-TOBIN AND THE SQUARE-ROOT RULE.
+
+The concept, Kurlat section 10.4, printed pages 199 to 201. A household spends Y in real terms over the period, evenly. It holds money, which pays nothing, or bonds, which pay i. Each trip to the bank costs F. With N trips, its average money balance is nominal spending divided by two N. It chooses N to minimise the total cost: the trips, F times N, plus the interest it forgoes on its average balance.
+
+The solution: N equals the square root of i times Y divided by two F. And real money balances equal the square root of Y times F divided by two i. That is the square-root rule. The income elasticity of money demand is one half, and the interest elasticity is minus one half. Money management has economies of scale.
+
+Worked example. Real spending of 50,000 a year, a trip cost of 4, an interest rate of 10 percent. Inside the root for N: 0.1 times 50,000 is 5,000, divided by 8 is 625, so N is 25 trips a year. Real balances: 50,000 times 4 is 200,000, divided by 0.2 is one million, so balances are 1,000. Check: 50,000 divided by two times 25 is 1,000. And a check worth knowing: at the optimum the two costs are equal. Trips cost 25 times 4, which is 100. Forgone interest is 10 percent of 1,000, which is also 100.
+
+Now quadruple the interest rate to 40 percent. Balances fall to the square root of a quarter of what they were: half, so 500.
+
+The link to velocity, which Lista 6 question 1 b asked. Velocity is real output divided by real balances. At 10 percent it is 50,000 over 1,000, which is 50. At 40 percent it is 100. Kurlat equation 11.2.5, page 214: any theory of money demand is also a theory of velocity, and with Baumol-Tobin velocity rises with the interest rate and with income. Velocity is not a constant.
+
+How an exam asks it. Kurlat 10.4, ATMs, a fall in F. Kurlat 10.5, going to the bank. Kurlat 11.1, which asks for eta, the income elasticity: one half. All three fed Lista 6. The trap: saying money demand rises one for one with income. The check: income enters under a square root.
+
+
+FIVE POINT THREE. THE QUANTITY EQUATION: IDENTITY OR THEORY?
+
+The concept. M times V is identically equal to p times Y. Kurlat equation 11.2.4, printed page 214, calls it a definition, and illustrates it with Ann and Bob: the money supply is 2 dollars, nominal GDP is 6, so each dollar changes hands 3 times and velocity is 3. Nothing could have made the equation false, because V was defined to make it true.
+
+So as written it says nothing about causation. A rise in M could raise p, raise Y, or lower V. The identity cannot tell you which.
+
+It becomes a theory only when you add assumptions. One, velocity is constant, or at least a stable function. Two, real output is fixed by the real side of the economy. Then the price level is proportional to the money supply.
+
+What money demand would make velocity constant? That is Kurlat 11.2, printed page 218. Real balances must be proportional to income and must not depend on the interest rate at all. In Baumol-Tobin terms, the household would never change its number of trips to the bank when interest rates change, which contradicts the model we just solved.
+
+The evidence, page 215: across countries, money growth and inflation line up closely where inflation is high, because velocity moves little compared with huge swings in money. Over time in the United States, velocity of M1 has moved a lot.
+
+The sentence that earns the mark, and this is what Lista 6 question 1 a wanted: it is an identity because velocity is defined as nominal GDP divided by money; it becomes the quantity theory only once we assume stable velocity, which requires money demand proportional to income and insensitive to interest rates, and output pinned down by real factors.
+
+
+FIVE POINT FOUR. INFLATION EQUALS MU MINUS ETA G.
+
+The concept. Money market equilibrium, Kurlat equation 11.2.1: the money supply equals real money demand, a function of Y and i, times the price level. Take logs and differentiate with respect to time. Money growth, mu, equals eta times output growth g, plus a term in the change in the interest rate, plus inflation. If inflation is constant, the nominal rate is constant, that term drops, and you get equation 11.2.3, page 211: inflation equals mu minus eta times g.
+
+The intuition. A growing economy carries out more transactions, so it demands more real balances, and it can absorb some money growth without inflation. Eta says how much. The higher eta, the faster money can grow at a given inflation.
+
+Worked example with fresh numbers. Money grows 6 percent and output grows 4 percent. With Baumol-Tobin demand, eta is one half, so inflation is 6 minus 2, which is 4 percent. With a Cambridge-style demand proportional to income, eta is 1, so inflation is 6 minus 4, which is 2 percent. Same money, same growth, inflation doubles, purely because of the money demand function.
+
+Add Lista 6 question 2 c's twist: the cost of a bank trip falls at f equal to minus 2 percent a year. Under Baumol-Tobin, inflation equals mu minus one half of g plus f. That is 6 minus one half of 4 minus 2, so 6 minus 1, which is 5 percent. Inflation rises by a point. Why: cheaper trips mean people need less money for the same spending, so money demand grows more slowly, and the same money growth now chases a slower-growing demand.
+
+A level-versus-growth example, Kurlat 11.5, printed page 219. A bank targets 2 percent inflation with no growth and a real rate of 3 percent. It sets money growth at 2 percent, and the nominal rate is 5 percent. Now the real rate falls unexpectedly to 1 percent. The nominal rate falls to 3 percent, so people want to hold more real money. If the bank keeps money growing at 2 percent and does nothing else, the price level has to jump down to raise real balances. To keep prices on their 2 percent path, the bank must make a one-time jump in the level of money, then keep growing it at 2 percent. With Baumol-Tobin demand, real balances rise by the square root of 5 over 3, minus one, about 29 percent, so that is the size of the jump.
+
+The trap: confusing the level of money with its growth rate, or answering a fall in money demand with a change in mu when a one-time level change is what is needed. The check: separate every answer into a one-time jump and a change in the steady growth rate.
+
+
+FIVE POINT FIVE. THE FISHER EQUATION.
+
+The concept. The nominal rate equals the real rate plus expected inflation. That is an approximation. The exact version: one plus i equals one plus r times one plus expected inflation.
+
+Worked example. Real rate 3 percent, inflation 2 percent. The approximation gives 5 percent; the exact one gives 5.06 percent. Harmless. Now inflation of 100 percent. The approximation gives 103 percent; the exact one gives 1.03 times 2, minus 1, which is 106 percent. Three points of error. In high inflation, use the exact form.
+
+The Fisher effect: in the long run, a permanent rise in inflation passes one for one into the nominal rate, with the real rate unchanged. And that is the bridge to the next piece. Higher inflation means a higher nominal rate, which means lower real money demand. The base of the inflation tax shrinks as the tax rate rises.
+
+How an exam asks it: Kurlat 11.8, real interest rates. The trap: using realised inflation where the equation needs expected inflation, or the approximation at high inflation.
+
+
+FIVE POINT SIX. SEIGNIORAGE AND THE CAGAN LAFFER CURVE.
+
+The concept, Kurlat section 11.3, printed pages 215 to 217. The government's budget constraint, equation 11.3.1, has the change in the monetary base on the resource side, next to new debt. The base is like debt that never pays interest and never has to be repaid. Seigniorage is the change in the base divided by the price level. Who pays? Anyone holding money while it loses value. That is the inflation tax. One subtlety from the book's footnote: a growing economy can earn some seigniorage with zero inflation, because its demand for real balances grows. That is Kurlat 11.3.
+
+The limit. To raise revenue, the government expands money fast; that raises inflation, which raises the nominal rate, which shrinks real money demand, which is the tax base. Revenue is a tax rate times a base that falls as the rate rises: a Laffer curve.
+
+Kurlat 11.6, printed page 219, the Cagan exercise, and it is in scope. Money demand is Y times one plus i to the power minus mu, where mu, careful, is now the sensitivity of money demand to the interest rate, not money growth. Money grows at gamma per month. In steady state inflation equals gamma, and one plus i equals one plus r times one plus gamma. Seigniorage equals gamma divided by one plus gamma, times real balances, divided by the multiplier omega.
+
+Find the peak in words. Take logs: the log of gamma, minus the log of one plus gamma, minus mu times the log of one plus gamma, plus a constant. Differentiate and set to zero: one over gamma equals one plus mu, divided by one plus gamma. Cross-multiply: one plus gamma equals gamma plus mu times gamma. So gamma equals one over mu. Revenue peaks where money growth equals one over the interest sensitivity of money demand.
+
+Worked example with the book's numbers: output 1, mu equal to 4, a monthly real rate of 0.25 percent, a multiplier of 5. The peak is at money growth of one quarter, 25 percent a month. Monthly inflation is 25 percent. The monthly nominal rate is 1.0025 times 1.25, minus 1, about 25.3 percent. Yearly inflation is 1.25 to the power 12, minus 1, about 1,355 percent. Real balances are about 0.41 of monthly GDP, against about 0.99 at near-zero inflation. Revenue is 0.2 times 0.41, divided by 5, about 1.62 percent of monthly GDP. That is the most this government can collect, forever, from printing money.
+
+The Laffer shape, in numbers. Money growth of 10 percent a month raises about 1.23 percent of GDP. At 25 percent, 1.62. At 50 percent, back down to 1.30. At 80 percent, 0.84. Beyond the peak, every extra point of money growth loses revenue, which is why hyperinflations that keep accelerating are a fiscal dead end.
+
+A second form you may meet, in the course's rules file: real balances proportional to e to the power minus a times inflation, so a is the semi-elasticity of money demand. Revenue is inflation times e to the minus a times inflation, and the derivative vanishes at inflation equal to one over a. With a equal to 5, the peak is at 20 percent. Same message in both forms: the peak sits at one over the sensitivity parameter. At the peak, the percentage gain in the tax rate exactly equals the percentage loss in the base.
+
+How an exam asks it. 11.6 did not appear on Lista 6, which makes it a live candidate. It asks you to derive inflation, the nominal rate, real balances and revenue, find the peak, and compare it with the German hyperinflation. Kurlat 11.7, bank seigniorage, is the advanced cousin. The traps: saying more inflation always raises more revenue; adding seigniorage and the inflation tax as if they were two separate revenues; and mixing up the two meanings of mu. The check: is money growth above or below one over the sensitivity?
+
+
+SELF-TEST FOR PART FIVE. Pause after each question.
+
+Question one. Rho is 0.1 and the public's cash share rises from 0.2 to 0.4. What happens to the multiplier, and did the central bank cause it?
+
+Question two. Under Baumol-Tobin, the interest rate quadruples. What happens to real balances and to velocity?
+
+Question three. Why is M V equals p Y an identity, and what turns it into a theory?
+
+Question four. With the Cagan demand and mu equal to 4, what money growth maximises seigniorage, and why does revenue fall beyond it?
+
+Answers. One: it falls from about 3.57 to about 2.17; no, the cash share is the public's choice. Two: real balances halve and velocity doubles. Three: velocity is defined as nominal GDP over money, so it holds by construction; it becomes a theory with stable velocity and output set by real factors. Four: one quarter, 25 percent a month; beyond it the base, real balances, shrinks faster than the tax rate rises.
+
+
+PART FIVE IN THREE LINES.
+
+One. The central bank controls the base, not M1; the multiplier moves with the public's cash share and banks' reserves; and Baumol-Tobin makes money demand a square root, so velocity rises with the interest rate.
+
+Two. The quantity equation is an identity until you assume stable velocity; in growth rates, inflation equals mu minus eta times g, and eta comes from the money demand function.
+
+Three. Fisher links inflation to the nominal rate, which shrinks the base of the inflation tax; seigniorage therefore peaks, at money growth equal to one over the sensitivity of money demand.
+
+
+PART SIX. BENIGNO BEYOND THE FIRST EXAM. PIERPAOLO BENIGNO, 2015, NEW-KEYNESIAN ECONOMICS, AN AGGREGATE SUPPLY AND AGGREGATE DEMAND VIEW. SECTIONS 1 TO 12, PRINTED PAGES 503 TO 523.
+
+The first exam tested news about the long-run mark-up and optimal policy. This part covers the rest of the article, in five pieces: current productivity shocks, the current mark-up shock and phi versus sigma, the fiscal multiplier, the zero lower bound, and the three schools.
+
+Notation, spoken once. Output y and the price level p are in logs. p e is the price that firms with preset prices locked in. y n is natural output, with flexible prices and the current mark-up. y e is efficient output, what a planner would choose, with no mark-up. A bar means a long-run, future value. Sigma is how strongly demand responds to the real interest rate, eta is the inverse of the labour supply elasticity, alpha is the share of firms with preset prices, kappa is the slope of supply, and theta is the elasticity of substitution between goods. Benigno's calibration: sigma 0.5, eta 0.2, alpha 0.66, so kappa about 1.13, and theta 8. Scope: the supply curve is the New-Classical form in the price level; the forward-looking Calvo Phillips curve is outside the course.
+
+One machine does every calculation, from section 5. The change in output equals the change in long-run natural output, plus sigma kappa times the change in natural output, plus the change in current minus future government spending, minus sigma times the change in the nominal rate, plus sigma times the change in the long-run price level, all divided by one plus sigma kappa. The output gap line is the same, with minus the change in natural output in place of sigma kappa times it. And the price change is kappa times the change in the gap. With Benigno's numbers, sigma kappa is about 0.567 and one plus sigma kappa about 1.567.
+
+
+SIX POINT ONE. CURRENT PRODUCTIVITY: TEMPORARY VERSUS PERMANENT.
+
+The concept, section 6, printed pages 511 to 513. Productivity moves natural and efficient output by the same amount: each percent of current productivity raises both by 1.2 divided by 2.2, about 0.55. Neither contains the mark-up, so no wedge opens between them.
+
+Temporary gain, section 6.1, Figure 6. Natural output rises, AS shifts down and right, AD does not move. Say natural output rises by 1. Output rises by 0.567 over 1.567, about 0.36. The gap falls by 1 over 1.567, about 0.64. Prices fall by 1.13 times 0.64, about 0.72. Output up, prices down, gap negative: good news for output is not good news for the gap. Only the firms that can adjust cut prices, so the real rate falls, but not enough to lift demand all the way.
+
+Optimal policy: the natural real rate contains one over sigma times long-run minus current natural output. It falls by 1 over 0.5, 2 points. Cut the nominal rate by 2 points. Output then rises by the full 1, prices stay at p e, and the gap is closed.
+
+Permanent gain, section 6.2, Figure 7. Long-run natural output rises by the same 1. Now AD shifts up too, because households expect to be richer. Plug into the machine: the gap changes by 1 minus 1, which is zero. No price change, output up by 1, and the natural rate does not move, because it depends on expected growth, and a permanent level shift leaves growth unchanged. Policy should do nothing.
+
+Optimism, section 6.3, Figure 8: only long-run output rises. AS still, AD up, the whole output rise is a positive gap. Raise the rate. Three shocks to the same variable, three signs: cut, nothing, raise. The rule that is always right: move i to the new natural rate.
+
+The divine coincidence holds in all three, because productivity moves natural and efficient output together. Footnote 9, page 513, names the condition underneath: wage flexibility. With sticky wages the trade-off returns.
+
+The trap: "a positive productivity shock calls for expansionary policy", wrong two times out of three. The check: compute the change in the natural rate before choosing a sign.
+
+
+SIX POINT TWO. THE CURRENT MARK-UP SHOCK: THE COINCIDENCE FAILS.
+
+The concept, section 7, Figure 9, printed pages 513 and 514. A current rise in the mark-up, from monopoly power, distorting taxes, or an oil price, lowers natural output by the shock divided by sigma to the minus one plus eta, that is, divided by 2.2. Efficient output does not move: the planner faces no mark-up.
+
+Worked example: a 5 point rise in the mark-up. Natural output falls by 2.27. AS shifts up and left, AD stays. With no policy response, output falls by 0.567 over 1.567 times 2.27, about 0.82, and prices rise by about 1.64. Stagflation. Now the two gaps. Against natural output, the gap is plus 1.45: output is above the new natural level, which is why prices rise. Against efficient output, it is minus 0.82: output is below what a planner wants, which is why welfare fell. Opposite signs. Anyone reporting one "output gap" here has lost the question.
+
+Two pure strategies. Price stability: raise the rate by 2.27 over 0.5, about 4.55 points, and output falls the full 2.27. Efficient output: cut the rate by kappa times 2.27, about 2.58 points, and prices rise 2.58. Opposite signs for the instrument. One instrument, two targets that no longer coincide: a genuine trade-off.
+
+The optimum, section 11. The loss is one half of output minus efficient output, squared, plus phi over two kappa times the price surprise, squared. The bank moves only AD, so it picks a point on AS. The result: the optimal policy lets a fraction one over one plus phi kappa of the shock into prices. With no policy at all, the fraction is one over one plus sigma kappa, because that is where the new AS meets the unchanged AD. So the bank raises the rate if phi is above sigma, cuts it if phi is below sigma, and does nothing if they are equal.
+
+The geometry behind it. AD has slope minus one over sigma. The targeting line, output minus efficient output plus phi times the price surprise equals zero, has slope minus one over phi. The optimum is where that line crosses the new AS, and the line is flatter than AD exactly when phi exceeds sigma, so the optimum then sits lower on AS than the no-policy point, and AD must be pushed down with a higher rate. The sign of the response is a property of the mandate, not of the economy.
+
+Numbers. With the welfare weight, phi equal to theta equal to 8: about 9.9 percent of the shock reaches prices. Prices rise by about 0.26, output ends about 2.05 below efficient, and the rate rises by about 3.84 points, less than the 4.55 for strict price stability. With a dovish phi of 0.25: about 78 percent reaches prices, prices rise about 2.01, output ends about 0.50 below efficient, and the rate is cut by about 1 point. With phi equal to sigma, 0.5, the optimum is the no-policy point, 64 percent into prices.
+
+How an exam asks it. Lista 7 question 2 a was this shock, and question 4 generalised the loss to free weights. The first exam's item 3 c reached for phi versus sigma on the long-run news, where it does not apply; this shock is where it belongs. The traps: shifting AD after a temporary mark-up shock, putting the mark-up inside efficient output, and reporting one gap. The check: ask whether the shock moved natural output minus efficient output. If yes, there is a trade-off, and phi matters.
+
+
+SIX POINT THREE. THE FISCAL MULTIPLIER.
+
+The concept, section 8, Tables 1 and 2, printed pages 514 to 516. A temporary rise in public spending moves both curves. AD shifts up, because spending is demand. AS shifts right, because households feel poorer and work more, which raises natural output.
+
+The output multiplier on current spending is one over one plus sigma kappa, plus kappa divided by sigma to the minus one plus eta, times one plus sigma kappa. With Benigno's numbers it is about 0.97. With eta equal to 1 it falls to about 0.85. It is below one whenever eta is positive, and exactly one only when eta is zero. The article's own words: these do not have multiplying effects in the Keynesian sense. The reason is crowding out: prices rise, the real rate rises, private consumption falls.
+
+The sentence that earns the mark: the output multiplier is the wrong object for welfare. The gap multiplier, from equation 23, is eta divided by sigma to the minus one plus eta, times one plus sigma kappa: about 0.058 at the baseline, roughly one seventeenth of the output multiplier, and about 0.19 when eta is 1. A spending rise of 1 percent of GDP raises output by 0.97 but the gap by only 0.06, because most of the extra output is a rise in natural output. And equation 23 is written entirely in current-minus-future differences, so permanent fiscal policy does not move the gap at all. Fiscal policy stabilises only by being temporary.
+
+Two sign surprises from the same equation. A current cut in payroll or sales taxes raises output but lowers the gap, because it raises natural output by more than output. And a current consumption-tax cut moves both curves at once, since it also changes the intertemporal price of consumption.
+
+How an exam asks it: derive the sign, compare output and gap multipliers, explain why below one. Lista 7 did not ask it, so it remains a candidate. The trap: calling a multiplier of 0.97 a success. The check: always compute the gap multiplier next to the output multiplier.
+
+
+SIX POINT FOUR. THE ZERO LOWER BOUND AND FORWARD GUIDANCE.
+
+The concept, section 9, Figures 11 and 12, printed pages 516 to 518. The nominal rate cannot go below zero, because currency pays zero. Set i to zero in AD and you get the highest position AD can reach, the AD zero ceiling. The gap at zero is sigma over one plus sigma kappa, times the natural rate plus the long-run price surprise. With the long-run price anchored, the gap can be closed if and only if the natural rate is non-negative. The trap is not about the nominal rate; it is about the natural real rate being negative.
+
+Worked example, the one in the article's spirit. Rho is 1 percent and households become pessimistic: long-run natural output falls by 3. The natural rate is 1 plus minus 3 over 0.5, which is minus 5 percent. Cutting to zero, the best gap is 0.5 times minus 5, divided by 1.567: about minus 1.60. The economy is stuck below potential.
+
+The exit. In the machine, minus sigma times the nominal rate and plus sigma times the long-run price level sit in the same slot. When the first is blocked, use the second. A credible promise of a long-run price level higher by the absolute value of the natural rate, here 5 points, closes the gap. Higher expected inflation lowers the real rate at a zero nominal rate. That is forward guidance, and it needs credibility, because once the trap ends the bank will be tempted to renege.
+
+Fiscal policy in the trap. Avoid the current payroll-tax cut, which raises output but worsens the gap. Benigno prefers future instruments: cut future spending, cut future taxes, or pre-announce higher future consumption taxes. All shift AD up without pushing prices down, and all respect the budget constraint. The old IS-LM conclusion was that only fiscal policy works in a trap; here monetary policy changes instrument, from i to the long-run price level. The trap: saying monetary policy is powerless. The check: compute the natural rate first.
+
+
+SIX POINT FIVE. NEW KEYNESIAN, NEW CLASSICAL AND ORIGINAL KEYNESIAN.
+
+The concept, sections 1 to 4 and 11, Lista 7 question 1. The schools disagree on one question: does the market clear in the short run, and if not, who decides the quantity? Clearing means planned demand equals planned supply at the going price, not the identity that units sold equal units bought.
+
+The original Keynesian model: prices or wages rigid by assumption, output set by demand, IS-LM with the money stock as instrument, adaptive or no expectations, and a loss function written by the analyst. The New Classical model: flexible prices, markets always clear, rational expectations, and only surprises move output, so systematic policy is useless. The New Keynesian model takes the New-Classical method, optimisation and rational expectations, and the Keynesian friction, prices preset before the shock. It adds monopolistic competition, so someone sets the price and a stuck firm wants to serve extra demand, and an interest-rate instrument, so AD is the Euler equation, with no LM curve. Its loss is derived from utility and targets efficient output.
+
+One experiment shows the four readings. Push demand up by 2. Keynesian: output up 2, prices flat. New Classical, announced: output flat, prices up 2. New Classical, a surprise with a supply coefficient of 1: output up 1, prices up 1. New Keynesian: output up 2 over 1.567, about 1.28, and prices up about 1.45. And in the New Keynesian model a fully announced rate rule offsets the push completely, because p e is a posted price, not a forecast that could react.
+
+Why a stuck firm serves demand: with theta equal to 8 the price is 8 over 7 of marginal cost, about 14.3 percent above it, so the firm gains from extra sales up to about 6.3 percent above natural output.
+
+The traps. "New Keynesian is Keynesian with micro-foundations": half right. "Markets do not clear in the New Keynesian model": too broad, the labour market clears. And calling Benigno's supply curve a New-Keynesian Phillips curve: it is the New-Classical form, footnote 7, page 508.
+
+
+SELF-TEST FOR PART SIX. Pause after each question.
+
+Question one. A permanent productivity gain. What should the central bank do, and why?
+
+Question two. After a current mark-up shock, when does optimal policy raise the rate?
+
+Question three. Why is a spending multiplier of 0.97 not a measure of success?
+
+Question four. At the zero bound with a natural rate of minus 5 percent, what closes the gap?
+
+Answers. One: nothing; AD and AS shift by just the right amounts, the natural rate is unchanged, and the gap stays zero. Two: when phi exceeds sigma, because the optimum then lets less of the shock into prices than the no-policy point does. Three: most of the extra output is a rise in natural output; the gap moves by only about 0.06. Four: a credible promise of a long-run price level 5 points higher, which lowers the real rate at a zero nominal rate.
+
+
+PART SIX IN THREE LINES.
+
+One. Productivity moves natural and efficient output together, so the bank just follows the natural rate: cut for a temporary gain, nothing for a permanent one, raise for optimism.
+
+Two. A current mark-up shock splits natural from efficient output; the gaps take opposite signs, and the optimal rate rises if phi exceeds sigma and falls if it is below.
+
+Three. Fiscal multipliers are below one and the gap multiplier is far smaller; at the zero bound the instrument becomes the long-run price level; and the New Keynesian model is New-Classical method with a Keynesian friction.
+
+
+CLOSING. THE WHOLE MAP, AND A CHECKLIST FOR THE EXAM.
+
+Six parts, one map. Part one taught you to measure: price indices, real versus nominal, purchasing power, and welfare beyond GDP. Part two used that to read growth: accounting for it, the residual, and convergence. Part three put a household behind consumption. Part four gave the same household a labour choice, matched workers to firms, and closed the economy in general equilibrium. Part five added money, and with it inflation and its revenue. Part six made prices sticky and asked what policy should do.
+
+The checklist, for every answer.
+
+One. Answer every object the question names. Two objects, two answers.
+
+Two. Before writing intuition, set the other parameters to their knife-edge values and check that your words agree with your formula.
+
+Three. Separate shift from movement, level from growth rate, and temporary from permanent.
+
+Four. Name the agent. An externality always lands on somebody else.
+
+Five. In Benigno, ask which curve moved, and whether natural and efficient output moved together. Then pick the sign of policy.
+
+Six. End with the sentence that says why, because that is where the marks are.
